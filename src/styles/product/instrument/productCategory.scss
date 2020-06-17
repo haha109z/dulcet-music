@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Merienda&family=Noto+Serif+TC:wght@300&display=swap');
+.product-category-wrapper {
+  position: fixed;
+  left: 0;
+  top: 20vh;
+  display: flex;
+  .product-category {
+    background: #797979;
+    .category-item {
+      text-decoration: none;
+      display: block;
+      padding: 12.5px 20px;
+      font-size: 14px;
+      font-family: 'Noto Serif TC', serif;
+      color: #ffffff;
+    }
+    .category-item:hover {
+      background: #f2e8df;
+      color: #141414;
+    }
+  }
+  .category-button {
+    width: 20px;
+    height: 80px;
+    background: #797979;
+    border-radius: 0 10px 10px 0;
+    position: relative;
+    top: 160px;
+    display: flex;
+    align-items: center;
+    .category-icon {
+      font-size: 20px;
+      color: #fff;
+    }
+  }
+  .category-button:hover {
+    cursor: pointer;
+  }
+}
