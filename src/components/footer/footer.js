@@ -18,7 +18,7 @@ class Footer extends Component{
             <div className="footer-wrap contaier-fluid">
                 <div className="row footer-body footer-d-flex">
                     <div className="footer-logo col-md-2">
-                        <img src={require('../../img/logo_方.png')}></img>
+                        <img src={require('../../img/home_logo_方.png')}></img>
                     </div>
                     <div className="footer-about-us  col-md-2">
                         <div className="footer-title">

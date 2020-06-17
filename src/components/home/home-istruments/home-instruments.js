@@ -25,20 +25,19 @@ class HomeInstruments extends Component{
 
      componentDidMount(){
          const checked = document.getElementById('home-instruments-sub');
-         checked.addEventListener('click',()=>{
-
-            const {toggle} = this.state;             
-
-            const checkToggle = !toggle; 
-
-            this.setState({toggle:checkToggle});    
-
+         checked.addEventListener('click',(event)=>{
+             
+            const {toggle} = this.state;
+            const t = event.target.checked;            
+            
+            
          })     
      }
 
     render(){
-            const {items,toggle} = this.state;  
-            const arrow = toggle ? "fas fa-angle-double-up" : "fas fa-angle-double-down";
+            const {items,toggle} = this.state;   
+            const display = toggle ? "none" : "block";           
+            const display2 = toggle ? "block" : "none";           
             
         return(
             <div className="home-instruments-wrap container-fluid">
@@ -48,7 +47,8 @@ class HomeInstruments extends Component{
                 </div>
                 <div className="home-instruments-body">
                     <label htmlFor="home-instruments-sub" className="home-instruments-label">                    
-                        <i className={arrow} ></i></label>
+                        <i id="homeArrow" className="fas fa-angle-double-down" style={{display}}></i>
+                        <i id="homeArrow" className="fas fa-angle-double-up" style={{display:display2}}></i></label>
                         <input type="checkbox" id="home-instruments-sub"></input>
                     <div className="row home-instruments-row home-d-flex " id="homeInstrumentsRow">
                         {

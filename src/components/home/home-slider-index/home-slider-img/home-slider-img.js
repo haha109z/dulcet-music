@@ -9,7 +9,8 @@ function HomeSliderImg(props){
 
     let imgStlye = {
         width: 100+"%",
-        height: 100+"%"
+        height: 100+"%",
+        objectFit:"cover"
     }
 
     return <img src={props.src} alt='slider-img' style={imgStlye}></img>

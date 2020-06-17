@@ -9,7 +9,7 @@ import HomeSlogan from '../components/home/home-slogan/home-slogan';
 import HomeCoursesVideos from '../components/home/home-courses-videos/home-courses-videos';
 import HomeInstruments from '../components/home/home-istruments/home-instruments';
 import HomeNews from '../components/home/home-news/home-news';
-import HomeLogo2 from '../img/logo_長2.svg';
+import HomeLogo2 from '../img/home_logo_長2.svg';
 
 import Navbar from '../components/navbar/navbar';
 

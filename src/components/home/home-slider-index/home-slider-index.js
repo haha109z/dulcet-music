@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 
 import HomeSliderImg from './home-slider-img/home-slider-img';
 // import './home-slider-index.scss';
-import bg8 from '../../../img/bg_8.jpg';
-import bg16 from '../../../img/bg_16.jpg';
-import bg21 from '../../../img/bg_21.jpg';
+import bg8 from '../../../img/home_bg_8.jpg';
+import bg16 from '../../../img/home_bg_16.jpg';
+import bg21 from '../../../img/home_bg_21.jpg';
 
 function HomeSliderIndex(){
 

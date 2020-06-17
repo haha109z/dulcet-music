@@ -2,8 +2,8 @@ import React,{Component} from 'react';
 import PropTypes from 'prop-types';
 
 // import './home-courses-videos.scss';
-import HomeBg_9 from '../../../img/bg_9.jpg';
-import HomeBg_20 from '../../../img/bg_20.jpg';
+import HomeBg_9 from '../../../img/home_bg_9.jpg';
+import HomeBg_20 from '../../../img/home_bg_20.jpg';
 
 class HomeCoursesVideos extends Component{
 

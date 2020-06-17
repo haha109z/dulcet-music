@@ -36,11 +36,11 @@
     padding: 0;
 
     .home-class-cour{
-        background: url("../../img/bg_17.jpg") no-repeat;
+        background: url("../../img/home_bg_17.jpg") no-repeat;
     }
 
     .home-class-video{
-        background: url("../../img/bg_18.jpg") no-repeat;
+        background: url("../../img/home_bg_18.jpg") no-repeat;
         justify-content: flex-end;
     }
 
@@ -134,7 +134,7 @@
         .home-class-cour-txt::before{
             content:'';
             display: block;
-            background: url('../../img/Note_13.png');
+            background: url('../../img/home_Note_13.png');
             width: 75px;
             height: 80px;
             position: absolute;
@@ -145,7 +145,7 @@
         .home-class-video-txt::before{
             content:'';
             display: block;
-            background: url('../../img/Note_13.png');
+            background: url('../../img/home_Note_13.png');
             width: 75px;
             height: 80px;
             position: absolute;

@@ -79,7 +79,7 @@ class HomeNavbarIndex extends Component{
                 </div>
                 <div className="home-logo-middle">
                   <a href="#">
-                    <img src={require('../../../img/logo_方1.png')} alt="123" />
+                    <img src={require('../../../img/home_logo_方1.png')} alt="123" />
                   </a>
                 </div>
                 <div  className="home-items home-news">
