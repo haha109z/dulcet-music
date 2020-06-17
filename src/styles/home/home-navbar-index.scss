@@ -379,14 +379,15 @@
         a{
           width: 100%;
           display: block;
+          font-size:var(--h1);
           padding: 0;
           padding-left: 5rem;
           box-sizing: border-box;
         }
 
         &:active a{
-          color:var(--main-colorfb2);
-          background: rgba(255, 255, 255,.3);
+          color:var(--main-colorblock);
+          background: var(--main-colorf2e);
         }
 
         // 下拉式選單
@@ -502,8 +503,8 @@
             padding: 0;
             padding-left: 5rem;
 
-            &:hover{
-              color:var(--main-colorfb2);
+            &:active{
+              color:var(--main-colorblock);
             }
           }
         }

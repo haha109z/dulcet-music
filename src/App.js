@@ -5,6 +5,7 @@ import HomeApp from'./container/home-app';
 import Footer from'./components/footer/footer';
 
 import Test from './container/test';
+import News from './container/news';
 
 function App() {
   return (
