@@ -28,7 +28,7 @@ class HomeInstruments extends Component{
          checked.addEventListener('click',(event)=>{
              
             const {toggle} = this.state;
-            const t = event.target.checked;            
+            const t = event.target.checked;          
             
             
          })     
