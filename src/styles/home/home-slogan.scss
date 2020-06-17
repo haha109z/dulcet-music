@@ -1,0 +1,121 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-colorfff: #fff;
+  --main-colorblock: #141414;
+  --main-color79: #797979;
+  --main-colorda: #dadada;
+  --mail-colorf2: #f2f2f2;
+  --main-colorf2e: #f2ebdf; // 米色
+  --main-colorfb2: #fb2643;
+  --main-title-english: 'Merienda', cursive;
+  --main-title-chinese: 'Noto Serif TC', serif;
+  --nav-height: 5rem; // 80px
+  --margin: 11.25rem; // 180px
+  --h1: 2.25rem; // 36px
+  --h2: 1.71rem; // 24px
+  --h3: 1.42rem; // 20px
+  --h4: 1.14rem; // 16px
+  --p: 1rem;
+  --h5: 0.92rem; // 13px
+  --h6: 0.85rem; // 12px
+}
+
+.container {
+  //   position: relative;
+  //   z-index: -999;
+  //   top:100vh;
+  padding-top: 10.71rem;
+
+  .home-slogan-wrap {
+    // background-color: #fb2643;
+    width: 38.57rem;
+    height: 38.71rem;
+    font-family: var(--main-title-chinese);
+    text-align: center;
+    letter-spacing: 0.35rem;
+    margin: 0 auto 10.71rem;
+
+    .home-slogan-h2 {
+      font-family: var(--main-title-english);
+    }
+
+    .home-slogan-h2,
+    .home-slogan-h2-sub {
+      font-size: 24px;
+      padding: 1.07rem 0;
+     }
+
+    .home-slogan-txt {
+      font-size: var(--h3);
+
+      p {
+        margin: 2.14rem 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width:768px)and(min-width:415px){
+  .container{
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+
+
+    .home-slogan-wrap {
+      width: 100%;
+
+      .home-slogan-h2,
+      .home-slogan-h2-sub {
+        font-size: 4.7vw;
+        padding: 1.07rem 0;
+       }
+
+      .home-slogan-txt {
+        font-size: 3.117vw;
+        padding: 0;
+
+        p {
+          margin: 2.14rem 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width:414px){
+
+  .container{
+    max-width: 100%;
+    padding: 7.14rem 0 0 0;
+
+    .home-slogan-wrap {
+      width: 100%;
+      letter-spacing: 0;
+      margin:0;
+
+      .home-slogan-h2,
+      .home-slogan-h2-sub {
+        font-size: 4.7vw;
+        padding: 0;
+        margin: 0;
+       }
+
+      .home-slogan-txt {
+        font-size: 3.117vw;
+        padding: 0;
+
+        p {
+          margin: 1.5rem 0;
+        }
+      }
+    }
+  }
+}
+
