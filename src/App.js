@@ -18,7 +18,7 @@ function App() {
         <Test />
       </Route>
       <Route path="/news" exact>
-        <HomeApp />
+        <News />
       </Route>
       <Footer />
       </>
