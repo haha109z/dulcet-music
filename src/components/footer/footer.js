@@ -54,7 +54,7 @@ class Footer extends Component{
                     </div>
                 </div>
                 <div className="footer-copy col-md-12">
-                        ©Dulcet Music 2020
+                <i class="far fa-copyright"></i>&nbsp;Dulcet Music 2020
                     </div>
             </div>
         )

@@ -69,7 +69,8 @@
 
         .home-class-cour-txt{
             width: 21.42rem;
-            padding-left:10rem;
+            margin-left:10rem;
+            // border:1px solid red;
         }
 
         .home-class-video-txt{
@@ -114,7 +115,7 @@
             }
 
             .home-class-btn{
-                width: 21.42rem;
+                width: 100%;
                 height: 2.14rem;
                 text-align: center;
                 background: var(--main-colorf2e);
