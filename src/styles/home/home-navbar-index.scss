@@ -140,14 +140,16 @@
   padding: 0 2.14rem;
   text-decoration: none;
   color: var(--main-colorfff);
-  font-size: var(--h1);
+  // font-size: var(--h1);
+  font-size: 2vw;
 }
 }
 
 // 右邊nav-user區
   .home-navuser {
     width: 15%;
-    font-size: var(--h1);
+    // font-size: var(--h1);
+    font-size: 2vw;
     height: var(--nav-height);
     margin-right: var(--margin);
     justify-content: center;
@@ -437,6 +439,7 @@
     .home-navuser .home-items > a {
       padding: 0 1.5rem ;
       color: var(--main-colorblock);
+      font-size: var(--h1);
     }
   }
 
@@ -471,6 +474,7 @@
     // padding-left: 1.5rem;
     // flex-grow: 1;
     // order: 2;
+    font-size: var(--h1);
     padding: 0 ;
     flex-grow: 1;
     order: 2;
