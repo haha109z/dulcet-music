@@ -16,6 +16,11 @@ function App() {
       <Route path="/test" >
         <Test />
       </Route>
+
+      <Route path="/news" exact>
+        <News />
+      </Route>
+
       <Footer />
       </>
     </Router>
