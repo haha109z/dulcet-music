@@ -9,37 +9,37 @@ function ProductCategory(props) {
       <Router>
         <div className="product-category-wrapper">
           <div className="product-category">
-            <Link className="category-item" to="">
+            <Link className="product-category-item" to="">
               鋼琴
             </Link>
-            <Link className="category-item" to="">
+            <Link className="product-category-item" to="">
               電子琴
             </Link>
-            <Link className="category-item" to="">
+            <Link className="product-category-item" to="">
               小提琴
             </Link>
-            <Link className="category-item" to="">
+            <Link className="product-category-item" to="">
               中提琴
             </Link>
-            <Link className="category-item" to="">
+            <Link className="product-category-item" to="">
               大提琴
             </Link>
-            <Link className="category-item" to="">
+            <Link className="product-category-item" to="">
               烏克麗麗
             </Link>
-            <Link className="category-item" to="">
+            <Link className="product-category-item" to="">
               長笛
             </Link>
-            <Link className="category-item" to="">
+            <Link className="product-category-item" to="">
               薩克斯風
             </Link>
-            <Link className="category-item" to="">
+            <Link className="product-category-item" to="">
               爵士鼓
             </Link>
           </div>
-          <div className="category-button">
+          <div className="product-category-button">
             {/* <IoMdArrowDropright className="category-icon" /> */}
-            <IoMdArrowDropleft className="category-icon"/>
+            <IoMdArrowDropleft className="product-category-icon"/>
 
           </div>
         </div>

@@ -6,7 +6,7 @@
   display: flex;
   .product-category {
     background: #797979;
-    .category-item {
+    .product-category-item {
       text-decoration: none;
       display: block;
       padding: 12.5px 20px;
@@ -14,12 +14,12 @@
       font-family: 'Noto Serif TC', serif;
       color: #ffffff;
     }
-    .category-item:hover {
+    .product-category-item:hover {
       background: #f2e8df;
       color: #141414;
     }
   }
-  .category-button {
+  .product-category-button {
     width: 20px;
     height: 80px;
     background: #797979;
@@ -33,7 +33,7 @@
       color: #fff;
     }
   }
-  .category-button:hover {
+  .product-category-button:hover {
     cursor: pointer;
   }
 }

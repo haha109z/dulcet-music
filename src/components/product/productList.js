@@ -9,9 +9,9 @@ function AppFuncTmp(props) {
   return (
     <>
       <div className="product-container">
-        <div className="picture">
+        <div className="product-picture">
           <svg
-            className="black-tri"
+            className="product-black-tri"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 470 200"
           >
@@ -21,7 +21,7 @@ function AppFuncTmp(props) {
               d="M465.1,1,1,198.49V1H465.1M470,0H0V200L470,0Z"
             />
           </svg>
-          <span id="title">精選樂器</span>
+          <span id="product-title">精選樂器</span>
           {/* <img id="title-img" src={require('../images/Piano.jpg')} /> */}
         </div>
         <div className="product-wrapper">
