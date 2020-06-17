@@ -1,0 +1,30 @@
+● React：
+yarn create react-app
+
+● prop-types：
+npm install --save prop-types
+
+● scss、bootstrap、icons：
+yarn add node-sass bootstrap react-bootstrap react-icons
+
+● react-dom：
+npm install react react-dom
+
+● redux：
+npm install --save redux
+
+● react-redux：
+npm install --save react-redux
+
+● redux-thunk：
+npm install --save redux-thunk
+
+● redux-devtools：
+npm install --save redux-devtools-extension
+
+
+
+
+
+
+
