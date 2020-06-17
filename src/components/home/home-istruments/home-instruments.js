@@ -19,26 +19,25 @@ class HomeInstruments extends Component{
              {instrument:'電子琴',instrumenEng:'Keyboard',card:'home-instruments-card col-md-3 home-instruments-Keyboard',src:'/home'},
              {instrument:'小提琴',instrumenEng:'Violin',card:'home-instruments-card col-md-4 home-instruments-violin',src:'/home'},
              {instrument:'薩克斯風',instrumenEng:'Saxophone',card:'home-instruments-card col-md-5 home-instruments-Saxophone',src:'/home'},
-         ],
-         toggle:false
+         ]
      };
 
      componentDidMount(){
          const checked = document.getElementById('home-instruments-sub');
-         checked.addEventListener('click',(event)=>{
-             
-            const {toggle} = this.state;
-            const t = event.target.checked;          
-            
-            
+         const labelWrap = document.querySelector('.home-arrow-wrap');
+         checked.addEventListener('click',(event)=>{  
+            const toggle = event.target.checked; 
+            if(toggle){
+                labelWrap.classList.add('home-instruments-label-active');
+            }else{
+                labelWrap.classList.remove('home-instruments-label-active');
+            }
+            console.log('toggle:',toggle);   
          })     
      }
 
     render(){
-            const {items,toggle} = this.state;   
-            const display = toggle ? "none" : "block";           
-            const display2 = toggle ? "block" : "none";           
-            
+            const {items} = this.state;    
         return(
             <div className="home-instruments-wrap container-fluid">
                 <div className="container home-instruments-title">
@@ -46,10 +45,12 @@ class HomeInstruments extends Component{
                     <p className="home-instruments-title-ch container">樂器</p>
                 </div>
                 <div className="home-instruments-body">
-                    <label htmlFor="home-instruments-sub" className="home-instruments-label">                    
-                        <i id="homeArrow" className="fas fa-angle-double-down" style={{display}}></i>
-                        <i id="homeArrow" className="fas fa-angle-double-up" style={{display:display2}}></i></label>
-                        <input type="checkbox" id="home-instruments-sub"></input>
+                        <label htmlFor="home-instruments-sub" className="home-instruments-label">  
+                        <div className="home-arrow-wrap">                  
+                            <i className="fas fa-angle-double-down"></i>
+                        </div>
+                        </label>    
+                    <input type="checkbox" id="home-instruments-sub"></input>
                     <div className="row home-instruments-row home-d-flex " id="homeInstrumentsRow">
                         {
                             items.map((item,index)=> (

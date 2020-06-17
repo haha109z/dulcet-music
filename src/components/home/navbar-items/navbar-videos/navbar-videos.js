@@ -10,7 +10,7 @@ function Videos(props){
         {title:'電子琴',src:'javascript:;'},
         {title:'爵士鼓',src:'javascript:;'},
         {title:'吉他',src:'javascript:;'},
-        {title:'烏可麗麗',src:'javascript:;'},
+        {title:'烏克麗麗',src:'javascript:;'},
         {title:'長笛',src:'javascript:;'},
     ]);
 

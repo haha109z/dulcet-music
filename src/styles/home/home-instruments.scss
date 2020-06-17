@@ -248,7 +248,7 @@
         display: block;
         color:var(--main-colorfff);
         font-size: var(--h1);
-        padding: 1rem 2rem;
+        padding: 1rem 2rem;   
         // border:1px solid red;
         animation: arrowRun 1s infinite linear alternate;
     }
@@ -284,6 +284,10 @@
         &::before{
             display: none;
         }
+    }
+
+    .home-instruments-label-active{
+        transform: rotate(180deg);
     }
 
     @keyframes arrowRun {
