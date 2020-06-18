@@ -1,8 +1,8 @@
 // Import Bootstrap and its default variables
-@import "~bootstrap/scss/bootstrap";
+@import '~bootstrap/scss/bootstrap';
 
 // google-font
-@import url("https://fonts.googleapis.com/css2?family=Merienda&family=Noto+Serif+TC:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Merienda&family=Noto+Serif+TC:wght@300&display=swap');
 
 * {
   margin: 0;
@@ -23,8 +23,8 @@ body {
   --main-colorf2: #f2f2f2;
   --main-colorf2e: #f2ebdf;
   --main-colorfb2: #fb2643;
-  --main-title-english: "Merienda";
-  --main-title-chinese: "Noto Serif TC";
+  --main-title-english: 'Merienda';
+  --main-title-chinese: 'Noto Serif TC';
   --nav-height: 5rem; /** 80px **/
   --margin: 11.25rem; /** 180px **/
   --h1: 2.25rem; /** 36px **/
@@ -44,9 +44,9 @@ body {
 }
 
 .cart-title {
-  background: yellow;
-  // padding: 20px 0;
-  // line-height: 70px;
+  // background: yellow;
+  padding: 20px 0;
+  line-height: 70px;
 
   h1 {
     // margin: 0;
@@ -91,7 +91,7 @@ body {
       padding: 10px;
     }
 
-    input[type="checkbox"] {
+    input[type='checkbox'] {
       width: 20px;
       height: 20px;
     }
@@ -108,8 +108,8 @@ body {
       margin: 10px;
     }
 
-    .cart-addBtn,
-    .cart-deBtn {
+    .cart-plusBtn,
+    .cart-minusBtn {
       width: 25px;
       height: 25px;
       vertical-align: sub;
@@ -146,7 +146,7 @@ body {
   label {
     display: block;
 
-    input[type="checkbox"] {
+    input[type='checkbox'] {
       width: 20px;
       height: 20px;
       vertical-align: sub;
@@ -154,7 +154,7 @@ body {
   }
 
   .cart-input {
-    background: #fb2643;
+    // background: #fb2643;
     // border: 1px solid white;
     margin: 30px 0 0 0;
 
@@ -174,7 +174,7 @@ body {
 }
 
 .cart-invoice {
-  background: hotpink;
+  // background: hotpink;
   line-height: 50px;
 
   h2 {
@@ -193,8 +193,9 @@ body {
   label {
     // background: blue;
     display: block;
+    margin: 0;
 
-    input[type="checkbox"] {
+    input[type='checkbox'] {
       width: 20px;
       height: 20px;
       vertical-align: sub;
@@ -210,11 +211,12 @@ body {
     border-color: var(--main-color79);
     font-family: var(--main-title-chinese);
     margin: 0 30px;
+    padding: 5px 0;
   }
 
   .cart-input {
-    background: #fb2643;
-    border: 1px solid white;
+    // background: #fb2643;
+    // border: 1px solid white;
     margin: 30px 0 0 0;
 
     label {

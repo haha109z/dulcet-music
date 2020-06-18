@@ -1,15 +1,6 @@
 import React from 'react';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faShoppingBag } from '@fortawesome/free-solid-svg-icons'
-// import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
-// import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
-// import { faMinusCircle } from '@fortawesome/free-solid-svg-icons'
 
 function Cart() {
-  // const bag = <FontAwesomeIcon icon={faShoppingBag} />
-  // const trash = <FontAwesomeIcon icon={faTrashAlt} />
-  // const addBtn = <FontAwesomeIcon className="cart-addBtn" icon={faPlusCircle} />
-  // const deBtn = <FontAwesomeIcon className="cart-deBtn" icon={faMinusCircle} />
 
   return (
     <>
@@ -40,9 +31,9 @@ function Cart() {
               <td>春季吉他班</td>
               <td>$1,700</td>
               <td>
-                <i class="fas fa-minus-circle"></i>
+                <i className="fas fa-minus-circle cart-minusBtn"></i>
                 <div className="cart-number">10</div>
-                <i class="fas fa-plus-circle"></i>
+                <i className="fas fa-plus-circle cart-plusBtn"></i>
               </td>
               <td>$17,000</td>
               <td><div className="cart-btn" onClick={()=>{}}><i class="far fa-trash-alt"></i></div></td>
@@ -53,9 +44,9 @@ function Cart() {
               <td>春季吉他班</td>
               <td>$1,700</td>
               <td>
-                <i class="fas fa-minus-circle"></i>
+                <i className="fas fa-minus-circle cart-minusBtn"></i>
                 <div className="cart-number">10</div>
-                <i class="fas fa-plus-circle"></i>
+                <i className="fas fa-plus-circle cart-plusBtn"></i>
               </td>
               <td>$17,000</td>
               <td><div className="cart-btn" onClick={()=>{}}><i class="far fa-trash-alt"></i></div></td>
@@ -101,7 +92,7 @@ function Cart() {
                       <input className="" id="einvoice" type="text"/>
                     </div>
                   </div>
-                  <div>                              
+                  <div style={{padding:'0 0 20px 0'}}>                              
                     <label><input type="checkbox" id=""/> 捐贈發票</label>
                     <span>提醒您，捐贈發票後無法變更成開立或索取紙本發票。</span>
                     <br/>
@@ -114,7 +105,7 @@ function Cart() {
                   <div>
                     <label><input type="checkbox" id=""/> 公司戶</label>
                     <span>提醒您，公司戶發票一旦開立，不得任意更改或改為個人戶發票。</span>   
-                    <div className="cart-input">
+                    <div className="cart-input" style={{margin: '0 0 20px 0'}}>
                       <label for="einvoice">統一編號</label>
                       <input className="" id="einvoice" type="text"/>
                     </div>
