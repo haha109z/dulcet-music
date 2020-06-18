@@ -1,18 +1,27 @@
 import React , { Component }from 'react';
 import {  BrowserRouter as Router,  Switch,  Route,  Link, Redirect} from "react-router-dom";
 
-
+//Home
 
 import HomeApp from'./container/home-app';
-import Footer from'./components/footer/footer';
+
+//Product
 
 import ProductCourse from './container/product-course';
 import ProductVideo from './container/product-video';
 import ProductInstrument from './container/product-instrument';
 
+//User
+
 import UserApp from './container/user-app';
 
+//News
+
 import News from './container/news';
+
+//Footer
+
+import Footer from'./components/footer/footer';
 
 function App() {
   return (
