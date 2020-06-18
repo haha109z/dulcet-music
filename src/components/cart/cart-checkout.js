@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Cart() {
+function CartCheckout() {
 
   return (
     <>
@@ -124,22 +124,22 @@ function Cart() {
             <label for="discount">折扣碼</label><br/>
             <input className="" id="discount" type="text"/>
           </div>
-          <table>
-            <tr>
-              <th>合計</th>
-              <th>$ 2,800</th>
-            </tr>
-            <tr>
-              <th>折扣</th>
-              <th>- $ 1,000</th>
-            </tr>
-            <tr>
-              <th>總計</th>
-              <th>$ 1,800</th>
-            </tr>
-          </table>
+          <div className="cart-total-right">
+            <div>
+              <span className="cart-total-title">合計</span>
+              <span className="cart-total-number">$ 2,800</span>
+            </div>
+            <div style={{color:'#FB2643'}}>
+              <span className="cart-total-title">折扣</span>
+              <span className="cart-total-number">- $ 1,000</span>
+            </div>
+            <div>
+              <span className="cart-total-title">總計</span>
+              <span className="cart-total-number">$ 1,800</span>
+            </div>
+          </div>
         </div>
-        <div className="">
+        <div style={{margin:'0 auto', width:'400px'}}>
           <button className="cart-checkout-btn" type="">繼續購物</button>
           <button className="cart-checkout-btn" type="submit">下一步→</button>
         </div>
@@ -148,4 +148,4 @@ function Cart() {
   );
 }
 
-export default Cart;
+export default CartCheckout;

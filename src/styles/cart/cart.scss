@@ -1,14 +1,13 @@
 // Import Bootstrap and its default variables
-@import "~bootstrap/scss/bootstrap";
+@import '~bootstrap/scss/bootstrap';
 
 // google-font
-@import url("https://fonts.googleapis.com/css2?family=Merienda&family=Noto+Serif+TC:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Merienda&family=Noto+Serif+TC:wght@300&display=swap');
 
 * {
   margin: 0;
   padding: 0;
 }
-
 
 :root {
   --main-colorfff: #fff;
@@ -18,8 +17,8 @@
   --main-colorf2: #f2f2f2;
   --main-colorf2e: #f2ebdf;
   --main-colorfb2: #fb2643;
-  --main-title-english: "Merienda";
-  --main-title-chinese: "Noto Serif TC";
+  --main-title-english: 'Merienda';
+  --main-title-chinese: 'Noto Serif TC';
   --nav-height: 5rem; /** 80px **/
   --margin: 11.25rem; /** 180px **/
   --h1: 2.25rem; /** 36px **/
@@ -88,9 +87,9 @@
       padding: 10px;
     }
 
-    input[type="checkbox"] {
-      width: 25px;
-      height: 25px;
+    input[type='checkbox'] {
+      width: 20px;
+      height: 20px;
     }
 
     img {
@@ -132,7 +131,7 @@
   }
 
   fieldset {
-    padding: 30px;
+    padding: 60px;
     border: 1px solid var(--main-color79);
   }
 
@@ -143,9 +142,9 @@
   label {
     display: block;
 
-    input[type="checkbox"] {
-      width: 25px;
-      height: 25px;
+    input[type='checkbox'] {
+      width: 20px;
+      height: 20px;
       vertical-align: sub;
     }
   }
@@ -179,7 +178,7 @@
   }
 
   fieldset {
-    padding: 30px;
+    padding: 60px;
     border: 1px solid var(--main-color79);
   }
 
@@ -191,9 +190,9 @@
     // background: blue;
     display: block;
 
-    input[type="checkbox"] {
-      width: 25px;
-      height: 25px;
+    input[type='checkbox'] {
+      width: 20px;
+      height: 20px;
       vertical-align: sub;
     }
   }
@@ -207,6 +206,7 @@
     border-color: var(--main-color79);
     font-family: var(--main-title-chinese);
     margin: 0 30px;
+    padding: 5px;
   }
 
   .cart-input {
@@ -230,34 +230,56 @@
 }
 
 .cart-total {
-  background: #F2F2F2;
+  background: #f2f2f2;
   margin: 40px;
+  padding: 20px;
   display: flex;
+  font-size: var(--h3);
 
-  table {
-    line-height: 50px;
-    
-    th:nth-child(even){
-      text-align: left;
-    }
-    
-    th:nth-child(odd){
-        text-align: right;
-    }
-    
-  }
-  
+  // table {
+  //   line-height: 50px;
+
+  //   th:nth-child(even){
+  //     text-align: left;
+  //   }
+
+  //   th:nth-child(odd){
+  //       text-align: right;
+  //   }
+
+  // }
+
   .cart-discount {
     padding: 20px;
-    flex-grow: 1;
+    margin: 0 auto;
+    width: 350px;
+
+    input {
+      border: 1px solid #fb2643;
+      text-align: center;
+    }
+  }
+  .cart-total-right {
+    margin: 0 auto;
+    span {
+      display: inline-block;
+      padding: 0 10px;
+      line-height: 40px;
+    }
+    .cart-total-title {
+      text-align: left;
+    }
+    .cart-total-number {
+      text-align: right;
+      width: 200px;
+    }
   }
 }
 
 .cart-checkout-btn {
-  background: #F2E8DF;
+  background: #f2e8df;
   border: none;
   text-align: center;
   padding: 10px 50px;
   margin: 0 10px;
 }
-
