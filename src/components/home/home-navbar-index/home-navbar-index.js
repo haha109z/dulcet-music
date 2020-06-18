@@ -43,9 +43,9 @@ class HomeNavbarIndex extends Component{
             <div className="home-nav-body home-d-flex" id="home-navWrap">
             {/* nav-logo-left */}
               <div className="home-logo-left">
-                <a href="/">
+                <Link to="/">
                   <img src={this.props.HomeLogo2} alt="logo2" />
-                </a>
+                </Link>
               </div>
               <label htmlFor="Homeburger" className="home-burger"><i className="fas fa-bars"></i></label>
               <input type="checkbox" id="Homeburger" />
