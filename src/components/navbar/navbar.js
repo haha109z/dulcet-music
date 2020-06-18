@@ -26,7 +26,7 @@ class Navbar extends Component{
               <div className="nav-body-others nav-d-flex">
               {/* nav-logo-left-others */}
                 <div className="nav-logo-left-others">
-                  <a href="javascript:;">
+                  <a href="/">
                     <img src={require('../../img/home_logo_長2.svg')} alt="logo2" />
                   </a>
                 </div>
@@ -35,7 +35,7 @@ class Navbar extends Component{
                 {/* navbar-list */}
                 <div className="nav-navlist-others nav-d-flex">
                   <div className="nav-items-others nav-courses-others">
-                    <a href="javascript:;">Courses</a>
+                    <a href="/course">Courses</a>
                     <ul className="nav-courses-list-others">
                         {
                           <Courses />
@@ -43,7 +43,7 @@ class Navbar extends Component{
                     </ul>
                   </div>
                   <div className="nav-items-others nav-videos-others">
-                    <a href="javascript:;">Videos</a>
+                    <a href="/video">Videos</a>
                     <ul className="nav-videos-list-others">
                         {
                           <Videos />
@@ -51,7 +51,7 @@ class Navbar extends Component{
                     </ul>
                   </div>
                   <div  className="nav-items-others nav-instrument-others">
-                    <a href="javascript:;">Instrument</a>
+                    <a href="/instrument">Instrument</a>
                     <ul className="nav-instrument-list-others">
                         {
                           <Instrument />
@@ -59,7 +59,7 @@ class Navbar extends Component{
                     </ul>
                   </div>
                   <div  className="nav-items-others nav-news-others">
-                    <a href="javascript:;">News</a>
+                    <a href="/news">News</a>
                     <ul className="nav-news-list-others">
                         {
                           <News />

@@ -54,7 +54,7 @@ class HomeNavbarIndex extends Component{
               <div className="home-navlist home-d-flex">
                 <div className="home-items home-courses">
                   {/*<Link to="/test">Courses</Link>*/}
-                  <a href="/test">Courses</a>
+                  <a href="/course">Courses</a>
                   <ul className="home-courses-list">
                       {
                         <Courses />
@@ -62,7 +62,7 @@ class HomeNavbarIndex extends Component{
                   </ul>
                 </div>
                 <div className="home-items home-videos">
-                  <a href="javascript:;">Videos</a>
+                  <a href="/video">Videos</a>
                   <ul className="home-videos-list">
                       {
                         <Videos />
@@ -70,7 +70,7 @@ class HomeNavbarIndex extends Component{
                   </ul>
                 </div>
                 <div  className="home-items home-instrument">
-                  <a href="javascript:;">Instrument</a>
+                  <a href="/instrument">Instrument</a>
                   <ul className="home-instrument-list">
                       {
                         <Instrument />
@@ -83,7 +83,7 @@ class HomeNavbarIndex extends Component{
                   </a>
                 </div>
                 <div  className="home-items home-news">
-                  <a href="javascript:;">News</a>
+                  <a href="/news">News</a>
                   <ul className="home-news-list">
                       {
                         <News />
