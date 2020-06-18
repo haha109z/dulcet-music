@@ -6,9 +6,11 @@ import {  BrowserRouter as Router,  Switch,  Route,  Link, Redirect} from "react
 import HomeApp from'./container/home-app';
 import Footer from'./components/footer/footer';
 
-import Test from './container/test';
+import ProductCourse from './container/product-course';
+import ProductVideo from './container/product-video';
 import ProductInstrument from './container/product-instrument';
 import UserApp from './container/user-app';
+
 import News from './container/news';
 
 function App() {
@@ -18,8 +20,12 @@ function App() {
       <Route path="/" exact>
         <HomeApp />
       </Route>
-      <Route path="/test" >
-        <Test />
+      
+      <Route path="/course" exact>
+        <ProductCourse />
+      </Route>
+      <Route path="/video" exact>
+        <ProductVideo />
       </Route>
       <Route path="/instrument" exact>
         <ProductInstrument />

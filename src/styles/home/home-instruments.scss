@@ -1,299 +1,303 @@
 @import url('https://fonts.googleapis.com/css2?family=Merienda&family=Noto+Serif+TC:wght@300&display=swap');
 
 * {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    box-sizing: border-box;
-  }
-
-  :root {
-    --main-colorfff: #fff;
-    --main-colorblock: #141414;
-    --main-color79: #797979;
-    --main-colorda: #dadada;
-    --mail-colorf2: #f2f2f2;
-    --main-colorf2e: #f2ebdf; // 米色
-    --main-colorfb2: #fb2643;
-    --main-title-english: 'Merienda', cursive;
-    --main-title-chinese: 'Noto Serif TC', serif;
-    --nav-height: 5rem; // 80px
-    --margin: 11.25rem; // 180px
-    --h1: 2.25rem; // 36px
-    --h2: 1.5rem; // 24px
-    --h3: 1.42rem; // 20px
-    --h4: 1.14rem; // 16px
-    --p: 1rem;
-    --h5: 0.92rem; // 13px
-    --h6: 0.85rem; // 12px
-  }
-
-  .home-d-flex{
-      display: flex;
-  }
-
-  .home-instruments-wrap{
-    margin:13.71rem 0 ;
-    padding: 0 5rem;
-
-    .home-instruments-title{
-        font-family:var(--main-title-english);
-        font-size: var(--h1);
-        text-indent: 7rem;
-        padding: 0;
-        position: relative;
-
-        &::before{
-            content:'';
-            display: block;
-            background: url('../../img/home_Note_13.png');
-            width: 75px;
-            height: 80px;
-            position: absolute;
-            top:-80%;
-            left:0;
-        }
-
-        .home-instruments-title-ch{
-            font-family:var(--main-title-chinese);
-            padding: 0;
-            display: none;
-        }
-    }
-
-    .home-instruments-label,#home-instruments-sub{
-        display: none;
-    }
-
-    .home-instruments-row{
-        position: relative;
-        z-index: 0;
-        margin-top: 5rem;
-
-        .home-instruments-card{
-            height: 25.71rem;
-            padding:0;
-            margin: 0rem;
-            opacity: .8;
-            outline: none;
-            border: none;
-            border-radius: 4px;
-            // overflow: hidden;
-            // filter: brightness(0.3);
-
-
-            .home-instruments-txt,.home-instruments-txt2{
-                font-size: var(--h1);
-                font-family: var(--main-title-english);
-                color:var(--main-colorfff);
-                position: absolute;
-                top:36%;
-                left: 50%;
-                transform: translateX(-50%);
-                z-index: 0;
-                opacity: 1;
-                transition: .3s;
-            }
-
-            .home-instruments-txt2{
-                font-family: var(--main-title-chinese);
-                top:52%;
-                left: 50%;
-            }
-
-            span{
-                display: block;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0,0,0,.5);
-                position: relative;
-                top:0;
-                left: 0;
-                z-index: -1;
-                transition:.8s;
-            }
-
-            &:hover{
-                opacity: 1;
-                filter:brightness(1);
-
-                .home-instruments-txt,.home-instruments-txt2{
-                    opacity: .8;
-                }
-
-                :nth-child(3){
-                    background-color: rgba(0,0,0,.0);
-                }
-            }
-        }
-
-        .home-instruments-flute{
-            background: url('../../img/home_flute_6.jpg') no-repeat;
-            background-position: center;
-            background-size: cover;
-        }
-
-        .home-instruments-index{
-            background: url('../../img/home_index_1.jpg') no-repeat;
-            background-size: cover;
-            opacity: 1;
-            background-color: none;
-        }
-
-        .home-instruments-drum{
-            background: url('../../img/home_drum_9.jpg') no-repeat;
-            background-position: center;
-            background-size: cover;
-        }
-
-        .home-instruments-guitar{
-            background: url('../../img/home_guitar_6.jpg') no-repeat;
-            background-position: center;
-            background-size: cover;
-        }
-
-        .home-instruments-ukulele{
-            background: url('../../img/home_ukulele_9.jpg') no-repeat;
-            background-position: center;
-            background-size: cover;
-        }
-
-        .home-instruments-piano{
-            background: url('../../img/home_piano_6.jpg') no-repeat;
-            background-position: center;
-            background-size: cover;
-        }
-
-        .home-instruments-violin{
-            background: url('../../img/home_violin_7.jpg') no-repeat;
-            background-position: center;
-            background-size: cover;
-        }
-
-        .home-instruments-Saxophone{
-            background: url('../../img/home_Saxophone_8.jpg') no-repeat;
-            background-position: center;
-            background-size: cover;
-        }
-
-        .home-instruments-violin_m{
-            background: url('../../img/home_violin_m_8.jpg') no-repeat;
-            background-position: center;
-            background-size: cover;
-        }
-
-        .home-instruments-Keyboard{
-            background: url('../../img/home_Keyboard_3.jpg') no-repeat;
-            background-position: center;
-            background-size: cover;
-        }
-
-        .home-instruments-ukulele,.home-instruments-guitar{
-            height: 12.855rem;
-        }
-
-        &>:nth-child(5){
-            position: absolute;
-            top:38.565rem;
-            left: 0;
-        }
-    }
-  }
-
-  @media screen and (max-width:768px){
-
-    .container-fluid{
-        width: 100vw;
-        // border: 1px solid red;
-        overflow: hidden;
-        padding: 0;
-        margin-left: 0;
-        margin-right: 0;
-        margin-bottom: 7.14rem;
-
-        .home-instruments-body{
-            position: relative;
-        }
-
-    }
-    .home-instruments-row{
-        width: 100vw;
-        overflow: hidden;
-        max-height:330px;
-        overflow: hidden;
-        transition: 1.5s;
-        // border:1px solid red;
-        margin: 0;
-
-        .home-instruments-card{
-            min-width: 100%;
-        }
-
-        .home-instruments-index{
-            display: none;
-        }
-    }
-
-    .home-instruments-label,#home-instruments-sub{
-        position: absolute;
-
-        bottom:0;
-        margin: auto;
-        left: 50%;
-        margin-left: -38px;
-        z-index: 1;
-    }
-
-    .home-instruments-wrap .home-instruments-label{
-        display: block;
-        color:var(--main-colorfff);
-        font-size: var(--h1);
-        padding: 1rem 2rem;   
-        // border:1px solid red;
-        animation: arrowRun 1s infinite linear alternate;
-    }
-
-    #home-instruments-sub{
-        display: none;
-    }
-
-    #home-instruments-sub:checked ~ .home-instruments-row{
-        max-height:3000px ;
-    }
-
-    .home-instruments-wrap {
-        margin-top: 7.14rem;
-    }
-
-    .home-instruments-wrap .home-instruments-row .home-instruments-card span{
-        max-width: 100%;
-        position: absolute;
-    }
-
-    .home-instruments-wrap .home-instruments-row > :nth-child(5){
-        position: relative;
-        top:0;
-        left: 0;
-    }
-
-    .home-instruments-wrap .home-instruments-title{
-        text-align: center;
-        text-indent:0;
-        // border:1px solid red;
-
-        &::before{
-            display: none;
-        }
-    }
-
-    .home-instruments-label-active{
-        transform: rotate(180deg);
-    }
-
-    @keyframes arrowRun {
-        0%{transform: translateY(-10px)}
-        100%{transform: translateY(10px)}
-    }
-
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-sizing: border-box;
 }
 
+:root {
+  --main-colorfff: #fff;
+  --main-colorblock: #141414;
+  --main-color79: #797979;
+  --main-colorda: #dadada;
+  --mail-colorf2: #f2f2f2;
+  --main-colorf2e: #f2ebdf; // 米色
+  --main-colorfb2: #fb2643;
+  --main-title-english: 'Merienda', cursive;
+  --main-title-chinese: 'Noto Serif TC', serif;
+  --nav-height: 5rem; // 80px
+  --margin: 11.25rem; // 180px
+  --h1: 2.25rem; // 36px
+  --h2: 1.5rem; // 24px
+  --h3: 1.42rem; // 20px
+  --h4: 1.14rem; // 16px
+  --p: 1rem;
+  --h5: 0.92rem; // 13px
+  --h6: 0.85rem; // 12px
+}
+
+.home-d-flex {
+  display: flex;
+}
+
+.home-instruments-wrap {
+  margin: 13.71rem 0;
+  padding: 0 5rem;
+
+  .home-instruments-title {
+    font-family: var(--main-title-english);
+    font-size: var(--h1);
+    text-indent: 7rem;
+    padding: 0;
+    position: relative;
+
+    &::before {
+      content: '';
+      display: block;
+      background: url('../../img/home_Note_13.png');
+      width: 75px;
+      height: 80px;
+      position: absolute;
+      top: -80%;
+      left: 0;
+    }
+
+    .home-instruments-title-ch {
+      font-family: var(--main-title-chinese);
+      padding: 0;
+      display: none;
+    }
+  }
+
+  .home-instruments-label,
+  #home-instruments-sub {
+    display: none;
+  }
+
+  .home-instruments-row {
+    position: relative;
+    z-index: 0;
+    margin-top: 5rem;
+
+    .home-instruments-card {
+      height: 25.71rem;
+      padding: 0;
+      margin: 0rem;
+      opacity: 0.8;
+      outline: none;
+      border: none;
+      border-radius: 4px;
+      // overflow: hidden;
+      // filter: brightness(0.3);
+
+      .home-instruments-txt,
+      .home-instruments-txt2 {
+        font-size: var(--h1);
+        font-family: var(--main-title-english);
+        color: var(--main-colorfff);
+        position: absolute;
+        top: 36%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 0;
+        opacity: 1;
+        transition: 0.3s;
+      }
+
+      .home-instruments-txt2 {
+        font-family: var(--main-title-chinese);
+        top: 52%;
+        left: 50%;
+      }
+
+      span {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: relative;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: 0.8s;
+      }
+
+      &:hover {
+        opacity: 1;
+        filter: brightness(1);
+
+        .home-instruments-txt,
+        .home-instruments-txt2 {
+          opacity: 0.8;
+        }
+
+        :nth-child(3) {
+          background-color: rgba(0, 0, 0, 0);
+        }
+      }
+    }
+
+    .home-instruments-flute {
+      background: url('../../img/home_flute_6.jpg') no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .home-instruments-index {
+      background: url('../../img/home_index_1.jpg') no-repeat;
+      background-size: cover;
+      opacity: 1;
+      background-color: none;
+    }
+
+    .home-instruments-drum {
+      background: url('../../img/home_drum_9.jpg') no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .home-instruments-guitar {
+      background: url('../../img/home_guitar_6.jpg') no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .home-instruments-ukulele {
+      background: url('../../img/home_ukulele_9.jpg') no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .home-instruments-piano {
+      background: url('../../img/home_piano_6.jpg') no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .home-instruments-violin {
+      background: url('../../img/home_violin_7.jpg') no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .home-instruments-Saxophone {
+      background: url('../../img/home_Saxophone_8.jpg') no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .home-instruments-violin_m {
+      background: url('../../img/home_violin_m_8.jpg') no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .home-instruments-Keyboard {
+      background: url('../../img/home_Keyboard_3.jpg') no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .home-instruments-ukulele,
+    .home-instruments-guitar {
+      height: 12.855rem;
+    }
+
+    & > :nth-child(5) {
+      position: absolute;
+      top: 38.565rem;
+      left: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container-fluid {
+    width: 100vw;
+    // border: 1px solid red;
+    overflow: hidden;
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 7.14rem;
+
+    .home-instruments-body {
+      position: relative;
+    }
+  }
+  .home-instruments-row {
+    width: 100vw;
+    overflow: hidden;
+    max-height: 330px;
+    overflow: hidden;
+    transition: 1.5s;
+    // border:1px solid red;
+    margin: 0;
+
+    .home-instruments-card {
+      min-width: 100%;
+    }
+
+    .home-instruments-index {
+      display: none;
+    }
+  }
+
+  .home-instruments-label,
+  #home-instruments-sub {
+    position: absolute;
+
+    bottom: 0;
+    margin: auto;
+    left: 47%;
+    margin-left: -30px;
+    z-index: 1;
+  }
+
+  .home-instruments-wrap .home-instruments-label {
+    display: block;
+    color: var(--main-colorfff);
+    font-size: var(--h1);
+    padding: 1rem 2.5rem;
+    // border:1px solid red;
+    animation: arrowRun 1s infinite linear alternate;
+  }
+
+  #home-instruments-sub {
+    display: none;
+  }
+
+  #home-instruments-sub:checked ~ .home-instruments-row {
+    max-height: 3000px;
+  }
+
+  .home-instruments-wrap {
+    margin-top: 7.14rem;
+  }
+
+  .home-instruments-wrap .home-instruments-row .home-instruments-card span {
+    max-width: 100%;
+    position: absolute;
+  }
+
+  .home-instruments-wrap .home-instruments-row > :nth-child(5) {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+
+  .home-instruments-wrap .home-instruments-title {
+    text-align: center;
+    text-indent: 0;
+    // border:1px solid red;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .home-instruments-label-active {
+    transform: rotate(180deg);
+  }
+
+  @keyframes arrowRun {
+    0% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(10px);
+    }
+  }
+}
