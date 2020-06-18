@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Merienda&family=Noto+Serif+TC:wght@300&display=swap');
+
+.News-container {
+  width: 960px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.News-Category {
+  width: 640px;
+  height: 100%;
+}
+
+.News-Category ul {
+  list-style: none;
+}
+.News-Category li {
+  width: 160px;
+  border: 1px solid #141414;
+  padding: 10px;
+}

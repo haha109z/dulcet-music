@@ -14,7 +14,9 @@
 
 //news
 
-@import './news/news.scss';
+@import './news/News-Navbar.scss';
+@import './news/News-Sliders.scss';
+@import './news/News-Category.scss';
 
 //product
 
@@ -22,6 +24,7 @@
 @import './product/instrument/productList.scss';
 
 //user
+
 @media (min-width: 1200px) {
   .container-sm {
     max-width: 1362px;
