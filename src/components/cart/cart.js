@@ -1,11 +1,5 @@
 import React from 'react';
 
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faShoppingBag } from '@fortawesome/free-solid-svg-icons'
-// import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
-// import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
-// import { faMinusCircle } from '@fortawesome/free-solid-svg-icons'
-
 function Cart() {
 
   return (
