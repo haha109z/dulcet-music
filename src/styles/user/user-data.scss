@@ -8,6 +8,7 @@
 .userData-top-titleName {
   margin: 0 auto 80px auto;
   text-align: center;
+  font-family:var(--main-title-chinese);
 }
 
 .userData-top-hr{
@@ -17,6 +18,8 @@
   position: absolute;
   right: 0;
   margin-top: -20px;
+  font-family:var(--main-title-chinese);
+
 }
 
 .userData-top-Img {
@@ -30,8 +33,14 @@
 .userData-form-input {
   display: flex;
   position: relative;
-}
+  font-size: 16px;
 
+}
+.userData-form-input>p{
+  font-family:var(--main-title-chinese);
+
+font-size: 14px;
+}
 .userData-form > label {
   height: 56px;
   margin: 20px auto 0 auto;
@@ -52,6 +61,8 @@
   border-radius: 0;
   border: none;
   margin: 60px auto 60px auto;
+  font-family:var(--main-title-chinese);
+
 }
 
 .userData-form-button:hover {
@@ -67,7 +78,6 @@
   position: absolute;
   bottom: 0;
   margin: 20px 0 0 48px;
-  font-size: 16px;
   margin-bottom: 2px;
 }
 .UserData-inp > input {
@@ -75,4 +85,6 @@
   outline: none;
   background-color: none;
   border: none;
+  font-family:var(--main-title-chinese);
+
 }

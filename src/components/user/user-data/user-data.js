@@ -15,34 +15,34 @@ export default class UserData extends Component {
               <hr class="userData-top-hr"/>
               
               <form class="userData-form" action="">
-              <label class="userData-form-input font-size-1rem" for="name">
+              <label class="userData-form-input " for="name">
                 <p>姓名</p>
                 <div class="UserData-inp">
                   <input id="name" type="text" />
                 </div>
               </label>
 
-              <label class="userData-form-input font-size-1rem" for="email">
+              <label class="userData-form-input " for="email">
                 <p>信箱</p>
                 <div class="UserData-inp">
                   <input id="email" type="text" />
                 </div>
               </label>
-              <label class="userData-form-input font-size-1rem" for="birthday">
+              <label class="userData-form-input " for="birthday">
                 <p>生日</p>
                 <div class="UserData-inp">
                   <input id="birthday" type="text" />
                 </div>
               </label>
 
-              <label class="userData-form-input font-size-1rem" for="add">
+              <label class="userData-form-input " for="add">
                 <p>地址</p>
                 <div class="UserData-inp">
                   <input id="add" type="text" />
                 </div>
               </label>
 
-              <label class="userData-form-input font-size-1rem" for="phone">
+              <label class="userData-form-input " for="phone">
                 <p>手機號碼</p>
                 <div class="UserData-inp">
                   <input id="phone" type="text" />

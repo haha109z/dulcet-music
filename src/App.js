@@ -39,6 +39,7 @@ function App() {
   return (
     <Router>
       <>
+      
       <Route path="/" exact>
         <HomeApp />
       </Route>
@@ -76,7 +77,6 @@ function App() {
       <Route path="/register/manufacturer" >
         <ManufacturerRegistered />
       </Route>
-
       <Footer />
       </>
     </Router>
