@@ -131,5 +131,20 @@
       margin-bottom: 0.71rem;
     }
 
+    input::-webkit-input-placeholder{
+      color:var(--main-colorda);
+      font-size:var(--h4);
+    }// 谷歌
+
+    input:-moz-placeholder{
+        color:var(--main-colorda);
+        font-size:var(--h4);
+    }//火狐
+
+    input:-ms-input-placeholder{
+        color:var(--main-colorda);
+        font-size:var(--h4);
+    }//微软
+
 } // all-login-body
 
