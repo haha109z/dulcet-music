@@ -1,21 +1,21 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faShoppingBag } from '@fortawesome/free-solid-svg-icons'
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
-import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
-import { faMinusCircle } from '@fortawesome/free-solid-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faShoppingBag } from '@fortawesome/free-solid-svg-icons'
+// import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+// import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
+// import { faMinusCircle } from '@fortawesome/free-solid-svg-icons'
 
 function Cart() {
-  const bag = <FontAwesomeIcon icon={faShoppingBag} />
-  const trash = <FontAwesomeIcon icon={faTrashAlt} />
-  const addBtn = <FontAwesomeIcon className="cart-addBtn" icon={faPlusCircle} />
-  const deBtn = <FontAwesomeIcon className="cart-deBtn" icon={faMinusCircle} />
+  // const bag = <FontAwesomeIcon icon={faShoppingBag} />
+  // const trash = <FontAwesomeIcon icon={faTrashAlt} />
+  // const addBtn = <FontAwesomeIcon className="cart-addBtn" icon={faPlusCircle} />
+  // const deBtn = <FontAwesomeIcon className="cart-deBtn" icon={faMinusCircle} />
 
   return (
     <>
       <div className="cart-container">
         <div className="cart-title">
-          <h1>{bag} My Cart</h1>
+          <h1><i class="fas fa-shopping-bag"></i> My Cart</h1>
           <span style={{fontSize:'var(--h2)'}}>❶確認購買商品➔❷確認訂單➔❸選擇付款方式➔❹完成結帳</span>
         </div>
         <table className="cart-table">
@@ -36,29 +36,29 @@ function Cart() {
             </tr>
             <tr>
               <th><input type="checkbox" id=""/></th>
-              <td><img src={require('./img/cart/cart-violin-01.jpeg')}></img></td>
+              <td><img src={require('../../img/cart/cart-violin-01.jpeg')}/></td>
               <td>春季吉他班</td>
               <td>$1,700</td>
               <td>
-                {deBtn}
+                <i class="fas fa-minus-circle"></i>
                 <div className="cart-number">10</div>
-                {addBtn}
+                <i class="fas fa-plus-circle"></i>
               </td>
               <td>$17,000</td>
-              <td><div className="cart-btn" onClick={()=>{}}>{trash}</div></td>
+              <td><div className="cart-btn" onClick={()=>{}}><i class="far fa-trash-alt"></i></div></td>
             </tr>
             <tr>
               <th><input type="checkbox" id=""/></th>
-              <td><img src={require('./img/violin01.jpeg')}></img></td>
+              <td><img src={require('../../img/cart/cart-violin-01.jpeg')}/></td>
               <td>春季吉他班</td>
               <td>$1,700</td>
               <td>
-                {deBtn}
+                <i class="fas fa-minus-circle"></i>
                 <div className="cart-number">10</div>
-                {addBtn}
+                <i class="fas fa-plus-circle"></i>
               </td>
               <td>$17,000</td>
-              <td><div className="cart-btn" onClick={()=>{}}>{trash}</div></td>
+              <td><div className="cart-btn" onClick={()=>{}}><i class="far fa-trash-alt"></i></div></td>
             </tr>
           </tbody>
         </table>
