@@ -22,6 +22,12 @@ import News from './container/news';
 // Cart
 import CartApp from './container/cart-app';
 
+// Login
+import AllLoginPage from './components/login/all-login-page';
+
+//UserRegister
+import UserRegistered from './components/register/user-register';
+
 //Footer
 
 import Footer from './components/footer/footer';
@@ -33,7 +39,7 @@ function App() {
       <Route path="/" exact>
         <HomeApp />
       </Route>
-      
+
       <Route path="/course" exact>
         <ProductCourse />
       </Route>
@@ -56,11 +62,13 @@ function App() {
         <CartApp />
       </Route>
 
+      <Route path="/login" >
+        <AllLoginPage />
+      </Route>
+
       <Footer />
       </>
     </Router>
-
-    
   )
 }
 

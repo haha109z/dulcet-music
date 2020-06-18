@@ -1,11 +1,10 @@
 import React,{useState, Component} from 'react';
 import PropTypes from 'prop-types';
-import { Switch, Route, Redirect } from 'react-router-dom' 
 
 class NavbarUser extends Component{
 
     state = {
-        login:true,
+        login:false,
         width:window.innerWidth
       }
 
@@ -34,7 +33,7 @@ class NavbarUser extends Component{
 
         return (
         <>
-            <a href="javascript:;" style={{display}}>
+            <a href="/login" style={{display}}>
             <i className="fas fa-user"></i>
                 </a>
             <p className="home-username" style={{display:display2}}>{homeUserItem.username}</p>

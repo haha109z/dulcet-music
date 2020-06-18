@@ -8,7 +8,7 @@ import ManufacturerLoginPage from './manufacturer-login-page/manufacturer-login-
 
 import '../../styles/login/all-login-page.scss';
 
-class AllLoginPage extends Component{
+class allLoginPage extends Component{
 
     render(){
         return(
@@ -38,4 +38,4 @@ class AllLoginPage extends Component{
     }
 }
 
-export default AllLoginPage;
+export default allLoginPage;

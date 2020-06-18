@@ -27,7 +27,7 @@ class HomeSlogan extends Component{
 
     render(){
         return(
-            <div className="container">
+            <div className="container home-slogan-container">
                 <div className="row home-slogan-wrap">
                     <h2 className='home-slogan-h2 col-md-12' id='homeSloganH2'>
                         Enjoyment of Music

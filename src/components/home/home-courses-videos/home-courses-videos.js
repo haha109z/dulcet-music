@@ -46,7 +46,7 @@ class HomeCoursesVideos extends Component{
         const rwdWidth4 = width <= 768 ? 'home-class-video-img col-md-12' : 'home-class-video-img col-md-7';
         // console.log(this.state.width);
         return(
-            <div className="container-fluid">
+            <div className="container-fluid home-class-wrap">
                 <div className="row home-class-d-flex home-class-cour">
                     <div className={rwdWidth}>
                     <img src={HomeBg_9}></img>

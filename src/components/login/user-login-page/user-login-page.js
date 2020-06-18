@@ -23,7 +23,7 @@ class UserLoginPage extends Component{
                 </div>
                 <button type="button" className="all-login-btn">登入</button>
                 <div className="col-md-12 all-login-register-btn">
-                    <Link to="/user/register">註冊</Link>
+                    <Link to="">註冊</Link>
                 </div>
                 <div className="col-md-12 all-login-resetpwd">
                     <Link to="">忘記密碼</Link>
