@@ -27,9 +27,9 @@ class Navbar extends Component{
               <div className="nav-body-others nav-d-flex">
               {/* nav-logo-left-others */}
                 <div className="nav-logo-left-others">
-                  <a href="/">
+                  <Link to="/">
                     <img src={require('../../img/home_logo_長2.svg')} alt="logo2" />
-                  </a>
+                  </Link>
                 </div>
                 <label htmlFor="HomeNavburger" className="home-nav-burger"><i className="fas fa-bars"></i></label>
                 <input type="checkbox" id="HomeNavburger" />
