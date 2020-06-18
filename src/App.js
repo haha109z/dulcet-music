@@ -3,7 +3,7 @@ import {  BrowserRouter as Router,  Switch,  Route,  Link, Redirect} from "react
 
 //Home
 
-import HomeApp from'./container/home-app';
+import HomeApp from './container/home-app';
 
 //Product
 
@@ -27,6 +27,9 @@ import AllLoginPage from './components/login/all-login-page';
 
 //UserRegister
 import UserRegistered from './components/register/user-register';
+
+// ManufacturerRegistered
+import ManufacturerRegistered from './components/register/manufacturer-register';
 
 //Footer
 
@@ -64,6 +67,14 @@ function App() {
 
       <Route path="/login" >
         <AllLoginPage />
+      </Route>
+
+      <Route path="/register/user" >
+        <UserRegistered />
+      </Route>
+
+      <Route path="/register/manufacturer" >
+        <ManufacturerRegistered />
       </Route>
 
       <Footer />

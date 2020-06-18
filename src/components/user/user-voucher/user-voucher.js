@@ -25,21 +25,21 @@ export default class UserVoucher extends Component {
           <hr class="userVoucher-divider" />
           <div class="userVoucher-item">
             <div class="userVoucher-item-card">
-            <div class="userVoucher-item-card-img"><img src={require('./Cat03.jpg')} alt=""/></div>
+            <div class="userVoucher-item-card-img"><img src={require('../../../img/home_logo_方.png')} alt=""/></div>
               <div class="userVoucher-item-card-divider"></div>
               <p class="userVoucher-item-card-title">結帳金額減免200元</p>
               <p class="userVoucher-item-card-date">到期日期2020-00-00</p>
               <p class="userVoucher-item-card-now">立即使用</p>
             </div>
             <div class="userVoucher-item-card">
-            <div class="userVoucher-item-card-img"><img src="./logo.png" alt=""/></div>
+            <div class="userVoucher-item-card-img"><img src={require('../../../img/home_logo_方.png')} alt=""/></div>
               <div class="userVoucher-item-card-divider"></div>
               <p class="userVoucher-item-card-title">結帳金額減免200元</p>
               <p class="userVoucher-item-card-date">到期日期2020-00-00</p>
               <p class="userVoucher-item-card-now">立即使用</p>
             </div>
             <div class="userVoucher-item-card">
-            <div class="userVoucher-item-card-img"><img src="./logo.png" alt=""/></div>
+            <div class="userVoucher-item-card-img"><img src={require('../../../img/home_logo_方.png')} alt=""/></div>
               <div class="userVoucher-item-card-divider"></div>
               <p class="userVoucher-item-card-title">結帳金額減免200元</p>
               <p class="userVoucher-item-card-date">到期日期2020-00-00</p>

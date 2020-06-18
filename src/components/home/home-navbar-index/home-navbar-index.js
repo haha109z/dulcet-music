@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import PropTypes from 'prop-types';
+import { Link} from "react-router-dom";
 
 import Courses from '../navbar-items/navbar-courses/navbar-courses';
 import Videos from '../navbar-items/navbar-videos/navbar-videos';
@@ -8,7 +9,6 @@ import News from '../navbar-items/navbar-news/navbar-news';
 import About from '../navbar-items/navbar-about/navbar-about';
 import NavbarUser from '../navbar-items/navbar-user/navbar-user';
 
-import {  BrowserRouter as Router,  Switch,  Route,  Link} from "react-router-dom";
 
 class HomeNavbarIndex extends Component{
 
@@ -38,13 +38,12 @@ class HomeNavbarIndex extends Component{
     render(){
       const {homeUser} = this.props;
         return (
-          <Router>
             <>
           <div className={this.state.scrolled ? 'home-navwrap' : ''} id="home-navWrap">
             <div className="home-nav-body home-d-flex" id="home-navWrap">
             {/* nav-logo-left */}
               <div className="home-logo-left">
-                <a href="#">
+                <a href="/">
                   <img src={this.props.HomeLogo2} alt="logo2" />
                 </a>
               </div>
@@ -53,8 +52,8 @@ class HomeNavbarIndex extends Component{
               {/* navbar-list */}
               <div className="home-navlist home-d-flex">
                 <div className="home-items home-courses">
-                  {/*<Link to="/test">Courses</Link>*/}
-                  <a href="/test">Courses</a>
+                  {/*<a href="/course">Courses</a>*/}
+                  <Link to="/course">Courses</Link>
                   <ul className="home-courses-list">
                       {
                         <Courses />
@@ -62,7 +61,8 @@ class HomeNavbarIndex extends Component{
                   </ul>
                 </div>
                 <div className="home-items home-videos">
-                  <a href="javascript:;">Videos</a>
+                 {/*<a href="/video">Videos</a>*/}
+                 <Link to="/video">Videos</Link>
                   <ul className="home-videos-list">
                       {
                         <Videos />
@@ -70,7 +70,8 @@ class HomeNavbarIndex extends Component{
                   </ul>
                 </div>
                 <div  className="home-items home-instrument">
-                  <a href="javascript:;">Instrument</a>
+                  {/*<a href="/instrument">Instrument</a>*/}
+                  <Link to="/instrument">Instrument</Link>
                   <ul className="home-instrument-list">
                       {
                         <Instrument />
@@ -78,12 +79,13 @@ class HomeNavbarIndex extends Component{
                   </ul>
                 </div>
                 <div className="home-logo-middle">
-                  <a href="#">
+                  <a href="javascript:void(0)">
                     <img src={require('../../../img/home_logo_方1.png')} alt="123" />
                   </a>
                 </div>
                 <div  className="home-items home-news">
-                  <a href="javascript:;">News</a>
+                  {/*<a href="/news">News</a>*/}
+                  <Link to="/news">News</Link>
                   <ul className="home-news-list">
                       {
                         <News />
@@ -91,7 +93,8 @@ class HomeNavbarIndex extends Component{
                   </ul>
                 </div>
                 <div  className="home-items home-about">
-                  <a href="javascript:;">About</a>
+                  {/*<a href="/about">About</a>*/}
+                  <Link to="/about">About</Link>
                   <ul className="home-about-list">
                       {
                         <About />
@@ -114,9 +117,9 @@ class HomeNavbarIndex extends Component{
                    }
                   </div>
                 <div className="home-items home-shopping">
-                  <a href="javascript:;">
+                  <Link to="/cart">
                     <i className="fas fa-shopping-cart"></i>
-                  </a>
+                  </Link>
                   <span className="home-shopping-point">1</span>
                   <div className="nav-shopping-cart">123</div>
                 </div>
@@ -124,7 +127,6 @@ class HomeNavbarIndex extends Component{
             </div>
           </div>
           </>
-          </Router>
         )
     }
 }

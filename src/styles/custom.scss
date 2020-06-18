@@ -1,5 +1,7 @@
-//home
+// crat
+@import './cart/cart.scss';
 
+//home
 @import '~bootstrap/scss/bootstrap.scss';
 @import './home/home-navbar-index.scss';
 @import './home/navbar.scss';
@@ -12,10 +14,34 @@
 @import './home/footer.scss';
 
 //news
-
 @import './news/news.scss';
 
 //product
-
 @import './product/instrument/productCategory.scss';
 @import './product/instrument/productList.scss';
+
+
+// login
+@import './login/all-login-page.scss';
+@import './login/user-facturer-login-page.scss';
+
+// register
+@import './register/user-register.scss';
+@import './register/manufacturer-register.scss';
+
+//User
+@import './user/user-app.scss';
+@import './user/user-data.scss';
+@import './user/user-like.scss';
+@import './user/user-purchase.scss';
+@import './user/user-pwd.scss';
+@import './user/user-sidebar.scss';
+@import './user/user-video.scss';
+@import './user/user-voucher.scss';
+
+
+
+
+
+
+

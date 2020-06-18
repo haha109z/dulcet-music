@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {Link} from 'react-router-dom';
 
-import '../../../styles/login/user-facturer-login-page.scss';
+// import '../../../styles/login/user-facturer-login-page.scss';
 
 class ManufacturerLoginPage extends Component{
 
@@ -11,11 +11,11 @@ class ManufacturerLoginPage extends Component{
             <form onSubmit={this.handleSubmit} >
                 <div className="form-group">
                     <label htmlfor="facturerEmail" className="col-md-12 control-label">電子郵件</label>
-                    <input type="email" className="form-control col-md-12" id="facturerEmail" placeholder="請輸入電子郵件" />
+                    <input type="email"  name="facturerEmail" className="form-control col-md-12" id="facturerEmail" placeholder="請輸入電子郵件" />
                 </div>
                 <div className="form-group">
                     <label htmlfor="facturerPassword" className="col-md-12 control-label">密碼</label>
-                    <input type="password" className="form-control" id="facturerPassword" placeholder="請輸入密碼" />
+                    <input type="password" name="facturerPassword" className="form-control" id="facturerPassword" placeholder="請輸入密碼" />
                 </div>
                 <div className="form-group form-check">
                     <input type="checkbox" className="user-check-input" id="userCheckMe" />
@@ -23,7 +23,7 @@ class ManufacturerLoginPage extends Component{
                 </div>
                 <button type="button" className="all-login-btn">登入</button>
                 <div className="col-md-12 all-login-register-btn">
-                    <Link to="">註冊</Link>
+                    <Link to="/register/manufacturer">註冊</Link>
                 </div>
                 <div className="col-md-12 all-login-resetpwd">
                     <Link to="">忘記密碼</Link>

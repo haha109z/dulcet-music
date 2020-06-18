@@ -32,26 +32,26 @@
     display: flex;
 }
 
-.user-register-wrap{
+.facturer-register-wrap{
     // border: 1px solid red;
     margin: 13.57rem auto 0 ;
 
-    .user-register-body{
+    .facturer-register-body{
         text-align: center;
         // border: 1px solid blue;
         margin: 0 auto;
 
-        .user-register-txt{
+        .facturer-register-txt{
             font-family: var(--main-title-english);
             font-size: var(--h1);
             padding-bottom: 1.42rem;
 
-            .user-register-h3{
+            .facturer-register-h3{
                 font-family: var(--main-title-chinese);
                 font-size: var(--h3);
-              }// user-register-h3
+              }// facturer-register-h3
 
-        }// user-register-txt
+        }// facturer-register-txt
 
         .register-form-wrap{
             margin: 0 auto;
@@ -102,7 +102,7 @@
 
               }// form-check
 
-            .user-register-btn{
+            .facturer-register-btn{
                 width: 10.71rem;
                 height: 3.57rem;
                 font-size: var(--h3);
@@ -132,6 +132,6 @@
             }//微软
 
         }// register-form-wrap
-    }// user-register-body
+    }// facturer-register-body
 
-}// user-register-wrap
+}// facturer-register-wrap

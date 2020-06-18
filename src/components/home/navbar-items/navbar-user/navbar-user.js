@@ -1,4 +1,5 @@
 import React,{useState, Component} from 'react';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 class NavbarUser extends Component{
@@ -39,16 +40,16 @@ class NavbarUser extends Component{
             <p className="home-username" style={{display:display2}}>{homeUserItem.username}</p>
             <ul className="home-nav-userlogin" style={{display:display3}}>
                 <li>
-                    <a src="javascript:;">我的帳戶</a>
+                    <Link to="javascript:void(0)">我的帳戶</Link>
                 </li>
                 <li>
-                    <a src="javascript:;">我的影片</a>
+                    <Link to="javascript:void(0)">我的影片</Link>
                 </li>
                 <li>
-                    <a src="javascript:;">購買清單</a>
+                    <Link to="javascript:void(0)">購買清單</Link>
                 </li>
                 <li>
-                    <a src="javascript:;">登出</a>
+                    <Link to="javascript:void(0)">登出</Link>
                 </li>
             </ul>
         </>
