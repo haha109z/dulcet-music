@@ -4,8 +4,8 @@ import {  BrowserRouter as Router,  Switch,  Route,  Link} from "react-router-do
 import HomeApp from'./container/home-app';
 import Footer from'./components/footer/footer';
 
-import Test from './container/test';
 import ProductInstrument from './container/product-instrument';
+
 import News from './container/news';
 
 function App() {
