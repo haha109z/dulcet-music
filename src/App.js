@@ -3,7 +3,7 @@ import {  BrowserRouter as Router,  Switch,  Route,  Link, Redirect} from "react
 
 //Home
 
-import HomeApp from'./container/home-app';
+import HomeApp from './container/home-app';
 
 //Product
 
@@ -21,7 +21,7 @@ import News from './container/news';
 
 //Footer
 
-import Footer from'./components/footer/footer';
+import Footer from './components/footer/footer';
 
 function App() {
   return (
