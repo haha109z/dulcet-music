@@ -21,7 +21,7 @@ import News from './container/news';
 
 //Footer
 
-import Footer from'./components/footer/footer';
+import Footer from './components/footer/footer';
 
 function App() {
   return (
