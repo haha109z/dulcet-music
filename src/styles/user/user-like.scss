@@ -1,0 +1,124 @@
+.UserLike-main {
+  width: 812px;
+  margin: 198px auto auto 10%;
+
+  /* background-color: thistle; */
+}
+
+.UserLike-top-titleName {
+  margin: 0 auto 80px auto;
+  text-align: center;
+}
+
+.UserLike-search {
+  width: 100%;
+}
+.UserLike-search-input {
+  width: calc(100% - 80px);
+  height: 40px;
+  padding-left: 17px;
+}
+.UserLike-search-button {
+  width: 80px;
+  height: 40px;
+  text-align: center;
+  background-color: var(--main-colorblock);
+  color: var(--main-colorfff);
+}
+.UserLike-search-button:hover {
+  background-color: var(--main-colorf2e);
+  color: var(--main-colorblock);
+}
+.UserLike-search-404title {
+  margin: 20px 0 20px 15px;
+  color: var(--main-colorfb2);
+}
+
+.UserLike-order {
+  margin-top: 40px;
+  position: relative;
+}
+.UserLike-order-item {
+  background-color: #f2f2f2;
+  width: 100%;
+  height: 180px;
+  display: flex;
+  margin-top: 20px;
+}
+.UserLike-order-item-img {
+  width: 140px;
+  height: 140px;
+  background-color: cyan;
+  margin: auto 0 auto 10px;
+}
+.UserLike-order-item-img > img {
+  width: 100%;
+  height: 100%;
+}
+.UserLike-order-item-text {
+  width: 65%;
+  height: 140px;
+  margin: 20px 0 0 10px;
+  position: relative;
+}
+.UserLike-order-item-text-name {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  margin-bottom: 10px;
+  font-size: 14px;
+  width: 82%;
+}
+.UserLike-order-item-text-specification {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+.UserLike-order-item-text-number {
+  font-size: 12px;
+}
+.UserLike-order-item-text-money {
+  position: absolute;
+  bottom: 0px;
+  display: flex;
+  align-items: baseline;
+}
+.UserLike-order-item-text-money-1 {
+  font-size: 20px;
+  margin-right: 10px;
+
+}
+.UserLike-divider{
+  border: 1.5px #f2f2f2 solid;
+
+}
+.UserLike-order-divider{
+  background-color: var(--main-colorblock);
+  margin-top: 20px;
+  
+}
+
+.UserLike-order-item-text-money-2 {
+  font-size: 14px;
+}
+
+.UserLike-order-item-text-money-3 {
+  font-size: 24px;
+}
+
+.UserLike-order-item-button {
+  width: 40px;
+  height: 180px;
+  color: var(--main-colorfff);
+  background-color: var(--main-colorblock);
+  position: absolute;
+  right: 0;
+  padding: 5px;
+}
+.UserLike-order-item-button:hover {
+  color: var(--main-colorblock);
+  background-color: var(--main-colorf2e);
+}

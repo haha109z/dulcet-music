@@ -1,0 +1,111 @@
+
+
+.userVoucher-main {
+  width: 812px;
+  margin: 0 auto 80px 10%;
+}
+
+.userVoucher-search-input {
+  width: calc(100% - 80px);
+  height: 40px;
+  padding-left: 17px;
+  outline: none;
+}
+.userVoucher-search-button {
+  width: 80px;
+  height: 40px;
+  text-align: center;
+  background-color: var(--main-colorblock);
+  color: var(--main-colorfff);
+  outline: none;
+}
+.userVoucher-search-button:hover {
+  background-color: var(--main-colorf2e);
+  color: var(--main-colorblock);
+}
+.userVoucher-search-404title {
+  margin: 20px 0 20px 15px;
+  color: var(--main-colorfb2);
+}
+
+.userVoucher-top-titleName {
+  margin: 198px auto 80px auto;
+  text-align: center;
+}
+
+.userVoucher-item {
+  display: flex;
+  margin-top: 30px;
+  width: 100%;
+  height: 500px;
+  justify-content: space-between; /* 横向中间自动空间 */
+  align-content: space-between; /* 竖向中间自动空间 */
+  flex-wrap: wrap;
+}
+.userVoucher-item-card {
+  width: 330px;
+  height: 107px;
+  background-color: #f2f2f2;
+  margin: 0 auto 40px auto;
+  position: relative;
+  box-shadow: 4px 3px 5px #aba2a2;
+  -webkit-box-shadow: 4px 3px 5px #aba2a2;
+  -moz-box-shadow: 4px 3px 5px #aba2a2;
+}
+.userVoucher-item-card:after {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 100%;
+  background-size: 30px 21px;
+  background-repeat: repeat-y;
+  background-image: radial-gradient(#fff 8px, transparent 8px);
+  position: absolute;
+  top: 0;
+  left: -15px;
+}
+.userVoucher-item-card-img {
+  width: 70px;
+  height: 75px;
+  margin: 16px 0 0 22px;
+  position: absolute;
+}
+.userVoucher-item-card-img>img{
+  width: 100%;
+  height: 100%;
+  
+}
+.userVoucher-divider{
+  border: 1.5px #f2f2f2 solid;
+
+}
+.userVoucher-item-card-divider {
+  height: 100%;
+  background-color: var( --main-colorblock);
+  width: 1px;
+  position: absolute;
+  left: 100px;
+}
+.userVoucher-item-card-title{
+  font-size: 20px;
+  position: absolute;
+  left: 119px;
+  top: 23px;
+  color: #141414;
+}
+.userVoucher-item-card-date{
+  font-size: 12px;
+  position: absolute;
+  bottom: 16px;
+  left: 111px;
+  color: #141414;
+
+}
+.userVoucher-item-card-now{
+  position: absolute;
+  text-decoration:underline;
+  bottom: 16px;
+  left: 244px;
+
+font-size: 16px;
+}
