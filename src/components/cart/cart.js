@@ -123,7 +123,9 @@ function Cart() {
                       <input className="" id="einvoice" type="text"/>
                     </div>
                   </div>
-                </fieldset>
+                </div>
+               </div>
+              </fieldset>
             </div>
           </form>
         </div>
