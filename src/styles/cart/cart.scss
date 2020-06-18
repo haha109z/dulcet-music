@@ -1,0 +1,237 @@
+// Import Bootstrap and its default variables
+@import "~bootstrap/scss/bootstrap";
+
+// google-font
+@import url("https://fonts.googleapis.com/css2?family=Merienda&family=Noto+Serif+TC:wght@300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  // font-family: var(--main-title-chinese);
+  // font-size: var(--h4);
+}
+
+:root {
+  --main-colorfff: #fff;
+  --main-colorblack: #141414;
+  --main-color79: #797979;
+  --main-colorda: #dadada;
+  --main-colorf2: #f2f2f2;
+  --main-colorf2e: #f2ebdf;
+  --main-colorfb2: #fb2643;
+  --main-title-english: "Merienda";
+  --main-title-chinese: "Noto Serif TC";
+  --nav-height: 5rem; /** 80px **/
+  --margin: 11.25rem; /** 180px **/
+  --h1: 2.25rem; /** 36px **/
+  --h2: 1.5rem; /** 24px **/
+  --h3: 1.42rem; /** 20px **/
+  --h4: 1.14rem; /** 16px **/
+  --p: 1rem;
+  --h5: 0.92rem; /** 13px **/
+  --h6: 0.85rem; /** 12px **/
+}
+
+.cart-container {
+  max-width: 960px;
+  margin: 80px auto;
+  font-family: var(--main-title-chinese);
+  font-size: var(--h4);
+}
+
+.cart-title {
+  background: yellow;
+  // padding: 20px 0;
+  // line-height: 70px;
+
+  h1 {
+    // margin: 0;
+    font-size: var(--h1);
+    font-family: var(--main-title-english);
+  }
+}
+
+.cart-table {
+  // background: orange;
+  max-width: 960px;
+  border-collapse: collapse;
+  width: 100%;
+
+  td,
+  th {
+    // border: 1px solid black;
+  }
+
+  thead {
+    font-size: var(--h2);
+    background-color: var(--main-colorblack);
+
+    th {
+      color: var(--main-colorfff);
+      padding: 5px;
+    }
+  }
+
+  tbody {
+    // line-height: 40px;
+    text-align: center;
+
+    td,
+    th {
+      // padding: 10px;
+    }
+
+    .cart-category {
+      font-size: var(--h2);
+      text-align: left;
+      padding: 10px;
+    }
+
+    input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+    }
+
+    img {
+      width: 130px;
+      height: 130px;
+    }
+
+    .cart-number {
+      border: 1px solid var(--main-color79);
+      display: inline;
+      padding: 0 25px;
+      margin: 10px;
+    }
+
+    .cart-addBtn,
+    .cart-deBtn {
+      width: 25px;
+      height: 25px;
+      vertical-align: sub;
+    }
+
+    .cart-btn {
+      cursor: pointer;
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
+
+.cart-buyer-info {
+  // background: greenyellow;
+  line-height: 50px;
+
+  h2 {
+    padding: 40px 0 15px 0;
+  }
+
+  fieldset {
+    padding: 30px;
+    border: 1px solid var(--main-color79);
+  }
+
+  input {
+    text-align: center;
+  }
+
+  label {
+    display: block;
+
+    input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      vertical-align: sub;
+    }
+  }
+
+  .cart-input {
+    background: #fb2643;
+    // border: 1px solid white;
+    margin: 30px 0 0 0;
+
+    label {
+      padding: 0 24px;
+    }
+
+    input {
+      outline: none;
+      background-color: transparent;
+      border: none;
+      border-bottom: 2px solid var(--main-color79);
+      width: 93%;
+      margin: 0 30px;
+    }
+  }
+}
+
+.cart-invoice {
+  background: hotpink;
+  line-height: 50px;
+
+  h2 {
+    padding: 40px 0 15px 0;
+  }
+
+  fieldset {
+    padding: 30px;
+    border: 1px solid var(--main-color79);
+  }
+
+  input {
+    text-align: center;
+  }
+
+  label {
+    // background: blue;
+    display: block;
+
+    input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      vertical-align: sub;
+    }
+  }
+
+  span {
+    padding: 0 30px;
+    line-height: 60px;
+  }
+
+  select {
+    border-color: var(--main-color79);
+    font-family: var(--main-title-chinese);
+    margin: 0 30px;
+  }
+
+  .cart-input {
+    background: #fb2643;
+    border: 1px solid white;
+    margin: 30px 0 0 0;
+
+    label {
+      padding: 0 24px;
+    }
+
+    input {
+      outline: none;
+      background-color: transparent;
+      border: none;
+      border-bottom: 2px solid var(--main-color79);
+      width: 93%;
+      margin: 0 30px;
+    }
+  }
+}
+
+.cart-total {
+  background: lightblue;
+}

@@ -32,7 +32,7 @@
     display: flex;
 }
 
-.container-fluid{
+.home-class-wrap{
     padding: 0;
 
     .home-class-cour{
@@ -157,7 +157,7 @@
 }
 
 @media screen and (max-width:768px){
-    .container-fluid{
+    .home-class-wrap{
         width: 100vw;
 
         .home-class-cour {

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ProductPicture() {
+function ProductPicture(props) {
   return (
     <>
       <div className="product-picture">
@@ -15,7 +15,7 @@ function ProductPicture() {
             d="M465.1,1,1,198.49V1H465.1M470,0H0V200L470,0Z"
           />
         </svg>
-        <span id="product-title">精選樂器</span>
+  <span id="product-title">{props.productTitle}</span>
         {/* <img id="title-img" src={require('../images/Piano.jpg')} /> */}
       </div>
     </>

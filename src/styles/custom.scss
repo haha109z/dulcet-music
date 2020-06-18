@@ -1,7 +1,6 @@
 //home
 
 @import '~bootstrap/scss/bootstrap.scss';
-
 @import './home/home-navbar-index.scss';
 @import './home/navbar.scss';
 @import './home/home-slider-index.scss';
@@ -14,23 +13,12 @@
 
 //news
 
-@import './news/News-Navbar.scss';
-@import './news/News-Sliders.scss';
-@import './news/News-Category.scss';
+@import './news/news.scss';
 
 //product
 
 @import './product/instrument/productCategory.scss';
 @import './product/instrument/productList.scss';
 
-//user
-
-@import './user/user-app.scss';
-@import './user/user-data.scss';
-@import './user/user-like.scss';
-@import './user/user-purchase.scss';
-@import './user/user-pwd.scss';
-@import './user/user-sidebar.scss';
-@import './user/user-video.scss';
-@import './user/user-voucher.scss';
-
+// crat
+@import './cart/cart.scss';

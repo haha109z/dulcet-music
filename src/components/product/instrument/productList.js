@@ -9,7 +9,7 @@ function ProductList(props) {
   return (
     <>
       <div className="product-container">
-        <ProductPicture />
+        <ProductPicture productTitle={props.productTitle} />
         <div className="product-wrapper">
           <div className="product-control">
             <select className="product-sort" name="test">
@@ -18,9 +18,9 @@ function ProductList(props) {
             </select>
           </div>
           <div className="product-card-list">
-            <div className="product-card">
+            <div className="product-instrument-card">
               <img
-                className="product-card-img"
+                className="product-instrument-card-img"
                 // src={require('../images/184177.jpg')}
               />
               <div className="product-card-favorite-container">
@@ -31,14 +31,14 @@ function ProductList(props) {
                 <h3 className="product-card-cost">$13,000</h3>
               </div>
             </div>
-            <div className="product-card"></div>
-            <div className="product-card"></div>
-            <div className="product-card"></div>
+            <div className="product-instrument-card"></div>
+            <div className="product-instrument-card"></div>
+            <div className="product-instrument-card"></div>
           </div>
           <div className="product-card-list">
-            <div className="product-card">
+            <div className="product-instrument-card">
               <img
-                className="product-card-img"
+                className="product-instrument-card-img"
                 // src={require('../images/184177.jpg')}
               />
               {/* </div> */}
@@ -47,9 +47,9 @@ function ProductList(props) {
                 <h3 className="product-card-cost">$13,000</h3>
               </div>
             </div>
-            <div className="product-card"></div>
-            <div className="product-card"></div>
-            <div className="product-card"></div>
+            <div className="product-instrument-card"></div>
+            <div className="product-instrument-card"></div>
+            <div className="product-instrument-card"></div>
           </div>
           <Router>
 

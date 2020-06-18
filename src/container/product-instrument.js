@@ -5,10 +5,11 @@ import ProductCategory from '../components/product/instrument/productCategory'
 
 
 function ProductInstrument() {
+  const productTitle = "精選樂器"
   return (
     <>
       {/* <Navbar /> */}
-      <ProducList />
+      <ProducList productTitle={productTitle} />
       <ProductCategory />
 
     </>

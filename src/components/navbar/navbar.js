@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import Courses from '../home/navbar-items/navbar-courses/navbar-courses'
 import Videos from '../home/navbar-items/navbar-videos/navbar-videos';
@@ -26,7 +27,7 @@ class Navbar extends Component{
               {/* nav-logo-left-others */}
                 <div className="nav-logo-left-others">
                   <a href="javascript:;">
-                    <img src={this.props.HomeLogo2} alt="logo2" />
+                    <img src={require('../../img/home_logo_長2.svg')} alt="logo2" />
                   </a>
                 </div>
                 <label htmlFor="HomeNavburger" className="home-nav-burger"><i className="fas fa-bars"></i></label>
@@ -102,4 +103,12 @@ class Navbar extends Component{
     }
 }
 
-export default Navbar;
+// export default Navbar;
+
+export default connect(
+  state =>(
+      {
+          homeUser:state.homeUser
+      }
+  )
+)(Navbar);
