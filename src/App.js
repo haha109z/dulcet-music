@@ -15,9 +15,7 @@ function App() {
       <Route path="/" exact>
         <HomeApp />
       </Route>
-      <Route path="/test" >
-        <Test />
-      </Route>
+      
       <Route path="/instrument" exact>
         <ProductInstrument />
       </Route>
