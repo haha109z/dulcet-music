@@ -89,6 +89,11 @@
             .home-class-video-tltie,.home-class-video-tltie-ch{
                 font-size:var(--h1);
                 margin-bottom: 1.42rem;
+
+                a{
+                    text-decoration: none;
+                    color:var(--main-colorblock);
+                }
             }
 
             .home-class-cour-title,.home-class-video-tltie{
@@ -115,11 +120,15 @@
             }
 
             .home-class-btn{
+                display: block;
                 width: 100%;
                 height: 2.14rem;
+                line-height: 2.14rem;
                 text-align: center;
+                color:var(--main-colorblock);
                 background: var(--main-colorf2e);
                 font-family: var(--main-title-english);
+                text-decoration: none;
                 outline: none;
                 border: none;
                 cursor: pointer;
@@ -180,11 +189,17 @@
                 // border: 1px red solid;
 
                     .home-class-cour-title{
-                        color:var(--main-colorfff);
+                        a{
+                            color:var(--main-colorfff);
+                        }
                     }
 
                     .home-class-cour-title-ch{
                         display: block;
+
+                        a{
+                            color:var(--main-colorfff);
+                        }
                     }
 
                     h2,.home-cour-txt{
@@ -215,11 +230,16 @@
                     // border: 1px solid red;
 
                     .home-class-video-tltie{
-                        color: var(--main-colorfff);
+                        a{
+                            color:var(--main-colorfff);
+                        }
                     }
 
                     .home-class-video-tltie-ch{
                         display: block;
+                        a{
+                            color:var(--main-colorfff);
+                        }
                     }
 
                     h2,.home-class-txt{

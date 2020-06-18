@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
 
 import Courses from '../home/navbar-items/navbar-courses/navbar-courses'
 import Videos from '../home/navbar-items/navbar-videos/navbar-videos';
@@ -35,7 +36,8 @@ class Navbar extends Component{
                 {/* navbar-list */}
                 <div className="nav-navlist-others nav-d-flex">
                   <div className="nav-items-others nav-courses-others">
-                    <a href="/course">Courses</a>
+                    {/*<a href="/course">Courses</a>*/}
+                    <Link to="/course">Courses</Link>
                     <ul className="nav-courses-list-others">
                         {
                           <Courses />
@@ -43,7 +45,8 @@ class Navbar extends Component{
                     </ul>
                   </div>
                   <div className="nav-items-others nav-videos-others">
-                    <a href="/video">Videos</a>
+                      {/*<a href="/video">Videos</a>*/}
+                        <Link to="/video">Videos</Link>
                     <ul className="nav-videos-list-others">
                         {
                           <Videos />
@@ -51,7 +54,8 @@ class Navbar extends Component{
                     </ul>
                   </div>
                   <div  className="nav-items-others nav-instrument-others">
-                    <a href="/instrument">Instrument</a>
+                    {/*<a href="/instrument">Instrument</a>*/}
+                    <Link to="/instrument">Instrument</Link>
                     <ul className="nav-instrument-list-others">
                         {
                           <Instrument />
@@ -59,7 +63,8 @@ class Navbar extends Component{
                     </ul>
                   </div>
                   <div  className="nav-items-others nav-news-others">
-                    <a href="/news">News</a>
+                    {/*<a href="/news">News</a>*/}
+                    <Link to="/news">News</Link>
                     <ul className="nav-news-list-others">
                         {
                           <News />
@@ -67,7 +72,8 @@ class Navbar extends Component{
                     </ul>
                   </div>
                   <div  className="nav-items-others nav-about-others">
-                    <a href="javascript:;">About</a>
+                    {/*<a href="/about">About</a>*/}
+                    <Link to="/about">About</Link>
                     <ul className="nav-about-list-others">
                         {
                           <About />
