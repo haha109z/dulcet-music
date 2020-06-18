@@ -12,13 +12,11 @@ function CartCheckOrder() {
         <table className="cart-table">
           <thead>
             <tr>
-              <th>選取</th>
               <th>商品圖片</th>
               <th>商品名稱</th>
               <th>商品單價</th>
               <th>數量</th>
               <th>商品小計</th>
-              <th>刪除</th>
             </tr>
           </thead>
           <tbody>
