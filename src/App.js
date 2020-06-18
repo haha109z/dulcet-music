@@ -9,6 +9,7 @@ import Footer from'./components/footer/footer';
 import ProductCourse from './container/product-course';
 import ProductVideo from './container/product-video';
 import ProductInstrument from './container/product-instrument';
+
 import UserApp from './container/user-app';
 
 import News from './container/news';
