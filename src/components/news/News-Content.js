@@ -5,7 +5,7 @@ function NewsContent(props) {
   return (
     <>
 
-        <div className="News-container">
+        <div className="News-Content">
             123
         </div>
     </>
