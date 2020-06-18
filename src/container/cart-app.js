@@ -8,9 +8,9 @@ function CartApp(){
 
     return(
         <>
-            <Navbar />
+            {/* <Navbar /> */}
             <Cart />
-            <Footer />        
+            {/* <Footer />         */}
         </>
     )
 }
