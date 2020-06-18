@@ -1,11 +1,13 @@
 import React from 'react'
+// import Navbar from '../components/navbar/navbar'
+import ProducList from '../components/product/instrument/productList'
+import ProductCategory from '../components/product/instrument/productCategory'
 
-import ProducList from '../components/product/productList'
-import ProductCategory from '../components/product/productCategory'
 
 function ProductInstrument() {
   return (
     <>
+      {/* <Navbar /> */}
       <ProducList />
       <ProductCategory />
 
