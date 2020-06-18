@@ -14,7 +14,7 @@ class UserApp extends Component {
     return (
       <>
        <BrowserRouter>
-          <div className="d-flex container-sm">
+          <div className="d-flex user-container">
             <UserSideBar/>
             <Switch>
               <Route path="/user/UserData" component={UserData}></Route>
