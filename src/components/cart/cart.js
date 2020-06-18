@@ -1,18 +1,12 @@
 import React from 'react';
 
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faShoppingBag } from '@fortawesome/free-solid-svg-icons'
-// import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
-// import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
-// import { faMinusCircle } from '@fortawesome/free-solid-svg-icons'
-
 function Cart() {
 
   return (
     <>
       <div className="cart-container">
         <div className="cart-title">
-          <h1><i class="fas fa-shopping-bag"></i> My Cart</h1>
+          <h1><i className="fas fa-shopping-bag"></i> My Cart</h1>
           <span style={{fontSize:'var(--h2)'}}>❶確認購買商品➔❷確認訂單➔❸選擇付款方式➔❹完成結帳</span>
         </div>
         <table className="cart-table">
@@ -55,7 +49,7 @@ function Cart() {
                 <i className="fas fa-plus-circle cart-plusBtn"></i>
               </td>
               <td>$17,000</td>
-              <td><div className="cart-btn" onClick={()=>{}}><i class="far fa-trash-alt"></i></div></td>
+              <td><div className="cart-btn" onClick={()=>{}}><i className="far fa-trash-alt"></i></div></td>
             </tr>
           </tbody>
         </table>
