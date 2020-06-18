@@ -1,5 +1,3 @@
-
-
 .userVoucher-main {
   width: 812px;
   margin: 0 auto 80px 10%;
@@ -18,6 +16,8 @@
   background-color: var(--main-colorblock);
   color: var(--main-colorfff);
   outline: none;
+  transform:translateY(-1px);
+  border: none;
 }
 .userVoucher-search-button:hover {
   background-color: var(--main-colorf2e);
@@ -37,7 +37,6 @@
   display: flex;
   margin-top: 30px;
   width: 100%;
-  height: 500px;
   justify-content: space-between; /* 横向中间自动空间 */
   align-content: space-between; /* 竖向中间自动空间 */
   flex-wrap: wrap;
@@ -70,42 +69,46 @@
   margin: 16px 0 0 22px;
   position: absolute;
 }
-.userVoucher-item-card-img>img{
+.userVoucher-item-card-img > img {
   width: 100%;
   height: 100%;
-  
 }
-.userVoucher-divider{
+.userVoucher-divider {
   border: 1.5px #f2f2f2 solid;
-
 }
 .userVoucher-item-card-divider {
   height: 100%;
-  background-color: var( --main-colorblock);
+  background-color: var(--main-colorblock);
   width: 1px;
   position: absolute;
   left: 100px;
 }
-.userVoucher-item-card-title{
+.userVoucher-item-card-title {
   font-size: 20px;
   position: absolute;
   left: 119px;
-  top: 23px;
+  top: 5px;
   color: #141414;
 }
-.userVoucher-item-card-date{
+.userVoucher-item-card-date {
   font-size: 12px;
   position: absolute;
-  bottom: 16px;
+  bottom: 10px;
   left: 111px;
   color: #141414;
-
 }
-.userVoucher-item-card-now{
+.userVoucher-item-card-copy {
   position: absolute;
-  text-decoration:underline;
-  bottom: 16px;
+  text-decoration: underline;
+  bottom: 10px;
   left: 244px;
-
-font-size: 16px;
+  font-size: 16px;
+}
+.userVoucher-item-card-num{
+  font-size: 20px;
+    position: absolute;
+    
+    bottom: 37px;
+    left: 165px;
+font-family: var(--main-title-english);
 }
