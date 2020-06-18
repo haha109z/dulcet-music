@@ -40,9 +40,9 @@
 }
 
 .cart-title {
-  background: yellow;
+  // background: yellow;
   // padding: 20px 0;
-  // line-height: 70px;
+  line-height: 70px;
 
   h1 {
     // margin: 0;
@@ -65,6 +65,7 @@
   thead {
     font-size: var(--h2);
     background-color: var(--main-colorblack);
+    text-align: center;
 
     th {
       color: var(--main-colorfff);
@@ -88,8 +89,8 @@
     }
 
     input[type="checkbox"] {
-      width: 20px;
-      height: 20px;
+      width: 25px;
+      height: 25px;
     }
 
     img {
@@ -143,14 +144,14 @@
     display: block;
 
     input[type="checkbox"] {
-      width: 20px;
-      height: 20px;
+      width: 25px;
+      height: 25px;
       vertical-align: sub;
     }
   }
 
   .cart-input {
-    background: #fb2643;
+    // background: #fb2643;
     // border: 1px solid white;
     margin: 30px 0 0 0;
 
@@ -170,7 +171,7 @@
 }
 
 .cart-invoice {
-  background: hotpink;
+  // background: hotpink;
   line-height: 50px;
 
   h2 {
@@ -191,8 +192,8 @@
     display: block;
 
     input[type="checkbox"] {
-      width: 20px;
-      height: 20px;
+      width: 25px;
+      height: 25px;
       vertical-align: sub;
     }
   }
@@ -209,8 +210,8 @@
   }
 
   .cart-input {
-    background: #fb2643;
-    border: 1px solid white;
+    // background: #fb2643;
+    // border: 1px solid white;
     margin: 30px 0 0 0;
 
     label {
@@ -229,5 +230,34 @@
 }
 
 .cart-total {
-  background: lightblue;
+  background: #F2F2F2;
+  margin: 40px;
+  display: flex;
+
+  table {
+    line-height: 50px;
+    
+    th:nth-child(even){
+      text-align: left;
+    }
+    
+    th:nth-child(odd){
+        text-align: right;
+    }
+    
+  }
+  
+  .cart-discount {
+    padding: 20px;
+    flex-grow: 1;
+  }
 }
+
+.cart-checkout-btn {
+  background: #F2E8DF;
+  border: none;
+  text-align: center;
+  padding: 10px 50px;
+  margin: 0 10px;
+}
+

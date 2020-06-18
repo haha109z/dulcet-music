@@ -92,7 +92,6 @@ function Cart() {
                       <input className="" id="einvoice" type="text"/>
                     </div>
                   </div>
-                  <div>
                   <div style={{padding:'0 0 20px 0'}}>
                     <label><input type="checkbox" id=""/> 捐贈發票</label>
                     <span>提醒您，捐贈發票後無法變更成開立或索取紙本發票。</span>
@@ -106,8 +105,6 @@ function Cart() {
                   <div>
                     <label><input type="checkbox" id=""/> 公司戶</label>
                     <span>提醒您，公司戶發票一旦開立，不得任意更改或改為個人戶發票。</span>
-                    <div className="cart-input">
-                    <span>提醒您，公司戶發票一旦開立，不得任意更改或改為個人戶發票。</span>
                     <div className="cart-input" style={{margin: '0 0 20px 0'}}>
                       <label for="einvoice">統一編號</label>
                       <input className="" id="einvoice" type="text"/>
@@ -117,15 +114,13 @@ function Cart() {
                       <input className="" id="einvoice" type="text"/>
                     </div>
                   </div>
-                </div>
-               </div>
               </fieldset>
             </div>
           </form>
         </div>
 
         <div className="cart-total">
-          <div className="discount">
+          <div className="cart-discount">
             <label for="discount">折扣碼</label><br/>
             <input className="" id="discount" type="text"/>
           </div>
@@ -144,8 +139,10 @@ function Cart() {
             </tr>
           </table>
         </div>
-        <button className="" type="">繼續購物</button>
-        <button className="" type="submit">下一步→</button>
+        <div className="">
+          <button className="cart-checkout-btn" type="">繼續購物</button>
+          <button className="cart-checkout-btn" type="submit">下一步→</button>
+        </div>
       </div>
     </>
   );
