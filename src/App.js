@@ -1,5 +1,7 @@
-import React from 'react';
-import {  BrowserRouter as Router,  Switch,  Route,  Link} from "react-router-dom";
+import React , { Component }from 'react';
+import {  BrowserRouter as Router,  Switch,  Route,  Link, Redirect} from "react-router-dom";
+
+
 
 import HomeApp from'./container/home-app';
 import Footer from'./components/footer/footer';
@@ -7,6 +9,8 @@ import Footer from'./components/footer/footer';
 import ProductCourse from './container/product-course';
 import ProductVideo from './container/product-video';
 import ProductInstrument from './container/product-instrument';
+
+import UserApp from './container/user-app';
 
 import News from './container/news';
 
@@ -32,9 +36,15 @@ function App() {
         <News />
       </Route>
 
+      <Route path="/user" exact>
+        <UserApp />
+      </Route>
+
       <Footer />
       </>
     </Router>
+
+    
   )
 }
 

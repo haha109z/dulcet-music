@@ -1,0 +1,67 @@
+.user-sidebar-menu-li:hover {
+    color: #141414;
+    text-decoration: none;
+}
+.user-sideBar {
+    min-width: 400px;
+    height: 1130px;
+    background-color: #dadada;
+    padding-top: 310px;
+  }
+  .user-sidebar-menu > a {
+    color: #141414;
+  }
+  .user-sidebar-menu-li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    justify-content: center;
+    padding: 10px;
+  }
+  .user-sidebar-menu-li:hover {
+    background-color: #141414;
+    color: white;
+  }
+  .user-sidebar-menu-li:hover > .user-sidebar-menu-li-left {
+    border-left: #ffffff 1px solid;
+  }
+  
+  .user-sidebar-menu-li:hover > .user-sidebar-menu-li-right {
+    border-right: #ffffff 1px solid;
+  }
+  
+  .user-sidebar-menu-li > div {
+    width: 20px;
+    height: 15px;
+  }
+  
+  .user-sidebar-menu-li-left {
+    border-left: #141414 1px solid;
+  }
+  
+  .user-sidebar-menu-li-right {
+    border-right: #141414 1px solid;
+  }
+  
+  .user-sideBar-logo {
+    width: 50px;
+    margin: 0 auto 20px auto;
+    height: 60px;
+font-size: 60px;  }
+
+  
+  .user-sideBar-title {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .user-sidebar-menu-out {
+    width: 50px;
+    margin: 180px auto;
+    border-bottom: #141414 1px solid;
+    text-align: center;
+  }
+  
+  .user-sidebar-menu-out > a {
+    color: #797979;
+  }

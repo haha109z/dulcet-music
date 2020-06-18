@@ -1,5 +1,6 @@
 import React,{useState, Component} from 'react';
 import PropTypes from 'prop-types';
+import { Switch, Route, Redirect } from 'react-router-dom' 
 
 class NavbarUser extends Component{
 

@@ -1,0 +1,81 @@
+.userPwd-main {
+  width: 812px;
+  margin: 198px auto auto 10%;
+  /* background-color: thistle; */
+  position: relative;
+}
+
+.userPwd-top-titleName {
+  margin: 0 auto 80px auto;
+  text-align: center;
+}
+
+.userPwd-top-ID {
+  position: absolute;
+  right: 0;
+  margin-top: -20px;
+}
+.userPwd-top-hr{
+  border: 1.5px #f2f2f2 solid;
+
+}
+
+
+.userPwd-top-Img {
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  background-color: rgb(134, 134, 152);
+  margin: 0 auto 5px auto;
+}
+
+.userPwd-form-input {
+  display: flex;
+  position: relative;
+}
+
+.userPwd-form > label {
+  height: 56px;
+  margin: 20px auto 0 auto;
+  border-bottom: 1px black solid;
+  width: 100%;
+  max-width: 500px;
+}
+
+.userPwd-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.userPwd-form-button {
+  width: 150px;
+  height: 50px;
+  background-color: #f2e8df;
+  border-radius: 0;
+  border: none;
+  margin: 60px auto 60px auto;
+}
+
+.userPwd-form-button:hover {
+  color: white;
+  background-color: #141414;
+}
+.svg-eye {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+}
+.userPwd-inp {
+  position: absolute;
+  bottom: 0;
+  margin: 20px 0 0 48px;
+  font-size: 16px;
+  margin-bottom: 2px;
+  width: 100%;
+}
+.userPwd-inp > input {
+  width: 85%;
+  outline: none;
+  background-color: none;
+  border: none;
+}
