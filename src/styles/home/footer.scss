@@ -1,161 +1,167 @@
 @import url('https://fonts.googleapis.com/css2?family=Merienda&family=Noto+Serif+TC:wght@300&display=swap');
 
 * {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    box-sizing: border-box;
-  }
-
-  :root {
-    --main-colorfff: #fff;
-    --main-colorblock: #141414;
-    --main-color79: #797979;
-    --main-colorda: #dadada;
-    --mail-colorf2: #f2f2f2;
-    --main-colorf2e: #f2ebdf; // 米色
-    --main-colorfb2: #fb2643;
-    --main-title-english: 'Merienda', cursive;
-    --main-title-chinese: 'Noto Serif TC', serif;
-    --nav-height: 5rem; // 80px
-    --margin: 11.25rem; // 180px
-    --h1: 2.25rem; // 36px
-    --h2: 1.5rem; // 24px
-    --h3: 1.42rem; // 20px
-    --h4: 1.14rem; // 16px
-    --p: 1rem;
-    --h5: 0.92rem; // 13px
-    --h6: 0.85rem; // 12px
-  }
-
-.footer-d-flex{
-    display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-sizing: border-box;
 }
 
-.footer-body{
-    font-family: var(--main-title-chinese);
-    background:var( --mail-colorf2);
-    position: relative;
-    bottom: 0;
-    left: 0;
-    justify-content: center;
-    align-items: center;
-    border-top: 1px solid var(--main-colorda);
-    z-index: 1;
-    padding: 2rem 0;
-    margin: 0;
-
-    .footer-logo{
-        text-align: center;
-        height: 12.14rem;
-        margin-bottom: 1rem;
-
-        img{
-            height:100%;
-            object-fit: cover;
-        }
-    }
-
-    .footer-about-us,.footer-authority,
-    .footer-coustom,.footer-company{
-        
-
-        .footer-title{
-            max-width: 100%;
-            font-size: var(--h4);
-            margin-bottom: 1.07rem;
-
-            &::after{
-                content: '';
-                display: block;
-                width: 45%;
-                height: 0.35rem;
-                background: var(--main-color79);
-                margin: 1.07rem 0;
-            }
-        }
-
-        .footer-items{
-            width: 70%;
-            font-size: var(--h5);
-
-            a{
-                display: block;
-                cursor: pointer;
-                padding: 0.2rem 0;
-                text-decoration: none;
-                color:var(--main-colorblock);
-
-
-                &:hover{
-                    color:var(--main-colorfb2);
-                }
-            }
-        }
-
-    }
-
+:root {
+  --main-colorfff: #fff;
+  --main-colorblock: #141414;
+  --main-color79: #797979;
+  --main-colorda: #dadada;
+  --mail-colorf2: #f2f2f2;
+  --main-colorf2e: #f2ebdf; // 米色
+  --main-colorfb2: #fb2643;
+  --main-title-english: 'Merienda', cursive;
+  --main-title-chinese: 'Noto Serif TC', serif;
+  --nav-height: 5rem; // 80px
+  --margin: 11.25rem; // 180px
+  --h1: 2.25rem; // 36px
+  --h2: 1.5rem; // 24px
+  --h3: 1.42rem; // 20px
+  --h4: 1.14rem; // 16px
+  --p: 1rem;
+  --h5: 0.92rem; // 13px
+  --h6: 0.85rem; // 12px
 }
 
-.footer-copy{
-    width: 100%;
-    height: 1.78rem;
-    line-height: 1.78rem;
-    color: var(--main-colorf2e);
-    font-size: var(--h5);
-    font-family: var(--main-title-english);
-    background:var(--main-colorblock);
+.footer-d-flex {
+  display: flex;
+}
+
+
+.footer-body {
+  max-width: 100vw;
+  font-family: var(--main-title-chinese);
+  background: var(--mail-colorf2);
+  position: relative;
+  bottom: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid var(--main-colorda);
+  z-index: 1;
+  padding: 2rem 0;
+  margin: 0;
+
+  .footer-logo {
     text-align: center;
-}
+    height: 12.14rem;
+    margin-bottom: 1rem;
 
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
 
-@media screen and (max-width: 768px) {
+  .footer-about-us,
+  .footer-authority,
+  .footer-coustom,
+  .footer-company {
+    .footer-title {
+      max-width: 100%;
+      font-size: var(--h4);
+      margin-bottom: 1.07rem;
 
-    .footer-body{
-        width: 100vw;
-        margin: 0;
-        justify-content: space-evenly;
-
-        .footer-logo{
-           display: none;
-        }
+      &::after {
+        content: '';
+        display: block;
+        width: 45%;
+        height: 0.35rem;
+        background: var(--main-color79);
+        margin: 1.07rem 0;
+      }
     }
 
+    .footer-items {
+      width: 70%;
+      font-size: var(--h5);
 
-    .footer-about-us,.footer-authority,
-    .footer-coustom,.footer-company{
-        width: 50%;
-        // border: 1px solid red;
-        padding: 0;
-    }
-
-    .footer-body .footer-about-us .footer-title, .footer-body .footer-authority .footer-title, .footer-body .footer-coustom .footer-title, .footer-body .footer-company .footer-title {
-        width: 80%;
-        height: 100%;
-        line-height: 100%;
-        border-left:0.35rem solid var(--main-color79);
-        margin: 0 auto;
-
-        &::after{
-            display: none;
-        }
-
-    }
-
-    .footer-body .footer-about-us .footer-title, .footer-body .footer-authority .footer-title, .footer-body .footer-coustom .footer-title, .footer-body .footer-company .footer-title, a{
+      a {
         display: block;
         cursor: pointer;
-        padding: 0.5rem 0 0.5rem 1rem;
-        margin-bottom: 1rem;
+        padding: 0.2rem 0;
+        text-decoration: none;
+        color: var(--main-colorblock);
 
-        &:active{
-            color:red;
+        &:hover {
+          color: var(--main-colorfb2);
         }
+      }
     }
-
-    .footer-items{
-        display: none;
-    };
+  }
 }
 
+.footer-copy {
+  width: 100%;
+  height: 1.78rem;
+  line-height: 1.78rem;
+  color: var(--main-colorf2e);
+  font-size: var(--h5);
+  font-family: var(--main-title-english);
+  background: var(--main-colorblock);
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
 
+@media screen and (max-width: 768px) {
+  .footer-body {
+    width: 100vw;
+    margin: 0;
+    justify-content: space-evenly;
+
+    .footer-logo {
+      display: none;
+    }
+  }
+
+  .footer-about-us,
+  .footer-authority,
+  .footer-coustom,
+  .footer-company {
+    width: 50%;
+    // border: 1px solid red;
+    padding: 0;
+  }
+
+  .footer-body .footer-about-us .footer-title,
+  .footer-body .footer-authority .footer-title,
+  .footer-body .footer-coustom .footer-title,
+  .footer-body .footer-company .footer-title {
+    width: 70%;
+    height: 100%;
+    line-height: 100%;
+    border-left: 0.35rem solid var(--main-color79);
+    margin: 0 auto;
+    box-sizing: border-box;
+    // background: red;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  .footer-body .footer-about-us .footer-title,
+  .footer-body .footer-authority .footer-title,
+  .footer-body .footer-coustom .footer-title,
+  .footer-body .footer-company .footer-title,
+  a {
+    display: block;
+    cursor: pointer;
+    padding: 0.5rem 0 0.5rem 1rem;
+    margin-bottom: 1rem;
+
+    &:active {
+      color: red;
+    }
+  }
+
+  .footer-items {
+    display: none;
+  }
+}

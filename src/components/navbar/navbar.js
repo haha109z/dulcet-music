@@ -1,5 +1,7 @@
 import React,{Component} from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import {Link} from 'react-router-dom';
 
 import Courses from '../home/navbar-items/navbar-courses/navbar-courses'
 import Videos from '../home/navbar-items/navbar-videos/navbar-videos';
@@ -25,8 +27,8 @@ class Navbar extends Component{
               <div className="nav-body-others nav-d-flex">
               {/* nav-logo-left-others */}
                 <div className="nav-logo-left-others">
-                  <a href="javascript:;">
-                    <img src={this.props.HomeLogo2} alt="logo2" />
+                  <a href="/">
+                    <img src={require('../../img/home_logo_長2.svg')} alt="logo2" />
                   </a>
                 </div>
                 <label htmlFor="HomeNavburger" className="home-nav-burger"><i className="fas fa-bars"></i></label>
@@ -34,7 +36,8 @@ class Navbar extends Component{
                 {/* navbar-list */}
                 <div className="nav-navlist-others nav-d-flex">
                   <div className="nav-items-others nav-courses-others">
-                    <a href="javascript:;">Courses</a>
+                    {/*<a href="/course">Courses</a>*/}
+                    <Link to="/course">Courses</Link>
                     <ul className="nav-courses-list-others">
                         {
                           <Courses />
@@ -42,7 +45,8 @@ class Navbar extends Component{
                     </ul>
                   </div>
                   <div className="nav-items-others nav-videos-others">
-                    <a href="javascript:;">Videos</a>
+                      {/*<a href="/video">Videos</a>*/}
+                        <Link to="/video">Videos</Link>
                     <ul className="nav-videos-list-others">
                         {
                           <Videos />
@@ -50,7 +54,8 @@ class Navbar extends Component{
                     </ul>
                   </div>
                   <div  className="nav-items-others nav-instrument-others">
-                    <a href="javascript:;">Instrument</a>
+                    {/*<a href="/instrument">Instrument</a>*/}
+                    <Link to="/instrument">Instrument</Link>
                     <ul className="nav-instrument-list-others">
                         {
                           <Instrument />
@@ -58,7 +63,8 @@ class Navbar extends Component{
                     </ul>
                   </div>
                   <div  className="nav-items-others nav-news-others">
-                    <a href="javascript:;">News</a>
+                    {/*<a href="/news">News</a>*/}
+                    <Link to="/news">News</Link>
                     <ul className="nav-news-list-others">
                         {
                           <News />
@@ -66,7 +72,8 @@ class Navbar extends Component{
                     </ul>
                   </div>
                   <div  className="nav-items-others nav-about-others">
-                    <a href="javascript:;">About</a>
+                    {/*<a href="/about">About</a>*/}
+                    <Link to="/about">About</Link>
                     <ul className="nav-about-list-others">
                         {
                           <About />
@@ -89,9 +96,9 @@ class Navbar extends Component{
                    }
                   </div>
                   <div className="nav-items-others nav-shopping">
-                    <a href="javascript:;">
+                    <Link to="/cart">
                       <i className="fas fa-shopping-cart"></i>
-                    </a>
+                    </Link>
                     <span className="nav-shopping-point">1</span>
                     <div className="nav-shopping-cart">123</div>
                   </div>
@@ -102,4 +109,12 @@ class Navbar extends Component{
     }
 }
 
-export default Navbar;
+// export default Navbar;
+
+export default connect(
+  state =>(
+      {
+          homeUser:state.homeUser
+      }
+  )
+)(Navbar);

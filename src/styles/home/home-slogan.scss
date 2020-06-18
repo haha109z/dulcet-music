@@ -26,7 +26,7 @@
   --h6: 0.85rem; // 12px
 }
 
-.container {
+.home-slogan-container {
   //   position: relative;
   //   z-index: -999;
   //   top:100vh;
@@ -62,10 +62,11 @@
 }
 
 @media screen and (max-width:768px)and(min-width:415px){
-  .container{
+  .home-slogan-container{
     max-width: 100%;
     padding-left: 0;
     padding-right: 0;
+    // margin-bottom: 3rem;
 
 
     .home-slogan-wrap {
@@ -78,7 +79,7 @@
        }
 
       .home-slogan-txt {
-        font-size: 3.117vw;
+        font-size: 2.6vw;
         padding: 0;
 
         p {
@@ -91,7 +92,7 @@
 
 @media screen and (max-width:414px){
 
-  .container{
+  .home-slogan-container{
     max-width: 100%;
     padding: 7.14rem 0 0 0;
 

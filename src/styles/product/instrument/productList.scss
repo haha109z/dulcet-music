@@ -3,7 +3,6 @@
 .product-container {
   margin: 0 auto;
   margin-top: 50px;
-
   width: 80vw;
   max-width: 1140px;
   min-width: 800px;
@@ -58,22 +57,21 @@
 
         .product-sort-option {
           height: 40px;
-          background: darkslateblue;
         }
       }
     }
     .product-card-list {
       display: flex;
       justify-content: space-between;
-      margin: 48px 0;
-      .product-card {
+      margin: 30px 0;
+      .product-instrument-card {
         border: 1.5px solid #797979;
         width: 206px;
         // height: 264px;
         background: #fff;
         position: relative;
         overflow: hidden;
-        .product-card-img {
+        .product-instrument-card-img {
           width: 184px;
           height: 177px;
           object-fit: contain;
@@ -122,7 +120,72 @@
           }
         }
       }
-      .product-card:hover {
+      .product-video-card {
+        width: 100%;
+        height: 200px;
+        background: #f2f2f2;
+        display: flex;
+        position: relative;
+        .product-video-card-img {
+          background: slateblue;
+          width: 280px;
+          height: 100%;
+        }
+        .product-card-intro {
+          font-family: 'Noto Serif TC', serif;
+          width: 630px;
+          margin: 15px 15px 15px 10px;
+          letter-spacing: 5px;
+          .product-card-title {
+            margin-bottom: 15px;
+            font-size: 24px;
+          }
+          .product-video-card-time {
+            font-size: 14px;
+            margin-bottom: 15px;
+            margin-left: 12px;
+          }
+          .product-video-card-desciption {
+            font-size: 14px;
+            margin-bottom: 15px;
+            margin-left: 12px;
+            line-height: 22px;
+          }
+          .product-card-cost {
+            color: #fb2643;
+            margin: 0;
+            font-size: 20px;
+            position: absolute;
+            right: 15px;
+            bottom: 15px;
+            font-family: Merienda;
+            letter-spacing: 0;
+          }
+        }
+        .product-card-favorite-container {
+          height: 26px;
+          width: 26px;
+          background: #797979;
+          border-radius: 50%;
+          text-align: center;
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          .product-card-favorite {
+            color: #f2f2f2;
+            margin: 5px;
+            margin-top: 6px;
+            font-size: 16px;
+          }
+        }
+        .product-card-favorite-container:hover {
+          background: #fb2643;
+        }
+      }
+      .product-instrument-card:hover {
+        cursor: pointer;
+      }
+      .product-video-card:hover {
         cursor: pointer;
       }
     }

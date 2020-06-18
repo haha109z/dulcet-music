@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Merienda&family=Noto+Serif+TC:wght@300&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-colorfff: #fff;
+  --main-colorblock: #141414;
+  --main-color79: #797979;
+  --main-colorda: #dadada;
+  --mail-colorf2: #f2f2f2;
+  --main-colorf2e: #f2ebdf; // 米色
+  --main-colorfb2: #fb2643;
+  --main-title-english: 'Merienda', cursive;
+  --main-title-chinese: 'Noto Serif TC', serif;
+  --nav-height: 5rem; // 80px
+  --margin: 11.25rem; // 180px
+  --h1: 2.25rem; // 36px
+  --h2: 1.5rem; // 24px
+  --h3: 1.42rem; // 20px
+  --h4: 1.14rem; // 16px
+  --p: 1rem;
+  --h5: 0.92rem; // 13px
+  --h6: 0.85rem; // 12px
+}
+
+.login-class-d-flex{
+    display: flex;
+}
+
+.all-login-wrap{
+    // border:1px blue solid;
+    margin: 13.57rem auto 0;
+}
+
+.all-login-body{
+    text-align: center;
+
+    .all-login-txt{
+        // border:1px red solid;
+
+        .all-login-title{
+          font-family: var(--main-title-english);
+          font-size: var(--h1);
+          padding-bottom: 1.42rem;
+
+          .all-login-h3{
+            font-family: var(--main-title-chinese);
+            font-size: var(--h3);
+          } // .all-login-h3
+        }  // .all-login-title
+    } //.all-login-txt
+
+    .all-login-change{
+      // border:1px solid green;
+      margin:  2.85rem 0;
+      font-family: var(--main-title-chinese);
+      justify-content: center;
+
+      .login-change-items{
+        display: block;
+        width: 12.28rem;
+        height: 2.85rem ;
+        line-height: 2.85rem;
+        font-size: var(--h3);
+        color:var(--main-colorblock);
+        text-decoration: none;
+        border: 1px solid var(--main-colorda);
+        padding: 0;
+        margin: 0;
+
+      } // .login-change-items
+
+      .activeClass{
+        color:var(--main-colorfff) ;
+        background: var(--main-colorblock);
+      }// .activeClass
+
+    } // .all-login-change
+
+    .form-check{
+      margin: 0 ;
+      margin-top: 2.85rem ;
+
+      .user-check-label{
+        padding: 0;
+        margin-left: 0.5rem;
+      } // user-check-label
+
+    }// form-check
+
+    .all-login-btn{
+      width: 10.71rem;
+      height: 3.57rem;
+      font-size: var(--h3);
+      border:none;
+      background: var(--main-colorf2e);
+      margin: 1.42rem 0;
+
+      &:focus{
+          color:var(--main-colorfff);
+          background: var(--main-colorblock);
+      } // focus
+    }// all-login-btn
+
+    .all-login-register-btn {
+      margin-bottom: 1.42rem;
+
+        a{
+          display: inline-block;
+          color:var(--main-colorfb2);
+        }
+    } // all-login-register-btn a
+
+    .all-login-resetpwd {
+      margin-bottom: 3.57rem;
+
+      a{
+        display: inline-block;
+        color:var(--main-colorblock);
+      }
+
+    }// all-login-resetpwd a
+
+    .all-login-cookie{
+      font-size: var(--h5);
+      margin-bottom: 0.71rem;
+    }
+
+    input::-webkit-input-placeholder{
+      color:var(--main-colorda);
+      font-size:var(--h4);
+    }// 谷歌
+
+    input:-moz-placeholder{
+        color:var(--main-colorda);
+        font-size:var(--h4);
+    }//火狐
+
+    input:-ms-input-placeholder{
+        color:var(--main-colorda);
+        font-size:var(--h4);
+    }//微软
+
+} // all-login-body
+
