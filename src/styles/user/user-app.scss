@@ -47,12 +47,15 @@ button:hover{
   --h6: 0.85rem; /** 12px **/
 }
 
-
+.user-color-red{
+  color:#fb2643 ;
+}
 .user-font-eg{
   font-family: 'Merienda';
 }
 .user-font-ch{
   font-family: 'Noto+Serif+TC';
+  color: var(--main-colorblock);
 }
 
 .font-size-225rem {

@@ -25,19 +25,19 @@ class HomeInstruments extends Component{
      componentDidMount(){
          const checked = document.getElementById('home-instruments-sub');
          const labelWrap = document.querySelector('.home-arrow-wrap');
-         checked.addEventListener('click',(event)=>{  
-            const toggle = event.target.checked; 
+         checked.addEventListener('click',(event)=>{
+            const toggle = event.target.checked;
             if(toggle){
                 labelWrap.classList.add('home-instruments-label-active');
             }else{
                 labelWrap.classList.remove('home-instruments-label-active');
             }
-            console.log('toggle:',toggle);   
-         })     
+            console.log('toggle:',toggle);
+         })
      }
 
     render(){
-            const {items} = this.state;    
+            const {items} = this.state;
         return(
             <div className="home-instruments-wrap container-fluid">
                 <div className="container home-instruments-title">
@@ -45,16 +45,15 @@ class HomeInstruments extends Component{
                     <p className="home-instruments-title-ch container">樂器</p>
                 </div>
                 <div className="home-instruments-body">
-                        <label htmlFor="home-instruments-sub" className="home-instruments-label">  
-                        <div className="home-arrow-wrap">                  
+                        <label htmlFor="home-instruments-sub" className="home-instruments-label">
+                        <div className="home-arrow-wrap">
                             <i className="fas fa-angle-double-down"></i>
                         </div>
-                        </label>    
+                        </label>
                     <input type="checkbox" id="home-instruments-sub"></input>
                     <div className="row home-instruments-row home-d-flex " id="homeInstrumentsRow">
                         {
                             items.map((item,index)=> (
-
                                 <div key={index} className={item.card} >
                                     <Link to={item.src}>
                                             <p className="home-instruments-txt">{item.instrumenEng}</p>
@@ -62,7 +61,6 @@ class HomeInstruments extends Component{
                                         <span></span>
                                     </Link>
                                 </div>
-
                             ))
                         }
                     </div>

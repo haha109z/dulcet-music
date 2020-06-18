@@ -5,20 +5,20 @@ export default class UserPwd extends Component {
     return (
       <>
         <div class="userPwd-main">
-          <h3 class="font-size-142rem userPwd-top-titleName">密碼修改</h3>
+          <h3 class="font-size-142rem userPwd-top-titleName user-font-ch">密碼修改</h3>
           <div class="userPwd-top-Img">
             <img src="" alt="" />
           </div>
-          <div class="userPwd-top-ID">
-            <p>會員編號:001</p>
+          <div class="userPwd-top-ID ">
+            <p className="user-font-ch">會員編號:001</p>
           </div>
           <hr class="userPwd-top-hr" />
 
           <form class="userPwd-form" action="">
             <label class="userPwd-form-input font-size-1rem" for="oldPwd">
-              <p>請輸入舊密碼</p>
+              <p className="user-font-ch">請輸入舊密碼</p>
               <div class="userPwd-inp">
-                <input id="oldPwd" type="text" />
+                <input id="oldPwd font-size-114rem user-font-ch" type="text" />
                 <svg
                   aria-hidden="true"
                   focusable="false"
@@ -38,9 +38,9 @@ export default class UserPwd extends Component {
             </label>
 
             <label class="userPwd-form-input font-size-1rem" for="newPwd">
-              <p>輸入新密碼</p>
+              <p className='user-font-ch'>輸入新密碼</p>
               <div class="userPwd-inp">
-                <input id="newPwd" type="text" />
+                <input id="newPwd font-size-114rem user-font-ch" type="text" />
                 <svg
                   aria-hidden="true"
                   focusable="false"
@@ -59,9 +59,9 @@ export default class UserPwd extends Component {
               </div>
             </label>
             <label class="userPwd-form-input font-size-1rem" for="changePwd">
-              <p>確認新密碼</p>
+              <p className="user-font-ch">確認新密碼</p>
               <div class="userPwd-inp">
-                <input id="changePwd" type="text" />
+                <input id="changePwd font-size-114rem user-font-ch" type="text" />
                 <svg
                   aria-hidden="true"
                   focusable="false"
@@ -80,7 +80,7 @@ export default class UserPwd extends Component {
               </div>
             </label>
 
-            <input type="submit" class="userPwd-form-button" value="修改密碼" />
+            <input type="submit" class="userPwd-form-button user-font-ch" value="修改密碼" />
           </form>
         </div>
       </>
