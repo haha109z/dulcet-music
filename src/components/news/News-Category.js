@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 function NewsCategory(props) {
   return (
     <>
-        <div className="News-container d-flex">
+        <div className="News-Container d-flex">
             <div className="News-Category">
                 <ul className="d-flex justify-content-start">
                     <li><a href="#">全部</a></li>
