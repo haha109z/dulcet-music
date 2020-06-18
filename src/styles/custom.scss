@@ -22,11 +22,11 @@
 @import './product/instrument/productList.scss';
 
 //user
-@media (min-width: 1200px){
-    .container-sm {
-        max-width: 1362px;
-    }
+@media (min-width: 1200px) {
+  .container-sm {
+    max-width: 1362px;
   }
+}
 @import './user/user-app.scss';
 @import './user/user-data.scss';
 @import './user/user-like.scss';
@@ -35,4 +35,3 @@
 @import './user/user-sidebar.scss';
 @import './user/user-video.scss';
 @import './user/user-voucher.scss';
-
