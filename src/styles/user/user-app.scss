@@ -66,3 +66,22 @@ button {
   font-size: 0.85rem; /** 12px **/
 }
 
+.user-container {
+  
+  margin: 0 auto;
+  }
+  @media (min-width: 768px) {
+  .user-container  {
+  width: 750px;
+  }
+  }
+  @media (min-width: 992px) {
+  .user-container  {
+  width: 900px;
+  }
+  }
+  @media (min-width: 1200px) {
+  .user-container  {
+  width: 1364px;
+  }
+  }
