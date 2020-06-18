@@ -19,6 +19,9 @@ import UserApp from './container/user-app';
 
 import News from './container/news';
 
+// Cart
+import CartApp from './container/cart-app';
+
 //Footer
 
 import Footer from './components/footer/footer';
@@ -47,6 +50,10 @@ function App() {
 
       <Route path="/user" exact>
         <UserApp />
+      </Route>
+
+      <Route path="/cart" exact>
+        <CartApp />
       </Route>
 
       <Footer />
