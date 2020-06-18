@@ -117,9 +117,9 @@ class HomeNavbarIndex extends Component{
                    }
                   </div>
                 <div className="home-items home-shopping">
-                  <a href="javascript:void(0)">
+                  <Link to="/cart">
                     <i className="fas fa-shopping-cart"></i>
-                  </a>
+                  </Link>
                   <span className="home-shopping-point">1</span>
                   <div className="nav-shopping-cart">123</div>
                 </div>

@@ -1,12 +1,13 @@
 import React,{useState,useEffect} from 'react';
+import {Link} from 'react-router-dom';
 
 function FooterCoustom(){
 
     const [footerCoustom,setFooterCoustom] = useState([
-        {text:'訂單問題',src:'javascript:;'},
-        {text:'商品退/換問題',src:'javascript:;'},
-        {text:'付款/發票問題',src:'javascript:;'},
-        {text:'客服中心',src:'javascript:;'},
+        {text:'訂單問題',src:'javascript:void(0)'},
+        {text:'商品退/換問題',src:'javascript:void(0)'},
+        {text:'付款/發票問題',src:'javascript:void(0)'},
+        {text:'客服中心',src:'javascript:void(0)'},
     ])
 
     return(
@@ -16,7 +17,7 @@ function FooterCoustom(){
                 footerCoustom.map((item,index)=>
                 (
                     <div key={index}>
-                        <a href={item.src}>{item.text}</a>
+                        <Link to={item.src}>{item.text}</Link>
                     </div>
                 ))
             }

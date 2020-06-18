@@ -96,9 +96,9 @@ class Navbar extends Component{
                    }
                   </div>
                   <div className="nav-items-others nav-shopping">
-                    <a href="javascript:;">
+                    <Link to="/cart">
                       <i className="fas fa-shopping-cart"></i>
-                    </a>
+                    </Link>
                     <span className="nav-shopping-point">1</span>
                     <div className="nav-shopping-cart">123</div>
                   </div>

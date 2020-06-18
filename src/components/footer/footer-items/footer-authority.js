@@ -1,12 +1,13 @@
 import React,{useState,useEffect} from 'react';
+import {Link} from 'react-router-dom';
 
 function FooterAuthority(){
 
     const [footerAuthority,setFooterAuthority] = useState([
-        {text:'服務條款',src:'javascript:;'},
-        {text:'隱私權政策',src:'javascript:;'},
-        {text:'購物約定條款',src:'javascript:;'},
-        {text:'網路安全',src:'javascript:;'},
+        {text:'服務條款',src:'javascript:void(0)'},
+        {text:'隱私權政策',src:'javascript:void(0)'},
+        {text:'購物約定條款',src:'javascript:void(0)'},
+        {text:'網路安全',src:'javascript:void(0)'},
     ])
 
     return(
@@ -16,7 +17,7 @@ function FooterAuthority(){
                 footerAuthority.map((item,index)=>
                 (
                     <div key={index}>
-                        <a href={item.src}>{item.text}</a>
+                        <Link to={item.src}>{item.text}</Link>
                     </div>
                 ))
             }

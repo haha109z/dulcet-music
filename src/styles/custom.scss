@@ -1,5 +1,7 @@
-//home
+// crat
+@import './cart/cart.scss';
 
+//home
 @import '~bootstrap/scss/bootstrap.scss';
 @import './home/home-navbar-index.scss';
 @import './home/navbar.scss';
@@ -12,16 +14,12 @@
 @import './home/footer.scss';
 
 //news
-
 @import './news/news.scss';
 
 //product
-
 @import './product/instrument/productCategory.scss';
 @import './product/instrument/productList.scss';
 
-// crat
-@import './cart/cart.scss';
 
 // login
 @import './login/all-login-page.scss';
