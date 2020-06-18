@@ -7,12 +7,6 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  // font-family: var(--main-title-chinese);
-  // font-size: var(--h4);
 }
 
 :root {
@@ -41,6 +35,7 @@ body {
   margin: 80px auto;
   font-family: var(--main-title-chinese);
   font-size: var(--h4);
+  box-sizing: border-box;
 }
 
 .cart-title {
