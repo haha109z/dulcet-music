@@ -52,7 +52,6 @@ function ProductList(props) {
             <div className="product-instrument-card"></div>
           </div>
           <Router>
-
           <div id="product-pages-list">
               <Link className="product-pages" to="">
                 <IoMdArrowDropleft className="product-pages-arrows" />

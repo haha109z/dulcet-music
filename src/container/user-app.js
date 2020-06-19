@@ -8,13 +8,16 @@ import UserVoucher from '../components/user/user-voucher/user-voucher'
 import UserPurchase from '../components/user/user-purchase/user-purchase'
 import UserLike from '../components/user/user-like/user-like'
 import UserVideo from '../components/user/user-video/user-video'
+import Nav from '../components/navbar/navbar'
+import Footer from '../components/footer/footer.js'
 
 class UserApp extends Component {
   render() {
     return (
       <>
+      <Nav/>
        <BrowserRouter>
-          <div className="d-flex user-container">
+          <div className="user-container">
             <UserSideBar/>
             <Switch>
               <Route path="/user/UserData" component={UserData}></Route>
@@ -27,6 +30,7 @@ class UserApp extends Component {
             </Switch>
           </div>
       </BrowserRouter>
+      {/* <Footer/> */}
       </>
     )
   }

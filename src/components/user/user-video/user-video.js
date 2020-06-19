@@ -33,6 +33,12 @@ export default class UserVideo extends Component {
                 <p class="user-font-ch UserVideo-order-item-text-specification">
                   我們為每一個想學吉他的你規劃了完全入門的團體課程和更有
                   效率的一對一專屬課程讓您學習既有效率又有趣！
+                  我們為每一個想學吉他的你規劃了完全入門的團體課程和更有
+                  效率的一對一專屬課程讓您學習既有效率又有趣！
+                  我們為每一個想學吉他的你規劃了完全入門的團體課程和更有
+                  效率的一對一專屬課程讓您學習既有效率又有趣！
+                  我們為每一個想學吉他的你規劃了完全入門的團體課程和更有
+                  效率的一對一專屬課程讓您學習既有效率又有趣！
                 </p>
               </div>
               <p class=" UserVideo-order-item-more">More...</p>

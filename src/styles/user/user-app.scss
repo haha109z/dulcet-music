@@ -4,10 +4,9 @@
   margin: 0;
   padding: 0;
 }
-p{
+p {
   margin: 0;
   padding: 0;
-  
 }
 html {
   font-size: 14px;
@@ -21,9 +20,8 @@ input {
 button {
   outline: none;
 }
-button:hover{
-    outline: none;
-
+button:hover {
+  outline: none;
 }
 
 :root {
@@ -47,13 +45,13 @@ button:hover{
   --h6: 0.85rem; /** 12px **/
 }
 
-.user-color-red{
-  color:#fb2643 ;
+.user-color-red {
+  color: #fb2643;
 }
-.user-font-eg{
+.user-font-eg {
   font-family: 'Merienda';
 }
-.user-font-ch{
+.user-font-ch {
   font-family: 'Noto+Serif+TC';
   color: var(--main-colorblock);
 }
@@ -61,7 +59,6 @@ button:hover{
 .font-size-225rem {
   font-size: 36px; /** 36px **/
 }
-
 
 .font-size-15rem {
   font-size: 24px; /** 24px **/
@@ -83,21 +80,29 @@ button:hover{
 }
 
 .user-container {
-  
   margin: 0 auto;
+  display: flex;
+}
+@media (min-width: 768px) {
+  .user-container {
+    width: 750px;
   }
-  @media (min-width: 768px) {
-  .user-container  {
-  width: 750px;
+}
+@media (min-width: 992px) {
+  .user-container {
+    width: 900px;
   }
+}
+@media (min-width: 1370px) {
+  .user-container {
+    width: 1364px;
   }
-  @media (min-width: 992px) {
-  .user-container  {
-  width: 900px;
+}
+
+@media (max-width: 768px) {
+  .user-container{
+    display: flex;
+    flex-direction:column;
   }
-  }
-  @media (min-width: 1370px) {
-  .user-container  {
-  width: 1364px;
-  }
-  }
+}
+

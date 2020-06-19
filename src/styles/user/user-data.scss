@@ -1,25 +1,28 @@
-.userData-main{
+.userData-main {
   width: 812px;
-  margin:198px  auto auto 10%;
+  margin: 198px auto auto 10%;
   /* background-color: thistle; */
   position: relative;
 }
-
+.user-id {
+  font-size: 14px;
+  color: var(--main-color79);
+}
 .userData-top-titleName {
   margin: 0 auto 80px auto;
   text-align: center;
-  font-family:var(--main-title-chinese);
+  font-family: var(--main-title-chinese);
 }
 
-.userData-top-hr{
+
+.userData-top-hr {
   border: 1.5px #f2f2f2 solid;
 }
 .userData-top-ID {
   position: absolute;
   right: 0;
   margin-top: -20px;
-  font-family:var(--main-title-chinese);
-
+  font-family: var(--main-title-chinese);
 }
 
 .userData-top-Img {
@@ -34,19 +37,19 @@
   display: flex;
   position: relative;
   font-size: 16px;
-
 }
-.userData-form-input>p{
-  font-family:var(--main-title-chinese);
 
-font-size: 14px;
+.userData-form-input > p {
+  font-family: var(--main-title-chinese);
+
+  font-size: 14px;
 }
 .userData-form > label {
   height: 56px;
   margin: 20px auto 0 auto;
-  border-bottom: 1px black solid;
+  border-bottom: 2px var(--main-colorda) solid;
   width: 100%;
-  max-width: 500px;
+
 }
 
 .userData-form {
@@ -61,8 +64,7 @@ font-size: 14px;
   border-radius: 0;
   border: none;
   margin: 60px auto 60px auto;
-  font-family:var(--main-title-chinese);
-
+  font-family: var(--main-title-chinese);
 }
 
 .userData-form-button:hover {
@@ -74,17 +76,77 @@ font-size: 14px;
   height: 20px;
   position: absolute;
 }
-.UserData-inp  {
+.UserData-inp {
   position: absolute;
   bottom: 0;
   margin: 20px 0 0 48px;
   margin-bottom: 2px;
 }
 .UserData-inp > input {
-  width:430px;
+  width: 430px;
   outline: none;
   background-color: none;
   border: none;
-  font-family:var(--main-title-chinese);
+  font-family: var(--main-title-chinese);
+}
+@media (max-width: 768px) {
+  .userData-main {
+    width: 100%;
+    margin: 154px auto auto 0;
+    /* background-color: thistle; */
+    position: relative;
+  }
+  .UserData-inp > input {
+    width: 100%;
+    outline: none;
+    background-color: none;
+    border: none;
+    font-family: var(--main-title-chinese);
+  }
+  .UserData-inp {
+    width: 90%;
+  }
+  .userData-form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto 0 auto;
+  }
+  .UserData-inp {
+    position: absolute;
+    bottom: 0;
+    margin: 20px 0 0 0px;
+    margin-bottom: 2px;
+  }
+  .userData-top-hr {
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .userData-top-ID {
+    position: relative;
+    text-align: right;
+  }
+  .userData-top-ID > p {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .userData-top-hr {
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .userData-top-titleName {
+    margin: 0 auto 25px auto;
+  }
+  .userData-form-button {
+    width: 100%;
+    height: 50px;
+    background-color: #f2e8df;
+    border-radius: 0;
+    border: none;
+    margin: 11px auto 40px auto;
+    font-family: var(--main-title-chinese);
+  }
 
 }

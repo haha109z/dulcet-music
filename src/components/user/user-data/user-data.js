@@ -9,12 +9,17 @@ export default class UserData extends Component {
               <div class="userData-top-Img">
                 <img src="" alt="" />
               </div>
-              <div class="userData-top-ID">
-                <p>會員編號:001</p>
-              </div>
+              
               <hr class="userData-top-hr"/>
               
               <form class="userData-form" action="">
+              <label class="userData-form-input " for="name">
+                <p>會員編號</p>
+                <div class="UserData-inp ">
+                  <input className="user-id" id="id" type="text" value="001" readonly="readonly"/>
+                </div>
+              </label>
+
               <label class="userData-form-input " for="name">
                 <p>姓名</p>
                 <div class="UserData-inp">
@@ -25,7 +30,7 @@ export default class UserData extends Component {
               <label class="userData-form-input " for="email">
                 <p>信箱</p>
                 <div class="UserData-inp">
-                  <input id="email" type="text" />
+                  <input  id="email" type="text" />
                 </div>
               </label>
               <label class="userData-form-input " for="birthday">

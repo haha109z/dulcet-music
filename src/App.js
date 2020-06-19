@@ -59,6 +59,7 @@ function App() {
       </Route>
 
       <Route path="/user" exact>
+      <Route path="/user" >
         <UserApp />
       </Route>
 

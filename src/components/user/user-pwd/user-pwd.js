@@ -9,12 +9,16 @@ export default class UserPwd extends Component {
           <div class="userPwd-top-Img">
             <img src="" alt="" />
           </div>
-          <div class="userPwd-top-ID ">
-            <p className="user-font-ch">會員編號:001</p>
-          </div>
+        
           <hr class="userPwd-top-hr" />
 
           <form class="userPwd-form" action="">
+          <label class="userData-form-input " for="name">
+                <p>會員編號</p>
+                <div class="UserData-inp ">
+                  <input className="user-id" id="id" type="text" value="001" readonly="readonly"/>
+                </div>
+              </label>
             <label class="userPwd-form-input font-size-1rem" for="oldPwd">
               <p className="user-font-ch">請輸入舊密碼</p>
               <div class="userPwd-inp">

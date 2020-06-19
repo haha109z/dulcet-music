@@ -15,11 +15,9 @@
   right: 0;
   margin-top: -20px;
 }
-.userPwd-top-hr{
+.userPwd-top-hr {
   border: 1.5px #f2f2f2 solid;
-
 }
-
 
 .userPwd-top-Img {
   border-radius: 50%;
@@ -37,9 +35,8 @@
 .userPwd-form > label {
   height: 56px;
   margin: 20px auto 0 auto;
-  border-bottom: 1px black solid;
+  border-bottom: 2px var(--main-colorda) solid;
   width: 100%;
-  max-width: 500px;
 }
 
 .userPwd-form {
@@ -78,4 +75,63 @@
   outline: none;
   background-color: none;
   border: none;
+}
+@media (max-width: 768px) {
+  .userPwd-main {
+    width: 80%;
+    margin: 154px auto auto auto;
+    /* background-color: thistle; */
+    position: relative;
+  }
+
+  .userPwd-form > label {
+    height: 56px;
+    margin: 20px auto 0 auto;
+    border-bottom: 2px var(--main-colorda) solid;
+    width: 100%;
+  }
+  .userPwd-inp > input {
+    width: calc(100% - 18px);
+    outline: none;
+    background-color: none;
+    border: none;
+    font-family: var(--main-title-chinese);
+  }
+  .userPwd-inp {
+    position: absolute;
+    bottom: 0;
+    margin: 20px 0 0 0px;
+    font-size: 16px;
+    margin-bottom: 2px;
+    width: 100%;
+  }
+  .userPwd-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto 0 auto;
+  }
+  .userPwd-top-titleName {
+    margin: 0 auto 25px auto;
+  }
+  .userPwd-top-hr {
+    margin: 0;
+  }
+  .userPwd-inp {
+    position: absolute;
+    bottom: 0;
+    margin: 20px 0 0 0px;
+    font-size: 16px;
+    margin-bottom: 2px;
+    width: 100%;
+}
+.userPwd-form-button {
+  width: 100%;
+  height: 50px;
+  background-color: #f2e8df;
+  border-radius: 0;
+  border: none;
+  margin: 11px auto 40px auto;
+  font-family: var(--main-title-chinese);
+}
 }
