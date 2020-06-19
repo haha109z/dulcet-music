@@ -5,7 +5,7 @@ function NewsNavbar(props) {
   return (
     <>
 
-        <div className="News-Navbar"></div>
+        <div className="news-Navbar"></div>
     </>
   )
 }
