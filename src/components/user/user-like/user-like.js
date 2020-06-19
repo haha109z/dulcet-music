@@ -4,20 +4,41 @@ export default class UserLike extends Component {
     return (
       <>
         <div class="UserLike-main">
-          <h3 class="font-size-142rem UserLike-top-titleName user-font-ch">我的最愛</h3>
+          <h3 class="font-size-142rem UserLike-top-titleName user-font-ch">
+            我的最愛
+          </h3>
+
           <form class="UserLike-search" action="">
+            <div class="user-dropdown">
+              <button type="button" class="user-dropbtn">
+                訂單狀態
+                <i class="fas fa-sort-down"></i>
+              </button>
+
+              <div class="user-dropdown-content">
+                <a href="#">全部</a>
+                <a href="#">待付款</a>
+                <a href="#">待出貨</a>
+                <a href="#">待收貨</a>
+                <a href="#">完成</a>
+                <a href="#">取消</a>
+              </div>
+            </div>
             <input
               class="UserLike-search-input user-font-ch"
               placeholder="請輸入關鍵字"
               type="text"
             />
+            <p class="user-font-ch UserLike-search-404title user-font-ch">
+              請輸入商品或訂單關鍵字
+            </p>
+
             <input
               class="UserLike-search-button user-font-ch"
               type="button"
               value="送出"
             />
           </form>
-          <p class="user-font-ch UserLike-search-404title user-font-ch">請輸入商品或訂單關鍵字</p>
           <hr class="UserLike-divider" />
 
           <div class="UserLike-order">
@@ -36,17 +57,23 @@ export default class UserLike extends Component {
                 <p class="user-font-ch UserLike-order-item-text-specification">
                   分類：樂器
                 </p>
-                <p class="user-font-ch UserLike-order-item-text-number">
-                  廠商編號：95279527
-                </p>
 
                 <div class="d-flex UserLike-order-item-text-money">
-                  <p class="user-font-ch UserLike-order-item-text-money-1">價格</p>{' '}
-                  <p class="user-color-red UserLike-order-item-text-money-2 user-font-eg">$</p>
-                  <p class="user-color-red UserLike-order-item-text-money-3 user-font-eg">999</p>{' '}
+                  <p class="user-font-ch UserLike-order-item-text-money-1">
+                    價格
+                  </p>{' '}
+                  <p class="user-color-red UserLike-order-item-text-money-2 user-font-eg">
+                    $
+                  </p>
+                  <p class="user-color-red UserLike-order-item-text-money-3 user-font-eg">
+                    999
+                  </p>{' '}
                 </div>
               </div>
-              <button type="button" class="UserLike-order-item-button user-font-ch ">
+              <button
+                type="button"
+                class="UserLike-order-item-button user-font-ch "
+              >
                 前往商品頁面
               </button>
             </div>
@@ -69,17 +96,23 @@ export default class UserLike extends Component {
                 <p class="user-font-ch UserLike-order-item-text-specification">
                   分類：樂器
                 </p>
-                <p class="user-font-ch UserLike-order-item-text-number">
-                  廠商編號：95279527
-                </p>
 
                 <div class="d-flex UserLike-order-item-text-money">
-                  <p class="user-font-ch UserLike-order-item-text-money-1">價格</p>{' '}
-                  <p class="user-color-red UserLike-order-item-text-money-2 user-font-eg">$</p>
-                  <p class="user-color-red UserLike-order-item-text-money-3 user-font-eg">999</p>{' '}
+                  <p class="user-font-ch UserLike-order-item-text-money-1">
+                    價格
+                  </p>{' '}
+                  <p class="user-color-red UserLike-order-item-text-money-2 user-font-eg">
+                    $
+                  </p>
+                  <p class="user-color-red UserLike-order-item-text-money-3 user-font-eg">
+                    999
+                  </p>{' '}
                 </div>
               </div>
-              <button type="button" class="UserLike-order-item-button user-font-ch">
+              <button
+                type="button"
+                class="UserLike-order-item-button user-font-ch"
+              >
                 前往商品頁面
               </button>
             </div>
@@ -102,17 +135,23 @@ export default class UserLike extends Component {
                 <p class="user-font-ch UserLike-order-item-text-specification">
                   分類：樂器
                 </p>
-                <p class="user-font-ch UserLike-order-item-text-number">
-                  廠商編號：95279527
-                </p>
 
                 <div class="d-flex UserLike-order-item-text-money">
-                  <p class="user-font-ch UserLike-order-item-text-money-1">價格</p>{' '}
-                  <p class="user-color-red UserLike-order-item-text-money-2 user-font-eg">$</p>
-                  <p class="user-color-red UserLike-order-item-text-money-3 user-font-eg">999</p>{' '}
+                  <p class="user-font-ch UserLike-order-item-text-money-1">
+                    價格
+                  </p>{' '}
+                  <p class="user-color-red UserLike-order-item-text-money-2 user-font-eg">
+                    $
+                  </p>
+                  <p class="user-color-red UserLike-order-item-text-money-3 user-font-eg">
+                    999
+                  </p>{' '}
                 </div>
               </div>
-              <button type="button" class="UserLike-order-item-button user-font-ch">
+              <button
+                type="button"
+                class="UserLike-order-item-button user-font-ch"
+              >
                 前往商品頁面
               </button>
             </div>
@@ -135,17 +174,23 @@ export default class UserLike extends Component {
                 <p class="user-font-ch UserLike-order-item-text-specification">
                   分類：樂器
                 </p>
-                <p class="user-font-ch UserLike-order-item-text-number">
-                  廠商編號：95279527
-                </p>
 
                 <div class="d-flex UserLike-order-item-text-money">
-                  <p class="user-font-ch UserLike-order-item-text-money-1">價格</p>{' '}
-                  <p class="user-color-red UserLike-order-item-text-money-2 user-font-eg">$</p>
-                  <p class="user-color-red UserLike-order-item-text-money-3 user-font-eg">999</p>{' '}
+                  <p class="user-font-ch UserLike-order-item-text-money-1">
+                    價格
+                  </p>{' '}
+                  <p class="user-color-red UserLike-order-item-text-money-2 user-font-eg">
+                    $
+                  </p>
+                  <p class="user-color-red UserLike-order-item-text-money-3 user-font-eg">
+                    999
+                  </p>{' '}
                 </div>
               </div>
-              <button type="button" class="UserLike-order-item-button user-font-ch">
+              <button
+                type="button"
+                class="UserLike-order-item-button user-font-ch"
+              >
                 前往商品頁面
               </button>
             </div>
@@ -168,17 +213,23 @@ export default class UserLike extends Component {
                 <p class="user-font-ch UserLike-order-item-text-specification">
                   分類：樂器
                 </p>
-                <p class="user-font-ch UserLike-order-item-text-number">
-                  廠商編號：95279527
-                </p>
 
                 <div class="d-flex UserLike-order-item-text-money">
-                  <p class="user-font-ch UserLike-order-item-text-money-1">價格</p>{' '}
-                  <p class="user-color-red UserLike-order-item-text-money-2 user-font-eg">$</p>
-                  <p class="user-color-red UserLike-order-item-text-money-3 user-font-eg">999</p>{' '}
+                  <p class="user-font-ch UserLike-order-item-text-money-1">
+                    價格
+                  </p>{' '}
+                  <p class="user-color-red UserLike-order-item-text-money-2 user-font-eg">
+                    $
+                  </p>
+                  <p class="user-color-red UserLike-order-item-text-money-3 user-font-eg">
+                    999
+                  </p>{' '}
                 </div>
               </div>
-              <button type="button" class="UserLike-order-item-button user-font-ch">
+              <button
+                type="button"
+                class="UserLike-order-item-button user-font-ch"
+              >
                 前往商品頁面
               </button>
             </div>
@@ -201,24 +252,29 @@ export default class UserLike extends Component {
                 <p class="user-font-ch UserLike-order-item-text-specification">
                   分類：樂器
                 </p>
-                <p class="user-font-ch UserLike-order-item-text-number">
-                  廠商編號：95279527
-                </p>
 
                 <div class="d-flex UserLike-order-item-text-money">
-                  <p class="user-font-ch UserLike-order-item-text-money-1">價格</p>{' '}
-                  <p class="user-color-red UserLike-order-item-text-money-2 user-font-eg">$</p>
-                  <p class="user-color-red UserLike-order-item-text-money-3 user-font-eg">999</p>{' '}
+                  <p class="user-font-ch UserLike-order-item-text-money-1">
+                    價格
+                  </p>{' '}
+                  <p class="user-color-red UserLike-order-item-text-money-2 user-font-eg">
+                    $
+                  </p>
+                  <p class="user-color-red UserLike-order-item-text-money-3 user-font-eg">
+                    999
+                  </p>{' '}
                 </div>
               </div>
-              <button type="button" class="UserLike-order-item-button user-font-ch">
+              <button
+                type="button"
+                class="UserLike-order-item-button user-font-ch"
+              >
                 前往商品頁面
               </button>
             </div>
 
             <hr class="UserLike-order-divider" />
           </div>
-        
         </div>
       </>
     )
