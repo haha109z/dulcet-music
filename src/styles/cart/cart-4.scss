@@ -1,40 +1,21 @@
-// Import Bootstrap and its default variables
-// @import '~bootstrap/scss/bootstrap';
 
-// google-font
-// @import url('https://fonts.googleapis.com/css2?family=Merienda&family=Noto+Serif+TC:wght@300&display=swap');
+.cart-thank-card {
+  border: 1px solid var(--main-color79);
+  margin: 50px 200px;
+  padding: 30px 90px;
+  font-family: var(--main-title-chinese);
 
-// * {
-//   margin: 0;
-//   padding: 0;
-// }
+  h2 {
+    font-size: var(--h2);
+    color: var(--main-colorfb2);
+    line-height: 50px;
+    text-align: center;
+  }
 
-// :root {
-//   --main-colorfff: #fff;
-//   --main-colorblack: #141414;
-//   --main-color79: #797979;
-//   --main-colorda: #dadada;
-//   --main-colorf2: #f2f2f2;
-//   --main-colorf2e: #f2ebdf;
-//   --main-colorfb2: #fb2643;
-//   --main-title-english: 'Merienda';
-//   --main-title-chinese: 'Noto Serif TC';
-//   --nav-height: 5rem; /** 80px **/
-//   --margin: 11.25rem; /** 180px **/
-//   --h1: 2.25rem; /** 36px **/
-//   --h2: 1.5rem; /** 24px **/
-//   --h3: 1.42rem; /** 20px **/
-//   --h4: 1.14rem; /** 16px **/
-//   --p: 1rem;
-//   --h5: 0.92rem; /** 13px **/
-//   --h6: 0.85rem; /** 12px **/
-// }
+  span {
+    display: block;
+    margin: 0 auto;
+    line-height: 40px;
+  }
 
-// .cart-container {
-//   max-width: 960px;
-//   margin: 80px auto;
-//   font-family: var(--main-title-chinese);
-//   font-size: var(--h4);
-//   box-sizing: border-box;
-// }
-
+}

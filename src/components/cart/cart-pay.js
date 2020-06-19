@@ -55,8 +55,12 @@ function CartPay() {
                       </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div>                   
+          <div style={{margin:'50px auto', width:'400px'}}>
+            <button className="cart-checkout-btn" type="">← 上一步</button>
+            <button className="cart-checkout-btn" type="submit">確認送出</button>
+          </div>
+        </div> 
     </>
   );
 }

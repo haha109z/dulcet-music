@@ -26,6 +26,7 @@ import News from './container/news';
 import CartCheckout from './components/cart/cart-checkout';
 import CartCheckOrder from './components/cart/cart-checkOrder';
 import CartPay from './components/cart/cart-pay';
+import CartEnd from './components/cart/cart-end';
 
 // Login
 import AllLoginPage from './components/login/all-login-page';
@@ -95,7 +96,8 @@ function App() {
       <Route path="/cart" >
         {/* <CartCheckout /> */}
         {/* <CartCheckOrder /> */}
-        <CartPay />
+        {/* <CartPay /> */}
+        <CartEnd />
       </Route>
 
       <Route path="/login" >

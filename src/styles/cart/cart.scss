@@ -63,8 +63,8 @@
 
   thead {
     font-size: var(--h2);
-    background-color: var(--main-colorblack);
     text-align: center;
+    background-color: var(--main-colorblack);
 
     th {
       color: var(--main-colorfff);
@@ -90,6 +90,7 @@
     input[type='checkbox'] {
       width: 20px;
       height: 20px;
+      
     }
 
     img {
