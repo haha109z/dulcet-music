@@ -41,6 +41,7 @@ import AnyQuestion from './container/AnyQuestion';
 //About
 import About from './container/About';
 
+import AnyQuestionAction from './container/AnyQuestionAction';
 //Footer
 
 import Footer from './components/footer/footer';
@@ -81,6 +82,9 @@ function App() {
       </Route>
       <Route path="/About">
         <About />
+      </Route>
+      <Route path="/AnyQuestionAction">
+        <AnyQuestionAction />
       </Route>
 
       <Route path="/user" exact>
