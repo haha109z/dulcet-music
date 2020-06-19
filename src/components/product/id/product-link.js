@@ -12,6 +12,11 @@ function ProductId(props) {
         <Link className="product-id-link">
         {props.productInstrumentId}
         </Link>
+        &nbsp;/&nbsp;
+        <Link className="product-id-link">
+        {props.productName}
+        </Link>
+
 
     </Router>
 
