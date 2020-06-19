@@ -24,7 +24,7 @@ function CartCheckout() {
           <tbody>
             <tr>
               <th className="cart-category" colspan="7">購買清單－課程</th>
-            </tr>
+            </tr>   
             <tr>
               <th><input type="checkbox" id=""/></th>
               <td><img src={require('../../img/cart/cart-violin-01.jpeg')}/></td>
