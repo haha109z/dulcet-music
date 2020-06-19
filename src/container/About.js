@@ -9,7 +9,7 @@ function About() {
       <>
         <Navbar />
   
-        <ForumCard />
+        {/* <ForumCard /> */}
         {/* <AnyQuestion /> */}
         <AboutList />
         
