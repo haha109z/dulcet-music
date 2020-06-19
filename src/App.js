@@ -10,6 +10,8 @@ import HomeApp from './container/home-app';
 import ProductCourse from './container/product-course';
 import ProductVideo from './container/product-video';
 import ProductInstrument from './container/product-instrument';
+import ProductId from './container/product-id';
+
 
 //User
 
@@ -52,14 +54,17 @@ function App() {
         <HomeApp />
       </Route>
 
-      <Route path="/course" exact>
+      <Route path="/course">
         <ProductCourse />
       </Route>
-      <Route path="/video" exact>
+      <Route path="/video">
         <ProductVideo />
       </Route>
-      <Route path="/instrument" exact>
+      <Route path="/instrument">
         <ProductInstrument />
+      </Route>
+      <Route path="/product-id">
+        <ProductId />
       </Route>
 
       <Route path="/news" exact>
