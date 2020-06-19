@@ -1,7 +1,7 @@
 import React from 'react'
 // import '../../../../styles/custom.scss'
-function AnyQuestion() {
-  return <></>
+function AnyQuestionAction() {
+  return <><div style={{margin:100}}>123</div></>
 }
 
-export default AnyQuestion
+export default AnyQuestionAction
