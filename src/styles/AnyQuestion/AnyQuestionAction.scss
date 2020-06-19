@@ -1,0 +1,44 @@
+.Text123 {
+  margin: 110px 0 0 0;
+}
+.AnyQuestionActionContainer {
+  max-width: 960px;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: var(--p);
+  font-family: var(--main-title-chinese);
+  color: var(--main-colorblock);
+}
+
+.AnyQuestionActionCard {
+  width: 140px;
+  height: 180px;
+  border: 1px solid var(--main-colorblack);
+  margin: 0 20px 0 20px;
+}
+.AnyQuestionActionCardLeft {
+  margin: 0 50px;
+}
+.AnyQuestionActionCardIcon {
+  font-size: 100px;
+  margin: 25px;
+}
+.AnyQuestionActionCardIconH2 {
+  padding: 5px 0 0 0;
+  border-top: 1px solid var(--main-colorblack);
+  text-align: center;
+  font-size: var(--h3);
+}
+.AnyQuestionActionTable {
+  margin: 0px 0px 100px 0px;
+  td {
+    width: 800px;
+  }
+  input {
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    background: var(--main-colorfff);
+    border: 1px solid var(--main-colorblack);
+  }
+}

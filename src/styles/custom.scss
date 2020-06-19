@@ -1,5 +1,8 @@
 // crat
 @import './cart/cart.scss';
+@import './cart/cart-2.scss';
+@import './cart/cart-3.scss';
+@import './cart/cart-4.scss';
 
 //home
 @import '~bootstrap/scss/bootstrap.scss';
@@ -14,7 +17,10 @@
 @import './home/footer.scss';
 
 //news
-// @import './news/news.scss';
+@import './news/news-Sliders.scss';
+@import './news/news-Navbar.scss';
+@import './news/news-Content.scss';
+@import './news/news-Category.scss';
 
 //product
 @import './product/instrument/productCategory.scss';
@@ -37,3 +43,9 @@
 @import './user/user-sidebar.scss';
 @import './user/user-video.scss';
 @import './user/user-voucher.scss';
+
+//About
+@import './ForumScss/ForumCard.scss';
+@import './AnyQuestion/AnyQuestionList.scss';
+@import './AboutScss/AboutList.scss';
+@import './AnyQuestion/AnyQuestionAction.scss';

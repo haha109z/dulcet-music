@@ -34,7 +34,7 @@
 
 .nav-body-others {
   //   background: #bfa;
-  min-width: 100%;
+  width: 100%;
   height: var(--nav-height);
   line-height: var(--nav-height);
   background: var(--main-colorfff);
@@ -52,7 +52,7 @@
   .nav-logo-left-others {
     width: 10%;
     height: var(--nav-height);
-    margin-left: var(--margin);
+    margin-left:6.5vw;
     display: block;
     img {
       height: 100%;

@@ -10,6 +10,8 @@ import HomeApp from './container/home-app';
 import ProductCourse from './container/product-course';
 import ProductVideo from './container/product-video';
 import ProductInstrument from './container/product-instrument';
+import ProductId from './container/product-id';
+
 
 //User
 
@@ -20,7 +22,10 @@ import UserApp from './container/user-app';
 import News from './container/news';
 
 // Cart
-import CartApp from './container/cart-app';
+// import CartApp from './container/cart-app';
+import CartCheckout from './components/cart/cart-checkout';
+import CartCheckOrder from './components/cart/cart-checkOrder';
+import CartPay from './components/cart/cart-pay';
 
 // Login
 import AllLoginPage from './components/login/all-login-page';
@@ -30,7 +35,14 @@ import UserRegistered from './components/register/user-register';
 
 // ManufacturerRegistered
 import ManufacturerRegistered from './components/register/manufacturer-register';
+//Forum
+import Forum from './container/Forum';
+//AnyQuestion
+import AnyQuestion from './container/AnyQuestion';
+//About
+import About from './container/About';
 
+import AnyQuestionAction from './container/AnyQuestionAction';
 //Footer
 
 import Footer from './components/footer/footer';
@@ -44,26 +56,46 @@ function App() {
         <HomeApp />
       </Route>
 
-      <Route path="/course" exact>
+      <Route path="/course">
         <ProductCourse />
       </Route>
-      <Route path="/video" exact>
+      <Route path="/video">
         <ProductVideo />
       </Route>
-      <Route path="/instrument" exact>
+      <Route path="/instrument">
         <ProductInstrument />
+      </Route>
+      <Route path="/product-id">
+        <ProductId />
       </Route>
 
       <Route path="/news" exact>
         <News />
+      </Route>
+      
+
+      <Route path="/Forum">
+        <Forum />
+      </Route>
+
+      <Route path="/AnyQuestion">
+        <AnyQuestion />
+      </Route>
+      <Route path="/About">
+        <About />
+      </Route>
+      <Route path="/AnyQuestionAction">
+        <AnyQuestionAction />
       </Route>
 
       <Route path="/user" >
         <UserApp />
       </Route>
 
-      <Route path="/cart" exact>
-        <CartApp />
+      <Route path="/cart" >
+        {/* <CartCheckout /> */}
+        {/* <CartCheckOrder /> */}
+        <CartPay />
       </Route>
 
       <Route path="/login" >

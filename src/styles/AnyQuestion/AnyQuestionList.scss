@@ -1,0 +1,55 @@
+.text {
+  margin: 110px 0 0 0;
+}
+.AnyQuestionContainer {
+  max-width: 960px;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: var(--p);
+  font-family: var(--main-title-chinese);
+  color: var(--main-colorblock);
+}
+.AnyQuestionH2 {
+  margin: 40px 0 40px 0;
+  font-size: var(--h3);
+}
+.AnyQuestionCardFlex {
+  display: flex;
+}
+.AnyQuestionCard {
+  width: 140px;
+  height: 180px;
+  border: 1px solid var(--main-colorf2e);
+  margin: 0 20px 0 20px;
+}
+.AnyQuestionCardLeft {
+  margin: 0 20px 0 50px;
+}
+.AnyQuestionCardRight {
+  margin: 0 50px 0 20px;
+}
+.AnyQuestionCardIcon {
+  font-size: 100px;
+  margin: 25px;
+}
+.AnyQuestionCardIconH2 {
+  padding: 5px 0 0 0;
+  border-top: 1px solid var(--main-colorf2e);
+  text-align: center;
+  font-size: var(--h3);
+}
+.AnyQuestionNorthH2 {
+  margin: 40px 0 20px 0;
+  font-size: var(--h3);
+}
+.AnyQuestionSouthH2 {
+  margin: 40px 0 20px 0;
+  font-size: var(--h3);
+}
+.AnyQuestion2Flex {
+  display: flex;
+}
+.AnyQuestion2Width {
+  margin: 20px 0;
+  width: 480px;
+}

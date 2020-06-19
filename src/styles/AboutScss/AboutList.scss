@@ -1,0 +1,146 @@
+/* AboutContainer */
+.AboutContainer {
+  max-width: 960px;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: var(--p);
+  font-family: var(--main-title-chinese);
+  color: var(--main-colorblock);
+}
+// title
+
+.AboutH2 {
+  margin: 110px 0 20px 0;
+}
+
+// 第一區塊
+
+.AboutList1 {
+  display: flex;
+}
+.AboutP {
+  width: 720px;
+  margin: 20px 10px 20px 0;
+  letter-spacing: 5px;
+}
+.AboutImgPicture1 {
+  width: 220px;
+  height: 220px;
+  margin: 20px 0 0 0;
+}
+
+// 第二區塊
+
+.AboutList2 {
+  width: 960px;
+  display: flex;
+}
+
+//第二區塊 左邊 北部的環境介紹以及地址地圖
+
+.About2Left {
+  width: 500px;
+}
+.AboutP2Left {
+  width: 500px;
+  letter-spacing: 5px;
+}
+.AboutP2LeftBottom {
+  margin: 0 0 20px 0;
+}
+.AboutImgPicture2 {
+  width: 500px;
+  height: 400px;
+}
+.AboutNorthH2 {
+  margin: 20px 0 20px 0;
+}
+
+//第二區塊 右邊 小圖片
+
+.About2Right {
+  width: 480px;
+}
+.About2ImgBackground1 {
+  width: 200px;
+  height: 150px;
+  margin: 75px 10px 20px 40px;
+}
+.About2ImgBackground2 {
+  width: 200px;
+  height: 150px;
+  margin: 75px 0 20px 10px;
+}
+.About2ImgBackground3 {
+  width: 200px;
+  height: 150px;
+  margin: 0px 10px 20px 40px;
+}
+.About2ImgBackground4 {
+  width: 200px;
+  height: 150px;
+  margin: 0px 0px 20px 10px;
+}
+.About2ImgBackground5 {
+  width: 200px;
+  height: 150px;
+  margin: 0px 10px 20px 40px;
+}
+
+//第三區塊
+.AboutList3 {
+  display: flex;
+}
+
+//第三區塊 左邊 南部環境介紹以及地址地圖
+.AboutNorthH3 {
+  margin: 20px 0 20px 0;
+}
+.About3Left {
+  width: 480px;
+}
+.AboutSouthH2 {
+  margin: 40px 0 20px 0;
+}
+
+.AboutP3Left {
+  width: 500px;
+  letter-spacing: 5px;
+}
+.AboutP3LeftBottom {
+  margin: 0 0 20px 0;
+}
+.AboutImgPicture3 {
+  width: 500px;
+  height: 400px;
+}
+
+//第三區塊 右邊
+.About3Right {
+  margin: 0 0 40px 20px;
+}
+.About3ImgBackground6 {
+  width: 200px;
+  height: 150px;
+  margin: 75px 10px 20px 40px;
+}
+.About3ImgBackground7 {
+  width: 200px;
+  height: 150px;
+  margin: 75px 0 20px 10px;
+}
+.About3ImgBackground8 {
+  width: 200px;
+  height: 150px;
+  margin: 0px 10px 20px 40px;
+}
+.About3ImgBackground9 {
+  width: 200px;
+  height: 150px;
+  margin: 0px 0px 20px 10px;
+}
+.About3ImgBackground10 {
+  width: 200px;
+  height: 150px;
+  margin: 0px 10px 20px 40px;
+}
