@@ -10,6 +10,8 @@ import HomeApp from './container/home-app';
 import ProductCourse from './container/product-course';
 import ProductVideo from './container/product-video';
 import ProductInstrument from './container/product-instrument';
+import ProductId from './container/product-id';
+
 
 //User
 
@@ -21,8 +23,9 @@ import News from './container/news';
 
 // Cart
 // import CartApp from './container/cart-app';
-// import CartCheckout from './components/cart/cart-checkout';
+import CartCheckout from './components/cart/cart-checkout';
 import CartCheckOrder from './components/cart/cart-checkOrder';
+import CartPay from './components/cart/cart-pay';
 
 // Login
 import AllLoginPage from './components/login/all-login-page';
@@ -39,6 +42,7 @@ import AnyQuestion from './container/AnyQuestion';
 //About
 import About from './container/About';
 
+import AnyQuestionAction from './container/AnyQuestionAction';
 //Footer
 
 import Footer from './components/footer/footer';
@@ -52,14 +56,17 @@ function App() {
         <HomeApp />
       </Route>
 
-      <Route path="/course" exact>
+      <Route path="/course">
         <ProductCourse />
       </Route>
-      <Route path="/video" exact>
+      <Route path="/video">
         <ProductVideo />
       </Route>
-      <Route path="/instrument" exact>
+      <Route path="/instrument">
         <ProductInstrument />
+      </Route>
+      <Route path="/product-id">
+        <ProductId />
       </Route>
 
       <Route path="/news" exact>
@@ -77,6 +84,9 @@ function App() {
       <Route path="/About">
         <About />
       </Route>
+      <Route path="/AnyQuestionAction">
+        <AnyQuestionAction />
+      </Route>
 
       <Route path="/user" exact>
         <UserApp />
@@ -84,7 +94,8 @@ function App() {
 
       <Route path="/cart" >
         {/* <CartCheckout /> */}
-        <CartCheckOrder />
+        {/* <CartCheckOrder /> */}
+        <CartPay />
       </Route>
 
       <Route path="/login" >

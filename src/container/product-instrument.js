@@ -1,5 +1,5 @@
 import React from 'react'
-// import Navbar from '../components/navbar/navbar'
+import Navbar from '../components/navbar/navbar'
 import ProducList from '../components/product/instrument/productList'
 import ProductCategory from '../components/product/instrument/productCategory'
 
@@ -8,9 +8,9 @@ function ProductInstrument() {
   const productTitle = "精選樂器"
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
       <ProducList productTitle={productTitle} />
-      <ProductCategory />
+      {/* <ProductCategory /> */}
 
     </>
   )
