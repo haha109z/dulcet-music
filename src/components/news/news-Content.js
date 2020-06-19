@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import { IoMdArrowDropright } from 'react-icons/io'
 import { IoMdArrowDropleft } from 'react-icons/io'
+import { FaMapMarkerAlt } from 'react-icons/fa'
+import { FaShareAlt } from 'react-icons/fa'
+
 
 
 function NewsContent(props) {
@@ -12,10 +15,10 @@ function NewsContent(props) {
           <div className="news-Content">
 
             <img className="news-ContentImg" src={require("../../img/News_P001.jpg")}></img>
-
+            <FaShareAlt />
               <p className="news-H3 news-LetterSpacing news-NotoSerifTC">
                 109年12月26號(六)19:00-21:00<br />
-                臺中國家歌劇院 大劇院<br />
+                <FaMapMarkerAlt className="news-H3" /> 臺中國家歌劇院 大劇院<br />
                 NSO《王者之音》
               </p>
 

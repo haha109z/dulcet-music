@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 function NewsCategory(props) {
   return (
     <>
-        <div className="news-CategoryContainer d-flex">
+        <div className="news-CategoryContainer d-flex news-NotoSerifTC">
             <div className="news-Category">
                 <ul className="d-flex justify-content-start">
                     <li><a href="#">全部</a></li>
@@ -13,7 +13,7 @@ function NewsCategory(props) {
                     <li><a href="#">活動</a></li>
                 </ul>
             </div>
-            <div className="news-Dropdown">
+            <div className="news-Dropdown news-NotoSerifTC">
                 <button type="button" className="news-DropdownBtn">月份篩選&nbsp;&nbsp;<i class="fas fa-sort"></i></button>
             </div>
         </div>
