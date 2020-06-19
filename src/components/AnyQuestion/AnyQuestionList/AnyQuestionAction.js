@@ -11,25 +11,34 @@ function AnyQuestionAction() {
           <table class="AnyQuestionActionTable">
             <thead>
               <tr>
-                <td><input type="submit" value="忘記帳號"/></td>
+                <td style={{display:'flex'}}>
+                <input type="submit" value="忘記帳號"/>
+                <i class="AnyQuestionActionIcon fas fa-check"></i>
+                </td>
               </tr>
               <tr>
-                <td><input type="submit" value="忘記密碼"/></td>
+                <td style={{display:'flex'}}><input type="submit" value="忘記密碼"/>
+                <i class="AnyQuestionActionIcon fas fa-check"></i></td>
               </tr>
               <tr >
-                <td><input type="submit" value="帳號綁定"/></td>
+                <td style={{display:'flex'}}><input type="submit" value="帳號綁定"/>
+                <i class="AnyQuestionActionIcon fas fa-check"></i></td>
               </tr>
               <tr>
-                <td><input type="submit" value="帳號問題"/></td>
+                <td style={{display:'flex'}}><input type="submit" value="帳號問題"/>
+                <i class="AnyQuestionActionIcon fas fa-check"></i></td>
               </tr>
               <tr>
-                <td><input type="submit" value="信箱認證"/></td>
+                <td style={{display:'flex'}}><input type="submit" value="信箱認證"/>
+                <i class="AnyQuestionActionIcon fas fa-check"></i></td>
               </tr>
               <tr>
-                <td><input type="submit" value="優惠卷使用方法"/></td>
+                <td style={{display:'flex'}}><input type="submit" value="優惠卷使用方法"/>
+                <i class="AnyQuestionActionIcon fas fa-check"></i></td>
               </tr>
               <tr>
-                <td><input type="submit" value="帳號遺失密碼怎麼辦"/></td>
+                <td style={{display:'flex'}}><input type="submit" value="帳號遺失密碼怎麼辦"/>
+                <i class="AnyQuestionActionIcon fas fa-check"></i></td>
               </tr>
             </thead>
           </table>

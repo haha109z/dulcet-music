@@ -11,6 +11,7 @@ function AnyQuestion() {
           <div className="AnyQuestionCard AnyQuestionCardLeft">
             <i className="far fa-user AnyQuestionCardIcon"></i>
             <h2 className="AnyQuestionCardIconH2">會員問題</h2>
+            
           </div>
           <div className="AnyQuestionCard">
             <i class="fas fa-book AnyQuestionCardIcon"></i>
