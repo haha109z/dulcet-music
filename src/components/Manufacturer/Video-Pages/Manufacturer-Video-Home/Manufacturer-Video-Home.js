@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../../../Styles/Manufacturer/Manufacturer-Video-Styles/Manufacturer-Video-Home.scss'
+
 
 
 
@@ -7,12 +7,12 @@ class VideoHome extends React.Component{
     render(){
     return(
         <div className="video-home-page">
-        <h3 className="font-size-142rem video-home-title">會員資料</h3>
+        <h3 className="font-size-142rem video-home-title">廠商資料</h3>
           <div className="video-home-img">
             <img src="" alt="" />
           </div>
           <div className="video-home-id">
-            <p>會員編號:001</p>
+            <p>廠商編號:M001</p>
           </div>
           <hr className="video-home-hr"/>
           

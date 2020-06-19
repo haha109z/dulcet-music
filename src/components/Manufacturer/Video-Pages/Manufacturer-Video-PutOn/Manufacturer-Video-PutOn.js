@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../../../Styles/Manufacturer/Manufacturer-Video-Styles/Manufacturer-Video-PutOn.scss'
+
 
 
 class VideoPutOn extends React.Component{
@@ -19,7 +19,9 @@ class VideoPutOn extends React.Component{
         <div className="video-puton-page">
         <h3>新增影片</h3>
         <form className="video-puton-form">
-            <video className="video-puton-add"></video>
+            <video className="video-puton-add" controls>
+                <h3>將檔案拖曳到這裡</h3>
+            </video>
             <label htmlFor="videoname">影片名稱<input id="videoname" type="text"/></label>
             <label>影片類型
             <select className="video-value" onChange={this.handlechange}>

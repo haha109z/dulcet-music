@@ -44,6 +44,16 @@
     transition: 0.5s;
   }
   .video-menu-logout {
-    margin: 180px auto;
+    margin-top: 180px;
+    width: 100%;
+    p {
+      margin: auto;
+      padding: 0px;
+      width: 57px;
+      border-bottom: 1px solid;
+    }
+    p:hover {
+      width: 100%;
+    }
   }
 }

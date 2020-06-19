@@ -1,21 +1,21 @@
 .video-list-page {
   width: 812px;
-  height: 1130px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 50px;
-
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  margin: 198px auto auto 10%;
+  .video-list-title {
+    text-align: center;
+    margin-bottom: 80px;
+  }
   .video-list-search {
     height: 100px;
-    width: 812px;
+    width: 100%;
     border-bottom: 1px solid;
     .video-list-input {
-      width: 732px;
+      width: 90%;
       height: 40px;
     }
-
     .video-list-search-btn {
       width: 80px;
       height: 40px;
@@ -29,28 +29,32 @@
       border: none;
       outline: none;
     }
-    h3 {
+    p {
       color: red;
+      margin: 20px 0 20px 15px;
     }
   }
   .video-list-features {
     display: flex;
     justify-content: space-between;
-    width: 812px;
+    align-items: center;
     margin-top: 10px;
+    position: relative;
+    padding: 10px;
     a {
       width: 80px;
       height: 30px;
       margin: 10px;
     }
     .video-list-add {
+      position: absolute;
+      right: 0px;
       button {
         width: 100px;
         height: 50px;
         background: #141414;
         color: #ffffff;
         border: none;
-        margin: 0px;
       }
       button:hover {
         background: #f2e8df;
@@ -61,25 +65,26 @@
     }
   }
   .video-list-content {
-    width: 812px;
+    width: 100%;
     .video-list-pro-content {
-      width: 812px;
-      height: 200px;
+      height: 207px;
       hr {
         border: 1px solid #707070;
+        margin: 0;
       }
       .video-list-pro-state {
-        width: 812px;
+        height: 20px;
         display: flex;
         justify-content: space-between;
         margin-top: 10px;
       }
       .video-list-pro {
-        width: 812px;
+        margin-top: 10px;
+        background: #f2f2f2;
         display: flex;
         .video-list-pro-checkbox {
-          margin-top: 80px;
-          margin-bottom: 80px;
+          margin-top: 90px;
+          margin-bottom: 90px;
         }
         img {
           width: 250px;
@@ -90,11 +95,19 @@
         .video-list-pro-text {
           width: 500px;
           padding: 10px;
+          p {
+            line-height: 30px;
+          }
+          .video-list-pro-money {
+            margin-right: 10px;
+            line-height: 30px;
+          }
         }
         .video-list-pro-btns {
           display: flex;
           flex-direction: column;
           justify-content: space-evenly;
+          padding: 10px;
           button {
             width: 80px;
             height: 40px;
@@ -113,5 +126,6 @@
   }
   .video-list-over-line {
     border: 1px solid #707070;
+    margin-top: 25px;
   }
 }

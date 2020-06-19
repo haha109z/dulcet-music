@@ -34,6 +34,7 @@
   width: 80px;
   height: 40px;
   text-align: center;
+  border: none;
   background-color: var(--main-colorblock);
   color: var(--main-colorfff);
 }
@@ -70,6 +71,8 @@
 }
 .video-order-content-hr {
   background-color: var(--main-colorblock);
+  margin-top: 0;
+  margin-bottom: 0;
 }
 .video-order-pro {
   background-color: #f2f2f2;
@@ -81,13 +84,17 @@
 .video-order-pro-img {
   width: 140px;
   height: 140px;
-  background-color: cyan;
   margin: auto 0 auto 10px;
+  position: relative;
 }
 
 .video-order-pro-img > img {
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .video-order-pro-text {
   width: 65%;
