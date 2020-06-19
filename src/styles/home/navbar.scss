@@ -144,7 +144,7 @@
 
   .nav-navlist-others .nav-items-others > a {
     color: var(--main-colorblock);
-    font-size: var(--h1);
+    font-size: var(--h3);
     padding: 0 4.28rem;
   }
 
@@ -377,6 +377,7 @@
       // width: 80%;
       // border-bottom: 1px solid var(--main-colorfff);
       color: var(--main-colorfff);
+      font-size: var(--h1);
     }
   }
 
@@ -388,6 +389,11 @@
     order: 2;
     justify-content: space-evenly;
     // background-color: cornflowerblue;
+     
+  }
+
+  .nav-body-others .nav-navuser-others .nav-items-others > a{
+    font-size: var(--h1);
   }
 
   // navbra區隔線
