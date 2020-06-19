@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../../style/Forum.scss'
+import '../../../../styles/custom.scss'
 //第一區塊
 // import AboutImgBackground1 from '../../../img/About小圖片1.jpg'
 
@@ -27,7 +27,7 @@ function AboutList() {
           </p>
           <img
             className="AboutImgPicture1"
-            src={require('../../../img/About小圖片1.jpg')}
+            src={require('../../../img/About/About小圖片1.jpg')}
             alt="AboutImgBackground1"
           />
         </div>

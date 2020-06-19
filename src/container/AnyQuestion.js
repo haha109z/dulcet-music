@@ -2,8 +2,8 @@ import React from 'react'
 
 
 
-import Navbar from '../components/navbar/navbar';
-import Footer from '../components/footer/footer';
+import Navbar from '../components/drive/navbar/navbar'
+import Footer from '../components/drive/footer/footer'
 
 import ForumCard from '../components/ForumComponents/ForumCard/ForumCard'
 import AboutList from '../components/About/AboutList/AboutList'
@@ -14,8 +14,8 @@ function Forum() {
     <>
       <Navbar />
 
-      <ForumCard />
-      {/* <AnyQuestion /> */}
+      {/* <ForumCard /> */}
+      <AnyQuestion />
       {/* <AboutList /> */}
       
 

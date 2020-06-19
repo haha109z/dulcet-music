@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../../style/Forum.scss'
+import '../../../../styles/custom.scss'
 
 function ForumCard() {
   return (

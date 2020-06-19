@@ -32,7 +32,8 @@ import UserRegistered from './components/register/user-register';
 
 // ManufacturerRegistered
 import ManufacturerRegistered from './components/register/manufacturer-register';
-
+//Forum
+import Forum from './container/Forum';
 //Footer
 
 import Footer from './components/footer/footer';
@@ -58,6 +59,20 @@ function App() {
 
       <Route path="/news" exact>
         <News />
+      </Route>
+      <Route path="/About">
+        <HomeApp />
+      </Route>
+
+      <Route path="/Forum">
+        <HomeApp />
+      </Route>
+      
+      <Route path="/AnyQuestion">
+        <HomeApp />
+      </Route>
+      <Route path="/About">
+        <HomeApp />
       </Route>
 
       <Route path="/user" exact>
