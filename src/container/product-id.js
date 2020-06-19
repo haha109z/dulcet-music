@@ -1,19 +1,18 @@
 import React from 'react'
 import Navbar from '../components/navbar/navbar'
-import ProducList from '../components/product/video/productList'
-import ProductCategory from '../components/product/instrument/productCategory'
+import ProductLink from '../components/product/id/product-link'
 
 
-function ProductInstrument() {
-    const productTitle = "線上影片"
+function ProductId() {
+    const productCategoryId = "精選樂器"
+    const productInstrumentId = "鋼琴"
   return (
     <>
-      <Navbar />
-      <ProducList productTitle={productTitle} />
-      {/* <ProductCategory /> */}
+      {/* <Navbar /> */}
+      <ProductLink  productCategoryId={productCategoryId} productInstrumentId={productInstrumentId} />
 
     </>
   )
 }
 
-export default ProductInstrument
+export default ProductId
