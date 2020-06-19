@@ -10,14 +10,14 @@
   }
   .video-list-search {
     height: 100px;
-    width: 100%;
+
     border-bottom: 1px solid;
     .video-list-input {
       width: 90%;
       height: 40px;
     }
     .video-list-search-btn {
-      width: 80px;
+      width: 10%;
       height: 40px;
       background: #141414;
       color: #ffffff;
@@ -41,10 +41,16 @@
     margin-top: 10px;
     position: relative;
     padding: 10px;
-    a {
-      width: 80px;
-      height: 30px;
-      margin: 10px;
+    .video-list-features-tool {
+      display: flex;
+      align-items: center;
+      .video-list-all-checkbox {
+        width: 20px;
+        height: 20px;
+      }
+      a {
+        margin-left: 10px;
+      }
     }
     .video-list-add {
       position: absolute;
@@ -85,6 +91,8 @@
         .video-list-pro-checkbox {
           margin-top: 90px;
           margin-bottom: 90px;
+          width: 25px;
+          height: 25px;
         }
         img {
           width: 250px;
@@ -93,7 +101,7 @@
           margin: 10px;
         }
         .video-list-pro-text {
-          width: 500px;
+          width: 52%;
           padding: 10px;
           p {
             line-height: 30px;
@@ -107,7 +115,7 @@
           display: flex;
           flex-direction: column;
           justify-content: space-evenly;
-          padding: 10px;
+
           button {
             width: 80px;
             height: 40px;

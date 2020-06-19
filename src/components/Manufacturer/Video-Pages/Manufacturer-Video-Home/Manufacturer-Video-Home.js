@@ -11,7 +11,7 @@ class VideoHome extends React.Component{
           <div className="video-home-img">
             <img src="" alt="" />
           </div>
-          <div className="video-home-id">
+          <div className="video-home-number">
             <p>廠商編號:M001</p>
           </div>
           <hr className="video-home-hr"/>

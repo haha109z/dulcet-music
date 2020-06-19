@@ -10,8 +10,7 @@ class VideoEditPassword extends React.Component{
                 <div className="video-password-top">
                     <div className="video-password-sticker"><img className="video-password-icon"/></div>
                     <div className="video-password-number">
-                        <span>廠商編號:</span>
-                        <span>M001</span>
+                        <p>廠商編號:M001</p>
                     </div>
                     <hr className="video-password-hr" />
                 </div>
