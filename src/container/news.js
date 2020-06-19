@@ -4,6 +4,7 @@ import React,{useState,useEffect} from 'react';
 import NewsNavbar from '../components/news/News-Navbar'
 import NewsSliders from '../components/news/News-Sliders'
 import NewsCategory from '../components/news/News-Category';
+// import NewsContent from '../components/news/News-Content';
 
 
 function News(){
@@ -15,7 +16,7 @@ function News(){
         <NewsNavbar />
         <NewsSliders />
         <NewsCategory />
-        <NewsContent />
+        {/* <NewsContent /> */}
         
         </>
     )
