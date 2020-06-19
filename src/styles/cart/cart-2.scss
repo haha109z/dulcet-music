@@ -1,42 +1,42 @@
 // Import Bootstrap and its default variables
-@import '~bootstrap/scss/bootstrap';
+// @import '~bootstrap/scss/bootstrap';
 
 // google-font
-@import url('https://fonts.googleapis.com/css2?family=Merienda&family=Noto+Serif+TC:wght@300&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Merienda&family=Noto+Serif+TC:wght@300&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-}
+// * {
+//   margin: 0;
+//   padding: 0;
+// }
 
-:root {
-  --main-colorfff: #fff;
-  --main-colorblack: #141414;
-  --main-color79: #797979;
-  --main-colorda: #dadada;
-  --main-colorf2: #f2f2f2;
-  --main-colorf2e: #f2ebdf;
-  --main-colorfb2: #fb2643;
-  --main-title-english: 'Merienda';
-  --main-title-chinese: 'Noto Serif TC';
-  --nav-height: 5rem; /** 80px **/
-  --margin: 11.25rem; /** 180px **/
-  --h1: 2.25rem; /** 36px **/
-  --h2: 1.5rem; /** 24px **/
-  --h3: 1.42rem; /** 20px **/
-  --h4: 1.14rem; /** 16px **/
-  --p: 1rem;
-  --h5: 0.92rem; /** 13px **/
-  --h6: 0.85rem; /** 12px **/
-}
+// :root {
+//   --main-colorfff: #fff;
+//   --main-colorblack: #141414;
+//   --main-color79: #797979;
+//   --main-colorda: #dadada;
+//   --main-colorf2: #f2f2f2;
+//   --main-colorf2e: #f2ebdf;
+//   --main-colorfb2: #fb2643;
+//   --main-title-english: 'Merienda';
+//   --main-title-chinese: 'Noto Serif TC';
+//   --nav-height: 5rem; /** 80px **/
+//   --margin: 11.25rem; /** 180px **/
+//   --h1: 2.25rem; /** 36px **/
+//   --h2: 1.5rem; /** 24px **/
+//   --h3: 1.42rem; /** 20px **/
+//   --h4: 1.14rem; /** 16px **/
+//   --p: 1rem;
+//   --h5: 0.92rem; /** 13px **/
+//   --h6: 0.85rem; /** 12px **/
+// }
 
-.cart-container {
-  max-width: 960px;
-  margin: 80px auto;
-  font-family: var(--main-title-chinese);
-  font-size: var(--h4);
-  box-sizing: border-box;
-}
+// .cart-container {
+//   max-width: 960px;
+//   margin: 80px auto;
+//   font-family: var(--main-title-chinese);
+//   font-size: var(--h4);
+//   box-sizing: border-box;
+// }
 
 .cart-title {
   // background: yellow;
@@ -273,7 +273,7 @@
     width: 350px;
 
     input {
-      border: 1px solid #fb2643;
+      border: 1px solid var(--main-colorfb2);
       text-align: center;
     }
   }

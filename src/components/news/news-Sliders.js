@@ -5,12 +5,12 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 function NewsSliders(props) {
   return (
     <>
-        <div className="News-Sliders d-flex">
-            <Link className="News-SlidersArrow" to="">
+        <div className="news-Sliders d-flex">
+            <Link className="news-SlidersArrow" to="">
             <i className="fas fa-angle-left"></i>
             </Link>
-            <img className="News-SlidersImg" src={require("../../img/News_P001.jpg")}></img>
-            <Link className="News-SlidersArrow" to="">
+            <img className="news-SlidersImg" src={require("../../img/News_P001.jpg")}></img>
+            <Link className="news-SlidersArrow" to="">
             <i className="fas fa-angle-right"></i>
             </Link>
         </div>

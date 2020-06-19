@@ -1,33 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Merienda&family=Noto+Serif+TC:wght@300&display=swap');
-
-* {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  box-sizing: border-box;
-}
-
-:root {
-  --main-colorfff: #fff;
-  --main-colorblock: #141414;
-  --main-color79: #797979;
-  --main-colorda: #dadada;
-  --mail-colorf2: #f2f2f2;
-  --main-colorf2e: #f2ebdf; // 米色
-  --main-colorfb2: #fb2643;
-  --main-title-english: 'Merienda', cursive;
-  --main-title-chinese: 'Noto Serif TC', serif;
-  --nav-height: 5rem; // 80px
-  --margin: 11.25rem; // 180px
-  --h1: 2.25rem; // 36px
-  --h2: 1.5rem; // 24px
-  --h3: 1.42rem; // 20px
-  --h4: 1.14rem; // 16px
-  --p: 1rem;
-  --h5: 0.92rem; // 13px
-  --h6: 0.85rem; // 12px
-}
-
 .home-news-d-flex {
   display: flex;
 }
@@ -56,7 +26,6 @@
   }
 
   .home-news-row {
-
     .home-news-card {
       width: 21.42rem;
       height: 30rem;
@@ -64,7 +33,7 @@
       padding: 0;
       overflow: hidden;
 
-      img{
+      img {
         width: 100%;
         object-fit: cover;
       }
@@ -113,21 +82,20 @@
   }
 }
 
-@media screen and (max-width:768px){
-  .home-news-wrap  .home-news-row
-  .home-news-card{
+@media screen and (max-width: 768px) {
+  .home-news-wrap .home-news-row .home-news-card {
     width: 100%;
     height: 100%;
     text-align: center;
 
-    img{
+    img {
       overflow: hidden;
       width: 100%;
       object-fit: contain;
     }
   }
 
-  .home-news-wrap .home-news-row .home-news-card .home-news-tilte-txt{
+  .home-news-wrap .home-news-row .home-news-card .home-news-tilte-txt {
     width: 100%;
     text-align: center;
     // border:1px solid red;
@@ -135,10 +103,10 @@
     margin: 1.5rem auto;
   }
 
-  .home-news-wrap .home-news-row .home-news-card .home-news-txt{
+  .home-news-wrap .home-news-row .home-news-card .home-news-txt {
     width: 100%;
     text-align: left;
-    margin:1.5rem auto;
+    margin: 1.5rem auto;
     text-indent: 0;
     padding: 0;
   }
@@ -147,13 +115,12 @@
     margin-bottom: 2rem;
   }
 
-  .home-news-wrap .home-news-title{
+  .home-news-wrap .home-news-title {
     text-indent: 0;
     text-align: center;
 
-    &::before{
+    &::before {
       display: none;
     }
   }
-
 }

@@ -1,6 +1,8 @@
 // crat
 @import './cart/cart.scss';
 @import './cart/cart-2.scss';
+@import './cart/cart-3.scss';
+@import './cart/cart-4.scss';
 
 //home
 @import '~bootstrap/scss/bootstrap.scss';
@@ -16,9 +18,9 @@
 
 //news
 @import './news/news-Sliders.scss';
-@import './news/news-Navbar.scss';
 @import './news/news-Content.scss';
 @import './news/news-Category.scss';
+@import './news/news-Hot.scss';
 
 //product
 @import './product/instrument/productCategory.scss';
