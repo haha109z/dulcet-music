@@ -1,0 +1,117 @@
+.video-list-page {
+  width: 812px;
+  height: 1130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+
+  .video-list-search {
+    height: 100px;
+    width: 812px;
+    border-bottom: 1px solid;
+    .video-list-input {
+      width: 732px;
+      height: 40px;
+    }
+
+    .video-list-search-btn {
+      width: 80px;
+      height: 40px;
+      background: #141414;
+      color: #ffffff;
+      border: none;
+    }
+    .video-list-search-btn:hover {
+      background: #f2e8df;
+      color: #141414;
+      border: none;
+      outline: none;
+    }
+    h3 {
+      color: red;
+    }
+  }
+  .video-list-features {
+    display: flex;
+    justify-content: space-between;
+    width: 812px;
+    margin-top: 10px;
+    a {
+      width: 80px;
+      height: 30px;
+      margin: 10px;
+    }
+    .video-list-add {
+      button {
+        width: 100px;
+        height: 50px;
+        background: #141414;
+        color: #ffffff;
+        border: none;
+        margin: 0px;
+      }
+      button:hover {
+        background: #f2e8df;
+        color: #141414;
+        border: none;
+        outline: none;
+      }
+    }
+  }
+  .video-list-content {
+    width: 812px;
+    .video-list-pro-content {
+      width: 812px;
+      height: 200px;
+      hr {
+        border: 1px solid #707070;
+      }
+      .video-list-pro-state {
+        width: 812px;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+      }
+      .video-list-pro {
+        width: 812px;
+        display: flex;
+        .video-list-pro-checkbox {
+          margin-top: 80px;
+          margin-bottom: 80px;
+        }
+        img {
+          width: 250px;
+          border: 1px;
+          height: 180px;
+          margin: 10px;
+        }
+        .video-list-pro-text {
+          width: 500px;
+          padding: 10px;
+        }
+        .video-list-pro-btns {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          button {
+            width: 80px;
+            height: 40px;
+            border: none;
+            background: #141414;
+            color: #ffffff;
+          }
+          button:hover {
+            background: #f2e8df;
+            color: #141414;
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+  .video-list-over-line {
+    border: 1px solid #707070;
+  }
+}
