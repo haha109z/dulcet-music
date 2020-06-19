@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../../../styles/custom.scss'
+// import '../../../../styles/custom.scss'
 
 function AnyQuestion() {
   return (

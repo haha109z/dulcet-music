@@ -65,7 +65,7 @@ function App() {
       </Route>
 
       <Route path="/Forum">
-        <HomeApp />
+        <Forum />
       </Route>
       
       <Route path="/AnyQuestion">

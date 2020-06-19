@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../../../styles/custom.scss'
+// import '../../../../styles/custom.scss'
 //第一區塊
 // import AboutImgBackground1 from '../../../img/About小圖片1.jpg'
 
