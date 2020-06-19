@@ -45,6 +45,16 @@
 @import './user/user-video.scss';
 @import './user/user-voucher.scss';
 
+// Manufacturer
+
+@import './Manufacturer/Manufacturer-Video/Manufacturer-Video-App.scss';
+@import './Manufacturer/Manufacturer-Video/Manufacturer-Video-Home.scss';
+@import './Manufacturer/Manufacturer-Video/Manufacturer-Video-Menu.scss';
+@import './Manufacturer/Manufacturer-Video/Manufacturer-Video-List.scss';
+@import './Manufacturer/Manufacturer-Video/Manufacturer-Video-Password.scss';
+@import './Manufacturer/Manufacturer-Video/Manufacturer-Video-Order.scss';
+@import './Manufacturer/Manufacturer-Video/Manufacturer-Video-PutOn.scss';
+
 //About
 @import './ForumScss/ForumCard.scss';
 @import './AnyQuestion/AnyQuestionList.scss';

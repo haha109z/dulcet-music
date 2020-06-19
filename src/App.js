@@ -44,6 +44,10 @@ import AnyQuestion from './container/AnyQuestion';
 import About from './container/About';
 
 import AnyQuestionAction from './container/AnyQuestionAction';
+
+// ManufacturerVideo
+import ManufacturerVideo from './container/Manufacturer-Video-App'
+
 //Footer
 
 import Footer from './components/footer/footer';
@@ -91,6 +95,10 @@ function App() {
 
       <Route path="/user" exact>
         <UserApp />
+      </Route>
+
+      <Route path="/ManufacturerVideo">
+        <ManufacturerVideo />
       </Route>
 
       <Route path="/cart" >
