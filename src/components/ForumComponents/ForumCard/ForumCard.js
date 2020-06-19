@@ -4,9 +4,13 @@ import React from 'react'
 function ForumCard() {
   return (
     <>
+    
       <div className="ForumHeight"></div>
+  
       <div className="ForumContainer">
-        <button className="ForumButton">我要發問</button>
+      <div class="ForumTitle">
+      <button className="ForumButton">我要發問</button>
+      </div>
         <div className="ForumCard">
           {/* card1 */}
           <action className="ForumAction">
@@ -37,9 +41,13 @@ function ForumCard() {
             <div className="ForumCardTitle">
               <div className="ForumCardImg"></div>
               <div>
+              
                 <h3 className="ForumCardH3">發問會員：王采潔</h3>
                 <h3 className="ForumCardH3">問題類別：小提琴</h3>
+                
               </div>
+           
+             
               <button className="ComprehensiveButton">綜合</button>
             </div>
             <div className="ForumCardDiv">

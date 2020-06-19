@@ -1,0 +1,77 @@
+.product-id-link {
+  font-size: 13px;
+  color: #141414;
+  margin-bottom: 50px;
+  font-family: 'Noto Serif TC', serif;
+}
+.product-id-link:hover {
+  text-decoration: none;
+  color: #fb2643;
+}
+
+#product-id-wrapper {
+  //   height: 200px;
+  //   width: 930px;
+  //   background: lightblue;
+  margin: 50px auto;
+  margin-bottom: 30px;
+  border: 15px solid #f2e8df;
+  #product-id-wrapper-hr {
+    margin: 15px;
+    border-color: #797979;
+  }
+  #product-id-intro-wrapper {
+    display: flex;
+    #product-id-intro-picture {
+      background: khaki;
+      width: 450px;
+      height: 455px;
+      margin: 15px;
+    }
+    #product-id-intro-text {
+      width: 450px;
+      height: 455px;
+      margin: 15px;
+      background: hotpink;
+      #product-id-intro-text-title {
+        letter-spacing: 8px;
+        font-family: 'Noto Serif TC', serif;
+        font-weight: bold;
+      }
+      #product-id-intro-text-cost-title {
+        font-size: 24px;
+        color: #797979;
+        font-family: 'Noto Serif TC', serif;
+      }
+    }
+  }
+  #product-id-desciption-wrapper {
+    margin: 15px;
+    #product-id-desciption-title {
+      font-size: 24px;
+      letter-spacing: 5px;
+      font-weight: bold;
+      font-family: 'Noto Serif TC', serif;
+    }
+    #product-id-desciption-text {
+      margin: 20px;
+      .product-id-desciption-text-p {
+        font-size: 14px;
+        margin: 20px 0;
+        letter-spacing: 3px;
+        line-height: 24px;
+        font-family: 'Noto Serif TC', serif;
+      }
+    }
+  }
+}
+#product-wrapper-hr {
+  border-color: #797979;
+  margin: 30px 0;
+}
+#product-id-maylike-title {
+  font-size: 24px;
+  letter-spacing: 5px;
+  font-weight: bold;
+  font-family: 'Noto Serif TC', serif;
+}

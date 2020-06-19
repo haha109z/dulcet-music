@@ -1,8 +1,8 @@
 // Import Bootstrap and its default variables
-@import '~bootstrap/scss/bootstrap';
+// @import '~bootstrap/scss/bootstrap';
 
 // google-font
-@import url('https://fonts.googleapis.com/css2?family=Merienda&family=Noto+Serif+TC:wght@300&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Merienda&family=Noto+Serif+TC:wght@300&display=swap');
 
 // * {
 //   margin: 0;
@@ -30,11 +30,77 @@
 //   --h6: 0.85rem; /** 12px **/
 // }
 
-.cart-container {
-  max-width: 960px;
-  margin: 80px auto;
-  font-family: var(--main-title-chinese);
-  font-size: var(--h4);
-  box-sizing: border-box;
-}
+// .cart-container {
+//   max-width: 960px;
+//   margin: 80px auto;
+//   font-family: var(--main-title-chinese);
+//   font-size: var(--h4);
+//   box-sizing: border-box;
+// }
 
+.cart-pay-form {
+  padding: 60px;
+  border: 1px solid var(--main-color79);
+
+  input {
+    text-indent: 80px;
+  }
+
+  label {
+    // padding: 0 24px;
+    display: block;
+
+    input[type='checkbox'] {
+      width: 20px;
+      height: 20px;
+      vertical-align: sub;
+    }
+  }
+
+  .cart-img {
+    background: yellowgreen;
+    width: 150px;
+    height: 50px;
+    margin: 0 0 0 25px;
+    display: inline-block;
+  }
+
+  .cart-pay-card {
+    background: lightsalmon;
+    border-radius: 26px;
+    width: 300px;
+    height: 200px;
+    margin: 10px;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .cart-input1 {
+    // background: #fb2643;
+    // border: 1px solid white;
+    margin: 30px 0 0 0;
+
+    label {
+      padding: 0 24px;
+      // text-align: right;
+    }
+
+    input {
+      outline: none;
+      background-color: transparent;
+      border: none;
+      border-bottom: 2px solid var(--main-color79);
+      width: 93%;
+      margin: 0 30px;
+    }
+  }
+
+  .cart-card-ex {
+    justify-content: space-between;
+    
+    input {
+      width: 30%;
+    }
+  }
+
+}

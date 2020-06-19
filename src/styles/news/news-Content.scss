@@ -1,6 +1,103 @@
-@import url('https://fonts.googleapis.com/css2?family=Merienda&family=Noto+Serif+TC:wght@300&display=swap');
-
-.News-Content {
+.news-ContentContainer {
   width: 960px;
   margin: 0 auto;
+}
+
+.news-Content {
+  width: 600px;
+  padding: 0 20px 20px 20px;
+}
+.news-ContentImg {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.news-ViewBtn {
+  color: #141414;
+  margin: 10px 0 10px 150px;
+  button {
+    border: none;
+    background: #f2e8df;
+    line-height: 34px;
+    width: 300px;
+  }
+}
+
+.news-H1 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.news-H2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.news-H3 {
+  font-size: 20px;
+  font-weight: bold;
+}
+.news-H4 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.news-p {
+  font-size: 14px;
+}
+
+.news-H5 {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.news-H6 {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.news-LetterSpacing {
+  letter-spacing: 0.3rem;
+}
+
+.news-NotoSerifTC {
+  font-family: 'Noto Serif TC', serif;
+}
+.news-Merienda {
+  font-family: 'Merienda', cursive;
+}
+
+.news-Color79 {
+  color: #797979;
+}
+
+.news-Hr {
+  border-color: #dadada;
+}
+
+#product-pages-list {
+  margin: 10px auto 20px;
+  display: flex;
+  justify-content: center;
+  .product-pages {
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 14px;
+    font-family: 'Noto Serif TC', serif;
+    text-decoration: none;
+    border: 1px solid #dadada;
+    color: #141414;
+    text-align: center;
+    margin: 10px;
+    .product-pages-arrows {
+      font-size: 20px;
+      margin: 8px;
+    }
+  }
+  .product-pages:hover {
+    background: #f2e8df;
+  }
 }

@@ -1,8 +1,8 @@
 // Import Bootstrap and its default variables
-@import '~bootstrap/scss/bootstrap';
+// @import '~bootstrap/scss/bootstrap';
 
 // google-font
-@import url('https://fonts.googleapis.com/css2?family=Merienda&family=Noto+Serif+TC:wght@300&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Merienda&family=Noto+Serif+TC:wght@300&display=swap');
 
 // * {
 //   margin: 0;
@@ -63,8 +63,8 @@
 
   thead {
     font-size: var(--h2);
-    background-color: var(--main-colorblack);
     text-align: center;
+    background-color: var(--main-colorblack);
 
     th {
       color: var(--main-colorfff);
@@ -90,6 +90,7 @@
     input[type='checkbox'] {
       width: 20px;
       height: 20px;
+      
     }
 
     img {
