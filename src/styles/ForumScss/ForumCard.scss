@@ -1,0 +1,115 @@
+.ForumHeight {
+  //   background: red;
+  height: 70px;
+}
+.ForumContainer {
+  max-width: 960px;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: var(--p);
+  font-family: var(--main-title-chinese);
+  color: var(--main-colorblock);
+}
+/* Forum-button */
+.ForumButton {
+  /* text-align: right; */
+  font-size: 1.14rem;
+  float: right;
+  margin: 20px 0px 40px 0px;
+  padding: 10px;
+  background: var(--main-colorf2e);
+  border: 0px;
+  width: 100px;
+  height: 50px;
+}
+
+// ForumCardAll
+.ForumCard {
+  display: flex;
+}
+// ForumCardAction
+.ForumAction {
+  padding: 20px 20px 20px 0;
+}
+// CardImg
+
+.ForumCardImg {
+  margin: 20px;
+  width: 100px;
+  height: 100px;
+  //   border: 1px solid red;
+  border-radius: 50%;
+  background-image: url(../../img/About/女生001.jpg);
+  background-size: cover;
+}
+.ForumCardTeacherImg {
+  margin: 20px;
+  width: 50px;
+  height: 50px;
+  //   border: 1px solid red;
+  border-radius: 50%;
+  background-image: url(../../img/About/女生001.jpg);
+  background-size: cover;
+}
+
+/* Forum-buttonAns */
+.ForumBtnAns {
+  /* text-align: right; */
+  font-size: 1.14rem;
+
+  margin: 110px 20px 20px 0px;
+  padding: 10px;
+  background: var(--main-colorf2e);
+  border: 0px;
+  width: 100px;
+  height: 50px;
+}
+
+// CardTitle
+
+.ForumCardTitle {
+  display: flex;
+}
+// CardH3元素
+
+.ForumCardH3 {
+  font-size: var(--h3);
+  margin: 20px;
+}
+//綜合
+.ComprehensiveButton {
+  /* text-align: right; */
+  font-size: 1.14rem;
+  position: relative;
+  right: 0px;
+  bottom: 0px;
+  margin: 100px 0px 0px 80px;
+  //   padding: 10px;
+  background: var(--main-colorf2e);
+  border: 0px;
+  width: 50px;
+  height: 25px;
+}
+// CardDiv元素
+
+.ForumCardDiv {
+  display: flex;
+  border: 1px solid var(--main-colorf2e);
+  width: 460px;
+  margin: 0px;
+}
+// CardP元素
+
+.ForumCardP {
+  width: 420px;
+  margin: 20px;
+  letter-spacing: 10px;
+}
+
+.ForumCardP2 {
+  width: 420px;
+  margin: 0 10px 20px 20px;
+  letter-spacing: 10px;
+}
+
+/* Comprehensive-button */
