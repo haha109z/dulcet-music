@@ -20,7 +20,8 @@ import UserApp from './container/user-app';
 import News from './container/news';
 
 // Cart
-import CartApp from './container/cart-app';
+// import CartApp from './container/cart-app';
+import CartCheckout from './components/cart/cart-checkout';
 
 // Login
 import AllLoginPage from './components/login/all-login-page';
@@ -62,8 +63,8 @@ function App() {
         <UserApp />
       </Route>
 
-      <Route path="/cart" exact>
-        <CartApp />
+      <Route path="/cart" >
+        <CartCheckout />
       </Route>
 
       <Route path="/login" >
