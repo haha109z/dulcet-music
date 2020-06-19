@@ -2,12 +2,11 @@ import React from 'react'
 
 
 
-import Navbar from '../components/navbar/navbar';
-import Footer from '../components/footer/footer';
+import Navbar from '../components/navbar/navbar'
+
 
 import ForumCard from '../components/ForumComponents/ForumCard/ForumCard'
-import AboutList from '../components/About/AboutList/AboutList'
-import AnyQuestion from '../components/AnyQuestion/AnyQuestionList/AnyQuestion'
+
 
 function Forum() {
   return (
@@ -15,11 +14,8 @@ function Forum() {
       <Navbar />
 
       <ForumCard />
-      {/* <AnyQuestion /> */}
-      {/* <AboutList /> */}
-      
+    
 
-      <Footer />
     </>
   )
 }

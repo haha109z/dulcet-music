@@ -1,7 +1,7 @@
 import React from 'react'
 
-import Navbar from '../components/drive/navbar/navbar'
-import Footer from '../components/drive/footer/footer'
+import Navbar from '../components/navbar/navbar'
+
 import AboutList from '../components/About/AboutList/AboutList'
 
 function About() {
@@ -14,7 +14,7 @@ function About() {
         <AboutList />
         
   
-        <Footer />
+      
       </>
     )
   }

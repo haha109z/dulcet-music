@@ -34,6 +34,11 @@ import UserRegistered from './components/register/user-register';
 import ManufacturerRegistered from './components/register/manufacturer-register';
 //Forum
 import Forum from './container/Forum';
+//AnyQuestion
+import AnyQuestion from './container/AnyQuestion';
+//About
+import About from './container/About';
+
 //Footer
 
 import Footer from './components/footer/footer';
@@ -60,19 +65,17 @@ function App() {
       <Route path="/news" exact>
         <News />
       </Route>
-      <Route path="/About">
-        <HomeApp />
-      </Route>
+      
 
       <Route path="/Forum">
         <Forum />
       </Route>
-      
+
       <Route path="/AnyQuestion">
-        <HomeApp />
+        <AnyQuestion />
       </Route>
       <Route path="/About">
-        <HomeApp />
+        <About />
       </Route>
 
       <Route path="/user" exact>
