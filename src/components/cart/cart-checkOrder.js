@@ -24,53 +24,44 @@ function CartCheckOrder() {
               <th className="cart-category" colspan="7">購買清單－課程</th>
             </tr>
             <tr>
-              <th><input type="checkbox" id=""/></th>
               <td><img src={require('../../img/cart/cart-violin-01.jpeg')}/></td>
               <td>春季吉他班</td>
               <td>$1,700</td>
               <td>
-                <i className="fas fa-minus-circle cart-minusBtn"></i>
-                <div className="cart-number">10</div>
-                <i className="fas fa-plus-circle cart-plusBtn"></i>
+                <div className="">10</div>
               </td>
               <td>$17,000</td>
-              <td><div className="cart-btn" onClick={()=>{}}><i class="far fa-trash-alt"></i></div></td>
             </tr>
             <tr>
-              <th><input type="checkbox" id=""/></th>
               <td><img src={require('../../img/cart/cart-violin-01.jpeg')}/></td>
               <td>春季吉他班</td>
               <td>$1,700</td>
               <td>
-                <i className="fas fa-minus-circle cart-minusBtn"></i>
-                <div className="cart-number">10</div>
-                <i className="fas fa-plus-circle cart-plusBtn"></i>
+                <div className="">10</div>
               </td>
               <td>$17,000</td>
-              <td><div className="cart-btn" onClick={()=>{}}><i className="far fa-trash-alt"></i></div></td>
             </tr>
           </tbody>
         </table>
 
-        <div>
+        <div> 
           <form className="" action="#" method="GET" enctype="multipart/form-data">
             <div className="cart-buyer-info">
               <h2>收件人資訊</h2>
                 <fieldset>
-                  <label><input type="checkbox" id=""/> 同帳戶資料</label>
-                  <div className="cart-input">
+                  <div className="cart-input2">
                     <label for="name">姓名</label>
                     <input className="" autofocus autocomplete="off" id="name" type="text" name="name" placeholder=""/>
                   </div>
-                  <div className="cart-input">
+                  <div className="cart-input2">
                     <label for="add">地址</label>
                     <input className="" id="add" type="text"/>
                   </div>
-                  <div className="cart-input">
+                  <div className="cart-input2">
                     <label for="phone">手機號碼</label>
                     <input className="" id="phone" type="text"/>
                   </div>
-                  <div className="cart-input">
+                  <div className="cart-input2">
                     <label for="email">電子信箱</label>
                     <input id="email" className="" type="text"/>
                   </div>
