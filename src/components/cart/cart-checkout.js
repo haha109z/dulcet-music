@@ -87,7 +87,7 @@ function CartCheckout() {
                   </div>
                   <div>
                     <label><input type="checkbox" id=""/> 電子發票載具</label>
-                    <div className="cart-input" style={{margin: '0 0 20px 0'}}>
+                    <div className="cart-input1" style={{margin: '0 0 20px 0'}}>
                       <label for="einvoice">載具號碼</label>
                       <input className="" id="einvoice" type="text"/>
                     </div>
@@ -105,11 +105,11 @@ function CartCheckout() {
                   <div>
                     <label><input type="checkbox" id=""/> 公司戶</label>
                     <span>提醒您，公司戶發票一旦開立，不得任意更改或改為個人戶發票。</span>
-                    <div className="cart-input" style={{margin: '0 0 20px 0'}}>
+                    <div className="cart-input1" style={{margin: '0 0 20px 0'}}>
                       <label for="einvoice">統一編號</label>
                       <input className="" id="einvoice" type="text"/>
                     </div>
-                    <div className="cart-input">
+                    <div className="cart-input1">
                       <label for="einvoice">發票抬頭</label>
                       <input className="" id="einvoice" type="text"/>
                     </div>

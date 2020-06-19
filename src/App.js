@@ -23,7 +23,7 @@ import News from './container/news';
 
 // Cart
 // import CartApp from './container/cart-app';
-// import CartCheckout from './components/cart/cart-checkout';
+import CartCheckout from './components/cart/cart-checkout';
 import CartCheckOrder from './components/cart/cart-checkOrder';
 
 // Login
