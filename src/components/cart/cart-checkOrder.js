@@ -21,7 +21,7 @@ function CartCheckOrder() {
           </thead>
           <tbody>
             <tr>
-              <th className="cart-category" colspan="7">購買清單－課程</th>
+              <th className="cart-category" colspan="7">課程訂單</th>
             </tr>
             <tr>
               <td><img src={require('../../img/cart/cart-violin-01.jpeg')}/></td>
@@ -71,34 +71,30 @@ function CartCheckOrder() {
               <h2>統一發票</h2>
                 <fieldset>
                   <div>
-                    <label><input type="checkbox" id=""/> 個人戶電子發票</label>
+                    <label>個人戶電子發票</label>
                     <span>中獎時會寄送至收件地址</span>
                   </div>
                   <div>
-                    <label><input type="checkbox" id=""/> 電子發票載具</label>
-                    <div className="cart-input1" style={{margin: '0 0 20px 0'}}>
+                    <label>電子發票載具</label>
+                    <div className="cart-input2" style={{margin: '0 0 20px 0'}}>
                       <label for="einvoice">載具號碼</label>
                       <input className="" id="einvoice" type="text"/>
                     </div>
                   </div>
                   <div style={{padding:'0 0 20px 0'}}>
-                    <label><input type="checkbox" id=""/> 捐贈發票</label>
+                    <label>捐贈發票</label>
                     <span>提醒您，捐贈發票後無法變更成開立或索取紙本發票。</span>
                     <br/>
-                    <select>
-                      <option value="台灣流浪兔保護協會">台灣流浪兔保護協會</option>
-                      <option value="社團法人台灣愛兔協會">社團法人台灣愛兔協會</option>
-                      <option value="財團法人陽光社會福利基金會">財團法人陽光社會福利基金會</option>
-                    </select>
+                    <span>我們將會為您捐給 台灣流浪兔保護協會</span>
                   </div>
                   <div>
-                    <label><input type="checkbox" id=""/> 公司戶</label>
+                    <label>公司戶</label>
                     <span>提醒您，公司戶發票一旦開立，不得任意更改或改為個人戶發票。</span>
-                    <div className="cart-input1" style={{margin: '0 0 20px 0'}}>
+                    <div className="cart-input2" style={{margin: '0 0 20px 0'}}>
                       <label for="einvoice">統一編號</label>
                       <input className="" id="einvoice" type="text"/>
                     </div>
-                    <div className="cart-input1">
+                    <div className="cart-input2">
                       <label for="einvoice">發票抬頭</label>
                       <input className="" id="einvoice" type="text"/>
                     </div>
@@ -129,8 +125,8 @@ function CartCheckOrder() {
           </div>
         </div>
         <div style={{margin:'0 auto', width:'400px'}}>
-          <button className="cart-checkout-btn" type="">繼續購物</button>
-          <button className="cart-checkout-btn" type="submit">下一步→</button>
+          <button className="cart-checkout-btn" type="">← 上一步</button>
+          <button className="cart-checkout-btn" type="submit">下一步 →</button>
         </div>
       </div>
     </>

@@ -141,7 +141,7 @@ function CartCheckout() {
         </div>
         <div style={{margin:'0 auto', width:'400px'}}>
           <button className="cart-checkout-btn" type="">繼續購物</button>
-          <button className="cart-checkout-btn" type="submit">下一步→</button>
+          <button className="cart-checkout-btn" type="submit">下一步 →</button>
         </div>
       </div>
     </>
