@@ -9,26 +9,13 @@ export default class UserLike extends Component {
           </h3>
 
           <form class="UserLike-search" action="">
-            <div class="user-dropdown">
-              <button type="button" class="user-dropbtn">
-                訂單狀態
-                <i class="fas fa-sort-down"></i>
-              </button>
-
-              <div class="user-dropdown-content">
-                <a href="#">全部</a>
-                <a href="#">待付款</a>
-                <a href="#">待出貨</a>
-                <a href="#">待收貨</a>
-                <a href="#">完成</a>
-                <a href="#">取消</a>
-              </div>
-            </div>
+            
             <input
               class="UserLike-search-input user-font-ch"
               placeholder="請輸入關鍵字"
               type="text"
             />
+            
             <p class="user-font-ch UserLike-search-404title user-font-ch">
               請輸入商品或訂單關鍵字
             </p>
