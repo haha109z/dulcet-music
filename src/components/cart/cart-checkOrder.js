@@ -26,20 +26,20 @@ function CartCheckOrder() {
             <tr>
               <td><img src={require('../../img/cart/cart-violin-01.jpeg')}/></td>
               <td>春季吉他班</td>
-              <td>$1,700</td>
+              <td style={{color:'var(--main-colorfb2)'}}>$1,700</td>
               <td>
                 <div className="">10</div>
               </td>
-              <td>$17,000</td>
+              <td style={{color:'var(--main-colorfb2)'}}>$17,000</td>
             </tr>
             <tr>
               <td><img src={require('../../img/cart/cart-violin-01.jpeg')}/></td>
               <td>春季吉他班</td>
-              <td>$1,700</td>
+              <td style={{color:'var(--main-colorfb2)'}}>$1,700</td>
               <td>
                 <div className="">10</div>
               </td>
-              <td>$17,000</td>
+              <td style={{color:'var(--main-colorfb2)'}}>$17,000</td>
             </tr>
           </tbody>
         </table>
@@ -114,7 +114,7 @@ function CartCheckOrder() {
               <span className="cart-total-title">合計</span>
               <span className="cart-total-number">$ 2,800</span>
             </div>
-            <div style={{color:'#FB2643'}}>
+            <div style={{color:'var(--main-colorfb2)'}}>
               <span className="cart-total-title">折扣</span>
               <span className="cart-total-number">- $ 1,000</span>
             </div>
