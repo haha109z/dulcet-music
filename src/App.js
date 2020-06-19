@@ -21,7 +21,8 @@ import News from './container/news';
 
 // Cart
 // import CartApp from './container/cart-app';
-import CartCheckout from './components/cart/cart-checkout';
+// import CartCheckout from './components/cart/cart-checkout';
+import CartCheckOrder from './components/cart/cart-checkOrder';
 
 // Login
 import AllLoginPage from './components/login/all-login-page';
@@ -64,7 +65,8 @@ function App() {
       </Route>
 
       <Route path="/cart" >
-        <CartCheckout />
+        {/* <CartCheckout /> */}
+        <CartCheckOrder />
       </Route>
 
       <Route path="/login" >
