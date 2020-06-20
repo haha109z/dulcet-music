@@ -10,10 +10,11 @@ import {
   Redirect,
 } from 'react-router-dom'
 import Piano from '../components/product/instrument/productPiano'
-import ProductId from './product-id'
+import ProductId from '../components/product/course/product-id'
 
 function ProductInstrument() {
   const productTitle = '優質課程'
+  const productTitleId = 'course'
   return (
     <>
       <Navbar />
@@ -35,7 +36,12 @@ function ProductInstrument() {
 
           <Route
             path="/course"
-            render={(routeProps) => <ProducList productTitle={productTitle} />}
+            render={(routeProps) => (
+              <ProducList
+                productTitle={productTitle}
+                productTitleId={productTitleId}
+              />
+            )}
           ></Route>
           <Redirect to="/course" />
         </Switch>

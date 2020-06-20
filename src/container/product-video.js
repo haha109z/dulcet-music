@@ -14,6 +14,7 @@ import ProductId from '../components/product/video/product-id'
 
 function ProductInstrument() {
   const productTitle = '線上影片'
+  const productTitleId = 'video'
   return (
     <>
       <Navbar />
@@ -35,7 +36,12 @@ function ProductInstrument() {
 
           <Route
             path="/video"
-            render={(routeProps) => <ProducList productTitle={productTitle} />}
+            render={(routeProps) => (
+              <ProducList
+                productTitle={productTitle}
+                productTitleId={productTitleId}
+              />
+            )}
           ></Route>
           <Redirect to="/video" />
         </Switch>

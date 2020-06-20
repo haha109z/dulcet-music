@@ -15,8 +15,11 @@ function ProductPicture(props) {
             d="M465.1,1,1,198.49V1H465.1M470,0H0V200L470,0Z"
           />
         </svg>
-  <span id="product-title">{props.productTitle}</span>
-        {/* <img id="title-img" src={require('../images/Piano.jpg')} /> */}
+        <span id="product-title">{props.productTitle}</span>
+        <img
+          id="product-title-img"
+          src={require(`../../img/product/product-${props.productTitleId}-img.jpg`)}
+        />
       </div>
     </>
   )

@@ -11,7 +11,7 @@
     height: 50vh;
     min-height: 300px;
     max-height: 400px;
-    background: salmon;
+    // background: salmon;
     position: relative;
 
     .product-black-tri {
@@ -45,20 +45,21 @@
     width: 95%;
     // background: paleturquoise;
     .product-control {
-      margin: 40px auto;
-      height: 50px;
-      background: darkorchid;
+      // margin: 40px auto;
+      // height: 50px;
+      // background: darkorchid;
       display: flex;
+      justify-content: flex-end;
 
-      .product-sort {
-        height: 50px;
-        width: 170px;
-        border-radius: 0;
+      // .product-sort {
+      //   height: 50px;
+      //   width: 170px;
+      //   border-radius: 0;
 
-        .product-sort-option {
-          height: 40px;
-        }
-      }
+      //   .product-sort-option {
+      //     height: 40px;
+      //   }
+      // }
     }
     .product-card-list {
       display: flex;
@@ -96,9 +97,12 @@
             font-size: 16px;
           }
         }
-        .product-card-favorite-container:hover {
+        .product-card-favorite-bg {
           background: #fb2643;
         }
+        // .product-card-favorite-container:hover {
+        //   background: #fb2643;
+        // }
         .product-card-intro {
           background: #f2f2f2;
           height: 76px;
@@ -186,9 +190,12 @@
             font-size: 16px;
           }
         }
-        .product-card-favorite-container:hover {
+        .product-card-favorite-bg {
           background: #fb2643;
         }
+        // .product-card-favorite-container:hover {
+        //   background: #fb2643;
+        // }
       }
       .product-instrument-card:hover {
         cursor: pointer;

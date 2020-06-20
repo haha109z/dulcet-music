@@ -6,16 +6,26 @@ import { FaHeart } from 'react-icons/fa'
 import ProductPicture from '../product-picture'
 
 function ProductList(props) {
+  const [favorite, setFavorite] = useState(false)
   return (
     <>
       <div className="product-container">
-        <ProductPicture productTitle={props.productTitle} />
+        <ProductPicture
+          productTitle={props.productTitle}
+          productTitleId={props.productTitleId}
+        />
         <div className="product-wrapper">
           <div className="product-control">
-            <select className="product-sort" name="test">
+            <span>排序依</span>
+            <select>
+              <option>熱門度</option>
+              <option>價格高到低</option>
+              <option>價格低到高</option>
+            </select>
+            {/* <select className="product-sort" name="test">
               <option className="product-sort-option">依價格高到低</option>
               <option className="product-sort-option">依價格低到高</option>
-            </select>
+            </select> */}
           </div>
           <div className="product-card-list">
             <div className="product-instrument-card">
@@ -23,7 +33,14 @@ function ProductList(props) {
                 className="product-instrument-card-img"
                 // src={require('../images/184177.jpg')}
               />
-              <div className="product-card-favorite-container">
+              <div
+                className={`product-card-favorite-container ${
+                  favorite ? 'product-card-favorite-bg' : null
+                }`}
+                onClick={() => {
+                  favorite ? setFavorite(false) : setFavorite(true)
+                }}
+              >
                 <FaHeart className="product-card-favorite" />
               </div>
               <div className="product-card-intro">

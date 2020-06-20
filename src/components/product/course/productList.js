@@ -6,15 +6,22 @@ import { FaHeart } from 'react-icons/fa'
 import ProductPicture from '../product-picture'
 
 function ProductList(props) {
+  const [favorite, setFavorite] = useState(false)
+
   return (
     <>
       <div className="product-container">
-        <ProductPicture productTitle={props.productTitle}/>
+        <ProductPicture
+          productTitle={props.productTitle}
+          productTitleId={props.productTitleId}
+        />
         <div className="product-wrapper">
           <div className="product-control">
-            <select className="product-sort" name="test">
-              <option className="product-sort-option">依價格高到低</option>
-              <option className="product-sort-option">依價格低到高</option>
+            <span>排序依</span>
+            <select>
+              <option>熱門度</option>
+              <option>價格高到低</option>
+              <option>價格低到高</option>
             </select>
           </div>
           <div className="product-card-list">
@@ -23,13 +30,22 @@ function ProductList(props) {
                 className="product-video-card-img"
                 // src={require('../images/184177.jpg')}
               />
-              <div className="product-card-favorite-container">
+              <div
+                className={`product-card-favorite-container ${
+                  favorite ? 'product-card-favorite-bg' : null
+                }`}
+                onClick={() => {
+                  favorite ? setFavorite(false) : setFavorite(true)
+                }}
+              >
                 <FaHeart className="product-card-favorite" />
               </div>
               <div className="product-card-intro">
                 <h4 className="product-card-title">【提琴教室】小提琴-01</h4>
                 <h5 className="product-course-card-date">2020-07-22</h5>
-                <p className="product-video-card-desciption">小提琴是提琴家族中最小、音高最高的一種，主要的特點在於其輝煌的聲音、高度的演奏技巧和豐富、廣泛的表現力。讓阿雅老師帶你從基礎開始學會演奏小提琴！</p>
+                <p className="product-video-card-desciption">
+                  小提琴是提琴家族中最小、音高最高的一種，主要的特點在於其輝煌的聲音、高度的演奏技巧和豐富、廣泛的表現力。讓阿雅老師帶你從基礎開始學會演奏小提琴！
+                </p>
                 <h3 className="product-card-cost">$13,000</h3>
               </div>
             </div>
@@ -46,7 +62,9 @@ function ProductList(props) {
               <div className="product-card-intro">
                 <h4 className="product-card-title">【提琴教室】小提琴-01</h4>
                 <h5 className="product-video-card-time">1小時05分</h5>
-                <p className="product-video-card-desciption">小提琴是提琴家族中最小、音高最高的一種，主要的特點在於其輝煌的聲音、高度的演奏技巧和豐富、廣泛的表現力。讓阿雅老師帶你從基礎開始學會演奏小提琴！</p>
+                <p className="product-video-card-desciption">
+                  小提琴是提琴家族中最小、音高最高的一種，主要的特點在於其輝煌的聲音、高度的演奏技巧和豐富、廣泛的表現力。讓阿雅老師帶你從基礎開始學會演奏小提琴！
+                </p>
                 <h3 className="product-card-cost">$13,000</h3>
               </div>
             </div>
@@ -63,7 +81,9 @@ function ProductList(props) {
               <div className="product-card-intro">
                 <h4 className="product-card-title">【提琴教室】小提琴-01</h4>
                 <h5 className="product-video-card-time">1小時05分</h5>
-                <p className="product-video-card-desciption">小提琴是提琴家族中最小、音高最高的一種，主要的特點在於其輝煌的聲音、高度的演奏技巧和豐富、廣泛的表現力。讓阿雅老師帶你從基礎開始學會演奏小提琴！</p>
+                <p className="product-video-card-desciption">
+                  小提琴是提琴家族中最小、音高最高的一種，主要的特點在於其輝煌的聲音、高度的演奏技巧和豐富、廣泛的表現力。讓阿雅老師帶你從基礎開始學會演奏小提琴！
+                </p>
                 <h3 className="product-card-cost">$13,000</h3>
               </div>
             </div>
@@ -80,16 +100,16 @@ function ProductList(props) {
               <div className="product-card-intro">
                 <h4 className="product-card-title">【提琴教室】小提琴-01</h4>
                 <h5 className="product-video-card-time">1小時05分</h5>
-                <p className="product-video-card-desciption">小提琴是提琴家族中最小、音高最高的一種，主要的特點在於其輝煌的聲音、高度的演奏技巧和豐富、廣泛的表現力。讓阿雅老師帶你從基礎開始學會演奏小提琴！</p>
+                <p className="product-video-card-desciption">
+                  小提琴是提琴家族中最小、音高最高的一種，主要的特點在於其輝煌的聲音、高度的演奏技巧和豐富、廣泛的表現力。讓阿雅老師帶你從基礎開始學會演奏小提琴！
+                </p>
                 <h3 className="product-card-cost">$13,000</h3>
               </div>
             </div>
           </div>
-
 
           <Router>
-
-          <div id="product-pages-list">
+            <div id="product-pages-list">
               <Link className="product-pages" to="">
                 <IoMdArrowDropleft className="product-pages-arrows" />
               </Link>
@@ -105,9 +125,8 @@ function ProductList(props) {
               <Link className="product-pages" to="">
                 <IoMdArrowDropright className="product-pages-arrows" />
               </Link>
-          </div>
+            </div>
           </Router>
-
         </div>
       </div>
     </>

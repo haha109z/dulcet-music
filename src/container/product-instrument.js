@@ -14,6 +14,7 @@ import ProductId from './product-id'
 
 function ProductInstrument() {
   const productTitle = '精選樂器'
+  const productTitleId = 'instrument'
   return (
     <>
       <Navbar />
@@ -22,9 +23,12 @@ function ProductInstrument() {
         <Switch>
           <Route
             path="/instrument/piano"
-            render={(routeProps) => (
+            render={() => (
               <>
-                <ProducList productTitle={productTitle} />
+                <ProducList
+                  productTitle={productTitle}
+                  productTitleId={productTitleId}
+                />
                 <Piano />
               </>
             )}
@@ -35,7 +39,12 @@ function ProductInstrument() {
 
           <Route
             path="/instrument"
-            render={(routeProps) => <ProducList productTitle={productTitle} />}
+            render={(routeProps) => (
+              <ProducList
+                productTitle={productTitle}
+                productTitleId={productTitleId}
+              />
+            )}
           ></Route>
           <Redirect to="/instrument" />
         </Switch>
