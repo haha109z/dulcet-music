@@ -85,21 +85,21 @@ function NewsContent(props) {
           <div className="news-Content">
               <Router>
 
-                  <div id="product-pages-list">
-                      <Link className="product-pages" to="">
-                        <IoMdArrowDropleft className="product-pages-arrows" />
+                  <div id="news-pages-list">
+                      <Link className="news-pages" to="">
+                        <IoMdArrowDropleft className="news-pages-arrows" />
                       </Link>
-                      <Link className="product-pages" to="">
+                      <Link className="news-pages" to="">
                         1
                       </Link>
-                      <Link className="product-pages" to="">
+                      <Link className="news-pages" to="">
                         2
                       </Link>
-                      <Link className="product-pages" to="">
+                      <Link className="news-pages" to="">
                         3
                       </Link>
-                      <Link className="product-pages" to="">
-                        <IoMdArrowDropright className="product-pages-arrows" />
+                      <Link className="news-pages" to="">
+                        <IoMdArrowDropright className="news-pages-arrows" />
                       </Link>
                   </div>
 

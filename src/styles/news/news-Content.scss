@@ -77,13 +77,13 @@
   border-color: #dadada;
 }
 
-#product-pages-list {
+#news-pages-list {
   margin: 10px auto 20px;
   display: flex;
   justify-content: center;
-  .product-pages {
+  .news-pages {
     width: 36px;
-    height: 36px;
+    height: 36px; 
     line-height: 36px;
     font-size: 14px;
     font-family: 'Noto Serif TC', serif;
@@ -92,12 +92,12 @@
     color: #141414;
     text-align: center;
     margin: 10px;
-    .product-pages-arrows {
+    .news-pages-arrows {
       font-size: 20px;
       margin: 8px;
     }
   }
-  .product-pages:hover {
+  .news-pages:hover {
     background: #f2e8df;
   }
 }
