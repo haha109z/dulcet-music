@@ -6,6 +6,7 @@ import React from 'react'
 function AboutList() {
   return (
     <>
+    <div className="AboutAll">
       <div className="AboutContainer">
         {/* 第一區塊 */}
 
@@ -52,27 +53,27 @@ function AboutList() {
           {/* 第二區塊右邊 */}
           <div className="About2Right">
             <img
-              className="About2ImgBackground1"
+              className="About2ImgBackground About2ImgBackground1"
               src={require('../../../img/About/環境圖片1.jpg')}
               alt="About2ImgBackground1"
             />
             <img
-              className="About2ImgBackground2"
+              className="About2ImgBackground About2ImgBackground2"
               src={require('../../../img/About/環境圖片2.jpg')}
               alt="About2ImgBackground2"
             />
             <img
-              className="About2ImgBackground3"
+              className="About2ImgBackground About2ImgBackground3"
               src={require('../../../img/About/環境圖片3.jpg')}
               alt="About2ImgBackground3"
             />
             <img
-              className="About2ImgBackground4"
+              className="About2ImgBackground About2ImgBackground4"
               src={require('../../../img/About/環境圖片4.jpg')}
               alt="About2ImgBackground4"
             />
             <img
-              className="About2ImgBackground5"
+              className="About2ImgBackground About2ImgBackground5"
               src={require('../../../img/About/環境圖片5.jpg')}
               alt="About2ImgBackground5"
             />
@@ -80,7 +81,7 @@ function AboutList() {
         </div>
 
         {/* 第三區塊 */}
-        <div className="AboutList3">
+        <div className="About3List">
           {/* 第三區塊左邊*/}
           <div className="About3Left">
             <h2 className="AboutNorthH3">南部上課地點</h2>
@@ -93,39 +94,40 @@ function AboutList() {
             </p>
             <img
               className="AboutImgPicture3"
-              src={require('../../../img/About/About小圖片1.jpg')}
+              src={require('../../../img/About/地圖圖片1.jpg')}
               alt="AboutImgBackground3"
             ></img>
           </div>
           {/* 第三區塊右邊 */}
           <div className="About3Right">
             <img
-              className="About3ImgBackground6"
+              className="About2ImgBackground About3ImgBackground6"
               src={require('../../../img/About/環境圖片6.jpg')}
               alt="About3ImgBackground6"
             />
             <img
-              className="About3ImgBackground7"
+              className="About2ImgBackground About3ImgBackground7"
               src={require('../../../img/About/環境圖片7.jpg')}
               alt="About3ImgBackground7"
             />
             <img
-              className="About3ImgBackground8"
+              className="About2ImgBackground About3ImgBackground8"
               src={require('../../../img/About/環境圖片8.jpg')}
               alt="About3ImgBackground8"
             />
             <img
-              className="About3ImgBackground9"
+              className="About2ImgBackground About3ImgBackground9"
               src={require('../../../img/About/環境圖片9.jpg')}
               alt="About3ImgBackground9"
             />
             <img
-              className="About3ImgBackground10"
+              className="About2ImgBackground About3ImgBackground10"
               src={require('../../../img/About/環境圖片10.jpg')}
               alt="About3ImgBackground10"
             />
           </div>
         </div>
+      </div>
       </div>
     </>
   )
