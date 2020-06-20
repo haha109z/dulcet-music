@@ -22,7 +22,7 @@ import UserApp from './container/user-app';
 import News from './container/news';
 
 // Cart
-import CartApp from './container/cart-app';
+// import CartApp from './container/cart-app';
 import CartCheckout from './components/cart/cart-checkout';
 import CartCheckOrder from './components/cart/cart-checkOrder';
 import CartPay from './components/cart/cart-pay';
@@ -105,8 +105,8 @@ function App() {
         {/* <CartCheckout /> */}
         {/* <CartCheckOrder /> */}
         {/* <CartPay /> */}
-        {/* <CartEnd /> */}
-        <CartApp />
+        <CartEnd />
+        {/* <CartApp /> */}
       </Route>
 
       <Route path="/login" >
