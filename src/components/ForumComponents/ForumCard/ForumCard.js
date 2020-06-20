@@ -3,10 +3,8 @@ import React from 'react'
 
 function ForumCard() {
   return (
-    <>
-    
+    <>   
       <div className="ForumHeight"></div>
-  
       <div className="ForumContainer">
       <div class="ForumTitle">
       <button className="ForumButton">我要發問</button>
@@ -29,7 +27,7 @@ function ForumCard() {
               </p>
               <button className="ForumBtnAns">看回答</button>
             </div>
-            <div className="ForumCardDiv">
+            <div className="ForumCardDiv" style={{display:'none'}}>
               <p className="ForumCardP2">
                 鈴木和霍曼都可以，這兩個是目前用的最多的教材。可以一邊練琴一邊學些基礎知識，但最好有老師帶著你鈴木和霍曼都可以，這兩個是目前用的最多的教材。可以一邊練琴一邊學些基礎知識，但最好有老師帶著你
               </p>
@@ -57,7 +55,7 @@ function ForumCard() {
               </p>
               <button className="ForumBtnAns">看回答</button>
             </div>
-            <div className="ForumCardDiv">
+            <div className="ForumCardDiv"  style={{display:'none'}}>
               <p className="ForumCardP2">
                 鈴木和霍曼都可以，這兩個是目前用的最多的教材。可以一邊練琴一邊學些基礎知識，但最好有老師帶著你鈴木和霍曼都可以，這兩個是目前用的最多的教材。可以一邊練琴一邊學些基礎知識，但最好有老師帶著你
               </p>
@@ -83,7 +81,7 @@ function ForumCard() {
               </p>
               <button className="ForumBtnAns">看回答</button>
             </div>
-            <div className="ForumCardDiv">
+            <div className="ForumCardDiv" style={{display:'none'}}>
               <p className="ForumCardP2">
                 鈴木和霍曼都可以，這兩個是目前用的最多的教材。可以一邊練琴一邊學些基礎知識，但最好有老師帶著你鈴木和霍曼都可以，這兩個是目前用的最多的教材。可以一邊練琴一邊學些基礎知識，但最好有老師帶著你
               </p>
@@ -107,7 +105,7 @@ function ForumCard() {
               </p>
               <button className="ForumBtnAns">看回答</button>
             </div>
-            <div className="ForumCardDiv">
+            <div className="ForumCardDiv" style={{display:'none'}}>
               <p className="ForumCardP2">
                 鈴木和霍曼都可以，這兩個是目前用的最多的教材。可以一邊練琴一邊學些基礎知識，但最好有老師帶著你鈴木和霍曼都可以，這兩個是目前用的最多的教材。可以一邊練琴一邊學些基礎知識，但最好有老師帶著你
               </p>
