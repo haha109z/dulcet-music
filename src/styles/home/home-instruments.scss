@@ -84,7 +84,7 @@
         transition: 0.8s;
       }
 
-      &:hover {
+      &:not(.home-instruments-index):hover {
         opacity: 1;
         filter: brightness(1);
 

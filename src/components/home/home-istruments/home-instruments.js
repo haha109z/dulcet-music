@@ -32,7 +32,7 @@ class HomeInstruments extends Component{
             }else{
                 labelWrap.classList.remove('home-instruments-label-active');
             }
-            console.log('toggle:',toggle);
+            // console.log('toggle:',toggle);
          })
      }
 

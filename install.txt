@@ -31,6 +31,9 @@ npm install --save redux-devtools-extension
 ● react-reveal scroll動畫第三方函式庫：
 yarn add react-reveal
 
+● aos：滑鼠滾動效果
+npm install aos --save
+
 https://www.react-reveal.com/examples/common/custom/
 
 

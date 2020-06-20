@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
+import AOS from 'aos';
 
 // import './home-courses-videos.scss';
 import HomeBg_9 from '../../../img/home_bg_9.jpg';
@@ -13,6 +14,12 @@ class HomeCoursesVideos extends Component{
     }
 
     componentDidMount(){
+
+        AOS.init({
+            duration : 1000, // 持續時間
+            easing: 'ease-out-back',
+        })
+
         const {width} = this.state;
 
         const handleRWD = ()=>{
@@ -45,12 +52,16 @@ class HomeCoursesVideos extends Component{
         const rwdWidth3 = width <= 768 ? 'home-class-video-txt col-md-12' : 'home-class-video-txt col-md-3';
 
         const rwdWidth4 = width <= 768 ? 'home-class-video-img col-md-12' : 'home-class-video-img col-md-7';
+
+        const fadeIn = width > 768 ? 'fade-up' : '';
+        const fadeInDela = width > 768 ? '200' : '';
+        const fadeDuration = width > 768 ? '3000' : '';
         // console.log(this.state.width);
         return(
             <div className="container-fluid home-class-wrap">
                 <div className="row home-class-d-flex home-class-cour">
                     <div className={rwdWidth}>
-                    <img src={HomeBg_9}></img>
+                    <img data-aos={fadeIn} data-aos-dela={fadeInDela}  data-aos-duration={fadeDuration} src={HomeBg_9}></img>
                     </div>
                     <div className={rwdWidth2} onClick={this.handleCourClick}>
                         <h1 className="home-class-cour-title"><Link to="/course">Music Courses</Link></h1>
@@ -80,7 +91,7 @@ class HomeCoursesVideos extends Component{
                         </div>
                     </div>
                     <div className={rwdWidth4}>
-                        <img src={HomeBg_20}></img>
+                        <img data-aos={fadeIn} data-aos-dela={fadeInDela}  data-aos-duration={fadeDuration} src={HomeBg_20}></img>
                     </div>
                 </div>
             </div>
