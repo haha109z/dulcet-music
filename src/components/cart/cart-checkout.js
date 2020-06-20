@@ -7,57 +7,53 @@ function CartCheckout() {
       <div className="cart-container">
         <div className="cart-title">
           <h1><i className="fas fa-shopping-bag"></i> My Cart</h1>
-          <span style={{fontSize:'var(--h2)'}}>❶確認購買商品➔❷確認訂單➔❸選擇付款方式➔❹完成結帳</span>
+          <span>❶確認商品➔❷確認訂單➔❸選擇付款方式➔❹完成結帳</span>
         </div>
-        <table className="cart-table">
-          <thead>
-            <tr>
-              <th>選取</th>
-              <th>商品圖片</th>
-              <th>商品名稱</th>
-              <th>商品單價</th>
-              <th>數量</th>
-              <th>商品小計</th>
-              <th>刪除</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th className="cart-category" colspan="7">購買清單－課程</th>
-            </tr>   
-            <tr>
-              <th><input type="checkbox" id=""/></th>
-              <td><img src={require('../../img/cart/cart-violin-01.jpeg')}/></td>
-              <td>春季吉他班</td>
-              <td style={{color:'var(--main-colorfb2)'}}>$1,700</td>
-              <td>
+        <div className="cart-table">
+            <ul className='cart-thead'>
+              <li>選取</li>
+              <li>商品圖片</li>
+              <li>商品名稱</li>
+              <li>商品單價</li>
+              <li>數量</li>
+              <li>商品小計</li>
+              <li>刪除</li>
+            </ul>
+            <ul className="cart-order-category">
+              <li colspan="7">購買清單－課程</li>
+            </ul>   
+            <ul className="cart-product">
+              <li className="cart-product-li"><input type="checkbox" id=""/></li>
+              <li className="cart-product-li"><img src={require('../../img/cart/cart-violin-01.jpeg')}/></li>
+              <li className="cart-product-li">春季吉他班</li>
+              <li className="cart-product-li" style={{color:'var(--main-colorfb2)'}}>$1,700</li>
+              <li className="cart-product-li-2">
+                <i className="cart-minusBtn fas fa-minus-circle"></i>
+                <div className="cart-number-input">10</div>
+                <i className="cart-plusBtn fas fa-plus-circle"></i>
+              </li>
+              <li className="cart-product-number" style={{color:'var(--main-colorfb2)'}}>$17,000</li>
+              <li><div className="cart-btn" onClick={()=>{}}><i class="far fa-trash-alt"></i></div></li>
+            </ul>
+            {/* <ul className="cart-product">
+              <li><input type="checkbox" id=""/></li>
+              <li><img src={require('../../img/cart/cart-violin-01.jpeg')}/></li>
+              <li>春季吉他班</li>
+              <li style={{color:'var(--main-colorfb2)'}}>$1,700</li>
+              <li>
                 <i className="fas fa-minus-circle cart-minusBtn"></i>
                 <div className="cart-number">10</div>
                 <i className="fas fa-plus-circle cart-plusBtn"></i>
-              </td>
-              <td style={{color:'var(--main-colorfb2)'}}>$17,000</td>
-              <td><div className="cart-btn" onClick={()=>{}}><i class="far fa-trash-alt"></i></div></td>
-            </tr>
-            <tr>
-              <th><input type="checkbox" id=""/></th>
-              <td><img src={require('../../img/cart/cart-violin-01.jpeg')}/></td>
-              <td>春季吉他班</td>
-              <td style={{color:'var(--main-colorfb2)'}}>$1,700</td>
-              <td>
-                <i className="fas fa-minus-circle cart-minusBtn"></i>
-                <div className="cart-number">10</div>
-                <i className="fas fa-plus-circle cart-plusBtn"></i>
-              </td>
-              <td style={{color:'var(--main-colorfb2)'}}>$17,000</td>
-              <td><div className="cart-btn" onClick={()=>{}}><i className="far fa-trash-alt"></i></div></td>
-            </tr>
-          </tbody>
-        </table>
+              </li>
+              <li style={{color:'var(--main-colorfb2)'}}>$17,000</li>
+              <li><div className="cart-btn" onClick={()=>{}}><i className="far fa-trash-alt"></i></div></li>
+            </ul> */}
+        </div>
 
         <div>
-          <form className="" action="#" method="GET" enctype="multipart/form-data">
+          <form className="cart-form" action="#" method="GET" enctype="multipart/form-data">
             <div className="cart-buyer-info">
-              <h2>收件人資訊</h2>
+                <h2>收件人資訊</h2>
                 <fieldset>
                   <label><input type="checkbox" id=""/> 同帳戶資料</label>
                   <div className="cart-input">
@@ -79,7 +75,7 @@ function CartCheckout() {
                 </fieldset>
             </div>
             <div className="cart-invoice">
-              <h2>統一發票</h2>
+                <h2>統一發票</h2>
                 <fieldset>
                   <div>
                     <label><input type="checkbox" id=""/> 個人戶電子發票</label>

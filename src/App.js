@@ -102,10 +102,10 @@ function App() {
       </Route>
 
       <Route path="/cart" >
-        {/* <CartCheckout /> */}
+        <CartCheckout />
         {/* <CartCheckOrder /> */}
         {/* <CartPay /> */}
-        <CartEnd />
+        {/* <CartEnd /> */}
         {/* <CartApp /> */}
       </Route>
 
