@@ -195,7 +195,7 @@
         cursor: pointer;
       }
     }
-    #product-pages-list {
+    .product-pages-list {
       margin: 50px auto;
       display: flex;
       justify-content: center;
@@ -210,14 +210,14 @@
         color: #141414;
         text-align: center;
         margin: 10px;
-        .product-pages-arrows {
-          font-size: 20px;
-          margin: 8px;
-        }
+       
+
       }
+      
       .product-pages:hover {
         background: #f2e8df;
       }
     }
   }
+  
 }

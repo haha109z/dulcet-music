@@ -21,6 +21,10 @@
   height: 40px;
   padding-left: 17px;
 }
+.UserLike-search-input:focus{
+  border: solid 2px #141414;
+
+}
 .UserLike-search-button {
   width: 80px;
   height: 40px;
@@ -132,6 +136,14 @@
   color: var(--main-colorblock);
   background-color: var(--main-colorf2e);
 }
+
+
+
+
+
+
+
+
 @media (max-width: 768px) {
   .UserLike-main {
     width: 80%;
@@ -150,6 +162,9 @@
     padding-left: 17px;
     width: 100%;
   }
+  
+  
+  
   .UserLike-search-button {
     width: 100%;
     height: 40px;
@@ -170,7 +185,7 @@
     color: var(--main-colorfff);
     background-color: var(--main-colorblock);
     position: absolute;
-    bottom: 0;
+    bottom: -16px;
     padding: 4px;
     border: none;
   }
@@ -182,19 +197,31 @@
   }
   .UserLike-order-item {
     background-color: #f2f2f2;
-    width: 100%;
-    height: 160px;
+    width: 90%;
     display: flex;
-    margin-top: 20px;
+    margin: 0 auto;
+    position: relative;
+    height: auto;
+
+
   }
+  .UserLike-order{
+    margin-top: 20px;;
+  }
+  .UserLike-order-divider {
+    margin-top: 30px;
+}
   .UserLike-order-item-img {
     width: 140px;
-    height: 140px;
+    height: 160px;
     margin: auto auto auto 3%;
     position: relative;
   }
   .UserLike-top-titleName {
     margin: 0 auto 25px auto;
   }
-  
+  .UserLike-divider {
+    border: 1.5px #f2f2f2 solid;
+    margin-bottom: 3rem;
+}
 }

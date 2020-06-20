@@ -259,10 +259,23 @@ export default class UserLike extends Component {
                 前往商品頁面
               </button>
             </div>
-
             <hr class="UserLike-order-divider" />
           </div>
+          <div class="user-page">
+            <a class="user-page-Rarrow">
+              <i class="fas fa-sort-up"></i>
+            </a>
+            <button class="user-page-number">1</button>
+            <button class="user-page-number">2</button>
+            <button class="user-page-number">3</button>
+            <button class="user-page-number">4</button>
+            <button class="user-page-x">...</button>
+            <a class="user-page-Larrow">
+              <i class="fas fa-sort-up"></i>
+            </a>
+          </div>
         </div>
+        
       </>
     )
   }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
 export default class UserPurchase extends Component {
   render() {
@@ -51,7 +52,7 @@ export default class UserPurchase extends Component {
             </button>
           </div>
           <form class="UserPurchase-search" action="">
-          <div class="user-dropdown">
+            <div class="user-dropdown">
               <button type="button" class="user-dropbtn">
                 訂單狀態
                 <i class="fas fa-sort-down"></i>
@@ -71,16 +72,15 @@ export default class UserPurchase extends Component {
               placeholder="請輸入關鍵字"
               type="text"
             />
-              <p class="UserPurchase-search-404title user-font-ch">
-            請輸入商品或訂單關鍵字
-          </p>
+            <p class="UserPurchase-search-404title user-font-ch">
+              請輸入商品或訂單關鍵字
+            </p>
             <input
               class="UserPurchase-search-button user-font-ch"
               type="button"
               value="送出"
             />
           </form>
-        
 
           <hr class="UserPurchase-divider" />
           <div class="UserPurchase-order">
@@ -106,7 +106,7 @@ export default class UserPurchase extends Component {
                   筆電架電腦架 筆電散熱 金屬支架
                 </p>
                 <p class="UserPurchase-order-item-text-specification user-font-ch d-flex">
-                <p>分類：樂器</p>
+                  <p>分類：樂器</p>
                   <p>數量：2</p>
                 </p>
                 <p class="UserPurchase-order-item-text-number user-font-ch">
@@ -249,6 +249,19 @@ export default class UserPurchase extends Component {
               </p>{' '}
             </div>
             <hr class="UserPurchase-item-divider" />
+          </div>
+          <div class="user-page">
+            <a class="user-page-Rarrow">
+              <i class="fas fa-sort-up"></i>
+            </a>
+            <button class="user-page-number">1</button>
+            <button class="user-page-number">2</button>
+            <button class="user-page-number">3</button>
+            <button class="user-page-number">4</button>
+            <button class="user-page-x">...</button>
+            <a class="user-page-Larrow">
+              <i class="fas fa-sort-up"></i>
+            </a>
           </div>
         </div>
       </>

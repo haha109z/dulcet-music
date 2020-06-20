@@ -105,4 +105,55 @@ button:hover {
     flex-direction:column;
   }
 }
-
+.user-dropbtn:focus{
+border: 2px solid #141414;
+}
+.user-page {
+  display: flex;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 40px auto 60px auto;
+}
+.user-page-number {
+  height: 36px;
+  width: 36px;
+  margin: 5px;
+  outline: none;
+  border: 1px solid #dadada;
+  background-color: #ffffff;
+}
+.user-page-number:hover {
+  background-color: #f2e8df;
+}
+.user-page-Rarrow,
+.user-page-Larrow {
+  font-size: 30px;
+  text-align: center;
+  height: 36px;
+  width: 36px;
+  outline: none;
+  border: none;
+}
+.user-page-Larrow {
+  transform: rotate(90deg);
+  margin: 5px 0 0 0;
+}
+.user-page-Rarrow {
+  transform: rotate(-90deg);
+  margin: 5px 0 0 0;
+}
+.user-page-Larrow:hover,
+.user-page-Rarrow:hover > i {
+  font-size: 35px;
+}
+.user-page-Rarrow:hover,
+.user-page-Larrow:hover > i {
+  font-size: 35px;
+}
+.user-page-x {
+  height: 36px;
+  outline: none;
+  border: none;
+  background-color: #ffffff;
+  margin-top: 5%;
+}
