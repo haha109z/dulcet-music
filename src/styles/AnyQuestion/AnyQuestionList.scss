@@ -1,3 +1,6 @@
+.AnyQuestionAll {
+  width: 100%;
+}
 .text {
   margin: 110px 0 0 0;
 }
@@ -52,4 +55,72 @@
 .AnyQuestion2Width {
   margin: 20px 0;
   width: 480px;
+}
+@media (max-width: 920px) {
+  .AnyQuestionContainer {
+    max-width: 700px;
+  }
+  .AnyQuestionCard {
+    width: 120px;
+    margin: 0 10px 0 10px;
+  }
+  .AnyQuestionCardIcon {
+    font-size: 80px;
+    margin: 20px;
+  }
+}
+@media (max-width: 670px) {
+  .AnyQuestionContainer {
+    max-width: 500px;
+  }
+  .AnyQuestionCard {
+    width: 100px;
+    margin: 0 10px 0 10px;
+    height: 120px;
+  }
+  .AnyQuestionH2 {
+    margin: 40px 0 40px 0;
+    font-size: var(--h1);
+    text-align: center;
+  }
+  .AnyQuestionCardIcon {
+    font-size: 60px;
+    margin: 10px;
+  }
+  .AnyQuestionCardIconH2 {
+    padding: 0px;
+    font-size: var(--h4);
+  }
+  .AnyQuestion2Flex {
+    display: inline-block;
+    text-align: center;
+  }
+}
+@media (max-width: 490px) {
+  .AnyQuestionContainer {
+    max-width: 300px;
+  }
+
+  .AnyQuestionCardFlex {
+    display: inline-block;
+  }
+  .AnyQuestionCard {
+    width: 300px;
+    margin: 30px auto;
+    height: 300px;
+  }
+  .AnyQuestionCardIcon {
+    font-size: 200px;
+  }
+  .AnyQuestionCardIconH2 {
+    padding: 0px;
+    font-size: var(--h1);
+  }
+
+  .AnyQuestionNorthH3 {
+    font-size: var(--h1);
+    p {
+      font-size: var(--p);
+    }
+  }
 }

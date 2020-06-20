@@ -4,6 +4,7 @@ import React from 'react'
 function AnyQuestion() {
   return (
     <>
+    <div className="AnyQuestionAll">
       <div className="text"></div>
       <div className="AnyQuestionContainer">
         <h2 className="AnyQuestionH2">常見問題</h2>
@@ -44,6 +45,7 @@ function AnyQuestion() {
             <p>地 址：台北市南港區忠孝東路八段100巷</p>
           </div>
         </div>
+      </div>
       </div>
     </>
   )
