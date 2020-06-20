@@ -4,37 +4,48 @@
   /* background-color: thistle; */
   position: relative;
 }
-
+.video-user-id {
+  font-size: 14px;
+  color: var(--main-color79);
+}
 .video-home-title {
   margin: 0 auto 80px auto;
   text-align: center;
+  font-family: var(--main-title-chinese);
 }
 
 .video-home-hr {
   border: 1.5px #f2f2f2 solid;
-}
-.video-home-number {
-  position: absolute;
-  right: 0;
-  margin-top: -20px;
 }
 
 .video-home-img {
   border-radius: 50%;
   height: 150px;
   width: 150px;
-  background: rgb(134, 134, 152);
+  background-color: rgb(134, 134, 152);
   margin: 0 auto 5px auto;
 }
 
-.video-home-form > label {
+.video-home-label {
   display: flex;
   position: relative;
+  font-size: 16px;
+}
+
+.video-home-label > p {
+  font-family: var(--main-title-chinese);
+
+  font-size: 14px;
+}
+.video-home-form > label {
   height: 56px;
   margin: 20px auto 0 auto;
-  border-bottom: 1px black solid;
+  border-bottom: 2px var(--main-colorda) solid;
   width: 100%;
   max-width: 500px;
+}
+.video-home-form > label:hover {
+  border-bottom: 2px #141414 solid;
 }
 
 .video-home-form {
@@ -49,6 +60,7 @@
   border-radius: 0;
   border: none;
   margin: 60px auto 60px auto;
+  font-family: var(--main-title-chinese);
 }
 
 .video-home-form-btn:hover {
@@ -64,7 +76,6 @@
   position: absolute;
   bottom: 0;
   margin: 20px 0 0 48px;
-  font-size: 16px;
   margin-bottom: 2px;
 }
 .video-home-inp > input {
@@ -72,4 +83,61 @@
   outline: none;
   background-color: none;
   border: none;
+  font-family: var(--main-title-chinese);
+}
+@media (max-width: 768px) {
+  .video-home-page {
+    width: 100%;
+    margin: 154px auto auto 0;
+    /* background-color: thistle; */
+    position: relative;
+  }
+  .video-home-inp > input {
+    width: 100%;
+    outline: none;
+    background-color: none;
+    border: none;
+    font-family: var(--main-title-chinese);
+  }
+  .video-home-inp {
+    width: 90%;
+    position: absolute;
+    bottom: 0;
+    margin: 20px 0 0 0px;
+    margin-bottom: 2px;
+  }
+  .video-home-form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto 0 auto;
+  }
+
+  .video-home-hr {
+    width: 80%;
+    margin: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .userData-top-ID {
+    position: relative;
+    text-align: right;
+  }
+  .userData-top-ID > p {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .video-home-title {
+    margin: 0 auto 25px auto;
+  }
+  .video-home-form-btn {
+    width: 100%;
+    height: 50px;
+    background-color: #f2e8df;
+    border-radius: 0;
+    border: none;
+    margin: 11px auto 40px auto;
+    font-family: var(--main-title-chinese);
+  }
 }

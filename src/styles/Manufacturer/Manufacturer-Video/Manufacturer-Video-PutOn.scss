@@ -15,25 +15,31 @@
     position: relative;
     margin: auto;
     width: 100%;
+
+    .video-new-add {
+      display: none;
+    }
+
     .video-puton-add {
-      width: 100%;
+      width: 90%;
       height: 450px;
       border: 1px solid #141414;
       text-align: center;
-      margin-bottom: 10px;
+      margin: auto auto 10px auto;
       .video-puton-file-text {
         margin-top: 50px;
+        color: var(--main-color79);
       }
       .video-puton-icon-div {
         .video-puton-icon {
-          color: #f2ebdf;
+          color: var(--main-color79);
           width: 100px;
           height: 100px;
         }
       }
     }
     .video-puton-content {
-      width: 500px;
+      width: 60%;
       display: flex;
       margin: auto;
       flex-direction: column;
@@ -41,7 +47,7 @@
       .video-puton-label {
         margin: 20px auto 0 auto;
         width: 100%;
-        border-bottom: 1px solid;
+        border-bottom: 2px var(--main-colorda) solid;
         input {
           width: 100%;
           border: none;
@@ -49,11 +55,14 @@
           margin: 20px 0 1px 48px;
         }
         select {
-          width: 100%;
+          width: 90%;
           border: none;
           outline: none;
-          margin: 20px 0 5px 0;
+          margin: 20px 0 5px 45px;
         }
+      }
+      .video-puton-label:hover {
+        border-bottom: 2px var(--main-colorblock) solid;
       }
       .video-puton-content-text {
         margin: 20px auto 0 auto;
@@ -64,17 +73,43 @@
           margin: 20px 0 0 0;
         }
       }
-      .video-add-button {
+      .video-add-btn {
         width: 150px;
         height: 50px;
         margin: 60px auto 60px auto;
         border: none;
         background: #f2e8df;
       }
-      .video-add-button:hover {
+      .video-add-btn:hover {
         background: #141414;
         color: #ffffff;
       }
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .video-puton-page {
+    width: 100%;
+    margin: 154px auto auto 0;
+  }
+
+  .video-new-add {
+    display: block;
+    margin: auto 30px auto 30px;
+    height: 50px;
+    width: 90%;
+    background: var(--main-colorblock);
+    color: var(--main-colorfff);
+    border: none;
+  }
+  .video-new-add:hover {
+    background: var(--main-colorf2e);
+    color: var(--main-colorblock);
+  }
+
+  .video-add-btn {
+    width: 100%;
+    margin: 0px;
   }
 }

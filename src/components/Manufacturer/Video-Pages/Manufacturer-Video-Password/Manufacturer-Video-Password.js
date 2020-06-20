@@ -1,27 +1,46 @@
 import React from 'react'
+import {FaEye} from 'react-icons/fa'
+
 
 
 class VideoEditPassword extends React.Component{
 
     render(){
     return(
-        <div className="video-password-page">
-                <h3 className="video-password-title font-size-142rem">修改密碼</h3>
-                <div className="video-password-top">
-                    <div className="video-password-sticker"><img className="video-password-icon"/></div>
-                    <div className="video-password-number">
-                        <p>廠商編號:M001</p>
+        <div className="videoPassword-page">
+                <h3 className="videoPassword-title font-size-142rem">修改密碼</h3>
+                <div className="videoPassword-top">
+                    <div className="videoPassword-sticker">
+                    <img className="videoPassword-icon"/>
                     </div>
-                    <hr className="video-password-hr" />
+
+                    <hr className="videoPassword-hr" />
                 </div>
-                <div className="video-password-form">
-                <form className="video-edit-form">
-                    <label htmlFor="oldpassword">舊密碼<input id="oldpassword" type="password" /></label>
-                    <label htmlFor="newpassword">新密碼<input id="newpassword" type="password" /></label>
-                    <label htmlFor="checknewpassword">確認新密碼<input id="checknewpassword" type="password" /></label>
-                    <button type="submit" className="video-password-button">修改資料</button>
+                <form className="videoPassword-form">
+                    <label htmlFor="id">
+                    <p>廠商編號</p>
+                    <div className="videoPassword-inp">
+                        <input id="id" type="text" value="M001" readonly="readonly"/>
+                    </div>
+                    </label>
+                    <label htmlFor="oldPassword">
+                    <p>舊密碼</p>
+                    <div className="videoPassword-inp">
+                            <input id="oldPassword" type="password" />
+                            <div className="videoPassword-eyes">
+                            <FaEye/>
+                        </div>
+                            </div>
+                        
+                    </label>
+                    <label htmlFor="newPassword">新密碼
+                        <input id="newPassword" type="password" />
+                    </label>
+                    <label htmlFor="checkNewPassword">確認新密碼
+                        <input id="checkNewPassword" type="password" />
+                    </label>
+                    <button type="submit" className="videoPassword-button">修改資料</button>
                 </form>
-                </div>
             </div>
     )
     }

@@ -1,8 +1,5 @@
 .video-list-page {
   width: 812px;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
   margin: 198px auto auto 10%;
   .video-list-title {
     text-align: center;
@@ -13,11 +10,11 @@
 
     border-bottom: 1px solid;
     .video-list-input {
-      width: 90%;
+      width: 85%;
       height: 40px;
     }
     .video-list-search-btn {
-      width: 10%;
+      width: 15%;
       height: 40px;
       background: #141414;
       color: #ffffff;
@@ -45,8 +42,8 @@
       display: flex;
       align-items: center;
       .video-list-all-checkbox {
-        width: 20px;
-        height: 20px;
+        width: 25px;
+        height: 25px;
       }
       a {
         margin-left: 10px;
@@ -135,5 +132,11 @@
   .video-list-over-line {
     border: 1px solid #707070;
     margin-top: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .video-list-page {
+    width: 100%;
   }
 }
