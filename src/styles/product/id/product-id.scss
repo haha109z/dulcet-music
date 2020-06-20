@@ -18,32 +18,139 @@
   border: 15px solid #f2e8df;
   #product-id-wrapper-hr {
     margin: 15px;
+    margin-top: 0;
+    border-width: 1.5px;
     border-color: #797979;
   }
   #product-id-intro-wrapper {
     display: flex;
-    #product-id-intro-picture {
-      background: khaki;
-      width: 450px;
-      height: 455px;
+    #product-id-intro-instrument-picture-wrapper {
+      // background: khaki;
+      width: 480px;
       margin: 15px;
+      margin-bottom: 30px;
+      border: 1.5px solid #797979;
+      #product-id-intro-instrument-picture {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+        // margin-bottom: 15px;
+      }
     }
+    #product-id-intro-video-picture-wrapper {
+      // background: khaki;
+      width: 480px;
+      margin: 15px;
+      margin-bottom: 30px;
+      // border: 1.5px solid #797979;
+      #product-id-intro-video-picture {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        // margin-bottom: 15px;
+      }
+    }
+
     #product-id-intro-text {
-      width: 450px;
-      height: 455px;
-      margin: 15px;
-      background: hotpink;
-      #product-id-intro-text-title {
-        letter-spacing: 8px;
-        font-family: 'Noto Serif TC', serif;
-        font-weight: bold;
+      width: 465px;
+      // height: 450px;
+      padding: 15px;
+      // background: hotpink;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      #product-id-intro-text-top {
+        #product-id-intro-text-title {
+          letter-spacing: 8px;
+          font-family: 'Noto Serif TC', serif;
+          font-weight: bold;
+          margin-bottom: 15px;
+        }
+        #product-id-intro-text-p {
+          margin-bottom: 15px;
+          font-size: 14px;
+          letter-spacing: 3px;
+          line-height: 20px;
+          color: #797979;
+          font-family: 'Noto Serif TC', serif;
+        }
       }
-      #product-id-intro-text-cost-title {
-        font-size: 24px;
-        color: #797979;
-        font-family: 'Noto Serif TC', serif;
+      #product-id-intro-text-bottom {
+        #product-id-intro-text-cost-title {
+          font-size: 24px;
+          color: #797979;
+          font-family: 'Noto Serif TC', serif;
+          display: inline-block;
+          margin-bottom: 15px;
+          margin-right: 15px;
+        }
+        #product-id-intro-text-cost {
+          font-size: 24px;
+          color: #fb2643;
+          font-family: Merienda;
+          display: inline-block;
+          margin-bottom: 15px;
+        }
+        #product-id-intro-amount-wrapper {
+          margin-bottom: 5px;
+
+          .product-id-intro-amount-btn {
+            border: none;
+            background-color: transparent;
+            .product-id-intro-amount-btn-icon {
+              border-radius: 50%;
+              // border: 2px solid #141414;
+              color: #797979;
+              width: 24px;
+              height: 24px;
+              // line-height: 14px;
+              font-size: 10px;
+              font-weight: 900;
+            }
+          }
+          #product-id-intro-amount-input {
+            border: 1px solid #797979;
+            height: 24px;
+            text-align: center;
+            font-size: 14px;
+            line-height: 14px;
+            color: #797979;
+            margin: 0 5px;
+          }
+        }
+        #product-id-intro-stock {
+          font-size: 12px;
+          font-family: 'Noto Serif TC', serif;
+          color: #797979;
+          margin-bottom: 15px;
+        }
+        #product-id-intro-btn-wrapper {
+          margin-bottom: 15px;
+
+          .product-id-intro-btn {
+            width: 100px;
+            height: 40px;
+            border: none;
+            font-family: 'Noto Serif TC', serif;
+          }
+          #product-id-intro-cart-btn {
+            background: #141414;
+            color: #ffffff;
+            margin-right: 30px;
+          }
+          #product-id-intro-favorite-btn {
+            background: #f2e8df;
+            color: #141414;
+          }
+        }
       }
     }
+  }
+  .product-instrument-id-intro-wrapper {
+    height: 450px;
+  }
+  .product-video-id-intro-wrapper {
+    height: 350px;
   }
   #product-id-desciption-wrapper {
     margin: 15px;
@@ -55,6 +162,7 @@
     }
     #product-id-desciption-text {
       margin: 20px;
+      margin-bottom: 35px;
       .product-id-desciption-text-p {
         font-size: 14px;
         margin: 20px 0;
@@ -68,6 +176,7 @@
 #product-wrapper-hr {
   border-color: #797979;
   margin: 30px 0;
+  border-width: 1.5px;
 }
 #product-id-maylike-title {
   font-size: 24px;

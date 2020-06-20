@@ -1,19 +1,17 @@
 import React from 'react'
-import Navbar from '../components/navbar/navbar'
-import ProductLink from '../components/product/id/product-link'
-import ProductIntro from '../components/product/id/product-instrument-intro'
-import ProductDesciption from '../components/product/id/product-desciption'
-import ProductMayLike from '../components/product/id/product-maylike'
+import ProductLink from '../id/product-link'
+import ProductIntro from '../id/product-video-intro'
+import ProductDesciption from '../id/product-desciption'
+import ProductMayLike from '../id/product-maylike'
 
 function ProductId() {
-  const productCategoryId = 'instrument'
-  const productCategoryName = '精選樂器'
-  const productInstrumentId = 'piano'
-  const productInstrumentName = '鋼琴'
-  const productName = 'MAPEX STORM ST5295F 爵士鼓組'
+  const productCategoryId = 'video'
+  const productCategoryName = '線上影片'
+  const productInstrumentId = 'violin'
+  const productInstrumentName = '小提琴'
+  const productName = '【提琴教室】小提琴-01'
   return (
     <>
-      <Navbar />
       <div className="product-container">
         <div className="product-wrapper">
           <ProductLink

@@ -4,23 +4,23 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 function ProductId(props) {
   return (
     <>
-    <Router>
-        <Link className="product-id-link">
-        {props.productCategoryId}
-        </Link>
-        &nbsp;/&nbsp;
-        <Link className="product-id-link">
-        {props.productInstrumentId}
-        </Link>
-        &nbsp;/&nbsp;
-        <Link className="product-id-link">
+      <Link className="product-id-link" to={'/' + props.productCategoryId}>
+        {props.productCategoryName}
+      </Link>
+      &nbsp;/&nbsp;
+      <Link
+        className="product-id-link"
+        to={'/' + props.productCategoryId + '/' + props.productInstrumentId}
+      >
+        {props.productInstrumentName}
+      </Link>
+      &nbsp;/&nbsp;
+      <Link
+        to={'/' + props.productCategoryId + '/id'}
+        className="product-id-link"
+      >
         {props.productName}
-        </Link>
-
-
-    </Router>
-
-
+      </Link>
     </>
   )
 }
