@@ -66,8 +66,12 @@
       .home-news-btn {
         width: 9.28rem;
         height: 2.14rem;
+        line-height:2.14rem;
+        color:var(--main-colorblock);
         font-family: var(--main-title-english);
         background: var(--main-colorf2e);
+        text-decoration:none;
+        text-align:center;
         border: none;
         outline: none;
         float: right;

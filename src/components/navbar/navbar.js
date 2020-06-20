@@ -9,12 +9,12 @@ import Instrument from '../home/navbar-items/navbar-instrument/navbar-instrument
 import News from '../home/navbar-items/navbar-news/navbar-news';
 import About from '../home/navbar-items/navbar-about/navbar-about';
 import NavbarUser from '../home/navbar-items/navbar-user/navbar-user';
+import NavbarShoppingCart from '../home/navbar-items/navbar-shopping/navbar-shopping';
 // import './navbar.scss';
 
 class Navbar extends Component{
 
     static propTypes = {
-      HomeLogo2 : PropTypes.string.isRequired,
       homeUser:PropTypes.array.isRequired
     }
 
@@ -96,11 +96,7 @@ class Navbar extends Component{
                    }
                   </div>
                   <div className="nav-items-others nav-shopping">
-                    <Link to="/cart">
-                      <i className="fas fa-shopping-cart"></i>
-                    </Link>
-                    <span className="nav-shopping-point">1</span>
-                    <div className="nav-shopping-cart">123</div>
+                    <NavbarShoppingCart />
                   </div>
                 </div>
               </div>

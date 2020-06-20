@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import PropTypes from 'prop-types';
+import {Link} from "react-router-dom";
 
 
 // import '../home-news.scss';
@@ -40,7 +41,7 @@ class HomeNewsItme extends Component{
                 <div className="home-news-txt">
                     <p>{homeNews.content}</p>
                 </div>
-                <button type="button" className="home-news-btn">view more...</button>
+                <Link to={homeNews.to}className="home-news-btn">view more...</Link>
             </div>
         )
     }

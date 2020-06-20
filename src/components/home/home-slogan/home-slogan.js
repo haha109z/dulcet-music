@@ -4,26 +4,18 @@ import React,{Component} from 'react';
 
 class HomeSlogan extends Component{
 
-    state = {
-        width:false
-    }
+    // componentDidMount(){
 
-    componentDidMount(){
+    //     // console.log(this.state.width);
 
-        // console.log(this.state.width);
+    //     window.addEventListener('scroll',()=>{
+    //         const sloganTitle = document.getElementById('homeSloganH2');
+    //         const scorllTop = window.scrollY > (window.innerHeight/2);
+    //         // console.log(window.innerHeight);
 
+    //     })
 
-        window.addEventListener('scroll',()=>{
-            const scorllTop = window.scrollY > (window.innerHeight/2);
-
-            if(scorllTop){
-                this.setState({width:true})
-            }else{
-                this.setState({width:false})
-            }
-        })
-
-    }
+    // }
 
     render(){
         return(

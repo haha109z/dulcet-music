@@ -27,31 +27,42 @@ class NavbarUser extends Component{
     }
 
     render(){
-        const display = this.state.login ? 'none':'block';
-        const display2 = this.state.login ? 'block':'none';
-        const display3 = this.state.login && this.state.width > 768 ? '':'none';
         const {homeUserItem} = this.props;
+        const display = this.state.width < 768 ? 'none' : '';
+
+        // 會員icon圖示
+        const userIcon = (
+            <Link to="/login">
+                <i className="fas fa-user"></i>
+            </Link>
+        )
+
+        // 會員名字與下拉區
+        const userLoginArea = (
+            <div>
+                <Link to="/user" className="home-username">{homeUserItem.username}</Link>
+                <ul className="home-nav-userlogin" style={{display}}>
+                    <li>
+                        <Link to="javascript:void(0)">我的帳戶</Link>
+                    </li>
+                    <li>
+                        <Link to="javascript:void(0)">我的影片</Link>
+                    </li>
+                    <li>
+                        <Link to="javascript:void(0)">購買清單</Link>
+                    </li>
+                    <li>
+                        <Link to="javascript:void(0)">登出</Link>
+                    </li>
+                </ul>
+            </div>
+        )
+
+        const userShow = this.state.login ? userLoginArea : userIcon ;
 
         return (
         <>
-            <a href="/login" style={{display}}>
-            <i className="fas fa-user"></i>
-                </a>
-            <p className="home-username" style={{display:display2}}>{homeUserItem.username}</p>
-            <ul className="home-nav-userlogin" style={{display:display3}}>
-                <li>
-                    <Link to="javascript:void(0)">我的帳戶</Link>
-                </li>
-                <li>
-                    <Link to="javascript:void(0)">我的影片</Link>
-                </li>
-                <li>
-                    <Link to="javascript:void(0)">購買清單</Link>
-                </li>
-                <li>
-                    <Link to="javascript:void(0)">登出</Link>
-                </li>
-            </ul>
+            {userShow}
         </>
 
         )

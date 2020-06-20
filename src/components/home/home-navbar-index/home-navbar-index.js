@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import PropTypes from 'prop-types';
-import { Link} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 import Courses from '../navbar-items/navbar-courses/navbar-courses';
 import Videos from '../navbar-items/navbar-videos/navbar-videos';
@@ -8,6 +8,7 @@ import Instrument from '../navbar-items/navbar-instrument/navbar-instrument';
 import News from '../navbar-items/navbar-news/navbar-news';
 import About from '../navbar-items/navbar-about/navbar-about';
 import NavbarUser from '../navbar-items/navbar-user/navbar-user';
+import NavbarShoppingCart from '../navbar-items/navbar-shopping/navbar-shopping';
 
 
 class HomeNavbarIndex extends Component{
@@ -79,9 +80,7 @@ class HomeNavbarIndex extends Component{
                   </ul>
                 </div>
                 <div className="home-logo-middle">
-                  <a href="javascript:void(0)">
                     <img src={require('../../../img/home_logo_方1.png')} alt="123" />
-                  </a>
                 </div>
                 <div  className="home-items home-news">
                   {/*<a href="/news">News</a>*/}
@@ -117,11 +116,7 @@ class HomeNavbarIndex extends Component{
                    }
                   </div>
                 <div className="home-items home-shopping">
-                  <Link to="/cart">
-                    <i className="fas fa-shopping-cart"></i>
-                  </Link>
-                  <span className="home-shopping-point">1</span>
-                  <div className="nav-shopping-cart">123</div>
+                  <NavbarShoppingCart />
                 </div>
               </div>
             </div>

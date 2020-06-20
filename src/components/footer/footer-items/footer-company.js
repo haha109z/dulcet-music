@@ -17,7 +17,7 @@ function FooterCompany(){
                 footerCompany.map((item,index)=>
                 (
                     <div key={index}>
-                        <Link href={item.src}>{item.text}</Link>
+                        <Link to={item.src}>{item.text}</Link>
                     </div>
                 ))
             }
