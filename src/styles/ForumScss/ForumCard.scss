@@ -120,9 +120,15 @@
 }
 @media (max-width: 1000px) {
   .ForumContainer {
-    max-width: 700px;
+    max-width: 480px;
+    margin: 0px auto;
   }
   .ForumCard {
     display: inline-block;
+  }
+}
+@media (max-width: 320px) {
+  .ForumContainer {
+    max-width: 320px;
   }
 }
