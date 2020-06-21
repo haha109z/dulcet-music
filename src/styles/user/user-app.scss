@@ -8,6 +8,7 @@ p {
   margin: 0;
   padding: 0;
 }
+
 html {
   font-size: 14px;
 }
@@ -22,6 +23,10 @@ button {
 }
 button:hover {
   outline: none;
+}
+button:focus{
+  outline: none;
+
 }
 
 :root {
@@ -224,9 +229,15 @@ button:hover {
   font-size: 35px;
 }
 .user-page-x {
-  height: 36px;
   outline: none;
   border: none;
   background-color: #ffffff;
   margin-top: 5%;
+  outline: none;
 }
+.user-page-x:hover{
+  font-weight:bolder; 
+  letter-spacing:3px;    
+  outline: none;
+  border: none;
+   }
