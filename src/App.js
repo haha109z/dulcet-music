@@ -50,93 +50,95 @@ import AnyQuestionAction from './container/AnyQuestionAction';
 import ManufacturerVideo from './container/Manufacturer-Video-App'
 
 //Footer
-
 import Footer from './components/footer/footer';
+
+// 切換頁面滾動軸回到最頂部
+import ScrollToTop from './container/scrollToTop';
 
 function App() {
   return (
     <Router>
       <>
-      
-      <Route path="/" exact>
-        <HomeApp />
-      </Route>
+      <ScrollToTop>
+        <Route path="/" exact>
+          <HomeApp />
+        </Route>
 
-      <Route path="/course">
-        <ProductCourse />
-      </Route>
-      <Route path="/video">
-        <ProductVideo />
-      </Route>
-      <Route path="/instrument">
-        <ProductInstrument />
-      </Route>
-      <Route path="/product-id">
-        <ProductId />
-      </Route>
+        <Route path="/course">
+          <ProductCourse />
+        </Route>
+        <Route path="/video">
+          <ProductVideo />
+        </Route>
+        <Route path="/instrument">
+          <ProductInstrument />
+        </Route>
+        <Route path="/product-id">
+          <ProductId />
+        </Route>
 
-      <Route path="/news" exact>
-        <News />
-      </Route>
-      <Route path="/news-pages" exact>
-        <NewsPages />
-      </Route>
-      
+        <Route path="/news" exact>
+          <News />
+        </Route>
+        <Route path="/news-pages" exact>
+          <NewsPages />
+        </Route>
 
-      <Route path="/Forum">
-        <Forum />
-      </Route>
+        <Route path="/Forum">
+          <Forum />
+        </Route>
 
-      <Route path="/AnyQuestion">
-        <AnyQuestion />
-      </Route>
-      <Route path="/About">
-        <About />
-      </Route>
-      <Route path="/AnyQuestionAction">
-        <AnyQuestionAction />
-      </Route>
+        <Route path="/AnyQuestion">
+          <AnyQuestion />
+        </Route>
+        <Route path="/About">
+          <About />
+        </Route>
+        <Route path="/AnyQuestionAction">
+          <AnyQuestionAction />
+        </Route>
 
-      <Route path="/user" >
-        <UserApp />
-      </Route>
+        <Route path="/user" >
+          <UserApp />
+        </Route>
 
-      <Route path="/ManufacturerVideo">
-        <ManufacturerVideo />
-      </Route>
+        <Route path="/ManufacturerVideo">
+          <ManufacturerVideo />
+        </Route>
 
-      {/* <Route path="/cart"> */}
-        {/* <CartCheckout /> */}
-        {/* <CartCheckOrder /> */}
-        {/* <CartPay /> */}
-        {/* <CartEnd /> */}
-        {/* <CartApp /> */}
-      {/* </Route> */}
-      <Route path="/cart1" exact>
-        <CartCheckout />
-      </Route>
-      <Route path="/cart2" exact>
-        <CartCheckOrder />
-      </Route>
-      <Route path="/cart3" exact>
-        <CartPay />
-      </Route>
-      <Route path="/cart4" exact>
-        <CartEnd />
-      </Route>
+        {/* <Route path="/cart"> */}
+          {/* <CartCheckout /> */}
+          {/* <CartCheckOrder /> */}
+          {/* <CartPay /> */}
+          {/* <CartEnd /> */}
+          {/* <CartApp /> */}
+        {/* </Route> */}
+        <Route path="/cart1" exact>
+          <CartCheckout />
+        </Route>
+        <Route path="/cart2" exact>
+          <CartCheckOrder />
+        </Route>
+        <Route path="/cart3" exact>
+          <CartPay />
+        </Route>
+        <Route path="/cart4" exact>
+          <CartEnd />
+        </Route>
 
-      <Route path="/login" >
-        <AllLoginPage />
-      </Route>
+        <Route path="/login" >
+          <AllLoginPage />
+        </Route>
 
-      <Route path="/register/user" >
-        <UserRegistered />
-      </Route>
+        <Route path="/register/user" >
+          <UserRegistered />
+        </Route>
 
-      <Route path="/register/manufacturer" >
-        <ManufacturerRegistered />
-      </Route>
-      <Footer />
+        <Route path="/register/manufacturer" >
+          <ManufacturerRegistered />
+        </Route>
+        <Footer />
+      </ScrollToTop>
       </>
     </Router>
   )
