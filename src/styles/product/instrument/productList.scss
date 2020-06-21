@@ -65,8 +65,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin: 30px 0;
       position: relative;
+      flex-wrap: wrap;
+
       .product-instrument-card {
         border: 1.5px solid #797979;
         width: 206px;
@@ -74,6 +75,8 @@
         background: #fff;
         position: relative;
         overflow: hidden;
+        margin: 30px 0;
+
         .product-instrument-card-img {
           width: 184px;
           height: 177px;
@@ -132,6 +135,8 @@
         background: #f2f2f2;
         display: flex;
         position: relative;
+        margin: 15px 0;
+
         .product-video-card-img {
           // background: slateblue;
           width: 280px;
@@ -193,9 +198,6 @@
         .product-card-favorite-bg {
           background: #fb2643;
         }
-        // .product-card-favorite-container:hover {
-        //   background: #fb2643;
-        // }
       }
       .product-instrument-card:hover {
         cursor: pointer;
@@ -221,7 +223,7 @@
     }
 
     #product-pages-list {
-      margin: 50px auto;
+      margin: 30px auto 50px;
       display: flex;
       justify-content: center;
       .product-pages {
@@ -244,6 +246,140 @@
 
       .product-pages:hover {
         background: #f2e8df;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .product-container {
+    width: 90vw;
+    min-width: 0px;
+    .product-picture {
+      margin-bottom: 30px;
+      height: 30vh;
+      min-height: 0px;
+      // max-height: 120px;
+      .product-black-tri {
+        height: 100px;
+        width: 200px;
+        margin: 0;
+        padding: 0;
+        fill: #141414;
+        position: absolute;
+        top: -20px;
+        left: -20px;
+      }
+      #product-title {
+        font-size: 20px;
+        top: -5px;
+        left: -5px;
+      }
+    }
+
+    .product-wrapper {
+      max-width: 960px;
+      width: 95%;
+      // background: paleturquoise;
+      .product-card-list {
+        flex-wrap: wrap;
+        .product-maylike-card {
+        }
+        .product-instrument-card {
+          width: 150px;
+          margin: 15px 0;
+          .product-instrument-card-img {
+            width: 140px;
+            height: 140px;
+            margin: 4px;
+          }
+          .product-card-intro {
+            height: 56px;
+            padding: 4px;
+            .product-card-title {
+              margin: 0px;
+              font-size: 12px;
+              line-height: 16px;
+              letter-spacing: 3px;
+            }
+            .product-card-cost {
+              font-size: 16px;
+              right: 5px;
+              bottom: 5px;
+            }
+          }
+        }
+        .product-video-card {
+          width: 100%;
+          height: 400px;
+          flex-direction: column;
+          .product-video-card-img {
+            // background: slateblue;
+            width: 100%;
+            height: 200px;
+          }
+          .product-card-intro {
+            width: 100%;
+            margin: 5px;
+            margin-top: 10px;
+            letter-spacing: 5px;
+            .product-card-title {
+              margin-bottom: 10px;
+              font-size: 20px;
+            }
+            .product-video-card-time {
+              font-size: 12px;
+            }
+            .product-course-card-date {
+              font-size: 12px;
+            }
+            .product-video-card-desciption {
+              font-size: 12px;
+              margin: 0 12px;
+              margin-bottom: 20px;
+              line-height: 22px;
+            }
+            .product-card-cost {
+              font-size: 20px;
+              right: 5px;
+              bottom: 5px;
+            }
+          }
+        }
+        .product-instrument-card:hover {
+          cursor: pointer;
+        }
+        .product-video-card:hover {
+          cursor: pointer;
+        }
+        .product-favorite-arrow-btn {
+          position: absolute;
+          border: none;
+          background-color: transparent;
+          .product-favorite-arrow {
+            width: 24px;
+            height: 24px;
+          }
+        }
+        #product-favorite-arrow-btn-left {
+          left: -30px;
+        }
+        #product-favorite-arrow-btn-right {
+          right: -30px;
+        }
+      }
+      #product-maylike-card-list {
+        .product-maylike-card {
+          display: none;
+        }
+      }
+
+      #product-pages-list {
+        margin: 10px 0;
+        .product-pages {
+          margin: 5px;
+          padding: 0;
+        }
       }
     }
   }

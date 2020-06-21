@@ -184,3 +184,107 @@
   font-weight: bold;
   font-family: 'Noto Serif TC', serif;
 }
+@media screen and (max-width: 768px) {
+  .product-id-link {
+    font-size: 13px;
+    margin-bottom: 20px;
+    display: inline-block;
+    padding: 0;
+  }
+  #product-id-wrapper {
+    margin: 20px auto;
+    margin-bottom: 30px;
+    border: 15px solid #f2e8df;
+    // #product-id-wrapper-hr {
+    //   margin: 15px;
+    //   margin-top: 0;
+    //   border-width: 1.5px;
+    //   border-color: #797979;
+    // }
+    #product-id-intro-wrapper {
+      display: block;
+      height: 100%;
+      #product-id-intro-instrument-picture-wrapper {
+        // background: khaki;
+        width: 90%;
+        margin: 15px;
+      }
+      #product-id-intro-video-picture-wrapper {
+        width: 90%;
+        margin: 15px;
+      }
+
+      #product-id-intro-text {
+        width: 100%;
+        padding: 15px;
+        padding-top: 5px;
+        #product-id-intro-text-top {
+          #product-id-intro-text-title {
+            font-size: 20px;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+          }
+          #product-id-intro-text-p {
+            margin-bottom: 10px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            line-height: 20px;
+          }
+        }
+        #product-id-intro-text-bottom {
+          #product-id-intro-text-cost-title {
+            font-size: 16px;
+            margin-bottom: 15px;
+            margin-right: 15px;
+          }
+          #product-id-intro-text-cost {
+            font-size: 16px;
+            margin-bottom: 15px;
+          }
+          #product-id-intro-btn-wrapper {
+            display: flex;
+            justify-content: space-between;
+            .product-id-intro-btn {
+              width: 32vw;
+            }
+            #product-id-intro-cart-btn {
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+    .product-instrument-id-intro-wrapper {
+      height: 450px;
+    }
+    .product-video-id-intro-wrapper {
+      height: 350px;
+    }
+    #product-id-desciption-wrapper {
+      margin: 5px;
+      #product-id-desciption-title {
+        font-size: 16px;
+        letter-spacing: 3px;
+        margin-left: 10px;
+      }
+      #product-id-desciption-text {
+        margin: 10px;
+        margin-bottom: 15px;
+        .product-id-desciption-text-p {
+          font-size: 12px;
+          margin: 10px 0;
+          letter-spacing: 2px;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+  #product-wrapper-hr {
+    margin: 30px 0;
+    border-width: 1.5px;
+  }
+  #product-id-maylike-title {
+    font-size: 24px;
+    letter-spacing: 5px;
+  }
+}

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import { IoMdArrowDropright } from 'react-icons/io'
 import { IoMdArrowDropleft } from 'react-icons/io'
-import { FaHeart } from 'react-icons/fa'
 import ProductPicture from '../product-picture'
+import Card from './product-instrument-card'
 
 function ProductList(props) {
   const [favorite, setFavorite] = useState(false)
@@ -28,46 +28,13 @@ function ProductList(props) {
             </select> */}
           </div>
           <div className="product-card-list">
-            <div className="product-instrument-card">
-              <img
-                className="product-instrument-card-img"
-                // src={require('../images/184177.jpg')}
-              />
-              <div
-                className={`product-card-favorite-container ${
-                  favorite ? 'product-card-favorite-bg' : null
-                }`}
-                onClick={() => {
-                  favorite ? setFavorite(false) : setFavorite(true)
-                }}
-              >
-                <FaHeart className="product-card-favorite" />
-              </div>
-              <div className="product-card-intro">
-                <h4 className="product-card-title">小提琴 實木 DYM SV015</h4>
-                <h3 className="product-card-cost">$13,000</h3>
-              </div>
-            </div>
-            <div className="product-instrument-card"></div>
-            <div className="product-instrument-card"></div>
-            <div className="product-instrument-card"></div>
+            <Card favorite={favorite} setFavorite={setFavorite} />
+            <Card favorite={favorite} setFavorite={setFavorite} />
+            <Card favorite={favorite} setFavorite={setFavorite} />
+            <Card favorite={favorite} setFavorite={setFavorite} />
+            <Card favorite={favorite} setFavorite={setFavorite} />
           </div>
-          <div className="product-card-list">
-            <div className="product-instrument-card">
-              <img
-                className="product-instrument-card-img"
-                // src={require('../images/184177.jpg')}
-              />
-              {/* </div> */}
-              <div className="product-card-intro">
-                <h4 className="product-card-title">小提琴 實木 DYM SV015</h4>
-                <h3 className="product-card-cost">$13,000</h3>
-              </div>
-            </div>
-            <div className="product-instrument-card"></div>
-            <div className="product-instrument-card"></div>
-            <div className="product-instrument-card"></div>
-          </div>
+
           {/* <Router> */}
           <div id="product-pages-list">
             <Link className="product-pages" to="">
