@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import HomeSliderIndex from '../components/home/home-slider-index/home-slider-index';
 import HomeNavbarIndex from '../components/home/home-navbar-index/home-navbar-index';
 import HomeSliderNews from '../components/home/home-slider-news/home-slider-nesw';
+import Games from '../components/games/games';
 import HomeSlogan from '../components/home/home-slogan/home-slogan';
 import HomeCoursesVideos from '../components/home/home-courses-videos/home-courses-videos';
 import HomeInstruments from '../components/home/home-istruments/home-instruments';
@@ -29,6 +30,7 @@ class HomeApp extends Component{
                 <HomeSliderIndex />
                 <HomeNavbarIndex HomeLogo2={HomeLogo2} homeUser={homeUser}/>
                 <HomeSliderNews homeSilderNews={homeSilderNews}/>
+                <Games />
                 <HomeSlogan />
                 <HomeCoursesVideos />
                 <HomeInstruments />
