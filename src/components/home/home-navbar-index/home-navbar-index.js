@@ -17,7 +17,6 @@ class HomeNavbarIndex extends Component{
     scrolled:false
   }
 
-
   static propTypes = {
         HomeLogo2 : PropTypes.string.isRequired,
         homeUser:PropTypes.array.isRequired
