@@ -96,7 +96,7 @@
       align-items: center;
       justify-content: center;
       padding: 10px;
-      white-space:nowrap;
+      white-space: nowrap;
       input[type='checkbox'] {
         width: 20px;
         height: 20px;
@@ -269,11 +269,15 @@
 }
 
 .cart-checkout-btn {
-  background: #f2e8df;
-  border: none;
-  text-align: center;
-  padding: 10px 50px;
-  margin: 0 10px;
+  margin: 0 auto;
+  width: 400px;
+  button {
+    background: #f2e8df;
+    border: none;
+    text-align: center;
+    padding: 10px 50px;
+    margin: 0 10px;
+  }
 }
 
 @media screen and (min-width: 1920px) {
@@ -310,7 +314,7 @@
       margin: 0 auto;
       flex-wrap: wrap;
       li {
-        font-size: 12px;
+        font-size: 14px;
         width: 25%;
       }
       .cart-rwd-noneed {
@@ -324,7 +328,8 @@
       margin: 0 auto;
       li {
         text-align: center;
-        font-size: 13px;
+        font-size: 16px;
+        padding: 10px 10px 20px 10px;
       }
       // hr {
       //   color: #484848;
@@ -383,7 +388,7 @@
     margin: 0 auto;
     font-size: 12px;
     h2 {
-      font-size: 13px;
+      font-size: 16px;
       padding: 20px 0 10px 0;
       text-align: center;
     }
@@ -415,7 +420,7 @@
     font-size: 12px;
     line-height: 30px;
     h2 {
-      font-size: 13px;
+      font-size: 16px;
       padding: 20px 0 10px 0;
       text-align: center;
     }
@@ -440,22 +445,34 @@
       }
       input {
         width: 95%;
-        text-indent: 80px;
+        text-indent: 60px;
       }
     }
   }
 
   .cart-total {
     width: 80%;
-    margin: 20px auto;
-    font-size: 12px;
+    margin: 20px auto 10px auto;
+    font-size: 14px;
     line-height: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
     .cart-discount {
-      flex-wrap: wrap;
+      // flex-wrap: wrap;
+      width: 100%;
+      padding: 15px 30px 0 35px;
       input {
+        width: 75%;
+      }
+      label {
+        margin-bottom: 0rem;
+        padding: 0 10px 0 0;
       }
     }
     .cart-total-right {
+      width: 100%;
+      padding: 10px 25px;
       span {
       }
       .cart-total-title {
@@ -466,6 +483,14 @@
   }
 
   .cart-checkout-btn {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    font-size: 16px;
+    button {
+      width: 100%;
+      margin: 10px 0;
+    }
   }
 } /* iphone */
 

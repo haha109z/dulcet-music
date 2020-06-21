@@ -116,7 +116,7 @@ function CartCheckout() {
 
         <div className="cart-total">
           <div className="cart-discount">
-            <label for="discount">折扣碼</label><br/>
+            <label for="discount">折扣碼</label>
             <input className="" id="discount" type="text"/>
           </div>
           <div className="cart-total-right">
@@ -134,9 +134,9 @@ function CartCheckout() {
             </div>
           </div>
         </div>
-        <div style={{margin:'0 auto', width:'400px'}}>
-          <button className="cart-checkout-btn" type="">繼續購物</button>
-          <button className="cart-checkout-btn" type="submit">下一步 →</button>
+        <div className="cart-checkout-btn">
+          <button type="">繼續購物</button>
+          <button type="submit">下一步 →</button>
         </div>
       </div>
     </>
