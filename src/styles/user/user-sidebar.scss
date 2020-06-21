@@ -70,16 +70,15 @@
   //   display: none;
   // }
   .user-sidebar-menu-li {
-    height: 30px;
+    height: 32px;
     width: 100%;
     font-size: 14px;
     align-items: center;
-    background-color: darkgoldenrod;
+    background: #F2F2F2;
     white-space: nowrap;
     margin: 0;
     margin-top: 70px;
-
-  }
+}
   .user-sidebar-menu-li:hover > .user-sidebar-menu-li-left {
     display: none;
   }
@@ -103,7 +102,7 @@
     display: flex;
     width: 100%;
     height: 105px;
-    background: yellow;
+    background: #dadada;
     overflow: scroll;
 }
   .user-sidebar-menu-out {

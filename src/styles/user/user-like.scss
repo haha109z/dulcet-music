@@ -21,9 +21,8 @@
   height: 40px;
   padding-left: 17px;
 }
-.UserLike-search-input:focus{
+.UserLike-search-input:focus {
   border: solid 2px #141414;
-
 }
 .UserLike-search-button {
   width: 80px;
@@ -137,13 +136,6 @@
   background-color: var(--main-colorf2e);
 }
 
-
-
-
-
-
-
-
 @media (max-width: 768px) {
   .UserLike-main {
     width: 80%;
@@ -162,9 +154,7 @@
     padding-left: 17px;
     width: 100%;
   }
-  
-  
-  
+
   .UserLike-search-button {
     width: 100%;
     height: 40px;
@@ -202,15 +192,13 @@
     margin: 0 auto;
     position: relative;
     height: auto;
-
-
   }
-  .UserLike-order{
-    margin-top: 20px;;
+  .UserLike-order {
+    margin-top: 20px;
   }
   .UserLike-order-divider {
     margin-top: 30px;
-}
+  }
   .UserLike-order-item-img {
     width: 140px;
     height: 160px;
@@ -223,5 +211,81 @@
   .UserLike-divider {
     border: 1.5px #f2f2f2 solid;
     margin-bottom: 3rem;
-}
+  }
+
+  /* 下拉按鈕樣式 */
+  .user-dropbtn {
+    color: #141414;
+    width: 100%;
+    font-size: 14px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    border: 1px solid #141414;
+    padding-left: 5%;
+    background-color: #ffffff;
+    margin-bottom: 5px;
+  }
+
+  /* 容器 <div> - 需要定位下拉內容 */
+  .user-dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* 下拉內容 (預設隱藏) */
+  .user-phone-page {
+    background-color: #ffff;
+    z-index: 1;
+    display: none;
+    width: 100%;
+    position: absolute;
+    color: #141414;
+    /* min-width: 160px; */
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  }
+
+  /* 下拉式選單的連結 */
+  .user-phone-page a {
+    color: black;
+    /* padding: 6px 16px; */
+    font-size: 14px;
+    height: 40px;
+    text-decoration: none;
+    display: block;
+    margin: 0;
+    padding-left: 5%;
+  }
+
+  /* 滑鼠移上去後修改下拉式選單連結顏色 */
+  .user-phone-page a:hover {
+    background-color: #f2e8df;
+  }
+
+  /* 在滑鼠移上去後顯示下拉式選單 */
+  .user-dropdown:hover .user-phone-page {
+    display: block;
+  }
+
+  /* 當下拉內容顯示後修改下拉按鈕的背景顏色 */
+  .user-dropdown:hover .user-dropbtn {
+  }
+  .user-dropbtn > svg {
+    position: absolute;
+    height: 26px;
+    right: 4%;
+    top: 5%;
+  }
+  .user-dropbtn {
+    text-align: left;
+  }
+  .UserPurchase-top-titleName {
+    margin: 0 auto 25px auto;
+  }
+
+  .user-page {
+    display: none;
+  }
+
+  
 }

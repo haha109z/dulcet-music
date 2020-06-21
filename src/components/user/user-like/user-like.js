@@ -9,13 +9,12 @@ export default class UserLike extends Component {
           </h3>
 
           <form class="UserLike-search" action="">
-            
             <input
               class="UserLike-search-input user-font-ch"
               placeholder="請輸入關鍵字"
               type="text"
             />
-            
+
             <p class="user-font-ch UserLike-search-404title user-font-ch">
               請輸入商品或訂單關鍵字
             </p>
@@ -261,6 +260,9 @@ export default class UserLike extends Component {
             </div>
             <hr class="UserLike-order-divider" />
           </div>
+          
+          {/* 電腦page */}
+
           <div class="user-page">
             <a class="user-page-Rarrow">
               <i class="fas fa-sort-up"></i>
@@ -273,6 +275,21 @@ export default class UserLike extends Component {
             <a class="user-page-Larrow">
               <i class="fas fa-sort-up"></i>
             </a>
+          </div>
+          {/* 手機版page */}
+          <div class="userRwd-dropdown ">
+            <button type="button" class="userRwd-dropbtn">
+              頁數
+              <i class="fas fa-sort-down"></i>
+            </button>
+            <div class="userRwd-dropdown-content">
+              <a href="#">1</a>
+              <a href="#">2</a>
+              <a href="#">3</a>
+              <a href="#">4</a>
+              <a href="#">5</a>
+              <a href="#">6</a>
+            </div>
           </div>
         </div>
         
