@@ -1,118 +1,129 @@
-.video-menu-li:hover {
-  color: #141414;
-  text-decoration: none;
-}
 .video-menu-page {
   width: 400px;
   height: 1130px;
   background-color: #dadada;
   padding-top: 310px;
-}
-.video-menu > a {
-  color: #141414;
-}
-.video-menu-li {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 5px;
-  padding: 10px;
-}
-.video-menu-li:hover {
-  background-color: #141414;
-  color: white;
-}
-.video-menu-li:hover > .video-menu-li-left {
-  border-left: #ffffff 1px solid;
+
+  .video-logo {
+    width: 50px;
+    margin: 0 auto 20px auto;
+    height: 60px;
+    font-size: 60px;
+  }
+  .video-title {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .video-menu-content {
+    .video-menu-li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #141414;
+      margin-top: 5px;
+      padding: 10px;
+    }
+    .video-menu-li:hover {
+      background: #141414;
+      color: white;
+      text-decoration: none;
+      transition: 0.5s;
+    }
+    .video-menu-li:hover > .video-menu-li-left {
+      border-left: #ffffff 1px solid;
+    }
+
+    .video-menu-li:hover > .video-menu-li-right {
+      border-right: #ffffff 1px solid;
+    }
+
+    .video-menu-li > div {
+      width: 20px;
+      height: 15px;
+    }
+
+    .video-menu-li-left {
+      border-left: #141414 1px solid;
+    }
+
+    .video-menu-li-right {
+      border-right: #141414 1px solid;
+    }
+
+    .video-menu-out {
+      width: 50px;
+      margin: 180px auto;
+      border-bottom: #141414 1px solid;
+      text-align: center;
+    }
+
+    .video-menu-out > a {
+      color: #797979;
+    }
+
+    .video-menu-out:hover {
+      width: 100%;
+      background: #141414;
+      transition: 0.5s;
+    }
+
+    .video-menu-out:hover > a {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
 }
 
-.video-menu-li:hover > .video-menu-li-right {
-  border-right: #ffffff 1px solid;
-}
-
-.video-menu-li > div {
-  width: 20px;
-  height: 15px;
-}
-
-.video-menu-li-left {
-  border-left: #141414 1px solid;
-}
-
-.video-menu-li-right {
-  border-right: #141414 1px solid;
-}
-
-.video-logo {
-  width: 50px;
-  margin: 0 auto 20px auto;
-  height: 60px;
-  font-size: 60px;
-}
-
-.video-title {
-  text-align: center;
-  margin-bottom: 30px;
-}
-.video-menu-out {
-  width: 50px;
-  margin: 180px auto;
-  border-bottom: #141414 1px solid;
-  text-align: center;
-}
-
-.video-menu-out > a {
-  color: #797979;
-}
 @media (max-width: 768px) {
   // .video {
   //   display: none;
   // }
-  .video-menu-li {
-    height: 30px;
-    width: 100%;
-    align-items: center;
-    background-color: darkgoldenrod;
-    white-space: nowrap;
-    margin: 0;
-    margin-top: 70px;
-  }
-  .video-menu-li:hover > .video-menu-li-left {
-    display: none;
-  }
-
-  .video-menu-li:hover > .video-menu-li-right {
-    display: none;
-  }
-  .video-menu-li-left {
-    display: none;
-  }
-  .video-menu-li-right {
-    display: none;
-  }
-  .video-logo {
-    display: none;
-  }
-  .video-title {
-    display: none;
-  }
-  .video-menu {
-    display: flex;
-    width: 100%;
-    height: 105px;
-    background: yellow;
-    overflow: scroll;
-  }
-  .video-menu-out {
-    display: none;
-  }
-  .video {
+  .video-menu-page {
     width: 100%;
     height: 0;
     background-color: #d71717;
     padding-top: 0;
-  }
-  .video-menu::-webkit-scrollbar {
-    display: none;
+    .video-menu-content {
+      display: flex;
+      width: 100%;
+      height: 105px;
+      overflow: scroll;
+      background: #dadada;
+
+      .video-menu-li {
+        height: 30px;
+        width: 100%;
+        align-items: center;
+        background: #f2f2f2;
+        white-space: nowrap;
+        margin: 0;
+        margin-top: 70px;
+      }
+      .video-menu-li:hover > .video-menu-li-left {
+        display: none;
+      }
+
+      .video-menu-li:hover > .video-menu-li-right {
+        display: none;
+      }
+      .video-menu-li-left {
+        display: none;
+      }
+      .video-menu-li-right {
+        display: none;
+      }
+      .video-menu-out {
+        display: none;
+      }
+    }
+    .video-menu-content::-webkit-scrollbar {
+      display: none;
+    }
+    .video-logo {
+      display: none;
+    }
+    .video-title {
+      display: none;
+    }
   }
 }

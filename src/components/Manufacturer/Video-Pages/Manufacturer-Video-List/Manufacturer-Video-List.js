@@ -88,6 +88,20 @@ class VideoList extends React.Component{
                     <i className="fas fa-sort-up"></i>
                     </a>
                 </div>
+                <div className="videoRwd-page-dropdown ">
+            <button type="button" className="videoRwd-page-dropbtn">
+              頁數
+              <i className="fas fa-sort-down"></i>
+            </button>
+            <div className="videoRwd-page-dropdown-content">
+              <a href="#">1</a>
+              <a href="#">2</a>
+              <a href="#">3</a>
+              <a href="#">4</a>
+              <a href="#">5</a>
+              <a href="#">6</a>
+            </div>
+          </div>
         </div>
     )
     }

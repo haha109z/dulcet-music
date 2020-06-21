@@ -12,7 +12,7 @@ class VideoMenu extends React.Component{
         <FaVideo/>
         </ul>
         <div className="video-title font-size-15rem ">廠商管理</div>
-        <ul className="video-menu list-unstyled content">
+        <ul className="video-menu-content list-unstyled content">
           <Link to="/ManufacturerVideo/VideoHome" className="video-menu-li font-size-142rem ">
             <div className="video-menu-li-left"></div>
             廠商資料
