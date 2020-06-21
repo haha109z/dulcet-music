@@ -5,7 +5,7 @@ class VideoHome extends React.Component{
     render(){
     return(
       <div className="video-home-page">
-      <h3 className="font-size-142rem video-home-title">會員資料</h3>
+      <h3 className="font-size-142rem video-home-title">廠商資料</h3>
         <div className="video-home-img">
           <img src="" alt="" />
         </div>

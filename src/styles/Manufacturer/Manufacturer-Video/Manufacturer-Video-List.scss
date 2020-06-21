@@ -7,14 +7,15 @@
   }
   .video-list-search {
     height: 100px;
+    border-bottom: 3px solid var(--main-colorf2);
 
-    border-bottom: 1px solid;
     .video-list-input {
-      width: 85%;
+      padding-left: 17px;
+      width: 90%;
       height: 40px;
     }
     .video-list-search-btn {
-      width: 15%;
+      width: 10%;
       height: 40px;
       background: #141414;
       color: #ffffff;

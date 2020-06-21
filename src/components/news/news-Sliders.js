@@ -9,7 +9,7 @@ function NewsSliders(props) {
             <Link className="news-SlidersArrow" to="">
             <i className="fas fa-angle-left"></i>
             </Link>
-            <img className="news-SlidersImg" src={require("../../img/News_P001.jpg")}></img>
+            <img className="news-SlidersImg" src={require("../../img/news/news_p001.jpg")}></img>
             <Link className="news-SlidersArrow" to="">
             <i className="fas fa-angle-right"></i>
             </Link>

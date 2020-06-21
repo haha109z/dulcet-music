@@ -11,12 +11,12 @@ function CartApp(){
 
     return(
         <>
-            {/* <Navbar /> */}
+            <Navbar />
             {/* <CartCheckout /> */}
-            {/* <CartCheckOrder /> */}
+            <CartCheckOrder />
             {/* <CartPay /> */}
-            <CartEnd />
-            {/* <Footer />         */}
+            {/* <CartEnd /> */}
+            <Footer />        
         </>
     )
 }
