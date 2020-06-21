@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 
 class Games extends Component{
     state= {
-        answer:["1","1","3","3","5","5","3"],
+        answer:["1","1","5","5","6","6","5"],
         userInp:[],
         checked:false,
         start:true,
