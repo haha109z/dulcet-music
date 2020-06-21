@@ -280,18 +280,7 @@
   }
 }
 
-@media screen and (min-width: 1920px) {
-}
-@media (min-width: 1366px) and (max-width: 1920px) {
-} /* 電腦 */
-@media (min-width: 1024px) and (max-width: 1365px) {
-} /* 電腦 */
-@media (min-width: 768px) and (max-width: 1023px) {
-} /* iPad */
-@media (min-width: 414px) and (max-width: 767px) {
-} /* iPad mini & iphone */
 @media (min-width: 374px) and (max-width: 413px) {
-  // 手機板字體最大24-20px，最小12px
   .cart-container {
     margin: 50px auto;
   }
@@ -492,7 +481,4 @@
       margin: 10px 0;
     }
   }
-} /* iphone */
-
-@media screen and (max-width: 373px) {
 } /* iphone */
