@@ -60,7 +60,7 @@ function NewsContent(props) {
 
           <div className="news-Content">
 
-            <img className="news-ContentImg" src={require("../../img/News_P001.jpg")}></img>
+            <img className="news-ContentImg" src={require("../../img/news/news_p001.jpg")}></img>
 
               <p className="news-H3 news-LetterSpacing news-NotoSerifTC">
                 109年12月26號(六)19:00-21:00<br />
