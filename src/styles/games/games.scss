@@ -1,5 +1,10 @@
+.game-show{
+    opacity: 0;
+}
+
 .game-show-active{
     display: block;
+    opacity: 1;
 
     .games-start{
         width: 100%;

@@ -19,6 +19,7 @@ class Games extends Component{
 
         window.addEventListener('scroll',()=>{
             const isFixed = window.scrollY > 400;
+            // console.log(window.scrollY );
 
             if(isFixed){
                 showGame.classList.add('game-show-active');
