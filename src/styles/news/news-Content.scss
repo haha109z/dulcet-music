@@ -18,6 +18,8 @@
 .news-Share {
   position: absolute;
   color: #797979;
+  right:20px;
+  top:313px;
 }
 
 .news-ViewBtn {
@@ -28,6 +30,11 @@
     background: #f2e8df;
     line-height: 34px;
     width: 300px;
+  }
+
+  button:hover {
+    color:#FFFFFF;
+    background: #141414
   }
 }
 

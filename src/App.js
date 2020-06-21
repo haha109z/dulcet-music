@@ -20,6 +20,7 @@ import UserApp from './container/user-app';
 //News
 
 import News from './container/news';
+import NewsPages from './container/news-pages';
 
 // Cart
 // import CartApp from './container/cart-app';
@@ -76,6 +77,9 @@ function App() {
 
       <Route path="/news" exact>
         <News />
+      </Route>
+      <Route path="/news-pages" exact>
+        <NewsPages />
       </Route>
       
 
