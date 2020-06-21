@@ -78,11 +78,11 @@ function CartCheckout() {
                 <h2>統一發票</h2>
                 <fieldset>
                   <div>
-                    <label><input type="checkbox" id=""/> 個人戶電子發票</label>
-                    <span>中獎時會寄送至收件地址</span>
+                    <label><input type="checkbox" id=""/> 會員載具</label>
+                    <span>中獎時我們會將發票寄送至您的收件地址</span>
                   </div>
                   <div>
-                    <label><input type="checkbox" id=""/> 電子發票載具</label>
+                    <label><input type="checkbox" id=""/> 手機條碼載具</label>
                     <div className="cart-input1">
                       <label for="einvoice">載具號碼</label>
                       <input className="" id="einvoice" type="text"/>
@@ -136,7 +136,7 @@ function CartCheckout() {
         </div>
         <div className="cart-checkout-btn">
           <button type="">繼續購物</button>
-          <button type="submit">下一步 →</button>
+          <button type="submit">下一步</button>
         </div>
       </div>
     </>
