@@ -7,41 +7,53 @@ class VideoEditPassword extends React.Component{
 
     render(){
     return(
-        <div className="videoPassword-page">
-                <h3 className="videoPassword-title font-size-142rem">修改密碼</h3>
-                <div className="videoPassword-top">
-                    <div className="videoPassword-sticker">
-                    <img className="videoPassword-icon"/>
-                    </div>
+        <div class="videoPassword-main">
+          <h3 class="font-size-142rem videoPassword-top-titleName user-font-ch">密碼修改</h3>
+          <div class="videoPassword-top-Img">
+            <img src="" alt="" />
+          </div>
+        
+          <hr class="videoPassword-top-hr" />
 
-                    <hr className="videoPassword-hr" />
+          <form class="videoPassword-form" action="">
+          <label class="userData-form-input " for="name">
+                <p>廠商編號</p>
+                <div class="UserData-inp ">
+                  <input className="user-id" id="id" type="text" value="M001" readonly="readonly"/>
                 </div>
-                <form className="videoPassword-form">
-                    <label htmlFor="id">
-                    <p>廠商編號</p>
-                    <div className="videoPassword-inp">
-                        <input id="id" type="text" value="M001" readonly="readonly"/>
-                    </div>
-                    </label>
-                    <label htmlFor="oldPassword">
-                    <p>舊密碼</p>
-                    <div className="videoPassword-inp">
-                            <input id="oldPassword" type="password" />
-                            <div className="videoPassword-eyes">
-                            <FaEye/>
-                        </div>
-                            </div>
-                        
-                    </label>
-                    <label htmlFor="newPassword">新密碼
-                        <input id="newPassword" type="password" />
-                    </label>
-                    <label htmlFor="checkNewPassword">確認新密碼
-                        <input id="checkNewPassword" type="password" />
-                    </label>
-                    <button type="submit" className="videoPassword-button">修改資料</button>
-                </form>
-            </div>
+              </label>
+            <label class="videoPassword-form-input font-size-1rem" for="oldPwd">
+              <p className="user-font-ch">請輸入舊密碼</p>
+              <div class="videoPassword-inp">
+                <input id="oldPwd font-size-114rem user-font-ch" type="text" />
+                <div className="videoPassword-eyes">
+                    <FaEye/>
+                </div>
+              </div>
+            </label>
+
+            <label class="videoPassword-form-input font-size-1rem" for="newPwd">
+              <p className='user-font-ch'>輸入新密碼</p>
+              <div class="videoPassword-inp">
+                <input id="newPwd font-size-114rem user-font-ch" type="text" />
+                <div className="videoPassword-eyes">
+                    <FaEye/>
+                </div>
+              </div>
+            </label>
+            <label class="videoPassword-form-input font-size-1rem" for="changePwd">
+              <p className="user-font-ch">確認新密碼</p>
+              <div class="videoPassword-inp">
+                <input id="changePwd font-size-114rem user-font-ch" type="text" />
+                <div className="videoPassword-eyes">
+                    <FaEye/>
+                </div>
+              </div>
+            </label>
+
+            <input type="submit" class="videoPassword-form-button user-font-ch" value="修改密碼" />
+          </form>
+        </div>
     )
     }
 }
