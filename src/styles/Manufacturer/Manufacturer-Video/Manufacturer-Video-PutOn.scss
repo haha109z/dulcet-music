@@ -16,12 +16,12 @@
     margin: auto;
     width: 100%;
 
-    .video-new-add {
+    .video-puton-new-btn {
       display: none;
     }
 
     .video-puton-add {
-      width: 90%;
+      width: 100%;
       height: 450px;
       border: 1px solid #141414;
       text-align: center;
@@ -73,14 +73,14 @@
           margin: 20px 0 0 0;
         }
       }
-      .video-add-btn {
+      .video-puton-add-btn {
         width: 150px;
         height: 50px;
         margin: 60px auto 60px auto;
         border: none;
         background: #f2e8df;
       }
-      .video-add-btn:hover {
+      .video-puton-add-btn:hover {
         background: #141414;
         color: #ffffff;
       }
@@ -90,27 +90,41 @@
 
 @media (max-width: 768px) {
   .video-puton-page {
-    width: 100%;
-    margin: 154px auto auto 0;
-  }
-
-  .video-new-add {
-    display: block;
-    margin: auto 30px auto 30px;
-    height: 50px;
-    width: 90%;
-    background: var(--main-colorblock);
-    color: var(--main-colorfff);
-    border: none;
-  }
-  .video-new-add:hover {
-    background: var(--main-colorf2e);
-    color: var(--main-colorblock);
-  }
-
-  .video-add-btn {
-    display: block;
-    width: 100%;
-    margin: 0px;
+    width: 80%;
+    margin: 154px auto auto auto;
+    .video-puton-form {
+      .video-puton-add {
+        height: 300px;
+      }
+      .video-puton-new-btn {
+        display: block;
+        height: 50px;
+        width: 100%;
+        background: var(--main-colorblock);
+        color: var(--main-colorfff);
+        border: none;
+      }
+      .video-puton-new-btn:hover {
+        background: var(--main-colorf2e);
+        color: var(--main-colorblock);
+      }
+      .video-puton-content {
+        width: 100%;
+        .video-puton-label {
+          width: 100%;
+          input {
+            margin-left: 0px;
+          }
+          select {
+            margin-left: 0px;
+            width: 100%;
+          }
+        }
+        .video-puton-add-btn {
+          width: 100%;
+          margin: 11px auto 40px auto;
+        }
+      }
+    }
   }
 }

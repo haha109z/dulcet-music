@@ -16,7 +16,7 @@ class VideoHome extends React.Component{
         <label className="video-home-label " htmlFor="mid">
           <p>廠商編號</p>
           <div className="video-home-inp ">
-            <input className="video-user-id" id="mid" type="text" value="001" readonly="readonly"/>
+            <input className="video-user-id" id="mid" type="text" value="001" readOnly="readonly"/>
           </div>
         </label>
 
