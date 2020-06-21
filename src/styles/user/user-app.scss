@@ -8,6 +8,7 @@ p {
   margin: 0;
   padding: 0;
 }
+
 html {
   font-size: 14px;
 }
@@ -22,6 +23,10 @@ button {
 }
 button:hover {
   outline: none;
+}
+button:focus{
+  outline: none;
+
 }
 
 :root {
@@ -83,9 +88,13 @@ button:hover {
   margin: 0 auto;
   display: flex;
 }
+
 @media (min-width: 768px) {
   .user-container {
     width: 750px;
+  }
+  .userRwd-dropdown {
+    display: none;
   }
 }
 @media (min-width: 992px) {
@@ -100,13 +109,82 @@ button:hover {
 }
 
 @media (max-width: 768px) {
-  .user-container{
+  .user-container {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
+  }
+  /* 下拉按鈕樣式 */
+  .userRwd-dropbtn {
+    color: #141414;
+    width: 100%;
+    font-size: 14px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    border: 1px solid #141414;
+    padding-left: 5%;
+    background-color: #ffffff;
+    margin-bottom: 5px;
+  }
+
+  /* 容器 <div> - 需要定位下拉內容 */
+  .userRwd-dropdown {
+    position: relative;
+    width: 80%;
+    /* margin-top: 20px; */
+    margin: 20px auto 40px auto;
+  }
+
+  /* 下拉內容 (預設隱藏) */
+  .userRwd-dropdown-content {
+    overflow: scroll;
+    background-color: #ffff;
+    z-index: 10;
+    display: none;
+    width: 100%;
+    position: absolute;
+    height: 200px;
+    color: #141414;
+    /* min-width: 160px; */
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  }
+
+  /* 下拉式選單的連結 */
+  .userRwd-dropdown-content a {
+    color: black;
+    /* padding: 6px 16px; */
+    font-size: 14px;
+    height: 40px;
+    text-decoration: none;
+    display: block;
+    margin: 0;
+    padding-left: 5%;
+  }
+
+  /* 滑鼠移上去後修改下拉式選單連結顏色 */
+  .userRwd-dropdown-content a:hover {
+    background-color: #f2e8df;
+  }
+
+  /* 在滑鼠移上去後顯示下拉式選單 */
+  .userRwd-dropdown:hover .userRwd-dropdown-content {
+    display: block;
+  }
+
+  /* 當下拉內容顯示後修改下拉按鈕的背景顏色 */
+
+  .userRwd-dropbtn > svg {
+    position: absolute;
+    height: 26px;
+    right: 4%;
+    top: 8%;
+  }
+  .userRwd-dropbtn {
+    text-align: left;
   }
 }
-.user-dropbtn:focus{
-border: 2px solid #141414;
+.user-dropbtn:focus {
+  border: 2px solid #141414;
 }
 .user-page {
   display: flex;
@@ -151,9 +229,15 @@ border: 2px solid #141414;
   font-size: 35px;
 }
 .user-page-x {
-  height: 36px;
   outline: none;
   border: none;
   background-color: #ffffff;
   margin-top: 5%;
+  outline: none;
 }
+.user-page-x:hover{
+  font-weight:bolder; 
+  letter-spacing:3px;    
+  outline: none;
+  border: none;
+   }

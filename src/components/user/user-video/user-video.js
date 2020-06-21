@@ -171,6 +171,20 @@ export default class UserVideo extends Component {
               <i class="fas fa-sort-up"></i>
             </a>
           </div>
+          <div class="userRwd-dropdown ">
+            <button type="button" class="userRwd-dropbtn">
+              頁數
+              <i class="fas fa-sort-down"></i>
+            </button>
+            <div class="userRwd-dropdown-content">
+              <a href="#">1</a>
+              <a href="#">2</a>
+              <a href="#">3</a>
+              <a href="#">4</a>
+              <a href="#">5</a>
+              <a href="#">6</a>
+            </div>
+          </div>
         </div>
       </>
     )
