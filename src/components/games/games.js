@@ -208,7 +208,7 @@ class Games extends Component{
                                     <source src={require('../../img/games/So.mp3')} type="audio/mpeg" ></source>
                                 </audio>
                             </button>
-                            <button data-id="6" onClick={this.onClick} disabled={disabled}>Na
+                            <button data-id="6" onClick={this.onClick} disabled={disabled}>La
                                 <audio >
                                     <source src={require('../../img/games/Na.mp3')} type="audio/mpeg" ></source>
                                 </audio>
