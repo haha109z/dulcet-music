@@ -30,53 +30,166 @@
 //   --h6: 0.85rem; /** 12px **/
 // }
 
-.cart-pay-form {
+.cart3-title {
+  padding: 20px 0 15px 0;
+  font-size: 16px;
+}
+
+.cart3-pay-form {
   padding: 60px;
-  border: 1px solid var(--main-color79);
-
+  border: 1px solid #797979;
+  font-family: 'Merienda';
   input {
-    text-indent: 80px;
+    // text-indent: 80px;
+    text-align: center;
   }
-
   label {
     // padding: 0 24px;
-    display: block;
-
+    display: inline-block;
+    vertical-align: top;
+    font-family: 'Noto Serif TC';
     input[type='checkbox'] {
       width: 20px;
       height: 20px;
       vertical-align: sub;
     }
   }
-
-  .cart-img {
-    background: yellowgreen;
-    width: 150px;
-    height: 50px;
-    margin: 0 0 0 25px;
-    display: inline-block;
+  .cart3-reminder {
+    padding: 10px;
+    margin: 10px 25px 15px 25px;
+    span {
+      font-family: 'Noto Serif TC';
+    }
   }
-
-  .cart-pay-card {
-    background: lightsalmon;
+  .cart3-reminder-green {
+    background: rgb(197, 231, 224);
+    color: rgb(65, 129, 65);
+  }
+  .cart3-reminder-red {
+    background: rgb(245, 163, 163);
+    color: rgb(168, 6, 6);
+  }
+  .cart3-atm-info {
+    border: 1px solid red;
+    font-family: 'Noto Serif TC';
+    padding: 10px;
+    margin: 10px 25px 25px 25px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 40%;
+    ul {
+      padding: 0 10px;
+    }
+    .cart3-atm-info1 {
+      width: 30%;
+    }
+  }
+  .cart3-logo-img {
+    // background: yellowgreen;
+    // width: 150px;
+    height: 50px;
+    margin: 0 0 0 20px;
+    display: inline-block;
+    img {
+      height: 100%;
+    }
+    .cart-img-border {
+      // border: 1px solid #797979;
+      box-shadow: 3px 3px 5px #797979;
+    }
+  }
+  .cart3-creditcard {
+    background: #fffdfd;
+    // background: #f2ebdf;
+    border: 1px solid #9a9a9a;
     border-radius: 26px;
     width: 300px;
     height: 200px;
-    margin: 10px;
+    margin: 30px 10px;
     display: inline-block;
     text-align: center;
+    .cart3-creditcard-same {
+      display: flex;
+      vertical-align: middle;
+    }
+    .cart3-creditcard-1 {
+      justify-content: space-between;
+      margin: 30px;
+      .cart3-card-in-card {
+        background: #797979;
+        border-radius: 10px;
+        width: 60px;
+        height: 40px;
+      }
+      .cart3-card-category {
+        height: 40px;
+        line-height: 40px;
+        vertical-align: middle;
+        text-align: right;
+        width: 25%;
+      }
+    }
+    .cart3-creditcard-2 {
+      margin: 25px;
+      width: 85%;
+      input {
+        width: 25%;
+      }
+    }
+    .cart3-creditcard-3 {
+      margin: 25px;
+      width: 85%;
+      input {
+        width: 50%;
+      }
+    }
+    .cart3-creditcard-number {
+      margin: 0 5px;
+      text-indent: 0;
+      text-align: center;
+      outline: none;
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid #797979;
+      font-size: 12px;
+    }
+    .cart3-creditcard-stripe {
+      background: #c29a8b;
+      width: 100%;
+      height: 12%;
+      margin: 45px 0 0 0;
+    }
+    .cart3-creditcard-safe-info {
+      margin: 20px 25px;
+      font-size: 12px;
+      text-align: right;
+      height: 45%;
+      div {
+        margin: 10px 0;
+      }
+      .cart3-creditcard-safe-code {
+        background: #f2e8df;
+        color: #c29a8b;
+        border-radius: 7px;
+        height: 25%;
+        line-height: 24px;
+        vertical-align: middle;
+      }
+      .cart3-card-category {
+        height: 25%;
+        font-size: 16px;
+      }
+    }
   }
-
-  .cart-input1 {
+  .cart3-input {
     // background: #fb2643;
     // border: 1px solid white;
     margin: 30px 0 0 0;
-
+    // margin: 0 0 20px 0;
     label {
-      padding: 0 24px;
+      padding: 0 35px;
       // text-align: right;
     }
-
     input {
       outline: none;
       background-color: transparent;
@@ -84,6 +197,11 @@
       border-bottom: 2px solid var(--main-color79);
       width: 93%;
       margin: 0 30px;
+    }
+    .cart3-safe-code {
+      input {
+        width: 60%;
+      }
     }
   }
 
