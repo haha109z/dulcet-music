@@ -13,8 +13,10 @@ function NewsContent(props) {
       <div className="news-ContentContainer">
 
           <div className="news-Content">
-
-            <img className="news-ContentImg" src={require("../../img/News_P001.jpg")}></img>
+            {/* <img className="news-ContentImg" src={require("../../img/News_P001.jpg")}></img> */}
+            {/* 上面是你原本的但路徑有錯抓不到東西下面是我複製第66行的你自己在檢查一下對不對 */}
+            <img className="news-ContentImg" src={require("../../img/news/news_p001.jpg")}></img>
+            
             <FaShareAlt class="news-Share news-H3" />
               <p className="news-H3 news-LetterSpacing news-NotoSerifTC">
                 109年12月26號(六)19:00-21:00<br />
@@ -37,7 +39,10 @@ function NewsContent(props) {
 
           <div className="news-Content">
 
-            <img className="news-ContentImg" src={require("../../img/News_P001.jpg")}></img>
+            {/* <img className="news-ContentImg" src={require("../../img/News_P001.jpg")}></img> */}
+            {/* 上面是你原本的但路徑有錯抓不到東西下面是我複製第66行的你自己在檢查一下對不對 */}
+            <img className="news-ContentImg" src={require("../../img/news/news_p001.jpg")}></img>
+
 
               <p className="news-H3 news-LetterSpacing news-NotoSerifTC">
                 109年12月26號(六)19:00-21:00<br />
