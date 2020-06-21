@@ -101,12 +101,24 @@ function App() {
         <ManufacturerVideo />
       </Route>
 
-      <Route path="/cart" >
+      {/* <Route path="/cart"> */}
         {/* <CartCheckout /> */}
-        <CartCheckOrder />
+        {/* <CartCheckOrder /> */}
         {/* <CartPay /> */}
         {/* <CartEnd /> */}
         {/* <CartApp /> */}
+      {/* </Route> */}
+      <Route path="/cart1" exact>
+        <CartCheckout />
+      </Route>
+      <Route path="/cart2" exact>
+        <CartCheckOrder />
+      </Route>
+      <Route path="/cart3" exact>
+        <CartPay />
+      </Route>
+      <Route path="/cart4" exact>
+        <CartEnd />
       </Route>
 
       <Route path="/login" >
