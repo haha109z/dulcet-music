@@ -19,7 +19,7 @@ class VideoEdit extends React.Component{
     render(){
     return(
         <div className="video-edit-page">
-        <h3 className="font-size-142rem">編輯商品</h3>
+        <h3 className="font-size-142rem">編輯影片</h3>
         <form className="video-edit-form">
             <div className="video-edit-add" controls>
                 <h3 className="video-edit-file-text font-size-142rem">圖片預覽</h3>

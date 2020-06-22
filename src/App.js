@@ -48,6 +48,7 @@ import AnyQuestionAction from './container/AnyQuestionAction';
 
 // ManufacturerVideo
 import ManufacturerVideo from './container/Manufacturer-Video-App'
+import ManufacturerInstrument from './container/Manufacturer-Instrument-App'
 
 //Footer
 import Footer from './components/footer/footer';
@@ -105,6 +106,11 @@ function App() {
         <Route path="/ManufacturerVideo">
           <ManufacturerVideo />
         </Route>
+
+        <Route path="/ManufacturerInstrument">
+          <ManufacturerInstrument />
+        </Route>
+
 
         {/* <Route path="/cart"> */}
           {/* <CartCheckout /> */}

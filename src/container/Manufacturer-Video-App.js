@@ -3,10 +3,11 @@ import React from 'react'
 // 各頁面路徑
 import VideoHome from '../components/Manufacturer/Video-Pages/Manufacturer-Video-Home/Manufacturer-Video-Home'
 import VideoMenu from '../components/Manufacturer/Video-Pages/Manufacturer-Video-Menu/Manufacturer-Video-Menu'
-import VideoEditPassword from '../components/Manufacturer/Video-Pages/Manufacturer-Video-Password/Manufacturer-Video-Password'
+import VideoPassword from '../components/Manufacturer/Video-Pages/Manufacturer-Video-Password/Manufacturer-Video-Password'
 import VideoPutOn from '../components/Manufacturer/Video-Pages/Manufacturer-Video-PutOn/Manufacturer-Video-PutOn'
 import VideoList from '../components/Manufacturer/Video-Pages/Manufacturer-Video-List/Manufacturer-Video-List'
 import VideoOrder from '../components/Manufacturer/Video-Pages/Manufacturer-Video-Order/Manufacturer-Video-Order'
+import VideoEdit from '../components/Manufacturer/Video-Pages/Manufacturer-Video-Edit/Manufacturer-Video-Edit'
 
 // Navbar&Footer
 import Navbar from '../components/navbar/navbar'
@@ -19,8 +20,9 @@ import { BrowserRouter, Router, Route, Link, Switch, withRouter ,Redirect} from 
 class ManufacturerVideoHome extends React.Component{
 	render(){
 	return(
+        <>
+        <Navbar/>
 		<BrowserRouter>
-		<Navbar/>
 		<div className="user-container d-flex">
 		<VideoMenu/>
         <Switch>
@@ -36,13 +38,17 @@ class ManufacturerVideoHome extends React.Component{
         <Route path="/ManufacturerVideo/VideoOrder">
         <VideoOrder />
         </Route>
-        <Route path="/ManufacturerVideo/VideoEditPassword">
-        <VideoEditPassword />
+        <Route path="/ManufacturerVideo/VideoPassword">
+        <VideoPassword />
+        </Route>
+        <Route path="/ManufacturerVideo/VideoEdit">
+        <VideoEdit/>
         </Route>
         <Redirect to="/ManufacturerVideo/VideoHome"/>
         </Switch>
 		</div>
 		</BrowserRouter>
+        </>
     )
     }
 }
