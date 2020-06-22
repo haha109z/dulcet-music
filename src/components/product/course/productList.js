@@ -4,12 +4,15 @@ import { IoMdArrowDropright } from 'react-icons/io'
 import { IoMdArrowDropleft } from 'react-icons/io'
 import { FaHeart } from 'react-icons/fa'
 import ProductPicture from '../product-picture'
+import SideBar from '../product-sidebar'
 
 function ProductList(props) {
   const [favorite, setFavorite] = useState(false)
 
   return (
     <>
+      <SideBar productTitleId={props.productTitleId} />
+
       <div className="product-container">
         <ProductPicture
           productTitle={props.productTitle}

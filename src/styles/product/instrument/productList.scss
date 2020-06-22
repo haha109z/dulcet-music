@@ -76,6 +76,7 @@
         position: relative;
         overflow: hidden;
         margin: 30px 0;
+        transition: 0.5s;
 
         .product-instrument-card-img {
           width: 184px;
@@ -128,6 +129,9 @@
             font-family: Merienda;
           }
         }
+      }
+      .product-instrument-card:hover {
+        transform: scale(1.05, 1.05);
       }
       .product-video-card {
         width: 100%;
@@ -255,6 +259,7 @@
   .product-container {
     width: 90vw;
     min-width: 0px;
+    margin-top: 130px;
     .product-picture {
       margin-bottom: 30px;
       height: 30vh;

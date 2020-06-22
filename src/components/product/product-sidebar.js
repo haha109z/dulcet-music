@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export default class UserSideBar extends Component {
   render(props) {
@@ -90,8 +90,6 @@ export default class UserSideBar extends Component {
               爵士鼓
               <div class="product-sidebar-menu-li-right"></div>
             </Link>
-
-            <div class="product-sidebar-menu-out font-size-142rem product-font-ch"></div>
           </ul>
         </div>
       </>

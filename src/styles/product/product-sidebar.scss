@@ -1,26 +1,7 @@
-.product-sidebar-menu-li:hover {
-  color: #141414;
-  text-decoration: none;
-}
 .product-sideBar {
   display: none;
-  width: 400px;
-  height: 1130px;
-  background-color: #dadada;
-  padding-top: 310px;
-}
-.product-sidebar-menu > a {
-  color: #141414;
 }
 
-.product-sidebar-menu-li {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 5px;
-  justify-content: center;
-  padding: 10px;
-}
 .product-sidebar-menu-li:hover {
   background-color: #141414;
   color: white;
@@ -57,42 +38,20 @@
   text-align: center;
   margin-bottom: 30px;
 }
-.product-sidebar-menu-out {
-  width: 50px;
-  margin: 180px auto;
-  border-bottom: #141414 1px solid;
-  text-align: center;
-  transition: 0.2s;
-}
-.product-sidebar-menu-out:hover {
-  width: 100%;
-  margin: 180px auto;
-  border-bottom: #141414 1px solid;
-  text-align: center;
-  background-color: #141414;
-}
-.product-sidebar-menu-out:hover {
-  width: 100%;
-  margin: 170px auto;
-  border-bottom: #141414 1px solid;
-  text-align: center;
-  background-color: #141414;
-  padding: 10px;
-
-  a {
-    color: white;
-  }
-}
-
-.product-sidebar-menu-out > a {
-  color: #797979;
-  text-decoration: none;
-}
 
 @media (max-width: 768px) {
-  // .product-sideBar {
-  //   display: none;
-  // }
+  .product-sideBar {
+    display: block;
+    width: 400px;
+    height: 1130px;
+    background-color: #dadada;
+    padding-top: 310px;
+  }
+  .product-sidebar-menu > a {
+    color: #141414;
+    text-decoration: none;
+  }
+
   .product-sidebar-menu-li {
     height: 32px;
     width: 100%;
@@ -102,6 +61,12 @@
     white-space: nowrap;
     margin: 0;
     margin-top: 70px;
+    text-decoration: none;
+    color: #141414;
+
+    display: flex;
+    justify-content: center;
+    padding: 10px;
   }
   .product-sidebar-menu-li:hover > .product-sidebar-menu-li-left {
     display: none;
@@ -116,9 +81,6 @@
   .product-sidebar-menu-li-right {
     display: none;
   }
-  .product-sideBar-logo {
-    display: none;
-  }
   .product-sideBar-title {
     display: none;
   }
@@ -128,9 +90,6 @@
     height: 105px;
     background: #dadada;
     overflow: scroll;
-  }
-  .product-sidebar-menu-out {
-    display: none;
   }
   .product-sideBar {
     width: 100%;
