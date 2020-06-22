@@ -4,31 +4,31 @@ export default class UserPwd extends Component {
   render() {
     return (
       <>
-        <div class="userPwd-main">
-          <h3 class="font-size-142rem userPwd-top-titleName user-font-ch">密碼修改</h3>
-          <div class="userPwd-top-Img">
+        <div className="userPwd-main">
+          <h3 className="font-size-142rem userPwd-top-titleName user-font-ch">密碼修改</h3>
+          <div className="userPwd-top-Img">
             <img src="" alt="" />
           </div>
         
-          <hr class="userPwd-top-hr" />
+          <hr className="userPwd-top-hr" />
 
-          <form class="userPwd-form" action="">
-          <label class="userData-form-input " for="name">
+          <form className="userPwd-form" action="">
+          <label className="userData-form-input " for="name">
                 <p>會員編號</p>
-                <div class="UserData-inp ">
+                <div className="UserData-inp ">
                   <input className="user-id" id="id" type="text" value="001" readonly="readonly"/>
                 </div>
               </label>
-            <label class="userPwd-form-input font-size-1rem" for="oldPwd">
+            <label className="userPwd-form-input font-size-1rem" for="oldPwd">
               <p className="user-font-ch">請輸入舊密碼</p>
-              <div class="userPwd-inp">
+              <div className="userPwd-inp">
                 <input id="oldPwd font-size-114rem user-font-ch" type="text" />
                 <svg
                   aria-hidden="true"
                   focusable="false"
                   data-prefix="fas"
                   data-icon="eye"
-                  class="svg-eye svg-inline--fa fa-eye fa-w-18"
+                  className="svg-eye svg-inline--fa fa-eye fa-w-18"
                   role="img"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 576 512"
@@ -41,16 +41,16 @@ export default class UserPwd extends Component {
               </div>
             </label>
 
-            <label class="userPwd-form-input font-size-1rem" for="newPwd">
+            <label className="userPwd-form-input font-size-1rem" for="newPwd">
               <p className='user-font-ch'>輸入新密碼</p>
-              <div class="userPwd-inp">
+              <div className="userPwd-inp">
                 <input id="newPwd font-size-114rem user-font-ch" type="text" />
                 <svg
                   aria-hidden="true"
                   focusable="false"
                   data-prefix="fas"
                   data-icon="eye"
-                  class="svg-eye svg-inline--fa fa-eye fa-w-18"
+                  className="svg-eye svg-inline--fa fa-eye fa-w-18"
                   role="img"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 576 512"
@@ -62,16 +62,16 @@ export default class UserPwd extends Component {
                 </svg>
               </div>
             </label>
-            <label class="userPwd-form-input font-size-1rem" for="changePwd">
+            <label className="userPwd-form-input font-size-1rem" for="changePwd">
               <p className="user-font-ch">確認新密碼</p>
-              <div class="userPwd-inp">
+              <div className="userPwd-inp">
                 <input id="changePwd font-size-114rem user-font-ch" type="text" />
                 <svg
                   aria-hidden="true"
                   focusable="false"
                   data-prefix="fas"
                   data-icon="eye"
-                  class="svg-eye svg-inline--fa fa-eye fa-w-18"
+                  className="svg-eye svg-inline--fa fa-eye fa-w-18"
                   role="img"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 576 512"
@@ -84,7 +84,7 @@ export default class UserPwd extends Component {
               </div>
             </label>
 
-            <input type="submit" class="userPwd-form-button user-font-ch" value="修改密碼" />
+            <input type="submit" className="userPwd-form-button user-font-ch" value="修改密碼" />
           </form>
         </div>
       </>

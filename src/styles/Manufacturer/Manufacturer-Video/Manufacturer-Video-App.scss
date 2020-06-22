@@ -103,6 +103,12 @@ button:hover {
   }
 }
 
+@media (min-width: 768px){
+  .videoRwd-page-dropdown{
+    display: none;
+  }
+
+}
 @media (max-width: 768px) {
   .user-container {
     display: flex;

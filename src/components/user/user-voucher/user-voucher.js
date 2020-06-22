@@ -4,135 +4,135 @@ export default class UserVoucher extends Component {
   render() {
     return (
       <>
-        <div class="userVoucher-main">
-          <h3 class="font-size-142rem userVoucher-top-titleName user-font-ch">
+        <div className="userVoucher-main">
+          <h3 className="font-size-142rem userVoucher-top-titleName user-font-ch">
             我的優惠卷
           </h3>
 
-          <form class="userVoucher-search" action="">
+          <form className="userVoucher-search" action="">
             <input
-              class="userVoucher-search-input user-font-ch "
+              className="userVoucher-search-input user-font-ch "
               placeholder="請輸入關鍵字"
               type="text"
             />
-            <p class="user-font-ch userVoucher-search-404title">
+            <p className="user-font-ch userVoucher-search-404title">
               請輸入商品或訂單關鍵字
             </p>
 
             <input
-              class="userVoucher-search-button user-font-ch "
+              className="userVoucher-search-button user-font-ch "
               type="button"
               value="送出"
             />
           </form>
 
-          <hr class="userVoucher-divider" />
-          <div class="userVoucher-item">
-            <div class="userVoucher-item-card">
-              <div class="userVoucher-item-card-img">
+          <hr className="userVoucher-divider" />
+          <div className="userVoucher-item">
+            <div className="userVoucher-item-card">
+              <div className="userVoucher-item-card-img">
                 <img src={require('../../../img/home_logo_方.png')} alt="" />
               </div>
-              <div class="userVoucher-item-card-divider"></div>
-              <p class="user-font-ch userVoucher-item-card-title">
+              <div className="userVoucher-item-card-divider"></div>
+              <p className="user-font-ch userVoucher-item-card-title">
                 結帳金額減免200元
               </p>
-              <p class=" userVoucher-item-card-num user-color-red">aaa12398</p>
-              <p class="user-font-ch userVoucher-item-card-date">
+              <p className=" userVoucher-item-card-num user-color-red">aaa12398</p>
+              <p className="user-font-ch userVoucher-item-card-date">
                 到期日期2020-00-00
               </p>
-              <p class="user-font-ch userVoucher-item-card-copy">複製折扣碼</p>
+              <p className="user-font-ch userVoucher-item-card-copy">複製折扣碼</p>
             </div>
-            <div class="userVoucher-item-card">
-              <div class="userVoucher-item-card-img">
+            <div className="userVoucher-item-card">
+              <div className="userVoucher-item-card-img">
                 <img src={require('../../../img/home_logo_方.png')} alt="" />
               </div>
-              <div class="userVoucher-item-card-divider"></div>
-              <p class="user-font-ch userVoucher-item-card-title">
+              <div className="userVoucher-item-card-divider"></div>
+              <p className="user-font-ch userVoucher-item-card-title">
                 結帳金額減免200元
               </p>
-              <p class=" userVoucher-item-card-num user-color-red">aaa12398</p>
-              <p class="user-font-ch userVoucher-item-card-date">
+              <p className=" userVoucher-item-card-num user-color-red">aaa12398</p>
+              <p className="user-font-ch userVoucher-item-card-date">
                 到期日期2020-00-00
               </p>
-              <p class="user-font-ch userVoucher-item-card-copy">複製折扣碼</p>
+              <p className="user-font-ch userVoucher-item-card-copy">複製折扣碼</p>
             </div>
-            <div class="userVoucher-item-card">
-              <div class="userVoucher-item-card-img">
+            <div className="userVoucher-item-card">
+              <div className="userVoucher-item-card-img">
                 <img src={require('../../../img/home_logo_方.png')} alt="" />
               </div>
-              <div class="userVoucher-item-card-divider"></div>
-              <p class="user-font-ch userVoucher-item-card-title">
+              <div className="userVoucher-item-card-divider"></div>
+              <p className="user-font-ch userVoucher-item-card-title">
                 結帳金額減免200元
               </p>
-              <p class=" userVoucher-item-card-num user-color-red">aaa12398</p>
-              <p class="user-font-ch userVoucher-item-card-date">
+              <p className=" userVoucher-item-card-num user-color-red">aaa12398</p>
+              <p className="user-font-ch userVoucher-item-card-date">
                 到期日期2020-00-00
               </p>
-              <p class="user-font-ch userVoucher-item-card-copy">複製折扣碼</p>
+              <p className="user-font-ch userVoucher-item-card-copy">複製折扣碼</p>
             </div>
-            <div class="userVoucher-item-card">
-              <div class="userVoucher-item-card-img">
+            <div className="userVoucher-item-card">
+              <div className="userVoucher-item-card-img">
                 <img src={require('../../../img/home_logo_方.png')} alt="" />
               </div>
-              <div class="userVoucher-item-card-divider"></div>
-              <p class="user-font-ch userVoucher-item-card-title">
+              <div className="userVoucher-item-card-divider"></div>
+              <p className="user-font-ch userVoucher-item-card-title">
                 結帳金額減免200元
               </p>
-              <p class=" userVoucher-item-card-num user-color-red">aaa12398</p>
-              <p class="user-font-ch userVoucher-item-card-date">
+              <p className=" userVoucher-item-card-num user-color-red">aaa12398</p>
+              <p className="user-font-ch userVoucher-item-card-date">
                 到期日期2020-00-00
               </p>
-              <p class="user-font-ch userVoucher-item-card-copy">複製折扣碼</p>
+              <p className="user-font-ch userVoucher-item-card-copy">複製折扣碼</p>
             </div>
-            <div class="userVoucher-item-card">
-              <div class="userVoucher-item-card-img">
+            <div className="userVoucher-item-card">
+              <div className="userVoucher-item-card-img">
                 <img src={require('../../../img/home_logo_方.png')} alt="" />
               </div>
-              <div class="userVoucher-item-card-divider"></div>
-              <p class="user-font-ch userVoucher-item-card-title">
+              <div className="userVoucher-item-card-divider"></div>
+              <p className="user-font-ch userVoucher-item-card-title">
                 結帳金額減免200元
               </p>
-              <p class=" userVoucher-item-card-num user-color-red">aaa12398</p>
+              <p className=" userVoucher-item-card-num user-color-red">aaa12398</p>
 
-              <p class="user-font-ch userVoucher-item-card-date">
+              <p className="user-font-ch userVoucher-item-card-date">
                 到期日期2020-00-00
               </p>
-              <p class="user-font-ch userVoucher-item-card-copy">複製折扣碼</p>
+              <p className="user-font-ch userVoucher-item-card-copy">複製折扣碼</p>
             </div>
-            <div class="userVoucher-item-card">
-              <div class="userVoucher-item-card-img">
+            <div className="userVoucher-item-card">
+              <div className="userVoucher-item-card-img">
                 <img src={require('../../../img/home_logo_方.png')} alt="" />
               </div>
-              <div class="userVoucher-item-card-divider"></div>
-              <p class="user-font-ch userVoucher-item-card-title">
+              <div className="userVoucher-item-card-divider"></div>
+              <p className="user-font-ch userVoucher-item-card-title">
                 結帳金額減免200元
               </p>
-              <p class=" userVoucher-item-card-num user-color-red">aaa12398</p>
-              <p class="user-font-ch userVoucher-item-card-date">
+              <p className=" userVoucher-item-card-num user-color-red">aaa12398</p>
+              <p className="user-font-ch userVoucher-item-card-date">
                 到期日期2020-00-00
               </p>
-              <p class="user-font-ch userVoucher-item-card-copy">複製折扣碼</p>
+              <p className="user-font-ch userVoucher-item-card-copy">複製折扣碼</p>
             </div>
           </div>
-          <div class="user-page">
-            <a class="user-page-Rarrow">
-              <i class="fas fa-sort-up"></i>
+          <div className="user-page">
+            <a className="user-page-Rarrow">
+              <i className="fas fa-sort-up"></i>
             </a>
-            <button class="user-page-number">1</button>
-            <button class="user-page-number">2</button>
-            <button class="user-page-number">3</button>
-            <button class="user-page-number">4</button>
-            <button class="user-page-x">...</button>
-            <a class="user-page-Larrow">
-              <i class="fas fa-sort-up"></i>
+            <button className="user-page-number">1</button>
+            <button className="user-page-number">2</button>
+            <button className="user-page-number">3</button>
+            <button className="user-page-number">4</button>
+            <button className="user-page-x">...</button>
+            <a className="user-page-Larrow">
+              <i className="fas fa-sort-up"></i>
             </a>
           </div>
-          <div class="userRwd-dropdown ">
-            <button type="button" class="userRwd-dropbtn">
+          <div className="userRwd-dropdown ">
+            <button type="button" className="userRwd-dropbtn">
               頁數
-              <i class="fas fa-sort-down"></i>
+              <i className="fas fa-sort-down"></i>
             </button>
-            <div class="userRwd-dropdown-content">
+            <div className="userRwd-dropdown-content">
               <a href="#">1</a>
               <a href="#">2</a>
               <a href="#">3</a>
