@@ -5,7 +5,7 @@ class VideoList extends React.Component {
   render() {
     return (
       <div className="video-list-page">
-        <h3 className="video-list-title font-size-142rem">影片列表</h3>
+        <h3 className="video-list-title font-size-142rem">樂器列表</h3>
         <form className="video-list-search">
           <label className="video-list-search-label">
             <input
@@ -21,7 +21,7 @@ class VideoList extends React.Component {
         </form>
         <hr className="video-list-hr" />
         <Link to="/ManufacturerVideo/VideoPutOn" className="video-list-add-btn">
-          新增影片
+          新增樂器
         </Link>
         <div className="video-list-tools">
           <div className="video-list-option">
@@ -31,7 +31,7 @@ class VideoList extends React.Component {
             <a href="">上架</a>
             <a href="">下架</a>
           </div>
-          <Link to="/ManufacturerVideo/VideoPutOn" className="video-list-tool-btn">新增影片</Link>
+          <Link to="/ManufacturerVideo/VideoPutOn" className="video-list-tool-btn">新增樂器</Link>
         </div>
         <form className="video-list-product">
           <div className="video-list-state">
