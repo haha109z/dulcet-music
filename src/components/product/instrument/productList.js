@@ -4,11 +4,13 @@ import { IoMdArrowDropright } from 'react-icons/io'
 import { IoMdArrowDropleft } from 'react-icons/io'
 import ProductPicture from '../product-picture'
 import Card from './product-instrument-card'
+import SideBar from '../product-sidebar'
 
 function ProductList(props) {
   const [favorite, setFavorite] = useState(false)
   return (
     <>
+      <SideBar productTitleId={props.productTitleId} />
       <div className="product-container">
         <ProductPicture
           productTitle={props.productTitle}
