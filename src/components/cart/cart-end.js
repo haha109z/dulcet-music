@@ -7,7 +7,7 @@ function CartEnd() {
         <div className="cart-container">
             <div className="cart-title">
                 <h1><i className="fas fa-shopping-bag"></i> My Cart</h1>
-                <span style={{fontSize:'var(--h2)'}}>❶確認購買商品➔❷確認訂單➔❸選擇付款方式➔❹完成結帳</span>
+                <span>❶確認商品➔❷確認訂單➔❸選擇付款方式➔❹完成結帳</span>
             </div>
             <div className="cart-thank-card">
                 <h2>訂單完成</h2>

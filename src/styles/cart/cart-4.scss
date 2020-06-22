@@ -1,21 +1,33 @@
-
 .cart-thank-card {
-  border: 1px solid var(--main-color79);
+  border: 1px solid #797979;
   margin: 50px 200px;
   padding: 30px 90px;
-  font-family: var(--main-title-chinese);
-
+  font-family: 'Noto Serif TC';
   h2 {
-    font-size: var(--h2);
-    color: var(--main-colorfb2);
+    font-size: 20px;
+    color: #fb2643;
     line-height: 50px;
     text-align: center;
   }
-
   span {
     display: block;
     margin: 0 auto;
     line-height: 40px;
   }
+}
 
+@media (min-width: 374px) and (max-width: 413px) {
+  .cart-thank-card {
+    width: 80%;
+    margin: 20px auto;
+    font-size: 12px;
+    padding: 20px 25px;
+    h2 {
+      line-height: 30px;
+      margin: 0.5rem;
+    }
+    span {
+      line-height: 20px;
+    }
+  }
 }

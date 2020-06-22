@@ -9,8 +9,8 @@ function CartPay() {
                 <h1><i className="fas fa-shopping-bag"></i> My Cart</h1>
                 <span>❶確認商品➔❷確認訂單➔❸選擇付款方式➔❹完成結帳</span>
             </div>
-            <div>
-                <h2 className="cart3-title">完成付款</h2>
+            <div className="cart3-form-wrap">
+                <h2 className="cart3-title">付款方式</h2>
                 <div className="cart3-pay-form">
                     <label><input type="checkbox" id=""/> ATM轉帳</label>
                     <div className="cart3-reminder cart3-reminder-green">
@@ -45,7 +45,7 @@ function CartPay() {
                       <img src={require('../../img/cart/cart-jcb.png')}/>
                     </div>
                     <div style={{display:'flex'}}>
-                        <div style={{margin:'0 auto', display: 'inherit'}}>
+                        <div className="cart3-creditcard-wrap">
                             <div className="cart3-creditcard">
                               <div className="cart3-creditcard-same cart3-creditcard-1">                              
                                 <div className="cart3-card-in-card"></div>
@@ -76,36 +76,38 @@ function CartPay() {
                             </div>
                         </div>
                     </div>
-                    <div className="cart3-input">
-                      <label for="payer-name">持卡人姓名</label>
-                      <input className="" id="payer-name" type="text"/>
-                    </div>
-                    <div className="cart3-input">
-                      <label for="">卡號</label>
-                      <div style={{display:'flex'}}>
-                        <input className="" id="" type="text"/>
-                        <input className="" id="" type="text"/>
-                        <input className="" id="" type="text"/>
-                        <input className="" id="" type="text"/>
+                    <div className="cart3-creditcard-form">
+                      <div className="cart3-input">
+                        <label for="payer-name">持卡人姓名</label>
+                        <input className="" id="payer-name" type="text"/>
                       </div>
-                    </div>
-                    <div className="cart3-input">
-                      <label for="">到期日</label>
-                      <div style={{display:'flex'}}>
-                        <div className="cart-card-ex">
-                            <input className="" id="" type="text"/>
-                            <input className="" id="" type="text"/>
+                      <div className="cart3-input">
+                        <label for="">卡號</label>
+                        <div style={{display:'flex'}}>
+                          <input className="" id="" type="text"/>
+                          <input className="" id="" type="text"/>
+                          <input className="" id="" type="text"/>
+                          <input className="" id="" type="text"/>
                         </div>
                       </div>
-                    </div>
-                    <div className="cart3-input">
-                      <label for="">安全碼</label>
-                      <div style={{display:'flex'}}>
-                        <div className="cart3-safe-code">
-                            <input className="" id="" type="text"/>
+                      <div className="cart3-input">
+                        <label for="">到期日</label>
+                        <div style={{display:'flex'}}>
+                          <div className="cart-card-ex">
+                              <input className="" id="" type="text"/>
+                              <input className="" id="" type="text"/>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                      <div className="cart3-input">
+                        <label for="">安全碼</label>
+                        <div style={{display:'flex'}}>
+                          <div className="cart3-safe-code">
+                              <input className="" id="" type="text"/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>                    
                 </div>
             </div>
           <div className="cart-checkout-btn">
