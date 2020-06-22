@@ -74,7 +74,7 @@ class Games extends Component{
     // 判斷對錯
     handleCheck = ()=>{
         const {checked,answer,userInp,success,userShow} = this.state;
-        this.setState({checked:true});        
+        this.setState({checked:true});
         this.setState({userShow:[]});
         const answerLen = answer.length;
         const userInpLen = userInp.length;
@@ -132,12 +132,14 @@ class Games extends Component{
         const disabled = checked ? 'disabled' : '';
         const restDisplay = success ? 'disabled' : '';
 
+        // 挑戰開始顯示/隱藏
         const startDisplay =  start ? (''): (
             <div className="games-start">
                 <button className="games-start-btn" onClick={this.clickStart}>挑戰 Coupon</button>
             </div>
         ) ;
 
+        // 點擊X後小遊戲顯示/隱藏
         const closeDisplay = start ? (
             <div className="games-close">
                 <button className="games-close-btn btn btn-outline-secondary" onClick={this.handleClose}>X</button>
@@ -147,12 +149,14 @@ class Games extends Component{
         const display = start ? 'block' : 'none';
         // console.log(display);
 
+        // 點擊音符後顯示點擊的值訊息
         const userClickValue = userInp.length && !checked > 0 ? (
             <div className="alert alert-info alert-btn" role="alert">
                 {userShow}
             </div>
         ) : ('');
 
+        // 成功訊息
         const successDisplay = success ? (
             <div className="alert alert-success alert-btn" role="alert">
                 <p>恭喜您答對囉~~！！</p>
@@ -160,16 +164,19 @@ class Games extends Component{
             </div>
         ) : ('');
 
+        // 倒數計時訊息
         const timeDisplay = success ? (
             <p className="games-times">視窗將於<span> {6-time} </span>後關閉</p>
         ) : ('');
 
+        // 失敗訊息
         const failDisplay = fail ? (
             <div className="alert alert-warning alert-btn" role="alert">
                 <p>答錯了~請再試試看喔~</p>
             </div>
         ) : ('');
 
+        // 重新挑戰訊息
         const resetShow = reset ? (
             <div className="alert alert-warning alert-btn" role="alert">
                 可以重新開始挑戰囉~

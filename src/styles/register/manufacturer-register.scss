@@ -131,6 +131,18 @@
                 font-size:var(--h4);
             }//微软
 
+            .facturer-pw-form, .facturer-pwCom-form{
+                position: relative;
+
+                .facturer-register-eye{
+                    position: absolute;
+                    bottom:6%;
+                    right: 2%;
+                    cursor: pointer;
+                    // border: 1px solid red;
+                }
+            }// .user-pw-form, .user-pwCom-form
+
         }// register-form-wrap
     }// facturer-register-body
 
