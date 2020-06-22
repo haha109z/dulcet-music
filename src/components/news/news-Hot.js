@@ -11,7 +11,7 @@ function NewsHot(props) {
           <div className="news-HotContent">
             <img
               className="news-HotImg"
-              src={require('../../img/news/news_p002.png')}
+              src={require('../../img/news/news_a002.png')}
             ></img>
 
             <div className="news-HotContentp news-LetterSpacing">
@@ -22,7 +22,7 @@ function NewsHot(props) {
           <div className="news-HotContent">
             <img
               className="news-HotImg"
-              src={require('../../img/news/news_p002.png')}
+              src={require('../../img/news/news_a002.png')}
             ></img>
 
             <div className="news-HotContentp news-LetterSpacing">
@@ -33,7 +33,7 @@ function NewsHot(props) {
           <div className="news-HotContent">
             <img
               className="news-HotImg"
-              src={require('../../img/news/news_p002.png')}
+              src={require('../../img/news/news_a002.png')}
             ></img>
 
             <div className="news-HotContentp news-LetterSpacing">
@@ -44,7 +44,7 @@ function NewsHot(props) {
           <div className="news-HotContent">
             <img
               className="news-HotImg"
-              src={require('../../img/news/news_p002.png')}
+              src={require('../../img/news/news_a002.png')}
             ></img>
 
             <div className="news-HotContentp news-LetterSpacing">

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { AiFillEdit } from "react-icons/ai";
 import { AiOutlineMail } from "react-icons/ai";
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
 
 function NewsPagesContent(props) {
@@ -54,8 +55,8 @@ function NewsPagesContent(props) {
 
             <hr className="news-pages-ContentHr" />
 
-            <div className="news-pages-ContentBtn news-LetterSpacing news-NotoSerifTC">
-                <button type="button"  onClick="">返回列表</button>
+            <div className="news-pages-ContentBack news-LetterSpacing news-NotoSerifTC">
+                    <Link className="news-pages-ContentBtn" to="/news">返回列表</Link>
               </div>
 
             </div>
