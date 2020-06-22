@@ -12,7 +12,7 @@ export default class UserData extends Component {
               
               <hr className="userData-top-hr"/>
               
-              <form className="userData-form" action="">
+              <htmlFor className="userData-form" action="">
               <label className="userData-form-input " for="name">
                 <p>會員編號</p>
                 <div className="UserData-inp ">
@@ -57,7 +57,7 @@ export default class UserData extends Component {
               <input type="submit" className="userData-form-button" value="修改資料"/>
                 
              
-            </form>
+            </htmlFor>
           
         </div>
       </>
