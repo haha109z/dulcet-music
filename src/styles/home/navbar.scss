@@ -115,11 +115,13 @@
   .nav-navlist-others .nav-items-others > a {
     color: var(--main-colorblock);
     font-size: var(--h3);
-    padding: 0 4.28rem;
+    // padding: 0 4.28rem;
+    padding: 0 2.5vw;
   }
 
   .nav-navuser-others .nav-items-others > a {
-    padding: 0 2.14rem;
+    // padding: 0 2.14rem;    
+    padding: 0 2.5vw;
     font-size: var(--h1);
     text-align: center;
   }

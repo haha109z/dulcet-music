@@ -13,7 +13,7 @@ function NewsContent(props) {
       <div className="news-ContentContainer">
 
           <div className="news-Content">
-            <img className="news-ContentImg" src={require("../../img/news/news_p001.jpg")}></img>
+            <img className="news-ContentImg" src={require("../../img/news/news_a001.jpg")}></img>
             
             <FaShareAlt class="news-Share news-H3" />
               <p className="news-H3 news-LetterSpacing news-NotoSerifTC">
@@ -27,8 +27,8 @@ function NewsContent(props) {
                 旋律之王柴科夫斯基，以兩大家族衝突為基底寫下的《羅密歐與茱麗葉幻想序曲》，以美得不可思議的動人旋律展現盪氣迴腸的深情...
               </p>
 
-              <div className="news-Merienda news-ViewBtn">
-                <button type="button"  onClick="">View More...</button>
+              <div className="news-ContetnBtn">
+                <Link className="news-Merienda news-ViewBtn" to="/news-pages">View More...</Link>
               </div>
 
               <hr className="news-Hr"></hr>
@@ -37,12 +37,12 @@ function NewsContent(props) {
 
           <div className="news-Content">
 
-            <img className="news-ContentImg" src={require("../../img/news/news_p001.jpg")}></img>
+            <img className="news-ContentImg" src={require("../../img/news/news_a001.jpg")}></img>
 
               <FaShareAlt class="news-Share news-H3" />
               <p className="news-H3 news-LetterSpacing news-NotoSerifTC">
                 109年12月26號(六)19:00-21:00<br />
-                臺中國家歌劇院 大劇院<br />
+                <FaMapMarkerAlt className="news-H3" /> 臺中國家歌劇院 大劇院<br />
                 NSO《王者之音》
               </p>
 
@@ -51,8 +51,8 @@ function NewsContent(props) {
                 旋律之王柴科夫斯基，以兩大家族衝突為基底寫下的《羅密歐與茱麗葉幻想序曲》，以美得不可思議的動人旋律展現盪氣迴腸的深情...
               </p>
 
-              <div className="news-Merienda news-ViewBtn">
-                <button type="button"  onClick="">View More...</button>
+              <div className="news-ContetnBtn">
+                <Link className="news-Merienda news-ViewBtn" to="/news-pages">View More...</Link>
               </div>
 
               <hr className="news-Hr"></hr>
@@ -61,12 +61,12 @@ function NewsContent(props) {
 
           <div className="news-Content">
 
-            <img className="news-ContentImg" src={require("../../img/news/news_p001.jpg")}></img>
+            <img className="news-ContentImg" src={require("../../img/news/news_a001.jpg")}></img>
               
             <FaShareAlt class="news-Share news-H3" />
               <p className="news-H3 news-LetterSpacing news-NotoSerifTC">
                 109年12月26號(六)19:00-21:00<br />
-                臺中國家歌劇院 大劇院<br />
+                <FaMapMarkerAlt className="news-H3" /> 臺中國家歌劇院 大劇院<br />
                 NSO《王者之音》
               </p>
 
@@ -75,8 +75,8 @@ function NewsContent(props) {
                 旋律之王柴科夫斯基，以兩大家族衝突為基底寫下的《羅密歐與茱麗葉幻想序曲》，以美得不可思議的動人旋律展現盪氣迴腸的深情...
               </p>
 
-              <div className="news-Merienda news-ViewBtn">
-                <button type="button" onClick="">View More...</button>
+              <div className="news-ContetnBtn">
+                <Link className="news-Merienda news-ViewBtn" to="/news-pages">View More...</Link>
               </div>
 
               <hr className="news-Hr"></hr>
