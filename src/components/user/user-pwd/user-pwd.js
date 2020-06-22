@@ -1,34 +1,74 @@
 import React, { Component } from 'react'
 
 export default class UserPwd extends Component {
+  constructor() {
+    super() // => 記得呼叫 parent 的 constructor，很重要
+    this.state = {
+      // => 幫 App 加上 state      
+      changOldPwd: false,
+      changNewPwd:false,
+      changNewPwd2:false,
+    }
+  }
+
   render() {
+    const eyeshow = this.state.changOldPwd
+      ? 'svg-eye-close svg-inline--fa fa-eye fa-w-18'
+      : ' svg-eye svg-inline--fa fa-eye fa-w-18'
+      const eyeshow1 = this.state.changNewPwd
+      ? 'svg-eye-close svg-inline--fa fa-eye fa-w-18'
+      : ' svg-eye svg-inline--fa fa-eye fa-w-18'
+      const eyeshow2 = this.state.changNewPwd2
+      ? 'svg-eye-close svg-inline--fa fa-eye fa-w-18'
+      : ' svg-eye svg-inline--fa fa-eye fa-w-18'
     return (
       <>
         <div className="userPwd-main">
-          <h3 className="font-size-142rem userPwd-top-titleName user-font-ch">密碼修改</h3>
+          <h3 className="font-size-142rem userPwd-top-titleName user-font-ch">
+            密碼修改
+          </h3>
           <div className="userPwd-top-Img">
             <img src="" alt="" />
           </div>
-        
+
           <hr className="userPwd-top-hr" />
 
           <form className="userPwd-form" action="">
-          <label className="userData-form-input " for="name">
-                <p>會員編號</p>
-                <div className="UserData-inp ">
-                  <input className="user-id" id="id" type="text" value="001" readonly="readonly"/>
-                </div>
-              </label>
+            <label className="userData-form-input " for="name">
+              <p>會員編號</p>
+              <div className="UserData-inp ">
+                <input
+                  className="user-id"
+                  id="id"
+                  type="text"
+                  value="001"
+                  readonly="readonly"
+                />
+              </div>
+            </label>
             <label className="userPwd-form-input font-size-1rem" for="oldPwd">
               <p className="user-font-ch">請輸入舊密碼</p>
               <div className="userPwd-inp">
-                <input id="oldPwd font-size-114rem user-font-ch" type="text" />
+                <input
+                  id="oldPwd font-size-114rem user-font-ch"
+                  type={`${this.state.test ? 'text' : 'password'}`}
+                />
                 <svg
+                  onClick={() => {
+                    const { changOldPwd } = this.state
+                    const change = !changOldPwd
+                    this.state.test
+                      ? this.setState({ test: false })
+                      : this.setState({ test: true })
+                    this.setState({ changOldPwd: change })
+                    //  this.state.test ? this.setState.test(false) : this.setState.test(true)
+                  }}
                   aria-hidden="true"
                   focusable="false"
                   data-prefix="fas"
                   data-icon="eye"
-                  className="svg-eye svg-inline--fa fa-eye fa-w-18"
+                  key="pwd1"
+                  className={eyeshow}
                   role="img"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 576 512"
@@ -42,15 +82,29 @@ export default class UserPwd extends Component {
             </label>
 
             <label className="userPwd-form-input font-size-1rem" for="newPwd">
-              <p className='user-font-ch'>輸入新密碼</p>
+              <p className="user-font-ch">輸入新密碼</p>
               <div className="userPwd-inp">
-                <input id="newPwd font-size-114rem user-font-ch" type="text" />
+                <input
+                  id="newPwd font-size-114rem user-font-ch"
+                  type={`${this.state.test2 ? 'text' : 'password'}`}
+                  
+                />
                 <svg
+                  onClick={() => {
+                    const { changNewPwd } = this.state
+                    const change = !changNewPwd
+                    this.state.test2
+                      ? this.setState({ test2: false })
+                      : this.setState({ test2: true })
+                    this.setState({ changNewPwd: change })
+                    //  this.state.test ? this.setState.test(false) : this.setState.test(true)
+                  }}
                   aria-hidden="true"
                   focusable="false"
                   data-prefix="fas"
                   data-icon="eye"
-                  className="svg-eye svg-inline--fa fa-eye fa-w-18"
+                  className={eyeshow1}
+                  key="pwd2"
                   role="img"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 576 512"
@@ -62,17 +116,33 @@ export default class UserPwd extends Component {
                 </svg>
               </div>
             </label>
-            <label className="userPwd-form-input font-size-1rem" for="changePwd">
+            <label
+              className="userPwd-form-input font-size-1rem"
+              for="changePwd"
+            >
               <p className="user-font-ch">確認新密碼</p>
               <div className="userPwd-inp">
-                <input id="changePwd font-size-114rem user-font-ch" type="text" />
+                <input
+                  id="changePwd font-size-114rem user-font-ch"
+                  type={`${this.state.test3 ? 'text' : 'password'}`}
+                />
                 <svg
+                  onClick={() => {
+                    const { changNewPwd2 } = this.state
+                    const change = !changNewPwd2
+                    this.state.test3
+                      ? this.setState({ test3: false })
+                      : this.setState({ test3: true })
+                    this.setState({ changNewPwd2: change })
+                    //  this.state.test ? this.setState.test(false) : this.setState.test(true)
+                  }}
                   aria-hidden="true"
                   focusable="false"
                   data-prefix="fas"
                   data-icon="eye"
-                  className="svg-eye svg-inline--fa fa-eye fa-w-18"
+                  className={eyeshow2}
                   role="img"
+                  key="pwd3"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 576 512"
                 >
@@ -84,10 +154,15 @@ export default class UserPwd extends Component {
               </div>
             </label>
 
-            <input type="submit" className="userPwd-form-button user-font-ch" value="修改密碼" />
+            <input
+              type="submit"
+              className="userPwd-form-button user-font-ch"
+              value="修改密碼"
+            />
           </form>
         </div>
       </>
     )
   }
 }
+
