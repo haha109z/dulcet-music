@@ -4,6 +4,7 @@ class Games extends Component{
     state= {
         answer:["1","1","5","5","6","6","5"],
         userInp:[],
+        userShow:[],
         checked:false,
         start:true,
         success:false,
@@ -57,19 +58,24 @@ class Games extends Component{
 
     // 每個音符點擊事件及音效
     onClick = (e)=>{
-        const {userInp} = this.state;
+        const {userInp,userShow} = this.state;
         const num = e.target.getAttribute('data-id');
         const audio = document.querySelectorAll('audio')[num];
         audio.play();
         userInp.push(num);
         this.setState({userInp});
         // console.log(userInp);
+
+        const inpValue = e.target.getAttribute('data-value');
+        userShow.push(inpValue + ' ');
+        this.setState({userShow});
     }
 
     // 判斷對錯
     handleCheck = ()=>{
-        const {checked,answer,userInp,success} = this.state;
-        this.setState({checked:true});
+        const {checked,answer,userInp,success,userShow} = this.state;
+        this.setState({checked:true});        
+        this.setState({userShow:[]});
         const answerLen = answer.length;
         const userInpLen = userInp.length;
 
@@ -112,13 +118,14 @@ class Games extends Component{
         this.setState({checked:false});
         this.setState({success:false});
         this.setState({fail:false});
+        this.setState({userShow:[]});
         setTimeout(()=>{
             this.setState({reset:false});
         },1000)
     }
 
     render(){
-        const {checked,start,success,fail,end,time,reset} = this.state;
+        const {checked,start,success,fail,end,time,reset,userShow,userInp} = this.state;
         const endDisplay = end ? 'none':'block';
         // console.log("end",end);
 
@@ -139,6 +146,12 @@ class Games extends Component{
 
         const display = start ? 'block' : 'none';
         // console.log(display);
+
+        const userClickValue = userInp.length && !checked > 0 ? (
+            <div className="alert alert-info alert-btn" role="alert">
+                {userShow}
+            </div>
+        ) : ('');
 
         const successDisplay = success ? (
             <div className="alert alert-success alert-btn" role="alert">
@@ -177,44 +190,45 @@ class Games extends Component{
                         {successDisplay}
                         {failDisplay}
                         {resetShow}
+                        {userClickValue}
                         <div className="games-music">
                             <button onClick={this.challenge}>挑戰音樂</button>
                             <audio ref={audio => this.audio = audio}>
                                 <source src={require('../../img/games/little_star.mp3')} type="audio/mpeg" ></source>
                             </audio>
                         </div>
-                        <div className="games-body">
-                            <button id="do" data-id="1" onClick={this.onClick} disabled={disabled}>Do
+                        <div className="games-body ">
+                            <button id="do" data-id="1" data-value="Do" onClick={this.onClick} disabled={disabled}>Do
                                 <audio>
                                     <source src={require('../../img/games/Do.mp3')} type="audio/mpeg" ></source>
                                 </audio>
                             </button>
-                            <button data-id="2" onClick={this.onClick} disabled={disabled}>Re
+                            <button data-id="2" data-value="Re" onClick={this.onClick} disabled={disabled}>Re
                                 <audio >
                                     <source src={require('../../img/games/Re.mp3')} type="audio/mpeg" ></source>
                                 </audio>
                             </button>
-                            <button data-id="3" onClick={this.onClick} disabled={disabled}>Mi
+                            <button data-id="3" data-value="Mi" onClick={this.onClick} disabled={disabled}>Mi
                                 <audio >
                                     <source src={require('../../img/games/Mi.mp3')} type="audio/mpeg" ></source>
                                 </audio>
                             </button>
-                            <button data-id="4" onClick={this.onClick} disabled={disabled}>Fa
+                            <button data-id="4" data-value="Fa" onClick={this.onClick} disabled={disabled}>Fa
                                 <audio >
                                     <source src={require('../../img/games/Fa.mp3')} type="audio/mpeg" ></source>
                                 </audio>
                             </button>
-                            <button data-id="5" onClick={this.onClick} disabled={disabled}>So
+                            <button data-id="5" data-value="So" onClick={this.onClick} disabled={disabled}>So
                                 <audio >
                                     <source src={require('../../img/games/So.mp3')} type="audio/mpeg" ></source>
                                 </audio>
                             </button>
-                            <button data-id="6" onClick={this.onClick} disabled={disabled}>La
+                            <button data-id="6" data-value="La" onClick={this.onClick} disabled={disabled}>La
                                 <audio >
                                     <source src={require('../../img/games/Na.mp3')} type="audio/mpeg" ></source>
                                 </audio>
                             </button>
-                            <button data-id="7" onClick={this.onClick} disabled={disabled}>Si
+                            <button data-id="7" data-value="Si" onClick={this.onClick} disabled={disabled}>Si
                                 <audio >
                                     <source src={require('../../img/games/Si.mp3')} type="audio/mpeg" ></source>
                                 </audio>
