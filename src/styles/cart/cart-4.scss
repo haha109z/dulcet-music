@@ -16,7 +16,53 @@
   }
 }
 
-@media (min-width: 374px) and (max-width: 413px) {
+@media (min-width: 769px) and (max-width: 1024px) {
+  .cart-thank-card {
+    width: 80%;
+    margin: 50px auto;
+    padding: 0 50px;
+    h2 {
+    }
+    span {
+    }
+  }
+}
+
+// @media (min-width: 451px) and (max-width: 768px) {
+//   .cart-thank-card {
+//     width: 75%;
+//     margin: 20px auto;
+//     padding: 25px;
+//     font-size: 12px;
+//     1 h2 {
+//       font-size: 16px;
+//       line-height: 30px;
+//       margin: 0.5rem;
+//     }
+//     span {
+//       line-height: 20px;
+//     }
+//   }
+// }
+
+@media (min-width: 451px) and (max-width: 768px) {
+  .cart-thank-card {
+    width: 65%;
+    margin: 20px auto;
+    padding: 25px;
+    font-size: 12px;
+    1 h2 {
+      font-size: 16px;
+      line-height: 30px;
+      margin: 0.5rem;
+    }
+    span {
+      line-height: 20px;
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
   .cart-thank-card {
     width: 80%;
     margin: 20px auto;

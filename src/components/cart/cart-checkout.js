@@ -78,18 +78,18 @@ function CartCheckout() {
                 <h2>統一發票</h2>
                 <fieldset>
                   <div>
-                    <label><input type="checkbox" id=""/> 會員載具</label>
+                    <label><input type="radio" name="invoice" id=""/> 會員載具</label>
                     <span>中獎時我們會將發票寄送至您的收件地址</span>
                   </div>
                   <div>
-                    <label><input type="checkbox" id=""/> 手機條碼載具</label>
+                    <label><input type="radio" name="invoice" id=""/> 手機條碼載具</label>
                     <div className="cart-input1">
                       <label for="einvoice">載具號碼</label>
                       <input className="" id="einvoice" type="text"/>
                     </div>
                   </div>
                   <div style={{padding:'0 0 20px 0'}}>
-                    <label><input type="checkbox" id=""/> 捐贈發票</label>
+                    <label><input type="radio" name="invoice" id=""/> 捐贈發票</label>
                     <span>提醒您，捐贈發票後無法變更成開立或索取紙本發票。</span>
                     <select>
                       <option value="台灣流浪兔保護協會">台灣流浪兔保護協會</option>
@@ -98,7 +98,7 @@ function CartCheckout() {
                     </select>
                   </div>
                   <div>
-                    <label><input type="checkbox" id=""/> 公司戶</label>
+                    <label><input type="radio" name="invoice" id=""/> 公司戶</label>
                     <span>提醒您，公司戶發票一旦開立，不得任意更改或改為個人戶發票。</span>
                     <div className="cart-input1">
                       <label for="einvoice">統一編號</label>
