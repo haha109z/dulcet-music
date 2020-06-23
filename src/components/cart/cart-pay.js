@@ -1,14 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class CartPay extends Component {
-  render() {
+function CartPay () {
     return (
       <>
-          {/* <div className="cart-container">
-              <div className="cart-title">
-                  <h1><i className="fas fa-shopping-bag"></i> My Cart</h1>
-                  <span>❶確認商品➔❷確認訂單➔❸選擇付款方式➔❹完成結帳</span>
-              </div> */}
               <div className="cart3-form-wrap">
                   <h2 className="cart3-title">付款方式</h2>
                   <div className="cart3-pay-form">
@@ -114,10 +108,8 @@ class CartPay extends Component {
               <button type="">上一步</button>
               <button type="submit">確認送出</button>
             </div>
-          {/* </div>  */}
       </>
-    );
-  }
+  );
 }
 
 export default CartPay;

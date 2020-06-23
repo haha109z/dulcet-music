@@ -1,7 +1,10 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-class CartCheckout extends Component {
-  render() {
+function CartCheckout (props) {
+
+  const [amount, setAmount] = useState(0)
+  const stock = 10
+
     return (
       <>
           <div className="cart-table">
@@ -23,9 +26,27 @@ class CartCheckout extends Component {
                 <li className="cart-product-li">春季吉他班</li>
                 <li className="cart-product-li cart-english-font" style={{color:'var(--main-colorfb2)'}}>$1,700</li>
                 <li className="cart-product-li-2">
-                  <i className="cart-minusBtn fas fa-minus-circle"></i>
+                  <i 
+                    className="cart-minusBtn fas fa-minus-circle"
+                    onClick={() => {
+                      if (amount == 0) {
+                        setAmount(0)
+                      } else {
+                        setAmount(amount - 1)
+                      }
+                    }}
+                  />
                   <div className="cart-number-input cart-english-font">10</div>
-                  <i className="cart-plusBtn fas fa-plus-circle"></i>
+                  <i 
+                    className="cart-plusBtn fas fa-plus-circle"
+                    // onClick={() => {
+                    //   if (amount == 0) {
+                    //     setAmount(0)
+                    //   } else {
+                    //     setAmount(amount - 1)
+                    //   }
+                    // }}
+                  />
                 </li>
                 <li className="cart-product-number cart-english-font" style={{color:'var(--main-colorfb2)'}}>$17,000</li>
                 <li className="cart-trash-btn" onClick={()=>{}}><i class="far fa-trash-alt"></i></li>
@@ -136,7 +157,6 @@ class CartCheckout extends Component {
 
       </>
     );
-  }
 }
 
 export default CartCheckout;
