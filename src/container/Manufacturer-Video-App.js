@@ -1,13 +1,13 @@
 import React from 'react'
 
 // 各頁面路徑
-import VideoHome from '../components/Manufacturer/Video-Pages/Manufacturer-Video-Home/Manufacturer-Video-Home'
-import VideoMenu from '../components/Manufacturer/Video-Pages/Manufacturer-Video-Menu/Manufacturer-Video-Menu'
-import VideoPassword from '../components/Manufacturer/Video-Pages/Manufacturer-Video-Password/Manufacturer-Video-Password'
-import VideoPutOn from '../components/Manufacturer/Video-Pages/Manufacturer-Video-PutOn/Manufacturer-Video-PutOn'
-import VideoList from '../components/Manufacturer/Video-Pages/Manufacturer-Video-List/Manufacturer-Video-List'
-import VideoOrder from '../components/Manufacturer/Video-Pages/Manufacturer-Video-Order/Manufacturer-Video-Order'
-import VideoEdit from '../components/Manufacturer/Video-Pages/Manufacturer-Video-Edit/Manufacturer-Video-Edit'
+import VideoHome from '../components/Manufacturer/Video-Pages/Manufacturer-Video-Home'
+import VideoMenu from '../components/Manufacturer/Video-Pages/Manufacturer-Video-Menu'
+import VideoPassword from '../components/Manufacturer/Video-Pages/Manufacturer-Video-Password'
+import VideoPutOn from '../components/Manufacturer/Video-Pages/Manufacturer-Video-PutOn'
+import VideoList from '../components/Manufacturer/Video-Pages/Manufacturer-Video-List'
+import VideoOrder from '../components/Manufacturer/Video-Pages/Manufacturer-Video-Order'
+import VideoEdit from '../components/Manufacturer/Video-Pages/Manufacturer-Video-Edit'
 
 // Navbar&Footer
 import Navbar from '../components/navbar/navbar'
@@ -26,25 +26,25 @@ class ManufacturerVideoHome extends React.Component{
 		<div className="user-container d-flex">
 		<VideoMenu/>
         <Switch>
-        <Route path="/ManufacturerVideo/VideoHome">
+        <Route path="/VideoHome">
         <VideoHome/>
         </Route>
-        <Route path="/ManufacturerVideo/VideoPutOn">
+        <Route path="/VideoPutOn">
         <VideoPutOn />
         </Route>
-        <Route path="/ManufacturerVideo/VideoList">
+        <Route path="/VideoList">
         <VideoList />
         </Route>
-        <Route path="/ManufacturerVideo/VideoOrder">
+        <Route path="/VideoOrder">
         <VideoOrder />
         </Route>
-        <Route path="/ManufacturerVideo/VideoPassword">
+        <Route path="/VideoPassword">
         <VideoPassword />
         </Route>
-        <Route path="/ManufacturerVideo/VideoEdit">
+        <Route path="/VideoEdit">
         <VideoEdit/>
         </Route>
-        <Redirect to="/ManufacturerVideo/VideoHome"/>
+        <Redirect to="/VideoHome"/>
         </Switch>
 		</div>
 		</BrowserRouter>

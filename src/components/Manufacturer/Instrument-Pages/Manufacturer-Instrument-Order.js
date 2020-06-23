@@ -62,7 +62,7 @@ class VideoOrder extends React.Component {
           <hr className="video-order-divider" />
           <div className="video-order-item">
             <div className="video-order-item-img">
-              <img src={require('../../../../img/home_logo_方.png')} alt="" />
+              <img src={require('../../../img/home_logo_方.png')} alt="" />
             </div>
             <div className="video-order-item-text">
               <p className="video-order-item-text-name ">
@@ -90,7 +90,7 @@ class VideoOrder extends React.Component {
           </div>
           <div className="video-order-item">
             <div className="video-order-item-img">
-              <img src={require('../../../../img/home_logo_方.png')} alt="" />
+              <img src={require('../../../img/home_logo_方.png')} alt="" />
             </div>
             <div className="video-order-item-text">
               <p className="video-order-item-text-name ">
@@ -133,7 +133,7 @@ class VideoOrder extends React.Component {
           <hr className="video-order-divider" />
           <div className="video-order-item">
             <div className="video-order-item-img">
-              <img src={require('../../../../img/home_logo_方.png')} alt="" />
+              <img src={require('../../../img/home_logo_方.png')} alt="" />
             </div>
             <div className="video-order-item-text">
               <p className="video-order-item-text-name ">
@@ -161,7 +161,7 @@ class VideoOrder extends React.Component {
           </div>
           <div className="video-order-item">
             <div className="video-order-item-img">
-              <img src={require('../../../../img/home_logo_方.png')} alt="" />
+              <img src={require('../../../img/home_logo_方.png')} alt="" />
             </div>
             <div className="video-order-item-text">
               <p className="video-order-item-text-name ">

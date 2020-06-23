@@ -26,8 +26,11 @@ class VideoEdit extends React.Component{
                 <div className="video-edit-icon-div">
                     <FaPlus className="video-edit-icon"/>
                 </div>
+                <img></img>
             </div>
-            <button type="submit" className="video-edit-new-btn">新增影片</button>
+            <div className="video-edit-file-btn">
+                <button type="submit">選擇圖片</button>
+            </div>
             <div className="video-edit-content">
                 <label htmlFor="videoname" className="video-edit-label font-size-1rem">影片名稱<input id="videoname" type="text" className="font-size-114rem"/></label>
                 <label className="video-edit-label font-size-1rem" htmFor="option">影片類型

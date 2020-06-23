@@ -19,13 +19,18 @@
       display: flex;
       .video-puton-file-v {
         width: 50%;
-        padding: 10px;
+        margin: 10px;
+        text-align: center;
         .video-puton-new-btn {
-          width: 100%;
+          width: 50%;
           background: var(--main-colorblock);
           color: var(--main-colorfff);
           border: none;
           height: 50px;
+        }
+        .video-puton-new-btn:hover {
+          background: #f2e8df;
+          color: #141414;
         }
 
         .video-puton-add {
@@ -49,7 +54,9 @@
       }
       .video-puton-file-i {
         width: 50%;
-        padding: 10px;
+        margin: 10px;
+        text-align: center;
+
         .video-puton-add-img {
           border: 1px solid;
           width: 100%;
@@ -74,16 +81,20 @@
           }
         }
         button {
-          width: 100%;
+          width: 50%;
           background: var(--main-colorblock);
           color: var(--main-colorfff);
           border: none;
           height: 50px;
         }
+        button:hover {
+          background: #f2e8df;
+          color: #141414;
+        }
       }
     }
     .video-puton-content {
-      width: 70%;
+      width: 60%;
       display: flex;
       margin: auto;
       flex-direction: column;
@@ -145,6 +156,7 @@
         display: block;
         .video-puton-file-v {
           width: 100%;
+          margin: auto auto 10px auto;
           .video-puton-add {
             height: 200px;
           }
@@ -163,7 +175,9 @@
         }
         .video-puton-file-i {
           width: 100%;
-          .video-puton-add-img {
+          margin: 0px;
+          button {
+            width: 100%;
           }
         }
       }

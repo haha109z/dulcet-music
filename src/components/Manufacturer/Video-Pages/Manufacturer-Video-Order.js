@@ -10,7 +10,7 @@ class VideoOrder extends React.Component {
           role="group"
           aria-label="Basic example"
         >
-          <button type="button" className="btn btn-white video-menu-btn ">
+          <button type="button" className="btn btn-white video-menu-btn" >
             全部
           </button>
           <button type="button" className="btn btn-white video-menu-btn ">
@@ -62,7 +62,7 @@ class VideoOrder extends React.Component {
           <hr className="video-order-divider" />
           <div className="video-order-item">
             <div className="video-order-item-img">
-              <img src={require('../../../../img/home_logo_方.png')} alt="" />
+              <img src={require('../../../img/home_logo_方.png')} alt="" />
             </div>
             <div className="video-order-item-text">
               <p className="video-order-item-text-name ">
@@ -90,7 +90,7 @@ class VideoOrder extends React.Component {
           </div>
           <div className="video-order-item">
             <div className="video-order-item-img">
-              <img src={require('../../../../img/home_logo_方.png')} alt="" />
+              <img src={require('../../../img/home_logo_方.png')} alt="" />
             </div>
             <div className="video-order-item-text">
               <p className="video-order-item-text-name ">
@@ -133,7 +133,7 @@ class VideoOrder extends React.Component {
           <hr className="video-order-divider" />
           <div className="video-order-item">
             <div className="video-order-item-img">
-              <img src={require('../../../../img/home_logo_方.png')} alt="" />
+              <img src={require('../../../img/home_logo_方.png')} alt="" />
             </div>
             <div className="video-order-item-text">
               <p className="video-order-item-text-name ">
@@ -161,7 +161,7 @@ class VideoOrder extends React.Component {
           </div>
           <div className="video-order-item">
             <div className="video-order-item-img">
-              <img src={require('../../../../img/home_logo_方.png')} alt="" />
+              <img src={require('../../../img/home_logo_方.png')} alt="" />
             </div>
             <div className="video-order-item-text">
               <p className="video-order-item-text-name ">

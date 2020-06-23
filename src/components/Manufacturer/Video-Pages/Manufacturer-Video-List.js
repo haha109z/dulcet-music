@@ -6,14 +6,41 @@ class VideoList extends React.Component {
     return (
       <div className="video-list-page">
         <h3 className="video-list-title font-size-142rem">影片列表</h3>
+        <div
+          className="btn-group video-main-buttons"
+          role="group"
+          aria-label="Basic example"
+        >
+          <button type="button" className="btn btn-white video-menu-btn" >
+            全部
+          </button>
+          <button type="button" className="btn btn-white video-menu-btn ">
+            上架中
+          </button>
+          <button type="button" className="btn btn-white video-menu-btn ">
+            下架中
+          </button>
+          
+        </div>
         <form className="video-list-search">
+        <div className="video-dropdown">
+            <button type="button" className="video-dropbtn">
+              商品狀態
+              <i className="fas fa-sort-down"></i>
+            </button>
+            <div className="video-dropdown-content">
+              <a href="#">全部</a>
+              <a href="#">上架中</a>
+              <a href="#">下架中</a>
+            </div>
+          </div>
           <label className="video-list-search-label">
             <input
               type="text"
               className="video-list-inp"
               placeholder="請輸入關鍵字"
             />
-            <p>請輸入關鍵字</p>
+            <p>請輸入商品關鍵字</p>
             <button type="submit" className="video-list-search-btn">
               送出
             </button>
@@ -39,22 +66,21 @@ class VideoList extends React.Component {
             <p className="font-size-185rem">商品狀態 : 上架中</p>
           </div>
           <div className="video-list-content">
-            <input type="checkbox" className="video-list-content-chk" />
+            <input type="checkbox" className="video-list-content-chk"/>
             <div className="video-list-content-movie">
-              <img></img>
+              <img src={require('../../../img/cart/cart-violin-01.jpeg')}/>
             </div>
             <Link
               to="/ManufacturerVideo/VideoEdit"
-              className="video-list-content-text"
-            >
+              className="video-list-content-text">
               <h3 className="font-size-142rem">從0開始學習吉他</h3>
               <p className="font-size-1rem">類別 : 吉他</p>
               <p className="font-size-1rem">長度 : 90分鐘</p>
               <p className="font-size-1rem">編輯時間 : 2020/06/16</p>
-              <span className="video-list-pro-money-1 font-size-142rem">
+              <span className="video-list-pro-money-1 font-size-1rem">
                 價格
               </span>
-              <span className="video-list-pro-money-2 font-size-15rem manufacturer-color-red manufacturer-font-eg">
+              <span className="video-list-pro-money-2 font-size-114rem manufacturer-color-red manufacturer-font-eg">
                 $999
               </span>
             </Link>
@@ -83,10 +109,10 @@ class VideoList extends React.Component {
               <p className="font-size-1rem">類別 : 吉他</p>
               <p className="font-size-1rem">長度 : 90分鐘</p>
               <p className="font-size-1rem">編輯時間 : 2020/06/16</p>
-              <span className="video-list-pro-money-1 font-size-142rem">
+              <span className="video-list-pro-money-1 font-size-1rem">
                 價格
               </span>
-              <span className="video-list-pro-money-2 font-size-15rem manufacturer-color-red manufacturer-font-eg">
+              <span className="video-list-pro-money-2 font-size-114rem manufacturer-color-red manufacturer-font-eg">
                 $999
               </span>
             </Link>

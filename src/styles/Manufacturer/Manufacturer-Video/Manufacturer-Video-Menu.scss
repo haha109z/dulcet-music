@@ -20,14 +20,17 @@
       align-items: center;
       justify-content: center;
       color: #141414;
-      margin-top: 5px;
+      margin: 5px auto auto auto;
       padding: 10px;
+      width: 150px;
+      text-align: center;
     }
     .video-menu-li:hover {
       background: #141414;
       color: white;
       text-decoration: none;
       transition: 0.5s;
+      width: 100%;
     }
     .video-menu-li:hover > .video-menu-li-left {
       border-left: #ffffff 1px solid;

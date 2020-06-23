@@ -1,13 +1,13 @@
 import React from 'react'
 
 // 各頁面路徑
-import InstrumentHome from '../components/Manufacturer/Instrument-Pages/Manufacturer-Instrument-Home/Manufacturer-Instrument-Home'
-import InstrumentMenu from '../components/Manufacturer/Instrument-Pages/Manufacturer-Instrument-Menu/Manufacturer-Instrument-Menu'
-import InstrumentPassword from '../components/Manufacturer/Instrument-Pages/Manufacturer-Instrument-Password/Manufacturer-Instrument-Password'
-import InstrumentPutOn from '../components/Manufacturer/Instrument-Pages/Manufacturer-Instrument-PutOn/Manufacturer-Instrument-PutOn'
-import InstrumentList from '../components/Manufacturer/Instrument-Pages/Manufacturer-Instrument-List/Manufacturer-Instrument-List'
-import InstrumentOrder from '../components/Manufacturer/Instrument-Pages/Manufacturer-Instrument-Order/Manufacturer-Instrument-Order'
-import InstrumentEdit from '../components/Manufacturer/Instrument-Pages/Manufacturer-Instrument-Edit/Manufacturer-Instrument-Edit'
+import InstrumentHome from '../components/Manufacturer/Instrument-Pages/Manufacturer-Instrument-Home'
+import InstrumentMenu from '../components/Manufacturer/Instrument-Pages/Manufacturer-Instrument-Menu'
+import InstrumentPassword from '../components/Manufacturer/Instrument-Pages/Manufacturer-Instrument-Password'
+import InstrumentPutOn from '../components/Manufacturer/Instrument-Pages/Manufacturer-Instrument-PutOn'
+import InstrumentList from '../components/Manufacturer/Instrument-Pages/Manufacturer-Instrument-List'
+import InstrumentOrder from '../components/Manufacturer/Instrument-Pages/Manufacturer-Instrument-Order'
+import InstrumentEdit from '../components/Manufacturer/Instrument-Pages/Manufacturer-Instrument-Edit'
 
 // Navbar&Footer
 import Navbar from '../components/navbar/navbar'
@@ -25,25 +25,25 @@ class ManufacturerInstrumentHome extends React.Component{
 		<div className="user-container d-flex">
 		<InstrumentMenu/>
         <Switch>
-        <Route path="/ManufacturerInstrument/InstrumentHome">
+        <Route path="/InstrumentHome">
         <InstrumentHome/>
         </Route>
-        <Route path="/ManufacturerInstrument/InstrumentPutOn">
+        <Route path="/InstrumentPutOn">
         <InstrumentPutOn />
         </Route>
-        <Route path="/ManufacturerInstrument/InstrumentList">
+        <Route path="/InstrumentList">
         <InstrumentList />
         </Route>
-        <Route path="/ManufacturerInstrument/InstrumentOrder">
+        <Route path="/InstrumentOrder">
         <InstrumentOrder />
         </Route>
-        <Route path="/ManufacturerInstrument/InstrumentPassword">
+        <Route path="/InstrumentPassword">
         <InstrumentPassword />
         </Route>
-        <Route path="/ManufacturerInstrument/InstrumentEdit">
+        <Route path="/InstrumentEdit">
         <InstrumentEdit/>
         </Route>
-        <Redirect to="/ManufacturerInstrument/InstrumentHome"/>
+        <Redirect to="/InstrumentHome"/>
         </Switch>
 		</div>
 		</BrowserRouter>

@@ -2,6 +2,8 @@ import React from 'react'
 
 
 class VideoHome extends React.Component{
+
+  
     render(){
     return(
       <div className="video-home-page">
