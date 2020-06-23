@@ -1,18 +1,19 @@
 .news-Sliders {
   max-width: 1440px;
-  max-height: 600px;
+  height: 600px;
   margin: 90px auto 50px;
 }
 
 .news-SlidersImg {
   width: 100%;
   height: 100%;
-  object-fit: contain;
 }
 
 .news-SlidersArrow {
   color: #dadada;
   font-size: 48px;
+  padding: 0 10px;
+  display: block;
   margin: auto;
 }
 .news-SlidersArrow:hover {

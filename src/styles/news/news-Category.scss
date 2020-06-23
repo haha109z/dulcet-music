@@ -33,13 +33,9 @@
   background: #141414;
 }
 
-.news-Dropdown {
+.news-Month {
   margin-left: 40px;
   line-height: 36px;
-}
-
-.news-DropdownNews {
-  display: none;
 }
 
 @media (max-width: 768px) {
@@ -49,10 +45,7 @@
   .news-Category {
     display: none;
   }
-  .news-Dropdown {
+  .news-Month {
     margin: 0 auto;
-  }
-  .news-DropdownNews {
-    display: block;
   }
 }
