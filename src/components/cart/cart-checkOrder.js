@@ -4,11 +4,7 @@ function CartCheckOrder() {
 
   return (
     <>
-      <div className="cart-container">
-        <div className="cart-title">
-          <h1><i className="fas fa-shopping-bag"></i> My Cart</h1>
-          <span>❶確認商品➔❷確認訂單➔❸選擇付款方式➔❹完成結帳</span>
-        </div>
+
         <div className="cart-table">
           <ul className='cart2-thead'>
             <li>商品圖片</li>
@@ -106,7 +102,7 @@ function CartCheckOrder() {
           <button type="">上一步</button>
           <button type="submit">下一步</button>
         </div>
-      </div>
+
     </>
   );
 }
