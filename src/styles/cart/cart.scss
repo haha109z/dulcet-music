@@ -1,59 +1,3 @@
-// Import Bootstrap and its default variables
-// @import '~bootstrap/scss/bootstrap';
-
-// google-font
-// @import url('https://fonts.googleapis.com/css2?family=Merienda&family=Noto+Serif+TC:wght@300&display=swap');
-
-// * {
-//   margin: 0;
-//   padding: 0;
-// }
-
-// :root {
-//   --main-colorfff: #fff;
-//   --main-colorblack: #141414;
-//   --main-color79: #797979;
-//   --main-colorda: #dadada;
-//   --main-colorf2: #f2f2f2;
-//   --main-colorf2e: #f2ebdf;
-//   --main-colorfb2: #fb2643;
-//   --main-title-english: 'Merienda';
-//   --main-title-chinese: 'Noto Serif TC';
-//   --nav-height: 5rem; /** 80px **/
-//   --margin: 11.25rem; /** 180px **/
-//   --h1: 2.25rem; /** 36px **/
-//   --h2: 1.5rem; /** 24px **/
-//   --h3: 1.42rem; /** 20px **/
-//   --h4: 1.14rem; /** 16px **/
-//   --p: 1rem;
-//   --h5: 0.92rem; /** 13px **/
-//   --h6: 0.85rem; /** 12px **/
-// }
-
-.cart-english-font {
-  font-family: 'Merienda';
-}
-
-.cart-container {
-  max-width: 960px;
-  margin: 80px auto;
-  font-family: 'Noto Serif TC';
-  font-size: 16px;
-  box-sizing: border-box;
-}
-
-.cart-title {
-  // background: yellow;
-  h1 {
-    font-size: 36px;
-    font-family: 'Merienda';
-  }
-  span {
-    font-size: 16px;
-    line-height: 30px;
-  }
-}
-
 .cart-table {
   // background: orange;
   // max-width: 960px;
@@ -198,7 +142,7 @@
     // background: blue;
     display: inline-block;
     margin-bottom: 0rem;
-    input[type='checkbox'] {
+    input[type='radio'] {
       width: 20px;
       height: 20px;
       vertical-align: sub;
@@ -210,10 +154,17 @@
     line-height: 30px;
   }
   select {
+    // appearance: none;
+    // -moz-appearance: none;
+    // -webkit-appearance: none;
     border-color: #797979;
     font-family: 'Noto Serif TC';
     margin: 0 30px;
     padding: 5px;
+  }
+  select option:focus {
+    background-color: #797979;
+    color: #fff;
   }
   .cart-input1 {
     // background: lightblue;
@@ -281,11 +232,6 @@
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-  .cart-container {
-    width: 80%;
-    margin: 0 auto;
-  }
-
   .cart-title {
     h1 {
     }
@@ -384,11 +330,15 @@
   .cart-total {
     font-size: 16px;
     .cart-discount {
+      padding: 20px 0;
+      label {
+        display: block;
+      }
       input {
       }
     }
     .cart-total-right {
-      padding: 0;
+      padding: 0 20px;
       span {
       }
       .cart-total-title {
@@ -406,10 +356,6 @@
 }
 
 @media screen and (max-width: 768px) {
-  .cart-container {
-    margin: 50px auto;
-  }
-
   .cart-title {
     width: 80%;
     margin: 0 auto;
@@ -579,7 +525,7 @@
     .cart-discount {
       // flex-wrap: wrap;
       width: 100%;
-      padding: 15px 20px 0 25px;
+      padding: 20px 20px 0 25px;
       input {
         width: 75%;
       }
@@ -594,9 +540,10 @@
       span {
       }
       .cart-total-title {
+        width: 50%;
       }
       .cart-total-number {
-        width: 75%;
+        width: 50%;
       }
     }
   }

@@ -112,7 +112,18 @@
   }
 }
 
-@media (min-width: 374px) and (max-width: 413px) {
+@media (min-width: 769px) and (max-width: 1024px) {
+  .cart-buyer-info {
+    .cart2-input div {
+      line-height: 26px;
+      padding: 0;
+      width: 50%;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
   .cart-table {
     // background: orange;
     .cart2-thead {
@@ -159,12 +170,15 @@
       width: 100%;
       label {
         width: 22%;
+        white-space: nowrap;
       }
       div {
-        width: 100%;
-        margin: 0;
+        // width: 100%;
+        // margin: 0;
         padding: 0;
-        text-indent: 80px;
+        // text-indent: 160px;
+        width: 40%;
+        margin: 0 auto;
       }
     }
   }

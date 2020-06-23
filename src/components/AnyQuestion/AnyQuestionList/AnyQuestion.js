@@ -1,7 +1,20 @@
-import React from 'react'
+import React ,{Component} from 'react'
 // import '../../../../styles/custom.scss'
 
-function AnyQuestion() {
+import AOS from 'aos';
+
+
+class AnyQuestion extends Component {
+
+  componentDidMount(){
+
+    AOS.init({
+        duration : 1000, // 持續時間
+        easing: 'ease-out-back',
+    })
+
+}
+render(){
   return (
     <>
     <div className="AnyQuestionAll">
@@ -50,5 +63,5 @@ function AnyQuestion() {
     </>
   )
 }
-
+}
 export default AnyQuestion

@@ -1,4 +1,4 @@
-import React , { Component }from 'react';
+import React , { Component } from 'react';
 import {  BrowserRouter as Router,  Switch,  Route,  Link, Redirect} from "react-router-dom";
 
 //Home
@@ -23,7 +23,7 @@ import News from './container/news';
 import NewsPages from './container/news-pages';
 
 // Cart
-// import CartApp from './container/cart-app';
+import CartApp from './container/cart-app';
 import CartCheckout from './components/cart/cart-checkout';
 import CartCheckOrder from './components/cart/cart-checkOrder';
 import CartPay from './components/cart/cart-pay';
@@ -112,14 +112,14 @@ function App() {
         </Route>
 
 
-        {/* <Route path="/cart"> */}
+        <Route path="/cart">
           {/* <CartCheckout /> */}
           {/* <CartCheckOrder /> */}
           {/* <CartPay /> */}
           {/* <CartEnd /> */}
-          {/* <CartApp /> */}
-        {/* </Route> */}
-        <Route path="/cart1" exact>
+          <CartApp />
+        </Route>
+        {/* <Route path="/cart1" exact>
           <CartCheckout />
         </Route>
         <Route path="/cart2" exact>
@@ -130,7 +130,7 @@ function App() {
         </Route>
         <Route path="/cart4" exact>
           <CartEnd />
-        </Route>
+        </Route> */}
 
         <Route path="/login" >
           <AllLoginPage />
