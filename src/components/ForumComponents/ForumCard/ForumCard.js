@@ -7,10 +7,17 @@ import AOS from 'aos';
 
 class ForumCard extends Component {
 
+  constructor(props){
+    super(props)
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
   state={
     boxShow:false
   }
 
+  handleSubmit(event){
+alert('新增成功')
+  }
   // function 鉤子
   // const [boxshow,setboxshow] = useState
 
@@ -35,21 +42,27 @@ render(){
   const {boxShow} = this.state;
 
     const box = boxShow ? (
-      <div><input type="text" /></div>
+      <div className="ForumBtn01">
+      <form action="/Forum" onSubmit={this.handleSubmit}>
+      <div>發問會員：<input type="text" name="name" disabled/></div>
+      <div>問題類別：<input type="text" name="Action" /></div>
+      <textarea name="comment" form="usrform" className="ForumBtnAction"/>
+      <input type="submit" value="送出" className="ForumButton"/>
+      </form></div>
     ) : ('');
 
   return (
    <div className="ForumAll">
-     
+    
      <div className="BackgroundForum"></div>
       <div className="ForumContainer">
-      
+      {box}
       <div className="ForumTitle">
       
-
+    
      <button className="ForumButton" data-aos="fade-down" onClick={this.handleClick}>我要發問</button>
      
-     {box}
+     
      
     
      {/* <div className={`${this.state.Text ? 'true' : 'false'  }`}>

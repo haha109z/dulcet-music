@@ -1,10 +1,26 @@
 .ForumAll {
   width: 100%;
 }
+//我要發問彈出視窗
+.ForumBtn01 {
+  width: 1000px;
+  height: 300px;
+  margin: 0px auto;
+  border: 1px solid red;
+  position: absolute;
+  top: 50%;
+  background-color: gray;
+  z-index: 998;
+}
+.ForumBtnAction {
+  width: 300px;
+  height: 100px;
+}
 .BackgroundForum {
   background-image: url('../../img/About/背景圖片1.jpg');
   height: 300px;
   width: 100%;
+  background-size: cover;
 }
 .ForumHeight {
   //   background: red;
@@ -118,7 +134,7 @@
 .ForumCardP {
   width: 420px;
   margin: 20px;
-  letter-spacing: 10px;
+  // letter-spacing: 10px;
 }
 
 .ForumCardP2 {
