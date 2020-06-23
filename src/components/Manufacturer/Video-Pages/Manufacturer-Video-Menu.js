@@ -13,28 +13,28 @@ class VideoMenu extends React.Component{
         </ul>
         <div className="video-title font-size-15rem ">廠商管理</div>
         <ul className="video-menu-content list-unstyled content">
-          <Link to="/VideoHome" className="video-menu-li font-size-142rem ">
+          <Link to="/ManufacturerVideo/VideoHome" className="video-menu-li font-size-142rem ">
             <div className="video-menu-li-left"></div>
             <p>廠商資料</p>
             <div className="video-menu-li-right"></div>
           </Link>
-          <Link to="/VideoPassword" className="video-menu-li font-size-142rem ">
+          <Link to="/ManufacturerVideo/VideoPassword" className="video-menu-li font-size-142rem ">
             <div className="video-menu-li-left"></div>
             <p>密碼修改</p>
             <div className="video-menu-li-right"></div>
           </Link>
 
-          <Link to="/VideoOrder" className="video-menu-li font-size-142rem ">
+          <Link to="/ManufacturerVideo/VideoOrder" className="video-menu-li font-size-142rem ">
             <div className="video-menu-li-left"></div>
             <p>訂單列表</p>
             <div className="video-menu-li-right"></div>
           </Link>
-          <Link to="/VideoList" className="video-menu-li font-size-142rem ">
+          <Link to="/ManufacturerVideo/VideoList" className="video-menu-li font-size-142rem ">
             <div className="video-menu-li-left"></div>
             <p>影片列表</p>
             <div className="video-menu-li-right"></div>
           </Link>
-          <Link to="/VideoPutOn" className="video-menu-li font-size-142rem ">
+          <Link to="/ManufacturerVideo/VideoPutOn" className="video-menu-li font-size-142rem ">
             <div className="video-menu-li-left"></div>
             <p>新增影片</p>
             <div className="video-menu-li-right"></div>

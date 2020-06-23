@@ -26,25 +26,25 @@ class ManufacturerVideoHome extends React.Component{
 		<div className="user-container d-flex">
 		<VideoMenu/>
         <Switch>
-        <Route path="/VideoHome">
+        <Route path="/ManufacturerVideo/VideoHome">
         <VideoHome/>
         </Route>
-        <Route path="/VideoPutOn">
+        <Route path="/ManufacturerVideo/VideoPutOn">
         <VideoPutOn />
         </Route>
-        <Route path="/VideoList">
+        <Route path="/ManufacturerVideo/VideoList">
         <VideoList />
         </Route>
-        <Route path="/VideoOrder">
+        <Route path="/ManufacturerVideo/VideoOrder">
         <VideoOrder />
         </Route>
-        <Route path="/VideoPassword">
+        <Route path="/ManufacturerVideo/VideoPassword">
         <VideoPassword />
         </Route>
-        <Route path="/VideoEdit">
+        <Route path="/ManufacturerVideo/VideoEdit">
         <VideoEdit/>
         </Route>
-        <Redirect to="/VideoHome"/>
+        <Redirect to="/ManufacturerVideo/VideoHome"/>
         </Switch>
 		</div>
 		</BrowserRouter>
