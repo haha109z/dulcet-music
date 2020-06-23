@@ -1,3 +1,11 @@
+.ForumAll {
+  width: 100%;
+}
+.BackgroundForum {
+  background-image: url('../../img/About/背景圖片1.jpg');
+  height: 300px;
+  width: 100%;
+}
 .ForumHeight {
   //   background: red;
   height: 70px;
@@ -117,6 +125,15 @@
   width: 420px;
   margin: 0 10px 20px 20px;
   letter-spacing: 10px;
+}
+
+// ForumChecked
+.ForumChecked {
+  text-align: center;
+  margin: 10px;
+  button {
+    margin: 10px;
+  }
 }
 @media (max-width: 1000px) {
   .ForumContainer {

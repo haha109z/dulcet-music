@@ -111,6 +111,7 @@
   }
   .AnyQuestionCardIcon {
     font-size: 200px;
+    text-align: center;
   }
   .AnyQuestionCardIconH2 {
     padding: 0px;
@@ -122,5 +123,8 @@
     p {
       font-size: var(--p);
     }
+  }
+  .AnyQuestion2Width {
+    width: 300px;
   }
 }

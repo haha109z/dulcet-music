@@ -1,9 +1,22 @@
-import React from 'react'
+import React,{Component} from 'react'
 // import '../../../../styles/custom.scss'
 //第一區塊
 // import AboutImgBackground1 from '../../../img/About小圖片1.jpg'
 
-function AboutList() {
+import AOS from 'aos';
+
+
+class AboutList extends Component {
+
+  componentDidMount(){
+
+    AOS.init({
+        duration : 1000, // 持續時間
+        easing: 'ease-out-back',
+    })
+
+}
+render(){
   return (
     <>
     <div className="AboutAll">
@@ -132,5 +145,5 @@ function AboutList() {
     </>
   )
 }
-
+}
 export default AboutList

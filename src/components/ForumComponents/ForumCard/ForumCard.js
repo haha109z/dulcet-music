@@ -1,13 +1,69 @@
-import React from 'react'
+import React,{Component} from 'react';
+import AOS from 'aos';
+// import App from './Forum'
+// import ReactDOM from 'react-dom'
 // import '../../../../styles/custom.scss'
 
-function ForumCard() {
+
+class ForumCard extends Component {
+
+  state={
+    boxShow:false
+  }
+
+  // function 鉤子
+  // const [boxshow,setboxshow] = useState
+
+  handleClick = ()=>{
+    
+    const {boxShow} = this.state;
+    const toggle = !boxShow;
+    this.setState({boxShow:toggle})
+    // console.log(boxShow);
+    
+  }
+
+  componentDidMount(){
+
+    AOS.init({
+        duration : 1000, // 持續時間
+        easing: 'ease-out-back',
+    })
+}
+
+render(){
+  const {boxShow} = this.state;
+
+    const box = boxShow ? (
+      <div><input type="text" /></div>
+    ) : ('');
+
   return (
-    <>   
-      <div className="ForumHeight"></div>
+   <div className="ForumAll">
+     
+     <div className="BackgroundForum"></div>
       <div className="ForumContainer">
-      <div class="ForumTitle">
-      <button className="ForumButton">我要發問</button>
+      
+      <div className="ForumTitle">
+      
+
+     <button className="ForumButton" data-aos="fade-down" onClick={this.handleClick}>我要發問</button>
+     
+     {box}
+     
+    
+     {/* <div className={`${this.state.Text ? 'true' : 'false'  }`}>
+       <input type="text"  />
+     </div>
+      <button className="ForumButton" data-aos="fade-down" onClick={()=>{
+       this.Text ? setText(false) : setText(true) 
+      }}>我要發問</button>
+ */}
+
+
+
+
+
       </div>
         <div className="ForumCard">
           {/* card1 */}
@@ -112,10 +168,23 @@ function ForumCard() {
               <div className="ForumCardTeacherImg"></div>
             </div>
           </action>
+        
+        </div>
+        <div className="ForumChecked">
+        <button type="checked" style={{width:30,height:30}} ><i className="fas fa-chevron-left"></i></button> 
+        <button type="checked" style={{width:30,height:30}} >1</button> 
+        <button type="checked" style={{width:30,height:30}} >2</button> 
+        <button type="checked" style={{width:30,height:30}} >3</button> 
+        <button type="checked" style={{width:30,height:30}} ><i className="fas fa-chevron-right"></i></button> 
         </div>
       </div>
-    </>
+      </div>
+    
+    
   )
+  
 }
 
-export default ForumCard
+}
+// ReactDOM.render(<ForumCard /> ,document.getElementById('root'))
+export default ForumCard;
