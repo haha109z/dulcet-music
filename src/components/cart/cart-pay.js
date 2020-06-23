@@ -12,7 +12,7 @@ class CartPay extends Component {
               <div className="cart3-form-wrap">
                   <h2 className="cart3-title">付款方式</h2>
                   <div className="cart3-pay-form">
-                      <label><input type="checkbox" id=""/> ATM轉帳</label>
+                      <label><input type="radio" name="cart-payment"/> ATM轉帳</label>
                       <div className="cart3-reminder cart3-reminder-green">
                         <span>【詐騙猖獗，小心詐騙】</span><br/>
                         <span>提醒您，Dulcet Music絕不會另外去電要求客戶操作ATM進行轉帳或取消交易動作，如接獲疑似詐騙電話，請小心切勿受騙。若有任何疑問，請直接與客服聯絡。</span>
@@ -34,7 +34,7 @@ class CartPay extends Component {
                           <li>Dulcet Music</li>
                         </ul>
                       </div>
-                      <label><input type="checkbox" id=""/> 信用卡付款 - 一次付清</label>
+                      <label><input type="radio" name="cart-payment"/> 信用卡付款 - 一次付清</label>
                       <div className="cart3-logo-img">
                         <img src={require('../../img/cart/cart-visa.png')}/>
                       </div>

@@ -24,10 +24,10 @@ import NewsPages from './container/news-pages';
 
 // Cart
 import CartApp from './container/cart-app';
-// import CartCheckout from './components/cart/cart-checkout';
-// import CartCheckOrder from './components/cart/cart-checkOrder';
-// import CartPay from './components/cart/cart-pay';
-// import CartEnd from './components/cart/cart-end';
+import CartCheckout from './components/cart/cart-checkout';
+import CartCheckOrder from './components/cart/cart-checkOrder';
+import CartPay from './components/cart/cart-pay';
+import CartEnd from './components/cart/cart-end';
 
 // Login
 import AllLoginPage from './components/login/all-login-page';

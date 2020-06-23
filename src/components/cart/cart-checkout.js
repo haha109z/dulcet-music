@@ -4,7 +4,6 @@ class CartCheckout extends Component {
   render() {
     return (
       <>
-
           <div className="cart-table">
               <ul className='cart-thead'>
                 <li>選取</li>
