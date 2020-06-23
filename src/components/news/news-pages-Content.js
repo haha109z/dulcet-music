@@ -9,7 +9,7 @@ function NewsPagesContent(props) {
       <>
         <div className="news-pages-ContentContainer">
             <div className="news-pages-ContentContent">
-                <p className="news-p news-LetterSpacing news-NotoSerifTC text-break">
+                <p className="news-p news-LetterSpacing news-NotoSerifTC text-break news-color14">
                 古典管絃樂團創立於1998年，創辦人兼藝術總監為小提琴家曾慶然先生(前國立臺灣交響樂團首席)，樂團目標在於培養台灣音樂表演、創作之教育專業人才為主要目標，讓這些年輕的音樂家們具有音樂藝術專業技術及專業知能，多年來我們在台北國家音樂廳、台中中興堂、中山堂等專業場地表演已超過百餘場次，目前古典管絃樂團已經是台灣青少年樂團中最具代表性且最大樂團之一。<br />
 
                 <br />

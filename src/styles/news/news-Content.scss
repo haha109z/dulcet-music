@@ -1,16 +1,16 @@
 .news-ContentContainer {
-  width: 960px;
+  max-width: 960px;
   margin: 0 auto;
 }
 
 .news-Content {
-  width: 600px;
-  padding: 0 20px 20px 20px;
+  max-width: 600px;
+  padding: 0 20px 20px;
   position: relative;
 }
 .news-ContentImg {
   width: 100%;
-  height: 300px;
+  max-height: 300px;
   object-fit: contain;
   margin-bottom: 10px;
 }
@@ -18,28 +18,27 @@
 .news-Share {
   position: absolute;
   color: #797979;
-  right:20px;
-  top:313px;
+  right: 20px;
+  top: 313px;
 }
 
 .news-ContetnBtn {
   margin: 10px auto;
-  width: 200px;
-  background:#F2E8DF ;
+  max-width: 200px;
+  background: #f2e8df;
 }
 
-.news-ViewBtn{
-  color:#141414;
+.news-ViewBtn {
+  color: #141414;
   padding-left: 60px;
   display: block;
 }
 
-.news-ViewBtn:hover{
-  color:#FFFFFF;
+.news-ViewBtn:hover {
+  color: #ffffff;
   background: #141414;
   text-decoration: none;
 }
-
 
 .news-H2 {
   font-size: 24px;
@@ -52,14 +51,13 @@
   font-size: 16px;
 }
 
-.news-p{
+.news-p {
   font-size: 14px;
 }
 
-p.news-H3{
+p.news-H3 {
   font-weight: bold;
 }
-
 
 .news-LetterSpacing {
   letter-spacing: 0.3rem;
@@ -86,7 +84,7 @@ p.news-H3{
   justify-content: center;
   .news-pages {
     width: 36px;
-    height: 36px; 
+    height: 36px;
     line-height: 36px;
     font-size: 14px;
     font-family: 'Noto Serif TC', serif;
@@ -102,5 +100,24 @@ p.news-H3{
   }
   .news-pages:hover {
     background: #f2e8df;
+  }
+}
+
+@media (max-width: 768px) {
+  .news-Content {
+    margin: 0;
+    padding: 5px;
+  }
+
+  #news-pages-list {
+    margin: 10px 0;
+    .news-pages {
+      margin: 5px;
+      padding: 0;
+    }
+  }
+
+  .news-Share {
+    display: none;
   }
 }

@@ -8,11 +8,10 @@ function NewsPagesBanner(props) {
 
     <div className="news-pages-Container news-h5 news-LetterSpacing news-NotoSerifTC">
 
-        <Link className="news-pages-Breadcrumb" to="/news">所有列表</Link>
-        /
-        <Link className="news-pages-Breadcrumb" to="">活動</Link>
-        /
-        <Link className="news-pages-Breadcrumb" to="">古典管絃樂團2020夏季音樂會</Link>
+        <Link className="news-pages-Breadcrumb" to="/news">所有列表</Link>&nbsp;/&nbsp;
+        <Link className="news-pages-Breadcrumb" to="">活動</Link>&nbsp;/&nbsp;
+        <Link className="news-pages-Breadcrumb news-pages-BreadcrumbTitle" to="">古典管絃樂團2020夏季音樂會</Link>
+        
     </div>
 
     <div className="news-pages-BannerContainer">
@@ -21,7 +20,7 @@ function NewsPagesBanner(props) {
         
     </div>
 
-    <div className="news-pages-Content">
+    <div className="news-pages-BannerContent">
 
         <p className="news-H2 news-LetterSpacing">古典管絃樂團2020夏季音樂會</p>
         <p className="news-H2 news-LetterSpacing">109年7月5號(日)14:30</p>
