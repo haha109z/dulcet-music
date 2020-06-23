@@ -10,7 +10,7 @@ function NewsPagesBanner(props) {
 
         <Link className="news-pages-Breadcrumb" to="/news">所有列表</Link>&nbsp;/&nbsp;
         <Link className="news-pages-Breadcrumb" to="">活動</Link>&nbsp;/&nbsp;
-        <Link className="news-pages-Breadcrumb news-pages-BreadcrumbTitle" to="">古典管絃樂團2020夏季音樂會</Link>
+        <Link className="news-pages-Breadcrumb" to="">古典管絃樂團2020夏季音樂會</Link>
         
     </div>
 

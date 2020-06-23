@@ -6,6 +6,7 @@
 .news-pages-Breadcrumb {
   text-decoration: none;
   color: #141414;
+
 }
 
 .news-pages-Breadcrumb:hover {
@@ -14,6 +15,7 @@
 }
 
 .news-pages-BannerContainer {
+  width: 100%;
   max-width: 1140px;
   height: 600px;
   margin: 0 auto;
@@ -52,11 +54,13 @@ p.news-H2 {
 }
 
 @media screen and (max-width: 768px) {
-  .news-pages-BreadcrumbTitle {
-    display: none;
+  .news-pages-Container{
+    margin: 70px auto 0;
   }
+
   .news-pages-Breadcrumb {
     display: inline-block;
+    margin: 0;
   }
   .news-pages-background {
     display: none;
