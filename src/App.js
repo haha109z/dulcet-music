@@ -1,4 +1,4 @@
-import React , { Component }from 'react';
+import React , { Component } from 'react';
 import {  BrowserRouter as Router,  Switch,  Route,  Link, Redirect} from "react-router-dom";
 
 //Home
@@ -112,7 +112,7 @@ function App() {
         </Route>
 
 
-        <Route path="/cart">
+        <Route path="/cart" exact>
           {/* <CartCheckout /> */}
           {/* <CartCheckOrder /> */}
           {/* <CartPay /> */}
