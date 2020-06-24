@@ -25,7 +25,7 @@ function UserLoginPage(props) {
         })
         .then(res => res.json())
         .then(json => {
-          console.log("json", json)
+          // console.log("json", json)
           // 錯誤
           if(json.code > 0 ){
             //顯示錯誤 json.msg

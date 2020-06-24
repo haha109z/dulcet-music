@@ -16,6 +16,7 @@ class UserRegistered extends Component{
         userRegisterMobil: "",
         userRegisterPassword: "",
         userRegisterPasswordComfirm: "",
+        userData:[],
         msg: {},
         errors: {},
         showPwd:false,
@@ -66,18 +67,11 @@ class UserRegistered extends Component{
         }
         return response.json();
       })
-      .then(data => {
+      .then(json => {
           
-    // console.log("res", data)
-        if (data.loggedIn) {
-          // 註冊成功, jwt存進localstorage
-          const { token: jwt } = data;
-          localStorage.setItem("token", jwt);
-          const state = { ...this.state };
-          state.msg.signUpMsg = "註冊成功";
-          state.msg.type = "alert alert-success";
-          this.setState(state);
-          window.location = "/account";
+    console.log("res", json)
+        if (json.code === 0) {            
+          window.location = "/";
         } else {
           const state = { ...this.state };
           state.msg.signUpMsg = data.msg;
