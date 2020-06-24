@@ -1,12 +1,30 @@
 import React, { Component } from 'react'
 
+//從localStorage抓user(他是一個陣列)
+const getUserInfo = () => {
+  return JSON.parse(localStorage.getItem('user'))
+}
 export default class UserVideo extends Component {
+  // 建立一個空狀態準備放抓出來的資料
+  state = {
+    user: []
+  };
+  // 在這個生命週期中渲染資料
+  componentDidMount() {
+
+    let user = getUserInfo()
+    // JSON.parse(localStorage.getItem('user'));
+    // console.log("user", user[0])
+    // alert(`${user[0].userID}歡迎您～！` )
+      this.setState({user: user[0]}) 
+  }
+
   render() {
     return (
       <>
         <div className="UserVideo-main">
           <h3 className="font-size-142rem UserVideo-top-titleName user-font-ch">
-            我的影片
+            我的影片{this.state.user.username}
           </h3>
           <form className="UserVideo-search" action="">
             <input
