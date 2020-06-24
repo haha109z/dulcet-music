@@ -1,6 +1,11 @@
 import React,{useState, Component} from 'react';
-import {Link} from 'react-router-dom';
+import {Link,withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
+import withReactContent from 'sweetalert2-react-content';
+import Swal from 'sweetalert2';
+
+
+const MySwal = withReactContent(Swal);
 
 // 獲取localStorage資料
 const getUserInfo = () => {
@@ -51,11 +56,23 @@ class NavbarUser extends Component{
     logoutProcess = () => {
         let user = clearUserInfo();
         this.setState({user:[]});  
+        this.setState({login:false})
+        this.logoutSuccess();
       }
+
+    logoutSuccess = ()=>{
+        MySwal.fire({
+            position: 'top-center',
+            icon: 'success',
+            title: '登出',
+            showConfirmButton: false,
+            timer: 2000
+        })
+    }
    
 
     render(){
-        const {user} = this.state;
+        const {user,login} = this.state;
         const display = this.state.width < 768 ? 'none' : '';
 
         // 會員icon圖示
@@ -103,4 +120,4 @@ class NavbarUser extends Component{
     }
 }
 
-export default NavbarUser;
+export default withRouter(NavbarUser);

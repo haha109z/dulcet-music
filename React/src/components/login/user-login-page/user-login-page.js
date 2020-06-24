@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import { Link,withRouter } from 'react-router-dom';
+import withReactContent from 'sweetalert2-react-content';
+import Swal from 'sweetalert2'
 
 // import '../../../styles/login/user-facturer-login-page.scss';
 
 var sha1 = require('sha1');
+const MySwal = withReactContent(Swal);
 
 function UserLoginPage(props) {
 
     const [userMail,setUserMail] = useState('');
     const [userPwd,setUserPwd] = useState('');
-    const [userData,setUserData] = useState([]);    
+    const [userData,setUserData] = useState([]);  
+    const [userLogin,setUserLogin] = useState(false);  
 
     // 錯誤訊息陣列
     const [loginErrors, setLoginErrors] = useState([]);
@@ -64,6 +68,8 @@ function UserLoginPage(props) {
         // 清空錯誤訊息陣列為必要
         setLoginErrors([])
     
+        setUserLogin(true);
+
         // 執行成功的callback(來自MemberLogin)
         loginSuccessCallback()
         
@@ -72,9 +78,22 @@ function UserLoginPage(props) {
       // login成功時的callback
     const loginSuccessCallback = () => {
         localStorage.setItem('user', JSON.stringify(userData))
-        alert('登入成功，跳轉至首頁')
-        props.history.push('/user/userData', { from: '從登入頁來的' })
+        // alert('登入成功，跳轉至首頁')
+        setTimeout(()=>{
+          props.history.push('/user/userData', { from: '從登入頁來的' })
+        },2000)
+        
     }   
+
+    const loginSuccessBox = ()=>{
+      MySwal.fire({
+          position: 'top-center',
+          icon: 'success',
+          title: '登入成功',
+          showConfirmButton: false,
+          timer: 2000
+      })
+    }
 
      // 錯誤訊息陣列的呈現
     const displayErrors = loginErrors.length ? (
@@ -88,6 +107,8 @@ function UserLoginPage(props) {
     ) : (
         ''
     )    
+
+    const loginSuccessMsg = userLogin ? loginSuccessBox(): '';
 
     return (
         <>
