@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 function CartCheckout (props) {
 
-  const [amount, setAmount] = useState(0)
+  const [number, setNumber] = useState(0)
   const stock = 10
 
     return (
@@ -18,7 +18,7 @@ function CartCheckout (props) {
                 <li className="cart-rwd-noneed">刪除</li>
               </ul>
               <ul className="cart-order-category">
-                <li colspan="7">購買清單－課程</li>
+                <li colSpan="7">購買清單－課程</li>
               </ul>   
               <ul className="cart-product">
                 <li className="cart-product-li"><input type="checkbox" id=""/></li>
@@ -29,27 +29,29 @@ function CartCheckout (props) {
                   <i 
                     className="cart-minusBtn fas fa-minus-circle"
                     onClick={() => {
-                      if (amount == 0) {
-                        setAmount(0)
+                      if (number == 0) {
+                        setNumber(0)
                       } else {
-                        setAmount(amount - 1)
+                        setNumber(number - 1)
                       }
                     }}
                   />
-                  <div className="cart-number-input cart-english-font">10</div>
+                  <div className="cart-number-input cart-english-font">{number}</div>
                   <i 
                     className="cart-plusBtn fas fa-plus-circle"
-                    // onClick={() => {
-                    //   if (amount == 0) {
-                    //     setAmount(0)
-                    //   } else {
-                    //     setAmount(amount - 1)
-                    //   }
-                    // }}
+                    onClick={() => {
+                      if (number == 0) {
+                        setNumber(0)
+                        console.log(number)
+                      } else {
+                        setNumber(number + 1)
+                        console.log(number)
+                      }
+                    }}
                   />
                 </li>
                 <li className="cart-product-number cart-english-font" style={{color:'var(--main-colorfb2)'}}>$17,000</li>
-                <li className="cart-trash-btn" onClick={()=>{}}><i class="far fa-trash-alt"></i></li>
+                <li className="cart-trash-btn" onClick={()=>{}}><i className="far fa-trash-alt"></i></li>
               </ul>
               {/* <ul className="cart-product">
                 <li><input type="checkbox" id=""/></li>
@@ -67,25 +69,25 @@ function CartCheckout (props) {
           </div>
 
           <div>
-            <form className="cart-form" action="#" method="GET" enctype="multipart/form-data">
+            <form className="cart-form" action="#" method="GET" encType="multipart/form-data">
               <div className="cart-buyer-info">
                   <h2>收件人資訊</h2>
                   <fieldset>
                     <label><input type="checkbox" id=""/> 同帳戶資料</label>
                     <div className="cart-input">
-                      <label for="name">姓名</label>
-                      <input className="" autofocus autocomplete="off" id="name" type="text" name="name" placeholder=""/>
+                      <label htmlFor="name">姓名</label>
+                      <input className="" autoFocus autoComplete="off" id="name" type="text" name="name" placeholder=""/>
                     </div>
                     <div className="cart-input">
-                      <label for="add">地址</label>
+                      <label htmlFor="add">地址</label>
                       <input className="" id="add" type="text"/>
                     </div>
                     <div className="cart-input">
-                      <label for="phone">手機號碼</label>
+                      <label htmlFor="phone">手機號碼</label>
                       <input className="" id="phone" type="text"/>
                     </div>
                     <div className="cart-input">
-                      <label for="email">電子信箱</label>
+                      <label htmlFor="email">電子信箱</label>
                       <input id="email" className="" type="text"/>
                     </div>
                   </fieldset>
@@ -100,7 +102,7 @@ function CartCheckout (props) {
                     <div>
                       <label><input type="radio" name="invoice" id=""/> 手機條碼載具</label>
                       <div className="cart-input1">
-                        <label for="einvoice">載具號碼</label>
+                        <label htmlFor="einvoice">載具號碼</label>
                         <input className="" id="einvoice" type="text"/>
                       </div>
                     </div>
@@ -117,11 +119,11 @@ function CartCheckout (props) {
                       <label><input type="radio" name="invoice" id=""/> 公司戶</label>
                       <span>提醒您，公司戶發票一旦開立，不得任意更改或改為個人戶發票。</span>
                       <div className="cart-input1">
-                        <label for="einvoice">統一編號</label>
+                        <label htmlFor="einvoice">統一編號</label>
                         <input className="" id="einvoice" type="text"/>
                       </div>
                       <div className="cart-input1">
-                        <label for="einvoice">發票抬頭</label>
+                        <label htmlFor="einvoice">發票抬頭</label>
                         <input className="" id="einvoice" type="text"/>
                       </div>
                     </div>
@@ -132,7 +134,7 @@ function CartCheckout (props) {
 
           <div className="cart-total">
             <div className="cart-discount">
-              <label for="discount">折扣碼</label>
+              <label htmlFor="discount">折扣碼</label>
               <input className="" id="discount" type="text"/>
             </div>
             <div className="cart-total-right">
