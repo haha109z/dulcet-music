@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import Navbar from '../navbar/navbar';
 // import '../../styles/register/user-register.scss';
 
+var sha1 = require('sha1');
 
 class UserRegistered extends Component{
 
@@ -35,9 +36,13 @@ class UserRegistered extends Component{
     // req.body
     let {userRegisterName, userRegisterEmail, userRegisterBir, userRegisterAddress, userRegisterMobile, userRegisterPassword } = this.state;
 
+    let userRegisterPwd = sha1(userRegisterPassword);    
+
     let data = {
-        userRegisterName, userRegisterEmail, userRegisterBir, userRegisterAddress, userRegisterMobile, userRegisterPassword
+        userRegisterName, userRegisterEmail, userRegisterBir, userRegisterAddress, userRegisterMobile, userRegisterPwd
     };
+    
+    // console.log(data);
     // console.log("request", data)
 
     fetch("http://localhost:3030/register/user", {
