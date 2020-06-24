@@ -20,6 +20,8 @@ class UserRegistered extends Component{
         errors: {},
         showPwd:false,
         showComPwd:false,
+        checkProvision:false,
+        checkPwd:true
     }
 
     logChange = e => {
@@ -34,9 +36,18 @@ class UserRegistered extends Component{
     // if (errors) return;
 
     // req.body
-    let {userRegisterName, userRegisterEmail, userRegisterBir, userRegisterAddress, userRegisterMobile, userRegisterPassword } = this.state;
+    let {userRegisterName, userRegisterEmail, userRegisterBir, userRegisterAddress, userRegisterMobile, userRegisterPassword,userRegisterPasswordComfirm } = this.state;
 
-    let userRegisterPwd = sha1(userRegisterPassword);    
+    
+    if(userRegisterPassword !== userRegisterPasswordComfirm){
+        this.setState({checkPwd:false});
+        // setTimeout(()=>{
+        //     this.setState({checkPwd:true});
+        // },3000)
+        return
+    }
+
+    let userRegisterPwd = sha1(userRegisterPassword); 
 
     let data = {
         userRegisterName, userRegisterEmail, userRegisterBir, userRegisterAddress, userRegisterMobile, userRegisterPwd
@@ -92,10 +103,15 @@ class UserRegistered extends Component{
         this.setState({showComPwd:pwdToggle});
     }
 
+    handelClickProvision = ()=>{
+        const {checkProvision} = this.state;
+        const toggle = !checkProvision;
+        this.setState({checkProvision:toggle});
+    }
 
     render(){
 
-        const {showPwd,showComPwd} = this.state;
+        const {showPwd,showComPwd,checkProvision,checkPwd} = this.state;
 
         const showPwdDisplay = showPwd ? 'block':'none';
         const showPwdDisplay2 = showPwd ? 'none':'block';
@@ -105,6 +121,12 @@ class UserRegistered extends Component{
 
         const pwdType = showPwd ? 'text' : 'password';
         const pwdComType = showComPwd ? 'text' : 'password';
+
+        const checkProvisionBox = checkProvision ? "" : "disabled";
+
+        const checkPwddobule = checkPwd ? '' : (
+            <div className="user-register-dobluecheckPwd">兩次密碼不相符，請再確認</div>
+        );
 
         return(
             <>
@@ -141,8 +163,8 @@ class UserRegistered extends Component{
                             onChange={this.logChange}/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="userRegisterMobile" className="col-md-12 control-label">手機號碼</label>
-                            <input type="text" name="userRegisterMobile" className="form-control col-md-12" id="userRegisterMobile" placeholder="請輸入手機號碼" 
+                            <label htmlFor="userRegisterMobile" className="col-md-12 control-label" >手機號碼</label>
+                            <input type="text" name="userRegisterMobile" className="form-control col-md-12" id="userRegisterMobile" placeholder="請輸入手機號碼" pattern='/^09\d{8}$/' title="09xxxxxxxx"
                             onChange={this.logChange}/>
                         </div>
                         <div className="form-group user-pw-form">
@@ -158,7 +180,8 @@ class UserRegistered extends Component{
                                 </div>
                             </div>
                         </div>
-                        <div className="form-group user-pwCom-form">
+                        <div className="form-group user-pwCom-form">                
+                            {checkPwddobule}
                             <label htmlFor="userRegisterPasswordComfirm" name="userRegisterPasswordComfirm" className="col-md-12 control-label">確認密碼</label>
                             <input type={pwdComType} className="form-control" id="userRegisterPasswordComfirm" placeholder="請確認密碼" onChange={this.logChange}/>
                             <div onClick={this.handleClickCom}
@@ -169,15 +192,16 @@ class UserRegistered extends Component{
                                 <div className="user-register-eye" style={{display:showComPwdDisplay2}}>
                                 <i className="fas fa-eye-slash"></i>
                                 </div>
-                            </div>
+                            </div> 
                         </div>
                         <div className="form-group form-check col-md-12">
                             <input type="checkbox" className="register-check-input " id="userCheckMe" 
+                            onClick={this.handelClickProvision}
                             onChange={this.logChange}
-                            />
+                            />              
                             <label className="register-check-label" htmlFor="userCheckMe">我接受<Link to="">服務條款&隱私政策</Link></label>
                         </div>
-                        <button type="submit" className="user-register-btn">註冊</button>
+                        <button type="submit" disabled={checkProvisionBox} className="user-register-btn">註冊</button>
                     </form>
                 </div>
             </div>
