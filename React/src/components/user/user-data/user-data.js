@@ -52,13 +52,13 @@ export default class UserData extends Component {
     // JSON.parse(localStorage.getItem('user'));
     // console.log("user", user[0])
     // alert(`${user[0].userID}歡迎您～！` )
+
     this.setState({ user: user[0] })
     }else{
       this.setState({ user: "" })
 
     }
    
-    
   }
 
   render() {

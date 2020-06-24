@@ -1,10 +1,14 @@
 import React,{Component} from 'react';
 import {Link} from 'react-router-dom';
+import withReactContent from 'sweetalert2-react-content';
+import Swal from 'sweetalert2';
+
 
 import Navbar from '../navbar/navbar';
 // import '../../styles/register/user-register.scss';
 
 var sha1 = require('sha1');
+const MySwal = withReactContent(Swal);
 
 class UserRegistered extends Component{
 
@@ -16,13 +20,15 @@ class UserRegistered extends Component{
         userRegisterMobil: "",
         userRegisterPassword: "",
         userRegisterPasswordComfirm: "",
+        userData:[],
         msg: {},
         errors: {},
         showPwd:false,
         showComPwd:false,
         checkProvision:false,
         checkPwd:true,
-        phoneReg:true
+        phoneReg:true,
+        registerSuccess:false
     }
 
     logChange = e => {
@@ -66,18 +72,15 @@ class UserRegistered extends Component{
         }
         return response.json();
       })
-      .then(data => {
+      .then(json => {
           
-    // console.log("res", data)
-        if (data.loggedIn) {
-          // 註冊成功, jwt存進localstorage
-          const { token: jwt } = data;
-          localStorage.setItem("token", jwt);
-          const state = { ...this.state };
-          state.msg.signUpMsg = "註冊成功";
-          state.msg.type = "alert alert-success";
-          this.setState(state);
-          window.location = "/account";
+    console.log("res", json)
+        if (json.code === 0) {   
+          const {registerSuccess} = this.state;
+          this.setState({registerSuccess:true});
+          setTimeout(()=>{
+            window.location = "/";
+          },2000);
         } else {
           const state = { ...this.state };
           state.msg.signUpMsg = data.msg;
@@ -118,11 +121,21 @@ class UserRegistered extends Component{
             this.setState({phoneReg:true})
         }
     }
-
+   
+    registerSuccess = ()=>{
+        MySwal.fire({
+            position: 'top-center',
+            icon: 'success',
+            title: '註冊成功',
+            showConfirmButton: false,
+            timer: 2000
+        })
+    }
+        
 
     render(){
 
-        const {showPwd,showComPwd,checkProvision,checkPwd,phoneReg} = this.state;
+        const {showPwd,showComPwd,checkProvision,checkPwd,phoneReg,registerSuccess} = this.state;
 
         const showPwdDisplay = showPwd ? 'block':'none';
         const showPwdDisplay2 = showPwd ? 'none':'block';
@@ -142,6 +155,8 @@ class UserRegistered extends Component{
         const checkPhone = phoneReg ? '' : (
             <div className="user-register-dobluecheckPhone">請輸入正確的手機格式 09xx-xxx-xxx </div>
         )
+
+        const regSuccess = registerSuccess ? this.registerSuccess():'';        
 
         return(
             <>
@@ -221,7 +236,9 @@ class UserRegistered extends Component{
                             />              
                             <label className="register-check-label" htmlFor="userCheckMe">我接受<Link to="">服務條款&隱私政策</Link></label>
                         </div>
-                        <button type="submit" disabled={checkProvisionBox} className="user-register-btn">註冊</button>
+                        <button type="submit" disabled={checkProvisionBox} className="user-register-btn"
+                        onClick={regSuccess}
+                        >註冊</button>
                     </form>
                 </div>
             </div>

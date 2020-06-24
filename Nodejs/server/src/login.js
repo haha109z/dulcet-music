@@ -29,7 +29,7 @@ router.post('/', async (req, res) => {
     resData = { code: 1, msg: "帳號錯誤"}
     return res.json(resData);
   }
-  console.log(output[0].userPwd , sha1(userPwd))
+  // console.log(output[0].userPwd , sha1(userPwd))
   if(output[0].userPwd !== sha1(userPwd)){
     resData = { code: 2, msg: "密碼錯誤"}
     return res.json(resData);
