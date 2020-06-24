@@ -27,7 +27,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.use("/login/user", require(__dirname + "/login"));
-app.use("/register", require(__dirname + "/register"));
+app.use("/register/user", require(__dirname + "/register"));
 
 // 在網址 localhost:3030/123 來測試
 // app.use((req,res)=>{

@@ -21,7 +21,8 @@ class UserRegistered extends Component{
         showPwd:false,
         showComPwd:false,
         checkProvision:false,
-        checkPwd:true
+        checkPwd:true,
+        phoneReg:true
     }
 
     logChange = e => {
@@ -36,15 +37,13 @@ class UserRegistered extends Component{
     // if (errors) return;
 
     // req.body
-    let {userRegisterName, userRegisterEmail, userRegisterBir, userRegisterAddress, userRegisterMobile, userRegisterPassword,userRegisterPasswordComfirm } = this.state;
+    let {userRegisterName, userRegisterEmail, userRegisterBir, userRegisterAddress, userRegisterMobile, userRegisterPassword,userRegisterPasswordComfirm } = this.state;       
 
-    
-    if(userRegisterPassword !== userRegisterPasswordComfirm){
+    if(userRegisterPassword !== userRegisterPasswordComfirm){ 
         this.setState({checkPwd:false});
-        // setTimeout(()=>{
-        //     this.setState({checkPwd:true});
-        // },3000)
         return
+    }else{
+        this.setState({checkPwd:true});
     }
 
     let userRegisterPwd = sha1(userRegisterPassword); 
@@ -109,9 +108,21 @@ class UserRegistered extends Component{
         this.setState({checkProvision:toggle});
     }
 
+    phoneBlur = (e)=>{
+        const reg = /^09\d{2}-?\d{3}-?\d{3}$/;
+        const value = e.target.value;
+        if(!value.match(reg)){
+            this.setState({phoneReg:false})
+            return
+        }else{
+            this.setState({phoneReg:true})
+        }
+    }
+
+
     render(){
 
-        const {showPwd,showComPwd,checkProvision,checkPwd} = this.state;
+        const {showPwd,showComPwd,checkProvision,checkPwd,phoneReg} = this.state;
 
         const showPwdDisplay = showPwd ? 'block':'none';
         const showPwdDisplay2 = showPwd ? 'none':'block';
@@ -127,6 +138,10 @@ class UserRegistered extends Component{
         const checkPwddobule = checkPwd ? '' : (
             <div className="user-register-dobluecheckPwd">兩次密碼不相符，請再確認</div>
         );
+
+        const checkPhone = phoneReg ? '' : (
+            <div className="user-register-dobluecheckPhone">請輸入正確的手機格式 09xx-xxx-xxx </div>
+        )
 
         return(
             <>
@@ -163,13 +178,17 @@ class UserRegistered extends Component{
                             onChange={this.logChange}/>
                         </div>
                         <div className="form-group">
+                            {checkPhone}
                             <label htmlFor="userRegisterMobile" className="col-md-12 control-label" >手機號碼</label>
-                            <input type="text" name="userRegisterMobile" className="form-control col-md-12" id="userRegisterMobile" placeholder="請輸入手機號碼" pattern='/^09\d{8}$/' title="09xxxxxxxx"
-                            onChange={this.logChange}/>
+                            <input type="tel" name="userRegisterMobile" className="form-control col-md-12" id="userRegisterMobile" placeholder="請輸入手機號碼" maxLength="10"
+                            onBlur = {this.phoneBlur}
+                            onChange={this.logChange}
+                            />
                         </div>
                         <div className="form-group user-pw-form">
                             <label htmlFor="userRegisterPassword" className="col-md-12 control-label">密碼</label>
-                            <input type={pwdType} name="userRegisterPassword" className="form-control" id="userRegisterPassword" placeholder="請輸入密碼" onChange={this.logChange}/>
+                            <input type={pwdType} name="userRegisterPassword" className="form-control" id="userRegisterPassword" placeholder="請輸入密碼" maxLength="15"
+                             onChange={this.logChange}/>
                             <div onClick={this.handleClick}
                             >
                                 <div className="user-register-eye" style={{display:showPwdDisplay}} >
@@ -182,8 +201,9 @@ class UserRegistered extends Component{
                         </div>
                         <div className="form-group user-pwCom-form">                
                             {checkPwddobule}
-                            <label htmlFor="userRegisterPasswordComfirm" name="userRegisterPasswordComfirm" className="col-md-12 control-label">確認密碼</label>
-                            <input type={pwdComType} className="form-control" id="userRegisterPasswordComfirm" placeholder="請確認密碼" onChange={this.logChange}/>
+                            <label htmlFor="userRegisterPasswordComfirm"  className="col-md-12 control-label">確認密碼</label>
+                            <input type={pwdComType} className="form-control" name="userRegisterPasswordComfirm" id="userRegisterPasswordComfirm" placeholder="請確認密碼" maxLength="15"
+                            onChange={this.logChange}/>
                             <div onClick={this.handleClickCom}
                             >
                                 <div className="user-register-eye" style={{display:showComPwdDisplay}} >

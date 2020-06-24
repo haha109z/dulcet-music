@@ -3,7 +3,7 @@ import {FaEye} from 'react-icons/fa'
 
 
 
-class InstrumentEditPassword extends React.Component{
+class InstrumentPassword extends React.Component{
   constructor() {
     super() // => 記得呼叫 parent 的 constructor，很重要
     this.state = {
@@ -168,4 +168,4 @@ class InstrumentEditPassword extends React.Component{
 }
 
 
-export default InstrumentEditPassword
+export default InstrumentPassword
