@@ -78,10 +78,10 @@ function App() {
           <ProductId />
         </Route>
 
-        <Route path="/news" exact>
+        <Route path="/news">
           <News />
         </Route>
-        <Route path="/news-pages" exact>
+        <Route path="/news-pages">
           <NewsPages />
         </Route>
 
