@@ -28,7 +28,6 @@ app.use(cors(corsOptions));
 
 app.use("/login/user", require(__dirname + "/login"));
 app.use("/register/user", require(__dirname + "/register"));
-// app.use("/form", require(__dirname + "/form"));
 // 在網址 localhost:3030/123 來測試
 // app.use((req,res)=>{
 //     // 返回純文字，標籤也是被當成純文字輸出，像text()

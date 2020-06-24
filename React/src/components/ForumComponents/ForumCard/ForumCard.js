@@ -4,17 +4,16 @@ import AOS from 'aos';
 // import ReactDOM from 'react-dom'
 // import '../../../../styles/custom.scss'
 
-import propsTypes from 'prop-types'
+
 class ForumCard extends Component {
-static propsTypes = {
-  addComment:propsTypes.func.isRequired
-}
+
   constructor(props){
     super(props)
    
   }
   state={
     boxShow:false,
+    boxShowBtn:false,
     userId:'',
     userImg:'',
     ForumTitleMusic:'',//樂器類型
@@ -25,7 +24,14 @@ static propsTypes = {
   
   // function 鉤子
   // const [boxshow,setboxshow] = useState
-
+  handleBtn = ()=>{
+    
+    const {boxShowBtn} = this.state;
+    const toggle = !boxShowBtn;
+    this.setState({boxShowBtn:toggle})
+    // console.log(boxShow);
+    
+  }
   handleClick = ()=>{
     
     const {boxShow} = this.state;
@@ -38,7 +44,6 @@ static propsTypes = {
 //   const UserName = event.target.value
 //   this.setState({UserName})
 // }
-
   componentDidMount(){
 
     AOS.init({
@@ -62,8 +67,19 @@ alert('新增成功')
 }
 
 render(){
-  const {boxShow ,userId,userImg, ForumTitleMusic,ForumTitleId,ForumMemo} = this.state;
+  const {boxShow ,userId ,boxShowBtn} = this.state;
 
+const boxBtn = boxShowBtn ? (
+<div className="ForumCardDiv">
+              <p className="ForumCardP2">
+                鈴木和霍曼都可以，這兩個是目前用的最多的教材。可以一邊練琴一邊學些基礎知識，但最好有老師帶著你鈴木和霍曼都可以，這兩個是目前用的最多的教材。可以一邊練琴一邊學些基礎知識，但最好有老師帶著你
+              </p>
+              <div className="ForumCardTeacherImg"></div>
+            </div>
+):('');
+  
+  
+  
     const box = boxShow ? (
       <div className="ForumBtn01">
       <form action="/Forum" onSubmit={this.handleSubmit}>
@@ -117,14 +133,9 @@ render(){
                 你好！我現在大一，想學琴，但什麼樂理的都是零基礎，想買一本關於樂理的書，謝謝！！
                 你好！我現在大一，想學琴，但什麼樂理的都是零基礎，想買一本關於樂理的書，謝謝！！
               </p>
-              <button className="ForumBtnAns">看回答</button>
+              <button className="ForumBtnAns"  onClick={this.handleBtn}>看回答</button>
             </div>
-            <div className="ForumCardDiv" style={{display:'none'}}>
-              <p className="ForumCardP2">
-                鈴木和霍曼都可以，這兩個是目前用的最多的教材。可以一邊練琴一邊學些基礎知識，但最好有老師帶著你鈴木和霍曼都可以，這兩個是目前用的最多的教材。可以一邊練琴一邊學些基礎知識，但最好有老師帶著你
-              </p>
-              <div className="ForumCardTeacherImg"></div>
-            </div>
+            {boxBtn}
           </action>
           {/* card2 */}
           <action className="ForumAction">
