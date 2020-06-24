@@ -3,7 +3,7 @@ import { FaPlus } from "react-icons/fa"
 
 
 
-class InstrumentEdit extends React.Component{
+class InstrumentPutOn extends React.Component{
     constructor(){
         super()
         this.state = {
@@ -18,23 +18,24 @@ class InstrumentEdit extends React.Component{
 
     render(){
     return(
-        <div className="video-edit-page">
-        <h3 className="font-size-142rem">編輯商品</h3>
-        <form className="video-edit-form">
-            <div className="video-edit-add" controls>
-                <h3 className="video-edit-file-text font-size-142rem">圖片預覽</h3>
-                <div className="video-edit-icon-div">
-                    <FaPlus className="video-edit-icon"/>
+        <div className="ins-puton-page">
+        <h3 className="font-size-142rem">新增商品</h3>
+        <form className="ins-puton-form">
+            <div className="ins-puton-add" controls>
+                <h3 className="ins-puton-file-text font-size-142rem">圖片預覽</h3>
+                <div className="ins-puton-icon-div">
+                    <FaPlus className="ins-puton-icon"/>
                 </div>
                 <img></img>
             </div>
-            <div className="video-edit-file-btn">
+            <div className="ins-puton-file-btn">
                 <button type="submit">選擇圖片</button>
             </div>
-            <div className="video-edit-content">
-                <label htmlFor="videoname" className="video-edit-label font-size-1rem">影片名稱<input id="videoname" type="text" className="font-size-114rem"/></label>
-                <label className="video-edit-label font-size-1rem" htmFor="option">影片類型
-                    <select className="video-value font-size-114rem" id="option" onChange={this.handlechange}>
+            <div className="ins-puton-content">
+                <label htmlFor="name" className="ins-puton-label font-size-1rem">樂器名稱<input id="name" type="text" className="font-size-114rem"/></label>
+                <label className="ins-puton-label font-size-1rem" htmFor="option">樂器類型
+                <div className="ins-select-value">
+                    <select className="font-size-114rem" id="option" onChange={this.handlechange}>
                         <option value=""></option>
                         <option value="小提琴">小提琴</option>
                         <option value="中提琴">中提琴</option>
@@ -46,12 +47,13 @@ class InstrumentEdit extends React.Component{
                         <option value="烏克莉莉">烏克莉莉</option>
                         <option value="長笛">長笛</option>
                     </select>
+                    </div>
                 </label>
-                <label htmlFor="videotime" className="video-edit-label font-size-1rem">影片長度<input id="videotime" type="text" className="font-size-114rem"/></label>
-                <label htmlFor="videoprice" className="video-edit-label font-size-1rem">影片價格<input id="videoprice" type="text" className="font-size-114rem"/></label>
-                <label htmlFor="videotext1" className="video-edit-label font-size-1rem">影片簡介<input id="videotext1" type="text" className="font-size-114rem"/></label>
-                <label htmlFor="videotext2" className="video-edit-content-text font-size-1rem">影片介紹<textarea id="videotext2" className="font-size-114rem"></textarea></label>
-                <button type="submit" className="video-edit-add-btn">確認</button>
+                
+                <label htmlFor="price" className="ins-puton-label font-size-1rem">樂器價格<input id="price" type="text" className="font-size-114rem"/></label>
+                <label htmlFor="text1" className="ins-puton-label font-size-1rem">樂器簡介<input id="text1" type="text" className="font-size-114rem"/></label>
+                <label htmlFor="text2" className="ins-puton-content-text font-size-1rem">樂器介紹<textarea id="text2" className="font-size-114rem"></textarea></label>
+                <button type="submit" className="ins-puton-add-btn">確認</button>
             </div>
         </form>
         </div>
@@ -60,4 +62,4 @@ class InstrumentEdit extends React.Component{
    
 }
 
-export default InstrumentEdit
+export default InstrumentPutOn

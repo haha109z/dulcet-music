@@ -1,4 +1,4 @@
-.video-edit-page {
+.ins-puton-page {
   width: 812px;
   margin: 198px auto auto 10%;
   // border: 1px solid;
@@ -11,12 +11,12 @@
     margin-bottom: 80px;
   }
 
-  .video-edit-form {
+  .ins-puton-form {
     position: relative;
     margin: auto;
     width: 100%;
 
-    .video-edit-file-btn {
+    .ins-puton-file-btn {
       width: 100%;
       text-align: center;
       button {
@@ -32,31 +32,31 @@
       }
     }
 
-    .video-edit-add {
+    .ins-puton-add {
       width: 80%;
       height: 350px;
       border: 1px solid #141414;
       text-align: center;
       margin: auto auto 10px auto;
-      .video-edit-file-text {
+      .ins-puton-file-text {
         margin-top: 50px;
         color: var(--main-color79);
       }
-      .video-edit-icon-div {
-        .video-edit-icon {
+      .ins-puton-icon-div {
+        .ins-puton-icon {
           color: var(--main-color79);
           width: 100px;
           height: 100px;
         }
       }
     }
-    .video-edit-content {
+    .ins-puton-content {
       width: 70%;
       display: flex;
       margin: auto;
       flex-direction: column;
       align-items: center;
-      .video-edit-label {
+      .ins-puton-label {
         margin: 20px auto 0 auto;
         width: 100%;
         border-bottom: 2px var(--main-colorda) solid;
@@ -66,17 +66,23 @@
           outline: none;
           margin: 20px 0 1px 48px;
         }
-        select {
-          width: 90%;
-          border: none;
-          outline: none;
-          margin: 20px 0 5px 45px;
+        .ins-select-value {
+          select {
+            width: 90%;
+            border: none;
+            outline: none;
+            margin: 20px 0 5px 45px;
+
+            option {
+              background: var(--main-colorf2e);
+            }
+          }
         }
       }
-      .video-edit-label:hover {
+      .ins-puton-label:hover {
         border-bottom: 2px var(--main-colorblock) solid;
       }
-      .video-edit-content-text {
+      .ins-puton-content-text {
         margin: 20px auto 0 auto;
         width: 100%;
         textarea {
@@ -85,14 +91,14 @@
           margin: 20px 0 0 0;
         }
       }
-      .video-edit-add-btn {
+      .ins-puton-add-btn {
         width: 150px;
         height: 50px;
         margin: 60px auto 60px auto;
         border: none;
         background: #f2e8df;
       }
-      .video-edit-add-btn:hover {
+      .ins-puton-add-btn:hover {
         background: #141414;
         color: #ffffff;
       }
@@ -101,24 +107,24 @@
 }
 
 @media (max-width: 768px) {
-  .video-edit-page {
+  .ins-puton-page {
     width: 80%;
     margin: 154px auto auto auto;
-    .video-edit-form {
-      .video-edit-add {
+    .ins-puton-form {
+      .ins-puton-add {
         width: 100%;
         height: 250px;
-        .video-edit-icon-div {
-          .video-edit-icon {
+        .ins-puton-icon-div {
+          .ins-puton-icon {
             width: 50px;
             height: 50px;
           }
         }
       }
 
-      .video-edit-content {
+      .ins-puton-content {
         width: 100%;
-        .video-edit-label {
+        .ins-puton-label {
           width: 100%;
           input {
             margin-left: 0px;
@@ -128,7 +134,7 @@
             width: 100%;
           }
         }
-        .video-edit-add-btn {
+        .ins-puton-add-btn {
           width: 100%;
           margin: 11px auto 40px auto;
         }

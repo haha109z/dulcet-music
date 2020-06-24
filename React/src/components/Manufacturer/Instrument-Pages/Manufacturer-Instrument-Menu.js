@@ -15,28 +15,28 @@ class InstrumentMenu extends React.Component{
         <ul className="ins-menu-content list-unstyled content">
           <Link to="/ManufacturerInstrument/InstrumentHome" className="ins-menu-li font-size-142rem ">
             <div className="ins-menu-li-left"></div>
-            廠商資料
+            <p>廠商資料</p>
             <div className="ins-menu-li-right"></div>
           </Link>
           <Link to="/ManufacturerInstrument/InstrumentPassword" className="ins-menu-li font-size-142rem ">
             <div className="ins-menu-li-left"></div>
-            密碼修改
+            <p>密碼修改</p>
             <div className="ins-menu-li-right"></div>
           </Link>
 
           <Link to="/ManufacturerInstrument/InstrumentOrder" className="ins-menu-li font-size-142rem ">
             <div className="ins-menu-li-left"></div>
-            訂單列表
+            <p>訂單列表</p>
             <div className="ins-menu-li-right"></div>
           </Link>
           <Link to="/ManufacturerInstrument/InstrumentList" className="ins-menu-li font-size-142rem ">
             <div className="ins-menu-li-left"></div>
-            樂器列表
+            <p>樂器列表</p>
             <div className="ins-menu-li-right"></div>
           </Link>
           <Link to="/ManufacturerInstrument/InstrumentPutOn" className="ins-menu-li font-size-142rem ">
             <div className="ins-menu-li-left"></div>
-            新增樂器
+            <p>新增樂器</p>
             <div className="ins-menu-li-right"></div>
           </Link>
           <div className="ins-menu-out font-size-142rem ">
