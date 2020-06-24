@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.10.2",
+    "@sweetalert2/theme-dark": "^3.2.0",
+    "@sweetalert2/themes": "^3.2.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -22,6 +24,8 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
     "sha1": "^1.1.1",
+    "sweetalert2": "^9.15.2",
+    "sweetalert2-react-content": "^3.0.1",
     "websocket-extensions": "0.1.4"
   },
   "scripts": {
