@@ -1,15 +1,35 @@
 import React, { Component } from 'react'
 
+const getUserInfo = () => {
+  return JSON.parse(localStorage.getItem('user'))
+}
 export default class UserPwd extends Component {
-  constructor() {
-    super() // => 記得呼叫 parent 的 constructor，很重要
-    this.state = {
-      // => 幫 App 加上 state      
-      changOldPwd: false,
-      changNewPwd:false,
-      changNewPwd2:false,
-    }
+  state = {
+    user: [],
+    changOldPwd: false,
+   changNewPwd:false,
+   changNewPwd2:false,
+  };
+
+  // constructor() {
+  //   super() // => 記得呼叫 parent 的 constructor，很重要
+  //   this.state = {
+  //     // => 幫 App 加上 state      
+  //     changOldPwd: false,
+  //     changNewPwd:false,
+  //     changNewPwd2:false,
+  //   }}
+
+  // 在這個生命週期中渲染資料
+  componentDidMount() {
+    let user = getUserInfo()
+    // JSON.parse(localStorage.getItem('user'));
+    // console.log("user", user[0])
+    // alert(`${user[0].userID}歡迎您～！` )
+      this.setState({user: user[0]}) 
   }
+  
+  
 
   render() {
     const eyeshow = this.state.changOldPwd
@@ -21,6 +41,7 @@ export default class UserPwd extends Component {
       const eyeshow2 = this.state.changNewPwd2
       ? 'svg-eye-close svg-inline--fa fa-eye fa-w-18'
       : ' svg-eye svg-inline--fa fa-eye fa-w-18'
+      // console.log(this.state.user.userMail)
     return (
       <>
         <div className="userPwd-main">
@@ -41,7 +62,7 @@ export default class UserPwd extends Component {
                   className="user-id"
                   id="id"
                   type="text"
-                  value="001"
+                  value={this.state.user.userID}
                   readonly="readonly"
                 />
               </div>
