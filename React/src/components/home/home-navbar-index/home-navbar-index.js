@@ -23,7 +23,6 @@ class HomeNavbarIndex extends Component{
 
   static propTypes = {
         HomeLogo2 : PropTypes.string.isRequired,
-        homeUser:PropTypes.array.isRequired
     }
 
   getScroll = () => {
@@ -119,9 +118,7 @@ class HomeNavbarIndex extends Component{
               </div>
             */}
               <div className="home-items home-usre">
-                  {
-                  homeUser.map((homeUserItem,index) => <NavbarUser homeUserItem={homeUserItem} key={homeUserItem.id}/>)
-                  }
+                  <NavbarUser/>
                 </div>
               <div className="home-items home-shopping">
                 <NavbarShoppingCart />

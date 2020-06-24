@@ -2,18 +2,40 @@ import React,{useState, Component} from 'react';
 import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+// 獲取localStorage資料
+const getUserInfo = () => {
+    return JSON.parse(localStorage.getItem('user'));
+  } 
+
+const clearUserInfo = () =>{
+    return localStorage.clear('user');
+}
+
 class NavbarUser extends Component{
 
     state = {
         login:false,
+        user:[],
         width:window.innerWidth
       }
 
-      static propTypes = {
-        homeUserItem:PropTypes.object.isRequired
-    }
+    //   static propTypes = {
+    //     homeUserItem:PropTypes.object.isRequired
+    // }
 
     componentDidMount(){
+        let user = getUserInfo();
+
+        // 先判斷localStorage是否有值
+        if(user === null){
+            this.setState({login:false})
+        }else{
+            this.setState({user: user[0]}) 
+            if(user.length > 0){
+                this.setState({login:true})
+            }
+        }
+
         const {width} = this.state;
 
         const handleRWD = ()=>{
@@ -26,8 +48,14 @@ class NavbarUser extends Component{
         window.addEventListener('resize',handleRWD);
     }
 
+    logoutProcess = () => {
+        let user = clearUserInfo();
+        this.setState({user:[]});  
+      }
+   
+
     render(){
-        const {homeUserItem} = this.props;
+        const {user} = this.state;
         const display = this.state.width < 768 ? 'none' : '';
 
         // 會員icon圖示
@@ -40,7 +68,9 @@ class NavbarUser extends Component{
         // 會員名字與下拉區
         const userLoginArea = (
             <div>
-                <Link to="/user" className="home-username">{homeUserItem.username}</Link>
+                <Link to="/user" className="home-username">
+                    <img className="home-username-img" src={user.userID}></img>                                  
+                </Link>
                 <ul className="home-nav-userlogin" style={{display}}>
                     <li>
                         <Link to="javascript:void(0)">我的帳戶</Link>
@@ -52,7 +82,11 @@ class NavbarUser extends Component{
                         <Link to="javascript:void(0)">購買清單</Link>
                     </li>
                     <li>
-                        <Link to="javascript:void(0)">登出</Link>
+                        <Link to="/"
+                        onClick={
+                            this.logoutProcess
+                          }
+                        >登出</Link>
                     </li>
                 </ul>
             </div>

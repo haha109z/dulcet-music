@@ -85,9 +85,7 @@ return (
           </div>
         */}
           <div className="nav-items-others nav-usre">
-            {
-            homeUser.map((homeUserItem,index) => <NavbarUser homeUserItem={homeUserItem} key={homeUserItem.id}/>)
-            }
+            <NavbarUser />
           </div>
           <div className="nav-items-others nav-shopping">
             <NavbarShoppingCart />
