@@ -12,8 +12,8 @@ function UserLoginPage(props) {
 
     const [userMail,setUserMail] = useState('');
     const [userPwd,setUserPwd] = useState('');
-    const [userData,setUserData] = useState([]);  
-    const [userLogin,setUserLogin] = useState(false);  
+    const [userData,setUserData] = useState([]);
+    const [userLogin,setUserLogin] = useState(false);
 
     // 錯誤訊息陣列
     const [loginErrors, setLoginErrors] = useState([]);
@@ -36,7 +36,7 @@ function UserLoginPage(props) {
             setLoginErrors([json.msg])
             return
           }
-    
+
           setUserData(json.data)
           return userData
         })
@@ -45,35 +45,35 @@ function UserLoginPage(props) {
     // 處理會員登入
     const loginProcess = (loginSuccessCallback) => {
         const errors = []
-        // 檢查錯誤    
+        // 檢查錯誤
         if(userMail === ''){
           errors.push('前:請輸入Email帳號');
         }else if( userPwd === ''){
-            errors.push('前:請輸入密碼');                 
+            errors.push('前:請輸入密碼');
         }else{
-          getData(userMail, userPwd);  
+          getData(userMail, userPwd);
             if(userData.length === 0){
                 errors.push('前:Email帳號不存在');
               }else{
                 if(sha1(userPwd) != userData[0].userPwd) errors.push('前:123密碼錯誤');
-              }             
+              }
         }
-    
+
         if(errors.length > 0){
           setLoginErrors(errors);
-          return         
+          return
         }
-        
+
         // 登入後清空錯誤訊息陣列
         // 清空錯誤訊息陣列為必要
         setLoginErrors([])
-    
+
         setUserLogin(true);
 
         // 執行成功的callback(來自MemberLogin)
         loginSuccessCallback()
-        
-      }    
+
+      }
 
       // login成功時的callback
     const loginSuccessCallback = () => {
@@ -82,8 +82,8 @@ function UserLoginPage(props) {
         setTimeout(()=>{
           props.history.push('/user/userData', { from: '從登入頁來的' })
         },2000)
-        
-    }   
+
+    }
 
     const loginSuccessBox = ()=>{
       MySwal.fire({
@@ -106,7 +106,7 @@ function UserLoginPage(props) {
         </div>
     ) : (
         ''
-    )    
+    )
 
     const loginSuccessMsg = userLogin ? loginSuccessBox(): '';
 
@@ -116,7 +116,7 @@ function UserLoginPage(props) {
                 <div className="form-group">
                 {displayErrors}
                     <label htmlFor="userEmail" className="col-md-12 control-label" autofocus>電子郵件</label>
-                    <input type="email" name="username" className="form-control col-md-12" id="userEmail" placeholder="請輸入電子郵件" 
+                    <input type="email" name="username" className="form-control col-md-12" id="userEmail" placeholder="請輸入電子郵件"
                     onChange={(event) => {
                         setUserMail(event.target.value)
                       }}
@@ -124,7 +124,7 @@ function UserLoginPage(props) {
                 </div>
                 <div className="form-group">
                     <label htmlFor="password" className="col-md-12 control-label">密碼</label>
-                    <input type="password" name="userPassword" className="form-control" id="userPassword" placeholder="請輸入密碼"  required
+                    <input type="password" name="userPassword" className="form-control" id="userPassword" placeholder="請輸入密碼" minLength="4" required
                     onChange={(event) => {
                         setUserPwd(event.target.value)
                       }}/>
