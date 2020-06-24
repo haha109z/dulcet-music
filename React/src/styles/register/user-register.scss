@@ -141,13 +141,14 @@
                     right: 2%;
                     cursor: pointer;
                     // border: 1px solid red;
-                }
-
-                .user-register-dobluecheckPwd{
-                    margin-top: 1rem;
-                    color:var(--main-colorfb2);
-                }
+                }                
             }// .user-pw-form, .user-pwCom-form
+
+            .user-register-dobluecheckPwd,
+            .user-register-dobluecheckPhone{
+                margin-top: 1rem;
+                color:var(--main-colorfb2);
+            }
 
         }// register-form-wrap
     }// user-register-body
