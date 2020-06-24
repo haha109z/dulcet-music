@@ -1,5 +1,7 @@
 import React from 'react';
 import {  BrowserRouter as Router,  Switch,  Route,  Link, Redirect} from "react-router-dom";
+// 彈出匡視窗
+import Swal from 'sweetalert2/src/sweetalert2.js'
 
 //Home
 
@@ -78,10 +80,10 @@ function App() {
           <ProductId />
         </Route>
 
-        <Route path="/news" exact>
+        <Route path="/news">
           <News />
         </Route>
-        <Route path="/news-pages" exact>
+        <Route path="/news-pages">
           <NewsPages />
         </Route>
 
