@@ -2,6 +2,7 @@ import React from 'react'
 import {BrowserRouter,Router,Route,Link,Switch,withRouter,} from 'react-router-dom'
 
 class VideoList extends React.Component {
+  
   render() {
     return (
       <div className="video-list-page">
@@ -52,7 +53,7 @@ class VideoList extends React.Component {
         </Link>
         <div className="video-list-tools">
           <div className="video-list-option">
-            <input type="checkbox" className="video-list-tool-chk" />
+            <input type="checkbox" className="video-list-tool-chk"/>
             <p>全選</p>
             <a href="">刪除</a>
             <a href="">上架</a>
@@ -68,7 +69,7 @@ class VideoList extends React.Component {
           <div className="video-list-content">
             <input type="checkbox" className="video-list-content-chk"/>
             <div className="video-list-content-movie">
-              <img src={require('../../../img/cart/cart-violin-01.jpeg')}/>
+              <img src={require('../../../img/home_violin_m_8.jpg')}/>
             </div>
             <Link
               to="/ManufacturerVideo/VideoEdit"
@@ -99,7 +100,7 @@ class VideoList extends React.Component {
           <div className="video-list-content">
             <input type="checkbox" className="video-list-content-chk" />
             <div className="video-list-content-movie">
-              <img></img>
+            <img src={require('../../../img/home_violin_m_8.jpg')}/>
             </div>
             <Link
               to="/ManufacturerVideo/VideoEdit"

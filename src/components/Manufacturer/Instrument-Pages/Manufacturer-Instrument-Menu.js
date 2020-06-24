@@ -4,42 +4,42 @@ import { FaGuitar } from "react-icons/fa";
 
 
 
-class VideoMenu extends React.Component{
+class InstrumentMenu extends React.Component{
    render(){
     return(
-        <div className="video-menu-page">
-        <ul className="list-unstyled video-logo ">
+        <div className="ins-menu-page">
+        <ul className="list-unstyled ins-logo ">
         <FaGuitar/>
         </ul>
-        <div className="video-title font-size-15rem ">廠商管理</div>
-        <ul className="video-menu-content list-unstyled content">
-          <Link to="/InstrumentHome" className="video-menu-li font-size-142rem ">
-            <div className="video-menu-li-left"></div>
+        <div className="ins-title font-size-15rem ">廠商管理</div>
+        <ul className="ins-menu-content list-unstyled content">
+          <Link to="/ManufacturerInstrument/InstrumentHome" className="ins-menu-li font-size-142rem ">
+            <div className="ins-menu-li-left"></div>
             廠商資料
-            <div className="video-menu-li-right"></div>
+            <div className="ins-menu-li-right"></div>
           </Link>
-          <Link to="/InstrumentPassword" className="video-menu-li font-size-142rem ">
-            <div className="video-menu-li-left"></div>
+          <Link to="/ManufacturerInstrument/InstrumentPassword" className="ins-menu-li font-size-142rem ">
+            <div className="ins-menu-li-left"></div>
             密碼修改
-            <div className="video-menu-li-right"></div>
+            <div className="ins-menu-li-right"></div>
           </Link>
 
-          <Link to="/InstrumentOrder" className="video-menu-li font-size-142rem ">
-            <div className="video-menu-li-left"></div>
+          <Link to="/ManufacturerInstrument/InstrumentOrder" className="ins-menu-li font-size-142rem ">
+            <div className="ins-menu-li-left"></div>
             訂單列表
-            <div className="video-menu-li-right"></div>
+            <div className="ins-menu-li-right"></div>
           </Link>
-          <Link to="/InstrumentList" className="video-menu-li font-size-142rem ">
-            <div className="video-menu-li-left"></div>
+          <Link to="/ManufacturerInstrument/InstrumentList" className="ins-menu-li font-size-142rem ">
+            <div className="ins-menu-li-left"></div>
             樂器列表
-            <div className="video-menu-li-right"></div>
+            <div className="ins-menu-li-right"></div>
           </Link>
-          <Link to="/InstrumentPutOn" className="video-menu-li font-size-142rem ">
-            <div className="video-menu-li-left"></div>
+          <Link to="/ManufacturerInstrument/InstrumentPutOn" className="ins-menu-li font-size-142rem ">
+            <div className="ins-menu-li-left"></div>
             新增樂器
-            <div className="video-menu-li-right"></div>
+            <div className="ins-menu-li-right"></div>
           </Link>
-          <div className="video-menu-out font-size-142rem ">
+          <div className="ins-menu-out font-size-142rem ">
             <Link to="">登出</Link>
           </div>
         </ul>
@@ -48,4 +48,4 @@ class VideoMenu extends React.Component{
    }
  }
 
-export default VideoMenu
+export default InstrumentMenu

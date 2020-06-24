@@ -1,56 +1,56 @@
-.video-order-page {
+.ins-order-page {
   width: 812px;
   margin: 198px auto auto 10%;
 
   /* background-color: thistle; */
 
-  .video-top-titleName {
+  .ins-top-titleName {
     margin: 0 auto 80px auto;
     text-align: center;
   }
 
-  .video-main-buttons {
+  .ins-main-buttons {
     margin-bottom: 20px;
     height: 50px;
     width: 100%;
     border-radius: 0%;
 
-    .video-menu-btn {
+    .ins-menu-btn {
       border: solid 1px black;
     }
-    .video-menu-btn:hover {
+    .ins-menu-btn:hover {
       background-color: black;
       color: white;
     }
   }
 
-  .video-search {
+  .ins-search {
     width: 100%;
     position: relative;
 
-    .video-dropdown {
+    .ins-dropdown {
       display: none;
 
-      .video-dropbtn:focus {
+      .ins-dropbtn:focus {
         border: 1px solid #141414;
       }
     }
 
-    .video-search-input {
+    .ins-search-input {
       width: calc(100% - 80px);
       height: 40px;
       padding-left: 17px;
     }
-    .video-search-input:focus {
+    .ins-search-input:focus {
       border: solid 2px#141414;
     }
 
-    .video-search-404title {
+    .ins-search-404title {
       margin: 20px 0 20px 15px;
       color: var(--main-colorfb2);
     }
 
-    .video-search-button {
+    .ins-search-button {
       width: 80px;
       height: 40px;
       text-align: center;
@@ -63,55 +63,55 @@
       right: 0;
     }
 
-    .video-search-button:hover {
+    .ins-search-button:hover {
       background-color: var(--main-colorf2e);
       color: var(--main-colorblock);
     }
   }
 
-  .video-divider {
+  .ins-divider {
     border: 1.5px #f2f2f2 solid;
   }
 
-  .video-order {
+  .ins-order {
     margin-top: 40px;
     position: relative;
 
-    .video-order-title {
+    .ins-order-title {
       display: flex;
       justify-content: space-between;
       align-content: space-between;
 
-      .video-order-number {
+      .ins-order-number {
         font-size: 12px;
       }
-      .video-order-status {
+      .ins-order-status {
         font-size: 12px;
       }
     }
 
-    .video-order-divider {
+    .ins-order-divider {
       background-color: var(--main-colorblock);
       margin-top: 0;
       margin-bottom: 0;
     }
   }
 
-  .video-order-item {
+  .ins-order-item {
     background-color: #f2f2f2;
     width: 100%;
     height: 180px;
     display: flex;
     margin-top: 40px;
 
-    .video-order-item-img {
+    .ins-order-item-img {
       width: 140px;
       height: 140px;
       margin: auto;
       position: relative;
     }
 
-    .video-order-item-img > img {
+    .ins-order-item-img > img {
       max-width: 100%;
       max-height: 100%;
       position: absolute;
@@ -120,7 +120,7 @@
       transform: translate(-50%, -50%);
     }
 
-    .video-order-item-text {
+    .ins-order-item-text {
       width: 65%;
       height: 140px;
       margin: auto auto auto 0px;
@@ -130,7 +130,7 @@
         letter-spacing: 2px;
       }
 
-      .video-order-item-text-name {
+      .ins-order-item-text-name {
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -142,90 +142,90 @@
         font-size: 14px;
       }
 
-      .video-order-item-text-specification {
+      .ins-order-item-text-specification {
         margin-bottom: 10px;
         font-size: 14px;
       }
 
-      .video-order-item-text-specification > p {
+      .ins-order-item-text-specification > p {
         margin-right: 10%;
       }
 
-      .video-order-item-text-number {
+      .ins-order-item-text-number {
         font-size: 12px;
       }
-      .video-order-item-text-money {
+      .ins-order-item-text-money {
         position: absolute;
         bottom: 0px;
         display: flex;
         align-items: baseline;
 
-        .video-order-item-text-money-1 {
+        .ins-order-item-text-money-1 {
           font-size: 20px;
           margin-right: 10px;
         }
-        .video-order-item-text-money-2 {
+        .ins-order-item-text-money-2 {
           font-size: 14px;
         }
 
-        .video-order-item-text-money-3 {
+        .ins-order-item-text-money-3 {
           font-size: 24px;
         }
       }
     }
   }
-  .video-item-divider {
+  .ins-item-divider {
     border: #dadada 8px solid;
     margin-top: 30px;
   }
 
-  .video-order-total {
+  .ins-order-total {
     right: 0;
     display: flex;
     align-items: baseline;
     justify-content: flex-end;
     margin-top: 25px;
 
-    .video-order-total-1 {
+    .ins-order-total-1 {
       margin-right: 10px;
       font-size: 20px;
     }
-    .video-order-total-2 {
+    .ins-order-total-2 {
       font-size: 14px;
     }
-    .video-order-total-3 {
+    .ins-order-total-3 {
       font-size: 24px;
     }
   }
 }
 
 @media (max-width: 768px) {
-  .video-order-page {
+  .ins-order-page {
     width: 80%;
     margin: 154px auto 0 auto;
     /* background-color: thistle; */
     position: relative;
 
-    .video-top-titleName {
+    .ins-top-titleName {
       margin: 0 auto 25px auto;
     }
 
-    .video-main-buttons {
+    .ins-main-buttons {
       display: none;
     }
 
-    .video-search {
+    .ins-search {
       display: flex;
       flex-direction: column;
       position: relative;
 
       /* 容器 <div> - 需要定位下拉內容 */
-      .video-dropdown {
+      .ins-dropdown {
         position: relative;
         display: inline-block;
 
         /* 下拉按鈕樣式 */
-        .video-dropbtn {
+        .ins-dropbtn {
           color: #141414;
           width: 100%;
           font-size: 14px;
@@ -240,7 +240,7 @@
         }
 
         /* 下拉內容 (預設隱藏) */
-        .video-dropdown-content {
+        .ins-dropdown-content {
           background-color: #ffff;
           z-index: 1;
           display: none;
@@ -252,7 +252,7 @@
         }
 
         /* 下拉式選單的連結 */
-        .video-dropdown-content a {
+        .ins-dropdown-content a {
           color: black;
           /* padding: 6px 16px; */
           font-size: 14px;
@@ -265,7 +265,7 @@
 
         /* 當下拉內容顯示後修改下拉按鈕的背景顏色 */
 
-        .video-dropbtn > svg {
+        .ins-dropbtn > svg {
           position: absolute;
           height: 26px;
           right: 4%;
@@ -273,29 +273,29 @@
         }
 
         /* 滑鼠移上去後修改下拉式選單連結顏色 */
-        .video-dropdown-content a:hover {
+        .ins-dropdown-content a:hover {
           background-color: #f2e8df;
         }
       }
 
       /* 在滑鼠移上去後顯示下拉式選單 */
-      .video-dropdown:hover .video-dropdown-content {
+      .ins-dropdown:hover .ins-dropdown-content {
         display: block;
       }
 
-      .video-search-input {
+      .ins-search-input {
         /* width: calc(100% - 80px); */
         height: 40px;
         padding-left: 17px;
         width: 100%;
       }
 
-      .video-search-404title {
+      .ins-search-404title {
         margin: 5px 0 5px 15px;
         color: var(--main-colorfb2);
       }
 
-      .video-search-button {
+      .ins-search-button {
         width: 100%;
         height: 40px;
         text-align: center;
@@ -306,56 +306,56 @@
       }
     }
 
-    .video-order {
-      .video-order-item {
+    .ins-order {
+      .ins-order-item {
         height: auto;
         margin-top: 10px;
 
-        .video-order-item-img {
+        .ins-order-item-img {
           width: 140px;
           height: 140px;
           margin: auto 0px auto 10px;
           position: relative;
         }
 
-        .video-order-item-text {
+        .ins-order-item-text {
           width: 66%;
           height: auto;
           margin: auto auto auto 0px;
 
-          .video-order-item-text-name {
+          .ins-order-item-text-name {
             margin-bottom: 0;
           }
 
-          .video-order-item-text-specification {
+          .ins-order-item-text-specification {
             margin-bottom: 0px;
           }
 
-          .video-order-item-text-money {
+          .ins-order-item-text-money {
             position: relative;
             /* bottom: 0px; */
 
-            .video-order-item-text-money-1 {
+            .ins-order-item-text-money-1 {
               font-size: 12px;
               margin-right: 10px;
             }
-            .video-order-item-text-money-3 {
+            .ins-order-item-text-money-3 {
               font-size: 16px;
             }
           }
 
-          .video-order-item-text {
+          .ins-order-item-text {
             width: 65%;
             /* height: 140px; */
             margin: auto auto auto 0px;
             position: relative;
           }
 
-          .video-order-item-text-specification {
+          .ins-order-item-text-specification {
             flex-direction: column;
             font-size: 12px;
           }
-          .video-order-item-text-name {
+          .ins-order-item-text-name {
             font-size: 12px;
             margin-bottom: 5px;
             width: 90%;
@@ -364,21 +364,21 @@
         }
       }
 
-      .video-order-total {
+      .ins-order-total {
         margin-top: 0;
       }
 
-      .video-item-divider {
+      .ins-item-divider {
         border: #dadada 3px solid;
         margin-top: 5px;
       }
     }
   }
 
-  .video-page {
+  .ins-page {
     display: none;
   }
-  .video-divider {
+  .ins-divider {
     border: 1.5px #f2f2f2 solid;
     margin-bottom: 3rem;
   }

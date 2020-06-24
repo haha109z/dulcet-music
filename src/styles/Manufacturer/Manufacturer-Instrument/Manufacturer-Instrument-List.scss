@@ -1,13 +1,34 @@
-.video-list-page {
+.ins-list-page {
   width: 812px;
   margin: 198px auto auto 10%;
 
-  .video-list-title {
+  .ins-list-title {
     margin: -1px auto 80px auto;
     text-align: center;
   }
-  .video-list-search {
-    .video-list-search-label {
+  .ins-main-buttons {
+    margin-bottom: 20px;
+    height: 50px;
+    width: 100%;
+    border-radius: 0%;
+
+    .ins-menu-btn {
+      border: solid 1px black;
+    }
+    .ins-menu-btn:hover {
+      background-color: black;
+      color: white;
+    }
+  }
+  .ins-list-search {
+    .ins-dropdown {
+      display: none;
+
+      .ins-dropbtn:focus {
+        border: 1px solid #141414;
+      }
+    }
+    .ins-list-search-label {
       position: relative;
       width: 100%;
       input {
@@ -40,11 +61,11 @@
       }
     }
   }
-  .video-list-hr {
+  .ins-list-hr {
     border: 3px solid var(--main-colorda);
     margin: 0px;
   }
-  .video-list-add-btn {
+  .ins-list-add-btn {
     width: 100%;
     height: 40px;
     background: var(--main-colorblock);
@@ -54,12 +75,12 @@
     display: none;
     text-align: center;
   }
-  .video-list-add-btn:hover {
+  .ins-list-add-btn:hover {
     background: var(--main-colorf2e);
     color: var(--main-colorblock);
   }
 
-  .video-list-tools {
+  .ins-list-tools {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -67,7 +88,7 @@
     margin: auto auto 50px auto;
     border-bottom: 6px solid var(--main-colorda);
 
-    .video-list-tool-btn {
+    .ins-list-tool-btn {
       width: 100px;
       height: 50px;
       line-height: 50px;
@@ -76,11 +97,11 @@
       text-align: center;
       text-decoration: none;
     }
-    .video-list-tool-btn:hover {
+    .ins-list-tool-btn:hover {
       background: var(--main-colorf2e);
       color: var(--main-colorblock);
     }
-    .video-list-option {
+    .ins-list-option {
       display: flex;
 
       input {
@@ -90,6 +111,7 @@
 
       a {
         margin-left: 30px;
+        color: #141414;
       }
     }
 
@@ -106,61 +128,72 @@
     }
   }
 
-  .video-list-product {
-    .video-list-state {
+  .ins-list-product {
+    .ins-list-state {
       display: flex;
       justify-content: space-between;
       border-bottom: 1px solid;
       margin: auto auto 5px auto;
       height: 20px;
     }
-    .video-list-content {
-      background: var(--main-colorda);
+    .ins-list-content {
       height: 180px;
       display: flex;
       align-items: center;
       margin: auto auto 50px auto;
+
       input {
         width: 25px;
         height: 25px;
+        margin: auto auto auto 5px;
       }
-      .video-list-content-movie {
+
+      .ins-list-content-movie {
         width: 250px;
         height: 180px;
         margin: 5px;
-        background: aqua;
+        text-align: center;
 
         img {
           width: 100%;
           height: 100%;
+          object-fit: cover;
+          margin: auto;
         }
       }
-      .video-list-content-text {
+      .ins-list-content-text {
         height: 180px;
         width: 50%;
         padding: 10px;
         text-decoration: none;
-
+        background: #dadada;
         h3 {
           letter-spacing: 2px;
+          color: #141414;
         }
         p {
           line-height: 25px;
           letter-spacing: 2px;
+          color: #141414;
         }
-        .video-list-pro-money-1 {
+        .ins-list-pro-money-1 {
           line-height: 25px;
           margin: 0 5px 0 0;
+          color: #141414;
         }
       }
-
-      .video-list-content-btns {
+      .ins-list-content-text:hover > h3 {
+        text-decoration: underline;
+      }
+      .ins-list-content-btns {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-evenly;
         width: 15%;
         height: 180px;
+        background: #dadada;
+
         button {
           width: 80px;
           height: 40px;
@@ -178,16 +211,85 @@
 }
 
 @media (max-width: 768px) {
-  .video-list-page {
+  .ins-list-page {
     width: 80%;
     margin: 154px auto 0 auto;
 
-    .video-list-hr {
+    .ins-main-buttons {
+      display: none;
+    }
+
+    .ins-list-hr {
       margin: 5px auto 10px auto;
     }
 
-    .video-list-search {
-      .video-list-search-label {
+    .ins-list-search {
+      /* 容器 <div> - 需要定位下拉內容 */
+      .ins-dropdown {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+
+        /* 下拉按鈕樣式 */
+        .ins-dropbtn {
+          color: #141414;
+          width: 100%;
+          font-size: 14px;
+          height: 40px;
+          border: none;
+          cursor: pointer;
+          border: 1px solid #141414;
+          padding-left: 5%;
+          background-color: #ffffff;
+          margin-bottom: 5px;
+          text-align: left;
+        }
+
+        /* 下拉內容 (預設隱藏) */
+        .ins-dropdown-content {
+          background-color: #ffff;
+          z-index: 1;
+          display: none;
+          width: 100%;
+          position: absolute;
+          color: #141414;
+          /* min-width: 160px; */
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 下拉式選單的連結 */
+        .ins-dropdown-content a {
+          color: black;
+          /* padding: 6px 16px; */
+          font-size: 14px;
+          height: 40px;
+          text-decoration: none;
+          display: block;
+          margin: 0;
+          padding-left: 5%;
+        }
+
+        /* 當下拉內容顯示後修改下拉按鈕的背景顏色 */
+
+        .ins-dropbtn > svg {
+          position: absolute;
+          height: 26px;
+          right: 4%;
+          top: 5%;
+        }
+
+        /* 滑鼠移上去後修改下拉式選單連結顏色 */
+        .ins-dropdown-content a:hover {
+          background-color: #f2e8df;
+        }
+      }
+
+      /* 在滑鼠移上去後顯示下拉式選單 */
+      .ins-dropdown:hover .ins-dropdown-content {
+        display: block;
+      }
+
+      .ins-list-search-label {
         input {
           width: 100%;
         }
@@ -197,28 +299,28 @@
         }
       }
     }
-    .video-list-title {
+    .ins-list-title {
       margin: 0 auto 25px auto;
       text-align: center;
     }
 
-    .video-list-tools {
+    .ins-list-tools {
       display: none;
     }
-    .video-list-add-btn {
+    .ins-list-add-btn {
       display: block;
       margin-bottom: 30px;
       text-decoration: none;
       padding: 0px;
       line-height: 40px;
     }
-    .video-list-product {
+    .ins-list-product {
       // position: relative;
       margin-bottom: 100px;
-      .video-list-state {
+      .ins-list-state {
         margin: auto auto 30px auto;
       }
-      .video-list-content {
+      .ins-list-content {
         display: block;
         height: 500px;
 
@@ -226,29 +328,30 @@
           display: none;
         }
 
-        .video-list-content-movie {
+        .ins-list-content-movie {
           // position: absolute;
-          width: 80%;
+          width: 100%;
           height: 40%;
           margin: 0 auto;
         }
 
-        .video-list-content-text {
-          width: 80%;
+        .ins-list-content-text {
+          width: 100%;
           height: 30%;
           margin: 0 auto;
 
-          .video-list-pro-content {
-            width: 50%;
+          // .ins-list-pro-content {
+          //   width: 50%;
 
-            span {
-              display: inline;
-            }
-          }
+          //   span {
+          //     display: inline;
+          //   }
+          // }
         }
-        .video-list-content-btns {
+        .ins-list-content-btns {
           width: 100%;
-          margin: 20px auto auto auto;
+          margin: auto;
+          background: none;
           button {
             width: 100%;
           }

@@ -152,11 +152,13 @@
         width: 250px;
         height: 180px;
         margin: 5px;
-        
+        text-align: center;
 
         img {
-          max-width: 100%;
-          max-height: 100%;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          margin: auto;
         }
       }
       .video-list-content-text {
@@ -191,6 +193,7 @@
         width: 15%;
         height: 180px;
         background: #dadada;
+
         button {
           width: 80px;
           height: 40px;
@@ -347,7 +350,7 @@
         }
         .video-list-content-btns {
           width: 100%;
-          margin: 20px auto auto auto;
+          margin: auto;
           background: none;
           button {
             width: 100%;

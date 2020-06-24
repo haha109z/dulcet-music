@@ -28,6 +28,7 @@ class VideoEdit extends React.Component{
                     <div className="video-puton-icon-div">
                         <FaPlus className="video-puton-icon"/>
                     </div>
+                    <img></img>
                 </div>
                 <button type="submit" className="video-puton-new-btn">選擇影片</button>
             </div>
@@ -37,6 +38,7 @@ class VideoEdit extends React.Component{
                     <div className="video-puton-icon-div">
                         <FaPlus className="video-puton-icon"/>
                     </div>
+                    <img></img>
                 </div>
                 <button type="submit">選擇圖片</button>
             </div>

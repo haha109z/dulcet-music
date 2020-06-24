@@ -3,7 +3,7 @@ import { FaPlus } from "react-icons/fa"
 
 
 
-class VideoEdit extends React.Component{
+class InstrumentEdit extends React.Component{
     constructor(){
         super()
         this.state = {
@@ -18,20 +18,23 @@ class VideoEdit extends React.Component{
 
     render(){
     return(
-        <div className="video-edit-page">
+        <div className="ins-edit-page">
         <h3 className="font-size-142rem">編輯商品</h3>
-        <form className="video-edit-form">
-            <div className="video-edit-add" controls>
-                <h3 className="video-edit-file-text font-size-142rem">圖片預覽</h3>
-                <div className="video-edit-icon-div">
-                    <FaPlus className="video-edit-icon"/>
+        <form className="ins-edit-form">
+            <div className="ins-edit-add" controls>
+                <h3 className="ins-edit-file-text font-size-142rem">圖片預覽</h3>
+                <div className="ins-edit-icon-div">
+                    <FaPlus className="ins-edit-icon"/>
                 </div>
+                <img></img>
             </div>
-            <button type="submit" className="video-edit-new-btn">新增影片</button>
-            <div className="video-edit-content">
-                <label htmlFor="videoname" className="video-edit-label font-size-1rem">影片名稱<input id="videoname" type="text" className="font-size-114rem"/></label>
-                <label className="video-edit-label font-size-1rem" htmFor="option">影片類型
-                    <select className="video-value font-size-114rem" id="option" onChange={this.handlechange}>
+            <div className="ins-edit-file-btn">
+                <button type="submit">選擇圖片</button>
+            </div>
+            <div className="ins-edit-content">
+                <label htmlFor="insname" className="ins-edit-label font-size-1rem">影片名稱<input id="insname" type="text" className="font-size-114rem"/></label>
+                <label className="ins-edit-label font-size-1rem" htmFor="option">影片類型
+                    <select className="ins-value font-size-114rem" id="option" onChange={this.handlechange}>
                         <option value=""></option>
                         <option value="小提琴">小提琴</option>
                         <option value="中提琴">中提琴</option>
@@ -44,11 +47,11 @@ class VideoEdit extends React.Component{
                         <option value="長笛">長笛</option>
                     </select>
                 </label>
-                <label htmlFor="videotime" className="video-edit-label font-size-1rem">影片長度<input id="videotime" type="text" className="font-size-114rem"/></label>
-                <label htmlFor="videoprice" className="video-edit-label font-size-1rem">影片價格<input id="videoprice" type="text" className="font-size-114rem"/></label>
-                <label htmlFor="videotext1" className="video-edit-label font-size-1rem">影片簡介<input id="videotext1" type="text" className="font-size-114rem"/></label>
-                <label htmlFor="videotext2" className="video-edit-content-text font-size-1rem">影片介紹<textarea id="videotext2" className="font-size-114rem"></textarea></label>
-                <button type="submit" className="video-edit-add-btn">確認</button>
+                <label htmlFor="instime" className="ins-edit-label font-size-1rem">影片長度<input id="instime" type="text" className="font-size-114rem"/></label>
+                <label htmlFor="insprice" className="ins-edit-label font-size-1rem">影片價格<input id="insprice" type="text" className="font-size-114rem"/></label>
+                <label htmlFor="instext1" className="ins-edit-label font-size-1rem">影片簡介<input id="instext1" type="text" className="font-size-114rem"/></label>
+                <label htmlFor="instext2" className="ins-edit-content-text font-size-1rem">影片介紹<textarea id="instext2" className="font-size-114rem"></textarea></label>
+                <button type="submit" className="ins-edit-add-btn">確認</button>
             </div>
         </form>
         </div>
@@ -57,4 +60,4 @@ class VideoEdit extends React.Component{
    
 }
 
-export default VideoEdit
+export default InstrumentEdit

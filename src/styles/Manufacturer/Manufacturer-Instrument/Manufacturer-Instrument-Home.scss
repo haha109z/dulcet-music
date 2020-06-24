@@ -1,24 +1,24 @@
-.video-home-page {
+.ins-home-page {
   width: 812px;
   margin: 198px auto auto 10%;
   /* background-color: thistle; */
   position: relative;
 }
-.video-user-id {
+.ins-user-id {
   font-size: 14px;
   color: var(--main-color79);
 }
-.video-home-title {
+.ins-home-title {
   margin: 0 auto 80px auto;
   text-align: center;
   font-family: var(--main-title-chinese);
 }
 
-.video-home-hr {
+.ins-home-hr {
   border: 1.5px #f2f2f2 solid;
 }
 
-.video-home-img {
+.ins-home-img {
   border-radius: 50%;
   height: 150px;
   width: 150px;
@@ -26,34 +26,34 @@
   margin: 0 auto 5px auto;
 }
 
-.video-home-label {
+.ins-home-label {
   display: flex;
   position: relative;
   font-size: 16px;
 }
 
-.video-home-label > p {
+.ins-home-label > p {
   font-family: var(--main-title-chinese);
 
   font-size: 14px;
 }
-.video-home-form > label {
+.ins-home-form > label {
   height: 56px;
   margin: 20px auto 0 auto;
   border-bottom: 2px var(--main-colorda) solid;
   width: 100%;
   max-width: 500px;
 }
-.video-home-form > label:hover {
+.ins-home-form > label:hover {
   border-bottom: 2px #141414 solid;
 }
 
-.video-home-form {
+.ins-home-form {
   display: flex;
   flex-direction: column;
 }
 
-.video-home-form-btn {
+.ins-home-form-btn {
   width: 150px;
   height: 50px;
   background-color: #f2e8df;
@@ -63,7 +63,7 @@
   font-family: var(--main-title-chinese);
 }
 
-.video-home-form-btn:hover {
+.ins-home-form-btn:hover {
   color: white;
   background-color: #141414;
 }
@@ -72,13 +72,13 @@
   height: 20px;
   position: absolute;
 }
-.video-home-inp {
+.ins-home-inp {
   position: absolute;
   bottom: 0;
   margin: 20px 0 0 48px;
   margin-bottom: 2px;
 }
-.video-home-inp > input {
+.ins-home-inp > input {
   width: 430px;
   outline: none;
   background-color: none;
@@ -86,34 +86,34 @@
   font-family: var(--main-title-chinese);
 }
 @media (max-width: 768px) {
-  .video-home-page {
+  .ins-home-page {
     width: 100%;
     margin: 154px auto auto 0;
     /* background-color: thistle; */
     position: relative;
   }
-  .video-home-inp > input {
+  .ins-home-inp > input {
     width: 100%;
     outline: none;
     background-color: none;
     border: none;
     font-family: var(--main-title-chinese);
   }
-  .video-home-inp {
+  .ins-home-inp {
     width: 90%;
     position: absolute;
     bottom: 0;
     margin: 20px 0 0 0px;
     margin-bottom: 2px;
   }
-  .video-home-form {
+  .ins-home-form {
     display: flex;
     flex-direction: column;
     width: 80%;
     margin: 0 auto 0 auto;
   }
 
-  .video-home-hr {
+  .ins-home-hr {
     width: 80%;
     margin: 0;
     margin-right: auto;
@@ -128,10 +128,10 @@
     margin: 0 auto;
   }
 
-  .video-home-title {
+  .ins-home-title {
     margin: 0 auto 25px auto;
   }
-  .video-home-form-btn {
+  .ins-home-form-btn {
     width: 100%;
     height: 50px;
     background-color: #f2e8df;

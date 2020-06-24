@@ -45,13 +45,13 @@ button:hover {
   --h6: 0.85rem; /** 12px **/
 }
 
-.manufacturer-color-red {
+.ins-color-red {
   color: #fb2643;
 }
-.manufacturer-font-eg {
+.ins-font-eg {
   font-family: 'Merienda';
 }
-.manufacturer-font-ch {
+.ins-font-ch {
   font-family: 'Noto+Serif+TC';
   color: var(--main-colorblock);
 }
@@ -88,7 +88,7 @@ button:hover {
   .user-container {
     width: 750px;
   }
-  .videoRwd-dropdown {
+  .insRwd-dropdown {
     display: none;
   }
 }
@@ -104,7 +104,7 @@ button:hover {
 }
 
 @media (min-width: 768px) {
-  .videoRwd-page-dropdown {
+  .insRwd-page-dropdown {
     display: none;
   }
 }
@@ -114,14 +114,14 @@ button:hover {
     flex-direction: column;
 
     /* 容器 <div> - 需要定位下拉內容 */
-    .videoRwd-page-dropdown {
+    .insRwd-page-dropdown {
       position: relative;
       width: 80%;
       /* margin-top: 20px; */
       margin: 20px auto 40px auto;
 
       /* 下拉按鈕樣式 */
-      .videoRwd-page-dropbtn {
+      .insRwd-page-dropbtn {
         color: #141414;
         width: 100%;
         font-size: 14px;
@@ -135,7 +135,7 @@ button:hover {
       }
 
       /* 下拉內容 (預設隱藏) */
-      .videoRwd-page-dropdown-content {
+      .insRwd-page-dropdown-content {
         overflow: scroll;
         background-color: #ffff;
         z-index: 10;
@@ -149,7 +149,7 @@ button:hover {
       }
 
       /* 下拉式選單的連結 */
-      .videoRwd-page-dropdown-content a {
+      .insRwd-page-dropdown-content a {
         color: black;
         /* padding: 6px 16px; */
         font-size: 14px;
@@ -161,35 +161,35 @@ button:hover {
       }
 
       /* 滑鼠移上去後修改下拉式選單連結顏色 */
-      .videoRwd-page-dropdown-content a:hover {
+      .insRwd-page-dropdown-content a:hover {
         background-color: #f2e8df;
       }
 
       /* 當下拉內容顯示後修改下拉按鈕的背景顏色 */
-      .videoRwd-page-dropbtn > svg {
+      .insRwd-page-dropbtn > svg {
         position: absolute;
         height: 26px;
         right: 4%;
         top: 8%;
       }
-      .videoRwd-page-dropbtn {
+      .insRwd-page-dropbtn {
         text-align: left;
       }
     }
     /* 在滑鼠移上去後顯示下拉式選單 */
-    .videoRwd-page-dropdown:hover .videoRwd-page-dropdown-content {
+    .insRwd-page-dropdown:hover .insRwd-page-dropdown-content {
       display: block;
     }
   }
 }
 
-.video-page {
+.ins-page {
   display: flex;
   width: -moz-fit-content;
   width: fit-content;
   margin: 40px auto 60px auto;
 }
-.video-page-number {
+.ins-page-number {
   height: 36px;
   width: 36px;
   margin: 5px;
@@ -197,11 +197,11 @@ button:hover {
   border: 1px solid #dadada;
   background-color: #ffffff;
 }
-.video-page-number:hover {
+.ins-page-number:hover {
   background-color: #f2e8df;
 }
-.video-page-Rarrow,
-.video-page-Larrow {
+.ins-page-Rarrow,
+.ins-page-Larrow {
   font-size: 30px;
   text-align: center;
   height: 36px;
@@ -209,30 +209,30 @@ button:hover {
   outline: none;
   border: none;
 }
-.video-page-Larrow {
+.ins-page-Larrow {
   transform: rotate(90deg);
   margin: 5px 0 0 0;
 }
-.video-page-Rarrow {
+.ins-page-Rarrow {
   transform: rotate(-90deg);
   margin: 5px 0 0 0;
 }
-.video-page-Larrow:hover,
-.video-page-Rarrow:hover > i {
+.ins-page-Larrow:hover,
+.ins-page-Rarrow:hover > i {
   font-size: 35px;
 }
-.video-page-Rarrow:hover,
-.video-page-Larrow:hover > i {
+.ins-page-Rarrow:hover,
+.ins-page-Larrow:hover > i {
   font-size: 35px;
 }
-.video-page-x {
+.ins-page-x {
   height: 36px;
   outline: none;
   border: none;
   background-color: #ffffff;
   margin-top: 5%;
 }
-.video-page-x:hover {
+.ins-page-x:hover {
   font-weight: bolder;
   letter-spacing: 3px;
   outline: none;

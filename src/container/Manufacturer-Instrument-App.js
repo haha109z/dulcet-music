@@ -25,25 +25,25 @@ class ManufacturerInstrumentHome extends React.Component{
 		<div className="user-container d-flex">
 		<InstrumentMenu/>
         <Switch>
-        <Route path="/InstrumentHome">
+        <Route path="/ManufacturerInstrument/InstrumentHome">
         <InstrumentHome/>
         </Route>
-        <Route path="/InstrumentPutOn">
+        <Route path="/ManufacturerInstrument/InstrumentPutOn">
         <InstrumentPutOn />
         </Route>
-        <Route path="/InstrumentList">
+        <Route path="/ManufacturerInstrument/InstrumentList">
         <InstrumentList />
         </Route>
-        <Route path="/InstrumentOrder">
+        <Route path="/ManufacturerInstrument/InstrumentOrder">
         <InstrumentOrder />
         </Route>
-        <Route path="/InstrumentPassword">
+        <Route path="/ManufacturerInstrument/InstrumentPassword">
         <InstrumentPassword />
         </Route>
-        <Route path="/InstrumentEdit">
+        <Route path="/ManufacturerInstrument/InstrumentEdit">
         <InstrumentEdit/>
         </Route>
-        <Redirect to="/InstrumentHome"/>
+        <Redirect to="/ManufacturerInstrument/InstrumentHome"/>
         </Switch>
 		</div>
 		</BrowserRouter>

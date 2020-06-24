@@ -1,4 +1,4 @@
-.video-edit-page {
+.ins-edit-page {
   width: 812px;
   margin: 198px auto auto 10%;
   // border: 1px solid;
@@ -11,40 +11,52 @@
     margin-bottom: 80px;
   }
 
-  .video-edit-form {
+  .ins-edit-form {
     position: relative;
     margin: auto;
     width: 100%;
 
-    .video-edit-new-btn {
-      display: none;
+    .ins-edit-file-btn {
+      width: 100%;
+      text-align: center;
+      button {
+        width: 30%;
+        height: 50px;
+        background: #141414;
+        color: #fff;
+        border: none;
+      }
+      button:hover {
+        background: var(--main-colorf2e);
+        color: #141414;
+      }
     }
 
-    .video-edit-add {
-      width: 100%;
-      height: 450px;
+    .ins-edit-add {
+      width: 80%;
+      height: 350px;
       border: 1px solid #141414;
       text-align: center;
       margin: auto auto 10px auto;
-      .video-edit-file-text {
+      .ins-edit-file-text {
         margin-top: 50px;
         color: var(--main-color79);
       }
-      .video-edit-icon-div {
-        .video-edit-icon {
+      .ins-edit-icon-div {
+        .ins-edit-icon {
           color: var(--main-color79);
           width: 100px;
           height: 100px;
         }
       }
     }
-    .video-edit-content {
-      width: 60%;
+    .ins-edit-content {
+      width: 70%;
       display: flex;
       margin: auto;
       flex-direction: column;
       align-items: center;
-      .video-edit-label {
+      .ins-edit-label {
         margin: 20px auto 0 auto;
         width: 100%;
         border-bottom: 2px var(--main-colorda) solid;
@@ -61,10 +73,10 @@
           margin: 20px 0 5px 45px;
         }
       }
-      .video-edit-label:hover {
+      .ins-edit-label:hover {
         border-bottom: 2px var(--main-colorblock) solid;
       }
-      .video-edit-content-text {
+      .ins-edit-content-text {
         margin: 20px auto 0 auto;
         width: 100%;
         textarea {
@@ -73,14 +85,14 @@
           margin: 20px 0 0 0;
         }
       }
-      .video-edit-add-btn {
+      .ins-edit-add-btn {
         width: 150px;
         height: 50px;
         margin: 60px auto 60px auto;
         border: none;
         background: #f2e8df;
       }
-      .video-edit-add-btn:hover {
+      .ins-edit-add-btn:hover {
         background: #141414;
         color: #ffffff;
       }
@@ -89,28 +101,24 @@
 }
 
 @media (max-width: 768px) {
-  .video-edit-page {
+  .ins-edit-page {
     width: 80%;
     margin: 154px auto auto auto;
-    .video-edit-form {
-      .video-edit-add {
-        height: 300px;
-      }
-      .video-edit-new-btn {
-        display: block;
-        height: 50px;
+    .ins-edit-form {
+      .ins-edit-add {
         width: 100%;
-        background: var(--main-colorblock);
-        color: var(--main-colorfff);
-        border: none;
+        height: 250px;
+        .ins-edit-icon-div {
+          .ins-edit-icon {
+            width: 50px;
+            height: 50px;
+          }
+        }
       }
-      .video-edit-new-btn:hover {
-        background: var(--main-colorf2e);
-        color: var(--main-colorblock);
-      }
-      .video-edit-content {
+
+      .ins-edit-content {
         width: 100%;
-        .video-edit-label {
+        .ins-edit-label {
           width: 100%;
           input {
             margin-left: 0px;
@@ -120,7 +128,7 @@
             width: 100%;
           }
         }
-        .video-edit-add-btn {
+        .ins-edit-add-btn {
           width: 100%;
           margin: 11px auto 40px auto;
         }
