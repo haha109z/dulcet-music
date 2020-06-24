@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+
 import withReactContent from 'sweetalert2-react-content'
 import Swal from 'sweetalert2'
 
@@ -24,7 +25,7 @@ export default class UserData extends Component {
       cancelButtonColor: '#dadada', // 取消按鈕的 顏色
       cancelButtonText: '取消', // 取消按鈕的 文字
       html:
-      '<input id="swal-input1" class="swal2-input"value="111">' +
+      '<input id="swal-input1" class="swal2-input" value="">' +
       '<input id="swal-input2" class="swal2-input">'+
       '<input id="swal-input3" class="swal2-input">'+
       '<input id="swal-input4" class="swal2-input">'+
