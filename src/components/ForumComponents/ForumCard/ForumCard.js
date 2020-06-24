@@ -4,20 +4,25 @@ import AOS from 'aos';
 // import ReactDOM from 'react-dom'
 // import '../../../../styles/custom.scss'
 
-
+import propsTypes from 'prop-types'
 class ForumCard extends Component {
-
+static propsTypes = {
+  addComment:propsTypes.func.isRequired
+}
   constructor(props){
     super(props)
-    this.handleSubmit = this.handleSubmit.bind(this)
+   
   }
   state={
-    boxShow:false
+    boxShow:false,
+    userId:'',
+    userImg:'',
+    ForumTitleMusic:'',//樂器類型
+    ForumTitleId:'',//主題
+    ForumMemo : ''//內容
   }
 
-  handleSubmit(event){
-alert('新增成功')
-  }
+  
   // function 鉤子
   // const [boxshow,setboxshow] = useState
 
@@ -29,6 +34,10 @@ alert('新增成功')
     // console.log(boxShow);
     
   }
+// handleUserNameId=(event)=>{
+//   const UserName = event.target.value
+//   this.setState({UserName})
+// }
 
   componentDidMount(){
 
@@ -37,15 +46,29 @@ alert('新增成功')
         easing: 'ease-out-back',
     })
 }
+handleSubmit=(event)=>{
+  //收集數據
+  //const comment = this.state
+  //更新狀態
+//this.props.addComment(comment)
+//清除輸入數據
+//this.state({
+//userId : ''
+
+//})
+  //alert
+alert('新增成功')
+
+}
 
 render(){
-  const {boxShow} = this.state;
+  const {boxShow ,userId,userImg, ForumTitleMusic,ForumTitleId,ForumMemo} = this.state;
 
     const box = boxShow ? (
       <div className="ForumBtn01">
       <form action="/Forum" onSubmit={this.handleSubmit}>
-      <div>發問會員：<input type="text" name="name" disabled/></div>
-      <div>問題類別：<input type="text" name="Action" /></div>
+      <div>發問會員：<input type="text" name="name" value={userId} disabled onChange={this.handleUserNameId}/></div>
+      <div>問題類別：<input type="text" placeholder="您的問題是" name="Action"  /></div>
       <textarea name="comment" form="usrform" className="ForumBtnAction"/>
       <input type="submit" value="送出" className="ForumButton"/>
       </form></div>
