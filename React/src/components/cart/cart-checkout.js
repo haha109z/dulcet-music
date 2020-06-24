@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 function CartCheckout (props) {
 
-  const [number, setNumber] = useState(0)
+  const { number, setNumber } = props;
   const stock = 10
 
     return (
@@ -26,8 +26,7 @@ function CartCheckout (props) {
                 <li className="cart-product-li">春季吉他班</li>
                 <li className="cart-product-li cart-english-font" style={{color:'var(--main-colorfb2)'}}>$1,700</li>
                 <li className="cart-product-li-2">
-                  <i 
-                    className="cart-minusBtn fas fa-minus-circle"
+                  <div 
                     onClick={() => {
                       if (number == 0) {
                         setNumber(0)
@@ -35,20 +34,23 @@ function CartCheckout (props) {
                         setNumber(number - 1)
                       }
                     }}
-                  />
+                    >
+                    <i className="cart-minusBtn fas fa-minus-circle" onClick={()=>{alert('click')}} />
+                  </div>
                   <div className="cart-number-input cart-english-font">{number}</div>
-                  <i 
-                    className="cart-plusBtn fas fa-plus-circle"
+                  <div
                     onClick={() => {
-                      if (number == 0) {
-                        setNumber(0)
-                        console.log(number)
+                      if (number == stock) {
+                        setNumber(stock)
+                        alert('failure')
                       } else {
                         setNumber(number + 1)
                         console.log(number)
                       }
                     }}
-                  />
+                  >
+                    <i className="cart-plusBtn fas fa-plus-circle" />
+                  </div>
                 </li>
                 <li className="cart-product-number cart-english-font" style={{color:'var(--main-colorfb2)'}}>$17,000</li>
                 <li className="cart-trash-btn" onClick={()=>{}}><i className="far fa-trash-alt"></i></li>
