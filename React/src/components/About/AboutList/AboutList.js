@@ -16,7 +16,9 @@ class AboutList extends Component {
     })
 
 }
+
 render(){
+  
   return (
     <>
     <div className="AboutAll">
@@ -39,11 +41,14 @@ render(){
             <br></br>
             誠摯邀請您和我們一起，徜徉在樂句之間，讓我們一起將這樣的感動帶給更多人。
           </p>
+          
           <img
             className="AboutImgPicture1"
-            src={require('../../../img/About/About小圖片1.jpg')}
+            src={require('../../../img/About/About小圖片1.jpg') } 
+            
             alt="AboutImgBackground1"
           />
+         
         </div>
         {/* 第二區塊 */}
         <div className="AboutList2">
@@ -57,11 +62,13 @@ render(){
             <p className="AboutP2Left AboutP2LeftBottom">
               店家地址：台北市南港區忠孝東路八段100巷
             </p>
+            <a href="https://goo.gl/maps/PAS9FGoYtjVnARou8">
             <img
               className="AboutImgPicture2"
-              src={require('../../../img/About/地圖圖片1.jpg')}
+              src={require('../../../img/About/地圖圖片1.png')}
               alt="AboutImgBackground2"
-            ></img>
+            />
+            </a>
           </div>
           {/* 第二區塊右邊 */}
           <div className="About2Right">
@@ -105,11 +112,13 @@ render(){
             <p className="AboutP3Left AboutP3LeftBottom">
               店家地址：台北市南港區忠孝東路八段100巷
             </p>
+            <a href="https://goo.gl/maps/eLAmk9EmoTkEnzTq8">
             <img
               className="AboutImgPicture3"
-              src={require('../../../img/About/地圖圖片1.jpg')}
+              src={require('../../../img/About/地圖圖片2.png')}
               alt="AboutImgBackground3"
-            ></img>
+            />
+            </a>
           </div>
           {/* 第三區塊右邊 */}
           <div className="About3Right">
