@@ -5,6 +5,8 @@ import React,{Component} from 'react'
 import AOS from 'aos';
 
 
+
+
 class AboutList extends Component {
 
   componentDidMount(){
@@ -16,6 +18,21 @@ class AboutList extends Component {
 
 }
 
+handle_click = ()=>{
+  let t = this;
+  fetch('http://localhost:3030/forum', {method: 'GET'}).then(
+      function (res) {
+          console.log(res);
+          res.json().then(function (data) {
+                  console.log(data);
+                  t.setState({
+                      news:data
+                  });
+              }
+          )
+      });
+};
+
 render(){
   return (
     <>
@@ -24,6 +41,7 @@ render(){
         {/* 第一區塊 */}
 
         <h2 className="AboutH2">關於我們</h2>
+        <button onClick={this.handle_click}>123</button>
         <div className="AboutList1">
           <p className="AboutP">
             庸庸碌碌的平淡生活有時總不免讓你陷入迷茫，若是失去了持續堅持的動力，不妨暫時借助音樂的力量吧!悠然動人的節奏，總是能撫慰每顆疲憊的心靈。隨著流瀉而出的動聽旋律，翩然起舞，彷彿就能暫時拋下生活中的紛紛擾擾、那些讓你感到不如意的小事，再次喚醒你心中那股對生命的熱情與活力。
