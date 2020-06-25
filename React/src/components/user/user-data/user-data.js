@@ -108,9 +108,15 @@ export default class UserData extends Component {
                     'Content-Type': 'application/json',
                   }),
                 })
-                  .then(res => res.json())
-                  .then(json => {
-                    localStorage.setItem('user', JSON.stringify(json.data))
+                  .then((res) => res.json())
+                  .then((json) => {
+                    console.log(json.code)
+                    if (json.code === 3) {
+                      MySwal.fire('信箱已經註冊過請換一個信箱試試', '', 'error')
+                    } else if (json.data) {
+                      localStorage.setItem('user', JSON.stringify(json.data))
+                    }
+                    // localStorage.setItem('user', JSON.stringify(json.data))
                     // console.log(json.data)
                   })
                   .catch((error) => {
@@ -136,12 +142,7 @@ export default class UserData extends Component {
 
     if (getUserInfo()) {
       let user = getUserInfo()
-
       if (user[0].userID) {
-        console.log(user[0].userID)
-        // JSON.parse(localStorage.getItem('user'));
-        // console.log("user", user[0])
-        // alert(`${user[0].userID}歡迎您～！` )
         this.setState({ user: user[0] })
       } else {
         this.setState({ user: '' })

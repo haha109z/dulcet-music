@@ -1,5 +1,5 @@
 const express = require('express');
-// const db = require(__dirname + '/db_connect2');
+const db = require(__dirname + '/db_connect2');
 const router = express.Router();
 const upload = require(__dirname + '/upload-module');
 const query = require(__dirname + '/mysql');
@@ -18,8 +18,8 @@ router.post('/', async (req, res) => {
   } = req.body;
   let resData = { code: '', msg: '' };
   // const output = await getData(req);
-
-  const output = await query(
+try{
+  await query(
     `UPDATE user SET userName = ?,userPhone = ?,userMail= ?,userBirthday = ?,userAddress = ? WHERE user.userID = ?;
     `,
     [
@@ -29,24 +29,27 @@ router.post('/', async (req, res) => {
       changUserBirthday,
       changUserAddress,
       userID,
-    ]
+    ],
+    (err, result) => {
+      if (err) throw err;
+      console.log(result);
+    }
   );
+}
+catch (e){
+console.log(e.errno)
+if(e.errno==1062){
+}
+resData = { code: 3, msg: '信箱已經被註冊過請換個信箱試試',};
+return res.json(resData);
+}
   const newData = await query(
     `SELECT * FROM user WHERE userID LIKE ?;
     `,
     [userID]
   );
- 
-
-  if (output.length === 0) {
-    resData = { code: 1, msg: '新增失敗' };
-    return res.json(resData);
-  }
-
   resData = { code: 0, msg: '正確', data: newData };
   res.json(resData);
-  
-}
-)
+})
 
 module.exports = router;
