@@ -4,7 +4,7 @@ const cors = require("cors");
 // const session = require("express-session");
 // const MysqlStore = require("express-mysql-session")(session);
 // const upload = require(__dirname + '/upload-module');
-
+const query = require(__dirname + '/mysql');
 var app = express();
 
 // parse application/   x-www-form-urlencoded
@@ -28,11 +28,13 @@ app.use(cors(corsOptions));
 
 app.use("/login/user", require(__dirname + "/login"));
 app.use("/register/user", require(__dirname + "/register"));
+
 app.use("/user/UserData", require(__dirname + "/changeUserData"));
 app.use("/user/UserPwd", require(__dirname + "/changeUserPwd"));
 
 
 // app.use("/form", require(__dirname + "/form"));
+
 // 在網址 localhost:3030/123 來測試
 // app.use((req,res)=>{
 //     // 返回純文字，標籤也是被當成純文字輸出，像text()
@@ -46,6 +48,14 @@ app.use("/user/UserPwd", require(__dirname + "/changeUserPwd"));
 app.get("/", (req, res) => {
     res.send("123");
   });
+//              Forum!!
+app.get('/forum', async (req, res) => {
+    const output = await query("SELECT * FROM `ForumAbout` WHERE 1");
+  console.log(output)
+    res.json(output);
+  });
+//   app.use("/forum" , require(__dirname + "/forum"))
+
 
 app.listen(3030,()=>{
     console.log("server 啟動");

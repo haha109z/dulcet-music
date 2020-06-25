@@ -2,7 +2,17 @@ import React from 'react'
 import {BrowserRouter,Router,Route,Link,Switch,withRouter,} from 'react-router-dom'
 
 class InstrumentList extends React.Component {
-  
+    constructor(){
+      super()
+      this.state={
+
+      }
+    }
+
+
+    handleputon = e => {
+      const state = document.querySelector('.ins-list-product').children
+    }
   render() {
     return (
       <div className="ins-list-page">
@@ -86,9 +96,9 @@ class InstrumentList extends React.Component {
               </span>
             </Link>
             <div className="ins-list-content-btns">
-              <button>上架</button>
-              <button>下架</button>
-              <button>刪除</button>
+              <button onClick={this.handleputon}>上架</button>
+              <button onClick={this.handleputon}>下架</button>
+              <button onClick={this.handleputon}>刪除</button>
             </div>
           </div>
         </form>

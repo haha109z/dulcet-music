@@ -15,7 +15,7 @@ function NewsContent(props) {
           <div className="news-Content">
             <img className="news-ContentImg" src={require("../../img/news/news_a001.jpg")}></img>
             
-            <FaShareAlt class="news-Share news-H3" />
+            <Link className="news-Share"><FaShareAlt class="news-H3" /></Link>
               <p className="news-H3 news-LetterSpacing news-NotoSerifTC">
                 109年12月26號(六)19:00-21:00<br />
                 <FaMapMarkerAlt className="news-H3" /> 臺中國家歌劇院 大劇院<br />
@@ -39,7 +39,7 @@ function NewsContent(props) {
 
             <img className="news-ContentImg" src={require("../../img/news/news_a001.jpg")}></img>
 
-              <FaShareAlt class="news-Share news-H3" />
+            <Link><FaShareAlt class="news-Share news-H3" /></Link>
               <p className="news-H3 news-LetterSpacing news-NotoSerifTC">
                 109年12月26號(六)19:00-21:00<br />
                 <FaMapMarkerAlt className="news-H3" /> 臺中國家歌劇院 大劇院<br />
@@ -63,7 +63,7 @@ function NewsContent(props) {
 
             <img className="news-ContentImg" src={require("../../img/news/news_a001.jpg")}></img>
               
-            <FaShareAlt class="news-Share news-H3" />
+            <Link><FaShareAlt class="news-Share news-H3" /></Link>
               <p className="news-H3 news-LetterSpacing news-NotoSerifTC">
                 109年12月26號(六)19:00-21:00<br />
                 <FaMapMarkerAlt className="news-H3" /> 臺中國家歌劇院 大劇院<br />
