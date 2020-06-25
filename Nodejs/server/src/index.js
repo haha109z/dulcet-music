@@ -28,6 +28,10 @@ app.use(cors(corsOptions));
 
 app.use("/login/user", require(__dirname + "/login"));
 app.use("/register/user", require(__dirname + "/register"));
+app.use("/user/UserData", require(__dirname + "/changeUserData"));
+app.use("/user/UserPwd", require(__dirname + "/changeUserPwd"));
+
+
 // app.use("/form", require(__dirname + "/form"));
 // 在網址 localhost:3030/123 來測試
 // app.use((req,res)=>{

@@ -4,61 +4,151 @@ import withReactContent from 'sweetalert2-react-content'
 import Swal from 'sweetalert2'
 
 const MySwal = withReactContent(Swal)
-
 const getUserInfo = () => {
   return JSON.parse(localStorage.getItem('user'))
 }
-
 export default class UserData extends Component {
   state = {
-    user: [],
+    userData: [],
+    user: [
+      {
+        userID: '',
+        userName: '',
+        userMail: '',
+        userBirthday: '',
+        userAddress: '',
+        userPhone: '',
+      },
+    ],
   }
-  changData = () => {
-    MySwal.fire({
-      type: 'warning', // 彈框類型
-      title: '確定修改資料嗎？', //標題
-      text: '', //顯示內容
-      icon: '', //icon圖示
-      confirmButtonColor: '#141414', // 確定按鈕的 顏色
-      confirmButtonText: '確定', // 確定按鈕的 文字
-      showCancelButton: true, // 是否顯示取消按鈕
-      cancelButtonColor: '#dadada', // 取消按鈕的 顏色
-      cancelButtonText: '取消', // 取消按鈕的 文字
-      html:
-      '<input id="swal-input1" class="swal2-input" value="">' +
-      '<input id="swal-input2" class="swal2-input">'+
-      '<input id="swal-input3" class="swal2-input">'+
-      '<input id="swal-input4" class="swal2-input">'+
-      '<input id="swal-input5" class="swal2-input">',
-      focusCancel: true, // 是否聚焦 取消按鈕
-      reverseButtons: true, // 是否 反轉 兩個按鈕的位置 默認是  左邊 確定  右邊 取消
-    }).then((isConfirm) => {
-      try {
-        //判斷 是否 點擊的 確定按鈕
-        if (isConfirm.value) {
-          MySwal.fire('修改成功', '', 'success')
-        } else {
-          MySwal.fire('取消修改', '', 'error')
-        }
-      } catch (e) {
-        alert(e)
-      }
-    })
-  }
+
   // 在這個生命週期中渲染資料
   componentDidMount() {
-    if(getUserInfo()){
-       let user = getUserInfo()
-    // JSON.parse(localStorage.getItem('user'));
-    // console.log("user", user[0])
-    // alert(`${user[0].userID}歡迎您～！` )
+    this.changData = () => {
+      const {
+        userID,
+        userName,
+        userMail,
+        userBirthday,
+        userAddress,
+        userPhone,
+      } = this.state.user
 
-    this.setState({ user: user[0] })
-    }else{
-      this.setState({ user: "" })
+      const userGoData = [
+        userName,
+        userMail,
+        userBirthday,
+        userAddress,
+        userPhone,
+      ]
 
+      // console.log(userID)
+      MySwal.fire({
+        type: 'warning', // 彈框類型
+        title: '修改資料？', //標題
+        text: '', //顯示內容
+        icon: '', //icon圖示
+        confirmButtonColor: '#141414', // 確定按鈕的 顏色
+        confirmButtonText: '確定', // 確定按鈕的 文字
+        showCancelButton: true, // 是否顯示取消按鈕
+        cancelButtonColor: '#dadada', // 取消按鈕的 顏色
+        cancelButtonText: '取消', // 取消按鈕的 文字
+        html:
+          `<p class="userdata-alert-p">姓名</p>` +
+          `<input id="swal-input1" class="swal2-input" value=${userName}>` +
+          `<p class="userdata-alert-p">電子信箱</p>` +
+          `<input id="swal-input2" class="swal2-input" value=${userMail}>` +
+          `<p class="userdata-alert-p">生日</p>` +
+          `<input id="swal-input3" class="swal2-input" type="date" value=${userBirthday}>` +
+          `<p class="userdata-alert-p">地址</p>` +
+          `<input id="swal-input4" class="swal2-input" value=${userAddress}>` +
+          `<p class="userdata-alert-p">手機號碼</p>` +
+          `<input id="swal-input5" class="swal2-input" value=${userPhone}>`,
+        focusCancel: true, // 是否聚焦 取消按鈕
+        reverseButtons: true, // 是否 反轉 兩個按鈕的位置 默認是  左邊 確定  右邊 取消
+      }).then((isConfirm) => {
+        try {
+          let changUsername = document.getElementById('swal-input1').value
+          let changUserMail = document.getElementById('swal-input2').value
+          let changUserBirthday = document.getElementById('swal-input3').value
+          let changUserAddress = document.getElementById('swal-input4').value
+          let changUserPhone = document.getElementById('swal-input5').value
+
+          // console.log(userGoData)
+          // console.log(changData)
+          //判斷 是否 點擊的 確定按鈕
+          if (isConfirm.value) {
+            // console.log(userGoData)
+
+            MySwal.fire({
+              type: 'warning', // 彈框類型
+              title: '確定修改資料？', //標題
+              text: '', //顯示內容
+              icon: 'question', //icon圖示
+              confirmButtonColor: '#141414', // 確定按鈕的 顏色
+              confirmButtonText: '確定', // 確定按鈕的 文字
+              showCancelButton: true, // 是否顯示取消按鈕
+              cancelButtonColor: '#dadada', // 取消按鈕的 顏色
+              cancelButtonText: '取消', // 取消按鈕的 文字
+              focusCancel: true, // 是否聚焦 取消按鈕
+              reverseButtons: true, // 是否 反轉 兩個按鈕的位置 默認是  左邊 確定  右邊 取消
+            }).then((isConfirm) => {
+              if (isConfirm.value) {
+                fetch('http://localhost:3030/user/UserData', {
+                  method: 'POST', // or 'PUT'
+                  body: JSON.stringify({
+                    userID,
+                    changUsername,
+                    changUserMail,
+                    changUserBirthday,
+                    changUserAddress,
+                    changUserPhone,
+                  }), // data can be `string` or {object}!
+                  headers: new Headers({
+                    'Content-Type': 'application/json',
+                  }),
+                })
+                  .then(res => res.json())
+                  .then(json => {
+                    localStorage.setItem('user', JSON.stringify(json.data))
+                    // console.log(json.data)
+                  })
+                  .catch((error) => {
+                    console.error('Error:', error)
+                  })
+                // localStorage.setItem('user', JSON.stringify(userData))
+
+                MySwal.fire('修改完成', '', 'success')
+              } else {
+                MySwal.fire('取消修改', '', 'error')
+              }
+            })
+
+            // MySwal.fire('修改成功', '', 'success')
+          } else {
+            MySwal.fire('取消修改', '', 'error')
+          }
+        } catch (e) {
+          alert(e)
+        }
+      })
     }
-   
+
+    if (getUserInfo()) {
+      let user = getUserInfo()
+
+      if (user[0].userID) {
+        console.log(user[0].userID)
+        // JSON.parse(localStorage.getItem('user'));
+        // console.log("user", user[0])
+        // alert(`${user[0].userID}歡迎您～！` )
+        this.setState({ user: user[0] })
+      } else {
+        this.setState({ user: '' })
+      }
+    } else {
+      this.setState({ user: '' })
+    }
   }
 
   render() {
@@ -72,8 +162,8 @@ export default class UserData extends Component {
 
           <hr className="userData-top-hr" />
 
-          <htmlFor className="userData-form" action="">
-            <label className="userData-form-input " for="name">
+          <form className="userData-form" action="">
+            <label className="userData-form-input " htmlFor="name">
               <p>會員編號</p>
               <div className="UserData-inp ">
                 <input
@@ -81,77 +171,82 @@ export default class UserData extends Component {
                   id="id"
                   type="text"
                   value={this.state.user.userID}
-                  readonly="readonly"
+                  readOnly="readOnly"
                 />
               </div>
             </label>
 
-            <label className="userData-form-input " for="name">
+            <label className="userData-form-input " htmlFor="name">
               <p>姓名</p>
               <div className="UserData-inp">
                 <input
                   id="name"
                   type="text"
-                  autocomplete="off"
-                  value={this.state.user.username}
+                  autoComplete="off"
+                  readOnly="readOnly"
+                  value={this.state.user.userName}
                 />
               </div>
             </label>
 
-            <label className="userData-form-input " for="email">
+            <label className="userData-form-input " htmlFor="email">
               <p>信箱</p>
               <div className="UserData-inp">
                 <input
                   id="email"
                   type="text"
-                  autocomplete="off"
+                  autoComplete="off"
+                  readOnly="readOnly"
                   value={this.state.user.userMail}
                 />
               </div>
             </label>
-            <label className="userData-form-input " for="birthday">
+            <label className="userData-form-input " htmlFor="birthday">
               <p>生日</p>
-              <div className="UserData-inp" autocomplete="off">
+              <div className="UserData-inp" autoComplete="off">
                 <input
                   id="birthday"
                   type="text"
-                  autocomplete="off"
+                  autoComplete="off"
+                  readOnly="readOnly"
                   value={this.state.user.userBirthday}
                 />
               </div>
             </label>
 
-            <label className="userData-form-input " for="add">
+            <label className="userData-form-input " htmlFor="add">
               <p>地址</p>
               <div className="UserData-inp">
                 <input
                   id="add"
                   type="text"
-                  autocomplete="off"
+                  autoComplete="off"
+                  readOnly="readOnly"
                   value={this.state.user.userAddress}
                 />
               </div>
             </label>
 
-            <label className="userData-form-input " for="phone">
+            <label className="userData-form-input " htmlFor="phone">
               <p>手機號碼</p>
               <div className="UserData-inp">
                 <input
                   id="phone"
                   type="text"
-                  autocomplete="off"
+                  autoComplete="off"
+                  readOnly="readOnly"
                   value={this.state.user.userPhone}
                 />
               </div>
             </label>
 
             <input
-              type="submit"
+              type="button"
               onClick={this.changData}
               className="userData-form-button"
               value="修改資料"
             />
-          </htmlFor>
+          </form>
         </div>
       </>
     )

@@ -37,6 +37,7 @@
   display: flex;
   position: relative;
   font-size: 16px;
+
 }
 
 .userData-form-input > p {
@@ -49,15 +50,16 @@
   margin: 20px auto 0 auto;
   border-bottom: 2px var(--main-colorda) solid;
   width: 100%;
+
   max-width: 500px;
 
 }
-.userData-form > label:hover {
+// .userData-form > label:hover {
  
-  border-bottom: 2px #141414 solid;
+//   border-bottom: 2px #141414 solid;
 
 
-}
+// }
 
 .userData-form {
   display: flex;
@@ -91,6 +93,12 @@
   background-color: none;
   border: none;
   font-family: var(--main-title-chinese);
+  color: var(--main-color79);
+}
+.userdata-alert-p{
+margin-bottom: -13px;
+  float: left;
+
 }
 @media (max-width: 768px) {
   .userData-main {
