@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaPlus } from "react-icons/fa"
+import { FaPlus, FaCommentsDollar } from "react-icons/fa"
 
 
 
@@ -7,30 +7,65 @@ class InstrumentPutOn extends React.Component{
     constructor(){
         super()
         this.state = {
-            value : ""
+            img : '',
+            
         }
-        
     }
     handlechange(event){
         const v = event.target.value
         console.log(v)
     }
+    handleUpload = e =>{
+        const uploadfile = document.querySelector('.ins-puton-file-img');
+        const preview = document.querySelector('.ins-pre-img')
+        const filereader = new FileReader()
+        const del = document.querySelector('.ins-puton-add')
+        const h3 = document.querySelector('.ins-puton-file-text')
+        const div = document.querySelector('.ins-puton-icon-div')
+
+        uploadfile.addEventListener('change', e => {
+            const file = e.target.files[0]
+            filereader.readAsDataURL(file)
+            del.removeChild(h3)
+            del.removeChild(div)
+        })
+
+        filereader.addEventListener('load',function(){
+            const dataURL = filereader.result
+            preview.src = dataURL;
+            alert('上傳成功')
+        })
+
+        
+    }
+    
+    // fileLoad = e =>{
+    //     this.setState({
+    //         img : e.target.result
+    //     })
+    //     console.log(img);
+    // }
 
     render(){
+        
     return(
         <div className="ins-puton-page">
         <h3 className="font-size-142rem">新增商品</h3>
         <form className="ins-puton-form">
             <div className="ins-puton-add" controls>
                 <h3 className="ins-puton-file-text font-size-142rem">圖片預覽</h3>
-                <div className="ins-puton-icon-div">
-                    <FaPlus className="ins-puton-icon"/>
-                </div>
-                <img></img>
+                    <div className="ins-puton-icon-div">
+                        <FaPlus className="ins-puton-icon"/>
+                    </div>
+                <img className="ins-pre-img"></img>
             </div>
-            <div className="ins-puton-file-btn">
-                <button type="submit">選擇圖片</button>
-            </div>
+            <form className="ins-puton-file-btn">
+                <label htmlFor="file" onClick={this.handleUpload}>選擇圖片</label>
+                <input type="file" id="file" multiple
+                 accept="image/png, image/jpeg ,image/jpg" className="ins-puton-file-img"/>
+            </form>
+            
+          
             <div className="ins-puton-content">
                 <label htmlFor="name" className="ins-puton-label font-size-1rem">樂器名稱<input id="name" type="text" className="font-size-114rem"/></label>
                 <label className="ins-puton-label font-size-1rem" htmFor="option">樂器類型
@@ -63,3 +98,4 @@ class InstrumentPutOn extends React.Component{
 }
 
 export default InstrumentPutOn
+
