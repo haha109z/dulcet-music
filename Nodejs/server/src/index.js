@@ -4,7 +4,7 @@ const cors = require("cors");
 // const session = require("express-session");
 // const MysqlStore = require("express-mysql-session")(session);
 // const upload = require(__dirname + '/upload-module');
-
+const query = require(__dirname + '/mysql');
 var app = express();
 
 // parse application/   x-www-form-urlencoded
@@ -41,7 +41,11 @@ app.use("/register/user", require(__dirname + "/register"));
 app.get("/", (req, res) => {
     res.send("123");
   });
-
+app.get('/forum', async (req, res) => {
+    const output = await query("SELECT * FROM `ForumAbout` WHERE 1");
+  console.log(output)
+    res.json(output);
+  });
 app.listen(3030,()=>{
     console.log("server 啟動");
 })

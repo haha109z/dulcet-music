@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 // import '../../../../styles/custom.scss'
 //第一區塊
 // import AboutImgBackground1 from '../../../img/About小圖片1.jpg'
-
+import Carousel from '../../text/Carousel'
 import AOS from 'aos';
 
 
@@ -18,7 +18,28 @@ class AboutList extends Component {
 }
 
 render(){
-  
+//   <div className="App">
+//   <Carousel cols={3} gap={10}>
+//     <Carousel.Item>
+//       <div className="item"><img src={require('../../../img/About/女生001.jpg')}/></div>
+//     </Carousel.Item>
+//     <Carousel.Item>
+//       <div className="item">12</div>
+//     </Carousel.Item>
+//     <Carousel.Item>
+//       <div className="item">13</div>
+//     </Carousel.Item>
+//     <Carousel.Item>
+//       <div className="item">21</div>
+//     </Carousel.Item>
+//     <Carousel.Item>
+//       <div className="item">22</div>
+//     </Carousel.Item>
+//     <Carousel.Item>
+//       <div className="item">23</div>
+//     </Carousel.Item>
+//   </Carousel>
+// </div>
   return (
     <>
     <div className="AboutAll">
@@ -45,7 +66,6 @@ render(){
           <img
             className="AboutImgPicture1"
             src={require('../../../img/About/About小圖片1.jpg') } 
-            
             alt="AboutImgBackground1"
           />
          

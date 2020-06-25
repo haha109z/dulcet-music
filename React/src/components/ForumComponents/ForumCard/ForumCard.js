@@ -3,7 +3,6 @@ import AOS from 'aos'
 // import App from './Forum'
 // import ReactDOM from 'react-dom'
 // import '../../../../styles/custom.scss'
-
 class ForumCard extends Component {
   constructor(props) {
     super(props)
@@ -55,7 +54,9 @@ class ForumCard extends Component {
     //alert
     alert('新增成功')
   }
-
+  
+  
+  
   render() {
     const { boxShow, userId, boxShowBtn } = this.state
     //看回答的新增欄位
@@ -69,7 +70,7 @@ class ForumCard extends Component {
     ) : (
       ''
     )
-
+    
     //我要發問的新增欄位
     const box = boxShow ? (
    
@@ -103,6 +104,7 @@ class ForumCard extends Component {
         <div className="BackgroundForum"></div>
         <div className="ForumContainer">
           {box}
+          
           <div className="ForumTitle">
             <button
               className="ForumButton"
@@ -111,14 +113,6 @@ class ForumCard extends Component {
             >
               我要發問
             </button>
-
-            {/* <div className={`${this.state.Text ? 'true' : 'false'  }`}>
-       <input type="text"  />
-     </div>
-      <button className="ForumButton" data-aos="fade-down" onClick={()=>{
-       this.Text ? setText(false) : setText(true) 
-      }}>我要發問</button>
- */}
           </div>
           <div className="ForumCard">
             {/* card1 */}
@@ -139,6 +133,7 @@ class ForumCard extends Component {
                 <button className="ForumBtnAns" onClick={this.handleBtn}>
                   看回答
                 </button>
+        
               </div>
               {/* 看回答的button顯示 */}
               {boxBtn}
