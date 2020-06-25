@@ -1,10 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaHeart } from 'react-icons/fa'
 
 function ProductVideoCard(props) {
   const favorite = props.favorite
   const setFavorite = props.setFavorite
   const maylike = props.maylike
+  const [array, setArray] = useState([1, 2, 5])
+  const [inc, setInc] = useState(array.includes(testId))
+  var testArray = array
+  var testId = 1
+
+  var pos = testArray.indexOf(testId)
+  const testArrayFunc = () => {
+    testArray = array
+    setInc(array.includes(testId))
+    pos = testArray.indexOf(testId)
+  }
+  const func1 = () => {
+    testArray.splice(pos, 1)
+    setArray(testArray)
+  }
+  const func2 = () => {
+    testArray.push(testId)
+    setArray(testArray)
+  }
   return (
     <>
       <div
@@ -18,12 +37,21 @@ function ProductVideoCard(props) {
         />
         <div
           className={`product-card-favorite-container ${
+            inc ? 'product-card-favorite-bg' : null
+          }`}
+          onClick={() => {
+            inc ? func1() : func2()
+            testArrayFunc()
+          }}
+        >
+          {/* <div
+          className={`product-card-favorite-container ${
             favorite ? 'product-card-favorite-bg' : null
           }`}
           onClick={() => {
             favorite ? setFavorite(false) : setFavorite(true)
           }}
-        >
+        > */}
           <FaHeart className="product-card-favorite" />
         </div>
         <div className="product-card-intro">
