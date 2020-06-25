@@ -42,12 +42,12 @@ app.get("/", (req, res) => {
     res.send("123");
   });
 //              Forum!!
-// app.get('/forum', async (req, res) => {
-//     const output = await query("SELECT * FROM `ForumAbout` WHERE 1");
-//   console.log(output)
-//     res.json(output);
-//   });
-  app.use("/forum" , require(__dirname + "/forum"))
+app.get('/forum', async (req, res) => {
+    const output = await query("SELECT * FROM `ForumAbout` WHERE 1");
+  console.log(output)
+    res.json(output);
+  });
+//   app.use("/forum" , require(__dirname + "/forum"))
 
 
 app.listen(3030,()=>{
