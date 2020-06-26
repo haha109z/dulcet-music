@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function CartCheckout (props) {
 
-  const { cart, setCart, number, setNumber, user, setUser, stock, totalPrice, orderPrice } = props.allProps;  
+  const { cart, setCart, number, setNumber, user, setUser, stock, coupon, totalPrice, orderPrice } = props.allProps;  
   
   let index = 0;  
 
@@ -138,7 +138,7 @@ function CartCheckout (props) {
               </div>
               <div style={{color:'var(--main-colorfb2)'}}>
                 <span className="cart-total-title">折扣</span>
-                <span className="cart-total-number cart-english-font">- $ {user["coupon"]}</span>
+                <span className="cart-total-number cart-english-font">- $ {coupon}</span>
               </div>
               <div>
                 <span className="cart-total-title">總計</span>

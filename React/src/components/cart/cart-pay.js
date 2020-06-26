@@ -107,7 +107,7 @@ function CartPay () {
               </div>
             <div className="cart-checkout-btn">
               <button type="button">
-                <Link to='/cart/3'>上一步</Link>
+                <Link to='/cart/2'>上一步</Link>
               </button>
               <button type="button">
                 <Link to='/cart/4'>確認送出</Link>

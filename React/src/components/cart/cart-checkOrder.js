@@ -102,7 +102,7 @@ export default function CartCheckOrder (props) {
           </div>
           <div className="cart-checkout-btn">
             <button type="button">
-              <Link to='/cart/2'>上一步</Link>
+              <Link to='/cart/1'>上一步</Link>
             </button>
             <button type="button">
               <Link to='/cart/3'>下一步</Link>

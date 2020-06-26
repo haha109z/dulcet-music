@@ -16,16 +16,19 @@ function CartApp (props) {
     { cartItemId: 2, img: "cart-violin-01", product: "小提琴", price: 5000, number: 5 },
     { cartItemId: 3, img: "cart-violin-01", product: "線上鋼琴班", price: 1800, number: 2 },
   ])
-
-  let [number, setNumber] = useState(cart[0].number)
+  const [number, setNumber] = useState(cart[0].number)
+  const totalPrice = number * cart[0].price;  
   const stock = 5;  
-  const totalPrice = number * cart[0].price;
-  
+
   // { userID: "", username: "", userAddress: "", userMail: "", userPhone: "", }
   const [user, setUser] = useState(
     { userID: 1, username: "Lemon", userAddress: "lemon tree no.123", userMail: "lemon@gmail.com", userPhone: "0911111111", coupon:"dulcet1500" }
   )
-  const orderPrice = totalPrice - user["coupon"];
+
+  const coupon = 1500;
+  const orderPrice = totalPrice - coupon;
+
+  
   // const loginProcess = (loginSuccessCallback) => {
   //   // 執行成功的callback(來自cart-checkout.js)
   //   loginSuccessCallback()
@@ -90,6 +93,7 @@ function CartApp (props) {
                         user,
                         setUser,
                         stock,
+                        coupon,
                         totalPrice,
                         orderPrice,
                     }}
@@ -111,6 +115,7 @@ function CartApp (props) {
                         user,
                         setUser,
                         stock,
+                        coupon,
                         totalPrice,
                         orderPrice,
                     }}
