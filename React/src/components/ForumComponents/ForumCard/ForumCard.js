@@ -5,14 +5,12 @@ import AOS from 'aos'
 //   return JSON.parse(this.state.news)
 // }
 class ForumCard extends Component {
-
-
-
-  
   constructor(props) {
     super(props)
     let t = this
-    fetch('http://localhost:3030/forum', { method: 'GET' }).then(function (res) {
+    fetch('http://localhost:3030/forum', { method: 'GET' }).then(function (
+      res
+    ) {
       // console.log(res);
       res.json().then(function (data) {
         console.log(data)
@@ -27,25 +25,25 @@ class ForumCard extends Component {
     boxShow: false,
     boxShowBtn: false,
     userId: '',
-    username:'',
+    username: '',
     userImg: '',
     ForumAboutTitle: '', //樂器類型
     ForumTitleId: '', //主題
     ForumMemo: '', //內容
-    news: [{
-      ForumId:"",
-      TitleMusic:"",
-      TitleId:"",
-      Memo:"",
-      NewsDate:""
-    }],
+    news: [
+      {
+        ForumId: '',
+        TitleMusic: '',
+        TitleId: '',
+        Memo: '',
+        NewsDate: '',
+      },
+    ],
   }
 
   componentDidMount(e) {
     const handleForumAboutTitle = this.state
     console.log(handleForumAboutTitle)
-
-
 
     const getUserInfo = () => {
       return JSON.parse(localStorage.getItem('user'))
@@ -61,7 +59,6 @@ class ForumCard extends Component {
     } else {
       this.setState({ userId: '' })
     }
-
   }
   componentDidUpdate(e) {
     // const handleForumAboutTitle = this.state
@@ -86,20 +83,19 @@ class ForumCard extends Component {
     this.setState({ boxShow: toggle })
     // console.log(boxShow);
   }
-  // handleUserNameId=(event)=>{
-  //   const UserName = event.target.value
-  //   this.setState({UserName})
-  // }
+  handleUserNameId = (event) => {
+    const UserName = event.target.name
+    console.log(UserName)
+    this.setState({ UserName })
+  }
 
   handleForumAboutTitle = (event) => {
     const state = this.state
-    
+
     console.log(state)
 
-    
-
     //  console.log(ForumAboutTitle)
-    this.setState({news:state.news.ForumId})
+    this.setState({ news: state.news.ForumId })
     console.log(state)
   }
 
@@ -117,7 +113,9 @@ class ForumCard extends Component {
     //sql語法
     // SELECT ForumAbout.userID,user.userName,ForumAbout.TitleMusic,ForumAbout.TitleId,ForumAbout.Memo FROM ForumAbout left JOIN user ON ForumAbout.userID = user.userID
     let t = this
-    fetch('http://localhost:3030/forum/add', { method: 'GET' }).then(function (res) {
+    fetch('http://localhost:3030/forum', { method: 'GET' }).then(function (
+      res
+    ) {
       // console.log(res);
       res.json().then(function (data) {
         console.log(data)
@@ -128,7 +126,7 @@ class ForumCard extends Component {
     })
 
     alert('新增成功')
-    this.setState({boxShow: false})
+    this.setState({ boxShow: false })
   }
 
   render() {
@@ -139,8 +137,7 @@ class ForumCard extends Component {
         <p className="ForumCardP2">
           鈴木和霍曼都可以，這兩個是目前用的最多的教材。可以一邊練琴一邊學些基礎知識，但最好有老師帶著你鈴木和霍曼都可以，這兩個是目前用的最多的教材。可以一邊練琴一邊學些基礎知識，但最好有老師帶著你
         </p>
-        <div className="ForumCardTeacherImg">
-        </div>
+        <div className="ForumCardTeacherImg"></div>
       </div>
     ) : (
       ''
@@ -155,7 +152,7 @@ class ForumCard extends Component {
             <input
               type="text"
               name="name"
-              value={userId}
+              value={this.handleUserNameId}
               disabled
               onChange={this.handleUserNameId}
             />
@@ -168,7 +165,12 @@ class ForumCard extends Component {
             <input type="text" placeholder="您的問題是" name="Action" />
           </div>
           <textarea name="comment" className="ForumBtnAction" />
-          <input type="submit" value="送出" className="ForumButton"  onClick={this.handleSubmit}/>
+          <input
+            type="submit"
+            value="送出"
+            className="ForumButton"
+            onClick={this.handleSubmit}
+          />
         </div>
       </div>
     ) : (
@@ -189,44 +191,38 @@ class ForumCard extends Component {
             >
               我要發問
             </button>
-            
           </div>
-          
-            {/* card1 */}
-            <div className="ForumCardFlex">
-        {this.state.news.map((item  , i)=>{
-          return(
-           
-            <div key={i} className="ForumCard">
-              <div className="ForumCardTitle">
-                <div className="ForumCardImg"></div>
-                <div>
-                  <h3 className="ForumCardH3">發問會員：{item.username}</h3>
-                  <h3 className="ForumCardH3">問題類別：{item.TitleMusic}</h3>
+
+          {/* card1 */}
+          <div className="ForumCardFlex">
+            {this.state.news.map((item, i) => {
+              return (
+                <div key={i} className="ForumCard">
+                  <div className="ForumCardTitle">
+                    <div className="ForumCardImg"></div>
+                    <div>
+                      <h3 className="ForumCardH3">發問會員：{item.userName}</h3>
+                      <h3 className="ForumCardH3">
+                        問題類別：{item.TitleMusic}
+                      </h3>
+                    </div>
+                    <button className="ComprehensiveButton">綜合</button>
+                  </div>
+                  <div className="ForumCardDiv">
+                    <p className="ForumCardP">{item.Memo}</p>
+                    <button className="ForumBtnAns" onClick={this.handleBtn}>
+                      看回答
+                    </button>
+                  </div>
+                  {/* 看回答的button顯示 */}
+                  {boxBtn}
                 </div>
-                <button className="ComprehensiveButton">綜合</button>
-              </div>
-              <div className="ForumCardDiv">
-                <p className="ForumCardP">
-                {item.Ｍemo}
-                </p>
-                <button className="ForumBtnAns" onClick={this.handleBtn}>
-                  看回答
-                </button>
-              </div>
-              {/* 看回答的button顯示 */}
-              {boxBtn}
-           
-            </div>
-           
-          )
-        }
-        
-        )}
-        </div>
-      
-            {/* card2 */}
-            {/* <action className="ForumAction">
+              )
+            })}
+          </div>
+
+          {/* card2 */}
+          {/* <action className="ForumAction">
                <div className="ForumCardTitle">
                 <div className="ForumCardImg"></div>
                 <div>
@@ -246,8 +242,8 @@ class ForumCard extends Component {
             </action>
           </div>
           <div className="ForumCard"> */}
-            {/* card3 */}
-            {/* <action className="ForumAction">
+          {/* card3 */}
+          {/* <action className="ForumAction">
               <div className="ForumCardTitle">
                 <div className="ForumCardImg"></div>
                 <div>
@@ -264,8 +260,8 @@ class ForumCard extends Component {
                 <button className="ForumBtnAns">看回答</button>
               </div>
             </action> */}
-            {/* card4 */}
-            {/* <action className="ForumAction">
+          {/* card4 */}
+          {/* <action className="ForumAction">
               <div className="ForumCardTitle">
                 <div className="ForumCardImg"></div>
                 <div>
@@ -282,7 +278,7 @@ class ForumCard extends Component {
                 <button className="ForumBtnAns">看回答</button>
               </div>
             </action> */}
-          
+
           <div className="ForumChecked">
             <button type="checked" style={{ width: 30, height: 30 }}>
               <i className="fas fa-chevron-left"></i>
