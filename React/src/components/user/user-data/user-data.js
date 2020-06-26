@@ -4,9 +4,7 @@ import withReactContent from 'sweetalert2-react-content'
 import Swal from 'sweetalert2'
 
 const MySwal = withReactContent(Swal)
-const getUserInfo = () => {
-  return JSON.parse(localStorage.getItem('user'))
-}
+
 export default class UserData extends Component {
   state = {
     userData: [],
@@ -139,7 +137,9 @@ export default class UserData extends Component {
         }
       })
     }
-
+    const getUserInfo = () => {
+      return JSON.parse(localStorage.getItem('user'))
+    }
     if (getUserInfo()) {
       let user = getUserInfo()
       if (user[0].userID) {
