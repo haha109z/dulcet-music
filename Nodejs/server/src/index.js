@@ -61,7 +61,7 @@ app.get("/", (req, res) => {
 //商品
 app.use("/product", require(__dirname + "/product"));
 
-//              Forum!!
+// Forum!!
 app.get("/forum", async (req, res) => {
   const output = await query(
     `SELECT ForumAbout.userID,user.userName,ForumAbout.TitleMusic,ForumAbout.TitleId,ForumAbout.Memo FROM ForumAbout left JOIN user ON ForumAbout.userID = user.userID`
@@ -73,6 +73,13 @@ app.get("/forum", async (req, res) => {
 
 app.use("/newscategory", require(__dirname + "/newscategory"));
 app.use("/newscontent", require(__dirname + "/newscontent"));
+
+//cart
+app.get('/cart', async (req, res) => {
+  const output = await query("SELECT * FROM `orderlist` WHERE 1");
+  console.log(output)
+  res.json(output);
+});
 
 app.listen(3030, () => {
   console.log("server 啟動");
