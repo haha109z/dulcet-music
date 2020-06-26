@@ -27,35 +27,29 @@ class InstrumentPutOn extends React.Component{
         const h3 = document.querySelector('.ins-puton-file-text')
         const div = document.querySelector('.ins-puton-icon-div')
 
-        // 追蹤上傳按鈕事件
-        uploadfile.addEventListener('change', e => {
-            // 抓到值放入 變數file
-            const file = e.target.files[0]
-            // 轉成base46碼
-            filereader.readAsDataURL(file)
-            // 刪除預覽圖片的子元素
-            del.removeChild(h3)
-            del.removeChild(div)
-        })
-        // 追蹤事件載入
-        filereader.addEventListener('load',function(){
-            // 把base46碼放入變數 dataURL
-            const dataURL = filereader.result
-            // 把值傳入預覽圖片元素顯示
-            preview.src = dataURL;
-            alert('上傳成功')
-        })
+        // // 追蹤上傳按鈕事件
+        // uploadfile.addEventListener('change', e => {
+        //     // 抓到值放入 變數file
+        //     const file = e.target.files[0]
+        //     // 轉成base46碼
+        //     filereader.readAsDataURL(file)
+        //     // 刪除預覽圖片的子元素
 
-        
+        //     h3.style.display = 'none'
+        //     div.style.display = 'none'
+        // })
+        // // 追蹤事件載入
+        // filereader.addEventListener('load',function(){
+        //     // 把base46碼放入變數 dataURL
+        //     const dataURL = filereader.result
+        //     console.log(dataURL)
+        //     // 把值傳入預覽圖片元素顯示
+        //     preview.src = dataURL;
+        //     alert('上傳成功')
+        // })
     }
     
-    // fileLoad = e =>{
-    //     this.setState({
-    //         img : e.target.result
-    //     })
-    //     console.log(img);
-    // }
-
+   
     render(){
         
     return(
@@ -78,7 +72,7 @@ class InstrumentPutOn extends React.Component{
           
             <div className="ins-puton-content">
                 <label htmlFor="name" className="ins-puton-label font-size-1rem">樂器名稱<input id="name" type="text" className="font-size-114rem"/></label>
-                <label className="ins-puton-label font-size-1rem" htmFor="option">樂器類型
+                <label className="ins-puton-label font-size-1rem" htmlFor="option">樂器類型
                 <div className="ins-select-value">
                     <select className="font-size-114rem" id="option" onChange={this.handlechange}>
                         <option value=""></option>
