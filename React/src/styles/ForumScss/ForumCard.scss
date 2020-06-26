@@ -35,7 +35,7 @@
   color: #141414;
 }
 .ForumTitle {
-  max-width: 960px;
+  // max-width: 960px;
   height: 100px;
 }
 /* Forum-button */
@@ -53,12 +53,11 @@
 
 // ForumCardAll
 .ForumCard {
-  display: flex;
+  // display: flex;
+  max-width: calc(50% - 40px);
+  padding: 20px;
 }
-// ForumCardAction
-.ForumAction {
-  padding: 20px 20px 20px 0;
-}
+
 // CardImg
 
 .ForumCardImg {
@@ -97,7 +96,7 @@
 
 .ForumCardTitle {
   display: flex;
-  max-width: 480px;
+  max-width: 460px;
 }
 // CardH3元素
 
@@ -126,7 +125,7 @@
 .ForumCardDiv {
   display: flex;
   border: 1px solid #f2ebdf;
-  width: 460px;
+  max-width: 460px;
   margin: 0px;
 }
 // CardP元素
