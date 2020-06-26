@@ -70,19 +70,19 @@ function CartCheckout (props) {
                     <label><input type="checkbox"/> 同帳戶資料</label>
                     <div className="cart-input">
                       <label htmlFor="name">姓名</label>
-                      <input id="name" type="text" name="name" value={user[0].username} />
+                      <input id="name" type="text" name="name" value={user["username"]} />
                     </div>
                     <div className="cart-input">
                       <label htmlFor="address">地址</label>
-                      <input id="address" type="text" value={user[0].userAddress} />
+                      <input id="address" type="text" value={user["userAddress"]} />
                     </div>
                     <div className="cart-input">
                       <label htmlFor="phone">手機號碼</label>
-                      <input id="phone" type="text" value={user[0].userPhone} />
+                      <input id="phone" type="text" value={user["userPhone"]} />
                     </div>
                     <div className="cart-input">
                       <label htmlFor="email">電子信箱</label>
-                      <input id="email" type="text" value={user[0].userMail} />
+                      <input id="email" type="text" value={user["userMail"]} />
                     </div>
                   </fieldset>
               </div>
@@ -138,7 +138,7 @@ function CartCheckout (props) {
               </div>
               <div style={{color:'var(--main-colorfb2)'}}>
                 <span className="cart-total-title">折扣</span>
-                <span className="cart-total-number cart-english-font">- $ {user[0].coupon}</span>
+                <span className="cart-total-number cart-english-font">- $ {user["coupon"]}</span>
               </div>
               <div>
                 <span className="cart-total-title">總計</span>

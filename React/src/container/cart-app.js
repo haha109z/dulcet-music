@@ -20,13 +20,12 @@ function CartApp (props) {
   let [number, setNumber] = useState(cart[0].number)
   const stock = 5;  
   const totalPrice = number * cart[0].price;
-  const orderPrice = totalPrice - user[0].coupon;
   
   // { userID: "", username: "", userAddress: "", userMail: "", userPhone: "", }
   const [user, setUser] = useState(
     { userID: 1, username: "Lemon", userAddress: "lemon tree no.123", userMail: "lemon@gmail.com", userPhone: "0911111111", coupon:"dulcet1500" }
   )
-  
+  const orderPrice = totalPrice - user["coupon"];
   // const loginProcess = (loginSuccessCallback) => {
   //   // 執行成功的callback(來自cart-checkout.js)
   //   loginSuccessCallback()
