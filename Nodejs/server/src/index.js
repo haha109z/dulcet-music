@@ -31,6 +31,8 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
+app.use(express.static("public"));
+
 app.use("/login/user", require(__dirname + "/login"));
 app.use("/register/user", require(__dirname + "/register"));
 
@@ -69,7 +71,8 @@ app.get("/forum", async (req, res) => {
 });
 //   app.use("/forum" , require(__dirname + "/forum"))
 
-app.use("/newstest", require(__dirname + "/newstest"));
+app.use("/newscategory", require(__dirname + "/newscategory"));
+app.use("/newscontent", require(__dirname + "/newscontent"));
 
 app.listen(3030, () => {
   console.log("server 啟動");

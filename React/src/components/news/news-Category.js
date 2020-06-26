@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
+import Li from './news-Category-li'
 
 function NewsCategory(props) {
   const [date, setDate] = useState('2020-06')
 
-  const [dataP,setDataP] = useState('')
+  const [category,setCategory] = useState([])
 
-  async function getDataP(){
-    fetch(`http://localhost:3030/newstest`,{
+  async function getCategory(){
+    fetch(`http://localhost:3030/newscategory`,{
       method : 'POST',
       body : JSON.stringify(),
       headers : new Headers({
@@ -15,16 +16,16 @@ function NewsCategory(props) {
     })
     .then((res) => res.json())
     .then((json) => {
-      console.log(json)
-      setDataP(json)
-      return dataP
+
+      setCategory(json)
+ 
     })
-    console.log(dataP)
+
   }
 
   useEffect(() => {
     // Your code here
-    getDataP()
+    getCategory()
   },[])
 
   useEffect(() => {
@@ -37,25 +38,29 @@ function NewsCategory(props) {
 
   return (
     <>
+    {category ? console.log('category',category[0]):''}
       <div className="news-CategoryContainer d-flex news-NotoSerifTC">
+
         <div className="news-Category">
+
           <ul className="d-flex justify-content-start">
+          
             <li>
               <a href="">全部</a>
             </li>
-            <li>
-              <a href="">公告</a>
-            </li>
-            <li>
-              <a href="">課程</a>
-            </li>
-            <li>
-              <a href="">活動</a>
-            </li>
+
+            {category.map((c, index) => (
+            <Li NewsCategoryName={c.NewsCategoryName} />
+              
+            ))}
+          
           </ul>
+
         </div>
 
+
         <div className="news-Month news-NotoSerifTC">
+        
           年/月份篩選：
           <input
             Id="news-MonthInput"
@@ -66,6 +71,7 @@ function NewsCategory(props) {
             }}
           ></input>
         </div>
+
       </div>
     </>
   )

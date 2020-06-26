@@ -8,10 +8,18 @@
   padding: 0 20px 20px;
   position: relative;
 }
+
+.news-p-content{
+  height: 60px;
+  width: 100%;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
 .news-ContentImg {
   width: 100%;
   max-height: 300px;
-  object-fit: contain;
+  object-fit: fill;
   margin-bottom: 10px;
 }
 
@@ -57,6 +65,7 @@
 
 .news-p {
   font-size: 14px;
+  
 }
 
 p.news-H3 {

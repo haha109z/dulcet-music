@@ -16,7 +16,7 @@ function NewsPagesBanner(props) {
 
     <div className="news-pages-BannerContainer">
 
-        <img className="news-pages-BannerImg" src={require("../../img/news/news_a003.jpg")}></img>
+        <img className="news-pages-BannerImg" src={require("../../img/news/news_a001.jpg")}></img>
         
     </div>
 

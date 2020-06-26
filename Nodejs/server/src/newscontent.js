@@ -2,14 +2,14 @@ const express = require('express');
 const router = express.Router();
 const db = require(__dirname + "/db_connect2");
 
-const getDataList = async () =>{
-    const r1 = await db.query("SELECT * FROM `news_category`");
+const getContent = async () =>{
+    const r1 = await db.query("SELECT * FROM `news`");
     return r1;
 };
 
 router.post("/",async(req,res)=>{
-    const [aaa] = await getDataList(req);
-    res.json(aaa);
+    const [content] = await getContent(req);
+    res.json(content);
 });
 
 module.exports = router;
