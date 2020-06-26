@@ -53,10 +53,11 @@ app.get("/", (req, res) => {
   });
 //              Forum!!
 app.get('/forum', async (req, res) => {
-    const output = await query("SELECT * FROM `ForumAbout` WHERE 1");
-  console.log(output)
-    res.json(output);
-  });
+  const output = await query(`SELECT ForumAbout.userID,user.userName,ForumAbout.TitleMusic,ForumAbout.TitleId,ForumAbout.Memo FROM ForumAbout left JOIN user ON ForumAbout.userID = user.userID`
+  );
+console.log(output)
+  res.json(output);
+});
 //   app.use("/forum" , require(__dirname + "/forum"))
 
 app.use("/newstest",require(__dirname + "/newstest"));

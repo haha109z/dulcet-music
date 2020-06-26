@@ -5,6 +5,10 @@ import AOS from 'aos'
 //   return JSON.parse(this.state.news)
 // }
 class ForumCard extends Component {
+
+
+
+  
   constructor(props) {
     super(props)
     let t = this
@@ -23,6 +27,7 @@ class ForumCard extends Component {
     boxShow: false,
     boxShowBtn: false,
     userId: '',
+    username:'',
     userImg: '',
     ForumAboutTitle: '', //樂器類型
     ForumTitleId: '', //主題
@@ -39,6 +44,24 @@ class ForumCard extends Component {
   componentDidMount(e) {
     const handleForumAboutTitle = this.state
     console.log(handleForumAboutTitle)
+
+
+
+    const getUserInfo = () => {
+      return JSON.parse(localStorage.getItem('user'))
+    }
+    if (getUserInfo()) {
+      let user = getUserInfo()
+      if (user[0].userID) {
+        this.setState({ userId: user[0].userId })
+        this.setState({ username: user[0].username })
+      } else {
+        this.setState({ userId: '' })
+      }
+    } else {
+      this.setState({ userId: '' })
+    }
+
   }
   componentDidUpdate(e) {
     // const handleForumAboutTitle = this.state
@@ -90,7 +113,20 @@ class ForumCard extends Component {
     // userId : ''
     // })
     //alert
-    
+
+    //sql語法
+    // SELECT ForumAbout.userID,user.userName,ForumAbout.TitleMusic,ForumAbout.TitleId,ForumAbout.Memo FROM ForumAbout left JOIN user ON ForumAbout.userID = user.userID
+    let t = this
+    fetch('http://localhost:3030/forum/add', { method: 'GET' }).then(function (res) {
+      // console.log(res);
+      res.json().then(function (data) {
+        console.log(data)
+        t.setState({
+          news: data,
+        })
+      })
+    })
+
     alert('新增成功')
     this.setState({boxShow: false})
   }
@@ -113,7 +149,7 @@ class ForumCard extends Component {
     //我要發問的新增欄位
     const box = boxShow ? (
       <div className="ForumBtn01">
-        <div onChange={this.handleSubmit}>
+        <div>
           <div>
             發問會員：
             <input
@@ -153,8 +189,6 @@ class ForumCard extends Component {
             >
               我要發問
             </button>
-            {/* 測試使用 測試玩刪除 */}
-            <button onClick={this.handleForumAboutTitle}>test123456</button>
             
           </div>
           
@@ -167,7 +201,7 @@ class ForumCard extends Component {
               <div className="ForumCardTitle">
                 <div className="ForumCardImg"></div>
                 <div>
-                  <h3 className="ForumCardH3">發問會員：王采潔</h3>
+                  <h3 className="ForumCardH3">發問會員：{item.username}</h3>
                   <h3 className="ForumCardH3">問題類別：{item.TitleMusic}</h3>
                 </div>
                 <button className="ComprehensiveButton">綜合</button>
