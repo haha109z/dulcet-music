@@ -79,11 +79,7 @@ class NavbarUser extends Component{
     render(){
         const {user,login} = this.state;
         const display = this.state.width < 768 ? 'none' : '';
-
-        const userImgs = '/image/user/' + user.userImg + '.jpg';
-
-        console.log(userImgs);
-        
+        const userImgs = '/image/user/' + user.userImg + '.jpg';        
 
         // 會員icon圖示
         const userIcon = (
