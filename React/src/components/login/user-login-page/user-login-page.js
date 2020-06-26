@@ -49,9 +49,9 @@ function UserLoginPage(props) {
         const errors = []
         // 檢查錯誤
         if(userMail === ''){
-          errors.push('前:請輸入Email帳號');
+          errors.push('請輸入Email帳號');
         }else if( userPwd === ''){
-            errors.push('前:請輸入密碼');
+            errors.push('請輸入密碼');
         }else{
           getData(userMail, userPwd);
           
@@ -61,7 +61,7 @@ function UserLoginPage(props) {
               // errors.push('前:Email帳號不存在');
               return false
             }else{
-              if(sha1(userPwd) != userData[0].userPwd) errors.push('前:123密碼錯誤');
+              if(sha1(userPwd) != userData[0].userPwd) errors.push('123密碼錯誤');
             }              
         }
 
@@ -122,7 +122,7 @@ function UserLoginPage(props) {
                 <div className="form-group">
                 {displayErrors}
                     <label htmlFor="userEmail" className="col-md-12 control-label" autofocus>電子郵件</label>
-                    <input type="email" name="username" className="form-control col-md-12" id="userEmail" placeholder="請輸入電子郵件"
+                    <input type="email" name="username" className="form-control col-md-12" id="userEmail" placeholder="請輸入電子郵件" required 
                     onChange={(event) => {
                         setUserMail(event.target.value)
                       }}
@@ -139,7 +139,7 @@ function UserLoginPage(props) {
                     <input type="checkbox" className="user-check-input" id="userCheckMe" />
                     <label className="user-check-label" htmlFor="userCheckMe">記住我</label>
                 </div>
-                <button type="button" className="all-login-btn" required
+                <button type="button" className="all-login-btn" 
                 onClick={() => {
                     loginProcess(loginSuccessCallback)
                   }}

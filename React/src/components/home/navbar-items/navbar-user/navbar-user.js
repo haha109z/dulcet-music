@@ -21,7 +21,7 @@ class NavbarUser extends Component{
     state = {
         login:false,
         user:[],
-        width:window.innerWidth
+        width:window.innerWidth,
       }
 
     //   static propTypes = {
@@ -68,12 +68,22 @@ class NavbarUser extends Component{
             showConfirmButton: false,
             timer: 2000
         })
+
+        setTimeout(()=>{
+            window.location = '/';
+        },2000)
     }
    
+
 
     render(){
         const {user,login} = this.state;
         const display = this.state.width < 768 ? 'none' : '';
+
+        const userImgs = '/image/user/' + user.userImg + '.jpg';
+
+        console.log(userImgs);
+        
 
         // 會員icon圖示
         const userIcon = (
@@ -86,7 +96,7 @@ class NavbarUser extends Component{
         const userLoginArea = (
             <div>
                 <Link to="/user" className="home-username">
-                    <img className="home-username-img" src={user.userID}></img>                                  
+                    <img className="home-username-img" src={userImgs}></img>                                  
                 </Link>
                 <ul className="home-nav-userlogin" style={{display}}>
                     <li>
@@ -99,11 +109,11 @@ class NavbarUser extends Component{
                         <Link to="javascript:void(0)">購買清單</Link>
                     </li>
                     <li>
-                        <Link to="/"
+                        <span className="home-username-logout"
                         onClick={
                             this.logoutProcess
                           }
-                        >登出</Link>
+                        >登出</span>
                     </li>
                 </ul>
             </div>
