@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
-
 import withReactContent from 'sweetalert2-react-content'
 import Swal from 'sweetalert2'
-
 const MySwal = withReactContent(Swal)
-
 export default class UserData extends Component {
   state = {
     userData: [],
@@ -19,7 +16,6 @@ export default class UserData extends Component {
       },
     ],
   }
-
   // 在這個生命週期中渲染資料
   componentDidMount() {
     this.changData = () => {
@@ -31,7 +27,6 @@ export default class UserData extends Component {
         userAddress,
         userPhone,
       } = this.state.user
-
       const userGoData = [
         userName,
         userMail,
@@ -39,7 +34,6 @@ export default class UserData extends Component {
         userAddress,
         userPhone,
       ]
-
       // console.log(userID)
       MySwal.fire({
         type: 'warning', // 彈框類型
@@ -71,13 +65,11 @@ export default class UserData extends Component {
           let changUserBirthday = document.getElementById('swal-input3').value
           let changUserAddress = document.getElementById('swal-input4').value
           let changUserPhone = document.getElementById('swal-input5').value
-
           // console.log(userGoData)
           // console.log(changData)
           //判斷 是否 點擊的 確定按鈕
           if (isConfirm.value) {
             // console.log(userGoData)
-
             MySwal.fire({
               type: 'warning', // 彈框類型
               title: '確定修改資料？', //標題
@@ -121,13 +113,11 @@ export default class UserData extends Component {
                     console.error('Error:', error)
                   })
                 // localStorage.setItem('user', JSON.stringify(userData))
-
                 MySwal.fire('修改完成', '', 'success')
               } else {
                 MySwal.fire('取消修改', '', 'error')
               }
             })
-
             // MySwal.fire('修改成功', '', 'success')
           } else {
             MySwal.fire('取消修改', '', 'error')
@@ -151,18 +141,15 @@ export default class UserData extends Component {
       this.setState({ user: '' })
     }
   }
-
   render() {
     return (
       <>
         <div className="userData-main">
           <h3 className="font-size-142rem userData-top-titleName">會員資料</h3>
           <div className="userData-top-Img">
-            <img src="" alt="" />
+            <img src="../../../../public/image/user/userimg000.jpg" alt="" />
           </div>
-
           <hr className="userData-top-hr" />
-
           <form className="userData-form" action="">
             <label className="userData-form-input " htmlFor="name">
               <p>會員編號</p>
@@ -176,7 +163,6 @@ export default class UserData extends Component {
                 />
               </div>
             </label>
-
             <label className="userData-form-input " htmlFor="name">
               <p>姓名</p>
               <div className="UserData-inp">
@@ -189,7 +175,6 @@ export default class UserData extends Component {
                 />
               </div>
             </label>
-
             <label className="userData-form-input " htmlFor="email">
               <p>信箱</p>
               <div className="UserData-inp">
@@ -214,7 +199,6 @@ export default class UserData extends Component {
                 />
               </div>
             </label>
-
             <label className="userData-form-input " htmlFor="add">
               <p>地址</p>
               <div className="UserData-inp">
@@ -227,7 +211,6 @@ export default class UserData extends Component {
                 />
               </div>
             </label>
-
             <label className="userData-form-input " htmlFor="phone">
               <p>手機號碼</p>
               <div className="UserData-inp">
@@ -240,7 +223,6 @@ export default class UserData extends Component {
                 />
               </div>
             </label>
-
             <input
               type="button"
               onClick={this.changData}
