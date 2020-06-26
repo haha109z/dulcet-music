@@ -16,22 +16,32 @@ class InstrumentPutOn extends React.Component{
         console.log(v)
     }
     handleUpload = e =>{
-        const uploadfile = document.querySelector('.ins-puton-file-img');
-        const preview = document.querySelector('.ins-pre-img')
-        const filereader = new FileReader()
+        //抓取上傳檔案按鈕元素
+        const uploadfile = document.querySelector('.ins-puton-file-img'); 
+        //抓取預覽圖片元素
+        const preview = document.querySelector('.ins-pre-img') 
+        //建立file obj 
+        const filereader = new FileReader() 
+        // 抓取預覽圖片的父元素及裡面的子元素
         const del = document.querySelector('.ins-puton-add')
         const h3 = document.querySelector('.ins-puton-file-text')
         const div = document.querySelector('.ins-puton-icon-div')
 
+        // 追蹤上傳按鈕事件
         uploadfile.addEventListener('change', e => {
+            // 抓到值放入 變數file
             const file = e.target.files[0]
+            // 轉成base46碼
             filereader.readAsDataURL(file)
+            // 刪除預覽圖片的子元素
             del.removeChild(h3)
             del.removeChild(div)
         })
-
+        // 追蹤事件載入
         filereader.addEventListener('load',function(){
+            // 把base46碼放入變數 dataURL
             const dataURL = filereader.result
+            // 把值傳入預覽圖片元素顯示
             preview.src = dataURL;
             alert('上傳成功')
         })

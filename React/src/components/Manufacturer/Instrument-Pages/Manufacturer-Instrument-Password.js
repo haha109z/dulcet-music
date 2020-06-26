@@ -7,12 +7,29 @@ class InstrumentPassword extends React.Component{
   constructor() {
     super() // => 記得呼叫 parent 的 constructor，很重要
     this.state = {
+      oldPwd : '',
+      newPwd : '',
+      againPwd : '',
       // => 幫 App 加上 state      
       changOldPwd: false,
       changNewPwd:false,
       changNewPwd2:false,
     }
   }
+
+  
+
+  handlesend = e =>{
+    const newpwd = this.state.newPwd
+    const oldpwd = this.state.oldPwd
+    const againpwd = this.state.againPwd
+    this.state.newPwd == this.state.againPwd ? 
+    alert('newpassword' + newpwd + ' oldpassword' + oldpwd + ' againpassword' + againpwd)
+    : alert('密碼不一致')
+    e.preventDefault()
+  }
+
+  
 
     render(){
       const eyeshow = this.state.changOldPwd
@@ -35,7 +52,7 @@ class InstrumentPassword extends React.Component{
 
       <hr className="insPassword-top-hr" />
 
-      <form className="insPassword-form" action="">
+      <form className="insPassword-form" action="" onSubmit={this.handlesend}>
         <label className="ins-home-label" for="name">
           <p>廠商編號</p>
           <div className="ins-home-inp ">
@@ -54,6 +71,11 @@ class InstrumentPassword extends React.Component{
             <input
               id="oldPwd font-size-114rem "
               type={`${this.state.test ? 'text' : 'password'}`}
+              onChange={(e) =>{
+                this.setState({
+                  oldPwd:e.target.value
+                })
+              }}
             />
             <svg
               onClick={() => {
@@ -89,7 +111,11 @@ class InstrumentPassword extends React.Component{
             <input
               id="newPwd font-size-114rem "
               type={`${this.state.test2 ? 'text' : 'password'}`}
-              
+              onChange={(e) => {
+                this.setState({
+                  newPwd:e.target.value
+                })
+              }}
             />
             <svg
               onClick={() => {
@@ -127,6 +153,12 @@ class InstrumentPassword extends React.Component{
             <input
               id="changePwd font-size-114rem "
               type={`${this.state.test3 ? 'text' : 'password'}`}
+              onChange={(e) => {
+                this.setState({
+                  againPwd:e.target.value
+                })
+                
+              }}
             />
             <svg
               onClick={() => {
@@ -160,6 +192,7 @@ class InstrumentPassword extends React.Component{
           type="submit"
           className="insPassword-form-button "
           value="修改密碼"
+          
         />
       </form>
     </div>

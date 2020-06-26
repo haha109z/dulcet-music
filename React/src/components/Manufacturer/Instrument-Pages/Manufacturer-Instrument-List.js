@@ -5,14 +5,12 @@ class InstrumentList extends React.Component {
     constructor(){
       super()
       this.state={
-
+        
       }
     }
 
 
-    handleputon = e => {
-      const state = document.querySelector('.ins-list-product').children
-    }
+    
   render() {
     return (
       <div className="ins-list-page">
@@ -63,7 +61,7 @@ class InstrumentList extends React.Component {
         </Link>
         <div className="ins-list-tools">
           <div className="ins-list-option">
-            <input type="checkbox" className="ins-list-tool-chk"/>
+            <input type="checkbox"  checked={false} className="ins-list-tool-chk"/>
             <p>全選</p>
             <a href="">刪除</a>
             <a href="">上架</a>
@@ -77,7 +75,7 @@ class InstrumentList extends React.Component {
             <p className="font-size-185rem">商品狀態 : 上架中</p>
           </div>
           <div className="ins-list-content">
-            <input type="checkbox" className="ins-list-content-chk"/>
+            <input type="checkbox" checked={false} className="ins-list-content-chk"/>
             <div className="ins-list-content-movie">
               <img src={require('../../../img/home_violin_m_8.jpg')}/>
             </div>
@@ -108,7 +106,7 @@ class InstrumentList extends React.Component {
             <p className="font-size-185rem">商品狀態 : 上架中</p>
           </div>
           <div className="ins-list-content">
-            <input type="checkbox" className="ins-list-content-chk" />
+            <input type="checkbox" checked={false} className="ins-list-content-chk" />
             <div className="ins-list-content-movie">
             <img src={require('../../../img/home_violin_m_8.jpg')}/>
             </div>
