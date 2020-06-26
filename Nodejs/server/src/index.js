@@ -56,6 +56,7 @@ app.get('/forum', async (req, res) => {
   });
 //   app.use("/forum" , require(__dirname + "/forum"))
 
+app.use("/newstest",require(__dirname + "/newstest"));
 
 app.listen(3030,()=>{
     console.log("server 啟動");

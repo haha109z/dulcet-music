@@ -3,10 +3,37 @@ import React, { useState, useEffect } from 'react'
 function NewsCategory(props) {
   const [date, setDate] = useState('2020-06')
 
+  const [dataP,setDataP] = useState('')
+
+  async function getDataP(){
+    fetch(`http://localhost:3030/newstest`,{
+      method : 'POST',
+      body : JSON.stringify(),
+      headers : new Headers({
+        'Content-Type' : 'application/json',
+      }),
+    })
+    .then((res) => res.json())
+    .then((json) => {
+      console.log(json)
+      setDataP(json)
+      return dataP
+    })
+    console.log(dataP)
+  }
+
+  useEffect(() => {
+    // Your code here
+    getDataP()
+  },[])
+
   useEffect(() => {
     // Your code here
     console.log(date)
   }, [date])
+
+
+
 
   return (
     <>
