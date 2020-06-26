@@ -27,6 +27,7 @@ class UserRegistered extends Component{
         showComPwd:false,
         checkProvision:false,
         checkPwd:true,
+        emailReg:true,
         phoneReg:true,
         registerSuccess:false
     }
@@ -111,6 +112,17 @@ class UserRegistered extends Component{
         this.setState({checkProvision:toggle});
     }
 
+    emailBlur = (e)=>{
+        const reg = /^([\w\.\-]){1,64}\@([\w\.\-]){1,64}$/;
+        const value = e.target.value;
+        if(!value.match(reg)){
+            this.setState({emailReg:false})
+            return
+        }else{
+            this.setState({emailReg:true})
+        }
+    }
+
     phoneBlur = (e)=>{
         const reg = /^09\d{2}-?\d{3}-?\d{3}$/;
         const value = e.target.value;
@@ -135,7 +147,7 @@ class UserRegistered extends Component{
 
     render(){
 
-        const {showPwd,showComPwd,checkProvision,checkPwd,phoneReg,registerSuccess} = this.state;
+        const {showPwd,showComPwd,checkProvision,checkPwd,phoneReg,registerSuccess,emailReg} = this.state;
 
         const showPwdDisplay = showPwd ? 'block':'none';
         const showPwdDisplay2 = showPwd ? 'none':'block';
@@ -154,6 +166,10 @@ class UserRegistered extends Component{
 
         const checkPhone = phoneReg ? '' : (
             <div className="user-register-dobluecheckPhone">請輸入正確的手機格式 09xx-xxx-xxx </div>
+        )
+
+        const checkEmail = emailReg ? '' : (
+            <div className="user-register-dobluecheckPhone">請輸入正確的Email格式 (包含@) </div>
         )
 
         const regSuccess = registerSuccess ? this.registerSuccess():'';
@@ -177,8 +193,10 @@ class UserRegistered extends Component{
                             />
                         </div>
                         <div className="form-group">
+                            {checkEmail}
                             <label htmlFor="userRegisterEmail" className="col-md-12 control-label">電子郵件</label>
                             <input type="email" name="userRegisterEmail" className="form-control col-md-12" id="userRegisterEmail" placeholder="請輸入電子郵件"
+                            onBlur={this.emailBlur}
                             onChange={this.logChange}
                             />
                         </div>

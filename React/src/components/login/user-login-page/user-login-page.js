@@ -36,14 +36,16 @@ function UserLoginPage(props) {
             setLoginErrors([json.msg])
             return
           }
-
-          setUserData(json.data)
+         
+          setUserData(json.data)   
+          // console.log("userData",userData);
+          
           return userData
         })
     }
 
     // 處理會員登入
-    const loginProcess = (loginSuccessCallback) => {
+    const loginProcess = () => {
         const errors = []
         // 檢查錯誤
         if(userMail === ''){
@@ -52,11 +54,15 @@ function UserLoginPage(props) {
             errors.push('前:請輸入密碼');
         }else{
           getData(userMail, userPwd);
-            if(userData.length === 0){
-                errors.push('前:Email帳號不存在');
-              }else{
-                if(sha1(userPwd) != userData[0].userPwd) errors.push('前:123密碼錯誤');
-              }
+          
+          // console.log(userData);   
+            if(userData.length === 0){    
+              // console.log("1",userData);           
+              // errors.push('前:Email帳號不存在');
+              return false
+            }else{
+              if(sha1(userPwd) != userData[0].userPwd) errors.push('前:123密碼錯誤');
+            }              
         }
 
         if(errors.length > 0){
