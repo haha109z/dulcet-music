@@ -52,10 +52,15 @@
 }
 
 // ForumCardAll
+.ForumCardFlex {
+  display: flex;
+  flex-wrap: wrap;
+}
 .ForumCard {
   // display: flex;
-  max-width: calc(50% - 40px);
+  max-width: calc(480px - 40px);
   padding: 20px;
+  flex: 0 0 50%;
 }
 
 // CardImg

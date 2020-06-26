@@ -82,15 +82,17 @@ class ForumCard extends Component {
 
   handleSubmit = (event) => {
     //收集數據
-    //const comment = this.state
+    // const comment = this.state
     //更新狀態
-    //this.props.addComment(comment)
+    // this.props.addComment(comment)
     //清除輸入數據
     // this.state({
     // userId : ''
     // })
     //alert
+    
     alert('新增成功')
+    this.setState({boxShow: false})
   }
 
   render() {
@@ -111,7 +113,7 @@ class ForumCard extends Component {
     //我要發問的新增欄位
     const box = boxShow ? (
       <div className="ForumBtn01">
-        <form action="/Forum" onSubmit={this.handleSubmit}>
+        <div onChange={this.handleSubmit}>
           <div>
             發問會員：
             <input
@@ -129,9 +131,9 @@ class ForumCard extends Component {
             問題類別：
             <input type="text" placeholder="您的問題是" name="Action" />
           </div>
-          <textarea name="comment" form="usrform" className="ForumBtnAction" />
-          <input type="submit" value="送出" className="ForumButton" />
-        </form>
+          <textarea name="comment" className="ForumBtnAction" />
+          <input type="submit" value="送出" className="ForumButton"  onClick={this.handleSubmit}/>
+        </div>
       </div>
     ) : (
       ''
@@ -157,11 +159,11 @@ class ForumCard extends Component {
           </div>
           
             {/* card1 */}
-     
+            <div className="ForumCardFlex">
         {this.state.news.map((item  , i)=>{
           return(
-            <div className="ForumCard">
-            <action key={i}>
+           
+            <div key={i} className="ForumCard">
               <div className="ForumCardTitle">
                 <div className="ForumCardImg"></div>
                 <div>
@@ -180,11 +182,14 @@ class ForumCard extends Component {
               </div>
               {/* 看回答的button顯示 */}
               {boxBtn}
-            </action>
+           
             </div>
+           
           )
         }
+        
         )}
+        </div>
       
             {/* card2 */}
             {/* <action className="ForumAction">
