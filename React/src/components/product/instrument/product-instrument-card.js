@@ -55,8 +55,8 @@ function ProductVideoCard(props) {
           <FaHeart className="product-card-favorite" />
         </div>
         <div className="product-card-intro">
-          <h4 className="product-card-title">小提琴 實木 DYM SV015</h4>
-          <h3 className="product-card-cost">$13,000</h3>
+          <h4 className="product-card-title">{props.PName}</h4>
+          <h3 className="product-card-cost">${props.PPrice}</h3>
         </div>
       </div>
     </>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import ProductLink from '../id/product-link'
 import ProductIntro from '../id/product-video-intro'
 import ProductDesciption from '../id/product-desciption'
@@ -10,8 +10,10 @@ function ProductId() {
   const productInstrumentId = 'violin'
   const productInstrumentName = '小提琴'
   const productName = '【提琴教室】小提琴-01'
+
   return (
     <>
+      {}
       <div className="product-container">
         <div className="product-wrapper">
           <ProductLink

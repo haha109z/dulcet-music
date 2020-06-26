@@ -4,7 +4,7 @@ const cors = require("cors");
 // const session = require("express-session");
 // const MysqlStore = require("express-mysql-session")(session);
 // const upload = require(__dirname + '/upload-module');
-const query = require(__dirname + '/mysql');
+const query = require(__dirname + "/mysql");
 var app = express();
 
 // parse application/   x-www-form-urlencoded
@@ -12,17 +12,22 @@ app.use(express.urlencoded({ extended: false }));
 // parse application/json
 app.use(express.json());
 
-const whitelist = [undefined, 'http://localhost:5500', 'http://localhost:3000','http://localhost:3001']
+const whitelist = [
+  undefined,
+  "http://localhost:5500",
+  "http://localhost:3000",
+  "http://localhost:3001",
+];
 const corsOptions = {
-    credentials: true,
-    origin: function(origin, cb){
-        //console.log(origin);
-        if(whitelist.indexOf(origin) !== -1){
-            cb(null, true);
-        } else {
-            cb(null, false);
-        }
+  credentials: true,
+  origin: function (origin, cb) {
+    //console.log(origin);
+    if (whitelist.indexOf(origin) !== -1) {
+      cb(null, true);
+    } else {
+      cb(null, false);
     }
+  },
 };
 app.use(cors(corsOptions));
 
@@ -31,10 +36,10 @@ app.use("/register/user", require(__dirname + "/register"));
 
 app.use("/user/UserData", require(__dirname + "/changeUserData"));
 app.use("/user/UserPwd", require(__dirname + "/changeUserPwd"));
-app.use("/ManufacturerInstrument/InstrumentHome", require(__dirname + "/changeMIuserdata"));
-
-
-
+app.use(
+  "/ManufacturerInstrument/InstrumentHome",
+  require(__dirname + "/changeMIuserdata")
+);
 
 // app.use("/form", require(__dirname + "/form"));
 
@@ -49,19 +54,23 @@ app.use("/ManufacturerInstrument/InstrumentHome", require(__dirname + "/changeMI
 
 // simple route
 app.get("/", (req, res) => {
-    res.send("123");
-  });
+  res.send("123");
+});
+//商品
+app.use("/product", require(__dirname + "/product"));
+
 //              Forum!!
-app.get('/forum', async (req, res) => {
-  const output = await query(`SELECT ForumAbout.userID,user.userName,ForumAbout.TitleMusic,ForumAbout.TitleId,ForumAbout.Memo FROM ForumAbout left JOIN user ON ForumAbout.userID = user.userID`
+app.get("/forum", async (req, res) => {
+  const output = await query(
+    `SELECT ForumAbout.userID,user.userName,ForumAbout.TitleMusic,ForumAbout.TitleId,ForumAbout.Memo FROM ForumAbout left JOIN user ON ForumAbout.userID = user.userID`
   );
-console.log(output)
+  console.log(output);
   res.json(output);
 });
 //   app.use("/forum" , require(__dirname + "/forum"))
 
-app.use("/newstest",require(__dirname + "/newstest"));
+app.use("/newstest", require(__dirname + "/newstest"));
 
-app.listen(3030,()=>{
-    console.log("server 啟動");
-})
+app.listen(3030, () => {
+  console.log("server 啟動");
+});

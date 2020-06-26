@@ -8,8 +8,30 @@ import SideBar from '../product-sidebar'
 
 function ProductList(props) {
   const [favorite, setFavorite] = useState(false)
+
+  const [dataP, setDataP] = useState([])
+
+  async function getDataP() {
+    fetch(`http://localhost:3030/product/instrument`, {
+      method: 'POST',
+      body: JSON.stringify(),
+      headers: new Headers({
+        'Content-Type': 'application/json',
+      }),
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        setDataP(json)
+      })
+  }
+
+  useEffect(() => {
+    getDataP()
+  }, [])
+
   return (
     <>
+      {dataP ? console.log('ren', dataP[0]) : ''}
       <SideBar productTitleId={props.productTitleId} />
       <div className="product-container">
         <ProductPicture
@@ -30,11 +52,39 @@ function ProductList(props) {
             </select> */}
           </div>
           <div className="product-card-list">
-            <Card favorite={favorite} setFavorite={setFavorite} />
-            <Card favorite={favorite} setFavorite={setFavorite} />
-            <Card favorite={favorite} setFavorite={setFavorite} />
-            <Card favorite={favorite} setFavorite={setFavorite} />
-            <Card favorite={favorite} setFavorite={setFavorite} />
+            {dataP.map((c, index) => (
+              <Card
+                favorite={favorite}
+                setFavorite={setFavorite}
+                PName={c.PName}
+                PPrice={c.PPrice}
+              />
+            ))}
+            {/* <Card
+              favorite={favorite}
+              setFavorite={setFavorite}
+              PName={name[0]}
+            />
+            <Card
+              favorite={favorite}
+              setFavorite={setFavorite}
+              PName={name[1]}
+            />
+            <Card
+              favorite={favorite}
+              setFavorite={setFavorite}
+              PName={name[2]}
+            />
+            <Card
+              favorite={favorite}
+              setFavorite={setFavorite}
+              PName={name[3]}
+            />
+            <Card
+              favorite={favorite}
+              setFavorite={setFavorite}
+              PName={name[4]}
+            /> */}
           </div>
 
           {/* <Router> */}
