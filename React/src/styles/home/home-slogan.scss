@@ -21,6 +21,8 @@
     .home-slogan-h2-sub {
       font-size: 24px;
       padding: 1.07rem 0;
+      // margin: 0;
+      // border: 1px solid red;
     }
 
     .home-slogan-txt {
@@ -69,14 +71,16 @@
     .home-slogan-wrap {
       width: 100%;
       letter-spacing: 0;
-      margin: 0;
+      margin: 0;        
+      height: 32.71rem;
+      display: block;  
 
       .home-slogan-h2,
       .home-slogan-h2-sub {
         // border:1px solid red;
         font-size: 4.7vw;
         padding: 0;
-        margin: 0;
+        margin: 1rem 0;
       }
 
       .home-slogan-txt {
@@ -90,7 +94,3 @@
     }
   }
 }
-
-
-
-
