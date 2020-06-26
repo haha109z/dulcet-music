@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { BrowserRouter,Switch, Route, Router, Redirect} from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter,Switch, Route } from 'react-router-dom'
 
 import Navbar from '../components/navbar/navbar';
 import CartTitle from '../components/cart/cart-title';
@@ -9,21 +9,70 @@ import CartPay from '../components/cart/cart-pay';
 import CartEnd from '../components/cart/cart-end';
 
 function CartApp (props) {
+   
+  // { cartItemId: 1, img: "商品圖片", product: "商品名稱", price: 商品單價, number: 商品數量 }
+  const [cart, setCart] = useState([
+    { cartItemId: 1, img: "cart-violin-01", product: "春季吉他班", price: 2000, number: 3 },
+    { cartItemId: 2, img: "cart-violin-01", product: "小提琴", price: 5000, number: 5 },
+    { cartItemId: 3, img: "cart-violin-01", product: "線上鋼琴班", price: 1800, number: 2 },
+  ])
+
+  let [number, setNumber] = useState(cart[0].number)
+  const stock = 5;  
+  const totalPrice = number * cart[0].price;
+  const orderPrice = totalPrice - user[0].coupon;
   
-  const [number, setNumber] = useState(0)
-  // const stock = 10
-  
-  // { cartItemId: 1, memberId: 1, productId: 1, cartNumber: 1 }
-  // const [cart, setCart] = useState([
-  //   { cartItemId: 1, memberId: 3, productId: 1, cartNumber: 1 },
-  //   { cartItemId: 2, memberId: 3, productId: 2, cartNumber: 2 },
-  //   { cartItemId: 3, memberId: 3, productId: 3, cartNumber: 1 },
-  // ])
+  // { userID: "", username: "", userAddress: "", userMail: "", userPhone: "", }
+  const [user, setUser] = useState(
+    { userID: 1, username: "Lemon", userAddress: "lemon tree no.123", userMail: "lemon@gmail.com", userPhone: "0911111111", coupon:"dulcet1500" }
+  )
   
   // const loginProcess = (loginSuccessCallback) => {
   //   // 執行成功的callback(來自cart-checkout.js)
   //   loginSuccessCallback()
   // }
+
+  // const getUserInfo = () => {       
+  //   const userData = JSON.parse(localStorage.getItem('user'));  
+  //   return userData;  
+  //     setUser(userData)
+  // }  
+ 
+
+//  useEffect(()=>{   
+// //  const userData = getUserInfo(); 
+    
+      
+//    const userData = JSON.parse(localStorage.getItem('user'));  
+//     if(userData!==null){
+//       setUser(userData)
+//       console.log(user);
+//     }
+
+//  },[])
+  
+
+    // if (getUserInfo()) {
+    //   const userData = getUserInfo();
+      
+      
+    // // console.log(getUserInfo());
+    // // console.log(user[0]);
+    // // console.log(user[0]["userID"]);
+    // // let userData = getUserInfo();  
+    // // let user = userData[0];
+    //   // setUser(user)
+    // // console.log(user);   
+
+    // // if (user[0]["userID"]) {
+    // //   setUser(user)
+    // // }
+    // //   else {
+    // //     setUser({ user: '' })
+    // //   }
+    // // } else {
+    // //   setUser({ user: '' })
+    // }
 
     return (
         <>
@@ -33,7 +82,19 @@ function CartApp (props) {
             <CartTitle />
               <Switch>
                 <Route path="/cart/2">
-                  <CartCheckOrder />
+                  <CartCheckOrder                     
+                    allProps={{
+                        cart,
+                        setCart,
+                        number,
+                        setNumber,
+                        user,
+                        setUser,
+                        stock,
+                        totalPrice,
+                        orderPrice,
+                    }}
+                  />
                 </Route>
                 <Route path="/cart/3">
                   <CartPay />
@@ -43,8 +104,17 @@ function CartApp (props) {
                 </Route>
                 <Route path="/cart">
                   <CartCheckout
-                    number={number}
-                    setNumber={setNumber}
+                    allProps={{
+                        cart,
+                        setCart,
+                        number,
+                        setNumber,
+                        user,
+                        setUser,
+                        stock,
+                        totalPrice,
+                        orderPrice,
+                    }}
                   />
                 </Route>
                 {/* <Redirect to="/cart/"/> */}

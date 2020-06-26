@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function CartPay () {
     return (
@@ -72,11 +73,11 @@ function CartPay () {
                       </div>
                       <div className="cart3-creditcard-form">
                         <div className="cart3-input">
-                          <label for="payer-name">持卡人姓名</label>
+                          <label htmlFor="payer-name">持卡人姓名</label>
                           <input className="" id="payer-name" type="text"/>
                         </div>
                         <div className="cart3-input">
-                          <label for="">卡號</label>
+                          <label htmlFor="">卡號</label>
                           <div style={{display:'flex'}}>
                             <input className="" id="" type="text"/>
                             <input className="" id="" type="text"/>
@@ -85,7 +86,7 @@ function CartPay () {
                           </div>
                         </div>
                         <div className="cart3-input">
-                          <label for="">到期日</label>
+                          <label htmlFor="">到期日</label>
                           <div style={{display:'flex'}}>
                             <div className="cart-card-ex">
                                 <input className="" id="" type="text"/>
@@ -94,7 +95,7 @@ function CartPay () {
                           </div>
                         </div>
                         <div className="cart3-input">
-                          <label for="">安全碼</label>
+                          <label htmlFor="">安全碼</label>
                           <div style={{display:'flex'}}>
                             <div className="cart3-safe-code">
                                 <input className="" id="" type="text"/>
@@ -105,8 +106,12 @@ function CartPay () {
                   </div>
               </div>
             <div className="cart-checkout-btn">
-              <button type="">上一步</button>
-              <button type="submit">確認送出</button>
+              <button type="button">
+                <Link to='/cart/3'>上一步</Link>
+              </button>
+              <button type="button">
+                <Link to='/cart/4'>確認送出</Link>
+              </button>
             </div>
       </>
   );

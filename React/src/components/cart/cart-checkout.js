@@ -1,9 +1,28 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function CartCheckout (props) {
 
-  const { number, setNumber } = props;
-  const stock = 10
+  const { cart, setCart, number, setNumber, user, setUser, stock, totalPrice, orderPrice } = props.allProps;  
+  
+  let index = 0;  
+
+  const minusCartNumber = (event) =>{
+    if (number == 0) {
+      setNumber(0)
+    } else {
+      setNumber(number - 1)
+    }
+  }
+
+  const plusCartNumber = (event) =>{
+    if (number == stock) {
+      setNumber(stock) 
+      alert('庫存不足')
+    } else {
+      setNumber(number + 1)
+    }
+  }
 
     return (
       <>
@@ -21,76 +40,49 @@ function CartCheckout (props) {
                 <li colSpan="7">購買清單－課程</li>
               </ul>   
               <ul className="cart-product">
-                <li className="cart-product-li"><input type="checkbox" id=""/></li>
-                <li className="cart-product-li"><img src={require('../../img/cart/cart-violin-01.jpeg')}/></li>
-                <li className="cart-product-li">春季吉他班</li>
-                <li className="cart-product-li cart-english-font" style={{color:'var(--main-colorfb2)'}}>$1,700</li>
+                <li className="cart-product-li"><input type="checkbox" /></li>
+                <li className="cart-product-li"><img src={require(`../../img/cart/${cart[0].img}.jpeg`)} /></li>
+                <li className="cart-product-li">{cart[0].product}</li>
+                <li className="cart-product-li cart-english-font" style={{color:'var(--main-colorfb2)'}}>${cart[0].price}</li>
                 <li className="cart-product-li-2">
-                  <div 
-                    onClick={() => {
-                      if (number == 0) {
-                        setNumber(0)
-                      } else {
-                        setNumber(number - 1)
-                      }
-                    }}
-                    >
-                    <i className="cart-minusBtn fas fa-minus-circle" onClick={()=>{alert('click')}} />
+                  <div onClick={minusCartNumber}>
+                    <i className="cart-minusBtn fas fa-minus-circle" />
                   </div>
                   <div className="cart-number-input cart-english-font">{number}</div>
-                  <div
-                    onClick={() => {
-                      if (number == stock) {
-                        setNumber(stock)
-                        alert('failure')
-                      } else {
-                        setNumber(number + 1)
-                        console.log(number)
-                      }
-                    }}
-                  >
+                  <div onClick={plusCartNumber}>
                     <i className="cart-plusBtn fas fa-plus-circle" />
                   </div>
                 </li>
-                <li className="cart-product-number cart-english-font" style={{color:'var(--main-colorfb2)'}}>$17,000</li>
-                <li className="cart-trash-btn" onClick={()=>{}}><i className="far fa-trash-alt"></i></li>
-              </ul>
-              {/* <ul className="cart-product">
-                <li><input type="checkbox" id=""/></li>
-                <li><img src={require('../../img/cart/cart-violin-01.jpeg')}/></li>
-                <li>春季吉他班</li>
-                <li style={{color:'var(--main-colorfb2)'}}>$1,700</li>
-                <li>
-                  <i className="fas fa-minus-circle cart-minusBtn"></i>
-                  <div className="cart-number">10</div>
-                  <i className="fas fa-plus-circle cart-plusBtn"></i>
+                <li className="cart-product-number cart-english-font" style={{color:'var(--main-colorfb2)'}}>${totalPrice}</li>
+                <li className="cart-trash-btn" 
+                  onClick={()=>{}}
+                >
+                  <i className="far fa-trash-alt" />
                 </li>
-                <li style={{color:'var(--main-colorfb2)'}}>$17,000</li>
-                <li><div className="cart-btn" onClick={()=>{}}><i className="far fa-trash-alt"></i></div></li>
-              </ul> */}
+              </ul>
           </div>
 
           <div>
-            <form className="cart-form" action="#" method="GET" encType="multipart/form-data">
+            <form className="cart-form" action="/cart/2" method="post" encType="multipart/form-data">
               <div className="cart-buyer-info">
                   <h2>收件人資訊</h2>
                   <fieldset>
-                    <label><input type="checkbox" id=""/> 同帳戶資料</label>
+                    <label><input type="checkbox"/> 同帳戶資料</label>
                     <div className="cart-input">
                       <label htmlFor="name">姓名</label>
-                      <input className="" autoFocus autoComplete="off" id="name" type="text" name="name" placeholder=""/>
+                      <input id="name" type="text" name="name" value={user[0].username} />
                     </div>
                     <div className="cart-input">
-                      <label htmlFor="add">地址</label>
-                      <input className="" id="add" type="text"/>
+                      <label htmlFor="address">地址</label>
+                      <input id="address" type="text" value={user[0].userAddress} />
                     </div>
                     <div className="cart-input">
                       <label htmlFor="phone">手機號碼</label>
-                      <input className="" id="phone" type="text"/>
+                      <input id="phone" type="text" value={user[0].userPhone} />
                     </div>
                     <div className="cart-input">
                       <label htmlFor="email">電子信箱</label>
-                      <input id="email" className="" type="text"/>
+                      <input id="email" type="text" value={user[0].userMail} />
                     </div>
                   </fieldset>
               </div>
@@ -105,7 +97,7 @@ function CartCheckout (props) {
                       <label><input type="radio" name="invoice" id=""/> 手機條碼載具</label>
                       <div className="cart-input1">
                         <label htmlFor="einvoice">載具號碼</label>
-                        <input className="" id="einvoice" type="text"/>
+                        <input id="einvoice" type="text"/>
                       </div>
                     </div>
                     <div style={{padding:'0 0 20px 0'}}>
@@ -142,21 +134,29 @@ function CartCheckout (props) {
             <div className="cart-total-right">
               <div>
                 <span className="cart-total-title">合計</span>
-                <span className="cart-total-number cart-english-font">$ 2,800</span>
+                <span className="cart-total-number cart-english-font">$ {totalPrice}</span>
               </div>
               <div style={{color:'var(--main-colorfb2)'}}>
                 <span className="cart-total-title">折扣</span>
-                <span className="cart-total-number cart-english-font">- $ 1,000</span>
+                <span className="cart-total-number cart-english-font">- $ {user[0].coupon}</span>
               </div>
               <div>
                 <span className="cart-total-title">總計</span>
-                <span className="cart-total-number cart-english-font">$ 1,800</span>
+                <span className="cart-total-number cart-english-font">$ {orderPrice}</span>
               </div>
             </div>
           </div>
           <div className="cart-checkout-btn">
-            <button type="">繼續購物</button>
-            <button type="submit">下一步</button>
+            <button type="button"
+              onClick={()=>{
+                window.history.back()
+              }}
+            >
+              繼續購物   
+            </button>
+            <button type="button">
+              <Link to='/cart/2'>下一步</Link>
+            </button>
           </div>
 
       </>
