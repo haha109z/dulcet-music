@@ -38,6 +38,11 @@ app.use("/register/user", require(__dirname + "/register"));
 
 app.use("/user/UserData", require(__dirname + "/changeUserData"));
 app.use("/user/UserPwd", require(__dirname + "/changeUserPwd"));
+app.use("/user/UserPurchase", require(__dirname + "/UserPurchase"));
+
+
+
+
 app.use(
   "/ManufacturerInstrument/InstrumentHome",
   require(__dirname + "/changeMIuserdata")

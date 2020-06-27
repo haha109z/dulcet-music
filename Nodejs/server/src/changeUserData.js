@@ -18,31 +18,30 @@ router.post('/', async (req, res) => {
   } = req.body;
   let resData = { code: '', msg: '' };
   // const output = await getData(req);
-try{
-  await query(
-    `UPDATE user SET userName = ?,userPhone = ?,userMail= ?,userBirthday = ?,userAddress = ? WHERE user.userID = ?;
+  try {
+    await query(
+      `UPDATE user SET userName = ?,userPhone = ?,userMail= ?,userBirthday = ?,userAddress = ? WHERE user.userID = ?;
     `,
-    [
-      changUsername,
-      changUserPhone,
-      changUserMail,
-      changUserBirthday,
-      changUserAddress,
-      userID,
-    ],
-    (err, result) => {
-      if (err) throw err;
-      console.log(result);
+      [
+        changUsername,
+        changUserPhone,
+        changUserMail,
+        changUserBirthday,
+        changUserAddress,
+        userID,
+      ],
+      (err, result) => {
+        if (err) throw err;
+        console.log(result);
+      }
+    );
+  } catch (e) {
+    console.log(e.errno);
+    if (e.errno == 1062) {
     }
-  );
-}
-catch (e){
-console.log(e.errno)
-if(e.errno==1062){
-}
-resData = { code: 3, msg: '信箱已經被註冊過請換個信箱試試',};
-return res.json(resData);
-}
+    resData = { code: 3, msg: '信箱已經被註冊過請換個信箱試試' };
+    return res.json(resData);
+  }
   const newData = await query(
     `SELECT * FROM user WHERE userID LIKE ?;
     `,
@@ -50,6 +49,6 @@ return res.json(resData);
   );
   resData = { code: 0, msg: '正確', data: newData };
   res.json(resData);
-})
+});
 
 module.exports = router;
