@@ -10,6 +10,7 @@ function ProductList(props) {
   const [favorite, setFavorite] = useState(false)
 
   const [dataP, setDataP] = useState([])
+  const [favArr, setFavArr] = useState([])
 
   async function getDataP() {
     fetch(`http://localhost:3030/product/instrument`, {
@@ -24,14 +25,32 @@ function ProductList(props) {
         setDataP(json)
       })
   }
+  async function getInstrumentFav() {
+    fetch(`http://localhost:3030/product/instrument/favorite`, {
+      method: 'POST',
+      body: JSON.stringify(),
+      headers: new Headers({
+        'Content-Type': 'application/json',
+      }),
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        const mm = json.map((a) => a.FavPId)
+        setFavArr(mm)
+      })
+  }
 
   useEffect(() => {
+    getInstrumentFav()
+
     getDataP()
   }, [])
+  useEffect(() => {
+    console.log('arr', favArr)
+  }, [favArr])
 
   return (
     <>
-      {dataP ? console.log('ren', dataP[0]) : ''}
       <SideBar productTitleId={props.productTitleId} />
       <div className="product-container">
         <ProductPicture
@@ -54,10 +73,13 @@ function ProductList(props) {
           <div className="product-card-list">
             {dataP.map((c, index) => (
               <Card
-                favorite={favorite}
-                setFavorite={setFavorite}
+                // favorite={favorite}
+                // setFavorite={setFavorite}
                 PName={c.PName}
                 PPrice={c.PPrice}
+                favArr={favArr}
+                setFavArr={setFavArr}
+                PId={c.PId}
               />
             ))}
             {/* <Card

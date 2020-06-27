@@ -13,4 +13,15 @@ router.post("/instrument", async (req, res) => {
   res.json(data);
 });
 
+const getInstrumentFav = async () => {
+  const r1 = await db.query(
+    "SELECT * FROM `product_favorite` WHERE `PCategory`='樂器'"
+  );
+  return r1;
+};
+router.post("/instrument/favorite", async (req, res) => {
+  const [data] = await getInstrumentFav(req);
+  res.json(data);
+});
+
 module.exports = router;

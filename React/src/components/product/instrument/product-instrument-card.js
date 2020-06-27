@@ -1,29 +1,36 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { FaHeart } from 'react-icons/fa'
 
 function ProductVideoCard(props) {
-  const favorite = props.favorite
-  const setFavorite = props.setFavorite
+  // const favorite = props.favorite
+  // const setFavorite = props.setFavorite
   const maylike = props.maylike
-  const [array, setArray] = useState([1, 2, 5])
-  const [inc, setInc] = useState(array.includes(testId))
-  var testArray = array
-  var testId = 1
 
-  var pos = testArray.indexOf(testId)
+  const favArr = props.favArr
+  const setFavArr = props.setFavArr
+  const PId = props.PId
+  // const [array, setFavArr] = useState([1, 2, 5])
+  const [inc, setInc] = useState(favArr.includes(PId))
+  var testArray = favArr
+  // var PId = 1
+
+  var pos = testArray.indexOf(PId)
   const testArrayFunc = () => {
-    testArray = array
-    setInc(array.includes(testId))
-    pos = testArray.indexOf(testId)
+    testArray = favArr
+    setInc(favArr.includes(PId))
+    pos = testArray.indexOf(PId)
   }
   const func1 = () => {
     testArray.splice(pos, 1)
-    setArray(testArray)
+    setFavArr(testArray)
+    console.log(PId, 'del', favArr)
   }
   const func2 = () => {
-    testArray.push(testId)
-    setArray(testArray)
+    testArray.push(PId)
+    setFavArr(testArray)
+    console.log(PId, 'add', favArr)
   }
+
   return (
     <>
       <div
