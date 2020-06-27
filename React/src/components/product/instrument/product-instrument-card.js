@@ -8,11 +8,37 @@ function ProductVideoCard(props) {
 
   const favArr = props.favArr
   const setFavArr = props.setFavArr
+  const CatId = '樂器'
   const PId = props.PId
   // const [array, setFavArr] = useState([1, 2, 5])
   const [inc, setInc] = useState(favArr.includes(PId))
   var testArray = favArr
   // var PId = 1
+
+  async function addInstrumentFav(CatId, PId) {
+    fetch(`http://localhost:3030/product/instrument/addFavorite`, {
+      method: 'POST',
+      body: JSON.stringify({ CatId, PId }),
+      headers: new Headers({
+        'Content-Type': 'application/json',
+      }),
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        console.log(json)
+      })
+  }
+  async function delInstrumentFav(CatId, PId) {
+    fetch(`http://localhost:3030/product/instrument/delFavorite`, {
+      method: 'POST',
+      body: JSON.stringify({ CatId, PId }),
+      headers: new Headers({
+        'Content-Type': 'application/json',
+      }),
+    })
+      .then((res) => res.json())
+      .then((json) => {})
+  }
 
   var pos = testArray.indexOf(PId)
   const testArrayFunc = () => {
@@ -21,11 +47,13 @@ function ProductVideoCard(props) {
     pos = testArray.indexOf(PId)
   }
   const func1 = () => {
+    delInstrumentFav(CatId, PId)
     testArray.splice(pos, 1)
     setFavArr(testArray)
     console.log(PId, 'del', favArr)
   }
   const func2 = () => {
+    addInstrumentFav(CatId, PId)
     testArray.push(PId)
     setFavArr(testArray)
     console.log(PId, 'add', favArr)

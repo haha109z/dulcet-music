@@ -3,25 +3,36 @@ const express = require("express");
 const router = express.Router();
 const db = require(__dirname + "/db_connect2");
 
-const getInstrument = async () => {
-  const r1 = await db.query("SELECT * FROM `product_instruments`");
-  return r1;
-};
-
 router.post("/instrument", async (req, res) => {
-  const [data] = await getInstrument(req);
+  const [data] = await db.query("SELECT * FROM `product_instruments`");
   res.json(data);
 });
 
-const getInstrumentFav = async () => {
-  const r1 = await db.query(
+router.post("/instrument/favorite", async (req, res) => {
+  const [data] = await db.query(
     "SELECT * FROM `product_favorite` WHERE `PCategory`='樂器'"
   );
-  return r1;
-};
-router.post("/instrument/favorite", async (req, res) => {
-  const [data] = await getInstrumentFav(req);
   res.json(data);
+});
+
+router.post("/instrument/addFavorite", async (req, res) => {
+  let { CatId, PId } = req.body;
+
+  await db.query(
+    "INSERT INTO `product_favorite`(`FavUId`, `PCategory`, `FavPId`) VALUES (1,?,?)",
+    [CatId, PId]
+  );
+  // res.json(resData);
+});
+
+router.post("/instrument/delFavorite", async (req, res) => {
+  let { CatId, PId } = req.body;
+
+  await db.query(
+    "DELETE FROM `product_favorite` WHERE `FavUId`=1 && `PCategory`=? && `FavPId`=?",
+    [CatId, PId]
+  );
+  // res.json(resData);
 });
 
 module.exports = router;
