@@ -17,7 +17,7 @@ function ProductId() {
   const [dataP, setDataP] = useState([])
 
   async function getDataP() {
-    fetch(`http://localhost:3030/product//instrument/getid`, {
+    fetch(`http://localhost:3030/product/instrument/getid`, {
       method: 'POST',
       body: JSON.stringify({ PId }),
       headers: new Headers({

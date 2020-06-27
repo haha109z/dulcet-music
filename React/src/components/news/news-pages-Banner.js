@@ -7,7 +7,7 @@ import PagesBanner from './news-pages-Banner-banner'
 function NewsPagesBanner(props) {
 
   const [content, setContent] = useState([])
-  
+
 
   async function getContent() {
     fetch(`http://localhost:3030/news/newsList`, {
@@ -42,6 +42,7 @@ function NewsPagesBanner(props) {
             NewsImg={pb.NewsImg}
             NewsLink={pb.NewsLink}
             NewsCategory={pb.NewsCategory}
+            NewsID={pb.NewsID}
              />
               
             ))}

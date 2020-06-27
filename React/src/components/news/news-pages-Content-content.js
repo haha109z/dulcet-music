@@ -3,11 +3,12 @@ import { AiFillEdit } from "react-icons/ai";
 import { AiOutlineMail } from "react-icons/ai";
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
-
 function NewsPagesContentContent(props) {
+
     return (
       <>
         
+          
             <div className="news-pages-ContentContent">
                 <pre id="NewsContent" className="news-p news-LetterSpacing news-NotoSerifTC text-break news-color14">
                 {props.NewsContent}
@@ -37,8 +38,8 @@ function NewsPagesContentContent(props) {
               </div>
 
             </div>
-
-      </>
+            </>
+       
     )
   }
   

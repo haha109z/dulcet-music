@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 
 function NewsPagesBannerBanner(props) {
+
+  console.log(props)
+
   return (
     <>
       <div className="news-pages-Container news-h5 news-LetterSpacing news-NotoSerifTC">
@@ -10,11 +13,11 @@ function NewsPagesBannerBanner(props) {
           所有列表
         </Link>
         &nbsp;/&nbsp;
-        <Link className="news-pages-Breadcrumb" to="">
+        <Link className="news-pages-Breadcrumb" to={'/news-pages'+'/' + props.NewsCategory}>
           {props.NewsCategory}
         </Link>
         &nbsp;/&nbsp;
-        <Link className="news-pages-Breadcrumb" to="">
+        <Link className="news-pages-Breadcrumb" to={'/news-pages'+'/'+ props.NewsCategory +'/' + props.NewsID}>
           {props.NewsTitle}
         </Link>
       </div>

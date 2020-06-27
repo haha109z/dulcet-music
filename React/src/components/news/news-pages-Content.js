@@ -4,13 +4,11 @@ import { AiOutlineMail } from "react-icons/ai";
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import PageContent from './news-pages-Content-content'
 
-
 function NewsPagesContent(props) {
-
   const [content, setContent] = useState([])
 
   async function getContent() {
-    fetch(`http://localhost:3030/news/List`, {
+    fetch(`http://localhost:3030/news/newsList`, {
       method: 'POST',
       body: JSON.stringify(),
       headers: new Headers({
@@ -56,5 +54,4 @@ function NewsPagesContent(props) {
     )
     
   }
-
   export default NewsPagesContent

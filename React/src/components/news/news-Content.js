@@ -41,6 +41,8 @@ function NewsContent(props) {
             NewsTitle={cc.NewsTitle}
             NewsContent={cc.NewsContent}
             NewsImg={cc.NewsImg}
+            NewsID={cc.NewsID}
+            NewsCategory={cc.NewsCategory}
              />
               
             ))}
