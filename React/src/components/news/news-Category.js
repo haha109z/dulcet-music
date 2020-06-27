@@ -7,7 +7,7 @@ function NewsCategory(props) {
   const [category,setCategory] = useState([])
 
   async function getCategory(){
-    fetch(`http://localhost:3030/newscategory`,{
+    fetch(`http://localhost:3030/news/newsCatrgory`,{
       method : 'POST',
       body : JSON.stringify(),
       headers : new Headers({

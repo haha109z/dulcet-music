@@ -4,7 +4,7 @@ import { AiOutlineMinusCircle } from 'react-icons/ai'
 
 function ProductIntroAmount(props) {
   const [amount, setAmount] = useState(0)
-  const stock = 10
+  const stock = props.PQty
 
   return (
     <>

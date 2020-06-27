@@ -33,7 +33,7 @@ function ProductInstrument() {
               </>
             )}
           ></Route>
-          <Route path="/instrument/id">
+          <Route path="/instrument/:PId">
             <ProductId />
           </Route>
 

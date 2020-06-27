@@ -5,7 +5,7 @@
 
 .news-pages-ContentContent {
   max-width: 960px;
-  margin: 0 auto;
+  margin: 30px auto 0;
 }
 
 .news-pages-ContentHr {
@@ -20,6 +20,10 @@
 .news-color14 {
   color: #141414;
 }
+
+pre {
+  white-space: pre-wrap;
+ }
 
 .news-pages-ul {
   justify-content: center;
@@ -37,6 +41,8 @@
       color: #141414;
       font-size: 16px;
     }
+
+    
 
     a:hover {
       color: #ffffff;
@@ -64,6 +70,10 @@
 }
 
 @media (max-width: 768px) {
+  .news-pages-ContentContent {
+    margin: 5px;
+  }
+
   .news-pages-ContentBack {
     margin: 0 auto;
     line-height: 14px;

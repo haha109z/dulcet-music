@@ -73,8 +73,9 @@ app.get("/forum", async (req, res) => {
 });
 //   app.use("/forum" , require(__dirname + "/forum"))
 
-app.use("/newscategory", require(__dirname + "/newscategory"));
-app.use("/newscontent", require(__dirname + "/newscontent"));
+
+//news
+app.use("/news", require(__dirname + "/news"));
 
 //cart
 app.get('/cart', async (req, res) => {

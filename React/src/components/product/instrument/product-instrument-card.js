@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { FaHeart } from 'react-icons/fa'
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
 function ProductVideoCard(props) {
   // const favorite = props.favorite
@@ -24,9 +25,7 @@ function ProductVideoCard(props) {
       }),
     })
       .then((res) => res.json())
-      .then((json) => {
-        console.log(json)
-      })
+      .then((json) => {})
   }
   async function delInstrumentFav(CatId, PId) {
     fetch(`http://localhost:3030/product/delFavorite`, {
@@ -50,13 +49,13 @@ function ProductVideoCard(props) {
     delInstrumentFav(CatId, PId)
     testArray.splice(pos, 1)
     setFavArr(testArray)
-    console.log(PId, 'del', favArr)
+    // console.log(PId, 'del', favArr)
   }
   const func2 = () => {
     addInstrumentFav(CatId, PId)
     testArray.push(PId)
     setFavArr(testArray)
-    console.log(PId, 'add', favArr)
+    // console.log(PId, 'add', favArr)
   }
 
   return (
@@ -66,10 +65,22 @@ function ProductVideoCard(props) {
           maylike ? 'product-maylike-card' : ''
         }`}
       >
-        <img
-          className="product-instrument-card-img"
-          // src={require('../images/184177.jpg')}
-        />
+        <Link
+          to={'/instrument/' + PId}
+          className="product-instrument-card-link"
+        >
+          <div className="product-instrument-card-img-wrapper">
+            <img
+              className="product-instrument-card-img"
+              // src={require('../images/184177.jpg')}
+            />
+          </div>
+          <div className="product-card-intro">
+            <h4 className="product-card-title">{props.PName}</h4>
+            <h3 className="product-card-cost">${props.PPrice}</h3>
+          </div>
+        </Link>
+
         <div
           className={`product-card-favorite-container ${
             inc ? 'product-card-favorite-bg' : null
@@ -79,19 +90,7 @@ function ProductVideoCard(props) {
             testArrayFunc()
           }}
         >
-          {/* <div
-          className={`product-card-favorite-container ${
-            favorite ? 'product-card-favorite-bg' : null
-          }`}
-          onClick={() => {
-            favorite ? setFavorite(false) : setFavorite(true)
-          }}
-        > */}
           <FaHeart className="product-card-favorite" />
-        </div>
-        <div className="product-card-intro">
-          <h4 className="product-card-title">{props.PName}</h4>
-          <h3 className="product-card-cost">${props.PPrice}</h3>
         </div>
       </div>
     </>

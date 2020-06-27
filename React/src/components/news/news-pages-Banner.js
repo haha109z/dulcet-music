@@ -2,36 +2,44 @@ import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 
-function NewsPagesBanner(props) {
+function NewsPagesBannerBanner(props) {
+
+  console.log(props)
+
   return (
     <>
+      <div className="news-pages-Container news-h5 news-LetterSpacing news-NotoSerifTC">
+        <Link className="news-pages-Breadcrumb" to="/news">
+          所有列表
+        </Link>
+        &nbsp;/&nbsp;
+        <Link className="news-pages-Breadcrumb" to={'/' + props.NewsCategory}>
+          {props.NewsCategory}
+        </Link>
+        &nbsp;/&nbsp;
+        <Link className="news-pages-Breadcrumb" to={'/news-pages'+'/'+props.NewsCategory +'/' + props.NewsID}>
+          {props.NewsTitle}
+        </Link>
+      </div>
+      
+        <div className="news-pages-BannerContainer">
+          <img
+            className="news-pages-BannerImg"
+            src={`http://localhost:3030/images/news/${props.NewsImg}`}
+          ></img>
+        </div>
 
-    <div className="news-pages-Container news-h5 news-LetterSpacing news-NotoSerifTC">
-
-        <Link className="news-pages-Breadcrumb" to="/news">所有列表</Link>&nbsp;/&nbsp;
-        <Link className="news-pages-Breadcrumb" to="">活動</Link>&nbsp;/&nbsp;
-        <Link className="news-pages-Breadcrumb" to="">古典管絃樂團2020夏季音樂會</Link>
-        
-    </div>
-
-    <div className="news-pages-BannerContainer">
-
-        <img className="news-pages-BannerImg" src={require("../../img/news/news_a001.jpg")}></img>
-        
-    </div>
-
-    <div className="news-pages-BannerContent">
-
-        <p className="news-H2 news-LetterSpacing">古典管絃樂團2020夏季音樂會</p>
-        <p className="news-H2 news-LetterSpacing">109年7月5號(日)14:30</p>
-        <p className="news-H2 news-LetterSpacing"><FaMapMarkerAlt className="news-H2" /> 臺中市中山堂</p>
-
-    </div>
-
-    <div className="news-pages-background"></div>
-
+    <div className="news-pages-background">
+      <div className="news-pages-BannerContent">
+        <p className="news-H2 news-LetterSpacing">{props.NewsTitle}</p>
+        <p className="news-H2 news-LetterSpacing">{props.NewsDateTitle}</p>
+        <p className="news-H2 news-LetterSpacing">
+          <FaMapMarkerAlt className="news-H3" /> {props.NewsAddress}
+        </p>
+      </div>
+      </div>
     </>
   )
 }
 
-export default NewsPagesBanner
+export default NewsPagesBannerBanner

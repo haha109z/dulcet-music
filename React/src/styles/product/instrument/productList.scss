@@ -77,13 +77,43 @@
         overflow: hidden;
         margin: 30px 0;
         transition: 0.5s;
+        .product-instrument-card-link {
+          text-decoration: none;
+          .product-instrument-card-img-wrapper {
+            padding: 10px;
+            .product-instrument-card-img {
+              width: 184px;
+              height: 177px;
+              object-fit: contain;
+              // margin: 10px;
+              // background: fuchsia;
+            }
+          }
+          .product-card-intro {
+            background: #f2f2f2;
+            height: 76px;
+            margin: 0;
+            padding: 10px;
+            .product-card-title {
+              margin: 0px;
+              font-size: 14px;
+              line-height: 20px;
+              letter-spacing: 3px;
+              font-family: 'Noto Serif TC', serif;
+              color: #141414;
+              // font-weight: bold;
+            }
 
-        .product-instrument-card-img {
-          width: 184px;
-          height: 177px;
-          object-fit: contain;
-          margin: 10px;
-          // background: fuchsia;
+            .product-card-cost {
+              color: #fb2643;
+              margin: 0;
+              font-size: 20px;
+              position: absolute;
+              right: 10px;
+              bottom: 5px;
+              font-family: Merienda;
+            }
+          }
         }
         .product-card-favorite-container {
           height: 26px;
@@ -107,28 +137,6 @@
         // .product-card-favorite-container:hover {
         //   background: #fb2643;
         // }
-        .product-card-intro {
-          background: #f2f2f2;
-          height: 76px;
-          margin: 0;
-          padding: 10px;
-          .product-card-title {
-            margin: 0px;
-            font-size: 14px;
-            line-height: 20px;
-            letter-spacing: 3px;
-            font-family: 'Noto Serif TC', serif;
-          }
-          .product-card-cost {
-            color: #fb2643;
-            margin: 0;
-            font-size: 20px;
-            position: absolute;
-            right: 10px;
-            bottom: 5px;
-            font-family: Merienda;
-          }
-        }
       }
       .product-instrument-card:hover {
         transform: scale(1.05, 1.05);
@@ -204,7 +212,7 @@
         }
       }
       .product-instrument-card:hover {
-        cursor: pointer;
+        // cursor: pointer;
       }
       .product-video-card:hover {
         cursor: pointer;

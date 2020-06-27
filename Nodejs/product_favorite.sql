@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2020-06-27 05:00:15
+-- 產生時間： 2020-06-27 14:10:36
 -- 伺服器版本： 10.4.11-MariaDB
 -- PHP 版本： 7.4.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 資料庫： `coupon`
+-- 資料庫： `dulcet_music`
 --
 
 -- --------------------------------------------------------
@@ -40,10 +40,14 @@ CREATE TABLE `product_favorite` (
 
 INSERT INTO `product_favorite` (`FavId`, `FavUId`, `PCategory`, `FavPId`) VALUES
 (1, 1, '課程', 2),
-(2, 1, '影片', 14),
-(3, 1, '樂器', 1),
-(4, 2, '樂器', 10),
-(5, 2, '樂器', 22);
+(2, 1, '影片', 10),
+(3, 1, '樂器', 18),
+(4, 2, '樂器', 28),
+(5, 2, '樂器', 19),
+(10, 1, '樂器', 4),
+(12, 1, '樂器', 5),
+(17, 1, '樂器', 1),
+(18, 1, '樂器', 2);
 
 --
 -- 已傾印資料表的索引
@@ -63,7 +67,7 @@ ALTER TABLE `product_favorite`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `product_favorite`
 --
 ALTER TABLE `product_favorite`
-  MODIFY `FavId` int(255) NOT NULL AUTO_INCREMENT COMMENT '最愛編號', AUTO_INCREMENT=6;
+  MODIFY `FavId` int(255) NOT NULL AUTO_INCREMENT COMMENT '最愛編號', AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

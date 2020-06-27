@@ -7,8 +7,6 @@ import Card from './product-instrument-card'
 import SideBar from '../product-sidebar'
 
 function ProductList(props) {
-  const [favorite, setFavorite] = useState(false)
-
   const [dataP, setDataP] = useState([])
   const [favArr, setFavArr] = useState([])
 
@@ -42,12 +40,8 @@ function ProductList(props) {
 
   useEffect(() => {
     getInstrumentFav()
-
     getDataP()
   }, [])
-  useEffect(() => {
-    console.log('arr', favArr)
-  }, [favArr])
 
   return (
     <>
@@ -71,42 +65,22 @@ function ProductList(props) {
             </select> */}
           </div>
           <div className="product-card-list">
-            {dataP.map((c, index) => (
-              <Card
-                // favorite={favorite}
-                // setFavorite={setFavorite}
-                PName={c.PName}
-                PPrice={c.PPrice}
-                favArr={favArr}
-                setFavArr={setFavArr}
-                PId={c.PId}
-              />
-            ))}
-            {/* <Card
-              favorite={favorite}
-              setFavorite={setFavorite}
-              PName={name[0]}
-            />
-            <Card
-              favorite={favorite}
-              setFavorite={setFavorite}
-              PName={name[1]}
-            />
-            <Card
-              favorite={favorite}
-              setFavorite={setFavorite}
-              PName={name[2]}
-            />
-            <Card
-              favorite={favorite}
-              setFavorite={setFavorite}
-              PName={name[3]}
-            />
-            <Card
-              favorite={favorite}
-              setFavorite={setFavorite}
-              PName={name[4]}
-            /> */}
+            {dataP.map((c, index) => {
+              return (
+                <Card
+                  // favorite={favorite}
+                  // setFavorite={setFavorite}
+                  PName={c.PName}
+                  PPrice={c.PPrice.toString().replace(
+                    /(\d)(?=(\d{3})+(?:.\d+)?$)/g,
+                    '$1,'
+                  )}
+                  favArr={favArr}
+                  setFavArr={setFavArr}
+                  PId={c.PId}
+                />
+              )
+            })}
           </div>
 
           {/* <Router> */}
