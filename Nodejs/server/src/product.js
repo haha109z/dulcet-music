@@ -15,7 +15,7 @@ router.post("/instrument/favorite", async (req, res) => {
   res.json(data);
 });
 
-router.post("/instrument/addFavorite", async (req, res) => {
+router.post("/addFavorite", async (req, res) => {
   let { CatId, PId } = req.body;
 
   await db.query(
@@ -25,7 +25,7 @@ router.post("/instrument/addFavorite", async (req, res) => {
   // res.json(resData);
 });
 
-router.post("/instrument/delFavorite", async (req, res) => {
+router.post("/delFavorite", async (req, res) => {
   let { CatId, PId } = req.body;
 
   await db.query(

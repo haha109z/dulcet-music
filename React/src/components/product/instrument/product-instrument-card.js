@@ -16,7 +16,7 @@ function ProductVideoCard(props) {
   // var PId = 1
 
   async function addInstrumentFav(CatId, PId) {
-    fetch(`http://localhost:3030/product/instrument/addFavorite`, {
+    fetch(`http://localhost:3030/product/addFavorite`, {
       method: 'POST',
       body: JSON.stringify({ CatId, PId }),
       headers: new Headers({
@@ -29,7 +29,7 @@ function ProductVideoCard(props) {
       })
   }
   async function delInstrumentFav(CatId, PId) {
-    fetch(`http://localhost:3030/product/instrument/delFavorite`, {
+    fetch(`http://localhost:3030/product/delFavorite`, {
       method: 'POST',
       body: JSON.stringify({ CatId, PId }),
       headers: new Headers({
