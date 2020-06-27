@@ -30,6 +30,7 @@ class ForumCard extends Component {
     ForumAboutTitle: '', //樂器類型
     ForumTitleId: '', //主題
     ForumMemo: '', //內容
+    userName:'',
     news: [
       {
         ForumId: '',
@@ -82,12 +83,14 @@ class ForumCard extends Component {
     const toggle = !boxShow
     this.setState({ boxShow: toggle })
     // console.log(boxShow);
+
+    //input裡面的資料抓取功能
+    localStorage.getItem("user") 
+    const UserName = this.state.username
+    // UserName.value = this.state.news.UserId
+    this.setState({ userName:UserName })
   }
-  handleUserNameId = (event) => {
-    const UserName = event.target.name
-    console.log(UserName)
-    this.setState({ UserName })
-  }
+  
 
   handleForumAboutTitle = (event) => {
     const state = this.state
@@ -112,6 +115,9 @@ class ForumCard extends Component {
 
     //sql語法
     // SELECT ForumAbout.userID,user.userName,ForumAbout.TitleMusic,ForumAbout.TitleId,ForumAbout.Memo FROM ForumAbout left JOIN user ON ForumAbout.userID = user.userID
+
+    //sql 新增語法
+    // INSERT INTO `ForumAbout`(`ForumId`, `TitleMusic`, `TitleId`, `Memo`, `userID`) VALUES ('4','大提琴','Title','TitleMemo','4')
     let t = this
     fetch('http://localhost:3030/forum', { method: 'GET' }).then(function (
       res
@@ -152,8 +158,8 @@ class ForumCard extends Component {
             <input
               type="text"
               name="name"
-              value={this.handleUserNameId}
-              disabled
+              value={this.state.userName}
+                            disabled
               onChange={this.handleUserNameId}
             />
             <button style={{ float: 'right' }} onClick={this.handleClick}>
@@ -162,14 +168,19 @@ class ForumCard extends Component {
           </div>
           <div>
             問題類別：
-            <input type="text" placeholder="您的問題是" name="Action" />
+            <input type="text" placeholder="樂器類別是？" name="Action" />
+          </div>
+          <div>
+            您的問題：
+            <input type="text" placeholder="您的問題是？" name="Action" />
           </div>
           <textarea name="comment" className="ForumBtnAction" />
           <input
             type="submit"
             value="送出"
             className="ForumButton"
-            onClick={this.handleSubmit}
+            // onClick={this.handleSubmit}
+            onClick={this.handleUserNameId}
           />
         </div>
       </div>
@@ -209,7 +220,7 @@ class ForumCard extends Component {
                     <button className="ComprehensiveButton">綜合</button>
                   </div>
                   <div className="ForumCardDiv">
-                    <p className="ForumCardP">{item.Memo}</p>
+                  <p className="ForumCardP">{item.TitleId}</p>
                     <button className="ForumBtnAns" onClick={this.handleBtn}>
                       看回答
                     </button>
