@@ -16,7 +16,7 @@ function ProductId(props) {
       </Link>
       &nbsp;/&nbsp;
       <Link
-        to={'/' + props.productCategoryId + '/id'}
+        to={'/' + props.productCategoryId + '/' + props.PId}
         className="product-id-link"
       >
         {props.productName}
