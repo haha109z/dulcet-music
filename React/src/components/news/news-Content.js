@@ -10,7 +10,7 @@ function NewsContent(props) {
   const [content, setContent] = useState([])
 
   async function getContent() {
-    fetch(`http://localhost:3030/newscontent`, {
+    fetch(`http://localhost:3030/news/newsList`, {
       method: 'POST',
       body: JSON.stringify(),
       headers: new Headers({

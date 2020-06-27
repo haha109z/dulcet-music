@@ -6,7 +6,6 @@
 .news-Content {
   max-width: 600px;
   padding: 0 20px 20px;
-  position: relative;
 }
 
 .news-p-content{
@@ -18,16 +17,19 @@
 
 .news-ContentImg {
   width: 100%;
-  max-height: 300px;
   object-fit: fill;
   margin-bottom: 10px;
+
+}
+
+.news-ShareContent{
+  position: relative;
 }
 
 .news-Share {
   position: absolute;
   color: #797979;
-  right: 20px;
-  top: 300px;
+  right:0;
 }
 
 .news-Share:hover{
@@ -65,7 +67,6 @@
 
 .news-p {
   font-size: 14px;
-  
 }
 
 p.news-H3 {
@@ -117,9 +118,13 @@ p.news-H3 {
 }
 
 @media (max-width: 768px) {
+  .news-ContentContainer {
+    margin: 5px;
+  }
+
   .news-Content {
     margin: 0;
-    padding: 5px;
+    padding: 0;
   }
 
   #news-pages-list {
@@ -129,8 +134,12 @@ p.news-H3 {
       padding: 0;
     }
   }
-
+  .news-H3 {
+    font-size: 16px;
+  }
   .news-Share {
     display: none;
   }
+
+
 }

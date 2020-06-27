@@ -12,11 +12,12 @@ function NewsContentContent(props) {
           <div className="news-Content">
             <img className="news-ContentImg" src={`http://localhost:3030/images/news/${props.NewsImg}`}></img>
             
-            <Link className="news-Share"><FaShareAlt class="news-H3" /></Link>
-              <p className="news-H3 news-LetterSpacing news-NotoSerifTC">
+            
+              <p className="news-H3 news-LetterSpacing news-NotoSerifTC news-ShareContent">
+                <Link className="news-Share"><FaShareAlt class="news-H3" /></Link>
+                {props.NewsTitle}<br />
                 {props.NewsDateTitle}<br />
-                <FaMapMarkerAlt className="news-H3" /> {props.NewsAddress}<br />
-                {props.NewsTitle}
+                <FaMapMarkerAlt className="news-H3" /> {props.NewsAddress}
               </p>
               <div className="news-p-content">
               <p className="news-p news-LetterSpacing news-Color79 news-NotoSerifTC">

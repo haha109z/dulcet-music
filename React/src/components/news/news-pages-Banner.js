@@ -1,12 +1,53 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import { FaMapMarkerAlt } from 'react-icons/fa'
+import PagesBanner from './news-pages-Banner-banner'
+
 
 function NewsPagesBanner(props) {
-  return (
-    <>
 
-    <div className="news-pages-Container news-h5 news-LetterSpacing news-NotoSerifTC">
+  const [content, setContent] = useState([])
+  
+
+  async function getContent() {
+    fetch(`http://localhost:3030/news/newsList`, {
+      method: 'POST',
+      body: JSON.stringify(),
+      headers: new Headers({
+        'Content-Type': 'application/json',
+      }),
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        setContent(json)
+      })
+      
+  }
+
+  useEffect(() => {
+    // Your code here
+    getContent()
+  }, [])
+
+  return (
+
+    <>
+      
+        {content.map((pb, index) => (
+            <PagesBanner
+            NewsDateTitle={pb.NewsDateTitle}
+            NewsAddress={pb.NewsAddress}
+            NewsTitle={pb.NewsTitle}
+            NewsContent={pb.NewsContent}
+            NewsImg={pb.NewsImg}
+            NewsLink={pb.NewsLink}
+            NewsCategory={pb.NewsCategory}
+             />
+              
+            ))}
+        
+
+    {/* <div className="news-pages-Container news-h5 news-LetterSpacing news-NotoSerifTC">
 
         <Link className="news-pages-Breadcrumb" to="/news">所有列表</Link>&nbsp;/&nbsp;
         <Link className="news-pages-Breadcrumb" to="">活動</Link>&nbsp;/&nbsp;
@@ -28,7 +69,7 @@ function NewsPagesBanner(props) {
 
     </div>
 
-    <div className="news-pages-background"></div>
+    <div className="news-pages-background"></div> */}
 
     </>
   )
