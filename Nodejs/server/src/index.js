@@ -59,10 +59,7 @@ app.use(
 //     res.send(`<h2>SOR...找不到你要的網頁</h2>`);
 // })
 
-// simple route
-app.get("/", (req, res) => {
-  res.send("123");
-});
+
 //商品
 app.use("/product", require(__dirname + "/product"));
 
@@ -84,6 +81,11 @@ app.get('/cart', async (req, res) => {
   const output = await query("SELECT * FROM `orderlist` WHERE 1");
   console.log(output)
   res.json(output);
+});
+
+// simple route
+app.get("/", (req, res) => {
+  res.send("123");
 });
 
 app.listen(3030, () => {
