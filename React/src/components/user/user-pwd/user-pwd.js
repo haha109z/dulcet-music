@@ -69,9 +69,9 @@ export default class UserPwd extends Component {
         this.setState({ newPwd: '' })
         this.setState({ changePwd: '' })
 
-        console.log(
-          `newPwd:${newPwd}, changePwd:${changePwd} ,userPwd:${userPwd},oldPwd: ${oldPwd}`
-        )
+        // console.log(
+        //   `newPwd:${newPwd}, changePwd:${changePwd} ,userPwd:${userPwd},oldPwd: ${oldPwd}`
+        // )
         if (newPwd == changePwd) {
           // 將要傳送的新密碼加密記得引入sha1插件
           // newPwd=sha1(newPwd)

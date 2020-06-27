@@ -1,7 +1,25 @@
 import React, { Component } from 'react'
-
+const getUserInfo = () => {
+  return JSON.parse(localStorage.getItem('coupon'))
+}
+if (getUserInfo()) {
+  let coupon = getUserInfo()
+  if (coupon[0].coupon) {
+    var coupon1 = coupon[0].coupon
+  }
+}
 export default class UserVoucher extends Component {
-  render() {
+
+  constructor() {
+    super()
+    this.state = {
+      count:coupon1,
+    }
+  }
+ 
+
+  render() {   
+    console.log(this.state.count)
     return (
       <>
         <div className="userVoucher-main">
@@ -27,6 +45,7 @@ export default class UserVoucher extends Component {
           </form>
 
           <hr className="userVoucher-divider" />
+
           <div className="userVoucher-item">
             <div className="userVoucher-item-card">
               <div className="userVoucher-item-card-img">
@@ -36,11 +55,34 @@ export default class UserVoucher extends Component {
               <p className="user-font-ch userVoucher-item-card-title">
                 結帳金額減免200元
               </p>
-              <p className=" userVoucher-item-card-num user-color-red">aaa12398</p>
+              <p className=" userVoucher-item-card-num user-color-red">
+                aaa12398
+              </p>
               <p className="user-font-ch userVoucher-item-card-date">
                 到期日期2020-00-00
               </p>
-              <p className="user-font-ch userVoucher-item-card-copy">複製折扣碼</p>
+              <p className="user-font-ch userVoucher-item-card-copy">
+                複製折扣碼
+              </p>
+            </div>
+
+            <div className="userVoucher-item-card">
+              <div className="userVoucher-item-card-img">
+                <img src={require('../../../img/home_logo_方.png')} alt="" />
+              </div>
+              <div className="userVoucher-item-card-divider"></div>
+              <p className="user-font-ch userVoucher-item-card-title">
+                結帳金額減免200元
+              </p>
+              <p className=" userVoucher-item-card-num user-color-red">
+                aaa12398
+              </p>
+              <p className="user-font-ch userVoucher-item-card-date">
+                到期日期2020-00-00
+              </p>
+              <p className="user-font-ch userVoucher-item-card-copy">
+                複製折扣碼
+              </p>
             </div>
             <div className="userVoucher-item-card">
               <div className="userVoucher-item-card-img">
@@ -50,11 +92,15 @@ export default class UserVoucher extends Component {
               <p className="user-font-ch userVoucher-item-card-title">
                 結帳金額減免200元
               </p>
-              <p className=" userVoucher-item-card-num user-color-red">aaa12398</p>
+              <p className=" userVoucher-item-card-num user-color-red">
+                aaa12398
+              </p>
               <p className="user-font-ch userVoucher-item-card-date">
                 到期日期2020-00-00
               </p>
-              <p className="user-font-ch userVoucher-item-card-copy">複製折扣碼</p>
+              <p className="user-font-ch userVoucher-item-card-copy">
+                複製折扣碼
+              </p>
             </div>
             <div className="userVoucher-item-card">
               <div className="userVoucher-item-card-img">
@@ -64,11 +110,15 @@ export default class UserVoucher extends Component {
               <p className="user-font-ch userVoucher-item-card-title">
                 結帳金額減免200元
               </p>
-              <p className=" userVoucher-item-card-num user-color-red">aaa12398</p>
+              <p className=" userVoucher-item-card-num user-color-red">
+                aaa12398
+              </p>
               <p className="user-font-ch userVoucher-item-card-date">
                 到期日期2020-00-00
               </p>
-              <p className="user-font-ch userVoucher-item-card-copy">複製折扣碼</p>
+              <p className="user-font-ch userVoucher-item-card-copy">
+                複製折扣碼
+              </p>
             </div>
             <div className="userVoucher-item-card">
               <div className="userVoucher-item-card-img">
@@ -78,26 +128,16 @@ export default class UserVoucher extends Component {
               <p className="user-font-ch userVoucher-item-card-title">
                 結帳金額減免200元
               </p>
-              <p className=" userVoucher-item-card-num user-color-red">aaa12398</p>
-              <p className="user-font-ch userVoucher-item-card-date">
-                到期日期2020-00-00
+              <p className=" userVoucher-item-card-num user-color-red">
+                aaa12398
               </p>
-              <p className="user-font-ch userVoucher-item-card-copy">複製折扣碼</p>
-            </div>
-            <div className="userVoucher-item-card">
-              <div className="userVoucher-item-card-img">
-                <img src={require('../../../img/home_logo_方.png')} alt="" />
-              </div>
-              <div className="userVoucher-item-card-divider"></div>
-              <p className="user-font-ch userVoucher-item-card-title">
-                結帳金額減免200元
-              </p>
-              <p className=" userVoucher-item-card-num user-color-red">aaa12398</p>
 
               <p className="user-font-ch userVoucher-item-card-date">
                 到期日期2020-00-00
               </p>
-              <p className="user-font-ch userVoucher-item-card-copy">複製折扣碼</p>
+              <p className="user-font-ch userVoucher-item-card-copy">
+                複製折扣碼
+              </p>
             </div>
             <div className="userVoucher-item-card">
               <div className="userVoucher-item-card-img">
@@ -107,11 +147,15 @@ export default class UserVoucher extends Component {
               <p className="user-font-ch userVoucher-item-card-title">
                 結帳金額減免200元
               </p>
-              <p className=" userVoucher-item-card-num user-color-red">aaa12398</p>
+              <p className=" userVoucher-item-card-num user-color-red">
+                aaa12398
+              </p>
               <p className="user-font-ch userVoucher-item-card-date">
                 到期日期2020-00-00
               </p>
-              <p className="user-font-ch userVoucher-item-card-copy">複製折扣碼</p>
+              <p className="user-font-ch userVoucher-item-card-copy">
+                複製折扣碼
+              </p>
             </div>
           </div>
           <div className="user-page">

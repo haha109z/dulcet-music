@@ -40,6 +40,7 @@ export default class UserPurchase extends Component {
       })
   }
   render() {
+    
     let UserPurchase = this.state.UserPurchase
     console.log(UserPurchase)
 
