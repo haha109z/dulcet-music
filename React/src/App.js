@@ -26,7 +26,6 @@ import UserApp from './container/user-app'
 
 import News from './container/news'
 import NewsPages from './container/news-pages'
-import NewsLink from './components/news/news-pages-Banner-banner'
 
 // Cart
 import CartApp from './container/cart-app'
