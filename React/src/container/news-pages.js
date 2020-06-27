@@ -13,7 +13,7 @@ function NewsPages(){
     const [content, setcontent] = useState([])
 
   async function getcontent() {
-    fetch(`http://localhost:3030/news/:NewsCategory/:NewsID`, {
+    fetch(`http://localhost:3030/news/newsid`, {
       method: 'POST',
       body: JSON.stringify({ NewsID , NewsCategory}),
       headers: new Headers({
@@ -33,14 +33,33 @@ function NewsPages(){
 
     return(
         <>
+        {content.map((cc) => {
+            return (
+              <>
         <Navbar />
-        <NewsPagesBanner />
+        <NewsPagesBanner
+            NewsDateTitle={cc.NewsDateTitle}
+            NewsAddress={cc.NewsAddress}
+            NewsTitle={cc.NewsTitle}
+            NewsContent={cc.NewsContent}
+            NewsImg={cc.NewsImg}
+            NewsLink={cc.NewsLink}
+            NewsCategory={cc.NewsCategory}
+            NewsID={cc.NewsID} />
         <NewsPagesContent 
-            NewsID={NewsID}
-            NewsCategory={NewsCategory}
+            NewsDateTitle={cc.NewsDateTitle}
+            NewsAddress={cc.NewsAddress}
+            NewsTitle={cc.NewsTitle}
+            NewsContent={cc.NewsContent}
+            NewsImg={cc.NewsImg}
+            NewsID={cc.NewsID}
+            NewsCategory={cc.NewsCategory}
+            NewsLink={cc.NewsLink}
         />
-        <h1>{NewsID}{NewsCategory}</h1>
-        
+        </>
+            )
+          })}
+
       </>
     )
 }

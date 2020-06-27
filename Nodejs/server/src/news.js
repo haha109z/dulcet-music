@@ -16,8 +16,8 @@ router.post("/newsList", async (req, res) => {
     res.json(data);
  }); 
 
-router.post("/:NewsCategory/:NewsID", async (req, res) => {
-    let { NewsCategory,NewsID } = req.params;
+router.post("/newsid", async (req, res) => {
+    let { NewsCategory,NewsID } = req.body;
     const [data] = await db.query(
       "SELECT *  FROM `news` WHERE (`NewsID`, `NewsCategory`)=(?,?)",
       [NewsID,NewsCategory]

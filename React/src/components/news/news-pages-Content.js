@@ -2,56 +2,45 @@ import React, { useState, useEffect } from 'react'
 import { AiFillEdit } from "react-icons/ai";
 import { AiOutlineMail } from "react-icons/ai";
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
-import PageContent from './news-pages-Content-content'
 
-function NewsPagesContent(props) {
-  const [content, setContent] = useState([])
+function NewsPagesContentContent(props) {
 
-  async function getContent() {
-    fetch(`http://localhost:3030/news/newsList`, {
-      method: 'POST',
-      body: JSON.stringify(),
-      headers: new Headers({
-        'Content-Type': 'application/json',
-      }),
-    })
-      .then((res) => res.json())
-      .then((json) => {
-        setContent(json)
-      })
-      
-  }
-  console.log(content[0])
-
-  useEffect(() => {
-    // Your code here
-    getContent()
-    
-  }, [])
-  
     return (
       <>
         
-      <div className="news-ContentContainer">
+          
+            <div className="news-pages-ContentContent">
+                <pre id="NewsContent" className="news-p news-LetterSpacing news-NotoSerifTC text-break news-color14">
+                {props.NewsContent}
+                </pre>
+            </div>
 
-        {content.map((pc, index) => (
-            <PageContent
-            NewsDateTitle={pc.NewsDateTitle}
-            NewsAddress={pc.NewsAddress}
-            NewsTitle={pc.NewsTitle}
-            NewsContent={pc.NewsContent}
-            NewsImg={pc.NewsImg}
-            NewsLink={pc.NewsLink}
-            
-             />
-               
-            ))}
-            
-        </div>
-        
-      </>
+            <hr className="news-pages-ContentHr" />
 
+            <div className="news-pages-Connection">
+
+                <ul className="news-pages-ul d-flex  news-LetterSpacing news-NotoSerifTC">
+                    <li>
+                    <a href={`${props.NewsLink}`}><AiFillEdit className="news-H3" /><br />報名資訊</a>
+                    
+                    </li>
+
+                    <li>
+                    <a href="/about"><AiOutlineMail className="news-H3" /><br />聯絡我們</a>
+                    
+                    </li>
+                </ul>
+
+            <hr className="news-pages-ContentHr" />
+
+            <div className="news-pages-ContentBack news-LetterSpacing news-NotoSerifTC">
+                    <Link className="news-pages-ContentBtn" to="/news">返回列表</Link>
+              </div>
+
+            </div>
+            </>
+       
     )
-    
   }
-  export default NewsPagesContent
+  
+  export default NewsPagesContentContent
