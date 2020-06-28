@@ -21,7 +21,7 @@ function NewsPagesContentContent(props) {
 
                 <ul className="news-pages-ul d-flex  news-LetterSpacing news-NotoSerifTC">
                     <li>
-                    <a href={`${props.NewsLink}`}><AiFillEdit className="news-H3" /><br />報名資訊</a>
+                    <a href={`${props.NewsLink}`}><AiFillEdit className="news-H3" /><br />相關資訊</a>
                     
                     </li>
 
