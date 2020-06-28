@@ -11,70 +11,64 @@ import CartEnd from '../components/cart/cart-end';
 function CartApp (props) {
    
   // { cartItemId: 1, img: "商品圖片", product: "商品名稱", price: 商品單價, number: 商品數量 }
-  const [cart, setCart] = useState([
-    { cartItemId: 1, img: "cart-violin-01", product: "春季吉他班", price: 2000, number: 3 },
-    { cartItemId: 2, img: "cart-violin-01", product: "小提琴", price: 5000, number: 5 },
-    { cartItemId: 3, img: "cart-violin-01", product: "線上鋼琴班", price: 1800, number: 2 },
-  ])
-  const [number, setNumber] = useState(cart[0].number)
-  const totalPrice = number * cart[0].price;  
-  const stock = 5;  
-
-  // { userID: "", username: "", userAddress: "", userMail: "", userPhone: "", }
-  const [user, setUser] = useState(
-    { userID: 1, username: "Lemon", userAddress: "lemon tree no.123", userMail: "lemon@gmail.com", userPhone: "0911111111", coupon:"dulcet1500" }
-  )
-
-  const coupon = 1500;
-  const orderPrice = totalPrice - coupon;
 
   
-  // const loginProcess = (loginSuccessCallback) => {
-  //   // 執行成功的callback(來自cart-checkout.js)
-  //   loginSuccessCallback()
-  // }
+  const [user, setUser] = useState([])
+  // { userID: "", username: "", userAddress: "", userMail: "", userPhone: "" }
+  const [product, setProduct] = useState([])
+  // { PId: "", PNname: "", PImg: "", PVideo: "", PPrice: "", PQty: "", PCategoryId:"" }
+  // const [cartList, setCartList] = useState([])
+  // { cartItem: "", userID: "", pruductCategory: "", productId: "", cartNumber: "" }
+  const [cart, setCart] = useState([])
+  // const [number, setNumber] = useState(cart[0].number)
+  // const stock = 5; 
+  // const coupon = 1500;
+  // const totalPrice = number * cart[0].price;  
+  // const orderPrice = totalPrice - coupon;
 
-  // const getUserInfo = () => {       
-  //   const userData = JSON.parse(localStorage.getItem('user'));  
-  //   return userData;  
-  //     setUser(userData)
-  // }  
- 
 
-//  useEffect(()=>{   
-// //  const userData = getUserInfo(); 
-    
-      
-//    const userData = JSON.parse(localStorage.getItem('user'));  
-//     if(userData!==null){
-//       setUser(userData)
-//       console.log(user);
-//     }
+// 從localStorage獲取-會員資料
+useEffect(()=>{
+  const userData = JSON.parse(localStorage.getItem('user'));  
+  setUser(userData[0])
+},[])
+// console.log(user[0]);
 
-//  },[])
-  
 
-    // if (getUserInfo()) {
-    //   const userData = getUserInfo();
-      
-      
-    // // console.log(getUserInfo());
-    // // console.log(user[0]);
-    // // console.log(user[0]["userID"]);
-    // // let userData = getUserInfo();  
-    // // let user = userData[0];
-    //   // setUser(user)
-    // // console.log(user);   
+// 從node路由獲取後端資料庫-商品資料
+useEffect(()=>{
+  // sql語法：SELECT * FROM `product` WHERE 1
+  fetch('http://localhost:3030/cart/2', { method: 'GET' })
+  .then((res) => res.json())
+  .then((res) => {
+    // console.log(res);
+    setProduct(res)
+  })
+},[])
+// console.log(product)
 
-    // // if (user[0]["userID"]) {
-    // //   setUser(user)
-    // // }
-    // //   else {
-    // //     setUser({ user: '' })
-    // //   }
-    // // } else {
-    // //   setUser({ user: '' })
-    // }
+
+// 從node路由獲取後端資料庫-購物車資料
+// { "cartItemId": "1", "userID": "3", "productCategory": "課程", "productId": "1", "cartNumber": "1" }
+useEffect(()=>{
+  // sql語法：SELECT * FROM `cart` WHERE 1
+  fetch('http://localhost:3030/cart/3', { method: 'GET' })
+  .then((res) => res.json())
+  .then((res) => {
+    // console.log(res);
+    setCart(res)
+  })
+},[])
+// console.log(cart)
+
+
+// 從localStorage獲取-購物車資料
+// useEffect(()=>{
+//   const cartData = JSON.parse(localStorage.getItem('cart'));  
+//   setCart(cartData)
+// },[])  
+// console.log(cart);
+
 
     return (
         <>
@@ -88,14 +82,14 @@ function CartApp (props) {
                     allProps={{
                         cart,
                         setCart,
-                        number,
-                        setNumber,
+                        // number,
+                        // setNumber,
                         user,
                         setUser,
-                        stock,
-                        coupon,
-                        totalPrice,
-                        orderPrice,
+                        // stock,
+                        // coupon,
+                        // totalPrice,
+                        // orderPrice,
                     }}
                   />
                 </Route>
@@ -110,18 +104,17 @@ function CartApp (props) {
                     allProps={{
                         cart,
                         setCart,
-                        number,
-                        setNumber,
+                        // number,
+                        // setNumber,
                         user,
                         setUser,
-                        stock,
-                        coupon,
-                        totalPrice,
-                        orderPrice,
+                        // stock,
+                        // coupon,
+                        // totalPrice,
+                        // orderPrice,
                     }}
                   />
                 </Route>
-                {/* <Redirect to="/cart/"/> */}
               </Switch>
             </div>
         </BrowserRouter>

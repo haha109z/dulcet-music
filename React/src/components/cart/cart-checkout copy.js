@@ -1,50 +1,28 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import CartDeliverInfo from './cart-deliverInfo.js';
 
 function CartCheckout (props) {
 
   const { cart, setCart, number, setNumber, user, setUser, stock, coupon, totalPrice, orderPrice } = props.allProps;  
-  // console.log(user)
+  //   { userID: 1, username: "Lemon", userAddress: "lemon tree no.123", userMail: "lemon@gmail.com", userPhone: "0911111111", coupon:"dulcet1500" }
+  
   let index = 0;  
 
-  const minusCartNumber = (e) =>{
+  const minusCartNumber = (event) =>{
     if (number == 0) {
       setNumber(0)
     } else {
       setNumber(number - 1)
-      setCart({
-        ...cart,
-        0:{
-          ...cart[0],
-          number: number       
-        } 
-      })
     }
   }
 
-  const plusCartNumber = (e) =>{
+  const plusCartNumber = (event) =>{
     if (number == stock) {
       setNumber(stock) 
       alert('庫存不足')
     } else {
       setNumber(number + 1)
-      setCart({
-        ...cart,
-        0:{
-          ...cart[0],
-          number: number       
-        } 
-      })
-      
     }
-  }
-  console.log(cart)
-
-  const deleteCartItem = (e) => {
-    alert('是否確認刪除?')
-    // console.log( e.target.parentElement.closest(".cart-product") )
-    setCart([])
   }
 
     return (
@@ -62,43 +40,80 @@ function CartCheckout (props) {
               <ul className="cart-order-category">
                 <li colSpan="7">購買清單－課程</li>
               </ul>   
-              {cart.map((data, index)=>{
-                return(
-                  <ul className="cart-product">
-                    <li className="cart-product-li"><input type="checkbox" /></li>
-                    <li className="cart-product-li"><img src={require(`../../img/cart/cart-violin-01.jpeg`)} /></li>
-                    {/* <li className="cart-product-li"><img src={require(`../../img/cart/${data.PImg}.jpeg`)} /></li> */}
-                    <li className="cart-product-li">{data.PName}</li>
-                    <li className="cart-product-li cart-english-font" style={{color:'var(--main-colorfb2)'}}>${data.PPrice}</li>
-                    <li className="cart-product-li-2">
-                      <div onClick={(e)=>{minusCartNumber()}}>
-                        <i className="cart-minusBtn fas fa-minus-circle" />
-                      </div>
-                      <div className="cart-number-input cart-english-font">{data.PQty}</div>
-                      <div onClick={(e)=>{plusCartNumber()}}>
-                        <i className="cart-plusBtn fas fa-plus-circle" />
-                      </div>
-                    </li>
-                    <li className="cart-product-number cart-english-font" style={{color:'var(--main-colorfb2)'}}>${totalPrice}</li>
-                    <li className="cart-trash-btn" 
-                      onClick={(e)=>{deleteCartItem(e.target.parentElement.closest(".cart-product"))}}
-                    >
-                      <i className="far fa-trash-alt" />
-                    </li>
-                  </ul>
-                )
-                }
-              )}
+              <ul className="cart-product">
+                <li className="cart-product-li"><input type="checkbox" /></li>
+                <li className="cart-product-li"><img src={require(`../../img/cart/${cart[0].img}.jpeg`)} /></li>
+                <li className="cart-product-li">{cart[0].product}</li>
+                <li className="cart-product-li cart-english-font" style={{color:'var(--main-colorfb2)'}}>${cart[0].price}</li>
+                <li className="cart-product-li-2">
+                  <div onClick={minusCartNumber}>
+                    <i className="cart-minusBtn fas fa-minus-circle" />
+                  </div>
+                  <div className="cart-number-input cart-english-font">{number}</div>
+                  <div onClick={plusCartNumber}>
+                    <i className="cart-plusBtn fas fa-plus-circle" />
+                  </div>
+                </li>
+                <li className="cart-product-number cart-english-font" style={{color:'var(--main-colorfb2)'}}>${totalPrice}</li>
+                <li className="cart-trash-btn" 
+                  onClick={()=>{}}
+                >
+                  <i className="far fa-trash-alt" />
+                </li>
+              </ul>
           </div>
 
           <div>
             <form className="cart-form" action="/cart/2" method="post" encType="multipart/form-data">
-              <CartDeliverInfo 
-                allProps={{
-                  user,
-                  setUser,
-              }}
-              />
+              <div className="cart-buyer-info">
+                  <h2>收件人資訊</h2>
+                  <fieldset>
+                    <label><input type="checkbox" id="receivingInfo" /> 同帳戶資料</label>
+                    {/* if (document.getElementById("receivingInfo").checked) {
+                          return (   
+                            <>  */}
+                            <div className="cart-input">
+                              <label htmlFor="name">姓名</label>
+                              <input id="name" type="text" name="name" value={user["username"]} />
+                            </div>
+                            <div className="cart-input">
+                              <label htmlFor="address">地址</label>
+                              <input id="address" type="text" value={user["userAddress"]} />
+                            </div>
+                            <div className="cart-input">
+                              <label htmlFor="phone">手機號碼</label>
+                              <input id="phone" type="text" value={user["userPhone"]} />
+                            </div>
+                            <div className="cart-input">
+                              <label htmlFor="email">電子信箱</label>
+                              <input id="email" type="text" value={user["userMail"]} />
+                            </div>      
+                            {/* </>              
+                          )
+                      } else {
+                          return (
+                            <>
+                            <div className="cart-input">
+                              <label htmlFor="name">姓名</label>
+                              <input id="name" type="text" name="name" />
+                            </div>
+                            <div className="cart-input">
+                              <label htmlFor="address">地址</label>
+                              <input id="address" type="text" />
+                            </div>
+                            <div className="cart-input">
+                              <label htmlFor="phone">手機號碼</label>
+                              <input id="phone" type="text" />
+                            </div>
+                            <div className="cart-input">
+                              <label htmlFor="email">電子信箱</label>
+                              <input id="email" type="text" />
+                            </div>  
+                            </>
+                          )
+                      }                     */}
+                  </fieldset>
+              </div>
               <div className="cart-invoice">
                   <h2>統一發票</h2>
                   <fieldset>

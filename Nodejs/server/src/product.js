@@ -29,7 +29,11 @@ router.post("/video/favorite", async (req, res) => {
 
 //樂器
 router.post("/instrument", async (req, res) => {
-  const [data] = await db.query("SELECT * FROM `product_instruments`");
+  const { idFirst, idLast } = req.body;
+  const [data] = await db.query(
+    "SELECT * FROM `product_instruments`LIMIT ?,?",
+    [idFirst, idLast]
+  );
   res.json(data);
 });
 router.post("/instrument/favorite", async (req, res) => {

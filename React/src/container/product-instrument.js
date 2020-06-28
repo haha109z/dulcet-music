@@ -8,6 +8,7 @@ import {
   Route,
   Router,
   Redirect,
+  withRouter,
 } from 'react-router-dom'
 import Piano from '../components/product/instrument/productPiano'
 import ProductId from './product-id'
@@ -22,6 +23,16 @@ function ProductInstrument() {
       <BrowserRouter>
         <Switch>
           <Route
+            path="/instrument/page/:page"
+            render={(routeProps) => (
+              <ProducList
+                productTitle={productTitle}
+                productTitleId={productTitleId}
+              />
+            )}
+          ></Route>
+
+          <Route
             path="/instrument/piano"
             render={() => (
               <>
@@ -33,6 +44,7 @@ function ProductInstrument() {
               </>
             )}
           ></Route>
+
           <Route path="/instrument/:PId">
             <ProductId />
           </Route>
@@ -53,4 +65,4 @@ function ProductInstrument() {
   )
 }
 
-export default ProductInstrument
+export default withRouter(ProductInstrument)
