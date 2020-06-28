@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2020-06-24 15:51:02
+-- 產生時間： 2020-06-28 04:23:41
 -- 伺服器版本： 10.4.11-MariaDB
 -- PHP 版本： 7.4.5
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 資料庫： `dulcet_music`
+-- 資料庫： `dulcet_music_0628`
 --
 
 -- --------------------------------------------------------
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `cart` (
   `cartItem` tinyint(10) NOT NULL COMMENT '購物車明細編號',
   `memberId` tinyint(10) NOT NULL COMMENT '會員ID',
-  `productCategory` tinyint(10) NOT NULL COMMENT '商品類別ID',
+  `productCategory` varchar(10) NOT NULL COMMENT '商品類別',
   `productId` tinyint(10) NOT NULL COMMENT '商品ID',
   `cartNumber` tinyint(10) NOT NULL COMMENT '購物車該件商品數量'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -40,20 +40,20 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`cartItem`, `memberId`, `productCategory`, `productId`, `cartNumber`) VALUES
-(1, 3, 1, 1, 1),
-(2, 3, 1, 2, 2),
-(3, 3, 1, 3, 1),
-(4, 1, 1, 4, 1),
-(5, 2, 2, 2, 1),
-(6, 4, 1, 3, 2),
-(7, 8, 1, 4, 1),
-(8, 8, 2, 2, 1),
-(9, 6, 1, 2, 1),
-(10, 9, 1, 4, 1),
-(11, 5, 3, 1, 1),
-(12, 7, 1, 1, 1),
-(13, 7, 1, 2, 1),
-(14, 10, 3, 1, 1);
+(1, 3, '課程', 1, 1),
+(2, 3, '課程', 2, 2),
+(3, 3, '課程', 3, 1),
+(4, 1, '課程', 4, 1),
+(5, 2, '影片', 2, 1),
+(6, 4, '課程', 3, 2),
+(7, 8, '課程', 4, 1),
+(8, 8, '影片', 2, 1),
+(9, 6, '課程', 2, 1),
+(10, 9, '課程', 4, 1),
+(11, 5, '樂器', 1, 1),
+(12, 7, '課程', 1, 1),
+(13, 7, '課程', 2, 1),
+(14, 10, '樂器', 1, 1);
 
 --
 -- 已傾印資料表的索引

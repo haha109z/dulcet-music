@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function CartCheckOrder (props) {
 
-  const { cart, number, coupon, totalPrice, orderPrice } = props.allProps;  
+  const { cart, number, user, coupon, totalPrice, orderPrice } = props.allProps;  
 
     return (
       <>
@@ -35,19 +35,19 @@ export default function CartCheckOrder (props) {
                   <fieldset>
                     <div className="cart2-input">
                       <label htmlFor="name">姓名</label>
-                      <div>Lemon</div>
+                      <div>{user["username"]}</div>
                     </div>
                     <div className="cart2-input">
                       <label htmlFor="add">地址</label>
-                      <div>Lemon</div>
+                      <div>{user["userAddress"]}</div>
                     </div>
                     <div className="cart2-input">
                       <label htmlFor="phone">手機號碼</label>
-                      <div>Lemon</div>
+                      <div>{user["userPhone"]}</div>
                     </div>
                     <div className="cart2-input">
                       <label htmlFor="email">電子信箱</label>
-                      <div>Lemon</div>
+                      <div>{user["userMail"]}</div>
                     </div>
                   </fieldset>
               </div>

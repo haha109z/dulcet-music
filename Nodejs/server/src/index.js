@@ -77,12 +77,29 @@ app.get("/forum", async (req, res) => {
 //news
 app.use("/news", require(__dirname + "/news"));
 
-//cart
+
+// cart
+// 獲取該登入會員之購物車資料
 app.get('/cart', async (req, res) => {
-  const output = await query("SELECT * FROM `orderlist` WHERE 1");
+  const output = await query("SELECT * FROM `cart` WHERE `userID`='3' ");
   console.log(output)
   res.json(output);
 });
+// 獲取該購物車之商品資訊
+app.get('/cart/2', async (req, res) => {
+  const output = await query("SELECT * FROM `product` WHERE 1");
+  console.log(output)
+  res.json(output);
+});
+// 獲取該購物車之商品資訊
+app.get('/cart/3', async (req, res) => {
+  const output = await query(
+    " SELECT * FROM `cart` INNER JOIN `product` ON `cart`.`productId` = `product`.`PId` "
+  );
+  console.log(output)
+  res.json(output);
+});
+
 
 // simple route
 app.get("/", (req, res) => {
