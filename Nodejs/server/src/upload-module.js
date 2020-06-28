@@ -12,9 +12,11 @@ const extMap = {
 
 const storage = multer.diskStorage({
     destination:(req,file,cb)=>{
+        console.log(file)
         cb(null,__dirname+"/../public/img-uploads");
     },
     filename:(req,file,cb)=>{
+        console.log(file)
         let ext = extMap[file.mimetype];
         cb(null, uuidv4() + ext);
     }
