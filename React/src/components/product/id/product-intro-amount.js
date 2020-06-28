@@ -3,7 +3,8 @@ import { AiOutlinePlusCircle } from 'react-icons/ai'
 import { AiOutlineMinusCircle } from 'react-icons/ai'
 
 function ProductIntroAmount(props) {
-  const [amount, setAmount] = useState(0)
+  const amount = props.amount
+  const setAmount = props.setAmount
   const stock = props.PQty
 
   return (
