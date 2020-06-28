@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import Li from './news-Category-li'
 
 function NewsCategory(props) {
@@ -7,7 +8,7 @@ function NewsCategory(props) {
   const [category,setCategory] = useState([])
 
   async function getCategory(){
-    fetch(`http://localhost:3030/news/newsCatrgory`,{
+    fetch(`http://localhost:3030/news/newsCategory`,{
       method : 'POST',
       body : JSON.stringify(),
       headers : new Headers({
@@ -46,13 +47,13 @@ function NewsCategory(props) {
           <ul className="d-flex justify-content-start">
           
             <li>
-              <a href="">全部</a>
+              <Link to="" onClick="">全部</Link>
             </li>
 
-            {category.map((c, index) => (
+            {category.map((c, index) => 
             <Li NewsCategoryName={c.NewsCategoryName} />
               
-            ))}
+            )}
           
           </ul>
 

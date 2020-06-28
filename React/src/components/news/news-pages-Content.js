@@ -3,7 +3,7 @@ import { AiFillEdit } from "react-icons/ai";
 import { AiOutlineMail } from "react-icons/ai";
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
-function NewsPagesContentContent(props) {
+function NewsPagesContent(props) {
 
     return (
       <>
@@ -43,4 +43,4 @@ function NewsPagesContentContent(props) {
     )
   }
   
-  export default NewsPagesContentContent
+  export default NewsPagesContent
