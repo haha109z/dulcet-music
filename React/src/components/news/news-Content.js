@@ -3,8 +3,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import { FaShareAlt } from 'react-icons/fa'
 
-
-function NewsContentContent(props) {
+function NewsContent(props) {
 
   return (
     <>
@@ -47,4 +46,4 @@ function NewsContentContent(props) {
   )
 }
 
-export default NewsContentContent
+export default NewsContent

@@ -38,6 +38,9 @@ class ForumCard extends Component {
         TitleId: '',
         Memo: '',
         NewsDate: '',
+        ForumTitle:'',
+        ForumAction:'',
+        ForumActionAns:'',
       },
     ],
   }
@@ -102,39 +105,57 @@ class ForumCard extends Component {
     console.log(state)
   }
 
-  handleSubmit = (event) => {
-    //收集數據
-    // const comment = this.state
-    //更新狀態
-    // this.props.addComment(comment)
-    //清除輸入數據
-    // this.state({
-    // userId : ''
-    // })
-    //alert
 
-    //sql語法
-    // SELECT ForumAbout.userID,user.userName,ForumAbout.TitleMusic,ForumAbout.TitleId,ForumAbout.Memo FROM ForumAbout left JOIN user ON ForumAbout.userID = user.userID
+//抓取input的value值
+handleForumTitle = (event)=>{
+  this.setState({ForumTitle:event.target.value})
+  console.log(event.target.value)
+}
+handleForumAction = (event)=>{
+  this.setState({ForumAction:event.target.value})
+  console.log(event.target.value)
+}
+handleForumActionAns = (event)=>{
+  this.setState({ForumActionAns:event.target.value})
+  console.log(event.target.value)
+}
+//送出之後把它存進資料庫
+handleSubmit = (event) => {
+  
+  
+  
+      
 
-    //sql 新增語法
-    // INSERT INTO `ForumAbout`(`ForumId`, `TitleMusic`, `TitleId`, `Memo`, `userID`) VALUES ('4','大提琴','Title','TitleMemo','4')
-    let t = this
-    fetch('http://localhost:3030/forum', { method: 'GET' }).then(function (
-      res
-    ) {
-      // console.log(res);
-      res.json().then(function (data) {
-        console.log(data)
-        t.setState({
-          news: data,
-        })
-      })
-    })
 
-    alert('新增成功')
-    this.setState({ boxShow: false })
-  }
+  //sql語法
+  // SELECT ForumAbout.userID,user.userName,ForumAbout.TitleMusic,ForumAbout.TitleId,ForumAbout.Memo FROM ForumAbout left JOIN user ON ForumAbout.userID = user.userID
 
+  //sql 新增語法
+  // INSERT INTO `ForumAbout`(`ForumId`, `TitleMusic`, `TitleId`, `Memo`, `userID`) VALUES ('4','大提琴','Title','TitleMemo','4')
+  // let t = this
+  // fetch('http://localhost:3030/forum', { method: 'GET' }).then(function (
+  //   res
+  // ) {
+  //   // console.log(res);
+  //   res.json().then(function (data) {
+  //     console.log(data)
+  //     t.setState({
+  //       news: data,
+  //     })
+  //   })
+  // })
+  // INSERT INTO `ForumAbout`(`ForumId`, `TitleMusic`, `TitleId`, `Memo`, `userID`) VALUES ('[this.state.ForumId]','?','?','?','?')
+  
+  this.setState({ boxShow: false })
+  this.setState({ ForumTitle: this.state.ForumTitle })
+  this.setState({ ForumAction: this.state.ForumAction })
+  this.setState({ ForumActionAns: this.state.ForumActionAns })
+  console.log(this.state.ForumTitle)
+  
+  alert('新增成功')
+  console.log(this.state.news)
+ 
+}
   render() {
     const { boxShow, userId, boxShowBtn } = this.state
     //看回答的新增欄位
@@ -168,19 +189,30 @@ class ForumCard extends Component {
           </div>
           <div>
             問題類別：
-            <input type="text" placeholder="樂器類別是？" name="Action" />
+            <input type="text" placeholder="樂器類別是？" name="ForumTitle" 
+              value={this.state.ForumTitle}          
+              onChange={this.handleForumTitle} />
           </div>
           <div>
             您的問題：
-            <input type="text" placeholder="您的問題是？" name="Action" />
+            <input type="text" placeholder="您的問題是？"
+            name="ForumAction"
+            value={this.state.ForumAction}          
+            onChange={this.handleForumAction}
+               />
           </div>
-          <textarea name="comment" className="ForumBtnAction" />
+          <textarea name="comment" className="ForumBtnAction"
+            name="ForumActionAns" 
+            value={this.state.ForumActionAns}          
+            onChange={this.handleForumActionAns}
+
+              />
           <input
-            type="submit"
+            type="button"
             value="送出"
             className="ForumButton"
             // onClick={this.handleSubmit}
-            onClick={this.handleUserNameId}
+            onClick={this.handleSubmit}
           />
         </div>
       </div>
@@ -310,7 +342,9 @@ class ForumCard extends Component {
         </div>
       </div>
     )
+    
   }
+  
 }
 // ReactDOM.render(<ForumCard /> ,document.getElementById('root'))
 export default ForumCard

@@ -3,9 +3,11 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import Navbar from '../components/navbar/navbar';
 import NewsSliders from '../components/news/news-Sliders'
 import NewsContent from '../components/news/news-Content';
+import NewsCategory from '../components/news/news-Category';
 import NewsHot from '../components/news/news-Hot';
 import { IoMdArrowDropright } from 'react-icons/io'
 import { IoMdArrowDropleft } from 'react-icons/io'
+
 
 function News(){
 
@@ -37,6 +39,7 @@ function News(){
         <>
         <Navbar />
         <NewsSliders />
+        <NewsCategory />
         <NewsHot/>
 
         <div className="news-ContentContainer">

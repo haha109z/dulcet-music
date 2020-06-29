@@ -13,7 +13,7 @@ function NewsPages(){
     const [content, setcontent] = useState([])
 
   async function getcontent() {
-    fetch(`http://localhost:3030/news/newsid`, {
+    fetch(`http://localhost:3030/news/newsidcty`, {
       method: 'POST',
       body: JSON.stringify({ NewsID , NewsCategory}),
       headers: new Headers({

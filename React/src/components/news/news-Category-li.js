@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+
 
 function NewsCategoryLi(props){
 
@@ -6,7 +8,7 @@ function NewsCategoryLi(props){
         <>
 
             <li>    
-              <a href="">{props.NewsCategoryName}</a>
+              <Link to="">{props.NewsCategoryName}</Link>
             </li>
 
         </>

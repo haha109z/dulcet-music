@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 
-function NewsPagesBannerBanner(props) {
+function NewsPagesBanner(props) {
 
   console.log(props)
 
@@ -42,4 +42,4 @@ function NewsPagesBannerBanner(props) {
   )
 }
 
-export default NewsPagesBannerBanner
+export default NewsPagesBanner
