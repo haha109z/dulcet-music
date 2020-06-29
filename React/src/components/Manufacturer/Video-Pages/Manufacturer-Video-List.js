@@ -8,14 +8,17 @@ class VideoList extends React.Component {
         
       }
     }
+    
 
 
-    handlecheck = e => {
+    handlecheckall = () => {
       const check = document.querySelectorAll(".video-list-content-chk")
       const allchk = document.querySelector(".video-list-tool-chk")
+      const content = document.querySelectorAll('.video-list-content-text')
+      const button = document.querySelectorAll('.video-list-content-btns')
       if(allchk.checked){
         for(var i = 0; i < check.length; i++){
-          check[i].checked = true
+          check[i].checked = true 
         }
       }else{
         for(var i = 0; i < check.length; i++){
@@ -73,7 +76,7 @@ class VideoList extends React.Component {
         </Link>
         <div className="video-list-tools">
           <div className="video-list-option">
-            <input type="checkbox" onClick={this.handlecheck} className="video-list-tool-chk"/>
+            <input type="checkbox" onClick={this.handlecheckall} className="video-list-tool-chk"/>
             <p>全選</p>
             <a href="">刪除</a>
             <a href="">上架</a>
@@ -87,14 +90,14 @@ class VideoList extends React.Component {
             <p className="font-size-185rem">商品狀態 : 上架中</p>
           </div>
           <div className="video-list-content">
-            <input type="checkbox" name="check" className="video-list-content-chk"/>
+            <input type="checkbox" name="check" onClick={this.handlecheck} className="video-list-content-chk"/>
             <div className="video-list-content-movie">
               <img src={require('../../../img/home_violin_m_8.jpg')}/>
             </div>
             <Link
               to="/ManufacturerVideo/VideoEdit"
               className="video-list-content-text">
-              <h3 className="font-size-142rem">從0開始學習吉他</h3>
+              <h3 className="font-size-142rem">從0開始學習吉他1</h3>
               <p className="font-size-1rem">類別 : 吉他</p>
               <p className="font-size-1rem">長度 : 90分鐘</p>
               <p className="font-size-1rem">更新時間 : 2020/06/16</p>
@@ -118,7 +121,7 @@ class VideoList extends React.Component {
             <p className="font-size-185rem">商品狀態 : 上架中</p>
           </div>
           <div className="video-list-content">
-            <input type="checkbox" className="video-list-content-chk" />
+            <input type="checkbox" onClick={this.handlecheck} className="video-list-content-chk" />
             <div className="video-list-content-movie">
             <img src={require('../../../img/home_violin_m_8.jpg')}/>
             </div>
@@ -126,7 +129,7 @@ class VideoList extends React.Component {
               to="/ManufacturerVideo/VideoEdit"
               className="video-list-content-text"
             >
-              <h3 className="font-size-142rem">從0開始學習吉他</h3>
+              <h3 className="font-size-142rem">從0開始學習吉他2</h3>
               <p className="font-size-1rem">類別 : 吉他</p>
               <p className="font-size-1rem">長度 : 90分鐘</p>
               <p className="font-size-1rem">更新時間 : 2020/06/16</p>
@@ -150,7 +153,7 @@ class VideoList extends React.Component {
             <p className="font-size-185rem">商品狀態 : 上架中</p>
           </div>
           <div className="video-list-content">
-            <input type="checkbox" className="video-list-content-chk" />
+            <input type="checkbox" onClick={this.handlecheck} className="video-list-content-chk" />
             <div className="video-list-content-movie">
             <img src={require('../../../img/home_violin_m_8.jpg')}/>
             </div>
@@ -158,7 +161,7 @@ class VideoList extends React.Component {
               to="/ManufacturerVideo/VideoEdit"
               className="video-list-content-text"
             >
-              <h3 className="font-size-142rem">從0開始學習吉他</h3>
+              <h3 className="font-size-142rem">從0開始學習吉他3</h3>
               <p className="font-size-1rem">類別 : 吉他</p>
               <p className="font-size-1rem">長度 : 90分鐘</p>
               <p className="font-size-1rem">更新時間 : 2020/06/16</p>

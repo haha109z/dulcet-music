@@ -64,6 +64,10 @@ app.use(
 //商品
 app.use("/product", require(__dirname + "/product"));
 
+
+
+app.use("/forum/123" , require(__dirname + "/forum123"));
+
 // Forum!!
 app.get("/forum", async (req, res) => {
   const output = await query(
@@ -72,7 +76,7 @@ app.get("/forum", async (req, res) => {
   console.log(output);
   res.json(output);
 });
-//   app.use("/forum" , require(__dirname + "/forum"))
+
 
 
 //news
