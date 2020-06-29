@@ -41,6 +41,7 @@ export default class UserData extends Component {
             // console.log(this.state.user)
             this.setState({ user: this.state.user })
             localStorage.setItem('user', JSON.stringify([this.state.user]))
+            window.location.reload()
           } else {
             alert('上傳失敗')
           }

@@ -93,7 +93,6 @@ export default class UserPurchase extends Component {
     let AllUserPurchase, AllUserPurchaseDetail
     let pageNum = this.state.pageNum
     if (this.state.status !== '全部') {
-    
       AllUserPurchase = this.state.AllUserPurchase_status.filter(
         (v) => v.orderState == this.state.status
       )
@@ -217,7 +216,7 @@ export default class UserPurchase extends Component {
                 訂單狀態
                 <i className="fas fa-sort-down"></i>
               </button>
-              <div className="user-dropdown-content">
+              <div className="user-dropdown-content user-dropdown-none">
                 <a href="#" onClick={this.filterStatus}>
                   全部
                 </a>
@@ -374,6 +373,7 @@ export default class UserPurchase extends Component {
             <div className="userRwd-dropdown-content">{pageItem}</div>
           </div>
         </div>
+       
       </>
     )
   }

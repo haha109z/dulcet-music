@@ -164,13 +164,14 @@ button:focus{
   /* 滑鼠移上去後修改下拉式選單連結顏色 */
   .userRwd-dropdown-content a:hover {
     background-color: #f2e8df;
-  }
 
+  }
+  
   /* 在滑鼠移上去後顯示下拉式選單 */
   .userRwd-dropdown:hover .userRwd-dropdown-content {
     display: block;
   }
-
+ 
   /* 當下拉內容顯示後修改下拉按鈕的背景顏色 */
 
   .userRwd-dropbtn > svg {

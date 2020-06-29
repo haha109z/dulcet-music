@@ -6,7 +6,8 @@ var multer = require('multer')
 const file_extension = {
   "image/jpeg":"jpg",
   "image/png":"png",
-  "image/gif":"gif"
+  "image/gif":"gif",
+  'video/mp4':"mp4"
 }
 var storage_user = multer.diskStorage({
   destination: function (req, file, cb) {

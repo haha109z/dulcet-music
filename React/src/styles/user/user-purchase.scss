@@ -22,7 +22,7 @@
   background-color: black;
   color: white;
 }
-.UserPurchase-menu-ck{
+.UserPurchase-menu-ck {
   background-color: black;
   color: white;
 }
@@ -315,13 +315,19 @@
   }
 
   /* 當下拉內容顯示後修改下拉按鈕的背景顏色 */
-
   .user-dropbtn > svg {
     position: absolute;
     height: 26px;
     right: 4%;
     top: 5%;
   }
+
+  .user-dropdown-none{
+height: 0px;
+overflow: hidden;
+}
+
+
   .user-dropbtn {
     text-align: left;
   }
@@ -336,4 +342,5 @@
     border: 1.5px #f2f2f2 solid;
     margin-bottom: 3rem;
   }
+  
 }
