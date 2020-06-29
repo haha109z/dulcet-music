@@ -56,8 +56,16 @@ class InstrumentOrder extends React.Component {
         <hr className="ins-divider" />
         <div className="ins-order">
           <div className="ins-order-title">
-            <p className="ins-order-number ">訂單編號：001</p>
-            <p className="ins-order-status ">訂單狀態：完成</p>
+          <div>
+          <p className="ins-order-text">購買人 : 曾國瑋</p>
+          <p className="ins-order-text">手機 : 0911111111</p>
+          <p className="ins-order-text">運送地址 : 台北市大安區復興南路160號</p>
+            </div>
+            <div>
+            <p className="ins-order-text">訂單編號 : 001</p>
+            <p className="ins-order-text">訂單狀態 : 完成</p>
+            <p className="ins-order-text">訂單時間 : 2020/06/29</p>
+            </div>
           </div>
           <hr className="ins-order-divider" />
           <div className="ins-order-item">
@@ -73,8 +81,8 @@ class InstrumentOrder extends React.Component {
                 筆電架電腦架 筆電散熱 金屬支架
               </p>
               <p className="ins-order-item-text-specification  d-flex">
-              <p>類別：吉他</p>
-                <p>購買數量：2</p>
+              <p>類別 : 吉他</p>
+                <p>數量 : 2</p>
               </p>
               
               <div className="d-flex ins-order-item-text-money">
@@ -101,8 +109,8 @@ class InstrumentOrder extends React.Component {
                 筆電架電腦架 筆電散熱 金屬支架
               </p>
               <p className="ins-order-item-text-specification d-flex">
-                <p>類別：吉他</p>
-                <p>購買數量：2</p>
+                <p>類別 : 吉他</p>
+                <p>數量 : 2</p>
               </p>
               
               <div className="d-flex ins-order-item-text-money">
@@ -127,8 +135,16 @@ class InstrumentOrder extends React.Component {
         </div>
         <div className="ins-order">
           <div className="ins-order-title">
-            <p className="ins-order-number ">訂單編號：001</p>
-            <p className="ins-order-status ">訂單狀態：完成</p>
+          <div>
+          <p className="ins-order-text">購買人 : 曾國瑋</p>
+          <p className="ins-order-text">手機 : 0911111111</p>
+          <p className="ins-order-text">運送地址 : 台北市大安區復興南路160號</p>
+          </div>
+          <div>
+            <p className="ins-order-text">訂單編號 : 001</p>
+            <p className="ins-order-text">訂單狀態 : 完成</p>
+            <p className="ins-order-text">訂單時間 : 2020/06/29</p>
+            </div>
           </div>
           <hr className="ins-order-divider" />
           <div className="ins-order-item">
@@ -144,8 +160,8 @@ class InstrumentOrder extends React.Component {
                 筆電架電腦架 筆電散熱 金屬支架
               </p>
               <p className="ins-order-item-text-specification d-flex">
-              <p>類別：吉他</p>
-                <p>購買數量：2</p>
+              <p>類別 : 吉他</p>
+                <p>數量 : 2</p>
               </p>
               
               <div className="d-flex ins-order-item-text-money">
@@ -172,8 +188,8 @@ class InstrumentOrder extends React.Component {
                 筆電架電腦架 筆電散熱 金屬支架
               </p>
               <p className="ins-order-item-text-specification d-flex">
-              <p>類別：吉他</p>
-                <p>購買數量：2</p>
+              <p>類別 : 吉他</p>
+                <p>數量 : 2</p>
               </p>
               
               <div className="d-flex ins-order-item-text-money">

@@ -56,8 +56,15 @@ class VideoOrder extends React.Component {
         <hr className="video-divider" />
         <div className="video-order">
           <div className="video-order-title">
-            <p className="video-order-number ">訂單編號：001</p>
-            <p className="video-order-status ">訂單狀態：完成</p>
+          <div className="video-order-text">
+            <p>購買人 : 曾國瑋</p>
+            <p>手機 : 0911111111</p>
+          </div>
+          <div className="video-order-state">
+            <p>訂單編號:001</p>
+            <p>訂單狀態:完成</p>
+            <p>訂單時間:2020/06/29</p>
+          </div>
           </div>
           <hr className="video-order-divider" />
           <div className="video-order-item">
@@ -73,7 +80,7 @@ class VideoOrder extends React.Component {
                 筆電架電腦架 筆電散熱 金屬支架
               </p>
               <p className="video-order-item-text-specification  d-flex">
-              <p>分類：樂器</p>
+              <p>類別：吉他</p>
                 <p>數量：2</p>
               </p>
               
@@ -101,7 +108,7 @@ class VideoOrder extends React.Component {
                 筆電架電腦架 筆電散熱 金屬支架
               </p>
               <p className="video-order-item-text-specification d-flex">
-                <p>分類：樂器</p>
+                <p>類別 : 吉他</p>
                 <p>數量：2</p>
               </p>
               
@@ -126,9 +133,16 @@ class VideoOrder extends React.Component {
           <hr className="video-item-divider" />
         </div>
         <div className="video-order">
-          <div className="video-order-title">
-            <p className="video-order-number ">訂單編號：001</p>
-            <p className="video-order-status ">訂單狀態：完成</p>
+        <div className="video-order-title">
+        <div className="video-order-text">
+            <p>購買人 : 曾國瑋</p>
+            <p>手機 : 0911111111</p>
+          </div>
+          <div className="video-order-state">
+            <p>訂單編號 : 001</p>
+            <p>訂單狀態 : 完成</p>
+            <p>訂單時間 : 2020/06/29</p>
+          </div>
           </div>
           <hr className="video-order-divider" />
           <div className="video-order-item">
@@ -144,7 +158,7 @@ class VideoOrder extends React.Component {
                 筆電架電腦架 筆電散熱 金屬支架
               </p>
               <p className="video-order-item-text-specification d-flex">
-              <p>分類：樂器</p>
+              <p>類別：吉他</p>
                 <p>數量：2</p>
               </p>
               
@@ -172,7 +186,7 @@ class VideoOrder extends React.Component {
                 筆電架電腦架 筆電散熱 金屬支架
               </p>
               <p className="video-order-item-text-specification d-flex">
-              <p>分類：樂器</p>
+              <p>類別：吉他</p>
                 <p>數量：2</p>
               </p>
               

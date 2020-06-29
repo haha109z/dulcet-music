@@ -82,11 +82,19 @@
       justify-content: space-between;
       align-content: space-between;
 
-      .video-order-number {
-        font-size: 12px;
+      .video-order-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        p {
+          font-size: 12px;
+        }
       }
-      .video-order-status {
-        font-size: 12px;
+
+      .video-order-state {
+        p {
+          font-size: 12px;
+        }
       }
     }
 

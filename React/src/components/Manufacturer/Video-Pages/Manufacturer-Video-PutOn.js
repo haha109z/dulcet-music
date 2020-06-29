@@ -19,13 +19,47 @@ class VideoPutOn extends React.Component{
         console.log(v)
     }
 
-    handleUpload = e => {
+    handleUploadimage = e =>{
+         //抓取上傳檔案按鈕元素
+         const uploadfile = document.querySelector('.video-puton-file-i'); 
+         //抓取預覽圖片元素
+         const preview = document.querySelector('.video-puton-i-preview') 
+         //建立file obj 
+         const filereader = new FileReader() 
+         // 抓取預覽圖片的父元素及裡面的子元素
+        //  const del = document.querySelector('.ins-puton-add')
+         const h3 = document.querySelector('.video-puton-file-i-text')
+         const div = document.querySelector('.video-puton-i-div')
+ 
+         // 追蹤上傳按鈕事件
+         uploadfile.addEventListener('change', e => {
+             // 抓到值放入 變數file
+             const file = e.target.files[0]
+             // 轉成base46碼
+             filereader.readAsDataURL(file)
+             // 刪除預覽圖片的子元素
+ 
+             h3.style.display = 'none'
+             div.style.display = 'none'
+         })
+         // 追蹤事件載入
+         filereader.addEventListener('load',function(){
+             // 把base46碼放入變數 dataURL
+             const dataURL = filereader.result
+             console.log(dataURL)
+             // 把值傳入預覽圖片元素顯示
+             preview.src = dataURL;
+             alert('上傳成功')
+         })
+    }
+
+    handleUploadvideo = e => {
         const uploadfile = document.querySelector('.video-puton-file-v')
-        const preview = document.querySelector('.video-puton-preview')
+        const preview = document.querySelector('.video-puton-v-preview')
         const filereader = new FileReader()
 
-        const h3 = document.querySelector('.video-puton-file-text')
-        const div = document.querySelector('.video-puton-icon-div')
+        const h3 = document.querySelector('.video-puton-file-v-text')
+        const div = document.querySelector('.video-puton-v-div')
 
         uploadfile.addEventListener('change', e => {
             const file = e.target.files[0]
@@ -65,27 +99,27 @@ class VideoPutOn extends React.Component{
         <div className="video-puton-all-file">
             <div className="video-puton-file-v">
                 <div className="video-puton-add" >
-                    <h3 className="video-puton-file-text font-size-142rem">影片預覽</h3>
-                    <div className="video-puton-icon-div">
-                        <FaPlus className="video-puton-icon"/>
+                    <h3 className="video-puton-file-v-text font-size-142rem">影片預覽</h3>
+                    <div className="video-puton-v-div">
+                        <FaPlus className="video-puton-icon-v"/>
                     </div>
-                    <video className="video-puton-preview" width={480} height={320} controls></video>
+                    <video className="video-puton-v-preview" width={480} height={320} controls></video>
                 </div>
                 <div className="video-puton-file-v-div">
-                <label className="video-puton-new-btn" htmlFor="v-file" onClick={this.handleUpload}>選擇影片</label>
+                <label className="video-puton-new-btn" htmlFor="v-file" onClick={this.handleUploadvideo}>選擇影片</label>
                 <input type="file" className="video-puton-file-v" id="v-file" accept="video/*"/>
                 </div>
             </div>
             <div className="video-puton-file-i">
                 <div className="video-puton-add-img">
-                    <h3 className="video-puton-file-text font-size-142rem">圖片預覽</h3>
-                    <div className="video-puton-icon-div">
-                        <FaPlus className="video-puton-icon"/>
+                    <h3 className="video-puton-file-i-text font-size-142rem">圖片預覽</h3>
+                    <div className="video-puton-i-div">
+                        <FaPlus className="video-puton-icon-i"/>
                     </div>
-                    <img></img>
+                    <img className="video-puton-i-preview"></img>
                 </div>
                 <div className="video-puton-file-i-div">
-                <label htmlFor="i-file">選擇圖片</label>
+                <label htmlFor="i-file" onClick={this.handleUploadimage}>選擇圖片</label>
                 <input type="file" id="i-file" className="video-puton-file-i"/>
                 </div>
             </div>
