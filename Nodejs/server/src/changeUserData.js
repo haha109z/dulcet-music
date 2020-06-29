@@ -32,11 +32,11 @@ router.post('/', async (req, res) => {
       ],
       (err, result) => {
         if (err) throw err;
-        console.log(result);
+        // console.log(result);
       }
     );
   } catch (e) {
-    console.log(e.errno);
+    // console.log(e.errno);
     if (e.errno == 1062) {
     }
     resData = { code: 3, msg: '信箱已經被註冊過請換個信箱試試' };

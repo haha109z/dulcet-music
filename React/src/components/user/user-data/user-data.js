@@ -16,13 +16,11 @@ export default class UserData extends Component {
         userPhone: '',
       },
     ],
-    style:{backgroundImage: '', backgroundColor: 'rgb(134, 134, 152)'}
-
+    style: { backgroundImage: '', backgroundColor: 'rgb(134, 134, 152)' },
   }
 
   // 在這個生命週期中渲染資料
   componentDidMount() {
-
     this.onChange = (e) => {
       e.preventDefault()
       const file = e.target.files[0]
@@ -31,24 +29,22 @@ export default class UserData extends Component {
       formData.append('image', file)
       // 这里的 fetch 引用了 isomorphic-fetch 包
       // console.log("this.state.user", this.state.user)
-      // return 
+      // return
       fetch(`http://localhost:3030/img-upload/user/${this.state.user.userID}`, {
         method: 'POST',
         body: formData,
       })
-      .then((res) => res.json())
-      .then((json) => {
-        if(json.status = 1){
-
-          this.state.user.userImg = json.imgName
-          console.log(this.state.user)
-          this.setState({user: this.state.user})
-          localStorage.setItem('user', JSON.stringify([this.state.user]))
-        }else{
-          alert("上傳失敗")
-        }
-        
-      })
+        .then((res) => res.json())
+        .then((json) => {
+          if ((json.status = 1)) {
+            this.state.user.userImg = json.imgName
+            // console.log(this.state.user)
+            this.setState({ user: this.state.user })
+            localStorage.setItem('user', JSON.stringify([this.state.user]))
+          } else {
+            alert('上傳失敗')
+          }
+        })
     }
     this.changData = () => {
       const {
@@ -132,12 +128,13 @@ export default class UserData extends Component {
                 })
                   .then((res) => res.json())
                   .then((json) => {
-                    console.log(json.code)
                     if (json.code === 3) {
                       MySwal.fire('信箱已經註冊過請換一個信箱試試', '', 'error')
                     } else if (json.data) {
                       localStorage.setItem('user', JSON.stringify(json.data))
-                      this.setState({user: json.data[0]})
+                      console.log(JSON.stringify(json.data))
+                      this.setState({ user: json.data[0] })
+
                     }
                     // localStorage.setItem('user', JSON.stringify(json.data))
                     // console.log(json.data)
@@ -173,25 +170,27 @@ export default class UserData extends Component {
     } else {
       this.setState({ user: '' })
     }
-    console.log(this.state.user);
- 
+    // console.log(this.state.user);
   }
   render() {
-    console.log(this.state.style);
-    var style = {};
-    if(this.state.user.userImg){
+    // console.log(this.state.style);
+    var style = {}
+    if (this.state.user.userImg) {
       // this.setState({style: {backgroundImage: `url(http://localhost:3030/images/user/${this.state.user.userImg})`}})
       style.backgroundImage = `url(http://localhost:3030/images/user/${this.state.user.userImg})`
-    }else{
+    } else {
       // this.setState({style: {backgroundColor: `rgb(134, 134, 152)`}})
-      style.backgroundColor = `rgb(134, 134, 152)`;
+      style.backgroundColor = `rgb(134, 134, 152)`
     }
-   
+
     return (
       <>
         <div className="userData-main">
           <h3 className="font-size-142rem userData-top-titleName">會員資料</h3>
-          <div className="userData-top-Img userData-top-Img-default" style={style}>
+          <div
+            className="userData-top-Img userData-top-Img-default "
+            style={style}
+          >
             <label for="gogo" className="upload-container">
               <input
                 type="file"
@@ -200,9 +199,11 @@ export default class UserData extends Component {
                 onChange={this.onChange}
                 id="gogo"
               />
-              <input type="primary"  className="upload-button" value="上传图片"/>
-                
-              
+              <input
+                type="primary"
+                className="upload-button"
+                value="上传图片"
+              />
             </label>
           </div>
           <hr className="userData-top-hr" />

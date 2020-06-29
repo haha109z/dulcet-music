@@ -29,23 +29,26 @@ export default class UserVoucher extends Component {
     let countLenght = Math.ceil(count.length / 8)
     console.log(countLenght)
 
-    for (let i = 1; i <=countLenght ; i++) {
+    for (let i = 1; i <= countLenght; i++) {
       console.log('i' + i)
       //記得在JSX中使用JS變數要用花括號包著
-      listPageRWD.push(<><a href="#">{i}</a>
-      </>
-      )
-    }
-  
-   
-    
-    for (let i = 1; i <=countLenght ; i++) {
-      console.log('i' + i)
-      //記得在JSX中使用JS變數要用花括號包著
-      listPage.push(<>  <button className="user-page-number">{i}</button></>
+      listPageRWD.push(
+        <>
+          <a href="#">{i}</a>
+        </>
       )
     }
 
+    for (let i = 1; i <= countLenght; i++) {
+      console.log('i' + i)
+      //記得在JSX中使用JS變數要用花括號包著
+      listPage.push(
+        <>
+          {' '}
+          <button className="user-page-number">{i}</button>
+        </>
+      )
+    }
 
     return (
       <>
@@ -108,9 +111,7 @@ export default class UserVoucher extends Component {
               頁數
               <i className="fas fa-sort-down"></i>
             </button>
-            <div className="userRwd-dropdown-content">
-{listPageRWD}             
-            </div>
+            <div className="userRwd-dropdown-content">{listPageRWD}</div>
           </div>
         </div>
       </>

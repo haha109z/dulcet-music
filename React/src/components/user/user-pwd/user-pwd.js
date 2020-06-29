@@ -18,6 +18,7 @@ export default class UserPwd extends Component {
     oldPwd: '',
     newPwd: '',
     changePwd: '',
+    style: { backgroundImage: '', backgroundColor: 'rgb(134, 134, 152)' },
   }
 
   // constructor() {
@@ -111,6 +112,31 @@ export default class UserPwd extends Component {
 
   // 在這個生命週期中渲染資料
   componentDidMount() {
+    this.onChange = (e) => {
+      e.preventDefault()
+      const file = e.target.files[0]
+      const formData = new FormData()
+      // 这里的 image 是字段，根据具体需求更改
+      formData.append('image', file)
+      // 这里的 fetch 引用了 isomorphic-fetch 包
+      // console.log("this.state.user", this.state.user)
+      // return
+      fetch(`http://localhost:3030/img-upload/user/${this.state.user.userID}`, {
+        method: 'POST',
+        body: formData,
+      })
+        .then((res) => res.json())
+        .then((json) => {
+          if ((json.status = 1)) {
+            this.state.user.userImg = json.imgName
+            console.log(this.state.user)
+            this.setState({ user: this.state.user })
+            localStorage.setItem('user', JSON.stringify([this.state.user]))
+          } else {
+            alert('上傳失敗')
+          }
+        })
+    }
     if (getUserInfo()) {
       let user = getUserInfo()
       // JSON.parse(localStorage.getItem('user'));
@@ -133,14 +159,38 @@ export default class UserPwd extends Component {
       ? 'svg-eye-close svg-inline--fa fa-eye fa-w-18'
       : ' svg-eye svg-inline--fa fa-eye fa-w-18'
     // console.log(this.state.user.userMail)
+    var style = {};
+    if(this.state.user.userImg){
+      // this.setState({style: {backgroundImage: `url(http://localhost:3030/images/user/${this.state.user.userImg})`}})
+      style.backgroundImage = `url(http://localhost:3030/images/user/${this.state.user.userImg})`
+    }else{
+      // this.setState({style: {backgroundColor: `rgb(134, 134, 152)`}})
+      style.backgroundColor = `rgb(134, 134, 152)`;
+    }
     return (
       <>
         <div className="userPwd-main">
           <h3 className="font-size-142rem userPwd-top-titleName user-font-ch">
             密碼修改
           </h3>
-          <div className="userPwd-top-Img">
-            <img src="" alt="" />
+          <div
+            className="userData-top-Img userData-top-Img-default "
+            style={style}
+          >
+            <label for="gogo" className="upload-container">
+              <input
+                type="file"
+                name="image"
+                className="upload-input"
+                onChange={this.onChange}
+                id="gogo"
+              />
+              <input
+                type="primary"
+                className="upload-button"
+                value="上传图片"
+              />
+            </label>
           </div>
 
           <hr className="userPwd-top-hr" />
@@ -168,7 +218,7 @@ export default class UserPwd extends Component {
                   type={`${this.state.test ? 'text' : 'password'}`}
                   onChange={this.logChange}
                   value={this.state.oldPwd}
-                  pattern='[a-zA-Z]'
+                  pattern="[a-zA-Z]"
                   minlength="8"
                   maxlength="12"
                 />

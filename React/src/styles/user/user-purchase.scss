@@ -22,6 +22,10 @@
   background-color: black;
   color: white;
 }
+.UserPurchase-menu-ck{
+  background-color: black;
+  color: white;
+}
 .UserPurchase-search {
   width: 100%;
   position: relative;
@@ -90,7 +94,7 @@
   margin-top: 40px;
 }
 .UserPurchase-order-item-img {
-  width: 140px;
+  width: 180px;
   height: 140px;
   margin: auto;
   position: relative;
@@ -201,7 +205,7 @@
     color: var(--main-colorfb2);
   }
   .UserPurchase-order-item-img {
-    width: 140px;
+    width: 180px;
     height: 140px;
     margin: auto 0px auto 10px;
     position: relative;
@@ -311,7 +315,7 @@
   }
 
   /* 當下拉內容顯示後修改下拉按鈕的背景顏色 */
-  
+
   .user-dropbtn > svg {
     position: absolute;
     height: 26px;
