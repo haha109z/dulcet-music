@@ -33,34 +33,34 @@ class InstrumentHome extends React.Component{
   constructor(){
     super()
     this.state={
-      MFTuser : [
-      {
-        Mid : '',
-        Mname : '',
-        Maddress : '',
-        Muser : '',
-        Mphone : '',
-        Mtelephone : '',
-        Memail : '',
-        Mimg : '',
-      }]
+      // MFTuser : [
+      // {
+      //   Mid : '',
+      //   Mname : '',
+      //   Maddress : '',
+      //   Muser : '',
+      //   Mphone : '',
+      //   Mtelephone : '',
+      //   Memail : '',
+      //   Mimg : '',
+      // }]
     }
   }
-  componentDidMount(){
-    const getUserInfo = () => {
-      return JSON.parse(localStorage.getItem('Muser'))
-    }
-    if (getUserInfo()) {
-      let Muser = getUserInfo()
-      if (Muser[0].Mid) {
-        this.setState({ MFTuser: Muser[0] })
-      } else {
-        this.setState({ MFTuser: '' })
-      }
-    } else {
-      this.setState({ MFTuser: '' })
-    }
-  }
+  // componentDidMount(){
+  //   const getUserInfo = () => {
+  //     return JSON.parse(localStorage.getItem('Muser'))
+  //   }
+  //   if (getUserInfo()) {
+  //     let Muser = getUserInfo()
+  //     if (Muser[0].Mid) {
+  //       this.setState({ MFTuser: Muser[0] })
+  //     } else {
+  //       this.setState({ MFTuser: '' })
+  //     }
+  //   } else {
+  //     this.setState({ MFTuser: '' })
+  //   }
+  // }
     render(){
     return(
       <div className="ins-home-page">
