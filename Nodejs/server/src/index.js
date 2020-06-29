@@ -46,7 +46,7 @@ app.use("/img-upload", require(__dirname + "/img-upload"));
 
 app.use(
   "/ManufacturerInstrument/InstrumentHome",
-  require(__dirname + "/changeMIuserdata")
+  require(__dirname + "/ManuIuserdata")
 );
 
 // app.use("/form", require(__dirname + "/form"));

@@ -21,16 +21,37 @@
         width: 50%;
         margin: 10px;
         text-align: center;
-        .video-puton-new-btn {
-          width: 50%;
-          background: var(--main-colorblock);
-          color: var(--main-colorfff);
-          border: none;
+        .video-puton-file-v-div {
+          position: relative;
+          margin: auto;
+          width: 100%;
           height: 50px;
-        }
-        .video-puton-new-btn:hover {
-          background: #f2e8df;
-          color: #141414;
+          label {
+            width: 50%;
+            left: calc(50% - 25%);
+            background: var(--main-colorblock);
+            color: var(--main-colorfff);
+            border: none;
+            height: 50px;
+            line-height: 50px;
+            position: absolute;
+            // opacity: 0;
+            z-index: 99;
+          }
+          input {
+            opacity: 0;
+            position: absolute;
+            width: 50%;
+            left: calc(50% - 25%);
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+          }
+
+          label:hover {
+            background: #f2e8df;
+            color: #141414;
+          }
         }
 
         .video-puton-add {
@@ -50,13 +71,17 @@
               height: 50px;
             }
           }
+          .video-puton-preview {
+            max-width: 100%;
+            max-height: 100%;
+            display: none;
+          }
         }
       }
       .video-puton-file-i {
         width: 50%;
         margin: 10px;
         text-align: center;
-
         .video-puton-add-img {
           border: 1px solid;
           width: 100%;
@@ -80,16 +105,32 @@
             max-height: 100%;
           }
         }
-        button {
-          width: 50%;
-          background: var(--main-colorblock);
-          color: var(--main-colorfff);
-          border: none;
+        .video-puton-file-i-div {
+          position: relative;
+          width: 100%;
           height: 50px;
-        }
-        button:hover {
-          background: #f2e8df;
-          color: #141414;
+          label {
+            width: 50%;
+            background: var(--main-colorblock);
+            color: var(--main-colorfff);
+            border: none;
+            height: 50px;
+            position: absolute;
+            left: calc(50% - 25%);
+            line-height: 50px;
+            z-index: 99;
+          }
+          label:hover {
+            background: #f2e8df;
+            color: #141414;
+          }
+          input {
+            position: absolute;
+            left: calc(50% - 25%);
+            width: 50%;
+            height: 50px;
+            opacity: 0;
+          }
         }
       }
     }

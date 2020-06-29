@@ -9,7 +9,19 @@ class InstrumentList extends React.Component {
       }
     }
 
-
+    handlecheck = e => {
+      const check = document.querySelectorAll(".ins-list-content-chk")
+      const allchk = document.querySelector(".ins-list-tool-chk")
+      if(allchk.checked){
+        for(var i = 0; i < check.length; i++){
+          check[i].checked = true
+        }
+      }else{
+        for(var i = 0; i < check.length; i++){
+          check[i].checked = false
+        }
+      }
+    }
     
   render() {
     return (
@@ -61,7 +73,7 @@ class InstrumentList extends React.Component {
         </Link>
         <div className="ins-list-tools">
           <div className="ins-list-option">
-            <input type="checkbox"  checked={false} className="ins-list-tool-chk"/>
+            <input type="checkbox" onClick={this.handlecheck} className="ins-list-tool-chk"/>
             <p>全選</p>
             <a href="">刪除</a>
             <a href="">上架</a>
@@ -84,8 +96,8 @@ class InstrumentList extends React.Component {
               className="ins-list-content-text">
               <h3 className="font-size-142rem">從0開始學習吉他</h3>
               <p className="font-size-1rem">類別 : 吉他</p>
-              <p className="font-size-1rem">長度 : 90分鐘</p>
-              <p className="font-size-1rem">編輯時間 : 2020/06/16</p>
+              <p className="font-size-1rem">更新時間 : 2020/06/16</p>
+              <p className="font-size-1rem">庫存數量 : 10</p>
               <span className="ins-list-pro-money-1 font-size-1rem">
                 價格
               </span>
@@ -116,8 +128,8 @@ class InstrumentList extends React.Component {
             >
               <h3 className="font-size-142rem">從0開始學習吉他</h3>
               <p className="font-size-1rem">類別 : 吉他</p>
-              <p className="font-size-1rem">長度 : 90分鐘</p>
-              <p className="font-size-1rem">編輯時間 : 2020/06/16</p>
+              <p className="font-size-1rem">更新時間 : 2020/06/16</p>
+              <p className="font-size-1rem">庫存數量 : 10</p>
               <span className="ins-list-pro-money-1 font-size-1rem">
                 價格
               </span>

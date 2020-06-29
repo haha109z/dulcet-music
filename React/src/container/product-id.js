@@ -55,11 +55,13 @@ function ProductId() {
                     productName={p.PName}
                     PIntro={p.PIntro}
                     PPrice={p.PPrice.toString().replace(
-                      /(\d)(?=(\d{3})+(?:.\d+)?$)/g,
+                      /(\d)(?=(\d{3})+(\d{3})?$)/g,
                       '$1,'
                     )}
                     PQty={p.PQty}
                     PId={p.PId}
+                    dataP={dataP}
+                    setDataP={setDataP}
                   />
                   <hr id="product-id-wrapper-hr" />
                   <ProductDesciption Pdesciption={p.Pdesciption} />

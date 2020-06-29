@@ -13,7 +13,7 @@ router.post("/", async (req, res) => {
   // const output = await getData(req);
   
   const newData = await query(
-      `SELECT * FROM instrument WHERE Mid = ?;`,
+      `SELECT * FROM manu_instrument WHERE Mid = ?;`,
       [ID],
     );
 if(newData.length > 0){
