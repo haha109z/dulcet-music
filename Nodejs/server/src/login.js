@@ -21,7 +21,7 @@ const sha1 = require('sha1')
 router.post('/', async (req, res) => {
   let {userPwd, userMail} = req.body
   
-  console.log(req.body);  
+  // console.log(req.body);  
   
   let resData = { code: "", msg: ""}
   // const output = await getData(req);
