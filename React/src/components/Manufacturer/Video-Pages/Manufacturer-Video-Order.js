@@ -210,6 +210,84 @@ class VideoOrder extends React.Component {
           </div>
           <hr className="video-item-divider" />
         </div>
+        <div className="video-order">
+          <div className="video-order-title">
+          <div className="video-order-text">
+            <p>購買人 : 曾國瑋</p>
+            <p>手機 : 0911111111</p>
+          </div>
+          <div className="video-order-state">
+            <p>訂單編號:001</p>
+            <p>訂單狀態:完成</p>
+            <p>訂單時間:2020/06/29</p>
+          </div>
+          </div>
+          <hr className="video-order-divider" />
+          <div className="video-order-item">
+            <div className="video-order-item-img">
+              <img src={require('../../../img/home_logo_方.png')} alt="" />
+            </div>
+            <div className="video-order-item-text">
+              <p className="video-order-item-text-name ">
+                現貨 免運費！11段角度調節】鋁合金筆電支架 筆電散熱架 散熱器
+                散熱墊 筆電架電腦架 筆電散熱 金屬支架度調節】鋁合金筆電支架
+                筆電散熱架 散熱器 散熱墊 筆電架電腦架 筆電散熱
+                金屬支架度調節】鋁合金筆電支架 筆電散熱架 散熱器 散熱墊
+                筆電架電腦架 筆電散熱 金屬支架
+              </p>
+              <p className="video-order-item-text-specification  d-flex">
+              <p>類別：吉他</p>
+                <p>數量：2</p>
+              </p>
+              
+              <div className="d-flex video-order-item-text-money">
+                <p className="video-order-item-text-money-1 ">價格</p>{' '}
+                <p className="video-order-item-text-money-2 manufacturer-font-eg manufacturer-color-red">
+                  $
+                </p>
+                <p className="video-order-item-text-money-3 manufacturer-font-eg manufacturer-color-red">
+                  999
+                </p>{' '}
+              </div>
+            </div>
+          </div>
+          <div className="video-order-item">
+            <div className="video-order-item-img">
+              <img src={require('../../../img/home_logo_方.png')} alt="" />
+            </div>
+            <div className="video-order-item-text">
+              <p className="video-order-item-text-name ">
+                現貨 免運費！11段角度調節】鋁合金筆電支架 筆電散熱架 散熱器
+                散熱墊 筆電架電腦架 筆電散熱 金屬支架度調節】鋁合金筆電支架
+                筆電散熱架 散熱器 散熱墊 筆電架電腦架 筆電散熱
+                金屬支架度調節】鋁合金筆電支架 筆電散熱架 散熱器 散熱墊
+                筆電架電腦架 筆電散熱 金屬支架
+              </p>
+              <p className="video-order-item-text-specification d-flex">
+                <p>類別 : 吉他</p>
+                <p>數量：2</p>
+              </p>
+              
+              <div className="d-flex video-order-item-text-money">
+                <p className="video-order-item-text-money-1 ">價格</p>{' '}
+                <p className="video-order-item-text-money-2 manufacturer-font-eg manufacturer-color-red">
+                  $
+                </p>
+                <p className="video-order-item-text-money-3 manufacturer-font-eg manufacturer-color-red ">
+                  999
+                </p>{' '}
+              </div>
+            </div>
+          </div>
+          <div className="video-order-total">
+            <p className="video-order-total-1 ">訂單總價</p>{' '}
+            <p className="video-order-total-2 manufacturer-font-eg manufacturer-color-red">$</p>
+            <p className="video-order-total-3 manufacturer-font-eg manufacturer-color-red">
+              999
+            </p>{' '}
+          </div>
+          <hr className="video-item-divider" />
+        </div>
         <div className="video-page">
             <a className="video-page-Rarrow">
               <i className="fas fa-sort-up"></i>
