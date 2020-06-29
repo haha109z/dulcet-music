@@ -1,62 +1,68 @@
-import React,{useState,useEffect} from 'react';
+import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
-import Navbar from '../components/navbar/navbar';
+import Navbar from '../components/navbar/navbar'
 import NewsSliders from '../components/news/news-Sliders'
-import NewsContent from '../components/news/news-Content';
-import NewsCategory from '../components/news/news-Category';
-import NewsHot from '../components/news/news-Hot';
+// import NewsCategoryA from '../components/news/news-Category'
+import NewsContent from '../components/news/news-Content'
+import NewsHot from '../components/news/news-Hot'
 import { IoMdArrowDropright } from 'react-icons/io'
 import { IoMdArrowDropleft } from 'react-icons/io'
+import { useParams } from 'react-router-dom'
+
+function News() {
+  const { NewsDate,NewsCategory } = useParams();
+
+  const [content, setcontent] = useState([])
+
+async function getcontent() {
+  fetch(`http://localhost:3030/news/newsdatecty`, {
+    method: 'POST',
+    body: JSON.stringify({ NewsDate , NewsCategory }),
+    headers: new Headers({
+      'Content-Type': 'application/json',
+    }),
+  })
+    .then((res) => res.json())
+    .then((json) => {
+      setcontent(json)
+      console.log(json)
+    })
+}
+useEffect(() => {
+  getcontent()
+}, [])
 
 
-function News(){
-
-    const [content, setContent] = useState([])
-
-    async function getContent() {
-      fetch(`http://localhost:3030/news/newsList`, {
-        method: 'POST',
-        body: JSON.stringify(),
-        headers: new Headers({
-          'Content-Type': 'application/json',
-        }),
-      })
-        .then((res) => res.json())
-        .then((json) => {
-          setContent(json)
-        })
-        
-    }
+return(
+  <>
   
-    useEffect(() => {
-      // Your code here
-      getContent()
-    }, [])
-  
-
-
-    return(
-        <>
-        <Navbar />
-        <NewsSliders />
-        <NewsCategory />
-        <NewsHot/>
-
-        <div className="news-ContentContainer">
-
-        {content.map((cc, index) => (
-            <NewsContent
-            NewsDateTitle={cc.NewsDateTitle}
-            NewsAddress={cc.NewsAddress}
-            NewsTitle={cc.NewsTitle}
-            NewsContent={cc.NewsContent}
-            NewsImg={cc.NewsImg}
-            NewsID={cc.NewsID}
-            NewsCategory={cc.NewsCategory}
-             />
+      
+      <Navbar />
+      <NewsSliders />
+      <NewsHot />
+      {content.map((cc) => 
+          {  return(
+            <>
+            <div className="news-ContentContainer">
               
-            ))}
+                <NewsContent
+                  NewsDateTitle={cc.NewsDateTitle}
+                  NewsAddress={cc.NewsAddress}
+                  NewsTitle={cc.NewsTitle}
+                  NewsContent={cc.NewsContent}
+                  NewsImg={cc.NewsImg}
+                  NewsID={cc.NewsID}
+                  NewsCategory={cc.NewsCategory}
+                />
+                </div>
+            </>
+          )
+            
+          }
+        )
+      }  
 
+        
 
         {/*頁數*/}
         <div className="news-Content">
@@ -80,11 +86,16 @@ function News(){
             </div>
           </Router>
         </div>
-      </div>
-        
-        
-        </>
-    )
+    
+    
+
+  </>
+
+
+  )
+
+
+
 }
 
-export default News;
+export default News

@@ -1,67 +1,61 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
-import Li from './news-Category-li'
 
 function NewsCategory(props) {
-  const [date, setDate] = useState('2020-06')
+  const [date, setDate] = useState('')
 
-  const [category,setCategory] = useState([])
+  const [category, setCategory] = useState('')
 
-  async function getCategory(){
-    fetch(`http://localhost:3030/news/newsCategory`,{
-      method : 'POST',
-      body : JSON.stringify(),
-      headers : new Headers({
-        'Content-Type' : 'application/json',
-      }),
-    })
-    .then((res) => res.json())
-    .then((json) => {
-
-      setCategory(json)
+  useEffect(() => {
+ // Your code here
+    console.log('日期更改後category:',category)
+    console.log('Date更改後date:',date)
  
-    })
-
-  }
-
-  useEffect(() => {
-    // Your code here
-    getCategory()
-  },[])
-
-  useEffect(() => {
-    // Your code here
-    console.log(date)
   }, [date])
 
+  useEffect(() => {
+    // Your code here
+  
+    console.log('分類更改後category:',category)
+    console.log('分類更改後date:',date)
 
-
+  }, [category])
 
   return (
     <>
-    {category ? console.log('category',category[0]):''}
-      <div className="news-CategoryContainer d-flex news-NotoSerifTC">
-
+   <div className="news-CategoryContainer d-flex news-NotoSerifTC">
         <div className="news-Category">
-
           <ul className="d-flex justify-content-start">
-          
-            <li>
-              <Link to="" onClick="">全部</Link>
+
+            <li onClick={() => {
+              setCategory('')
+            }} >
+                全部
             </li>
 
-            {category.map((c, index) => 
-            <Li NewsCategoryName={c.NewsCategoryName} />
-              
-            )}
-          
-          </ul>
+            <li value='課程' onClick={() => {
+              setCategory('課程')
+              }} >
+                課程
+            </li>
+            
+            <li onClick={() => {
+              setCategory('公告')
+              }} >
+                公告
+            </li>
+            
+            <li onClick={() => {
+              setCategory('活動')
+              }} >
+                活動
 
+            </li>
+
+          </ul>
         </div>
 
-
         <div className="news-Month news-NotoSerifTC">
-        
           年/月份篩選：
           <input
             Id="news-MonthInput"
@@ -72,7 +66,6 @@ function NewsCategory(props) {
             }}
           ></input>
         </div>
-
       </div>
     </>
   )
