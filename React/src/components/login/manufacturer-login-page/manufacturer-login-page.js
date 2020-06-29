@@ -2,9 +2,61 @@ import React,{Component} from 'react';
 import {Link,withRouter} from 'react-router-dom';
 
 // import '../../../styles/login/user-facturer-login-page.scss';
+// var sha1 = require('sha1');
+// const MySwal = withReactContent(Swal);
+class Company extends Component{
+    constructor(props) {
+        super(props)
+    //     let t = this
+    //     fetch('http://localhost:3030/forum', { method: 'GET' }).then(function (
+    //       res
+    //     ) {
+    //       // console.log(res);
+    //       res.json().then(function (data) {
+    //         console.log(data)
+    //         t.setState({
+    //           news: data,
+    //         })
+    //       })
+    //     })
+      }
+   
 
-function ManufacturerLoginPage(props){
+      
+//    state = { 
 
+//   } 
+    
+
+  
+
+       // login成功時的callback
+    // const loginSuccessCallback = () => {
+    //     localStorage.setItem('user', JSON.stringify(userData))
+    //     // alert('登入成功，跳轉至首頁')
+    //     setTimeout(()=>{
+    //       props.history.push('/user/userData', { from: '從登入頁來的' })
+    //     },2000)
+
+    // }
+
+
+     // 錯誤訊息陣列的呈現
+    // const displayErrors = loginErrors.length ? (
+    //     <div className="alert alert-danger" role="alert">
+    //     <ul className="list-unstyled">
+    //         {loginErrors.map((v, i) => (
+    //         <li key={i}>{v}</li>
+    //         ))}
+    //     </ul>
+    //     </div>
+    // ) : (
+    //     ''
+    // )
+
+
+
+    render() {
     return(
         <>
         <div>
@@ -32,5 +84,5 @@ function ManufacturerLoginPage(props){
         </>
     )
 }
-
-export default withRouter(ManufacturerLoginPage);
+}
+export default Company
