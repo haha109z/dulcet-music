@@ -14,10 +14,10 @@ export default class UserPurchase extends Component {
     UserPurchaseDetail: [], // 顯示訂單明細
     totalCount: 0, // 總比數
     btn: '全部',
-    menu:true,
+    menu: true,
   }
-  filterStatusOpen=()=>{
-this.setState({menu:false})
+  filterStatusOpen = () => {
+    this.setState({ menu: false })
   }
   // 換頁事件
   changePageNum = (event) => {
@@ -73,7 +73,7 @@ this.setState({menu:false})
     this.setState({ pageNum: 1 })
     console.log('select', event.currentTarget.textContent)
     this.setState({ btn: select })
-    this.setState({menu:true})
+    this.setState({ menu: true })
 
     if (select == '全部') {
       this.setState({ UserPurchase: this.state.AllUserPurchase })
@@ -217,16 +217,21 @@ this.setState({menu:false})
           </div>
           <form className="UserPurchase-search" action="">
             <div className="user-dropdown">
-              <button type="button" className="user-dropbtn" onClick={this.filterStatusOpen}>
+              <button
+                type="button"
+                className="user-dropbtn"
+                onClick={this.filterStatusOpen}
+              >
                 訂單狀態
                 <i className="fas fa-sort-down"></i>
-
               </button>
-              <div className={
-                this.state.menu === true
-                  ? 'user-dropdown-content user-dropdown-none '
-                  : 'user-dropdown-content'
-              }>
+              <div
+                className={
+                  this.state.menu === true
+                    ? 'user-dropdown-content user-dropdown-none '
+                    : 'user-dropdown-content'
+                }
+              >
                 <a href="#" onClick={this.filterStatus}>
                   全部
                 </a>
@@ -383,7 +388,6 @@ this.setState({menu:false})
             <div className="userRwd-dropdown-content">{pageItem}</div>
           </div>
         </div>
-       
       </>
     )
   }
