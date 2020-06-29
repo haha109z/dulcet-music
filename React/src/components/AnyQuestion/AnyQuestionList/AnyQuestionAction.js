@@ -64,42 +64,42 @@ render(){
   const { InputShow1, InputShow2, InputShow3,InputShow4,InputShow5,InputShow6,InputShow7 } = this.state
   const Input1 = InputShow1 ? ( 
       <>
-        <input className="input1-10" type="text " value="帳號密碼的顯示" readOnly/>
+        <input className="input1-10" type="text " value="必須取得您的相關帳號資訊，透過信箱或者手機來確認您的身份是否符合。" readOnly/>
       </>
   ) : (
     ''
   )
   const Input2 = InputShow2 ? ( 
     <>
-      <input className="input1-10" type="text " value="帳號密碼的顯示" readOnly/>
+      <input className="input1-10" type="text " value="如果您忘記密碼了，請在登入頁面內使用您的帳號以及信箱或者手機來找回您的密碼。" readOnly/>
     </>
 ) : (
   ''
 )
 const Input3 = InputShow3 ? ( 
   <>
-    <input className="input1-10" type="text " value="帳號密碼的顯示" readOnly/>
+    <input className="input1-10" type="text " value="在註冊完之後可以用信箱或者手機來綁定您的帳戶，可以更確保您的帳號安全。" readOnly/>
   </>
 ) : (
 ''
 )
 const Input4 = InputShow4 ? ( 
   <>
-    <input className="input1-10" type="text " value="帳號密碼的顯示" readOnly/>
+    <input className="input1-10" type="text " value="您的帳號如果有任何問題請至客服中心或者討論區是否有相同的人跟你有一樣的問題。" readOnly/>
   </>
 ) : (
 ''
 )
 const Input5 = InputShow5 ? ( 
   <>
-    <input className="input1-10" type="text " value="帳號密碼的顯示" readOnly/>
+    <input className="input1-10" type="text " value="信箱" readOnly/>
   </>
 ) : (
 ''
 )
 const Input6 = InputShow6 ? ( 
   <>
-    <input className="input1-10" type="text " value="帳號密碼的顯示" readOnly/>
+    <input className="input1-10" type="text " value="優惠卷" readOnly/>
   </>
 ) : (
 ''
@@ -107,7 +107,7 @@ const Input6 = InputShow6 ? (
 const Input7 = InputShow7 ? ( 
   <>
   <div>
-    <input className="input1-10" type="text " value="帳號密碼的顯示" readOnly/>
+    <input className="input1-10" type="text " value="帳號遺失" readOnly/>
     </div>
   </>
 ) : (
@@ -128,7 +128,7 @@ const Input7 = InputShow7 ? (
                 <input type="submit" value="忘記帳號" onClick={this.handleInput1}/>               
                 {Input1}
                 </div>            
-                <i className="AnyQuestionActionIcon fas fa-check"></i>
+                <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
                 </div>
                 <div style={{display:'flex'}}>
             <div style={{width:'1000px'}}>
@@ -136,7 +136,7 @@ const Input7 = InputShow7 ? (
                 <input type="submit" value="忘記密碼" onClick={this.handleInput2}/>
                 {Input2}
                 </div>
-                <i className="AnyQuestionActionIcon fas fa-check"></i>
+                <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
                 </div>
                 <div style={{display:'flex'}}>
             <div style={{width:'1000px'}}>
@@ -144,7 +144,7 @@ const Input7 = InputShow7 ? (
                 <input type="submit" value="帳號綁定" onClick={this.handleInput3}/>
                 {Input3}
                 </div>
-                <i className="AnyQuestionActionIcon fas fa-check"></i>
+                <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
                 </div>
                 <div style={{display:'flex'}}>
             <div style={{width:'1000px'}}>
@@ -152,7 +152,7 @@ const Input7 = InputShow7 ? (
                 <input type="submit" value="帳號問題" onClick={this.handleInput4}/>
                 {Input4}
                 </div>
-                <i className="AnyQuestionActionIcon fas fa-check"></i>
+                <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
                 </div>
                 <div style={{display:'flex'}}>
             <div style={{width:'1000px'}}>
@@ -160,7 +160,7 @@ const Input7 = InputShow7 ? (
                 <input type="submit" value="信箱認證" onClick={this.handleInput5}/>
                 {Input5}
                 </div>
-                <i className="AnyQuestionActionIcon fas fa-check"></i>
+                <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
                 </div>
                 <div style={{display:'flex'}}>
             <div style={{width:'1000px'}}>
@@ -168,7 +168,7 @@ const Input7 = InputShow7 ? (
                 <input type="submit" value="優惠卷使用方法" onClick={this.handleInput6}/>
                 {Input6}
                 </div>
-                <i className="AnyQuestionActionIcon fas fa-check"></i>
+                <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
                 </div>
                 <div style={{display:'flex'}}>
             <div style={{width:'1000px'}}>
@@ -176,7 +176,7 @@ const Input7 = InputShow7 ? (
                 <input type="submit" value="帳號遺失密碼怎麼辦"  onClick={this.handleInput7}/>
                 {Input7}
                 </div>
-                <i className="AnyQuestionActionIcon fas fa-check"></i>
+                <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
                 </div>
           </div>
           </div>

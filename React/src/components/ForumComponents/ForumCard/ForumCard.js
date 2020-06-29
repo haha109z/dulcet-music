@@ -25,12 +25,6 @@ class ForumCard extends Component {
     boxShow: false,
     boxShowBtn: false,
     userId: '',
-    username: '',
-    userImg: '',
-    ForumAboutTitle: '', //樂器類型
-    ForumTitleId: '', //主題
-    ForumMemo: '', //內容
-    userName:'',
     news: [
       {
         ForumId: '',
@@ -43,20 +37,24 @@ class ForumCard extends Component {
         ForumActionAns:'',
       },
     ],
+   
   }
 
   componentDidMount(e) {
     const handleForumAboutTitle = this.state
-    console.log(handleForumAboutTitle)
+    // console.log(handleForumAboutTitle)
 
     const getUserInfo = () => {
       return JSON.parse(localStorage.getItem('user'))
     }
     if (getUserInfo()) {
       let user = getUserInfo()
+      // console.log(user[0].userName)
+
       if (user[0].userID) {
-        this.setState({ userId: user[0].userId })
-        this.setState({ username: user[0].username })
+        this.setState({ userId: user[0].userID })
+        this.setState({ username: user[0].userName })
+        // console.log(this.state.username)
       } else {
         this.setState({ userId: '' })
       }
@@ -92,6 +90,7 @@ class ForumCard extends Component {
     const UserName = this.state.username
     // UserName.value = this.state.news.UserId
     this.setState({ userName:UserName })
+    console.log(this.state)
   }
   
 
@@ -121,19 +120,13 @@ handleForumActionAns = (event)=>{
 }
 //送出之後把它存進資料庫
 handleSubmit = (event) => {
-  
-  
-  
-      
-
-
   //sql語法
   // SELECT ForumAbout.userID,user.userName,ForumAbout.TitleMusic,ForumAbout.TitleId,ForumAbout.Memo FROM ForumAbout left JOIN user ON ForumAbout.userID = user.userID
 
   //sql 新增語法
   // INSERT INTO `ForumAbout`(`ForumId`, `TitleMusic`, `TitleId`, `Memo`, `userID`) VALUES ('4','大提琴','Title','TitleMemo','4')
   // let t = this
-  // fetch('http://localhost:3030/forum', { method: 'GET' }).then(function (
+  // fetch('http://localhost:3030/forum/1', { method: 'put' }).then(function (
   //   res
   // ) {
   //   // console.log(res);
@@ -145,16 +138,52 @@ handleSubmit = (event) => {
   //   })
   // })
   // INSERT INTO `ForumAbout`(`ForumId`, `TitleMusic`, `TitleId`, `Memo`, `userID`) VALUES ('[this.state.ForumId]','?','?','?','?')
+
+let {
+  ForumTitle,
+  ForumAction,
+  ForumActionAns,
+  userId,
+  userName}=this.state
+// console.log(this.state.ForumTitle)
+// console.log(this.state.userId)
+
+
+  fetch('http://localhost:3030/forum/123', {
+                  method: 'POST', // or 'PUT'
+                  body: JSON.stringify({
+                 ForumTitle,
+                 ForumAction,
+                 ForumActionAns,
+                 userId,
+                 userName
+
+                  }), 
+                  headers: new Headers({
+                    'Content-Type': 'application/json',
+                  }),
+                  
+                })
+                  .then((res) => res.json())
+                  .then((json) => {
+                    
+                    this.setState({news123:json})
+                    console.log(this.state)
+                    // localStorage.setItem('user', JSON.stringify(json.data))
+                    // console.log(json.data)
+                  })
+                  .catch((error) => {
+                    console.error('Error:', error)
+                  })
+
   
   this.setState({ boxShow: false })
   this.setState({ ForumTitle: this.state.ForumTitle })
   this.setState({ ForumAction: this.state.ForumAction })
   this.setState({ ForumActionAns: this.state.ForumActionAns })
-  console.log(this.state.ForumTitle)
   
   alert('新增成功')
-  console.log(this.state.news)
- 
+  console.log(this.state)
 }
   render() {
     const { boxShow, userId, boxShowBtn } = this.state

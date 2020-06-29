@@ -30,8 +30,8 @@
 
 //input按鈕點下去之後
 .input1-10 {
-  background-color: black !important;
-  color: white;
+  background-color: white !important;
+  color: #141414 !important;
 }
 .AnyQuestionActionCardIcon {
   font-size: 100px;
@@ -58,10 +58,15 @@
     // border-right: 1px solid transparent;
   }
 }
+.AnyQuestionActionTable input:focus {
+  background: #141414;
+  color: #fff;
+}
 .AnyQuestionActionIcon {
   position: relative;
-  right: 100px;
-  font-size: 40px;
+  right: 50px;
+  top: 13px;
+  font-size: 16px;
 }
 @media (max-width: 1120px) {
   .AnyQuestionActionContainer {
