@@ -73,8 +73,8 @@ class InstrumentOrder extends React.Component {
                 筆電架電腦架 筆電散熱 金屬支架
               </p>
               <p className="ins-order-item-text-specification  d-flex">
-              <p>分類：樂器</p>
-                <p>數量：2</p>
+              <p>類別：吉他</p>
+                <p>購買數量：2</p>
               </p>
               
               <div className="d-flex ins-order-item-text-money">
@@ -101,8 +101,8 @@ class InstrumentOrder extends React.Component {
                 筆電架電腦架 筆電散熱 金屬支架
               </p>
               <p className="ins-order-item-text-specification d-flex">
-                <p>分類：樂器</p>
-                <p>數量：2</p>
+                <p>類別：吉他</p>
+                <p>購買數量：2</p>
               </p>
               
               <div className="d-flex ins-order-item-text-money">
@@ -144,8 +144,8 @@ class InstrumentOrder extends React.Component {
                 筆電架電腦架 筆電散熱 金屬支架
               </p>
               <p className="ins-order-item-text-specification d-flex">
-              <p>分類：樂器</p>
-                <p>數量：2</p>
+              <p>類別：吉他</p>
+                <p>購買數量：2</p>
               </p>
               
               <div className="d-flex ins-order-item-text-money">
@@ -172,8 +172,8 @@ class InstrumentOrder extends React.Component {
                 筆電架電腦架 筆電散熱 金屬支架
               </p>
               <p className="ins-order-item-text-specification d-flex">
-              <p>分類：樂器</p>
-                <p>數量：2</p>
+              <p>類別：吉他</p>
+                <p>購買數量：2</p>
               </p>
               
               <div className="d-flex ins-order-item-text-money">

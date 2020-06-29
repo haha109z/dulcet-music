@@ -42,6 +42,7 @@ class InstrumentHome extends React.Component{
         Mphone : '',
         Mtelephone : '',
         Memail : '',
+        Mimg : '',
       }]
     }
   }
@@ -120,6 +121,7 @@ class InstrumentHome extends React.Component{
           </div>
         </label>
 
+       
         <input type="submit" className="ins-home-form-btn" value="修改資料"/>
           
        
