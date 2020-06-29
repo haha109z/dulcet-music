@@ -14,6 +14,10 @@ export default class UserPurchase extends Component {
     UserPurchaseDetail: [], // 顯示訂單明細
     totalCount: 0, // 總比數
     btn: '全部',
+    menu:true,
+  }
+  filterStatusOpen=()=>{
+this.setState({menu:false})
   }
   // 換頁事件
   changePageNum = (event) => {
@@ -69,6 +73,7 @@ export default class UserPurchase extends Component {
     this.setState({ pageNum: 1 })
     console.log('select', event.currentTarget.textContent)
     this.setState({ btn: select })
+    this.setState({menu:true})
 
     if (select == '全部') {
       this.setState({ UserPurchase: this.state.AllUserPurchase })
@@ -212,11 +217,16 @@ export default class UserPurchase extends Component {
           </div>
           <form className="UserPurchase-search" action="">
             <div className="user-dropdown">
-              <button type="button" className="user-dropbtn">
+              <button type="button" className="user-dropbtn" onClick={this.filterStatusOpen}>
                 訂單狀態
                 <i className="fas fa-sort-down"></i>
+
               </button>
-              <div className="user-dropdown-content user-dropdown-none">
+              <div className={
+                this.state.menu === true
+                  ? 'user-dropdown-content user-dropdown-none '
+                  : 'user-dropdown-content'
+              }>
                 <a href="#" onClick={this.filterStatus}>
                   全部
                 </a>
