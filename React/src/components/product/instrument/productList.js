@@ -14,6 +14,9 @@ import Card from './product-instrument-card'
 import SideBar from '../product-sidebar'
 
 function ProductList(props) {
+  // const [control, setControl] = useState('熱門度')
+  const control = props.control
+  const setControl = props.setControl
   //分頁
   let pages = 0
   let pagesArr = []
@@ -31,6 +34,7 @@ function ProductList(props) {
     idFirst = perPage * (page - 1)
     idLast = perPage
   }
+
   if (totalPage <= 5) {
     pagesArr.push(
       <a className="product-pages" href={`/instrument/page/${pages - 1}`}>
@@ -97,7 +101,7 @@ function ProductList(props) {
   async function getDataP() {
     fetch(`http://localhost:3030/product/instrument`, {
       method: 'POST',
-      body: JSON.stringify({ idFirst, idLast }),
+      body: JSON.stringify({ control, idFirst, idLast }),
       headers: new Headers({
         'Content-Type': 'application/json',
       }),
@@ -126,6 +130,12 @@ function ProductList(props) {
     getInstrumentFav()
     getDataP()
   }, [])
+  useEffect(() => {
+    console.log(control)
+    setDataP([])
+    // getInstrumentFav()
+    getDataP()
+  }, [control])
 
   return (
     <>
@@ -137,40 +147,63 @@ function ProductList(props) {
         />
         <div className="product-wrapper">
           <div className="product-control">
+            <h1>
+              {'pages:' +
+                pages +
+                ' LIMIT:' +
+                idFirst +
+                ',' +
+                idLast +
+                ' control:' +
+                control}
+            </h1>
             <span>排序依</span>
-            <select>
-              <option>熱門度</option>
-              <option>價格高到低</option>
-              <option>價格低到高</option>
+            <select
+              onChange={(e) => {
+                console.log('control change', e.target.value)
+                setControl(e.target.value)
+              }}
+            >
+              <option
+                value="熱門度"
+                selected={`${control == '熱門度' ? 'selected' : ''}`}
+              >
+                熱門度
+              </option>
+              <option
+                value="價格高到低"
+                selected={`${control == '價格高到低' ? 'selected' : ''}`}
+              >
+                價格高到低
+              </option>
+              <option
+                value="價格低到高"
+                selected={`${control == '價格低到高' ? 'selected' : ''}`}
+              >
+                價格低到高
+              </option>
             </select>
-            {/* <select className="product-sort" name="test">
-              <option className="product-sort-option">依價格高到低</option>
-              <option className="product-sort-option">依價格低到高</option>
-            </select> */}
           </div>
           <div className="product-card-list">
-            {/* <h1>{pages}</h1>
-            <h1>{idFirst}</h1>
-            <h1>{idLast}</h1> */}
             {dataP.map((c, index) => {
               return (
-                <Card
-                  // favorite={favorite}
-                  // setFavorite={setFavorite}
-                  PName={c.PName}
-                  PPrice={c.PPrice.toString().replace(
-                    /(\d)(?=(\d{3})+(\d{3})?$)/g,
-                    '$1,'
-                  )}
-                  favArr={favArr}
-                  setFavArr={setFavArr}
-                  PId={c.PId}
-                />
+                <>
+                  <Card
+                    PName={c.PName}
+                    PPrice={c.PPrice.toString().replace(
+                      /(\d)(?=(\d{3})+(\d{3})?$)/g,
+                      '$1,'
+                    )}
+                    favArr={favArr}
+                    setFavArr={setFavArr}
+                    PId={c.PId}
+                  />
+                </>
               )
             })}
           </div>
 
-          <div id="product-pages-list">{pagesArr.map((a) => a)}</div>
+          <div id="product-pages-list">{pagesArr.map((a) => a)} </div>
         </div>
       </div>
     </>

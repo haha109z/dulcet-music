@@ -29,11 +29,24 @@ router.post("/video/favorite", async (req, res) => {
 
 //樂器
 router.post("/instrument", async (req, res) => {
-  const { idFirst, idLast } = req.body;
-  const [data] = await db.query(
-    "SELECT * FROM `product_instruments`LIMIT ?,?",
-    [idFirst, idLast]
-  );
+  // const { idFirst, idLast } = req.body;
+  // const [data] = await db.query(
+  //   "SELECT * FROM `product_instruments`LIMIT ?,?",
+  //   [idFirst, idLast]
+  // );
+  // res.json(data);
+  const { control, idFirst, idLast } = req.body;
+  let sql = "";
+  if (control == "價格高到低") {
+    sql =
+      "SELECT * FROM `product_instruments` ORDER BY `PPrice` DESC LIMIT ?,?";
+  } else if (control == "價格低到高") {
+    sql = "SELECT * FROM `product_instruments` ORDER BY `PPrice` ASC LIMIT ?,?";
+  } else if (control == "熱門度") {
+    sql =
+      "SELECT * FROM `product_instruments` ORDER BY `PClick` DESC LIMIT ?,?";
+  }
+  const [data] = await db.query(sql, [idFirst, idLast]);
   res.json(data);
 });
 router.post("/instrument/favorite", async (req, res) => {

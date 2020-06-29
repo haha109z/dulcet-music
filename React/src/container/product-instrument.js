@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from '../components/navbar/navbar'
 import ProducList from '../components/product/instrument/productList'
 import ProductCategory from '../components/product/productCategory'
@@ -16,6 +16,11 @@ import ProductId from './product-id'
 function ProductInstrument() {
   const productTitle = '精選樂器'
   const productTitleId = 'instrument'
+
+  const [control, setControl] = useState('價格高到低')
+
+  //分頁
+
   return (
     <>
       <Navbar />
@@ -28,6 +33,8 @@ function ProductInstrument() {
               <ProducList
                 productTitle={productTitle}
                 productTitleId={productTitleId}
+                control={control}
+                setControl={setControl}
               />
             )}
           ></Route>
@@ -39,6 +46,8 @@ function ProductInstrument() {
                 <ProducList
                   productTitle={productTitle}
                   productTitleId={productTitleId}
+                  control={control}
+                  setControl={setControl}
                 />
                 <Piano />
               </>
@@ -49,7 +58,7 @@ function ProductInstrument() {
             <ProductId />
           </Route>
 
-          <Route
+          {/* <Route
             path="/instrument"
             render={(routeProps) => (
               <ProducList
@@ -57,8 +66,8 @@ function ProductInstrument() {
                 productTitleId={productTitleId}
               />
             )}
-          ></Route>
-          <Redirect to="/instrument" />
+          ></Route> */}
+          <Redirect to="/instrument/page/1" />
         </Switch>
       </BrowserRouter>
     </>

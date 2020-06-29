@@ -7,6 +7,8 @@ function ProductIntro(props) {
   const PPrice = props.PPrice
   const PQty = props.PQty
   const PId = props.PId
+  const dataP = props.dataP
+  const setDataP = props.setDataP
   const [amount, setAmount] = useState(0)
 
   return (
@@ -30,7 +32,13 @@ function ProductIntro(props) {
             <h2 id="product-id-intro-text-cost-title">售價</h2>
             <h2 id="product-id-intro-text-cost">${PPrice}</h2>
             <Amount PQty={PQty} amount={amount} setAmount={setAmount} />
-            <Btn PId={PId} amount={amount} setAmount={setAmount} />
+            <Btn
+              PId={PId}
+              amount={amount}
+              setAmount={setAmount}
+              dataP={dataP}
+              setDataP={setDataP}
+            />
           </div>
         </div>
       </div>
