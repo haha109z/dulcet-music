@@ -79,7 +79,7 @@ class NavbarUser extends Component{
     render(){
         const {user,login} = this.state;
         const display = this.state.width < 768 ? 'none' : '';
-        const userImgs = '/image/user/' + user.userImg + '.jpg';        
+        const userImgs = `http://localhost:3030/images/user/${this.state.user.userImg}`        
 
         // 會員icon圖示
         const userIcon = (
@@ -96,13 +96,16 @@ class NavbarUser extends Component{
                 </Link>
                 <ul className="home-nav-userlogin" style={{display}}>
                     <li>
-                        <Link to="javascript:void(0)">我的帳戶</Link>
+                        <Link to="/user/userData">我的帳戶</Link>
                     </li>
                     <li>
-                        <Link to="javascript:void(0)">我的影片</Link>
+                        <Link to="/user/userVideo">我的影片</Link>
                     </li>
                     <li>
-                        <Link to="javascript:void(0)">購買清單</Link>
+                        <Link to="/user/UserPurchase">購買清單</Link>
+                    </li>
+                    <li>
+                        <Link to="/Forum">討論區</Link>
                     </li>
                     <li>
                         <span className="home-username-logout"

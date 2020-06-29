@@ -7,7 +7,7 @@ function FooterCoustom(){
         {text:'訂單問題',src:'javascript:void(0)'},
         {text:'商品退/換問題',src:'javascript:void(0)'},
         {text:'付款/發票問題',src:'javascript:void(0)'},
-        {text:'客服中心',src:'javascript:void(0)'},
+        {text:'客服中心',src:'/AnyQuestion'},
     ])
 
     return(

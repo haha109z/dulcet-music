@@ -32,14 +32,14 @@ class HomeCoursesVideos extends Component{
 
     handleCourClick = () =>{
         if(this.state.width <= 768){
-            window.location.href = '/test';
+            window.location.href = '/course';
         }
     }
 
 
     handleVideoClick = ()=>{
         if(this.state.width <= 768){
-            window.location.href = '/test';
+            window.location.href = '/video';
         }
     }
 
