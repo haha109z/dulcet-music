@@ -17,19 +17,14 @@
   border: 1px solid #141414;
   text-align: center;
 
-  a {
-    font-size: 16px;
-    line-height: 36px;
-    display: block;
-    color: #141414;
-  }
+  font-size: 16px;
+  line-height: 36px;
+  display: block;
+  color: #141414;
 }
 
 .news-Category li:hover {
-  a {
-    color: #ffffff;
-    text-decoration: none;
-  }
+  color: #ffffff;
   background: #141414;
 }
 

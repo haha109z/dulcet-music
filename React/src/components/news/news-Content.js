@@ -5,10 +5,12 @@ import { FaShareAlt } from 'react-icons/fa'
 
 function NewsContent(props) {
 
+
+
   return (
     <>
-
-        <div className="news-Content">
+      
+      <div className="news-Content">
         <img
           className="news-ContentImg"
           src={`http://localhost:3030/images/news/${props.NewsImg}`}
@@ -41,7 +43,6 @@ function NewsContent(props) {
 
         <hr className="news-Hr"></hr>
       </div>
-      
     </>
   )
 }

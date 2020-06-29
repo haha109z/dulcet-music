@@ -85,7 +85,7 @@ function App() {
           </Route>
 
           <Switch>
-            <Route path="/news">
+            <Route path="/news/:NewsCategory/:NewsDate">
               <News />
             </Route>
             <Route path="/news-pages/:NewsCategory/:NewsID">
