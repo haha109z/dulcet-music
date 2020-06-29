@@ -61,26 +61,37 @@
 .About2ImgBackground {
   max-width: 200px;
 }
-
+.About2Right img:hover {
+  width: 300px;
+}
 //第二區塊 右邊 小圖片
 
 .About2Right {
   max-width: 480px;
 }
+.About2Right img:hover {
+  // max-width: 205px;
+  border: 5px solid #797979;
+}
 .About2ImgBackground1 {
   margin: 75px 10px 20px 40px;
+  border: 5px solid transparent;
 }
 .About2ImgBackground2 {
   margin: 75px 0 20px 10px;
+  border: 5px solid transparent;
 }
 .About2ImgBackground3 {
   margin: 0px 10px 20px 40px;
+  border: 5px solid transparent;
 }
 .About2ImgBackground4 {
   margin: 0px 0px 20px 10px;
+  border: 5px solid transparent;
 }
 .About2ImgBackground5 {
   margin: 0px 10px 20px 40px;
+  border: 5px solid transparent;
 }
 
 //第三區塊
@@ -116,21 +127,31 @@
 .About3Right {
   max-width: 480px;
   margin: 0 0 40px 20px;
+  // border: 0px solid transparent;
+}
+.About3Right img:hover {
+  // max-width: 205px;
+  border: 5px solid #797979;
 }
 .About3ImgBackground6 {
   margin: 75px 10px 20px 40px;
+  border: 5px solid transparent;
 }
 .About3ImgBackground7 {
   margin: 75px 0 20px 10px;
+  border: 5px solid transparent;
 }
 .About3ImgBackground8 {
   margin: 0px 10px 20px 40px;
+  border: 5px solid transparent;
 }
 .About3ImgBackground9 {
   margin: 0px 0px 20px 10px;
+  border: 5px solid transparent;
 }
 .About3ImgBackground10 {
   margin: 0px 10px 20px 40px;
+  border: 5px solid transparent;
 }
 @media (max-width: 960px) {
   .AboutContainer {

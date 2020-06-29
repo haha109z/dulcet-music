@@ -39,7 +39,7 @@ render(){
             <i class="far fa-building AnyQuestionCardIcon"></i>
             <h2 className="AnyQuestionCardIconH2">廠商問題</h2>
           </div>
-          <div className="AnyQuestionCard AnyQuestionCardRight ">
+          <div className="AnyQuestionCard AnyQuestionCardRight">
             <i class="fas fa-search AnyQuestionCardIcon"></i>
             <h2 className="AnyQuestionCardIconH2">其他問題</h2>
           </div>
@@ -65,3 +65,61 @@ render(){
 }
 }
 export default AnyQuestion
+
+
+// import React from "react";
+// import axios from "./axios";
+
+// class AnyQuestion extends React.Component
+// {
+//     constructor(props)
+//     {
+//         super(props);
+//         this.state = {
+//             id:"",
+//             title : "",
+//             author : ""
+//         }
+//     };
+
+//     handleChange = (e) => {
+//         //Step 1:取得輸入的數值
+//         const value = e.target.value;
+//         //Step 2:取得輸入的input名子
+//         const name = e.target.name;
+//         //Step 3:更改State數據
+//         this.setState({
+//             [name]:value
+//         });
+//     };
+//     //-------------------------------------------------//
+//     POST = () => {
+//         //Step 1:取得state數據
+//         const product = {...this.state};
+//         //Step 2:新增到JSON-Server數據庫中 
+//         axios.post("/posts",product);
+//     };
+//     //-------------------------------------------------//    
+        
+//     render()
+//     {
+//         retrun(
+//             <div className="post">
+//                     <label>title</label>
+//                     <textarea 
+//                       name="title" 
+//                       value={this.state.title} 
+//                       onChange={this.handleChange}
+//                     />
+//                     <label>author</label>
+//                     <textarea 
+//                       name="author" 
+//                       value={this.state.author} 
+//                       onChange={this.handleChange}
+//                     />
+//                     <button onClick={this.POST}>POST</button>
+//              </div>
+//         );
+//     };
+// };
+// export default AnyQuestion
