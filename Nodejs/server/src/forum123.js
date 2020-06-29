@@ -11,9 +11,9 @@ router.post('/', async (req, res) => {
   let {
     ForumTitle,
     ForumAction,
-    ForumActionAns,
     userID
   } = req.body;
+  
 
   // let {ForumId} = req.body;
   // let resData = { code: '', msg: '' };
@@ -35,7 +35,7 @@ router.post('/', async (req, res) => {
   // INSERT INTO `user` (`userID`, `userName`, `userPwd`, `userPhone`, `userMail`, `userBirthday`, `userAddress`, `userImg`, `created_at`, `updated_at`) VALUES (NULL, '1', '1', '1', '1', '1', '1', '1', current_timestamp(), current_timestamp());
 
   // ("INSERT INTO `forumabout` (`ForumId`, `TitleMusic`, `TitleId`, `Memo`, `userID`) VALUES (NULL, ?, ?, ?, ?);",[TitleMusic,TitleId,Memo,userID])
-  const news1 =await query("INSERT INTO `forumabout` (`ForumId`, `TitleMusic`, `TitleId`, `Memo`, `userID`) VALUES (NULL, ?, ?, ?, ?);",[ForumTitle,ForumAction,ForumActionAns,userID])
+  const news1 =await query("INSERT INTO `forumabout` (`ForumId`, `TitleMusic`, `TitleId`, `Memo`, `userID`) VALUES (NULL, ?, ?, NULL, '3');",[ForumTitle,ForumAction])
   
   //  console.log(news.typeof)
   res.json(news1);
