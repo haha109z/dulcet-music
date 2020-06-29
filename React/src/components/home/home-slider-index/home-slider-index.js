@@ -10,8 +10,8 @@ import bg21 from '../../../img/home_bg_21.jpg';
 function HomeSliderIndex(){
 
     let sliderArr = [
-        <HomeSliderImg src={bg21}/>,
         <HomeSliderImg src={bg8}/>,
+        <HomeSliderImg src={bg21}/>,
         <HomeSliderImg src={bg16}/>,
     ];
 
