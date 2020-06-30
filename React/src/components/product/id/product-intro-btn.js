@@ -7,6 +7,7 @@ function ProductIntroBtn(props) {
   const dataP = props.dataP
   const setDataP = props.setDataP
   let dataCart = dataP
+  let arrCart = {}
 
   async function addInstrumentCart(CatId, PId, amount) {
     fetch(`http://localhost:3030/product/addFavorite`, {
@@ -39,11 +40,15 @@ function ProductIntroBtn(props) {
           id="product-id-intro-cart-btn"
           className="product-id-intro-btn"
           onClick={() => {
-            console.log(dataP)
+            arrCart = JSON.parse(localStorage.getItem('cart'))
+
             dataCart[0].num = amount
             setAmount(0)
             setDataP(dataCart)
-            localStorage.setItem('cart', JSON.stringify(dataP))
+            arrCart.push(dataCart[0])
+            console.log('arrCart', arrCart)
+
+            localStorage.setItem('cart', JSON.stringify(arrCart))
           }}
         >
           加入購物車
