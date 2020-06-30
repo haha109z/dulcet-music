@@ -2,6 +2,10 @@
   color: #141414;
   text-decoration: none;
 }
+
+.user-sidebar-menu-out-Rwd{
+display: none;
+}
 .user-sideBar {
   width: 400px;
   height: 1130px;
@@ -107,11 +111,16 @@ transition: 0.5s;
   color: #797979;
   text-decoration: none;
 }
-
+@media (min-width: 768px) {
+.rwd-user-out{
+  display: none;
+}
+}
 @media (max-width: 768px) {
   // .user-sideBar {
   //   display: none;
   // }
+ 
   .user-sidebar-menu-li {
     height: 32px;
     width: 100%;
@@ -149,7 +158,7 @@ transition: 0.5s;
     overflow: scroll;
   }
   .user-sidebar-menu-out {
-    display: none;
+   display: none;
   }
   .user-sideBar {
     width: 100%;

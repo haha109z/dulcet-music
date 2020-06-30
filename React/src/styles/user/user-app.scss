@@ -140,7 +140,21 @@ button:focus{
     overflow: scroll;
     background-color: #ffff;
     z-index: 10;
+    width: 100%;
+    position: absolute;
+    height: 181px;
+    color: #141414;
+    /* min-width: 160px; */
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  }
+  .userRwd-dropdown-content-none{
+    overflow: scroll;
+    background-color: #ffff;
+    z-index: 10;
+    overflow: scroll;
+
     display: none;
+
     width: 100%;
     position: absolute;
     height: auto;
@@ -148,7 +162,6 @@ button:focus{
     /* min-width: 160px; */
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   }
-
   /* 下拉式選單的連結 */
   .userRwd-dropdown-content button {
     border: none;
@@ -162,10 +175,11 @@ button:focus{
     padding-left: 5%;
     width: 100%;
     text-align: inherit;
+    background-color: #ffff;
   }
 
   /* 滑鼠移上去後修改下拉式選單連結顏色 */
-  .userRwd-dropdown-content a:hover {
+  .userRwd-dropdown-content button:hover {
     background-color: #f2e8df;
 
   }

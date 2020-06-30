@@ -3,13 +3,15 @@ import React, { Component } from 'react'
 export default class UserLike extends Component {
   state = {
     likeData: [],
+    showLikeData: [],
+    pageNum: 1,
   }
+  getOrder() {
+    // 先取出localStorage 裡的ＩＤ準備傳給後端判斷要取誰的資料
+    if(localStorage.getItem('user')){
+      const userID = JSON.parse(localStorage.getItem('user'))[0].userID
 
-  constructor() {
-    super()
-    const userID = JSON.parse(localStorage.getItem('user'))[0].userID
-    // console.log(userID);
-
+    
     fetch('http://localhost:3030/user/UserLike', {
       method: 'POST', // or 'PUT'
       body: JSON.stringify({ userID }), // data can be `string` or {object}!
@@ -20,17 +22,37 @@ export default class UserLike extends Component {
       .then((res) => res.json())
       .then((json) => {
         // console.log(json.likeData);
-        this.setState({ likeData: json.likeData })
-        // console.log(this.state.likeData)
+        // 回傳回來後放到預設狀態中
+        this.setState((state, props) => ({
+          likeData: json.likeData,
+        }))
+        // 在呼叫控制顯示在換面上筆數的fun
+        this.showData()
       })
       .catch((error) => {
         console.error('Error:', error)
       })
   }
-  render() {
-    let likeOrder = this.state.likeData
-console.log(likeOrder);
+}
+  // 控制每頁顯示幾筆
+  showData() {
+    // console.log(this.state.likeData);
+    let { likeData, pageNum } = this.state
 
+    this.setState({
+      showLikeData: likeData.slice((pageNum - 1) * 5, pageNum * 5),
+    })
+  }
+
+  constructor() {
+    super()
+    // 呼叫主fun
+    this.getOrder()
+  }
+
+  render() {
+    let showLikeData = this.state.showLikeData
+    // console.log(likeOrder)
     return (
       <>
         {}
@@ -57,7 +79,7 @@ console.log(likeOrder);
             />
           </form>
           <hr className="UserLike-divider" />
-          {likeOrder.map((item, index) => (
+          {showLikeData.map((item, index) => (
             <>
               <div className="UserLike-order">
                 <div className="UserLike-order-item">
@@ -69,7 +91,7 @@ console.log(likeOrder);
                   </div>
                   <div className="UserLike-order-item-text">
                     <p className="user-font-ch UserLike-order-item-text-name user-font-ch">
-                     {item.PName}
+                      {item.PName}
                     </p>
                     <p className="user-font-ch UserLike-order-item-text-specification">
                       分類：{item.PCategoryId}
@@ -121,12 +143,12 @@ console.log(likeOrder);
               <i className="fas fa-sort-down"></i>
             </button>
             <div className="userRwd-dropdown-content">
-              <a href="#">1</a>
-              <a href="#">2</a>
-              <a href="#">3</a>
-              <a href="#">4</a>
-              <a href="#">5</a>
-              <a href="#">6</a>
+              <button>1</button>
+              <button>2</button>
+              <button>3</button>
+              <button>4</button>
+              <button>5</button>
+              <button>6</button>
             </div>
           </div>
         </div>
