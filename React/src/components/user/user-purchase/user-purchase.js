@@ -7,12 +7,14 @@ import {
   NavLink,
 } from 'react-router-dom'
 import ScrollToTop from '../../../container/scrollToTop'
-
-const getUserInfo = () => {
+if(JSON.parse(localStorage.getItem('user'))){
+  const getUserInfo = () => {
   return JSON.parse(localStorage.getItem('user'))
 }
 var userID = getUserInfo()[0].userID
 // this.setState({userID:userID})
+}
+
 
 export default class UserPurchase extends Component {
   state = {
@@ -31,10 +33,21 @@ export default class UserPurchase extends Component {
     menu: true,
     purchaseMenuTitle: '全部',
     userPageSelect: '1',
+    userRwdPage: false,
   }
-
+  bokTop() {
+    document.documentElement.scrollTop = 0
+  }
   filterStatusOpen = () => {
     this.setState({ menu: false })
+    this.setState({  userRwdPage: false, })
+  }
+  showPage = () => {
+    this.setState({ userRwdPage: true })
+    // console.log("123")
+  }
+  closeRwdPage = () => {
+    this.setState({ userRwdPage: false })
   }
   // 換頁事件
   changePageNum = (event) => {
@@ -44,7 +57,8 @@ export default class UserPurchase extends Component {
       this.showData()
     }, 100)
     this.setState({ userPageSelect: num })
-    this.bokTop();
+    this.bokTop()
+    this.closeRwdPage()
   }
   getOrder = () => {
     // console.log('this.state.user', this.state.user)
@@ -145,9 +159,6 @@ export default class UserPurchase extends Component {
     this.getOrder()
   }
 
-  bokTop() {
-    document.documentElement.scrollTop = 0
-  }
   render() {
     let UserPurchase = this.state.UserPurchase
     let UserPurchaseDetail = this.state.UserPurchaseDetail
@@ -412,11 +423,23 @@ export default class UserPurchase extends Component {
             </Link>
           </div>
           <div className="userRwd-dropdown ">
-            <button type="button" className="userRwd-dropbtn">
+            <button
+              type="button"
+              className="userRwd-dropbtn"
+              onClick={this.showPage}
+            >
               {this.state.pageNum}
               <i className="fas fa-sort-down"></i>
             </button>
-            <div className="userRwd-dropdown-content">{pageItem}</div>
+            <div
+              className={
+                this.state.userRwdPage
+                  ? 'userRwd-dropdown-content'
+                  : 'userRwd-dropdown-content-none'
+              }
+            >
+              {pageItem}
+            </div>
           </div>
         </div>
       </>

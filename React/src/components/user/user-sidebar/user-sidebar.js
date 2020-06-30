@@ -71,6 +71,22 @@ export default class UserSideBar extends Component {
 
               <div className="user-sidebar-menu-li-right"></div>
             </Link>
+            <Link
+              to="/user/UserVoucher"
+              href=""
+              className="user-sidebar-menu-li font-size-142rem user-font-ch rwd-user-out"
+            >
+              <div className="user-sidebar-menu-li-left"></div>
+
+              <p className="user-sidebar-hover"></p>登出
+
+              <div className="user-sidebar-menu-li-right"></div>
+            </Link>
+
+
+
+           
+
             <div className="user-sidebar-menu-out font-size-142rem user-font-ch">
               <Link href=""><p className="user-sidebar-hover"></p>登出</Link>
             </div>
