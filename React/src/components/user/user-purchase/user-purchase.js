@@ -1,8 +1,21 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  NavLink,
+} from 'react-router-dom'
+
+const getUserInfo = () => {
+  return JSON.parse(localStorage.getItem('user'))
+}
+var userID = getUserInfo()[0].userID
+// this.setState({userID:userID})
 
 export default class UserPurchase extends Component {
   state = {
+    userID: userID,
     pageNum: 1, // 目前頁數
     status: '全部',
     user: {},
@@ -15,7 +28,10 @@ export default class UserPurchase extends Component {
     totalCount: 0, // 總比數
     btn: '全部',
     menu: true,
+    purchaseMenuTitle: '全部',
+    userPageSelect: '1',
   }
+  
   filterStatusOpen = () => {
     this.setState({ menu: false })
   }
@@ -26,13 +42,14 @@ export default class UserPurchase extends Component {
     setTimeout(() => {
       this.showData()
     }, 100)
+    this.setState({ userPageSelect: num })
   }
   getOrder = () => {
-    console.log('this.state.user', this.state.user)
+    // console.log('this.state.user', this.state.user)
     fetch('http://localhost:3030/user/UserPurchase', {
       method: 'POST', // or 'PUT'
       body: JSON.stringify({
-        userID: this.state.user.userID,
+        userID: this.state.userID,
       }), // data can be `string` or {object}!
       headers: new Headers({
         'Content-Type': 'application/json',
@@ -40,7 +57,7 @@ export default class UserPurchase extends Component {
     })
       .then((res) => res.json())
       .then((json) => {
-        console.log(json.data)
+        // console.log(json.data)
         let order = [],
           flag = {}
         json.data.forEach((v) => {
@@ -49,8 +66,8 @@ export default class UserPurchase extends Component {
             flag[v.orderId] = true
           }
         })
-        console.log('order', order)
-        console.log('json.data', json.data)
+        // console.log('order', order)
+        // console.log('json.data', json.data)
         this.setState({ AllUserPurchase: order })
         this.setState({ AllUserPurchase_status: order })
         this.setState({ totalCount: order.length })
@@ -69,16 +86,21 @@ export default class UserPurchase extends Component {
 
   filterStatus = (event) => {
     let select = event.currentTarget.textContent
+    this.setState({ purchaseMenuTitle: select })
     this.setState({ status: select })
     this.setState({ pageNum: 1 })
-    console.log('select', event.currentTarget.textContent)
+    // console.log('select', event.currentTarget.textContent)
     this.setState({ btn: select })
     this.setState({ menu: true })
 
     if (select == '全部') {
       this.setState({ UserPurchase: this.state.AllUserPurchase })
       this.setState({ UserPurchaseDetail: this.state.AllUserPurchaseDetail })
+      this.setState({ totalCount: this.state.AllUserPurchase.length })
 
+      setTimeout(() => {
+        this.showData()
+      }, 100)
       return
     }
     let AllUserPurchase = this.state.AllUserPurchase.filter(
@@ -108,7 +130,7 @@ export default class UserPurchase extends Component {
       AllUserPurchaseDetail = this.state.AllUserPurchaseDetail
       AllUserPurchase = this.state.AllUserPurchase
     }
-    console.log()
+    // console.log()
     this.setState({
       UserPurchase: AllUserPurchase.slice((pageNum - 1) * 3, pageNum * 3),
     })
@@ -116,9 +138,6 @@ export default class UserPurchase extends Component {
   }
   constructor() {
     super()
-    const getUserInfo = () => {
-      return JSON.parse(localStorage.getItem('user'))
-    }
 
     this.getOrder()
   }
@@ -126,22 +145,29 @@ export default class UserPurchase extends Component {
     let UserPurchase = this.state.UserPurchase
     let UserPurchaseDetail = this.state.UserPurchaseDetail
 
-    console.log(UserPurchase)
+    // console.log(this.state.userID)
     var pageItem = []
     for (let i = 1; i <= Math.ceil(this.state.totalCount / 3); i++) {
       pageItem.push(
-        <button onClick={this.changePageNum} className="user-page-number">
+        <button
+          onClick={this.changePageNum}
+          className={
+            this.state.userPageSelect === i + ''
+              ? 'user-page-number user-page-numberHover'
+              : 'user-page-number'
+          }
+        >
           {i}
         </button>
       )
     }
-    console.log(this.state.btn)
+    // console.log(this.state.btn)
 
     return (
       <>
         <div className="UserPurchase-main">
           <h3 className="font-size-142rem UserPurchase-top-titleName user-font-ch">
-            購買清單
+            購買清單{' '}
           </h3>
           <div
             className="btn-group UserPurchase-main-buttons"
@@ -222,7 +248,7 @@ export default class UserPurchase extends Component {
                 className="user-dropbtn"
                 onClick={this.filterStatusOpen}
               >
-                訂單狀態
+                狀態：{this.state.purchaseMenuTitle}
                 <i className="fas fa-sort-down"></i>
               </button>
               <div
@@ -232,24 +258,24 @@ export default class UserPurchase extends Component {
                     : 'user-dropdown-content'
                 }
               >
-                <a href="#" onClick={this.filterStatus}>
+                <Link href="#" onClick={this.filterStatus}>
                   全部
-                </a>
-                <a href="#" onClick={this.filterStatus}>
+                </Link>
+                <Link href="#" onClick={this.filterStatus}>
                   待付款
-                </a>
-                <a href="#" onClick={this.filterStatus}>
+                </Link>
+                <Link href="#" onClick={this.filterStatus}>
                   待出貨
-                </a>
-                <a href="#" onClick={this.filterStatus}>
+                </Link>
+                <Link href="#" onClick={this.filterStatus}>
                   待收貨
-                </a>
-                <a href="#" onClick={this.filterStatus}>
+                </Link>
+                <Link href="#" onClick={this.filterStatus}>
                   完成
-                </a>
-                <a href="#" onClick={this.filterStatus}>
+                </Link>
+                <Link href="#" onClick={this.filterStatus}>
                   取消
-                </a>
+                </Link>
               </div>
             </div>
             <input
@@ -300,11 +326,9 @@ export default class UserPurchase extends Component {
                         </p>
                         <p className="UserPurchase-order-item-text-specification user-font-ch d-flex">
                           <p>分類：{itemD.productCategory}</p>
-                          <p>數量：{itemD.q}</p>
+                          <p>數量：{itemD.q ? itemD.q : '1'}</p>
                         </p>
-                        <p className="UserPurchase-order-item-text-number user-font-ch">
-                          廠商名稱：95279527
-                        </p>
+
                         <div className="d-flex UserPurchase-order-item-text-money">
                           <p className="UserPurchase-order-item-text-money-1 user-font-ch">
                             價格
@@ -370,15 +394,15 @@ export default class UserPurchase extends Component {
             </>
           ))}
           <div className="user-page">
-            <a className="user-page-Rarrow">
+            <Link className="user-page-Rarrow">
               <i className="fas fa-sort-up"></i>
-            </a>
+            </Link>
 
             {pageItem}
 
-            <a className="user-page-Larrow">
+            <Link className="user-page-Larrow">
               <i className="fas fa-sort-up"></i>
-            </a>
+            </Link>
           </div>
           <div className="userRwd-dropdown ">
             <button type="button" className="userRwd-dropbtn">

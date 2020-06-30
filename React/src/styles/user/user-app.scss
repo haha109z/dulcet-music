@@ -150,7 +150,8 @@ button:focus{
   }
 
   /* 下拉式選單的連結 */
-  .userRwd-dropdown-content a {
+  .userRwd-dropdown-content button {
+    border: none;
     color: black;
     /* padding: 6px 16px; */
     font-size: 14px;
@@ -159,6 +160,8 @@ button:focus{
     display: block;
     margin: 0;
     padding-left: 5%;
+    width: 100%;
+    text-align: inherit;
   }
 
   /* 滑鼠移上去後修改下拉式選單連結顏色 */
@@ -204,6 +207,10 @@ button:focus{
 .user-page-number:hover {
   background-color: #f2e8df;
 }
+.user-page-numberHover{
+  background-color: #f2e8df;
+
+}
 .user-page-Rarrow,
 .user-page-Larrow {
   font-size: 30px;
@@ -212,6 +219,7 @@ button:focus{
   width: 36px;
   outline: none;
   border: none;
+  color: black;
 }
 .user-page-Larrow {
   transform: rotate(90deg);
@@ -224,10 +232,13 @@ button:focus{
 .user-page-Larrow:hover,
 .user-page-Rarrow:hover > i {
   font-size: 35px;
+  color: black;
 }
 .user-page-Rarrow:hover,
 .user-page-Larrow:hover > i {
   font-size: 35px;
+  color: black;
+
 }
 .user-page-x {
   outline: none;

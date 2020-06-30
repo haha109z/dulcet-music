@@ -12,6 +12,7 @@ import Nav from '../components/navbar/navbar'
 import Footer from '../components/footer/footer.js'
 
 class UserApp extends Component {
+  
   render() {
     return (
       <>
