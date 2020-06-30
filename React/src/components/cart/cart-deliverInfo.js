@@ -1,16 +1,31 @@
 import React ,{ Fragment, useState, useEffect } from 'react';
 
 function CartDeliverInfo (props) {
-  const { user, setUser, checkstate, setcheckstate, checkcallback, ReceivingName, setReceivingName, ReceivingAddress, setReceivingAddress, ReceivingPhone, setReceivingPhone,  ReceivingEmail, setReceivingEmail } = props.allProps;  
+  const { 
+    user, 
+    checkstate,  
+    checkcallback, 
+    ReceivingName, 
+    setReceivingName, 
+    ReceivingAddress, 
+    setReceivingAddress, 
+    ReceivingPhone, 
+    setReceivingPhone,  
+    ReceivingEmail, 
+    setReceivingEmail 
+  } = props.allProps;  
   // console.log(user)
-  // const [checkstate, setcheckstate] = useState(false);
 
+  // ** 下方coding已移至cart-app.js(模組化) **
+  // checkbox勾選狀態，預設為不勾選
+  // const [checkstate, setcheckstate] = useState(false);
+  // checkcallback函式：點擊時切換checkbox勾選狀態
   // const checkcallback = (e) =>{
   //   // console.log(e.checked)
   //   setcheckstate(e.checked)
   // }
   // console.log(checkstate);
-
+  // 根據checkbox勾選狀態切換收件人資訊畫面
   // useEffect(()=>{
   //   checkcallback(checkstate)
   // },[])
@@ -24,9 +39,14 @@ function CartDeliverInfo (props) {
                   <fieldset>
                     <label><input type="checkbox" id="receivingInfo" onClick={(e)=>{ checkcallback(e.target) }}/> 同帳戶資料</label>
 
+                        {/* 根據checkbox勾選狀態切換收件人資訊畫面 */}
+
                         {checkstate ? (
 
                          <>
+
+                          {/* 勾選同帳戶資料時，欄位自動填入會員資料 */}
+
                           <div className="cart-input">
                               <label htmlFor="name">姓名</label>
                               <input id="name" type="text" name="name" value={user["userName"]} />
@@ -49,6 +69,9 @@ function CartDeliverInfo (props) {
                         ):(
                           
                           <>
+
+                            {/* 未勾選同帳戶資料時，表單欄位抓取會員自行填寫內容 */}
+
                             <div className="cart-input">
                               <label htmlFor="name">姓名</label>
                               <input id="name" type="text" name="name" value={ReceivingName}

@@ -66,10 +66,6 @@ export default class UserPwd extends Component {
       // 如果輸入兩次確認密碼相同才做發送的請求否則就擋掉掉出錯誤視窗
 
       if (isConfirm.value) {
-        this.setState({ oldPwd: '' })
-        this.setState({ newPwd: '' })
-        this.setState({ changePwd: '' })
-
         // console.log(
         //   `newPwd:${newPwd}, changePwd:${changePwd} ,userPwd:${userPwd},oldPwd: ${oldPwd}`
         // )
@@ -100,7 +96,18 @@ export default class UserPwd extends Component {
               }
             })
             .catch((error) => console.error('Error:', error))
+            
           MySwal.fire('修改成功', '', 'success')
+          this.setState({
+            oldPwd: '',
+            newPwd: '',
+            changePwd: '',
+            lookOldPwd: false,
+            lookNewPwd: false,
+            lookNewPwd2: false,
+          })
+
+          return
         } else if (newPwd !== changePwd) {
           MySwal.fire('兩次密碼不相符，請再確認', '', 'warning')
         }
@@ -159,13 +166,13 @@ export default class UserPwd extends Component {
       ? 'svg-eye-close svg-inline--fa fa-eye fa-w-18'
       : ' svg-eye svg-inline--fa fa-eye fa-w-18'
     // console.log(this.state.user.userMail)
-    var style = {};
-    if(this.state.user.userImg){
+    var style = {}
+    if (this.state.user.userImg) {
       // this.setState({style: {backgroundImage: `url(http://localhost:3030/images/user/${this.state.user.userImg})`}})
       style.backgroundImage = `url(http://localhost:3030/images/user/${this.state.user.userImg})`
-    }else{
+    } else {
       // this.setState({style: {backgroundColor: `rgb(134, 134, 152)`}})
-      style.backgroundColor = `rgb(134, 134, 152)`;
+      style.backgroundColor = `rgb(134, 134, 152)`
     }
     return (
       <>
@@ -215,7 +222,7 @@ export default class UserPwd extends Component {
                 <input
                   id="oldPwd font-size-114rem user-font-ch"
                   name="oldPwd"
-                  type={`${this.state.test ? 'text' : 'password'}`}
+                  type={`${this.state.lookOldPwd ? 'text' : 'password'}`}
                   onChange={this.logChange}
                   value={this.state.oldPwd}
                   pattern="[a-zA-Z]"
@@ -256,7 +263,7 @@ export default class UserPwd extends Component {
                 <input
                   id="newPwd font-size-114rem user-font-ch"
                   name="newPwd"
-                  type={`${this.state.test2 ? 'text' : 'password'}`}
+                  type={`${this.state.lookNewPwd ? 'text' : 'password'}`}
                   onChange={this.logChange}
                   value={this.state.newPwd}
                 />
@@ -296,7 +303,7 @@ export default class UserPwd extends Component {
                 <input
                   name="changePwd"
                   id="changePwd font-size-114rem user-font-ch"
-                  type={`${this.state.test3 ? 'text' : 'password'}`}
+                  type={`${this.state.lookNewPwd2 ? 'text' : 'password'}`}
                   onChange={this.logChange}
                   value={this.state.changePwd}
                 />

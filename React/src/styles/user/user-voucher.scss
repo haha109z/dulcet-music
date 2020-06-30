@@ -47,6 +47,7 @@
   width: 100%;
   justify-content: space-between; /* 横向中间自动空间 */
   align-content: space-between; /* 竖向中间自动空间 */
+  height: 411px;
   flex-wrap: wrap;
 }
 .userVoucher-item-card {
@@ -111,6 +112,7 @@
   bottom: 10px;
   left: 244px;
   font-size: 16px;
+  border: none;
 }
 .userVoucher-item-card-num{
   margin: 13%;
@@ -118,7 +120,12 @@
   text-align: center;
   font-family: var(--main-title-english);
 }
-
+.user-voucher-error{
+  background-color:var(--main-colorfb2);
+  color: black;
+  border: none;
+  border-radius: 0%;
+}
 @media (max-width: 768px){
   .userVoucher-main {
     width: 80%;
@@ -141,6 +148,15 @@
     height: 40px;
     padding-left: 17px;
     width: 100%;
+  }
+  .userVoucher-item {
+    display: flex;
+    margin-top: 30px;
+    width: 100%;
+    justify-content: space-between; /* 横向中间自动空间 */
+    align-content: space-between; /* 竖向中间自动空间 */
+    height: auto;
+    flex-wrap: wrap;
   }
   .userVoucher-search-button {
     width: 100%;

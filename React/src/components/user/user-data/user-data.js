@@ -145,6 +145,7 @@ export default class UserData extends Component {
                   })
                 // localStorage.setItem('user', JSON.stringify(userData))
                 MySwal.fire('修改完成', '', 'success')
+
               } else {
                 MySwal.fire('取消修改', '', 'error')
               }

@@ -2,6 +2,10 @@
   color: #141414;
   text-decoration: none;
 }
+
+.user-sidebar-menu-out-Rwd{
+display: none;
+}
 .user-sideBar {
   width: 400px;
   height: 1130px;
@@ -12,7 +16,6 @@
   color: #141414;
 }
 
-
 .user-sidebar-menu-li {
   display: flex;
   align-items: center;
@@ -20,10 +23,29 @@
   margin-top: 5px;
   justify-content: center;
   padding: 10px;
+  position: relative;
+transition: 0.5s;
+
+}
+.user-sidebar-hover {
+  position: absolute;
+  background-color: black;
+  width: 0px;
+  height: 50px;
+  transition: 0.5s;
+  
+}
+.user-sidebar-menu-li:hover .user-sidebar-hover {
+  position: absolute;
+  background-color: black;
+  width: 100%;
+  height: 50px;
+  z-index: -1;
 }
 .user-sidebar-menu-li:hover {
-  background-color: #141414;
+  // background-color: #141414;
   color: white;
+  z-index: 2;
 }
 .user-sidebar-menu-li:hover > .user-sidebar-menu-li-left {
   border-left: #ffffff 1px solid;
@@ -62,24 +84,25 @@
   margin: 180px auto;
   border-bottom: #141414 1px solid;
   text-align: center;
-  transition: 0.2s;
+  transition: 0.5s;
+  
 }
-.user-sidebar-menu-out:hover {
-  width: 100%;
-  margin: 180px auto;
-  border-bottom: #141414 1px solid;
-  text-align: center;
-  background-color: #141414;
-}
+// .user-sidebar-menu-out:hover {
+//   width: 100%;
+//   margin: 180px auto;
+//   border-bottom: #141414 1px solid;
+//   text-align: center;
+//   background-color: #141414;
+// }
 .user-sidebar-menu-out:hover {
   width: 100%;
   margin: 170px auto;
   border-bottom: #141414 1px solid;
   text-align: center;
   background-color: #141414;
-  padding: 10px;
+  padding: 8px;
 
-  a{
+  a {
     color: white;
   }
 }
@@ -88,22 +111,26 @@
   color: #797979;
   text-decoration: none;
 }
-
-
+@media (min-width: 768px) {
+.rwd-user-out{
+  display: none;
+}
+}
 @media (max-width: 768px) {
   // .user-sideBar {
   //   display: none;
   // }
+ 
   .user-sidebar-menu-li {
     height: 32px;
     width: 100%;
     font-size: 14px;
     align-items: center;
-    background: #F2F2F2;
+    background: #f2f2f2;
     white-space: nowrap;
     margin: 0;
     margin-top: 70px;
-}
+  }
   .user-sidebar-menu-li:hover > .user-sidebar-menu-li-left {
     display: none;
   }
@@ -129,9 +156,9 @@
     height: 105px;
     background: #dadada;
     overflow: scroll;
-}
+  }
   .user-sidebar-menu-out {
-    display: none;
+   display: none;
   }
   .user-sideBar {
     width: 100%;
@@ -140,8 +167,6 @@
     padding-top: 0;
   }
   .user-sidebar-menu::-webkit-scrollbar {
-    display:none
-
-} 
-  
+    display: none;
+  }
 }

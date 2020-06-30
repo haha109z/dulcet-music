@@ -1,4 +1,8 @@
 import React, { Component } from 'react'
+import { Link, NavLink } from 'react-router-dom'
+import withReactContent from 'sweetalert2-react-content'
+import Swal from 'sweetalert2'
+const MySwal = withReactContent(Swal)
 const getUserInfo = () => {
   return JSON.parse(localStorage.getItem('coupon'))
 }
@@ -20,7 +24,7 @@ export default class UserVoucher extends Component {
       count: [couponlist],
     }
   }
-
+ 
   render() {
     let { count } = this.state
     // console.log(count)
@@ -49,7 +53,45 @@ export default class UserVoucher extends Component {
         </>
       )
     }
+    let couponList = []
+    if (getUserInfo()) {
+      couponList.push(
+        <>
+          <div className="userVoucher-item-card">
+            <div className="userVoucher-item-card-img">
+              <img src={require('../../../img/home_logo_方.png')} alt="" />
+            </div>
+            <div className="userVoucher-item-card-divider"></div>
+            <p className="user-font-ch userVoucher-item-card-title">
+              結帳金額減免200元
+            </p>
+            <p className=" userVoucher-item-card-num user-color-red">
+              {this.state.count[0].coupon}
+            </p>
+            <p className="user-font-ch userVoucher-item-card-date">
+              到期日期 {this.state.count[0].coupondate}
+            </p>
+            <button
+              className="user-font-ch userVoucher-item-card-copy"
+              onClick={() => {navigator.clipboard.writeText(this.state.count[0].coupon)
+                MySwal.fire('複製成功', '', 'success')
+}}
 
+            >
+              複製折扣碼
+            </button>
+          </div>
+        </>
+      )
+    } else {
+      couponList.push(
+        <>
+          <div class="alert alert-primary user-voucher-error" role="alert">
+            沒有可使用的優惠卷！可至首頁玩小遊戲取得
+          </div>
+        </>
+      )
+    }
     return (
       <>
         <div className="userVoucher-main">
@@ -74,38 +116,18 @@ export default class UserVoucher extends Component {
           </form>
 
           <hr className="userVoucher-divider" />
-
-          <div className="userVoucher-item">
-            <div className="userVoucher-item-card">
-              <div className="userVoucher-item-card-img">
-                <img src={require('../../../img/home_logo_方.png')} alt="" />
-              </div>
-              <div className="userVoucher-item-card-divider"></div>
-              <p className="user-font-ch userVoucher-item-card-title">
-                結帳金額減免200元
-              </p>
-              <p className=" userVoucher-item-card-num user-color-red">
-                {this.state.count[0].coupon}
-              </p>
-              <p className="user-font-ch userVoucher-item-card-date">
-                到期日期 {this.state.count[0].coupondate}
-              </p>
-              <p className="user-font-ch userVoucher-item-card-copy">
-                複製折扣碼
-              </p>
-            </div>
-          </div>
+          <div className="userVoucher-item">{couponList}</div>
 
           <div className="user-page">
-            <a className="user-page-Rarrow">
+            <Link className="user-page-Rarrow">
               <i className="fas fa-sort-up"></i>
-            </a>
+            </Link>
             {listPage}
-            <button className="user-page-x">...</button>
-            <a className="user-page-Larrow">
+            <Link className="user-page-Larrow">
               <i className="fas fa-sort-up"></i>
-            </a>
+            </Link>
           </div>
+
           <div className="userRwd-dropdown ">
             <button type="button" className="userRwd-dropbtn">
               頁數

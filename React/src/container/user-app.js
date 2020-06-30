@@ -10,8 +10,10 @@ import UserLike from '../components/user/user-like/user-like'
 import UserVideo from '../components/user/user-video/user-video'
 import Nav from '../components/navbar/navbar'
 import Footer from '../components/footer/footer.js'
+import ScrollToTop from '../container/scrollToTop'
 
 class UserApp extends Component {
+  
   render() {
     return (
       <>
@@ -19,6 +21,7 @@ class UserApp extends Component {
        <BrowserRouter>
           <div className="user-container">
             <UserSideBar/>
+            <ScrollToTop>
             <Switch>
               <Route path="/user/UserData" component={UserData}></Route>
               <Route path="/user/UserPwd" component={UserPwd}></Route>
@@ -28,6 +31,8 @@ class UserApp extends Component {
               <Route path="/user/UserVideo" component={UserVideo}></Route>
               <Redirect to="/user/UserData"/>
             </Switch>
+            </ScrollToTop>
+
           </div>
       </BrowserRouter>
       {/* <Footer/> */}

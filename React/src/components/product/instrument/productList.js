@@ -23,8 +23,8 @@ function ProductList(props) {
   const { page } = useParams()
   pages = parseInt(page)
   const perPage = 20
-  let num = 50
-  let totalPage = 10
+  let num = 55
+  let totalPage = Math.ceil(num / perPage)
   let idFirst = 0
   let idLast = 0
   if (pages == totalPage) {
@@ -147,16 +147,6 @@ function ProductList(props) {
         />
         <div className="product-wrapper">
           <div className="product-control">
-            <h1>
-              {'pages:' +
-                pages +
-                ' LIMIT:' +
-                idFirst +
-                ',' +
-                idLast +
-                ' control:' +
-                control}
-            </h1>
             <span>排序依</span>
             <select
               onChange={(e) => {

@@ -1,78 +1,153 @@
-import React,{Component} from 'react';
-import {Link,withRouter} from 'react-router-dom';
-
+import withReactContentM from 'sweetalert2-react-content';
+import Swal from 'sweetalert2'
+import React, { useState } from 'react';
+import { Link,withRouter } from 'react-router-dom';
 // import '../../../styles/login/user-facturer-login-page.scss';
-// var sha1 = require('sha1');
-// const MySwal = withReactContent(Swal);
-class Company extends Component{
-    constructor(props) {
-        super(props)
-    //     let t = this
-    //     fetch('http://localhost:3030/forum', { method: 'GET' }).then(function (
-    //       res
-    //     ) {
-    //       // console.log(res);
-    //       res.json().then(function (data) {
-    //         console.log(data)
-    //         t.setState({
-    //           news: data,
-    //         })
-    //       })
-    //     })
+
+var sha1 = require('sha1');
+const MySwal = withReactContentM(Swal);
+function Company(props) {
+
+    const [Memail,setMemail] = useState('');
+    const [Mpwd,setMpwd] = useState('');
+    const [MData,setMData] = useState([]);
+    const [MLogin,setMLogin] = useState(false);
+
+    // 錯誤訊息陣列
+    const [MloginErrors, setMLoginErrors] = useState([]);
+
+    async function getData(Memail, Mpwd) {
+        // return
+        fetch(`http://localhost:3030/login/manufacturer`, {
+          method: 'POST', // or 'PUT'
+          body: JSON.stringify({Mpwd, Memail}), // data can be `string` or {object}!
+          
+          headers: new Headers({
+            'Content-Type': 'application/json'
+          })
+          
+        })
+        
+        .then(res => res.json())
+        .then(json => {
+        //   console.log("json", json)
+          // 錯誤
+          if(json.code > 0 ){
+            //顯示錯誤 json.msg
+            setMLoginErrors([json.msg])
+            return
+          }
+         
+          setMData(json.data)   
+          // console.log("userData",userData);
+          
+          return MData
+        })
+    }
+
+     // 處理會員登入
+    const MloginProcess = () => {
+        const errors = []
+        // 檢查錯誤
+        if(Memail === ''){
+          errors.push('請輸入Email帳號');
+        }else if( Mpwd === ''){
+            errors.push('請輸入密碼');
+        }else{
+          getData(Memail, Mpwd);
+          
+          // console.log(userData);   
+            if(MData.length === 0){    
+              // console.log("1",userData);           
+              // errors.push('前:Email帳號不存在');
+              return false
+            }else{
+              if(sha1(Mpwd) != MData[0].Mpwd) errors.push('123密碼錯誤');
+            }              
+        }
+
+        if(errors.length > 0){
+            setMLoginErrors(errors);
+          return
+        }
+
+        // 登入後清空錯誤訊息陣列
+        // 清空錯誤訊息陣列為必要
+        setMLoginErrors([])
+
+        setMLogin(true);
+
+        // 執行成功的callback(來自MemberLogin)
+        MloginSuccessCallback()
+
       }
-   
 
-      
-//    state = { 
+      // login成功時的callback
+    const MloginSuccessCallback = () => {
+        localStorage.setItem('user', JSON.stringify(MData))
+        // alert('登入成功，跳轉至首頁')
+        setTimeout(()=>{
+          props.history.push('/user/userData', { from: '從登入頁來的' })
+        },2000)
 
-//   } 
-    
+    }
 
-  
-
-       // login成功時的callback
-    // const loginSuccessCallback = () => {
-    //     localStorage.setItem('user', JSON.stringify(userData))
-    //     // alert('登入成功，跳轉至首頁')
-    //     setTimeout(()=>{
-    //       props.history.push('/user/userData', { from: '從登入頁來的' })
-    //     },2000)
-
-    // }
-
+    const MloginSuccessBox = ()=>{
+      MySwal.fire({
+          position: 'top-center',
+          icon: 'success',
+          title: '登入成功',
+          showConfirmButton: false,
+          timer: 2000
+      })
+    }
 
      // 錯誤訊息陣列的呈現
-    // const displayErrors = loginErrors.length ? (
-    //     <div className="alert alert-danger" role="alert">
-    //     <ul className="list-unstyled">
-    //         {loginErrors.map((v, i) => (
-    //         <li key={i}>{v}</li>
-    //         ))}
-    //     </ul>
-    //     </div>
-    // ) : (
-    //     ''
-    // )
+    const displayErrors = MloginErrors.length ? (
+        <div className="alert alert-danger" role="alert">
+        <ul className="list-unstyled">
+            {MloginErrors.map((v, i) => (
+            <li key={i}>{v}</li>
+            ))}
+        </ul>
+        </div>
+    ) : (
+        ''
+    )
 
+    const loginSuccessMsg = MLogin ? MloginSuccessBox(): '';
 
-
-    render() {
     return(
         <>
         <div>
             <div className="form-group">
-                <label htmlFor="facturerEmail" className="col-md-12 control-label">電子郵件</label>
-                <input type="email"  name="email" className="form-control col-md-12" id="facturerEmail" placeholder="請輸入電子郵件" />
+            {MloginErrors}
+                <label htmlFor="facturerEmail" className="col-md-12 control-label" autoFocus>電子郵件</label>
+                <input type="email"  name="email" className="form-control col-md-12" id="facturerEmail"
+                placeholder="請輸入電子郵件" 
+                onChange={(event) => {
+                        setMemail(event.target.value)
+                      }}
+                    
+                />
             </div>
             <div className="form-group">
                 <label htmlFor="facturerPassword" className="col-md-12 control-label">密碼</label>
-                <input type="password" name="password" className="form-control" id="facturerPassword" placeholder="請輸入密碼" />
+                <input type="password" name="password" className="form-control" id="facturerPassword" placeholder="請輸入密碼" minLength="4" required
+                    onChange={(event) => {
+                        setMpwd(event.target.value)
+                      }}
+ />
             </div>
             <div className="form-group form-check">
                 <input type="checkbox" className="user-check-input" id="userCheckMe" />
                 <label className="user-check-label" htmlFor="userCheckMe">記住我</label>
             </div>
-            <button type="button" className="all-login-btn">登入</button>
+            <button type="button" className="all-login-btn" 
+            onClick={() => {
+                MloginProcess(MloginSuccessCallback)
+                  }}
+                  >登入</button>
             <div className="col-md-12 all-login-register-btn">
                 <Link to="/register/manufacturer">立即註冊</Link>
             </div>
@@ -83,6 +158,6 @@ class Company extends Component{
         </div>
         </>
     )
-}
-}
-export default Company
+    }
+
+export default withRouter(Company)

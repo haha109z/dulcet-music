@@ -140,7 +140,21 @@ button:focus{
     overflow: scroll;
     background-color: #ffff;
     z-index: 10;
+    width: 100%;
+    position: absolute;
+    height: 181px;
+    color: #141414;
+    /* min-width: 160px; */
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  }
+  .userRwd-dropdown-content-none{
+    overflow: scroll;
+    background-color: #ffff;
+    z-index: 10;
+    overflow: scroll;
+
     display: none;
+
     width: 100%;
     position: absolute;
     height: auto;
@@ -148,9 +162,9 @@ button:focus{
     /* min-width: 160px; */
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   }
-
   /* 下拉式選單的連結 */
-  .userRwd-dropdown-content a {
+  .userRwd-dropdown-content button {
+    border: none;
     color: black;
     /* padding: 6px 16px; */
     font-size: 14px;
@@ -159,10 +173,13 @@ button:focus{
     display: block;
     margin: 0;
     padding-left: 5%;
+    width: 100%;
+    text-align: inherit;
+    background-color: #ffff;
   }
 
   /* 滑鼠移上去後修改下拉式選單連結顏色 */
-  .userRwd-dropdown-content a:hover {
+  .userRwd-dropdown-content button:hover {
     background-color: #f2e8df;
 
   }
@@ -204,6 +221,10 @@ button:focus{
 .user-page-number:hover {
   background-color: #f2e8df;
 }
+.user-page-numberHover{
+  background-color: #f2e8df;
+
+}
 .user-page-Rarrow,
 .user-page-Larrow {
   font-size: 30px;
@@ -212,6 +233,7 @@ button:focus{
   width: 36px;
   outline: none;
   border: none;
+  color: black;
 }
 .user-page-Larrow {
   transform: rotate(90deg);
@@ -224,10 +246,13 @@ button:focus{
 .user-page-Larrow:hover,
 .user-page-Rarrow:hover > i {
   font-size: 35px;
+  color: black;
 }
 .user-page-Rarrow:hover,
 .user-page-Larrow:hover > i {
   font-size: 35px;
+  color: black;
+
 }
 .user-page-x {
   outline: none;

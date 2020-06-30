@@ -39,9 +39,12 @@ app.use("/register/user", require(__dirname + "/register"));
 app.use("/user/UserData", require(__dirname + "/changeUserData"));
 app.use("/user/UserPwd", require(__dirname + "/changeUserPwd"));
 app.use("/user/UserPurchase", require(__dirname + "/UserPurchase"));
+app.use("/user/UserLike", require(__dirname + "/UserLike"));
+
 app.use("/img-upload", require(__dirname + "/img-upload"));
-
-
+// 廠商登入註冊
+app.use("/login/manufacturer", require(__dirname + "/manu_login"));
+app.use("/register/manufacturer", require(__dirname + "/manu_register"));
 
 
 app.use("/ManufacturerInstrument/InstrumentHome",require(__dirname + "/manuI_userdata"));
@@ -69,7 +72,7 @@ app.use("/forum/123" , require(__dirname + "/forum123"));
 // Forum!!
 app.get("/forum", async (req, res) => {
   const output = await query(
-    `SELECT ForumAbout.userID,user.userName,ForumAbout.TitleMusic,ForumAbout.TitleId,ForumAbout.Memo FROM ForumAbout left JOIN user ON ForumAbout.userID = user.userID`
+     `SELECT ForumAbout.ForumId,ForumAbout.userID,user.userName,ForumAbout.TitleMusic,ForumAbout.TitleId,ForumAbout.Memo FROM ForumAbout left JOIN user ON ForumAbout.userID = user.userID`
   );
   console.log(output);
   res.json(output);
