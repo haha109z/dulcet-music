@@ -7,9 +7,11 @@ import {
   NavLink,
 } from 'react-router-dom'
 import ScrollToTop from '../../../container/scrollToTop'
+
 if(JSON.parse(localStorage.getItem('user'))){
   const getUserInfo = () => {
   return JSON.parse(localStorage.getItem('user'))
+  
 }
 var userID = getUserInfo()[0].userID
 // this.setState({userID:userID})

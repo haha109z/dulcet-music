@@ -61,13 +61,12 @@ export default class UserVideo extends Component {
                   效率的一對一專屬課程讓您學習既有效率又有趣！
                 </p>
               </div>
-              <p className=" UserVideo-order-item-more">More...</p>
 
               <button
                 type="button"
                 className="UserVideo-order-item-button user-font-ch"
               >
-                前往商品頁面
+                立即觀看
               </button>
             </div>
             <div className="UserVideo-order-item">

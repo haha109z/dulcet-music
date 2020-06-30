@@ -142,7 +142,7 @@ button:focus{
     z-index: 10;
     width: 100%;
     position: absolute;
-    height: 181px;
+    max-height: 160px;
     color: #141414;
     /* min-width: 160px; */
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -151,7 +151,6 @@ button:focus{
     overflow: scroll;
     background-color: #ffff;
     z-index: 10;
-    overflow: scroll;
 
     display: none;
 
