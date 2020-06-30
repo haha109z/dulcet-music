@@ -1,12 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import CartDeliverInfo from './cart-deliverInfo.js';
 import CartItem from './cart-cartItem.js';
 
 function CartCheckout (props) {
 
-  const { cart, setCart, user, setUser, number, setNumber, totalPrice, checkstate, setcheckstate, checkcallback, ReceivingName, setReceivingName, ReceivingAddress, setReceivingAddress, ReceivingPhone, setReceivingPhone,  ReceivingEmail, setReceivingEmail } = props.allProps;  
+  const { 
+    cart, 
+    setCart, 
+    user, 
+    setUser, 
+    number, 
+    setNumber, 
+    totalPrice, 
+    checkstate, 
+    setcheckstate,
+    checkcallback,
+    ReceivingName, 
+    setReceivingName, 
+    ReceivingAddress, 
+    setReceivingAddress, 
+    ReceivingPhone, 
+    setReceivingPhone,  
+    ReceivingEmail, 
+    setReceivingEmail,    
+    radiostate, 
+    setRadiostate, 
+    radiocallback,
+    invoiceInfo,
+    setInvoiceInfo,
+   } = props.allProps;  
   
   // const [number, setNumber] = useState(cart[0].cartNumber)
   // let stock = cart[0].PQty;   
@@ -33,6 +56,7 @@ function CartCheckout (props) {
   // let arr =[2,1,3]
   // const [testArr,setTestArr]=useState(arr)
 
+  // minusCartNumber函式：點擊btn減少該商品之購物車數量
   const minusCartNumber = (e) =>{
     if (number == 0) {
       setNumber(0)
@@ -48,6 +72,7 @@ function CartCheckout (props) {
     }
   }
 
+  // plusCartNumber函式：點擊btn增加該商品之購物車數量
   const plusCartNumber = (e) =>{
     // let cart = cart[0]
     // console.log(cart[0].cartNumber)
@@ -132,18 +157,32 @@ function CartCheckout (props) {
                   <h2>統一發票</h2>
                   <fieldset>
                     <div>
-                      <label><input type="radio" name="invoice" id=""/> 會員載具</label>
+                      <label>
+                        <input type="radio" name="invoice" id="invoice1" value="會員載具" 
+                          onClick={(e)=>{ radiocallback(e.target) }}
+                        /> 會員載具
+                      </label>
                       <span>中獎時我們會將發票寄送至您的收件地址</span>
                     </div>
                     <div>
-                      <label><input type="radio" name="invoice" id=""/> 手機條碼載具</label>
+                      <label>
+                        <input type="radio" name="invoice" id="invoice2" value="手機條碼載具" 
+                          onClick={(e)=>{ radiocallback(e.target) }}
+                        /> 手機條碼載具
+                      </label>
                       <div className="cart-input1">
-                        <label htmlFor="einvoice">載具號碼</label>
-                        <input id="einvoice" type="text"/>
+                        <label htmlFor="invoice">載具號碼</label>
+                        <input id="invoicev" type="text" value={invoiceInfo}
+                          onChange={ (e)=>{ setInvoiceInfo(e.target.value) }}
+                        />
                       </div>
                     </div>
                     <div style={{padding:'0 0 20px 0'}}>
-                      <label><input type="radio" name="invoice" id=""/> 捐贈發票</label>
+                      <label>
+                        <input type="radio" name="invoice" id="invoice3" value="捐贈發票" 
+                          onClick={(e)=>{ radiocallback(e.target) }}
+                        /> 捐贈發票
+                      </label>
                       <span>提醒您，捐贈發票後無法變更成開立或索取紙本發票。</span>
                       <select>
                         <option value="台灣流浪兔保護協會">台灣流浪兔保護協會</option>
@@ -152,15 +191,23 @@ function CartCheckout (props) {
                       </select>
                     </div>
                     <div>
-                      <label><input type="radio" name="invoice" id=""/> 公司戶</label>
+                      <label>
+                        <input type="radio" name="invoice" id="invoice4" value="公司戶發票" 
+                          onClick={(e)=>{ radiocallback(e.target) }}
+                        /> 公司戶
+                      </label>
                       <span>提醒您，公司戶發票一旦開立，不得任意更改或改為個人戶發票。</span>
                       <div className="cart-input1">
-                        <label htmlFor="einvoice">統一編號</label>
-                        <input className="" id="einvoice" type="text"/>
+                        <label htmlFor="invoice">統一編號</label>
+                        <input className="companyinvoice" id="" type="text" value={invoiceInfo}
+                          onChange={ (e)=>{ setInvoiceInfo(e.target.value) }}
+                        />
                       </div>
                       <div className="cart-input1">
-                        <label htmlFor="einvoice">發票抬頭</label>
-                        <input className="" id="einvoice" type="text"/>
+                        <label htmlFor="invoice">發票抬頭</label>
+                        <input className="companyinvoice" id="" type="text" value={invoiceInfo}
+                          onChange={ (e)=>{ setInvoiceInfo(e.target.value) }}
+                        />
                       </div>
                     </div>
                 </fieldset>
