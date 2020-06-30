@@ -24,9 +24,11 @@ export default function CartCheckOrder (props) {
                   <li><img src={require(`../../img/cart/cart-violin-01.jpeg`)}/></li>
                   {/* <li><img src={require(`../../img/cart/${data.img}`)}/></li> */}
                   <li>{data.PName}</li>
-                  <li className="cart-english-font cart-rwd-noneed" style={{color:'var(--main-colorfb2)'}}>${data.PPrice.toString().replace( /(\d)(?=(\d{3})+(\d{3})?$)/g, '$1,' )}</li>
+                  <li className="cart-english-font cart-rwd-noneed" style={{color:'var(--main-colorfb2)'}}>
+                    ${data.PPrice.toString().replace( /(\d)(?=(\d{3})+(\d{3})?$)/g, '$1,' )}
+                  </li>
                   <li className="cart-english-font">
-                    <div>{data.cartNumber}</div>
+                    <div>{data.num}</div>
                   </li>
                   <li className="cart-english-font" style={{color:'var(--main-colorfb2)'}}>
                     ${(data.num * data.PPrice).toString().replace( /(\d)(?=(\d{3})+(\d{3})?$)/g, '$1,' )}
