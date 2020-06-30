@@ -91,9 +91,7 @@ function App() {
             <Route path="/news/:NewsID?">
               <NewsPages />
             </Route>
-            {/* <Route path="/:NewsCategory/:NewsID">
-              <NewsPages />
-            </Route> */}
+            
           </Switch>
 
           <Route path="/Forum">

@@ -47,7 +47,7 @@ function NewsContent(props) {
         <div className="news-ContetnBtn">
           <Link
             className="news-Merienda news-ViewBtn"
-            to={'/news' + '/' + props.data.NewsCategory + '/' + props.data.NewsID}
+            to={'/news' + '/'+ props.data.NewsID}
           >
             View More...
           </Link>

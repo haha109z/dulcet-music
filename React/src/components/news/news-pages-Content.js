@@ -3,6 +3,7 @@ import { AiFillEdit } from 'react-icons/ai'
 import { AiOutlineMail } from 'react-icons/ai'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import { FaMapMarkerAlt } from 'react-icons/fa'
+import Navbar from '../navbar/navbar';
 
 import { withRouter } from 'react-router-dom'
 //redux
@@ -17,54 +18,51 @@ function NewsPagesContent(props) {
 
   console.log(NewsID)
 
-
   useEffect(() => {
     props.getNewsPageContent(props.match.params.NewsID)
-    
-  }, [])
+    console.log(props)
+  }, [props.match.params.NewsID])
+
+  
 
   return (
     <>
-
-        <p>{props.match.params.NewsID ? console.log(props) : ''}</p>
- 
-
-     
-{/* 
-      <div className="news-pages-Container news-h5 news-LetterSpacing news-NotoSerifTC">
+    <Navbar />
+    <div className="news-pages-Container news-h5 news-LetterSpacing news-NotoSerifTC">
         <Link className="news-pages-Breadcrumb" to="/news">
           所有列表
         </Link>
         &nbsp;/&nbsp;
-        <Link
+        {props.article[0] ?
+        (<Link
+          to={'/' + props.article[0].NewsCategory}
           className="news-pages-Breadcrumb"
-          to={'/' + (props.article ? props.article.NewsCategory : '')}
-        >
-          {props.article[0] ? props.article[0].NewsCategory : ''}
-        </Link>
+        >{props.article[0].NewsCategory}
+        </Link>)  : ('')}
         &nbsp;/&nbsp;
-        <Link
+        {props.article[0] ?
+        (<Link
+          to={'/' + props.article[0].NewsID}
           className="news-pages-Breadcrumb"
-          to={
-            '/news-pages' + '/' + props.article[0].NewsCategory + '/' + props.article[0].NewsID
-          }
-        >
-        {props.article[0] ? props.article[0].NewsTitle : ''}
-        </Link>
+        >{props.article[0].NewsTitle}
+        </Link>)  : ('')}
       </div>
 
       <div className="news-pages-BannerContainer">
-        <img
+
+      {props.article[0] ?
+        (<img
           className="news-pages-BannerImg"
           src={`http://localhost:3030/images/news/`+props.article[0].NewsImg}
-        ></img>
+        ></img>)  : ('')}
+        
       </div>
 
       <div className="news-pages-background">
         <div className="news-pages-BannerContent">
           <p className="news-H2 news-LetterSpacing">{props.article[0] ? props.article[0].NewsTitle : ''}</p>
           <p className="news-H2 news-LetterSpacing">
-          {props.article[0] ? props.article[0].NewsTitle : ''}
+          {props.article[0] ? props.article[0].NewsDateTitle : ''}
           </p>
           <p className="news-H2 news-LetterSpacing">
             <FaMapMarkerAlt className="news-H3" /> {props.article[0] ? props.article[0].NewsAddress : ''}
@@ -86,11 +84,14 @@ function NewsPagesContent(props) {
       <div className="news-pages-Connection">
         <ul className="news-pages-ul d-flex  news-LetterSpacing news-NotoSerifTC">
           <li>
-            <a href={`"`+props.article[0].NewsLink+`"`}>
+
+          {props.article[0] ?
+        (<a href={`"`+props.article[0].NewsLink+`"`}>
               <AiFillEdit className="news-H3" />
               <br />
               相關資訊
-            </a>
+            </a>)  : ('')}
+            
           </li>
 
           <li>
@@ -109,14 +110,14 @@ function NewsPagesContent(props) {
             返回列表
           </Link>
         </div>
-      </div> */}
+      </div>
     </>
   )
 }
 
 
 const mapStateToProps = (store) => {
-    return { post: store.getNewsPageContent }
+    return { article: store.getNewsPageContent }
   }
   const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({ getNewsPageContent }, dispatch)

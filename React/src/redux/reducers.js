@@ -41,10 +41,19 @@ const getNewsContent = (state = [], action) => {
     }
   }
 
+  const getNewsPageContent = (state = [], action) => {
+    switch (action.type) {
+      case 'SHOW_NewsPageContent':
+        return action.data
+      default:
+        return state
+    }
+  }
 
 export default combineReducers({
     homeNews,
     homeSilderNews,
     homeUser,
     getNewsContent,
+    getNewsPageContent,
 });
