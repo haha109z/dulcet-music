@@ -44,10 +44,8 @@ app.use("/img-upload", require(__dirname + "/img-upload"));
 
 
 
-app.use(
-  "/ManufacturerInstrument/InstrumentHome",
-  require(__dirname + "/manu_userdata")
-);
+app.use("/ManufacturerInstrument/InstrumentHome",require(__dirname + "/manuI_userdata"));
+app.use("/ManufacturerVideo/VideoHome",require(__dirname + "/manuV_userdata"));
 
 // app.use("/form", require(__dirname + "/form"));
 

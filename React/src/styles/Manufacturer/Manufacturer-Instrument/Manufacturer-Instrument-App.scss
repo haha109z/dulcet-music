@@ -238,3 +238,27 @@ button:hover {
   outline: none;
   border: none;
 }
+.ins-upload-container {
+  position: relative;
+}
+
+.ins-upload-input {
+  z-index: 200;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 47px;
+  display: inline-block;
+  opacity: 0;
+  height: 150px;
+}
+
+.ins-upload-button {
+  position: relative;
+  z-index: 100;
+  opacity: 0;
+  
+  
+  // border-radius: 50%;
+}

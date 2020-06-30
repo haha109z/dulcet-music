@@ -1,7 +1,9 @@
 import React from 'react'
 import {FaEye} from 'react-icons/fa'
-
-
+import withReactContent from 'sweetalert2-react-content'
+import Swal from 'sweetalert2'
+var sha1 = require('sha1')
+const MySwal = withReactContent(Swal)
 
 class InstrumentPassword extends React.Component{
   constructor() {
@@ -29,6 +31,43 @@ class InstrumentPassword extends React.Component{
     e.preventDefault()
   }
 
+  // // 在這個生命週期中渲染資料
+  // componentDidMount() {
+  //   this.onChange = (e) => {
+  //     e.preventDefault()
+  //     const file = e.target.files[0]
+  //     const formData = new FormData()
+  //     // 这里的 image 是字段，根据具体需求更改
+  //     formData.append('image', file)
+  //     // 这里的 fetch 引用了 isomorphic-fetch 包
+  //     // console.log("this.state.user", this.state.user)
+  //     // return
+  //     fetch(`http://localhost:3030/img-upload/user/${this.state.user.userID}`, {
+  //       method: 'POST',
+  //       body: formData,
+  //     })
+  //       .then((res) => res.json())
+  //       .then((json) => {
+  //         if ((json.status = 1)) {
+  //           this.state.user.userImg = json.imgName
+  //           console.log(this.state.user)
+  //           this.setState({ user: this.state.user })
+  //           localStorage.setItem('user', JSON.stringify([this.state.user]))
+  //         } else {
+  //           alert('上傳失敗')
+  //         }
+  //       })
+  //   }
+  //   if (getUserInfo()) {
+  //     let user = getUserInfo()
+  //     // JSON.parse(localStorage.getItem('user'));
+  //     // console.log("user", user[0])
+  //     // alert(`${user[0].userID}歡迎您～！` )
+  //     this.setState({ user: user[0] })
+  //   } else {
+  //     this.setState({ user: '' })
+  //   }
+  // }
   
 
     render(){
@@ -47,7 +86,20 @@ class InstrumentPassword extends React.Component{
         密碼修改
       </h3>
       <div className="insPassword-top-Img">
-        <img src="" alt="" />
+      <label for="gogo" className="ins-upload-container">
+              <input
+                type="file"
+                name="image"
+                className="ins-upload-input"
+                onChange={this.onChange}
+                id="gogo"
+              />
+              <input
+                type="primary"
+                className="ins-upload-button"
+                value="上传图片"
+              />
+            </label>
       </div>
 
       <hr className="insPassword-top-hr" />

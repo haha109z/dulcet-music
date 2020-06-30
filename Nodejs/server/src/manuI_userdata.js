@@ -5,6 +5,7 @@ const upload = require(__dirname + "/upload-module");
 const query = require(__dirname + "/mysql");
 const sha1 = require("sha1");
 
+
 router.get('/',async (req,res) => {
   let {
     Mid,
@@ -17,14 +18,16 @@ router.get('/',async (req,res) => {
   } = req.body;
   let resData = { code:'', msg:''};
   
-  // await query(
-  //   `SELECT manufacturer FROM Mid = 1`
-  // )
 
-  const [ r ] = await db.query( `SELECT * FROM manufacturer WHERE Mid = 1`)
-
-  resData = { code:0, msg:'正確', data : r};
-  res.json(resData);
+  const [newdata] = await query( `SELECT * FROM manufacturer WHERE Mid = 11`)
+  // if(newdata.Mcategory=='樂器'){
+  //   console.log('是樂器')
+  // }else{
+  //   console.log('是影片')
+  // }
+  console.log(newdata)
+  resData = { code:0, msg:'正確', data : newdata};
+  res.json(newdata);
 })
 
 
