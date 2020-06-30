@@ -42,8 +42,9 @@ app.use("/user/UserPurchase", require(__dirname + "/UserPurchase"));
 app.use("/user/UserLike", require(__dirname + "/UserLike"));
 
 app.use("/img-upload", require(__dirname + "/img-upload"));
-
-
+// 廠商登入註冊
+app.use("/login/manufacturer", require(__dirname + "/manu_login"));
+app.use("/register/manufacturer", require(__dirname + "/manu_register"));
 
 
 app.use(

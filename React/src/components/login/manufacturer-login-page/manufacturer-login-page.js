@@ -1,34 +1,57 @@
 import React,{Component} from 'react';
 import {Link,withRouter} from 'react-router-dom';
-
+import AOS from 'aos'
 // import '../../../styles/login/user-facturer-login-page.scss';
 // var sha1 = require('sha1');
 // const MySwal = withReactContent(Swal);
 class Company extends Component{
     constructor(props) {
         super(props)
-    //     let t = this
-    //     fetch('http://localhost:3030/forum', { method: 'GET' }).then(function (
-    //       res
-    //     ) {
-    //       // console.log(res);
-    //       res.json().then(function (data) {
-    //         console.log(data)
-    //         t.setState({
-    //           news: data,
-    //         })
-    //       })
-    //     })
+        let t = this
+        fetch('http://localhost:3030/forum', { method: 'GET' }).then(function (
+          res
+        ) {
+          // console.log(res);
+          res.json().then(function (data) {
+            console.log(data)
+            t.setState({
+              news: data,
+            })
+          })
+        })
       }
-   
-
-      
-//    state = { 
-
-//   } 
-    
-
-  
+           
+           
+        
+        state = {
+           
+            Memail:'',
+            Mpwd:'',
+            
+           
+          }
+          componentDidUpdate(e) {
+            // const handleForumAboutTitle = this.state
+            // console.log(handleForumAboutTitle)
+            AOS.init({
+              duration: 1000, // 持續時間
+              easing: 'ease-out-back',
+            })
+          }
+          HandleEmail=(event)=>{
+            this.setState({Memail:event.target.value})
+            console.log(event.target.value)
+                }
+                HandlePwd=(event)=>{
+                    this.setState({Mpwd:event.target.value})
+                    console.log(event.target.value)
+                        }
+                        HandleCheckBox=()=>{
+                            // if()
+                        }
+                // Text=()=>{
+                //     console.log(this.target)
+                // }
 
        // login成功時的callback
     // const loginSuccessCallback = () => {
@@ -53,7 +76,7 @@ class Company extends Component{
     // ) : (
     //     ''
     // )
-
+  
 
 
     render() {
@@ -62,17 +85,22 @@ class Company extends Component{
         <div>
             <div className="form-group">
                 <label htmlFor="facturerEmail" className="col-md-12 control-label">電子郵件</label>
-                <input type="email"  name="email" className="form-control col-md-12" id="facturerEmail" placeholder="請輸入電子郵件" />
+                <input type="email"  name="email" className="form-control col-md-12" id="facturerEmail"
+                placeholder="請輸入電子郵件" 
+                    onChange={this.HandleEmail}
+                    
+                />
             </div>
             <div className="form-group">
                 <label htmlFor="facturerPassword" className="col-md-12 control-label">密碼</label>
-                <input type="password" name="password" className="form-control" id="facturerPassword" placeholder="請輸入密碼" />
+                <input type="password" name="password" className="form-control" id="facturerPassword" placeholder="請輸入密碼"
+                onChange={this.HandlePwd} />
             </div>
             <div className="form-group form-check">
                 <input type="checkbox" className="user-check-input" id="userCheckMe" />
                 <label className="user-check-label" htmlFor="userCheckMe">記住我</label>
             </div>
-            <button type="button" className="all-login-btn">登入</button>
+            <button type="button" className="all-login-btn" onClick={this.HandleCheckBox}>登入</button>
             <div className="col-md-12 all-login-register-btn">
                 <Link to="/register/manufacturer">立即註冊</Link>
             </div>
