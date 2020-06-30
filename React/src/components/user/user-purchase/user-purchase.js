@@ -6,6 +6,7 @@ import {
   Switch,
   NavLink,
 } from 'react-router-dom'
+import ScrollToTop from '../../../container/scrollToTop'
 
 const getUserInfo = () => {
   return JSON.parse(localStorage.getItem('user'))
@@ -31,7 +32,7 @@ export default class UserPurchase extends Component {
     purchaseMenuTitle: '全部',
     userPageSelect: '1',
   }
-  
+
   filterStatusOpen = () => {
     this.setState({ menu: false })
   }
@@ -43,6 +44,7 @@ export default class UserPurchase extends Component {
       this.showData()
     }, 100)
     this.setState({ userPageSelect: num })
+    this.bokTop();
   }
   getOrder = () => {
     // console.log('this.state.user', this.state.user)
@@ -92,6 +94,7 @@ export default class UserPurchase extends Component {
     // console.log('select', event.currentTarget.textContent)
     this.setState({ btn: select })
     this.setState({ menu: true })
+    this.setState({ userPageSelect: '1' })
 
     if (select == '全部') {
       this.setState({ UserPurchase: this.state.AllUserPurchase })
@@ -140,6 +143,10 @@ export default class UserPurchase extends Component {
     super()
 
     this.getOrder()
+  }
+
+  bokTop() {
+    document.documentElement.scrollTop = 0
   }
   render() {
     let UserPurchase = this.state.UserPurchase

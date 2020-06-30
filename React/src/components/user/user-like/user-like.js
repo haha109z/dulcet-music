@@ -1,14 +1,39 @@
 import React, { Component } from 'react'
 
-
-
 export default class UserLike extends Component {
   state = {
     likeData: [],
   }
+
+  constructor() {
+    super()
+    const userID = JSON.parse(localStorage.getItem('user'))[0].userID
+    // console.log(userID);
+
+    fetch('http://localhost:3030/user/UserLike', {
+      method: 'POST', // or 'PUT'
+      body: JSON.stringify({ userID }), // data can be `string` or {object}!
+      headers: new Headers({
+        'Content-Type': 'application/json',
+      }),
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        // console.log(json.likeData);
+        this.setState({ likeData: json.likeData })
+        // console.log(this.state.likeData)
+      })
+      .catch((error) => {
+        console.error('Error:', error)
+      })
+  }
   render() {
+    let likeOrder = this.state.likeData
+console.log(likeOrder);
+
     return (
-      <>{}
+      <>
+        {}
         <div className="UserLike-main">
           <h3 className="font-size-142rem UserLike-top-titleName user-font-ch">
             我的最愛
@@ -32,248 +57,47 @@ export default class UserLike extends Component {
             />
           </form>
           <hr className="UserLike-divider" />
+          {likeOrder.map((item, index) => (
+            <>
+              <div className="UserLike-order">
+                <div className="UserLike-order-item">
+                  <div className="UserLike-order-item-img">
+                    <img
+                      src={require('../../../img/home_logo_方.png')}
+                      alt=""
+                    />
+                  </div>
+                  <div className="UserLike-order-item-text">
+                    <p className="user-font-ch UserLike-order-item-text-name user-font-ch">
+                     {item.PName}
+                    </p>
+                    <p className="user-font-ch UserLike-order-item-text-specification">
+                      分類：{item.PCategoryId}
+                    </p>
 
-          <div className="UserLike-order">
-            <div className="UserLike-order-item">
-              <div className="UserLike-order-item-img">
-                <img src={require('../../../img/home_logo_方.png')} alt="" />
-              </div>
-              <div className="UserLike-order-item-text">
-                <p className="user-font-ch UserLike-order-item-text-name user-font-ch">
-                  現貨 免運費！11段角度調節】鋁合金筆電支架 筆電散熱架 散熱器
-                  散熱墊 筆電架電腦架 筆電散熱 金屬支架度調節】鋁合金筆電支架
-                  筆電散熱架 散熱器 散熱墊 筆電架電腦架 筆電散熱
-                  金屬支架度調節】鋁合金筆電支架 筆電散熱架 散熱器 散熱墊
-                  筆電架電腦架 筆電散熱 金屬支架
-                </p>
-                <p className="user-font-ch UserLike-order-item-text-specification">
-                  分類：樂器
-                </p>
-
-                <div className="d-flex UserLike-order-item-text-money">
-                  <p className="user-font-ch UserLike-order-item-text-money-1">
-                    價格
-                  </p>{' '}
-                  <p className="user-color-red UserLike-order-item-text-money-2 user-font-eg">
-                    $
-                  </p>
-                  <p className="user-color-red UserLike-order-item-text-money-3 user-font-eg">
-                    999
-                  </p>{' '}
+                    <div className="d-flex UserLike-order-item-text-money">
+                      <p className="user-font-ch UserLike-order-item-text-money-1">
+                        價格
+                      </p>{' '}
+                      <p className="user-color-red UserLike-order-item-text-money-2 user-font-eg">
+                        $
+                      </p>
+                      <p className="user-color-red UserLike-order-item-text-money-3 user-font-eg">
+                        {item.PPrice}
+                      </p>{' '}
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    className="UserLike-order-item-button user-font-ch "
+                  >
+                    前往商品頁面
+                  </button>
                 </div>
+                <hr className="UserLike-order-divider" />
               </div>
-              <button
-                type="button"
-                className="UserLike-order-item-button user-font-ch "
-              >
-                前往商品頁面
-              </button>
-            </div>
-            <hr className="UserLike-order-divider" />
-          </div>
-
-
-
-          <div className="UserLike-order">
-            <div className="UserLike-order-item">
-              <div className="UserLike-order-item-img">
-                <img src={require('../../../img/home_logo_方.png')} alt="" />
-              </div>
-              <div className="UserLike-order-item-text">
-                <p className="user-font-ch UserLike-order-item-text-name user-font-ch">
-                  現貨 免運費！11段角度調節】鋁合金筆電支架 筆電散熱架 散熱器
-                  散熱墊 筆電架電腦架 筆電散熱 金屬支架度調節】鋁合金筆電支架
-                  筆電散熱架 散熱器 散熱墊 筆電架電腦架 筆電散熱
-                  金屬支架度調節】鋁合金筆電支架 筆電散熱架 散熱器 散熱墊
-                  筆電架電腦架 筆電散熱 金屬支架
-                </p>
-                <p className="user-font-ch UserLike-order-item-text-specification">
-                  分類：樂器
-                </p>
-
-                <div className="d-flex UserLike-order-item-text-money">
-                  <p className="user-font-ch UserLike-order-item-text-money-1">
-                    價格
-                  </p>{' '}
-                  <p className="user-color-red UserLike-order-item-text-money-2 user-font-eg">
-                    $
-                  </p>
-                  <p className="user-color-red UserLike-order-item-text-money-3 user-font-eg">
-                    999
-                  </p>{' '}
-                </div>
-              </div>
-              <button
-                type="button"
-                className="UserLike-order-item-button user-font-ch"
-              >
-                前往商品頁面
-              </button>
-            </div>
-
-            <hr className="UserLike-order-divider" />
-          </div>
-          
-          
-         
-          <div className="UserLike-order">
-            <div className="UserLike-order-item">
-              <div className="UserLike-order-item-img">
-                <img src={require('../../../img/home_logo_方.png')} alt="" />
-              </div>
-              <div className="UserLike-order-item-text">
-                <p className="user-font-ch UserLike-order-item-text-name user-font-ch">
-                  現貨 免運費！11段角度調節】鋁合金筆電支架 筆電散熱架 散熱器
-                  散熱墊 筆電架電腦架 筆電散熱 金屬支架度調節】鋁合金筆電支架
-                  筆電散熱架 散熱器 散熱墊 筆電架電腦架 筆電散熱
-                  金屬支架度調節】鋁合金筆電支架 筆電散熱架 散熱器 散熱墊
-                  筆電架電腦架 筆電散熱 金屬支架
-                </p>
-                <p className="user-font-ch UserLike-order-item-text-specification">
-                  分類：樂器
-                </p>
-
-                <div className="d-flex UserLike-order-item-text-money">
-                  <p className="user-font-ch UserLike-order-item-text-money-1">
-                    價格
-                  </p>{' '}
-                  <p className="user-color-red UserLike-order-item-text-money-2 user-font-eg">
-                    $
-                  </p>
-                  <p className="user-color-red UserLike-order-item-text-money-3 user-font-eg">
-                    999
-                  </p>{' '}
-                </div>
-              </div>
-              <button
-                type="button"
-                className="UserLike-order-item-button user-font-ch"
-              >
-                前往商品頁面
-              </button>
-            </div>
-
-            <hr className="UserLike-order-divider" />
-          </div>
-         
-          <div className="UserLike-order">
-            <div className="UserLike-order-item">
-              <div className="UserLike-order-item-img">
-                <img src={require('../../../img/home_logo_方.png')} alt="" />
-              </div>
-              <div className="UserLike-order-item-text">
-                <p className="user-font-ch UserLike-order-item-text-name user-font-ch">
-                  現貨 免運費！11段角度調節】鋁合金筆電支架 筆電散熱架 散熱器
-                  散熱墊 筆電架電腦架 筆電散熱 金屬支架度調節】鋁合金筆電支架
-                  筆電散熱架 散熱器 散熱墊 筆電架電腦架 筆電散熱
-                  金屬支架度調節】鋁合金筆電支架 筆電散熱架 散熱器 散熱墊
-                  筆電架電腦架 筆電散熱 金屬支架
-                </p>
-                <p className="user-font-ch UserLike-order-item-text-specification">
-                  分類：樂器
-                </p>
-
-                <div className="d-flex UserLike-order-item-text-money">
-                  <p className="user-font-ch UserLike-order-item-text-money-1">
-                    價格
-                  </p>{' '}
-                  <p className="user-color-red UserLike-order-item-text-money-2 user-font-eg">
-                    $
-                  </p>
-                  <p className="user-color-red UserLike-order-item-text-money-3 user-font-eg">
-                    999
-                  </p>{' '}
-                </div>
-              </div>
-              <button
-                type="button"
-                className="UserLike-order-item-button user-font-ch"
-              >
-                前往商品頁面
-              </button>
-            </div>
-
-            <hr className="UserLike-order-divider" />
-          </div>
-    
-          <div className="UserLike-order">
-            <div className="UserLike-order-item">
-              <div className="UserLike-order-item-img">
-                <img src={require('../../../img/home_logo_方.png')} alt="" />
-              </div>
-              <div className="UserLike-order-item-text">
-                <p className="user-font-ch UserLike-order-item-text-name user-font-ch">
-                  現貨 免運費！11段角度調節】鋁合金筆電支架 筆電散熱架 散熱器
-                  散熱墊 筆電架電腦架 筆電散熱 金屬支架度調節】鋁合金筆電支架
-                  筆電散熱架 散熱器 散熱墊 筆電架電腦架 筆電散熱
-                  金屬支架度調節】鋁合金筆電支架 筆電散熱架 散熱器 散熱墊
-                  筆電架電腦架 筆電散熱 金屬支架
-                </p>
-                <p className="user-font-ch UserLike-order-item-text-specification">
-                  分類：樂器
-                </p>
-
-                <div className="d-flex UserLike-order-item-text-money">
-                  <p className="user-font-ch UserLike-order-item-text-money-1">
-                    價格
-                  </p>{' '}
-                  <p className="user-color-red UserLike-order-item-text-money-2 user-font-eg">
-                    $
-                  </p>
-                  <p className="user-color-red UserLike-order-item-text-money-3 user-font-eg">
-                    999
-                  </p>{' '}
-                </div>
-              </div>
-              <button
-                type="button"
-                className="UserLike-order-item-button user-font-ch"
-              >
-                前往商品頁面
-              </button>
-            </div>
-
-            <hr className="UserLike-order-divider" />
-          </div>
-  
-          <div className="UserLike-order">
-            <div className="UserLike-order-item">
-              <div className="UserLike-order-item-img">
-                <img src={require('../../../img/home_logo_方.png')} alt="" />
-              </div>
-              <div className="UserLike-order-item-text">
-                <p className="user-font-ch UserLike-order-item-text-name user-font-ch">
-                  現貨 免運費！11段角度調節】鋁合金筆電支架 筆電散熱架 散熱器
-                  散熱墊 筆電架電腦架 筆電散熱 金屬支架度調節】鋁合金筆電支架
-                  筆電散熱架 散熱器 散熱墊 筆電架電腦架 筆電散熱
-                  金屬支架度調節】鋁合金筆電支架 筆電散熱架 散熱器 散熱墊
-                  筆電架電腦架 筆電散熱 金屬支架
-                </p>
-                <p className="user-font-ch UserLike-order-item-text-specification">
-                  分類：樂器
-                </p>
-
-                <div className="d-flex UserLike-order-item-text-money">
-                  <p className="user-font-ch UserLike-order-item-text-money-1">
-                    價格
-                  </p>{' '}
-                  <p className="user-color-red UserLike-order-item-text-money-2 user-font-eg">
-                    $
-                  </p>
-                  <p className="user-color-red UserLike-order-item-text-money-3 user-font-eg">
-                    999
-                  </p>{' '}
-                </div>
-              </div>
-              <button
-                type="button"
-                className="UserLike-order-item-button user-font-ch"
-              >
-                前往商品頁面
-              </button>
-            </div>
-            <hr className="UserLike-order-divider" />
-          </div>
+            </>
+          ))}
 
           {/* 電腦page */}
 
