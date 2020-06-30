@@ -32,8 +32,19 @@ function homeUser(state = initUser, action){
     }
 }
 
+const getNewsContent = (state = [], action) => {
+    switch (action.type) {
+      case 'SHOW_NewsContent':
+        return action.data
+      default:
+        return state
+    }
+  }
+
+
 export default combineReducers({
     homeNews,
     homeSilderNews,
     homeUser,
+    getNewsContent,
 });

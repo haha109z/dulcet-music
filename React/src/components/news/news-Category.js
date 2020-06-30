@@ -1,10 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+
 
 function NewsCategory(props) {
+  console.log(props)
   const [date, setDate] = useState('')
 
   const [category, setCategory] = useState('')
+
+  function changecategory(category) {
+    setCategory(category)
+  }
+
+
+  const { NewsDate,NewsCategory } = useParams();
 
   useEffect(() => {
  // Your code here
@@ -15,10 +25,13 @@ function NewsCategory(props) {
 
   useEffect(() => {
     // Your code here
-  
+
+    console.log('-----------------------------')
     console.log('分類更改後category:',category)
     console.log('分類更改後date:',date)
-
+    console.log('分類更改後NewsCategory:',NewsDate)
+    console.log('分類更改後NewsCategory:',NewsCategory)
+    console.log(props)
   }, [category])
 
   return (

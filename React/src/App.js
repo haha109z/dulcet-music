@@ -25,7 +25,7 @@ import UserApp from './container/user-app'
 //News
 
 import News from './container/news'
-import NewsPages from './container/news-pages'
+import NewsPages from './components/news/news-pages-Content'
 
 // Cart
 import CartApp from './container/cart-app'
@@ -85,12 +85,15 @@ function App() {
           </Route>
 
           <Switch>
-            <Route path="/news/:NewsCategory/:NewsDate">
+            <Route path="/news" exact>
               <News />
             </Route>
-            <Route path="/news-pages/:NewsCategory/:NewsID">
+            <Route path="/news/:NewsID?">
               <NewsPages />
             </Route>
+            {/* <Route path="/:NewsCategory/:NewsID">
+              <NewsPages />
+            </Route> */}
           </Switch>
 
           <Route path="/Forum">
