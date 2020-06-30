@@ -1,12 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import CartDeliverInfo from './cart-deliverInfo.js';
+import CartItem from './cart-cartItem.js';
 
 function CartCheckout (props) {
 
-  const { cart, setCart, number, setNumber, user, setUser, stock, coupon, totalPrice, orderPrice } = props.allProps;  
+  const { cart, setCart, user, setUser, number, setNumber, totalPrice, checkstate, setcheckstate, checkcallback, ReceivingName, setReceivingName, ReceivingAddress, setReceivingAddress, ReceivingPhone, setReceivingPhone,  ReceivingEmail, setReceivingEmail } = props.allProps;  
+  
+  // const [number, setNumber] = useState(cart[0].cartNumber)
+  // let stock = cart[0].PQty;   
+  const coupon = 1500;
+  let itemPrice = 0;
+  {cart.map((data, index)=>{
+    itemPrice = cart[index].PPrice;
+  })}
+  // let num = 2;
+  // const totalPrice = 0;  
+  // const orderPrice = totalPrice - coupon;
+  
   // console.log(user)
-  let index = 0;  
+  // console.log(cart[0])
+  // console.log(number)
+  // console.log(cart[0]["PQty"]);
+  // console.log(stock)
+
+  // setNumber(cart[0].cartNumber)
+  // stock = cart[0].PQty;
+  // itemPrice = cart[0].PPrice;
+
+  // let index = 0;  
+  // let arr =[2,1,3]
+  // const [testArr,setTestArr]=useState(arr)
 
   const minusCartNumber = (e) =>{
     if (number == 0) {
@@ -24,6 +49,18 @@ function CartCheckout (props) {
   }
 
   const plusCartNumber = (e) =>{
+    // let cart = cart[0]
+    // console.log(cart[0].cartNumber)
+    // let index=e
+    // arr=testArr
+    // console.log(index);    
+    // console.log(arr[index]+1)
+    // console.log(testArr)
+    // arr[index]=arr[index]+1
+    // arr[index]=parseInt(arr[index])+1
+    // setTestArr(arr)
+
+    const stock =5
     if (number == stock) {
       setNumber(stock) 
       alert('庫存不足')
@@ -36,10 +73,8 @@ function CartCheckout (props) {
           number: number       
         } 
       })
-      
     }
   }
-  console.log(cart)
 
   const deleteCartItem = (e) => {
     alert('是否確認刪除?')
@@ -62,33 +97,16 @@ function CartCheckout (props) {
               <ul className="cart-order-category">
                 <li colSpan="7">購買清單－課程</li>
               </ul>   
-              {cart.map((data, index)=>{
-                return(
-                  <ul className="cart-product">
-                    <li className="cart-product-li"><input type="checkbox" /></li>
-                    <li className="cart-product-li"><img src={require(`../../img/cart/cart-violin-01.jpeg`)} /></li>
-                    {/* <li className="cart-product-li"><img src={require(`../../img/cart/${data.PImg}.jpeg`)} /></li> */}
-                    <li className="cart-product-li">{data.PName}</li>
-                    <li className="cart-product-li cart-english-font" style={{color:'var(--main-colorfb2)'}}>${data.PPrice}</li>
-                    <li className="cart-product-li-2">
-                      <div onClick={(e)=>{minusCartNumber()}}>
-                        <i className="cart-minusBtn fas fa-minus-circle" />
-                      </div>
-                      <div className="cart-number-input cart-english-font">{data.PQty}</div>
-                      <div onClick={(e)=>{plusCartNumber()}}>
-                        <i className="cart-plusBtn fas fa-plus-circle" />
-                      </div>
-                    </li>
-                    <li className="cart-product-number cart-english-font" style={{color:'var(--main-colorfb2)'}}>${totalPrice}</li>
-                    <li className="cart-trash-btn" 
-                      onClick={(e)=>{deleteCartItem(e.target.parentElement.closest(".cart-product"))}}
-                    >
-                      <i className="far fa-trash-alt" />
-                    </li>
-                  </ul>
-                )
-                }
-              )}
+              <CartItem
+                allProps={{
+                  cart,
+                  setCart,
+                  totalPrice,
+                  minusCartNumber,
+                  plusCartNumber,
+                  deleteCartItem,
+              }}
+              />
           </div>
 
           <div>
@@ -97,6 +115,17 @@ function CartCheckout (props) {
                 allProps={{
                   user,
                   setUser,
+                  checkstate, 
+                  setcheckstate,
+                  checkcallback,
+                  ReceivingName, 
+                  setReceivingName, 
+                  ReceivingAddress, 
+                  setReceivingAddress, 
+                  ReceivingPhone, 
+                  setReceivingPhone, 
+                  ReceivingEmail, 
+                  setReceivingEmail
               }}
               />
               <div className="cart-invoice">
@@ -147,15 +176,15 @@ function CartCheckout (props) {
             <div className="cart-total-right">
               <div>
                 <span className="cart-total-title">合計</span>
-                <span className="cart-total-number cart-english-font">$ {totalPrice}</span>
+                <span className="cart-total-number cart-english-font">$ {}</span>
               </div>
               <div style={{color:'var(--main-colorfb2)'}}>
                 <span className="cart-total-title">折扣</span>
-                <span className="cart-total-number cart-english-font">- $ {coupon}</span>
+                <span className="cart-total-number cart-english-font">- $ {}</span>
               </div>
               <div>
                 <span className="cart-total-title">總計</span>
-                <span className="cart-total-number cart-english-font">$ {orderPrice}</span>
+                <span className="cart-total-number cart-english-font">$ {}</span>
               </div>
             </div>
           </div>
@@ -175,5 +204,6 @@ function CartCheckout (props) {
       </>
     );
 }
+
 
 export default CartCheckout;
