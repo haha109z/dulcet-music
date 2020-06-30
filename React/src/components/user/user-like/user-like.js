@@ -16,8 +16,8 @@ export default class UserLike extends Component {
     this.setState((state, props) => ({
       pageRwd: true,
     }))
-    console.log(this.state.pageRwd)
-    console.log('123')
+    // console.log(this.state.pageRwd)
+    // console.log('123')
   }
   getOrder() {
     // 先取出localStorage 裡的ＩＤ準備傳給後端判斷要取誰的資料
@@ -69,7 +69,12 @@ export default class UserLike extends Component {
   }
 
   chagePage(e) {
+
     // console.log(e)
+   
+    this.setState({
+      pageRwd: false
+    })
     let { likeData } = this.state
     this.setState({
       showLikeData: likeData.slice((e - 1) * 5, e * 5),
@@ -77,7 +82,9 @@ export default class UserLike extends Component {
     this.setState({
       pageStyle: e,
     })
-
+    console.log(this.state.pageRwd);
+    
+    
     this.bokTop()
   }
   constructor() {
