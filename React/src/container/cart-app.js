@@ -109,11 +109,11 @@ function CartApp (props) {
 
 
 // 從localStorage獲取-會員資料
-  useEffect(()=>{
-    const userData = JSON.parse(localStorage.getItem('user')); 
-    // console.log(userData); 
-    setUser(userData[0])
-  },[])
+useEffect(()=>{
+  const userData = JSON.parse(localStorage.getItem('user')); 
+  // console.log(userData); 
+  setUser(userData[0])
+},[])
 // console.log('user:'+user[0]);
 
 

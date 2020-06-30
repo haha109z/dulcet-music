@@ -2,6 +2,22 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function CartPay () {
+
+  
+  const getCardnum = (e) =>{
+    let content1 = document.getElementById("card1")
+    let input1 = document.getElementById("cardnumber1")
+    if(input1.value !== ''){
+        content1.value = input1.value
+    }else{
+
+    }
+  }
+
+  // const getCardnum = (e) =>{
+  //   console.log(e)
+  // }
+
     return (
       <>
               <div className="cart3-form-wrap">
@@ -48,7 +64,7 @@ function CartPay () {
                                 </div>
                                 <div className="cart3-creditcard-same cart3-creditcard-2">
                                   <div style={{display:'flex'}}>
-                                    <input className="cart3-creditcard-number"/>
+                                    <input className="cart3-creditcard-number" id="card1" />
                                     <input className="cart3-creditcard-number"/>
                                     <input className="cart3-creditcard-number"/>
                                     <input className="cart3-creditcard-number"/>
@@ -74,23 +90,25 @@ function CartPay () {
                       <div className="cart3-creditcard-form">
                         <div className="cart3-input">
                           <label htmlFor="payer-name">持卡人姓名</label>
-                          <input className="" id="payer-name" type="text"/>
+                          <input className="" id="payer-name" type="text" />
                         </div>
                         <div className="cart3-input">
                           <label htmlFor="">卡號</label>
                           <div style={{display:'flex'}}>
-                            <input className="" id="" type="text"/>
-                            <input className="" id="" type="text"/>
-                            <input className="" id="" type="text"/>
-                            <input className="" id="" type="text"/>
+                            <input className="" id="cardnumber1" type="text"                               
+                              onChange={ (e)=>{ getCardnum() }}
+                            />
+                            <input className="" id="cardnumber2" type="text" value="" />
+                            <input className="" id="cardnumber3" type="text" value="" />
+                            <input className="" id="cardnumber4" type="text" value="" />
                           </div>
                         </div>
                         <div className="cart3-input">
                           <label htmlFor="">到期日</label>
                           <div style={{display:'flex'}}>
                             <div className="cart-card-ex">
-                                <input className="" id="" type="text"/>
-                                <input className="" id="" type="text"/>
+                                <input className="" id="" type="text" value="" />
+                                <input className="" id="" type="text" value="" />
                             </div>
                           </div>
                         </div>
@@ -98,7 +116,7 @@ function CartPay () {
                           <label htmlFor="">安全碼</label>
                           <div style={{display:'flex'}}>
                             <div className="cart3-safe-code">
-                                <input className="" id="" type="text"/>
+                                <input className="" id="" type="text" value="" />
                             </div>
                           </div>
                         </div>

@@ -109,6 +109,9 @@ function CartCheckout (props) {
 
     return (
       <>
+
+          {/* 購物車商品 */}
+
           <div className="cart-table">
               <ul className='cart-thead'>
                 <li>選取</li>
@@ -122,6 +125,7 @@ function CartCheckout (props) {
               <ul className="cart-order-category">
                 <li colSpan="7">購買清單－課程</li>
               </ul>   
+              {/* 商品明細 */}
               <CartItem
                 allProps={{
                   cart,
@@ -134,8 +138,11 @@ function CartCheckout (props) {
               />
           </div>
 
+          {/* 兩個表單 */}
           <div>
             <form className="cart-form" action="/cart/2" method="post" encType="multipart/form-data">
+
+              {/* 表單1：收件人資訊 */}
               <CartDeliverInfo 
                 allProps={{
                   user,
@@ -153,9 +160,14 @@ function CartCheckout (props) {
                   setReceivingEmail
               }}
               />
+
+              {/* 表單2：統一發票 */}
               <div className="cart-invoice">
                   <h2>統一發票</h2>
                   <fieldset>
+
+                    {/* 選項1：會員載具 */}
+
                     <div>
                       <label>
                         <input type="radio" name="invoice" id="invoice1" value="會員載具" 
@@ -164,6 +176,9 @@ function CartCheckout (props) {
                       </label>
                       <span>中獎時我們會將發票寄送至您的收件地址</span>
                     </div>
+
+                    {/* 選項2：手機條碼載具 */}
+
                     <div>
                       <label>
                         <input type="radio" name="invoice" id="invoice2" value="手機條碼載具" 
@@ -173,10 +188,19 @@ function CartCheckout (props) {
                       <div className="cart-input1">
                         <label htmlFor="invoice">載具號碼</label>
                         <input id="invoicev" type="text" value={invoiceInfo}
-                          onChange={ (e)=>{ setInvoiceInfo(e.target.value) }}
+                          onChange={ (e)=>{ 
+                            console.log(document.getElementById("invoice2").checked)
+                            if (document.getElementById("invoice2").checked === true) {
+                            setInvoiceInfo(e.target.value) 
+                            } else {
+                              setInvoiceInfo('')
+                            }}}
                         />
                       </div>
                     </div>
+
+                    {/* 選項3：捐贈發票 */}
+
                     <div style={{padding:'0 0 20px 0'}}>
                       <label>
                         <input type="radio" name="invoice" id="invoice3" value="捐贈發票" 
@@ -190,6 +214,9 @@ function CartCheckout (props) {
                         <option value="財團法人陽光社會福利基金會">財團法人陽光社會福利基金會</option>
                       </select>
                     </div>
+
+                    {/* 選項4：公司戶發票 */}
+
                     <div>
                       <label>
                         <input type="radio" name="invoice" id="invoice4" value="公司戶發票" 
@@ -200,26 +227,42 @@ function CartCheckout (props) {
                       <div className="cart-input1">
                         <label htmlFor="invoice">統一編號</label>
                         <input className="companyinvoice" id="" type="text" value={invoiceInfo}
-                          onChange={ (e)=>{ setInvoiceInfo(e.target.value) }}
+                          onChange={ (e)=>{ 
+                            if (document.getElementById("invoice4").checked === true) {
+                            setInvoiceInfo(e.target.value) 
+                            } else {
+                              setInvoiceInfo('')
+                            }}}
                         />
                       </div>
                       <div className="cart-input1">
                         <label htmlFor="invoice">發票抬頭</label>
                         <input className="companyinvoice" id="" type="text" value={invoiceInfo}
-                          onChange={ (e)=>{ setInvoiceInfo(e.target.value) }}
+                          onChange={ (e)=>{ 
+                            if (document.getElementById("invoice4").checked === true) {
+                            setInvoiceInfo(e.target.value) 
+                            } else {
+                              setInvoiceInfo('')
+                            }}}
                         />
                       </div>
                     </div>
+
                 </fieldset>
               </div>
             </form>
           </div>
 
+          {/* 訂單金額合計區 */}
           <div className="cart-total">
+
+            {/* 折扣碼 */}
             <div className="cart-discount">
               <label htmlFor="discount">折扣碼</label>
               <input className="" id="discount" type="text"/>
             </div>
+
+            {/* 計算欄位 */}
             <div className="cart-total-right">
               <div>
                 <span className="cart-total-title">合計</span>
@@ -234,7 +277,10 @@ function CartCheckout (props) {
                 <span className="cart-total-number cart-english-font">$ {}</span>
               </div>
             </div>
+
           </div>
+
+          {/* 按鈕區 */}
           <div className="cart-checkout-btn">
             <button type="button"
               onClick={()=>{
