@@ -63,11 +63,11 @@ class InstrumentPutOn extends React.Component{
                     </div>
                 <img className="ins-pre-img"></img>
             </div>
-            <form className="ins-puton-file-btn">
+            <div className="ins-puton-file-btn">
                 <label htmlFor="file" onClick={this.handleUpload}>選擇圖片</label>
                 <input type="file" id="file" multiple
                  accept="image/png, image/jpeg ,image/jpg" className="ins-puton-file-img"/>
-            </form>
+            </div>
             
           
             <div className="ins-puton-content">
