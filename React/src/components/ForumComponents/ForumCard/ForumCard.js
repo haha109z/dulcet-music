@@ -24,7 +24,8 @@ class ForumCard extends Component {
   state = {
     boxShow: false,
     boxShowBtn: false,
-    userID: '',
+    // userID: '',
+    Memo:'',
     news: [
       {
         ForumId: '',
@@ -49,7 +50,7 @@ class ForumCard extends Component {
     }
     if (getUserInfo()) {
       let user = getUserInfo()
-      console.log(user[0].userID)
+      // console.log(user[0].userID)
 
       if (user[0].userID) {
         this.setState({ userID: user[0].userID })
@@ -78,6 +79,19 @@ class ForumCard extends Component {
     const toggle = !boxShowBtn
     this.setState({ boxShowBtn: toggle })
     // console.log(boxShow);
+    // for(let j =0 ;j<this.state.news.length;j++){
+    //   const i = this.state.news[j].Memo
+    // console.log(i)
+    // console.log(j)
+    // this.setState({Memo:i})
+    // }
+    // const i = this.state.news.length
+    // console.log(i)
+    // const Memo = this.state.news[i].Memo
+    // console.log(Memo)
+    
+    // this.setState({props:this.state.news.Memo})
+    // console.log(this.props)
   }
   handleClick = () => {
     const { boxShow } = this.state
@@ -90,29 +104,27 @@ class ForumCard extends Component {
     const UserName = this.state.username
     // UserName.value = this.state.news.userID
     this.setState({ userName:UserName })
-    console.log(this.state)
+    // console.log(this.state)
   }
   
 
   handleForumAboutTitle = (event) => {
     const state = this.state
-
-    console.log(state)
-
+    // console.log(state)
     //  console.log(ForumAboutTitle)
     this.setState({ news: state.news.ForumId })
-    console.log(state)
+    // console.log(state)
   }
 
 
 //抓取input的value值
 handleForumTitle = (event)=>{
   this.setState({ForumTitle:event.target.value})
-  console.log(event.target.value)
+  // console.log(event.target.value)
 }
 handleForumAction = (event)=>{
   this.setState({ForumAction:event.target.value})
-  console.log(event.target.value)
+  // console.log(event.target.value)
 }
 // handleForumActionAns = (event)=>{
 //   this.setState({ForumActionAns:event.target.value})
@@ -144,7 +156,9 @@ let {
   ForumTitle,
   ForumAction,
   // ForumActionAns,
-  userName}=this.state
+  // userName
+  userID,
+}=this.state
 // console.log(this.state.ForumTitle)
 // console.log(this.state.userID)
 
@@ -154,7 +168,7 @@ let {
                   body: JSON.stringify({
                  ForumTitle,
                  ForumAction,
-
+                 userID,
                   }), 
                   headers: new Headers({
                     'Content-Type': 'application/json',
@@ -177,6 +191,7 @@ let {
   this.setState({ boxShow: false })
   this.setState({ ForumTitle: this.state.ForumTitle })
   this.setState({ ForumAction: this.state.ForumAction })
+  this.setState({ userID: this.state.userID })
   // this.setState({ ForumActionAns: this.state.ForumActionAns })
   
   alert('新增成功')
@@ -186,16 +201,13 @@ let {
   render() {
     const { boxShow, boxShowBtn } = this.state
     //看回答的新增欄位
-    const boxBtn = boxShowBtn ? (
-      <div className="ForumCardDiv">
-        <p className="ForumCardP2">
-          鈴木和霍曼都可以，這兩個是目前用的最多的教材。可以一邊練琴一邊學些基礎知識，但最好有老師帶著你鈴木和霍曼都可以，這兩個是目前用的最多的教材。可以一邊練琴一邊學些基礎知識，但最好有老師帶著你
-        </p>
-        <div className="ForumCardTeacherImg"></div>
-      </div>
-    ) : (
-      ''
-    )
+    // const ForumMemo = Memo ? (<>
+    // <div>
+    //   {ForumMemo}
+    //   </div>
+    //   </>
+    // ):('')
+    
 
     //我要發問的新增欄位
     const box = boxShow ? (
@@ -228,12 +240,6 @@ let {
             onChange={this.handleForumAction}
                />
           </div>
-          {/* <textarea name="comment" className="ForumBtnAction"
-            name="ForumActionAns" 
-            value={this.state.ForumActionAns}          
-            onChange={this.handleForumActionAns}
-
-              /> */}
           <input
             type="button"
             value="送出"
@@ -246,8 +252,46 @@ let {
     ) : (
       ''
     )
-
+    const boxBtn = boxShowBtn ? (
+      <div className="ForumCardDiv">
+      {/* 用function的方法做完每個按鈕都顯示不同的Memo值 */}
+        
+        
+        {this.state.news.map((item, i) => {
+          {/* console.log(this.state.Memo) */}
+          {/* console.log(this.state.news[i].Memo) */}
+           {/* for(let j =0;j<item.length;j++){
+          return j 
+           } */}
+           {/* const Item = i
+           console.log(Item) */}
+           {/* const Item = item.Memo
+           console.log(Item)
+           console.log(i) */}
+           {/* console.log(item.Memo) */}
+           {/* console.log(item.ForumId.toString())
+           console.log(i) */}
+           
+            return (
+                <>
+                <div key={item.ForumId.toString()}>
+                <p className="ForumCardP2">
+                  {item.Memo}
+                  </p>
+        {/* <div className="ForumCardTeacherImg"></div> */}
+        </div>
+              </>
+                )
+           
+           
+            })}
+        
+      </div>
+    ) : (
+      ''
+    )
     return (
+      
       <div className="ForumAll">
         <div className="BackgroundForum"></div>
         <div className="ForumContainer">
@@ -265,9 +309,9 @@ let {
 
           {/* card1 */}
           <div className="ForumCardFlex">
-            {this.state.news.map((item, i) => {
+            {this.state.news.map((item, i) => {        
               return (
-                <div key={i} className="ForumCard">
+                <div key={item.ForumId.toString()}  className="ForumCard">
                   <div className="ForumCardTitle">
                     <div className="ForumCardImg"></div>
                     <div>
@@ -290,65 +334,6 @@ let {
               )
             })}
           </div>
-
-          {/* card2 */}
-          {/* <action className="ForumAction">
-               <div className="ForumCardTitle">
-                <div className="ForumCardImg"></div>
-                <div>
-                  <h3 className="ForumCardH3">發問會員：王采潔</h3>
-                  <h3 className="ForumCardH3">問題類別：小提琴</h3>
-                </div>
-
-                <button className="ComprehensiveButton">綜合</button>
-              </div>
-              <div className="ForumCardDiv">
-                <p className="ForumCardP">
-                  你好！我現在大一，想學琴，但什麼樂理的都是零基礎，想買一本關於樂理的書，謝謝！！
-                  你好！我現在大一，想學琴，但什麼樂理的都是零基礎，想買一本關於樂理的書，謝謝！！
-                </p>
-                <button className="ForumBtnAns">看回答</button>
-              </div>
-            </action>
-          </div>
-          <div className="ForumCard"> */}
-          {/* card3 */}
-          {/* <action className="ForumAction">
-              <div className="ForumCardTitle">
-                <div className="ForumCardImg"></div>
-                <div>
-                  <h3 className="ForumCardH3">發問會員：王采潔</h3>
-                  <h3 className="ForumCardH3">問題類別：小提琴</h3>
-                </div>
-                <button className="ComprehensiveButton">綜合</button>
-              </div>
-              <div className="ForumCardDiv">
-                <p className="ForumCardP">
-                  你好！我現在大一，想學琴，但什麼樂理的都是零基礎，想買一本關於樂理的書，謝謝！！
-                  你好！我現在大一，想學琴，但什麼樂理的都是零基礎，想買一本關於樂理的書，謝謝！！
-                </p>
-                <button className="ForumBtnAns">看回答</button>
-              </div>
-            </action> */}
-          {/* card4 */}
-          {/* <action className="ForumAction">
-              <div className="ForumCardTitle">
-                <div className="ForumCardImg"></div>
-                <div>
-                  <h3 className="ForumCardH3">發問會員：王采潔</h3>
-                  <h3 className="ForumCardH3">問題類別：小提琴</h3>
-                </div>
-                <button className="ComprehensiveButton">綜合</button>
-              </div>
-              <div className="ForumCardDiv">
-                <p className="ForumCardP">
-                  你好！我現在大一，想學琴，但什麼樂理的都是零基礎，想買一本關於樂理的書，謝謝！！
-                  你好！我現在大一，想學琴，但什麼樂理的都是零基礎，想買一本關於樂理的書，謝謝！！
-                </p>
-                <button className="ForumBtnAns">看回答</button>
-              </div>
-            </action> */}
-
           <div className="ForumChecked">
             <button type="checked" style={{ width: 30, height: 30 }}>
               <i className="fas fa-chevron-left"></i>
