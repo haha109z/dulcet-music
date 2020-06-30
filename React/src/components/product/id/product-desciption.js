@@ -7,7 +7,7 @@ function ProductDesciption(props) {
       <div id="product-id-desciption-wrapper">
         <h2 id="product-id-desciption-title">商品詳細內容</h2>
         <div id="product-id-desciption-text">
-          <p>{Pdesciption}</p>
+          <pre className="product-id-desciption-text-p">{Pdesciption}</pre>
           {/* <p className="product-id-desciption-text-p">
           MAPEX STORM ST5295F 爵士鼓組 附贈 原廠鼓椅、鼓墊、原廠HW780鼓架組
           自從1995年推出Stage Custom，YAMAHA再次為爵士鼓組立下音色價值的標竿。

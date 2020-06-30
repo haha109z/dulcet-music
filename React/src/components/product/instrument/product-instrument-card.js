@@ -3,18 +3,14 @@ import { FaHeart } from 'react-icons/fa'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
 function ProductVideoCard(props) {
-  // const favorite = props.favorite
-  // const setFavorite = props.setFavorite
   const maylike = props.maylike
 
   const favArr = props.favArr
   const setFavArr = props.setFavArr
   const CatId = '樂器'
   const PId = props.PId
-  // const [array, setFavArr] = useState([1, 2, 5])
   const [inc, setInc] = useState(favArr.includes(PId))
   var testArray = favArr
-  // var PId = 1
 
   async function addInstrumentFav(CatId, PId) {
     fetch(`http://localhost:3030/product/addFavorite`, {

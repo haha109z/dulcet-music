@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from '../components/navbar/navbar'
 import ProducList from '../components/product/video/productList'
 import ProductCategory from '../components/product/productCategory'
@@ -15,12 +15,26 @@ import ProductId from '../components/product/video/product-id'
 function ProductInstrument() {
   const productTitle = '線上影片'
   const productTitleId = 'video'
+  const [control, setControl] = useState('熱門度')
+
   return (
     <>
       <Navbar />
       {/* <ProductCategory /> */}
       <BrowserRouter>
         <Switch>
+          <Route
+            path="/video/page/:page"
+            render={(routeProps) => (
+              <ProducList
+                productTitle={productTitle}
+                productTitleId={productTitleId}
+                control={control}
+                setControl={setControl}
+              />
+            )}
+          ></Route>
+
           <Route
             path="/video/piano"
             render={(routeProps) => (
@@ -30,11 +44,11 @@ function ProductInstrument() {
               </>
             )}
           ></Route>
-          <Route path="/video/id">
+          <Route path="/video/:PId">
             <ProductId />
           </Route>
 
-          <Route
+          {/* <Route
             path="/video"
             render={(routeProps) => (
               <ProducList
@@ -42,8 +56,8 @@ function ProductInstrument() {
                 productTitleId={productTitleId}
               />
             )}
-          ></Route>
-          <Redirect to="/video" />
+          ></Route> */}
+          <Redirect to="/video/page/1" />
         </Switch>
       </BrowserRouter>
     </>
