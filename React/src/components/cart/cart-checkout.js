@@ -9,10 +9,15 @@ function CartCheckout (props) {
     cart, 
     setCart, 
     user, 
-    setUser, 
-    number, 
-    setNumber, 
-    totalPrice, 
+    setUser,  
+    coupon,
+    haveCoupon,
+    discount,
+    setDiscount,
+    totalPrice,
+    setTotalPrice, 
+    orderPrice,
+    setOrderPrice,
     checkstate, 
     setcheckstate,
     checkcallback,
@@ -30,76 +35,77 @@ function CartCheckout (props) {
     invoiceInfo,
     setInvoiceInfo,
    } = props.allProps;  
+  //  console.log(discount);
   
-  // const [number, setNumber] = useState(cart[0].cartNumber)
-  // let stock = cart[0].PQty;   
-  const coupon = 1500;
-  let itemPrice = 0;
+
+  // 計算購物車商品總價
+  let itemPrice = 0;  
   {cart.map((data, index)=>{
-    itemPrice = cart[index].PPrice;
+    // console.log(cart[index]);
+    itemPrice += parseInt(cart[index].PPrice);
   })}
-  // let num = 2;
-  // const totalPrice = 0;  
-  // const orderPrice = totalPrice - coupon;
+  // console.log(itemPrice);
+  setTotalPrice(itemPrice);
+  // console.log(totalPrice);
   
-  // console.log(user)
-  // console.log(cart[0])
-  // console.log(number)
-  // console.log(cart[0]["PQty"]);
-  // console.log(stock)
 
-  // setNumber(cart[0].cartNumber)
-  // stock = cart[0].PQty;
-  // itemPrice = cart[0].PPrice;
+  // 計算訂單總價
+  let orderprice = parseInt(totalPrice - discount)
+  // console.log(discount);
+  // console.log(orderprice);  
+  setOrderPrice(orderprice);
+  // console.log(orderPrice);
+  
+  
+  // let stock = cart[0].PQty;
 
-  // let index = 0;  
   // let arr =[2,1,3]
   // const [testArr,setTestArr]=useState(arr)
 
   // minusCartNumber函式：點擊btn減少該商品之購物車數量
-  const minusCartNumber = (e) =>{
-    if (number == 0) {
-      setNumber(0)
-    } else {
-      setNumber(number - 1)
-      setCart({
-        ...cart,
-        0:{
-          ...cart[0],
-          number: number       
-        } 
-      })
-    }
-  }
+  // const minusCartNumber = (e) =>{
+  //   if (number == 0) {
+  //     setNumber(0)
+  //   } else {
+  //     setNumber(number - 1)
+  //     setCart({
+  //       ...cart,
+  //       0:{
+  //         ...cart[0],
+  //         number: number       
+  //       } 
+  //     })
+  //   }
+  // }
 
   // plusCartNumber函式：點擊btn增加該商品之購物車數量
-  const plusCartNumber = (e) =>{
-    // let cart = cart[0]
-    // console.log(cart[0].cartNumber)
-    // let index=e
-    // arr=testArr
-    // console.log(index);    
-    // console.log(arr[index]+1)
-    // console.log(testArr)
-    // arr[index]=arr[index]+1
-    // arr[index]=parseInt(arr[index])+1
-    // setTestArr(arr)
+  // const plusCartNumber = (e) =>{
+  //   // let cart = cart[0]
+  //   // console.log(cart[0].cartNumber)
+  //   // let index=e
+  //   // arr=testArr
+  //   // console.log(index);    
+  //   // console.log(arr[index]+1)
+  //   // console.log(testArr)
+  //   // arr[index]=arr[index]+1
+  //   // arr[index]=parseInt(arr[index])+1
+  //   // setTestArr(arr)
 
-    const stock =5
-    if (number == stock) {
-      setNumber(stock) 
-      alert('庫存不足')
-    } else {
-      setNumber(number + 1)
-      setCart({
-        ...cart,
-        0:{
-          ...cart[0],
-          number: number       
-        } 
-      })
-    }
-  }
+  //   const stock =5
+  //   if (number == stock) {
+  //     setNumber(stock) 
+  //     alert('庫存不足')
+  //   } else {
+  //     setNumber(number + 1)
+  //     setCart({
+  //       ...cart,
+  //       0:{
+  //         ...cart[0],
+  //         number: number       
+  //       } 
+  //     })
+  //   }
+  // }
 
   const deleteCartItem = (e) => {
     alert('是否確認刪除?')
@@ -131,8 +137,8 @@ function CartCheckout (props) {
                   cart,
                   setCart,
                   totalPrice,
-                  minusCartNumber,
-                  plusCartNumber,
+                  // minusCartNumber,
+                  // plusCartNumber,
                   deleteCartItem,
               }}
               />
@@ -188,13 +194,7 @@ function CartCheckout (props) {
                       <div className="cart-input1">
                         <label htmlFor="invoice">載具號碼</label>
                         <input id="invoicev" type="text" value={invoiceInfo}
-                          onChange={ (e)=>{ 
-                            console.log(document.getElementById("invoice2").checked)
-                            if (document.getElementById("invoice2").checked === true) {
-                            setInvoiceInfo(e.target.value) 
-                            } else {
-                              setInvoiceInfo('')
-                            }}}
+                          onChange={ (e)=>{ setInvoiceInfo(e.target.value) }}
                         />
                       </div>
                     </div>
@@ -259,22 +259,34 @@ function CartCheckout (props) {
             {/* 折扣碼 */}
             <div className="cart-discount">
               <label htmlFor="discount">折扣碼</label>
-              <input className="" id="discount" type="text"/>
+              <input className="" id="discount" type="text"
+                onChange={ (e)=>{  
+                  // console.log(e.target.value)
+                  // console.log(coupon)     
+                  if (haveCoupon == 1) { 
+                    if ( e.target.value == coupon ) {
+                      alert('恭喜您折扣碼符合')
+                      setDiscount(1500);
+                    }} else {
+                      setDiscount(0);
+                    } 
+                }}
+              />
             </div>
 
             {/* 計算欄位 */}
             <div className="cart-total-right">
               <div>
                 <span className="cart-total-title">合計</span>
-                <span className="cart-total-number cart-english-font">$ {}</span>
+                <span className="cart-total-number cart-english-font">$ {totalPrice}</span>
               </div>
               <div style={{color:'var(--main-colorfb2)'}}>
                 <span className="cart-total-title">折扣</span>
-                <span className="cart-total-number cart-english-font">- $ {}</span>
+                <span className="cart-total-number cart-english-font">- $ {discount}</span>
               </div>
               <div>
                 <span className="cart-total-title">總計</span>
-                <span className="cart-total-number cart-english-font">$ {}</span>
+                <span className="cart-total-number cart-english-font">$ {orderPrice}</span>
               </div>
             </div>
 

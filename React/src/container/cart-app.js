@@ -18,10 +18,22 @@ function CartApp (props) {
   // [{"PId":22,"PCategoryId":"樂器","PName":"KAWAI  K-30(SNW)直立式鋼琴","PImg":"Product_20200423164441.jpg","PPrice":60000,"PQty":1,"PIntro":"KAWAI  K-30(SNW)直立式鋼琴","Pdesciption":"採用日本原裝打擊系統、音搥、琴弦，外觀歐洲宮庭型","PInstrumentId":"鋼琴","PCompanyId":"F044","PClick":null,"created_at":"2020-08-16T06:18:00.000Z","update_at":"2020-08-17T06:18:00.000Z","PIId":null,"num":1}, 
   // {"PId":22,"PCategoryId":"樂器","PName":"KAWAI  K-30(SNW)直立式鋼琴","PImg":"Product_20200423164441.jpg","PPrice":60000,"PQty":1,"PIntro":"KAWAI  K-30(SNW)直立式鋼琴","Pdesciption":"採用日本原裝打擊系統、音搥、琴弦，外觀歐洲宮庭型","PInstrumentId":"鋼琴","PCompanyId":"F044","PClick":null,"created_at":"2020-08-16T06:18:00.000Z","update_at":"2020-08-17T06:18:00.000Z","PIId":null,"num":1}]
   const [cart, setCart] = useState([])
-  // const [number, setNumber] = useState()
-  // let stock = 0; 
-  // // console.log(stock);  
-  // const coupon = 1500;
+
+  // 購物車商品總價
+  const [totalPrice, setTotalPrice] = useState(0)
+
+  // 訂單總金額
+  const [orderPrice, setOrderPrice] = useState(0)
+ 
+  // 折扣碼資料
+  // [{"coupon":"dulcet-20200710"}]
+  const [coupon, setCoupon] = useState('') 
+  // 會員是否擁有折扣碼，預設為否
+  const [haveCoupon, setHaveCoupon] = useState(false)
+  // 折扣金額，預設為0
+  const [discount, setDiscount] = useState(0) 
+
+
   // let itemPrice = 1;
   // const totalPrice = number * itemPrice;  
   // const orderPrice = totalPrice - coupon;
@@ -67,7 +79,7 @@ function CartApp (props) {
     
     // A == true ? A.value : (B == true ? B.value : (C == 1 ? C.value : (D == 1 ? D.value : '' )) )
     setInvoiceInfo(
-      radiostate1 == true ? '' : (radiostate2 == true ? invoiceinfo2 : (radiostate3 == 1 ? invoiceinfo3 : (radiostate4 == 1 ? invoiceinfo4 : '' )))
+      radiostate1 == 1 ? '' : (radiostate2 == 1 ? invoiceinfo2 : (radiostate3 == 1 ? invoiceinfo3 : (radiostate4 == 1 ? invoiceinfo4 : '' )))
     )
     // 切換radio選項時，先清空invoiceInfo
     // if () {
@@ -75,7 +87,7 @@ function CartApp (props) {
     // }
   }
   useEffect(()=>{
-    setInvoiceInfo('')
+    // setInvoiceInfo('')
     radiocallback(invoiceInfo)
   },[])
   // console.log(radiostate)
@@ -115,6 +127,21 @@ useEffect(()=>{
   setUser(userData[0])
 },[])
 // console.log('user:'+user[0]);
+
+
+// 從localStorage獲取-coupon資料
+const couponData = JSON.parse(localStorage.getItem('coupon'));
+// console.log(couponData[0]['coupon']); 
+// 若從localStorage存在coupon資料，變更會員狀態為擁有折扣碼
+useEffect(()=>{
+  if (couponData[0]['coupon']!==0) {
+    setHaveCoupon(true)
+    setCoupon(couponData[0]['coupon'])
+  }
+},[])
+// console.log(haveCoupon);
+// console.log(coupon);
+
 
 
 // 從localStorage獲取-購物車資料
@@ -165,6 +192,10 @@ useEffect(()=>{
                         setCart,
                         user,
                         setUser,
+                        coupon,
+                        discount,
+                        totalPrice,
+                        orderPrice,
                         checkstate,
                         radiostate,
                         ReceivingName, 
@@ -188,6 +219,14 @@ useEffect(()=>{
                         setCart,
                         user,
                         setUser,
+                        coupon,
+                        haveCoupon,
+                        discount,
+                        setDiscount,
+                        totalPrice,
+                        setTotalPrice,
+                        orderPrice,
+                        setOrderPrice,
                         checkstate,
                         setcheckstate,
                         checkcallback,

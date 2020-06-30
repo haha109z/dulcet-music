@@ -9,6 +9,7 @@ export default function CartCheckOrder (props) {
     number, 
     user, 
     coupon, 
+    discount,
     totalPrice, 
     orderPrice, 
     checkstate, 
@@ -22,7 +23,7 @@ export default function CartCheckOrder (props) {
     invoiceInfo,
   } = props.allProps;  
 
-  console.log(invoiceType)
+  // console.log(invoiceType)
 
     return (
       <>
@@ -57,8 +58,10 @@ export default function CartCheckOrder (props) {
               }
             )}
           </div>
+
           <div> 
             <form className="cart-form">
+
               <div className="cart-buyer-info">
                   <h2>收件人資訊</h2>
                   <fieldset>
@@ -109,6 +112,7 @@ export default function CartCheckOrder (props) {
 
                   </fieldset>
               </div>
+
               <CartInvoiceInfo 
                 allProps={{
                   radiostate,
@@ -163,20 +167,20 @@ export default function CartCheckOrder (props) {
           <div className="cart-total">
             <div className="cart-discount">
               <label htmlFor="discount">折扣碼</label>
-              <input className="" id="discount" type="text"/>
+              <input className="" id="discount" type="text" readonly="readonly" value={coupon} />
             </div>
             <div className="cart-total-right">
               <div>
                 <span className="cart-total-title">合計</span>
-                <span className="cart-total-number cart-english-font">$ {}</span>
+                <span className="cart-total-number cart-english-font">$ {totalPrice}</span>
               </div>
               <div style={{color:'var(--main-colorfb2)'}}>
                 <span className="cart-total-title">折扣</span>
-                <span className="cart-total-number cart-english-font">- $ {}</span>
+                <span className="cart-total-number cart-english-font">- $ {discount}</span>
               </div>
               <div>
                 <span className="cart-total-title">總計</span>
-                <span className="cart-total-number cart-english-font">$ {}</span>
+                <span className="cart-total-number cart-english-font">$ {orderPrice}</span>
               </div>
             </div>
           </div>
