@@ -30,7 +30,20 @@ class VideoEditPassword extends React.Component{
         密碼修改
       </h3>
       <div className="videoPassword-top-Img">
-        <img src="" alt="" />
+            <label for="gogo" className="video-upload-container">
+              <input
+                type="file"
+                name="image"
+                className="video-upload-input"
+                onChange={this.onChange}
+                id="gogo"
+              />
+              <input
+                type="primary"
+                className="video-upload-button"
+                value="上传图片"
+              />
+            </label>
       </div>
 
       <hr className="videoPassword-top-hr" />
