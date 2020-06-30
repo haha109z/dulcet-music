@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function CartCheckOrder (props) {
 
-  const { cart, number, user, coupon, totalPrice, orderPrice } = props.allProps;  
+  const { cart, number, user, coupon, totalPrice, orderPrice, checkstate, ReceivingName, ReceivingAddress, ReceivingPhone, ReceivingEmail  } = props.allProps;  
 
     return (
       <>
@@ -18,24 +18,36 @@ export default function CartCheckOrder (props) {
             <ul className="cart-order-category">
               <li colSpan="5">課程訂單</li>
             </ul>
-            <ul className="cart2-product">
-              <li><img src={require(`../../img/cart/${cart[0].img}.jpeg`)}/></li>
-              <li>{cart[0].product}</li>
-              <li className="cart-english-font cart-rwd-noneed" style={{color:'var(--main-colorfb2)'}}>${cart[0].price}</li>
-              <li className="cart-english-font">
-                <div>{number}</div>
-              </li>
-              <li className="cart-english-font" style={{color:'var(--main-colorfb2)'}}>${totalPrice}</li>
-            </ul>
+            {cart.map((data, index)=>{
+              return (
+                <ul className="cart2-product">
+                  <li><img src={require(`../../img/cart/cart-violin-01.jpeg`)}/></li>
+                  {/* <li><img src={require(`../../img/cart/${data.img}`)}/></li> */}
+                  <li>{data.PName}</li>
+                  <li className="cart-english-font cart-rwd-noneed" style={{color:'var(--main-colorfb2)'}}>${data.PPrice.toString().replace( /(\d)(?=(\d{3})+(\d{3})?$)/g, '$1,' )}</li>
+                  <li className="cart-english-font">
+                    <div>{data.cartNumber}</div>
+                  </li>
+                  <li className="cart-english-font" style={{color:'var(--main-colorfb2)'}}>
+                    ${(data.num * data.PPrice).toString().replace( /(\d)(?=(\d{3})+(\d{3})?$)/g, '$1,' )}
+                  </li>
+                </ul>
+                )
+              }
+            )}
           </div>
           <div> 
             <form className="cart-form">
               <div className="cart-buyer-info">
                   <h2>收件人資訊</h2>
                   <fieldset>
+
+                    {checkstate ? (
+
+                    <>
                     <div className="cart2-input">
                       <label htmlFor="name">姓名</label>
-                      <div>{user["username"]}</div>
+                      <div>{user["userName"]}</div>
                     </div>
                     <div className="cart2-input">
                       <label htmlFor="add">地址</label>
@@ -49,6 +61,31 @@ export default function CartCheckOrder (props) {
                       <label htmlFor="email">電子信箱</label>
                       <div>{user["userMail"]}</div>
                     </div>
+                    </>
+
+                    ):(
+
+                    <>
+                    <div className="cart2-input">
+                      <label htmlFor="name">姓名</label>
+                      <div>{ReceivingName}</div>
+                    </div>
+                    <div className="cart2-input">
+                      <label htmlFor="add">地址</label>
+                      <div>{ReceivingAddress}</div>
+                    </div>
+                    <div className="cart2-input">
+                      <label htmlFor="phone">手機號碼</label>
+                      <div>{ReceivingPhone}</div>
+                    </div>
+                    <div className="cart2-input">
+                      <label htmlFor="email">電子信箱</label>
+                      <div>{ReceivingEmail}</div>
+                    </div>
+                    </>
+
+                    )}
+
                   </fieldset>
               </div>
               <div className="cart-invoice">
@@ -88,15 +125,15 @@ export default function CartCheckOrder (props) {
             <div className="cart-total-right">
               <div>
                 <span className="cart-total-title">合計</span>
-                <span className="cart-total-number cart-english-font">$ {totalPrice}</span>
+                <span className="cart-total-number cart-english-font">$ {}</span>
               </div>
               <div style={{color:'var(--main-colorfb2)'}}>
                 <span className="cart-total-title">折扣</span>
-                <span className="cart-total-number cart-english-font">- $ {coupon}</span>
+                <span className="cart-total-number cart-english-font">- $ {}</span>
               </div>
               <div>
                 <span className="cart-total-title">總計</span>
-                <span className="cart-total-number cart-english-font">$ {orderPrice}</span>
+                <span className="cart-total-number cart-english-font">$ {}</span>
               </div>
             </div>
           </div>

@@ -40,7 +40,10 @@
       align-items: center;
       justify-content: center;
       padding: 10px;
-      white-space: nowrap;
+      // white-space: nowrap;
+      word-wrap:break-word;
+      overflow: hidden;
+      text-align: left;
       input[type='checkbox'] {
         width: 20px;
         height: 20px;
