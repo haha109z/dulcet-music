@@ -7,32 +7,21 @@ import AOS from 'aos'
 class Company extends Component{
     constructor(props) {
         super(props)
-        const {Memail,Mpwd}=this.state
-        fetch('http://localhost:3030/login/manufacturer', {
-            method: 'POST', // or 'PUT'
-            body: JSON.stringify({
-                Memail,
-                Mpwd,
-            }), 
-            
-            headers: new Headers({
-              'Content-Type': 'application/json',
-            }),
-            
+        let t = this
+        fetch('http://localhost:3030/forum', { method: 'GET' }).then(function (
+          res
+        ) {
+          // console.log(res);
+          res.json().then(function (data) {
+            console.log(data)
+            t.setState({
+              news: data,
+            })
           })
-            .then((res) => res.json())
-            .then((json) => {
-              this.setState({new:json})
-              console.log(this.state)
-              // localStorage.setItem('user', JSON.stringify(json.data))
-              // console.log(json.data)
-            })
-            .catch((error) => {
-              console.error('Error:', error)
-            })
-   
-
-        }
+        })
+      }
+           
+           
         
         state = {
            
