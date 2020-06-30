@@ -15,43 +15,127 @@
     position: relative;
     margin: auto;
     width: 100%;
+    .video-edit-all-file {
+      display: flex;
+      .video-edit-file-v {
+        width: 50%;
+        margin: 10px;
+        text-align: center;
+        .video-edit-file-v-div {
+          position: relative;
+          margin: auto;
+          width: 100%;
+          height: 50px;
+          label {
+            width: 50%;
+            left: calc(50% - 25%);
+            background: var(--main-colorblock);
+            color: var(--main-colorfff);
+            border: none;
+            height: 50px;
+            line-height: 50px;
+            position: absolute;
+            // opacity: 0;
+            z-index: 99;
+          }
+          input {
+            opacity: 0;
+            position: absolute;
+            width: 50%;
+            left: calc(50% - 25%);
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+          }
 
-    .video-edit-file-btn {
-      width: 100%;
-      text-align: center;
-      button {
-        width: 30%;
-        height: 50px;
-        background: #141414;
-        color: #fff;
-        border: none;
-      }
-      button:hover {
-        background: var(--main-colorf2e);
-        color: #141414;
-      }
-    }
+          label:hover {
+            background: #f2e8df;
+            color: #141414;
+          }
+        }
 
-    .video-edit-add {
-      width: 80%;
-      height: 350px;
-      border: 1px solid #141414;
-      text-align: center;
-      margin: auto auto 10px auto;
-      .video-edit-file-text {
-        margin-top: 50px;
-        color: var(--main-color79);
+        .video-edit-add {
+          width: 100%;
+          height: 200px;
+          border: 1px solid #141414;
+          text-align: center;
+          margin: auto auto 10px auto;
+          .video-edit-file-v-text {
+            margin: 50px auto 30px auto;
+            color: var(--main-color79);
+          }
+          .video-edit-v-div {
+            .video-edit-icon-v {
+              color: var(--main-color79);
+              width: 50px;
+              height: 50px;
+            }
+          }
+          .video-edit-v-preview {
+            max-width: 100%;
+            max-height: 100%;
+            display: none;
+          }
+        }
       }
-      .video-edit-icon-div {
-        .video-edit-icon {
-          color: var(--main-color79);
-          width: 100px;
-          height: 100px;
+      .video-edit-file-i {
+        width: 50%;
+        margin: 10px;
+        text-align: center;
+        .video-edit-add-img {
+          border: 1px solid;
+          width: 100%;
+          height: 200px;
+          margin: auto auto 10px auto;
+          text-align: center;
+          .video-edit-file-i-text {
+            margin: 50px auto 30px auto;
+            color: var(--main-color79);
+          }
+          .video-edit-i-div {
+            .video-edit-icon-i {
+              color: var(--main-color79);
+              width: 50px;
+              height: 50px;
+            }
+          }
+
+          img {
+            max-width: 100%;
+            max-height: 100%;
+          }
+        }
+        .video-edit-file-i-div {
+          position: relative;
+          width: 100%;
+          height: 50px;
+          label {
+            width: 50%;
+            background: var(--main-colorblock);
+            color: var(--main-colorfff);
+            border: none;
+            height: 50px;
+            position: absolute;
+            left: calc(50% - 25%);
+            line-height: 50px;
+            z-index: 99;
+          }
+          label:hover {
+            background: #f2e8df;
+            color: #141414;
+          }
+          input {
+            position: absolute;
+            left: calc(50% - 25%);
+            width: 50%;
+            height: 50px;
+            opacity: 0;
+          }
         }
       }
     }
     .video-edit-content {
-      width: 70%;
+      width: 60%;
       display: flex;
       margin: auto;
       flex-direction: column;
@@ -104,14 +188,37 @@
   .video-edit-page {
     width: 80%;
     margin: 154px auto auto auto;
+
+    h3 {
+      margin: auto auto 25px auto;
+    }
     .video-edit-form {
-      .video-edit-add {
-        width: 100%;
-        height: 250px;
-        .video-edit-icon-div {
-          .video-edit-icon {
-            width: 50px;
+      .video-edit-all-file {
+        display: block;
+        .video-edit-file-v {
+          width: 100%;
+          margin: auto auto 10px auto;
+          .video-edit-add {
+            height: 200px;
+          }
+          .video-edit-new-btn {
+            display: block;
             height: 50px;
+            width: 100%;
+            background: var(--main-colorblock);
+            color: var(--main-colorfff);
+            border: none;
+          }
+          .video-edit-new-btn:hover {
+            background: var(--main-colorf2e);
+            color: var(--main-colorblock);
+          }
+        }
+        .video-edit-file-i {
+          width: 100%;
+          margin: 0px;
+          button {
+            width: 100%;
           }
         }
       }

@@ -17,7 +17,7 @@ function ProductInstrument() {
   const productTitle = '精選樂器'
   const productTitleId = 'instrument'
 
-  const [control, setControl] = useState('價格高到低')
+  const [control, setControl] = useState('熱門度')
 
   //分頁
 

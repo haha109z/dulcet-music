@@ -26,7 +26,7 @@ class InstrumentList extends React.Component {
   render() {
     return (
       <div className="ins-list-page">
-        <h3 className="ins-list-title font-size-142rem">影片列表</h3>
+        <h3 className="ins-list-title font-size-142rem">樂器列表</h3>
         <div
           className="btn-group ins-main-buttons"
           role="group"
@@ -80,6 +80,9 @@ class InstrumentList extends React.Component {
             <a href="">下架</a>
           </div>
           <Link to="/ManufacturerInstrument/InstrumentPutOn" className="ins-list-tool-btn">新增影片</Link>
+        </div>
+        <div>
+          <p></p>
         </div>
         <form className="ins-list-product">
           <div className="ins-list-state">

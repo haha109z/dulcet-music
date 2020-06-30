@@ -48,7 +48,7 @@ app.use("/img-upload", require(__dirname + "/img-upload"));
 
 app.use(
   "/ManufacturerInstrument/InstrumentHome",
-  require(__dirname + "/ManuIuserdata")
+  require(__dirname + "/manu_userdata")
 );
 
 // app.use("/form", require(__dirname + "/form"));
@@ -73,7 +73,7 @@ app.use("/forum/123" , require(__dirname + "/forum123"));
 // Forum!!
 app.get("/forum", async (req, res) => {
   const output = await query(
-    `SELECT ForumAbout.userID,user.userName,ForumAbout.TitleMusic,ForumAbout.TitleId,ForumAbout.Memo FROM ForumAbout left JOIN user ON ForumAbout.userID = user.userID`
+     `SELECT ForumAbout.ForumId,ForumAbout.userID,user.userName,ForumAbout.TitleMusic,ForumAbout.TitleId,ForumAbout.Memo FROM ForumAbout left JOIN user ON ForumAbout.userID = user.userID`
   );
   console.log(output);
   res.json(output);
