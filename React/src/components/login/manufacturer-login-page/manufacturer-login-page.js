@@ -58,7 +58,7 @@ class Company extends Component{
                     console.log(event.target.value)
                         }
                         HandleCheckBox=()=>{
-                            if()
+                            // if()
                         }
                 // Text=()=>{
                 //     console.log(this.target)
