@@ -41,14 +41,36 @@ function ProductIntroBtn(props) {
           className="product-id-intro-btn"
           onClick={() => {
             arrCart = JSON.parse(localStorage.getItem('cart'))
-
-            dataCart[0].num = amount
-            setAmount(0)
-            setDataP(dataCart)
-            arrCart.push(dataCart[0])
-            console.log('arrCart', arrCart)
-
-            localStorage.setItem('cart', JSON.stringify(arrCart))
+            let addBool = false
+            if (arrCart == null) {
+              dataCart[0].num = amount
+              setAmount(0)
+              setDataP(dataCart)
+              localStorage.setItem('cart', JSON.stringify(dataCart))
+            } else if (arrCart != null) {
+              for (let i = 0; i < arrCart.length; i++) {
+                console.log(i)
+                if (dataCart[0].PId == arrCart[i].PId) {
+                  alert('請勿重複加入')
+                  break
+                } else if (i == arrCart.length - 1) {
+                  console.log('要加')
+                  dataCart[0].num = amount
+                  setAmount(0)
+                  setDataP(dataCart)
+                  arrCart.push(dataCart[0])
+                  localStorage.setItem('cart', JSON.stringify(arrCart))
+                  alert('已加入購物車')
+                  break
+                }
+              }
+              // dataCart[0].num = amount
+              // setAmount(0)
+              // setDataP(dataCart)
+              // arrCart.push(dataCart[0])
+              // console.log('arrCart', arrCart.length)
+              // localStorage.setItem('cart', JSON.stringify(arrCart))
+            }
           }}
         >
           加入購物車
