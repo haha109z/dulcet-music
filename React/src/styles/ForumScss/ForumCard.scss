@@ -96,10 +96,10 @@
 .ForumCardImg {
   margin: 20px;
   width: 100px;
-  height: 100px;
+  // height: 50px;
   //   border: 1px solid red;
-  // border-radius: 50%;
-  background-image: url(../../img/About/女生001.jpg);
+  border-radius: 50%;
+  background-image: url(../../img/About/女生002.jpg);
   background-size: cover;
 }
 .ForumCardTeacherImg {
@@ -108,7 +108,7 @@
   height: 50px;
   //   border: 1px solid red;
   border-radius: 50%;
-  background-image: url(../../img/About/女生001.jpg);
+  background-image: url(../../img/About/女生002.jpg);
   background-size: cover;
 }
 
