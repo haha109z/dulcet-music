@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
+// 引入sweetalert2-react-content套件
+// import withReactContent from 'sweetalert2-react-content';
+// import Swal from 'sweetalert2';
+
 import CartDeliverInfo from './cart-deliverInfo.js';
 import CartItem from './cart-cartItem.js';
+// const MySwal = withReactContent(Swal);
 
 function CartCheckout (props) {
 
@@ -40,10 +46,10 @@ function CartCheckout (props) {
 
   // 計算購物車商品總價
   let itemPrice = 0;  
-  {cart.map((data, index)=>{
+  cart.map((data, index)=>{
     // console.log(cart[index]);
     itemPrice += parseInt(cart[index].PPrice);
-  })}
+  })
   // console.log(itemPrice);
   setTotalPrice(itemPrice);
   // console.log(totalPrice);
@@ -77,6 +83,34 @@ function CartCheckout (props) {
   //     })
   //   }
   // }
+
+
+  // 引入彈跳框插件
+  // MySwal.fire({
+  //   type: 'warning', // 彈框類型
+  //   title: '修改資料？', //標題
+  //   text: '', //顯示內容
+  //   icon: '', //icon圖示
+  //   confirmButtonColor: '#141414', // 確定按鈕的 顏色
+  //   confirmButtonText: '確定', // 確定按鈕的 文字
+  //   showCancelButton: true, // 是否顯示取消按鈕
+  //   cancelButtonColor: '#dadada', // 取消按鈕的 顏色
+  //   cancelButtonText: '取消', // 取消按鈕的 文字
+    // html:
+    //   `<p class="userdata-alert-p">姓名</p>` +
+    //   `<input id="swal-input1" class="swal2-input" value=${userName}>` +
+    //   `<p class="userdata-alert-p">電子信箱</p>` +
+    //   `<input id="swal-input2" class="swal2-input" value=${userMail}>` +
+    //   `<p class="userdata-alert-p">生日</p>` +
+    //   `<input id="swal-input3" class="swal2-input" type="date" value=${userBirthday}>` +
+    //   `<p class="userdata-alert-p">地址</p>` +
+    //   `<input id="swal-input4" class="swal2-input" value=${userAddress}>` +
+    //   `<p class="userdata-alert-p">手機號碼</p>` +
+    //   `<input id="swal-input5" class="swal2-input" value=${userPhone}>`,
+  //   focusCancel: true, // 是否聚焦 取消按鈕
+  //   reverseButtons: true, // 是否 反轉 兩個按鈕的位置 默認是  左邊 確定  右邊 取消
+  // })
+
 
   // plusCartNumber函式：點擊btn增加該商品之購物車數量
   // const plusCartNumber = (e) =>{

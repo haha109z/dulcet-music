@@ -34,11 +34,6 @@ function CartApp (props) {
   const [discount, setDiscount] = useState(0) 
 
 
-  // let itemPrice = 1;
-  // const totalPrice = number * itemPrice;  
-  // const orderPrice = totalPrice - coupon;
-
-
   // checkbox勾選狀態，預設為不勾選
   const [ checkstate, setcheckstate ] = useState(false);
   // checkcallback函式：點擊時切換checkbox勾選狀態
@@ -121,33 +116,48 @@ function CartApp (props) {
 
 
 // 從localStorage獲取-會員資料
+const userData = JSON.parse(localStorage.getItem('user')); 
 useEffect(()=>{
-  const userData = JSON.parse(localStorage.getItem('user')); 
+  if(userData===null){
+    return 
+  }else{
   // console.log(userData); 
   setUser(userData[0])
+  }
+  
 },[])
 // console.log('user:'+user[0]);
 
 
 // 從localStorage獲取-coupon資料
 const couponData = JSON.parse(localStorage.getItem('coupon'));
-// console.log(couponData[0]['coupon']); 
 // 若從localStorage存在coupon資料，變更會員狀態為擁有折扣碼
 useEffect(()=>{
-  if (couponData[0]['coupon']!==0) {
-    setHaveCoupon(true)
-    setCoupon(couponData[0]['coupon'])
+  if (userData===null) {
+    return 
+  } else {
+    if (couponData===null) {
+      return
+    } else {
+      // console.log(couponData); 
+      // console.log(couponData[0]['coupon']);           
+      setHaveCoupon(true) 
+      setCoupon(couponData[0]['coupon'])
+    }
   }
 },[])
 // console.log(haveCoupon);
 // console.log(coupon);
 
 
-
 // 從localStorage獲取-購物車資料
+const cartData = JSON.parse(localStorage.getItem('cart')); 
 useEffect(()=>{
-  const cartData = JSON.parse(localStorage.getItem('cart')); 
-  setCart(cartData) 
+  if (cartData===null) {
+    return
+  } else {
+  setCart(cartData)
+  } 
 },[])  
 // console.log('cart:'+cart);
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2020-06-24 15:50:48
+-- 產生時間： 2020-07-01 07:40:46
 -- 伺服器版本： 10.4.11-MariaDB
 -- PHP 版本： 7.4.5
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 資料庫： `dulcet_music`
+-- 資料庫： `dulcet_music_0628`
 --
 
 -- --------------------------------------------------------
@@ -30,32 +30,33 @@ SET time_zone = "+00:00";
 CREATE TABLE `orderitem` (
   `orderItem` tinyint(10) NOT NULL COMMENT '訂單明細編號',
   `orderId` tinyint(10) NOT NULL COMMENT '訂單編號',
-  `productCategory` tinyint(10) NOT NULL COMMENT '商品類別ID',
+  `productCategory` varchar(10) NOT NULL COMMENT '商品類別ID',
   `productId` tinyint(10) NOT NULL COMMENT '商品ID',
-  `cartNumber` tinyint(10) NOT NULL COMMENT '購物車數量'
+  `cartNumber` tinyint(10) NOT NULL COMMENT '購物車數量',
+  `Mid` int(10) NOT NULL COMMENT '廠商ID'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- 傾印資料表的資料 `orderitem`
 --
 
-INSERT INTO `orderitem` (`orderItem`, `orderId`, `productCategory`, `productId`, `cartNumber`) VALUES
-(1, 1, 1, 1, 1),
-(2, 1, 1, 2, 1),
-(3, 1, 1, 3, 2),
-(4, 2, 1, 4, 1),
-(5, 2, 2, 6, 1),
-(6, 3, 1, 1, 1),
-(7, 4, 1, 7, 1),
-(8, 5, 1, 3, 1),
-(9, 6, 3, 1, 1),
-(10, 6, 2, 2, 1),
-(11, 7, 1, 3, 1),
-(12, 8, 1, 6, 1),
-(13, 9, 1, 3, 1),
-(14, 10, 1, 1, 1),
-(15, 10, 1, 2, 2),
-(16, 10, 2, 3, 1);
+INSERT INTO `orderitem` (`orderItem`, `orderId`, `productCategory`, `productId`, `cartNumber`, `Mid`) VALUES
+(1, 1, '樂器', 1, 1, 6),
+(2, 1, '樂器', 2, 1, 2),
+(3, 1, '樂器', 3, 2, 1),
+(4, 2, '樂器', 4, 1, 2),
+(5, 2, '影片', 6, 1, 10),
+(6, 3, '樂器', 1, 1, 3),
+(7, 4, '樂器', 7, 1, 5),
+(8, 5, '樂器', 3, 1, 7),
+(9, 6, '課程', 1, 1, 0),
+(10, 6, '影片', 2, 1, 8),
+(11, 7, '樂器', 3, 1, 4),
+(12, 8, '樂器', 6, 1, 5),
+(13, 9, '樂器', 3, 1, 3),
+(14, 10, '樂器', 1, 1, 1),
+(15, 10, '樂器', 2, 2, 2),
+(16, 10, '影片', 3, 1, 15);
 
 --
 -- 已傾印資料表的索引
