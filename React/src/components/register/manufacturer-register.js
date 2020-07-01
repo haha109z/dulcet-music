@@ -13,9 +13,9 @@ class ManufacturerRegistered extends Component{
         Mphone:'',
         Muser:'',
         Mtelephone:'',
-        Mimg:'1',
+        Mimg:'廠商001.jpg',
         Mpwd:'',
-        Mcategory:'1',
+        Mcategory:'',
     }
 
     handleClick = () =>{
@@ -57,6 +57,11 @@ class ManufacturerRegistered extends Component{
         this.setState({Mpwd:event.target.value})
         console.log(event.target.value)
       }
+      handleM=(event)=>{
+        this.setState({Mpwd:event.target.value})
+        console.log(event.target.value)
+      }
+      
       handleMpwdCheck=(event)=>{
           if(this.state.Mpwd===event.target.value){
               console.log('正確')
@@ -64,6 +69,12 @@ class ManufacturerRegistered extends Component{
         else{
             console.log('不正確')
         }
+      }
+      handleMcategory=(event)=>{
+        // const selectindex = event.target.value
+        this.setState({Mcategory:event.target.value})
+        console.log(event.target.value)
+
       }
       CompantyBtn=()=>{
 let {
@@ -109,12 +120,8 @@ fetch('http://localhost:3030/register/manufacturer', {
   this.setState({ Muser: this.state.Muser })
   this.setState({ Mtelephone: this.state.Mtelephone })
   this.setState({ Mpwd: this.state.Mpwd })
-//   this.setState({ Mimg: this.state.Mimg })
-//   this.setState({ Mcategory: this.state.Mcategory })
-
-    
-
-  
+  this.setState({ Mimg: this.state.Mimg })
+  this.setState({ Mcategory: this.state.Mcategory })
   alert('新增成功')
   console.log(this.state)
       }
@@ -210,9 +217,9 @@ fetch('http://localhost:3030/register/manufacturer', {
                         </div>
                     </div>
                     {/* 選擇樂器以及廠商 */}
-                    <select className="col-md-12 control-label" name="cars" id="cars">
-      <option value="樂器廠商" >樂器廠商</option>
-      <option className="col-md-12 control-label" value="影片廠商">影片廠商</option>
+                    <select className="col-md-12 control-label" name="cars" id="cars" onChange={this.handleMcategory}>
+      <option value="樂器" id="option1" >樂器</option>
+      <option className="col-md-12 control-label" id="option1" value="影片">影片</option>
       </select>
                     <div className="form-group form-check col-md-12">
                         <input type="checkbox" className="register-check-input " id="userCheckMe" />
