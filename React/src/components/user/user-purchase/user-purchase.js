@@ -8,15 +8,13 @@ import {
 } from 'react-router-dom'
 import ScrollToTop from '../../../container/scrollToTop'
 
-if(JSON.parse(localStorage.getItem('user'))){
+if (JSON.parse(localStorage.getItem('user'))) {
   const getUserInfo = () => {
-  return JSON.parse(localStorage.getItem('user'))
-  
+    return JSON.parse(localStorage.getItem('user'))
+  }
+  var userID = getUserInfo()[0].userID
+  // this.setState({userID:userID})
 }
-var userID = getUserInfo()[0].userID
-// this.setState({userID:userID})
-}
-
 
 export default class UserPurchase extends Component {
   state = {
@@ -36,13 +34,17 @@ export default class UserPurchase extends Component {
     purchaseMenuTitle: '全部',
     userPageSelect: '1',
     userRwdPage: false,
+    pageItemLength: 0,
   }
+
   bokTop() {
     document.documentElement.scrollTop = 0
   }
+
+  
   filterStatusOpen = () => {
     this.setState({ menu: false })
-    this.setState({  userRwdPage: false, })
+    this.setState({ userRwdPage: false })
   }
   showPage = () => {
     this.setState({ userRwdPage: true })
@@ -50,6 +52,22 @@ export default class UserPurchase extends Component {
   }
   closeRwdPage = () => {
     this.setState({ userRwdPage: false })
+  }
+  changePageL = () => {
+    console.log('LL')
+  }
+   // 右邊切頁
+   changePageR = () => {
+    let plusNum = Number(this.state.pageNum) + 1
+    if (plusNum <= Math.ceil(this.state.totalCount / 3)) {
+      this.setState({ pageNum: Number(this.state.pageNum)+ 1 })
+      setTimeout(() => {
+        this.showData()
+      }, 100)
+      this.setState({ userPageSelect: (Number(this.state.pageNum)+ 1)+""  })
+      this.bokTop()
+    } else {
+    }
   }
   // 換頁事件
   changePageNum = (event) => {
@@ -160,7 +178,7 @@ export default class UserPurchase extends Component {
 
     this.getOrder()
   }
-
+ 
   render() {
     let UserPurchase = this.state.UserPurchase
     let UserPurchaseDetail = this.state.UserPurchaseDetail
@@ -181,7 +199,7 @@ export default class UserPurchase extends Component {
         </button>
       )
     }
-    // console.log(this.state.btn)
+    // console.log(this.setState.pageItemLength)
 
     return (
       <>
@@ -365,39 +383,6 @@ export default class UserPurchase extends Component {
                   </>
                 ))}
 
-                {/* <div className="UserPurchase-order-item">
-                <div className="UserPurchase-order-item-img">
-                  <img src={require('../../../img/home_logo_方.png')} alt="" />
-                </div>
-                <div className="UserPurchase-order-item-text">
-                  <p className="UserPurchase-order-item-text-name user-font-ch">
-                    現貨 免運費！11段角度調節】鋁合金筆電支架 筆電散熱架 散熱器
-                    散熱墊 筆電架電腦架 筆電散熱 金屬支架度調節】鋁合金筆電支架
-                    筆電散熱架 散熱器 散熱墊 筆電架電腦架 筆電散熱
-                    金屬支架度調節】鋁合金筆電支架 筆電散熱架 散熱器 散熱墊
-                    筆電架電腦架 筆電散熱 金屬支架
-                  </p>
-                  <p className="UserPurchase-order-item-text-specification user-font-ch d-flex">
-                    <p>分類：樂器</p>
-                    <p>數量：2</p>
-                  </p>
-                  <p className="UserPurchase-order-item-text-number user-font-ch">
-                    廠商名稱：95279527
-                  </p>
-                  <div className="d-flex UserPurchase-order-item-text-money">
-                    <p className="UserPurchase-order-item-text-money-1 user-font-ch">
-                      價格
-                    </p>{' '}
-                    <p className="UserPurchase-order-item-text-money-2 user-font-eg user-color-red">
-                      $
-                    </p>
-                    <p className="UserPurchase-order-item-text-money-3 user-font-eg user-color-red">
-                      999
-                    </p>{' '}
-                  </div>
-                </div>
-              </div> */}
-
                 <div className="UserPurchase-order-total">
                   <p className="UserPurchase-order-total-1 user-font-ch">
                     訂單總價
@@ -414,13 +399,13 @@ export default class UserPurchase extends Component {
             </>
           ))}
           <div className="user-page">
-            <Link className="user-page-Rarrow">
+            <Link className="user-page-Rarrow" onClick={this.changePageL}>
               <i className="fas fa-sort-up"></i>
             </Link>
 
             {pageItem}
 
-            <Link className="user-page-Larrow">
+            <Link className="user-page-Larrow" onClick={this.changePageR}>
               <i className="fas fa-sort-up"></i>
             </Link>
           </div>
@@ -430,7 +415,7 @@ export default class UserPurchase extends Component {
               className="userRwd-dropbtn"
               onClick={this.showPage}
             >
-              {this.state.pageNum}
+              第&nbsp;{this.state.pageNum}&nbsp;頁
               <i className="fas fa-sort-down"></i>
             </button>
             <div

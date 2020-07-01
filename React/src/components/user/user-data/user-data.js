@@ -135,7 +135,7 @@ export default class UserData extends Component {
                       localStorage.setItem('user', JSON.stringify(json.data))
                       console.log(JSON.stringify(json.data))
                       this.setState({ user: json.data[0] })
-
+                      
                     }
                     // localStorage.setItem('user', JSON.stringify(json.data))
                     // console.log(json.data)
