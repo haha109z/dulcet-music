@@ -92,28 +92,28 @@ const Input4 = InputShow4 ? (
 )
 const Input5 = InputShow5 ? ( 
   <>
-    <input className="input1-10" type="text " value="信箱" readOnly/>
+    <input className="input1-10" type="text" value="您必須先註冊完帳號之後在會員內可以使用信箱認證服務" readOnly/>
   </>
 ) : (
 ''
 )
 const Input6 = InputShow6 ? ( 
   <>
-    <input className="input1-10" type="text " value="優惠卷" readOnly/>
+    <input className="input1-10" type="text " value="優惠卷可以在首頁遊玩小遊戲。答對即可得到優惠卷" readOnly/>
   </>
 ) : (
 ''
 )
 const Input7 = InputShow7 ? ( 
   <>
-  <div>
-    <input className="input1-10" type="text " value="帳號遺失" readOnly/>
-    </div>
+
+    <input className="input1-10" type="text " value="如果帳號遺失請打客服專線：(02)2222-2222" readOnly/>
+   
   </>
 ) : (
 ''
 )
-  return <>
+  return (
 <div className="AnyQuestionActionAll">
 <div className="AnyQuestionActionContainer">
     <div className="Text123"></div>
@@ -173,15 +173,16 @@ const Input7 = InputShow7 ? (
                 <div style={{display:'flex'}}>
             <div style={{width:'1000px'}}>
 
-                <input type="submit" value="帳號遺失密碼怎麼辦"  onClick={this.handleInput7}/>
+                <input type="submit" value="帳號遺失怎麼辦"  onClick={this.handleInput7}/>
                 {Input7}
                 </div>
+                
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
                 </div>
           </div>
           </div>
   </div>
-  </div></>
+  </div>)
 }
 }
 export default AnyQuestionAction
