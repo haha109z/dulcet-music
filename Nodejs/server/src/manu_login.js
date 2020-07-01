@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
   // const output = await getData(req);
   
   const output = await query(`SELECT * FROM manufacturer WHERE Memail = ?`, [Memail]);
-  console.log(output)
+  // console.log(output)
   if(output.length === 0){
     resData = { code: 1, msg: "帳號錯誤"}
     return res.json(resData);
