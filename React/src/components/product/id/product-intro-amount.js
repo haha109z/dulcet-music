@@ -12,8 +12,8 @@ function ProductIntroAmount(props) {
       <div id="product-id-intro-amount-wrapper">
         <button
           onClick={() => {
-            if (amount == 0) {
-              setAmount(0)
+            if (amount == 1) {
+              setAmount(1)
             } else {
               setAmount(amount - 1)
             }
