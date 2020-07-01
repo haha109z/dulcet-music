@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Navbar from '../components/navbar/navbar'
-import AnyQuestionAction from '../components/AnyQuestion/AnyQuestionList/AnyQuestionAction'
+import AnyQuestionAns from '../components/AnyQuestion/AnyQuestionList/AnyQuestionAns'
 
 function Forum() {
     return (
@@ -10,7 +10,7 @@ function Forum() {
   
         {/* <ForumCard /> */}
         {/* <AnyQuestion /> */}
-        <AnyQuestionAction />
+        <AnyQuestionAns />
         
   
       
