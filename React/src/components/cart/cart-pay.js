@@ -39,6 +39,35 @@ function CartPay () {
 
     }
   }
+  const getCardholder = (e) =>{
+    let cardholder = document.getElementById("cardholder")
+    let cardholdercontent = document.getElementById("payer-name")
+    if(cardholdercontent.value !== ''){
+        cardholder.value = cardholdercontent.value
+    }else{
+
+    }
+  }
+  const getValiddates = (e) =>{
+    let validdates1 = document.getElementById("validdates1")
+    let validdates2 = document.getElementById("validdates2")
+    let validdatescontent = document.getElementById("validdates")
+    if(validdates1.value !== '' & validdates2.value !== ''){
+        validdatescontent.value = validdates1.value + validdates2.value
+    }else{
+
+    }
+  }
+  // const getValiddates2 = (e) =>{
+  //   let validdates = document.getElementById("")
+  //   let validdatescontent = document.getElementById("validdates2")
+  //   if(validdatescontent.value !== ''){
+  //       validdates.value = validdatescontent.value
+  //   }else{
+
+  //   }
+  // }
+
 
     return (
       <>
@@ -94,8 +123,8 @@ function CartPay () {
                                 </div> 
                                 <div className="cart3-creditcard-same cart3-creditcard-3">
                                   <div style={{display:'flex'}}>
-                                    <input className="cart3-creditcard-number" placeholder="Card Holder"/>
-                                    <input className="cart3-creditcard-number" placeholder="Valid Dates"/>
+                                    <input className="cart3-creditcard-number" id="cardholder" placeholder="Card Holder"/>
+                                    <input className="cart3-creditcard-number" id="validdates" placeholder="Valid Dates"/>
                                   </div>                                
                                 </div> 
                               </div>
@@ -112,7 +141,7 @@ function CartPay () {
                       <div className="cart3-creditcard-form">
                         <div className="cart3-input">
                           <label htmlFor="payer-name">持卡人姓名</label>
-                          <input className="" id="payer-name" type="text" />
+                          <input className="" id="payer-name" type="text" onChange={ (e)=>{ getCardholder() }} />
                         </div>
                         <div className="cart3-input">
                           <label htmlFor="">卡號</label>
@@ -135,8 +164,8 @@ function CartPay () {
                           <label htmlFor="">到期日</label>
                           <div style={{display:'flex'}}>
                             <div className="cart-card-ex">
-                                <input className="" id="" type="text" value="" />
-                                <input className="" id="" type="text" value="" />
+                                <input className="" id="validdates1" type="text" onChange={ (e)=>{ getValiddates() }} />
+                                <input className="" id="validdates2" type="text" onChange={ (e)=>{ getValiddates() }} />
                             </div>
                           </div>
                         </div>
