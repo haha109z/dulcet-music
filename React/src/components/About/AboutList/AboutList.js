@@ -3,7 +3,7 @@ import React,{Component} from 'react'
 //第一區塊
 // import AboutImgBackground1 from '../../../img/About小圖片1.jpg'
 import AOS from 'aos';
-
+// import { Map, GoogleApiWrapper } from 'google-maps-react';
 
 
 
@@ -77,13 +77,13 @@ render(){
             <p className="AboutP2Left AboutP2LeftBottom">
               店家地址：台北市南港區忠孝東路八段100巷
             </p>
-            <a href="https://goo.gl/maps/PAS9FGoYtjVnARou8">
-            <img
-              className="AboutImgPicture2"
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d903.7512771439361!2d121.54285102921996!3d25.03390069899826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abd3781b82e1%3A0x236cb0c3abec563b!2z5Y-w54Gj6LKh5a-M566h55CG6KaP5YqD6aGn5ZWP6KqN6K2J5Y2U5pyD!5e0!3m2!1szh-TW!2stw!4v1593613278549!5m2!1szh-TW!2stw" width="600" height="450" frameborder="0" className="AboutImgPicture2"  allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            {/* <img
+              className="AboutImgPicture2" 
               src={require('../../../img/About/地圖圖片1.png')}
               alt="AboutImgBackground2"
-            />
-            </a>
+            /> */}
+        
           </div>
           {/* 第二區塊右邊 */}
           <div className="About2Right">
@@ -127,13 +127,8 @@ render(){
             <p className="AboutP3Left AboutP3LeftBottom">
               店家地址：台北市南港區忠孝東路八段100巷
             </p>
-            <a href="https://goo.gl/maps/eLAmk9EmoTkEnzTq8">
-            <img
-              className="AboutImgPicture3"
-              src={require('../../../img/About/地圖圖片2.png')}
-              alt="AboutImgBackground3"
-            />
-            </a>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1841.478308697207!2d120.30052915821298!3d22.618095146289818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e0481a2e9321f%3A0xf4b4931547a532db!2zODAy6auY6ZuE5biC6IuT6ZuF5Y2A5Lq65ZKM6YeM!5e0!3m2!1szh-TW!2stw!4v1593613485565!5m2!1szh-TW!2stw" width="600" height="450" frameborder="0" className="AboutImgPicture3" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            
           </div>
           {/* 第三區塊右邊 */}
           <div className="About3Right">
@@ -171,3 +166,6 @@ render(){
 }
 }
 export default AboutList
+// export default GoogleApiWrapper({
+//   apiKey: 'TOKEN HERE'
+// })(MapContainer);
