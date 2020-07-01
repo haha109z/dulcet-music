@@ -23,7 +23,8 @@ class ForumCard extends Component {
 
   state = {
     boxShow: false,
-    boxShowBtn: false,
+    boxShowBtn: "",
+    boxShowBtn2: false,
     // userID: '',
     Memo:'',
     news: [
@@ -74,25 +75,20 @@ class ForumCard extends Component {
 
   // function 鉤子
   // const [boxshow,setboxshow] = useState
-  handleBtn = () => {
-    const { boxShowBtn } = this.state
-    const toggle = !boxShowBtn
-    this.setState({ boxShowBtn: toggle })
-    // console.log(boxShow);
-    // for(let j =0 ;j<this.state.news.length;j++){
-    //   const i = this.state.news[j].Memo
-    // console.log(i)
-    // console.log(j)
-    // this.setState({Memo:i})
-    // }
-    // const i = this.state.news.length
-    // console.log(i)
-    // const Memo = this.state.news[i].Memo
-    // console.log(Memo)
-    
-    // this.setState({props:this.state.news.Memo})
-    // console.log(this.props)
+  handleBtn = (i) => {
+    const { boxShowBtn2 } = this.state
+    const toggle = !boxShowBtn2
+    this.setState({ boxShowBtn2: toggle })
+    console.log(toggle)
+    this.setState({boxShowBtn:i})
+    if(boxShowBtn2){
+      const box001 =document.getElementById(`abc${i}`)
+      
+    }
+  //   console.log(this.state.news[i].Memo)
+  // console.log(document.getElementById(`abc${i}`)) 
   }
+ 
   handleClick = () => {
     const { boxShow } = this.state
     const toggle = !boxShow
@@ -106,7 +102,7 @@ class ForumCard extends Component {
     this.setState({ userName:UserName })
     // console.log(this.state)
   }
-  
+
 
   handleForumAboutTitle = (event) => {
     const state = this.state
@@ -132,25 +128,6 @@ handleForumAction = (event)=>{
 // }
 //送出之後把它存進資料庫
 handleSubmit = (event) => {
-  
-  //sql語法
-  // SELECT ForumAbout.userID,user.userName,ForumAbout.TitleMusic,ForumAbout.TitleId,ForumAbout.Memo FROM ForumAbout left JOIN user ON ForumAbout.userID = user.userID
-
-  //sql 新增語法
-  // INSERT INTO `ForumAbout`(`ForumId`, `TitleMusic`, `TitleId`, `Memo`, `userID`) VALUES ('4','大提琴','Title','TitleMemo','4')
-  // let t = this
-  // fetch('http://localhost:3030/forum/1', { method: 'put' }).then(function (
-  //   res
-  // ) {
-  //   // console.log(res);
-  //   res.json().then(function (data) {
-  //     console.log(data)
-  //     t.setState({
-  //       news: data,
-  //     })
-  //   })
-  // })
-  // INSERT INTO `ForumAbout`(`ForumId`, `TitleMusic`, `TitleId`, `Memo`, `userID`) VALUES ('[this.state.ForumId]','?','?','?','?')
 
 let {
   ForumTitle,
@@ -199,7 +176,7 @@ let {
   // this.location.reload()
 }
   render() {
-    const { boxShow, boxShowBtn } = this.state
+    const { boxShow, boxShowBtn , boxShowBtn2 } = this.state
     //看回答的新增欄位
     // const ForumMemo = Memo ? (<>
     // <div>
@@ -229,14 +206,14 @@ let {
           <div>
             問題類別：
             <input type="text" placeholder="樂器類別是？" name="ForumTitle" 
-              value={this.state.ForumTitle}          
+              // value={this.state.ForumTitle}          
               onChange={this.handleForumTitle} />
           </div>
           <div>
             您的問題：
             <input type="text" placeholder="您的問題是？"
             name="ForumAction"
-            value={this.state.ForumAction}          
+            // value={this.state.ForumAction}          
             onChange={this.handleForumAction}
                />
           </div>
@@ -252,44 +229,23 @@ let {
     ) : (
       ''
     )
-    const boxBtn = boxShowBtn ? (
-      <div className="ForumCardDiv">
-      {/* 用function的方法做完每個按鈕都顯示不同的Memo值 */}
-        
-        
-        {this.state.news.map((item, i) => {
-          {/* console.log(this.state.Memo) */}
-          {/* console.log(this.state.news[i].Memo) */}
-           {/* for(let j =0;j<item.length;j++){
-          return j 
-           } */}
-           {/* const Item = i
-           console.log(Item) */}
-           {/* const Item = item.Memo
-           console.log(Item)
-           console.log(i) */}
-           {/* console.log(item.Memo) */}
-           {/* console.log(item.ForumId.toString())
-           console.log(i) */}
-           
-            return (
-                <>
-                <div key={item.ForumId.toString()}>
-                <p className="ForumCardP2">
-                  {item.Memo}
-                  </p>
-        {/* <div className="ForumCardTeacherImg"></div> */}
-        </div>
-              </>
-                )
-           
-           
-            })}
-        
-      </div>
-    ) : (
-      ''
-    )
+    // const boxBtn = boxShowBtn ==? (
+    //   <div className="ForumCardDiv">
+    //   {/* 用function的方法做完每個按鈕都顯示不同的Memo值 */}
+    //             <>
+    //             <div>
+    //             <p className="ForumCardP2">
+    //             {this.state.news.Memo}
+    //               </p>
+    //     {/* <div className="ForumCardTeacherImg"></div> */}
+    //     </div>
+    //           </>
+    //   </div>
+    // ) : (
+    //   ''
+    // )
+
+    const box001 = boxShowBtn2 ? 'block' : 'none';
     return (
       
       <div className="ForumAll">
@@ -311,7 +267,7 @@ let {
           <div className="ForumCardFlex">
             {this.state.news.map((item, i) => {        
               return (
-                <div key={item.ForumId.toString()}  className="ForumCard">
+                <div key={i}  className="ForumCard">
                   <div className="ForumCardTitle">
                     <div className="ForumCardImg"></div>
                     <div>
@@ -324,12 +280,26 @@ let {
                   </div>
                   <div className="ForumCardDiv">
                   <p className="ForumCardP">{item.TitleId}</p>
-                    <button className="ForumBtnAns" onClick={this.handleBtn}>
+                    <button className="ForumBtnAns" onClick={()=>{this.handleBtn(i)}} onChange={this.onChange1} >
                       看回答
                     </button>
                   </div>
                   {/* 看回答的button顯示 */}
-                  {boxBtn}
+                  <div className="ForumCardDiv"  style={{display:box001}}>
+      {/* 用function的方法做完每個按鈕都顯示不同的Memo值 */}
+                
+                <div>
+                {/* <p className="ForumCardP2"> */}
+
+                <p id={`abc${i}`} className={this.state.boxShowBtn === i ? "ForumCardP2":
+                "ForumCardP002"}>
+
+                {this.state.news[i].Memo}
+                  </p>
+        {/* <div className="ForumCardTeacherImg"></div> */}
+        </div>
+              
+      </div>
                 </div>
               )
             })}

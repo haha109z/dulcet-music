@@ -142,9 +142,16 @@
 }
 
 .ForumCardP2 {
-  width: 420px;
-  margin: 0 10px 20px 20px;
-  letter-spacing: 10px;
+  display: inline-block;
+  width: 350px;
+  margin: 20px 10px 20px 20px;
+  // letter-spacing: 10px;
+}
+.ForumCardP002 {
+  display: none;
+  width: 350px;
+  margin: 20px 10px 20px 20px;
+  // letter-spacing: 10px;
 }
 
 // ForumChecked
