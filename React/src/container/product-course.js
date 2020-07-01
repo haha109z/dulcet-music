@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from '../components/navbar/navbar'
 import ProducList from '../components/product/course/productList'
 import ProductCategory from '../components/product/productCategory'
@@ -15,12 +15,26 @@ import ProductId from '../components/product/course/product-id'
 function ProductInstrument() {
   const productTitle = '優質課程'
   const productTitleId = 'course'
+  const [control, setControl] = useState('熱門度')
+
   return (
     <>
       <Navbar />
       {/* <ProductCategory /> */}
       <BrowserRouter>
         <Switch>
+          <Route
+            path="/course/page/:page"
+            render={(routeProps) => (
+              <ProducList
+                productTitle={productTitle}
+                productTitleId={productTitleId}
+                control={control}
+                setControl={setControl}
+              />
+            )}
+          ></Route>
+
           <Route
             path="/course/piano"
             render={(routeProps) => (
@@ -30,11 +44,11 @@ function ProductInstrument() {
               </>
             )}
           ></Route>
-          <Route path="/course/id">
+          <Route path="/course/:PId">
             <ProductId />
           </Route>
 
-          <Route
+          {/* <Route
             path="/course"
             render={(routeProps) => (
               <ProducList
@@ -42,8 +56,8 @@ function ProductInstrument() {
                 productTitleId={productTitleId}
               />
             )}
-          ></Route>
-          <Redirect to="/course" />
+          ></Route> */}
+          <Redirect to="/course/page/1" />
         </Switch>
       </BrowserRouter>
     </>
