@@ -24,6 +24,8 @@ function CartCheckout (props) {
     setTotalPrice, 
     orderPrice,
     setOrderPrice,
+    buyProduct,
+    setBuyProduct,
     checkstate, 
     setcheckstate,
     checkcallback,
@@ -147,6 +149,19 @@ function CartCheckout (props) {
     setCart([])
   }
 
+  const changeInvoiceInfo = (e) => {
+    console.log(e) 
+    console.log(radiostate)
+    // 切換radio選項時，先清空invoiceInfo
+    // if () {
+    //   setInvoiceInfo('')
+    // }
+    // setInvoiceInfo( 
+    //   radiostate1 == 1 ? '' : (radiostate2 == 1 ? invoiceinfo2 : (radiostate3 == 1 ? invoiceinfo3 : (radiostate4 == 1 ? invoiceinfo4 : '' )))
+    // )
+  }
+
+
     return (
       <>
 
@@ -228,7 +243,7 @@ function CartCheckout (props) {
                       <div className="cart-input1">
                         <label htmlFor="invoice">載具號碼</label>
                         <input id="invoicev" type="text" value={invoiceInfo}
-                          onChange={ (e)=>{ setInvoiceInfo(e.target.value) }}
+                          onChange={ (e)=>{ changeInvoiceInfo(e.target.value) } }
                         />
                       </div>
                     </div>
@@ -261,23 +276,15 @@ function CartCheckout (props) {
                       <div className="cart-input1">
                         <label htmlFor="invoice">統一編號</label>
                         <input className="companyinvoice" id="" type="text" value={invoiceInfo}
-                          onChange={ (e)=>{ 
-                            if (document.getElementById("invoice4").checked === true) {
-                            setInvoiceInfo(e.target.value) 
-                            } else {
-                              setInvoiceInfo('')
-                            }}}
+                          onChange={ (e)=>{ changeInvoiceInfo(e.target.value) } }
+                          // onChange={ (e)=>{ setInvoiceInfo(e.target.value) } }
                         />
                       </div>
                       <div className="cart-input1">
                         <label htmlFor="invoice">發票抬頭</label>
                         <input className="companyinvoice" id="" type="text" value={invoiceInfo}
-                          onChange={ (e)=>{ 
-                            if (document.getElementById("invoice4").checked === true) {
-                            setInvoiceInfo(e.target.value) 
-                            } else {
-                              setInvoiceInfo('')
-                            }}}
+                          onChange={ (e)=>{ changeInvoiceInfo(e.target.value) } }
+                          // onChange={ (e)=>{ setInvoiceInfo(e.target.value) } }
                         />
                       </div>
                     </div>

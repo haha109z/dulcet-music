@@ -8,6 +8,9 @@ import CartCheckOrder from '../components/cart/cart-checkOrder';
 import CartPay from '../components/cart/cart-pay';
 import CartEnd from '../components/cart/cart-end';
 
+// 切換頁面滾動軸回到最頂部
+import ScrollToTop from './scrollToTop'
+
 function CartApp (props) {
   
   // 會員資料
@@ -32,9 +35,15 @@ function CartApp (props) {
   const [haveCoupon, setHaveCoupon] = useState(false)
   // 折扣金額，預設為0
   const [discount, setDiscount] = useState(0) 
+  // 折扣碼使用狀態
+  const [couponIsUsed, setCouponIsUsed] = useState(false) 
 
 
-  // checkbox勾選狀態，預設為不勾選
+  // 商品列表checkbox勾選狀態，預設為勾選
+  const [ buyProduct, setBuyProduct ] = useState("checked");
+  // console.log(buyProduct);
+  
+  // 收件資訊checkbox勾選狀態，預設為不勾選
   const [ checkstate, setcheckstate ] = useState(false);
   // checkcallback函式：點擊時切換checkbox勾選狀態
   const checkcallback = (e) =>{
@@ -56,7 +65,8 @@ function CartApp (props) {
   const [ invoiceInfo, setInvoiceInfo ] = useState('');  
   // radiocallback函式：點擊時切換radio選取狀態並根據選項儲存發票資訊
   const radiocallback = (e) =>{
-    
+    // console.log('radiocallback')
+    setInvoiceInfo('')
     // console.log(document.getElementById("invoice2").checked)
     let radiostate1 = document.getElementById("invoice1").checked;
     let radiostate2 = document.getElementById("invoice2").checked;
@@ -76,10 +86,6 @@ function CartApp (props) {
     setInvoiceInfo(
       radiostate1 == 1 ? '' : (radiostate2 == 1 ? invoiceinfo2 : (radiostate3 == 1 ? invoiceinfo3 : (radiostate4 == 1 ? invoiceinfo4 : '' )))
     )
-    // 切換radio選項時，先清空invoiceInfo
-    // if () {
-    //   setInvoiceInfo('')
-    // }
   }
   useEffect(()=>{
     // setInvoiceInfo('')
@@ -192,6 +198,7 @@ useEffect(()=>{
         <>
         <Navbar/>
          <BrowserRouter>
+         <ScrollToTop>
             <div className="cart-container">
             <CartTitle />
               <Switch>
@@ -237,6 +244,8 @@ useEffect(()=>{
                         setTotalPrice,
                         orderPrice,
                         setOrderPrice,
+                        buyProduct, 
+                        setBuyProduct,
                         checkstate,
                         setcheckstate,
                         checkcallback,
@@ -258,6 +267,7 @@ useEffect(()=>{
                 </Route>
               </Switch>
             </div>
+            </ScrollToTop>
         </BrowserRouter>
         {/* <Footer/> */}
         </>

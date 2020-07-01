@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 
 function CartPay () {
 
-  
-  const getCardnum = (e) =>{
+  const getCardnum1 = (e) =>{
     let content1 = document.getElementById("card1")
     let input1 = document.getElementById("cardnumber1")
     if(input1.value !== ''){
@@ -13,10 +12,33 @@ function CartPay () {
 
     }
   }
+  const getCardnum2 = (e) =>{
+    let content2 = document.getElementById("card2")
+    let input2 = document.getElementById("cardnumber2")
+    if(input2.value !== ''){
+        content2.value = input2.value
+    }else{
 
-  // const getCardnum = (e) =>{
-  //   console.log(e)
-  // }
+    }
+  }  
+  const getCardnum3 = (e) =>{
+    let content3 = document.getElementById("card3")
+    let input3 = document.getElementById("cardnumber3")
+    if(input3.value !== ''){
+        content3.value = input3.value
+    }else{
+
+    }
+  }
+  const getCardnum4 = (e) =>{
+    let content4 = document.getElementById("card4")
+    let input4 = document.getElementById("cardnumber4")
+    if(input4.value !== ''){
+        content4.value = input4.value
+    }else{
+
+    }
+  }
 
     return (
       <>
@@ -65,9 +87,9 @@ function CartPay () {
                                 <div className="cart3-creditcard-same cart3-creditcard-2">
                                   <div style={{display:'flex'}}>
                                     <input className="cart3-creditcard-number" id="card1" />
-                                    <input className="cart3-creditcard-number"/>
-                                    <input className="cart3-creditcard-number"/>
-                                    <input className="cart3-creditcard-number"/>
+                                    <input className="cart3-creditcard-number" id="card2"/>
+                                    <input className="cart3-creditcard-number" id="card3"/>
+                                    <input className="cart3-creditcard-number" id="card4"/>
                                   </div>
                                 </div> 
                                 <div className="cart3-creditcard-same cart3-creditcard-3">
@@ -96,11 +118,17 @@ function CartPay () {
                           <label htmlFor="">卡號</label>
                           <div style={{display:'flex'}}>
                             <input className="" id="cardnumber1" type="text"                               
-                              onChange={ (e)=>{ getCardnum() }}
+                              onChange={ (e)=>{ getCardnum1() }}
                             />
-                            <input className="" id="cardnumber2" type="text" value="" />
-                            <input className="" id="cardnumber3" type="text" value="" />
-                            <input className="" id="cardnumber4" type="text" value="" />
+                            <input className="" id="cardnumber2" type="text"                              
+                              onChange={ (e)=>{ getCardnum2() }}
+                            />
+                            <input className="" id="cardnumber3" type="text"                               
+                              onChange={ (e)=>{ getCardnum3() }}
+                            />
+                            <input className="" id="cardnumber4" type="text"                               
+                              onChange={ (e)=>{ getCardnum4() }}                              
+                            />
                           </div>
                         </div>
                         <div className="cart3-input">
