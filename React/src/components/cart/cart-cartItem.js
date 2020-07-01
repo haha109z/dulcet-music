@@ -2,15 +2,40 @@ import React ,{ Fragment, useState, useEffect } from 'react';
 
 export default function CartItem (props) {
 
-    const { cart, setCart, minusCartNumber, plusCartNumber, deleteCartItem, totalPrice } = props.allProps;  
+    const { 
+      cart, 
+      setCart, 
+      buyProduct, 
+      setBuyProduct,
+      minusCartNumber, 
+      plusCartNumber, 
+      deleteCartItem, 
+      totalPrice,       
+    } = props.allProps;  
     // totalPrice = data[index].PPrice;
+
+
+    // buycallback函式：點擊時切換checkbox勾選狀態
+    const buycallback = (e) =>{
+      console.log(e.checked)
+      // setBuyProduct(e.checked)
+    }
 
     useEffect(()=>{
         const ul = document.querySelectorAll(".cart-product")
         const ulN = ul.length;
         // console.log(ulN);
     },[])
-    
+
+    const checked = (e)=>{
+      // console.log(e.checked);
+      const input = e;   
+      if(!e.checked){    
+        input.removeAttribute("checked")
+      }else{
+        input.setAttribute("checked","checked")
+      }
+    }    
 
     return(
         <> 
@@ -19,7 +44,7 @@ export default function CartItem (props) {
                 
                 return(
                   <ul className="cart-product" key={index}>
-                    <li className="cart-product-li"><input type="checkbox" /></li>
+                    <li className="cart-product-li"><input type="checkbox" onClick={(e)=>checked(e.target)} /></li>
                     <li className="cart-product-li"><img src={require(`../../img/cart/cart-violin-01.jpeg`)} /></li>
                     {/* <li className="cart-product-li"><img src={require(`../../img/cart/${data.PImg}`)} /></li> */}
                     <li className="cart-product-li">{data.PName}</li>

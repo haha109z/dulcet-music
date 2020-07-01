@@ -150,7 +150,7 @@ function ProductList(props) {
             <span>排序依</span>
             <select
               onChange={(e) => {
-                console.log('control change', e.target.value)
+                // console.log('control change', e.target.value)
                 setControl(e.target.value)
               }}
             >

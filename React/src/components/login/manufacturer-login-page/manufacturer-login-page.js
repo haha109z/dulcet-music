@@ -87,7 +87,7 @@ function Company(props) {
         localStorage.setItem('user', JSON.stringify(MData))
         // alert('登入成功，跳轉至首頁')
         setTimeout(()=>{
-          props.history.push('/user/userData', { from: '從登入頁來的' })
+          props.history.push('/ManufacturerInstrument/Instrument', { from: '從登入頁來的' })
         },2000)
 
     }

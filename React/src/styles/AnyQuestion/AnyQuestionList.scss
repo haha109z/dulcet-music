@@ -35,6 +35,10 @@
   font-size: 100px;
   margin: 25px;
 }
+.AnyQuestionCardIconVideo {
+  font-size: 90px;
+  margin: 25px;
+}
 .AnyQuestionCardIconH2 {
   padding: 5px 0 0 0;
   border-top: 1px solid var(--main-colorf2e);
@@ -68,6 +72,10 @@
     font-size: 80px;
     margin: 20px;
   }
+  .AnyQuestionCardIconVideo {
+    font-size: 70px;
+    margin: 25px;
+  }
 }
 @media (max-width: 670px) {
   .AnyQuestionContainer {
@@ -84,6 +92,10 @@
     text-align: center;
   }
   .AnyQuestionCardIcon {
+    font-size: 60px;
+    margin: 10px;
+  }
+  .AnyQuestionCardIconVideo {
     font-size: 60px;
     margin: 10px;
   }
@@ -108,16 +120,23 @@
     width: 300px;
     margin: 30px auto;
     height: 300px;
+    svg {
+      margin: 0px 0px 0px 50px;
+    }
   }
   .AnyQuestionCardIcon {
     font-size: 200px;
     text-align: center;
   }
   .AnyQuestionCardIconH2 {
-    padding: 0px;
+    padding: 40px 0 0 0;
     font-size: var(--h1);
   }
-
+  .AnyQuestionCardIconVideo {
+    font-size: 180px;
+    text-align: center;
+    margin: 0px 0px 0px 30px;
+  }
   .AnyQuestionNorthH3 {
     font-size: var(--h1);
     p {

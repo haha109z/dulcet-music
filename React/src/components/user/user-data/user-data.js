@@ -162,6 +162,7 @@ export default class UserData extends Component {
     const getUserInfo = () => {
       return JSON.parse(localStorage.getItem('user'))
     }
+    
     if (getUserInfo()) {
       let user = getUserInfo()
       if (user[0].userID) {

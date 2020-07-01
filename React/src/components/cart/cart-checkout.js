@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
+// 引入sweetalert2-react-content套件
+// import withReactContent from 'sweetalert2-react-content';
+// import Swal from 'sweetalert2';
+
 import CartDeliverInfo from './cart-deliverInfo.js';
 import CartItem from './cart-cartItem.js';
+// const MySwal = withReactContent(Swal);
 
 function CartCheckout (props) {
 
@@ -9,10 +15,17 @@ function CartCheckout (props) {
     cart, 
     setCart, 
     user, 
-    setUser, 
-    number, 
-    setNumber, 
-    totalPrice, 
+    setUser,  
+    coupon,
+    haveCoupon,
+    discount,
+    setDiscount,
+    totalPrice,
+    setTotalPrice, 
+    orderPrice,
+    setOrderPrice,
+    buyProduct,
+    setBuyProduct,
     checkstate, 
     setcheckstate,
     checkcallback,
@@ -30,82 +43,124 @@ function CartCheckout (props) {
     invoiceInfo,
     setInvoiceInfo,
    } = props.allProps;  
+  //  console.log(discount);
   
-  // const [number, setNumber] = useState(cart[0].cartNumber)
-  // let stock = cart[0].PQty;   
-  const coupon = 1500;
-  let itemPrice = 0;
-  {cart.map((data, index)=>{
-    itemPrice = cart[index].PPrice;
-  })}
-  // let num = 2;
-  // const totalPrice = 0;  
-  // const orderPrice = totalPrice - coupon;
+
+  // 計算購物車商品總價
+  let itemPrice = 0;  
+  cart.map((data, index)=>{
+    // console.log(cart[index]);
+    itemPrice += parseInt(cart[index].PPrice);
+  })
+  // console.log(itemPrice);
+  setTotalPrice(itemPrice);
+  // console.log(totalPrice);
   
-  // console.log(user)
-  // console.log(cart[0])
-  // console.log(number)
-  // console.log(cart[0]["PQty"]);
-  // console.log(stock)
 
-  // setNumber(cart[0].cartNumber)
-  // stock = cart[0].PQty;
-  // itemPrice = cart[0].PPrice;
+  // 計算訂單總價
+  let orderprice = parseInt(totalPrice - discount)
+  // console.log(discount);
+  // console.log(orderprice);  
+  setOrderPrice(orderprice);
+  // console.log(orderPrice);
+  
+  
+  // let stock = cart[0].PQty;
 
-  // let index = 0;  
   // let arr =[2,1,3]
   // const [testArr,setTestArr]=useState(arr)
 
   // minusCartNumber函式：點擊btn減少該商品之購物車數量
-  const minusCartNumber = (e) =>{
-    if (number == 0) {
-      setNumber(0)
-    } else {
-      setNumber(number - 1)
-      setCart({
-        ...cart,
-        0:{
-          ...cart[0],
-          number: number       
-        } 
-      })
-    }
-  }
+  // const minusCartNumber = (e) =>{
+  //   if (number == 0) {
+  //     setNumber(0)
+  //   } else {
+  //     setNumber(number - 1)
+  //     setCart({
+  //       ...cart,
+  //       0:{
+  //         ...cart[0],
+  //         number: number       
+  //       } 
+  //     })
+  //   }
+  // }
+
+
+  // 引入彈跳框插件
+  // MySwal.fire({
+  //   type: 'warning', // 彈框類型
+  //   title: '修改資料？', //標題
+  //   text: '', //顯示內容
+  //   icon: '', //icon圖示
+  //   confirmButtonColor: '#141414', // 確定按鈕的 顏色
+  //   confirmButtonText: '確定', // 確定按鈕的 文字
+  //   showCancelButton: true, // 是否顯示取消按鈕
+  //   cancelButtonColor: '#dadada', // 取消按鈕的 顏色
+  //   cancelButtonText: '取消', // 取消按鈕的 文字
+    // html:
+    //   `<p class="userdata-alert-p">姓名</p>` +
+    //   `<input id="swal-input1" class="swal2-input" value=${userName}>` +
+    //   `<p class="userdata-alert-p">電子信箱</p>` +
+    //   `<input id="swal-input2" class="swal2-input" value=${userMail}>` +
+    //   `<p class="userdata-alert-p">生日</p>` +
+    //   `<input id="swal-input3" class="swal2-input" type="date" value=${userBirthday}>` +
+    //   `<p class="userdata-alert-p">地址</p>` +
+    //   `<input id="swal-input4" class="swal2-input" value=${userAddress}>` +
+    //   `<p class="userdata-alert-p">手機號碼</p>` +
+    //   `<input id="swal-input5" class="swal2-input" value=${userPhone}>`,
+  //   focusCancel: true, // 是否聚焦 取消按鈕
+  //   reverseButtons: true, // 是否 反轉 兩個按鈕的位置 默認是  左邊 確定  右邊 取消
+  // })
+
 
   // plusCartNumber函式：點擊btn增加該商品之購物車數量
-  const plusCartNumber = (e) =>{
-    // let cart = cart[0]
-    // console.log(cart[0].cartNumber)
-    // let index=e
-    // arr=testArr
-    // console.log(index);    
-    // console.log(arr[index]+1)
-    // console.log(testArr)
-    // arr[index]=arr[index]+1
-    // arr[index]=parseInt(arr[index])+1
-    // setTestArr(arr)
+  // const plusCartNumber = (e) =>{
+  //   // let cart = cart[0]
+  //   // console.log(cart[0].cartNumber)
+  //   // let index=e
+  //   // arr=testArr
+  //   // console.log(index);    
+  //   // console.log(arr[index]+1)
+  //   // console.log(testArr)
+  //   // arr[index]=arr[index]+1
+  //   // arr[index]=parseInt(arr[index])+1
+  //   // setTestArr(arr)
 
-    const stock =5
-    if (number == stock) {
-      setNumber(stock) 
-      alert('庫存不足')
-    } else {
-      setNumber(number + 1)
-      setCart({
-        ...cart,
-        0:{
-          ...cart[0],
-          number: number       
-        } 
-      })
-    }
-  }
+  //   const stock =5
+  //   if (number == stock) {
+  //     setNumber(stock) 
+  //     alert('庫存不足')
+  //   } else {
+  //     setNumber(number + 1)
+  //     setCart({
+  //       ...cart,
+  //       0:{
+  //         ...cart[0],
+  //         number: number       
+  //       } 
+  //     })
+  //   }
+  // }
 
   const deleteCartItem = (e) => {
     alert('是否確認刪除?')
     // console.log( e.target.parentElement.closest(".cart-product") )
     setCart([])
   }
+
+  const changeInvoiceInfo = (e) => {
+    console.log(e) 
+    console.log(radiostate)
+    // 切換radio選項時，先清空invoiceInfo
+    // if () {
+    //   setInvoiceInfo('')
+    // }
+    // setInvoiceInfo( 
+    //   radiostate1 == 1 ? '' : (radiostate2 == 1 ? invoiceinfo2 : (radiostate3 == 1 ? invoiceinfo3 : (radiostate4 == 1 ? invoiceinfo4 : '' )))
+    // )
+  }
+
 
     return (
       <>
@@ -131,8 +186,8 @@ function CartCheckout (props) {
                   cart,
                   setCart,
                   totalPrice,
-                  minusCartNumber,
-                  plusCartNumber,
+                  // minusCartNumber,
+                  // plusCartNumber,
                   deleteCartItem,
               }}
               />
@@ -188,13 +243,7 @@ function CartCheckout (props) {
                       <div className="cart-input1">
                         <label htmlFor="invoice">載具號碼</label>
                         <input id="invoicev" type="text" value={invoiceInfo}
-                          onChange={ (e)=>{ 
-                            console.log(document.getElementById("invoice2").checked)
-                            if (document.getElementById("invoice2").checked === true) {
-                            setInvoiceInfo(e.target.value) 
-                            } else {
-                              setInvoiceInfo('')
-                            }}}
+                          onChange={ (e)=>{ changeInvoiceInfo(e.target.value) } }
                         />
                       </div>
                     </div>
@@ -227,23 +276,15 @@ function CartCheckout (props) {
                       <div className="cart-input1">
                         <label htmlFor="invoice">統一編號</label>
                         <input className="companyinvoice" id="" type="text" value={invoiceInfo}
-                          onChange={ (e)=>{ 
-                            if (document.getElementById("invoice4").checked === true) {
-                            setInvoiceInfo(e.target.value) 
-                            } else {
-                              setInvoiceInfo('')
-                            }}}
+                          onChange={ (e)=>{ changeInvoiceInfo(e.target.value) } }
+                          // onChange={ (e)=>{ setInvoiceInfo(e.target.value) } }
                         />
                       </div>
                       <div className="cart-input1">
                         <label htmlFor="invoice">發票抬頭</label>
                         <input className="companyinvoice" id="" type="text" value={invoiceInfo}
-                          onChange={ (e)=>{ 
-                            if (document.getElementById("invoice4").checked === true) {
-                            setInvoiceInfo(e.target.value) 
-                            } else {
-                              setInvoiceInfo('')
-                            }}}
+                          onChange={ (e)=>{ changeInvoiceInfo(e.target.value) } }
+                          // onChange={ (e)=>{ setInvoiceInfo(e.target.value) } }
                         />
                       </div>
                     </div>
@@ -259,22 +300,34 @@ function CartCheckout (props) {
             {/* 折扣碼 */}
             <div className="cart-discount">
               <label htmlFor="discount">折扣碼</label>
-              <input className="" id="discount" type="text"/>
+              <input className="" id="discount" type="text"
+                onChange={ (e)=>{  
+                  // console.log(e.target.value)
+                  // console.log(coupon)     
+                  if (haveCoupon == 1) { 
+                    if ( e.target.value == coupon ) {
+                      alert('恭喜您折扣碼符合')
+                      setDiscount(1500);
+                    }} else {
+                      setDiscount(0);
+                    } 
+                }}
+              />
             </div>
 
             {/* 計算欄位 */}
             <div className="cart-total-right">
               <div>
                 <span className="cart-total-title">合計</span>
-                <span className="cart-total-number cart-english-font">$ {}</span>
+                <span className="cart-total-number cart-english-font">$ {totalPrice}</span>
               </div>
               <div style={{color:'var(--main-colorfb2)'}}>
                 <span className="cart-total-title">折扣</span>
-                <span className="cart-total-number cart-english-font">- $ {}</span>
+                <span className="cart-total-number cart-english-font">- $ {discount}</span>
               </div>
               <div>
                 <span className="cart-total-title">總計</span>
-                <span className="cart-total-number cart-english-font">$ {}</span>
+                <span className="cart-total-number cart-english-font">$ {orderPrice}</span>
               </div>
             </div>
 

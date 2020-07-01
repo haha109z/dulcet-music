@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { logDOM } from '@testing-library/react';
 
 function CartPay () {
 
-  
-  const getCardnum = (e) =>{
+  const getCardnum1 = (e) =>{
     let content1 = document.getElementById("card1")
     let input1 = document.getElementById("cardnumber1")
     if(input1.value !== ''){
@@ -13,10 +13,62 @@ function CartPay () {
 
     }
   }
+  const getCardnum2 = (e) =>{
+    let content2 = document.getElementById("card2")
+    let input2 = document.getElementById("cardnumber2")
+    if(input2.value !== ''){
+        content2.value = input2.value
+    }else{
 
-  // const getCardnum = (e) =>{
-  //   console.log(e)
+    }
+  }  
+  const getCardnum3 = (e) =>{
+    let content3 = document.getElementById("card3")
+    let input3 = document.getElementById("cardnumber3")
+    if(input3.value !== ''){
+        content3.value = input3.value
+    }else{
+
+    }
+  }
+  const getCardnum4 = (e) =>{
+    let content4 = document.getElementById("card4")
+    let input4 = document.getElementById("cardnumber4")
+    if(input4.value !== ''){
+        content4.value = input4.value
+    }else{
+
+    }
+  }
+  const getCardholder = (e) =>{
+    let cardholder = document.getElementById("cardholder")
+    let cardholdercontent = document.getElementById("payer-name")
+    if(cardholdercontent.value !== ''){
+        cardholder.value = cardholdercontent.value
+    }else{
+
+    }
+  }
+  const getValiddates = (e) =>{
+    let validdates1 = document.getElementById("validdates1")
+    let validdates2 = document.getElementById("validdates2")
+    let validdatescontent = document.getElementById("validdates")
+    if(validdates1.value !== '' & validdates2.value !== ''){
+        validdatescontent.value = validdates1.value + validdates2.value
+    }else{
+
+    }
+  }
+  // const getValiddates2 = (e) =>{
+  //   let validdates = document.getElementById("")
+  //   let validdatescontent = document.getElementById("validdates2")
+  //   if(validdatescontent.value !== ''){
+  //       validdates.value = validdatescontent.value
+  //   }else{
+
+  //   }
   // }
+
 
     return (
       <>
@@ -65,15 +117,15 @@ function CartPay () {
                                 <div className="cart3-creditcard-same cart3-creditcard-2">
                                   <div style={{display:'flex'}}>
                                     <input className="cart3-creditcard-number" id="card1" />
-                                    <input className="cart3-creditcard-number"/>
-                                    <input className="cart3-creditcard-number"/>
-                                    <input className="cart3-creditcard-number"/>
+                                    <input className="cart3-creditcard-number" id="card2"/>
+                                    <input className="cart3-creditcard-number" id="card3"/>
+                                    <input className="cart3-creditcard-number" id="card4"/>
                                   </div>
                                 </div> 
                                 <div className="cart3-creditcard-same cart3-creditcard-3">
                                   <div style={{display:'flex'}}>
-                                    <input className="cart3-creditcard-number" placeholder="Card Holder"/>
-                                    <input className="cart3-creditcard-number" placeholder="Valid Dates"/>
+                                    <input className="cart3-creditcard-number" id="cardholder" placeholder="Card Holder"/>
+                                    <input className="cart3-creditcard-number" id="validdates" placeholder="Valid Dates"/>
                                   </div>                                
                                 </div> 
                               </div>
@@ -90,25 +142,31 @@ function CartPay () {
                       <div className="cart3-creditcard-form">
                         <div className="cart3-input">
                           <label htmlFor="payer-name">持卡人姓名</label>
-                          <input className="" id="payer-name" type="text" />
+                          <input className="" id="payer-name" type="text" onChange={ (e)=>{ getCardholder() }} />
                         </div>
                         <div className="cart3-input">
                           <label htmlFor="">卡號</label>
                           <div style={{display:'flex'}}>
                             <input className="" id="cardnumber1" type="text"                               
-                              onChange={ (e)=>{ getCardnum() }}
+                              onChange={ (e)=>{ getCardnum1() }}
                             />
-                            <input className="" id="cardnumber2" type="text" value="" />
-                            <input className="" id="cardnumber3" type="text" value="" />
-                            <input className="" id="cardnumber4" type="text" value="" />
+                            <input className="" id="cardnumber2" type="text"                              
+                              onChange={ (e)=>{ getCardnum2() }}
+                            />
+                            <input className="" id="cardnumber3" type="text"                               
+                              onChange={ (e)=>{ getCardnum3() }}
+                            />
+                            <input className="" id="cardnumber4" type="text"                               
+                              onChange={ (e)=>{ getCardnum4() }}                              
+                            />
                           </div>
                         </div>
                         <div className="cart3-input">
                           <label htmlFor="">到期日</label>
                           <div style={{display:'flex'}}>
                             <div className="cart-card-ex">
-                                <input className="" id="" type="text" value="" />
-                                <input className="" id="" type="text" value="" />
+                                <input className="" id="validdates1" type="text" onChange={ (e)=>{ getValiddates() }} />
+                                <input className="" id="validdates2" type="text" onChange={ (e)=>{ getValiddates() }} />
                             </div>
                           </div>
                         </div>
@@ -127,7 +185,12 @@ function CartPay () {
               <button type="button">
                 <Link to='/cart/2'>上一步</Link>
               </button>
-              <button type="button">
+              <button type="button" onClick={()=>{
+                let couponData = JSON.parse(localStorage.getItem('coupon'))
+                console.log(couponData)
+                couponData[0].couponLocalStorage = 1;
+                localStorage.setItem('coupon', JSON.stringify(couponData))
+              }} >
                 <Link to='/cart/4'>確認送出</Link>
               </button>
             </div>
