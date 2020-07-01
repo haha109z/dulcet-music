@@ -96,10 +96,10 @@ class NavbarUser extends Component{
                 </Link>
                 <ul className="home-nav-userlogin" style={{display}}>
                     <li>
-                        <Link to="/user/userData">我的帳戶</Link>
+                        <a href="/user/userData">我的帳戶</a>
                     </li>
                     <li>
-                        <Link to="/user/userVideo">我的影片</Link>
+                        <a href="/user/userVideo">我的影片</a>
                     </li>
                     <li>
                         <Link to="/user/UserPurchase">購買清單</Link>

@@ -172,7 +172,7 @@
       position: absolute;
       top: var(--nav-height);
       left: 50%;
-      transform: translateX(-85%);
+      transform: translateX(-65%);
       display: none;
 
       &::before {
@@ -210,6 +210,10 @@
     .nav-shopping {
       position: relative;
 
+      .nav-shopping-area{
+        cursor: pointer;
+      }
+
       .nav-shopping-point {
         width: 20px;
         height: 20px;
@@ -231,8 +235,8 @@
         background: rgba(0, 0, 0, 0.8);
         position: absolute;
         top: var(--nav-height);
-        left: -70%;
-        transform: translateX(-10%);
+        left: 0%;
+        transform: translateX(-33%);
         display: none;
 
         &::before {
@@ -244,7 +248,7 @@
           border-right: 1.5rem solid transparent;
           position: absolute;
           top: -0.57rem;
-          left: 42%;
+          left: 33%;
           transform: translateY(-60%);
         }
       }
