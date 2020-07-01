@@ -11,12 +11,16 @@ export default class UserVideo extends Component {
   };
   // 在這個生命週期中渲染資料
   componentDidMount() {
-
-    let user = getUserInfo()
+if(getUserInfo()){
+  let user = getUserInfo()
     // JSON.parse(localStorage.getItem('user'));
     // console.log("user", user[0])
     // alert(`${user[0].userID}歡迎您～！` )
       this.setState({user: user[0]}) 
+}else{
+  this.setState({user: ""}) 
+}
+    
   }
 
   render() {

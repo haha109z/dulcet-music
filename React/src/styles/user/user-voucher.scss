@@ -120,11 +120,26 @@
   text-align: center;
   font-family: var(--main-title-english);
 }
+.userVoucher-item-card-gg-div{
+background-color: #797979;
+}
 .user-voucher-error{
   background-color:var(--main-colorfb2);
   color: black;
   border: none;
   border-radius: 0%;
+  width: 100%;
+  text-align: center;
+}
+.userVoucher-item-card-gg-p{
+  position: absolute;
+  font-size: 50px;
+  left: 30%;
+  top: 13%;
+color: rgb(20, 20, 20);
+}
+.userVoucher-item-card-gg{
+    opacity: 0.6;
 }
 @media (max-width: 768px){
   .userVoucher-main {

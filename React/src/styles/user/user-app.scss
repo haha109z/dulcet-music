@@ -49,7 +49,9 @@ button:focus{
   --h5: 0.92rem; /** 13px **/
   --h6: 0.85rem; /** 12px **/
 }
-
+.user-color-background-79{
+background-color: #797979;
+}
 .user-color-red {
   color: #fb2643;
 }
@@ -204,6 +206,7 @@ button:focus{
   border: 2px solid #141414;
 }
 .user-page {
+  cursor: pointer; 
   display: flex;
   width: -moz-fit-content;
   width: fit-content;
@@ -233,6 +236,7 @@ button:focus{
   outline: none;
   border: none;
   color: black;
+  background-color:white;
 }
 .user-page-Larrow {
   transform: rotate(90deg);

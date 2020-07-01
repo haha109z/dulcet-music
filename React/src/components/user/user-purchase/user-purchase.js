@@ -54,8 +54,15 @@ export default class UserPurchase extends Component {
     this.setState({ userRwdPage: false })
   }
   changePageL = () => {
-    console.log('LL')
-  }
+    let plusNum = Number(this.state.pageNum) - 1
+    if (plusNum >= 1) {
+      this.setState({ pageNum: Number(this.state.pageNum)- 1 })
+      setTimeout(() => {
+        this.showData()
+      }, 0)
+      this.setState({ userPageSelect: (Number(this.state.pageNum)- 1)+""  })
+      this.bokTop()
+    }  }
    // 右邊切頁
    changePageR = () => {
     let plusNum = Number(this.state.pageNum) + 1
@@ -63,7 +70,7 @@ export default class UserPurchase extends Component {
       this.setState({ pageNum: Number(this.state.pageNum)+ 1 })
       setTimeout(() => {
         this.showData()
-      }, 100)
+      }, 0)
       this.setState({ userPageSelect: (Number(this.state.pageNum)+ 1)+""  })
       this.bokTop()
     } else {
@@ -113,7 +120,7 @@ export default class UserPurchase extends Component {
         // console.log(json.data)
         setTimeout(() => {
           this.showData()
-        }, 500)
+        }, 0)
       })
       .catch((error) => {
         console.error('Error:', error)
@@ -137,7 +144,9 @@ export default class UserPurchase extends Component {
 
       setTimeout(() => {
         this.showData()
-      }, 100)
+      }, 0)
+      this.bokTop()
+
       return
     }
     let AllUserPurchase = this.state.AllUserPurchase.filter(
@@ -151,7 +160,9 @@ export default class UserPurchase extends Component {
     this.setState({ totalCount: AllUserPurchase.length })
     setTimeout(() => {
       this.showData()
-    }, 100)
+    }, 0)
+    this.bokTop()
+
   }
   showData() {
     let AllUserPurchase, AllUserPurchaseDetail
@@ -172,6 +183,8 @@ export default class UserPurchase extends Component {
       UserPurchase: AllUserPurchase.slice((pageNum - 1) * 3, pageNum * 3),
     })
     this.setState({ UserPurchaseDetail: AllUserPurchaseDetail })
+    this.bokTop()
+
   }
   constructor() {
     super()

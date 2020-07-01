@@ -1,7 +1,24 @@
 import React, { Component } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import withReactContent from 'sweetalert2-react-content'
+import Swal from 'sweetalert2'
+const MySwal = withReactContent(Swal)
 
 export default class UserSideBar extends Component {
+  signOut = () => {
+    MySwal.fire({
+      position: 'top-center',
+      icon: 'success',
+      title: '登出',
+      showConfirmButton: false,
+      timer: 2000,
+    })
+
+    setTimeout(() => {
+      window.location = '/'
+      localStorage.clear('user')
+    }, 1900)
+  }
   render() {
     return (
       <>
@@ -12,7 +29,18 @@ export default class UserSideBar extends Component {
           <div className="user-sideBar-title font-size-15rem user-font-ch">
             會員管理
           </div>
+
           <ul className="user-sidebar-menu list-unstyled content">
+            <Link
+              onClick={this.signOut}
+              to=""
+              href=""
+              className="user-sidebar-menu-li font-size-142rem user-font-ch rwd-user-out"
+            >
+              <div className="user-sidebar-menu-li-left"></div>
+              <p className="user-sidebar-hover"></p>登出
+              <div className="user-sidebar-menu-li-right"></div>
+            </Link>
             <Link
               to="/user/UserData"
               href=""
@@ -39,7 +67,6 @@ export default class UserSideBar extends Component {
             >
               <div className="user-sidebar-menu-li-left"></div>
               <p className="user-sidebar-hover"></p>購買清單
-
               <div className="user-sidebar-menu-li-right"></div>
             </Link>
             <Link
@@ -66,29 +93,18 @@ export default class UserSideBar extends Component {
               className="user-sidebar-menu-li font-size-142rem user-font-ch"
             >
               <div className="user-sidebar-menu-li-left"></div>
-
               <p className="user-sidebar-hover"></p>我的優惠卷
-
               <div className="user-sidebar-menu-li-right"></div>
             </Link>
-            <Link
-              to="/user/UserVoucher"
-              href=""
-              className="user-sidebar-menu-li font-size-142rem user-font-ch rwd-user-out"
+
+            <div
+              className="user-sidebar-menu-out font-size-142rem user-font-ch"
+              onClick={this.signOut}
             >
-              <div className="user-sidebar-menu-li-left"></div>
-
-              <p className="user-sidebar-hover"></p>登出
-
-              <div className="user-sidebar-menu-li-right"></div>
-            </Link>
-
-
-
-           
-
-            <div className="user-sidebar-menu-out font-size-142rem user-font-ch">
-              <Link href=""><p className="user-sidebar-hover"></p>登出</Link>
+              <Link href="">
+                <p className="user-sidebar-hover"></p>
+                登出
+              </Link>
             </div>
           </ul>
         </div>

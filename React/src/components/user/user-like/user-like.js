@@ -9,7 +9,59 @@ export default class UserLike extends Component {
     pageStyle: '1',
     pageRwd: false,
   }
-
+  changePageL = () => {
+    console.log('L')
+    let { pageNum } = this.state
+    // console.log(pageNum)
+  }
+  changePageR = () => {
+    let { likeData } = this.state
+    // 目前頁數
+    let { pageNum } = this.state
+    // 目前頁數＋1
+    let pageNumR = Number(pageNum) + 1
+    // 總共幾頁
+    if (pageNumR <= Math.ceil(likeData.length / 5)) {
+      this.setState({ pageNum: pageNumR })
+      setTimeout(() => {
+        this.showData()
+        this.setState({pageStyle:pageNumR+""})
+      }, 100)
+      this.bokTop()
+    }
+  }
+  changePageR = () => {
+    let { likeData } = this.state
+    // 目前頁數
+    let { pageNum } = this.state
+    // 目前頁數＋1
+    let pageNumR = Number(pageNum) + 1
+    // 總共幾頁
+    if (pageNumR <= Math.ceil(likeData.length / 5)) {
+      this.setState({ pageNum: pageNumR })
+      setTimeout(() => {
+        this.showData()
+        this.setState({pageStyle:pageNumR+""})
+      }, 100)
+      this.bokTop()
+    }
+  }
+  changePageL = () => {
+    let { likeData } = this.state
+    // 目前頁數
+    let { pageNum } = this.state
+    // 目前頁數＋1
+    let pageNumR = Number(pageNum) - 1
+    // 總共幾頁
+    if (pageNumR >= 1) {
+      this.setState({ pageNum: pageNumR })
+      setTimeout(() => {
+        this.showData()
+        this.setState({pageStyle:pageNumR+""})
+      }, 100)
+      this.bokTop()
+    }
+  }
   showPageRwd = () => {
     this.setState({ pageRwd: true })
   }
@@ -46,47 +98,61 @@ export default class UserLike extends Component {
     this.setState({
       showLikeData: likeData.slice((pageNum - 1) * 5, pageNum * 5),
     })
-    // 決定分幾頁
-    let page = Math.ceil(
-      this.state.likeData.length / this.state.showLikeData.length
-    )
-    let pageNumArry = []
-    for (let i = 1; i <= page; i++) {
-      pageNumArry.push(i)
-    }
-    this.setState((state, props) => ({
-      pageList: pageNumArry,
-    }))
+    // // 決定分幾頁
+    // let page = Math.ceil(
+    //   this.state.likeData.length / this.state.showLikeData.length
+    // )
+    // let pageNumArry = []
+    // for (let i = 1; i <= page; i++) {
+    //   pageNumArry.push(i)
+    // }
+    // this.setState((state, props) => ({
+    //   pageList: pageNumArry,
+    // }))
   }
 
   chagePage = (e) => {
     e = e.currentTarget.textContent
-    let { likeData } = this.state
-    this.setState({
-      showLikeData: likeData.slice((e - 1) * 5, e * 5),
-    })
-    this.setState({
-      pageStyle: e,
-    })
-    setTimeout(()=>{
-       this.setState({pageRwd:false},()=>{
-      console.log(this.state.pageRwd)
-      })
-    },100)
-   
+    this.setState({ pageNum: Number(e) })
 
+    setTimeout(() => {
+      let { likeData, pageNum } = this.state
+      this.setState({
+        showLikeData: likeData.slice((pageNum - 1) * 5, pageNum * 5),
+      })
+      this.setState({
+        pageStyle: pageNum,
+      })
+      this.setState({ pageRwd: false })
+    }, 0)
 
     document.documentElement.scrollTop = 0
   }
+  bokTop() {
+    document.documentElement.scrollTop = 0
+  }
+
   constructor() {
     super()
     // 呼叫主fun
     this.getOrder()
+    let { showLikeData, likeData } = this.state
+    let { pageList } = this.state
   }
 
   render() {
-    let showLikeData = this.state.showLikeData
+    let { showLikeData, likeData } = this.state
     let { pageList } = this.state
+    // console.log('likeData', likeData)
+    // console.log('showLikeData', showLikeData)
+
+    let num = Math.ceil(this.state.likeData.length / 5)
+    let page = []
+
+    for (let i = 1; i <= num; i++) {
+      page.push(i)
+    }
+    // console.log(page)
 
     return (
       <>
@@ -159,10 +225,10 @@ export default class UserLike extends Component {
           {/* 電腦page */}
 
           <div className="user-page">
-            <a className="user-page-Rarrow">
+            <button className="user-page-Rarrow" onClick={this.changePageL}>
               <i className="fas fa-sort-up"></i>
-            </a>
-            {pageList.map((item, index) => (
+            </button>
+            {page.map((item, index) => (
               <button
                 className={
                   this.state.pageStyle == item
@@ -176,14 +242,14 @@ export default class UserLike extends Component {
               </button>
             ))}
 
-            <a className="user-page-Larrow">
+            <button className="user-page-Larrow" onClick={this.changePageR}>
               <i className="fas fa-sort-up"></i>
-            </a>
+            </button>
           </div>
           {/* 手機版page */}
           <div className="userRwd-dropdown" onClick={this.showPageRwd}>
             <button type="button" className="userRwd-dropbtn">
-              頁<i className="fas fa-sort-down"></i>
+            第&nbsp;{this.state.pageNum}&nbsp;頁<i className="fas fa-sort-down"></i>
             </button>
             <div
               className={
@@ -192,7 +258,7 @@ export default class UserLike extends Component {
                   : 'userRwd-dropdown-content-none'
               }
             >
-              {pageList.map((item, index) => (
+              {page.map((item, index) => (
                 <button
                   id={`btn${item}`}
                   className={
