@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { logDOM } from '@testing-library/react';
 
 function CartPay () {
 
@@ -184,7 +185,12 @@ function CartPay () {
               <button type="button">
                 <Link to='/cart/2'>上一步</Link>
               </button>
-              <button type="button">
+              <button type="button" onClick={()=>{
+                let couponData = JSON.parse(localStorage.getItem('coupon'))
+                console.log(couponData)
+                couponData[0].couponLocalStorage = 1;
+                localStorage.setItem('coupon', JSON.stringify(couponData))
+              }} >
                 <Link to='/cart/4'>確認送出</Link>
               </button>
             </div>

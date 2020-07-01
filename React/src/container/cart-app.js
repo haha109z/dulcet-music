@@ -145,7 +145,7 @@ useEffect(()=>{
     if (couponData===null) {
       return
     } else {
-      // console.log(couponData); 
+      console.log("app",couponData); 
       // console.log(couponData[0]['coupon']);           
       setHaveCoupon(true) 
       setCoupon(couponData[0]['coupon'])
