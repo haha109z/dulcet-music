@@ -213,7 +213,7 @@ class UserRegistered extends Component{
                         <div className="form-group">
                             {checkPhone}
                             <label htmlFor="userRegisterMobile" className="col-md-12 control-label" >手機號碼</label>
-                            <input type="tel" name="userRegisterMobile" className="form-control col-md-12" id="userRegisterMobile" placeholder="請輸入手機號碼" maxLength="10"
+                            <input type="tel" name="userRegisterMobile" className="form-control col-md-12" id="userRegisterMobile" placeholder="請輸入手機號碼" maxLength="12"
                             onBlur = {this.phoneBlur}
                             onChange={this.logChange}
                             />

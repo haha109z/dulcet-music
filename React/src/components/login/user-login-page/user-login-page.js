@@ -105,13 +105,13 @@ function UserLoginPage(props) {
 
      // 錯誤訊息陣列的呈現
     const displayErrors = loginErrors.length ? (
-        <div className="alert alert-danger" role="alert">
-        <ul className="list-unstyled">
+        // <div className="alert alert-danger" role="alert">
+        <ul className="list-unstyled" style={{color:"red",fontFamily:"var(--main-title-chinese)"}}>
             {loginErrors.map((v, i) => (
             <li key={i}>{v}</li>
             ))}
         </ul>
-        </div>
+        // </div>
     ) : (
         ''
     )
