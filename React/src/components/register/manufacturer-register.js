@@ -149,6 +149,23 @@ fetch('http://localhost:3030/register/manufacturer', {
   this.setState({ Mpwd: this.state.Mpwd })
   this.setState({ Mimg: this.state.Mimg })
   this.setState({ Mcategory: this.state.Mcategory })
+//   if(Mpwd<=4){
+//     MySwal.fire({
+        
+//         position: 'top-center',
+//         icon: 'error',
+//         title: '確認密碼與當前密碼不符合',
+//         showConfirmButton: false,
+//         timer: 2000
+        
+//     })
+//   }
+if(Mpwd !== MpwdCheck){
+    this.setState({checkPwd:false});
+    return
+}else{
+    this.setState({checkPwd:true});
+}
  if(MpwdCheck===Mpwd&&Mtelephone!==''&&Muser!==''&&Maddress!==''&&Mphone!==''&&Memail!==''&&Mname!==''){
     MySwal.fire({
         
@@ -159,9 +176,9 @@ fetch('http://localhost:3030/register/manufacturer', {
         timer: 2000
         
     })
-    // setTimeout(()=>{
-    //     window.location = "/"
-    //   },2000)
+    setTimeout(()=>{
+        window.location = "/"
+      },2000)
     }else{
         MySwal.fire({
             position: 'top-center',
@@ -176,7 +193,7 @@ fetch('http://localhost:3030/register/manufacturer', {
       }
     render(){
 
-        const {phoneReg,emailReg} = this.state;
+        const {phoneReg,emailReg , checkPwd} = this.state;
 
         const {showPwd,showComPwd} = this.state;
 
@@ -189,12 +206,14 @@ fetch('http://localhost:3030/register/manufacturer', {
         const pwdType = showPwd ? 'text' : 'password';
         const pwdComType = showComPwd ? 'text' : 'password';
         const checkPhone = phoneReg ? '' : (
-            <div className="user-register-dobluecheckPhone">請輸入正確的手機格式 09xx-xxx-xxx </div>
+            <div className="user-register-dobluecheckPhone" style={{color:'red'}}>請輸入正確的手機格式 09xx xxx xxx </div>
         )
         const checkEmail = emailReg ? '' : (
-            <div className="user-register-dobluecheckPhone">請輸入正確的Email格式 (包含@) </div>
+            <div className="user-register-dobluecheckPhone" style={{color:'red'}}>請輸入正確的Email格式 (包含@) </div>
         )
-
+        const checkPwddobule = checkPwd ? '' : (
+            <div className="user-register-dobluecheckPwd" style={{color:'red'}}>兩次密碼不相符，請再確認</div>
+        );
         return(
             <>
             <Navbar />
@@ -276,6 +295,7 @@ fetch('http://localhost:3030/register/manufacturer', {
                         </div>
                     </div>
                     <div className="form-group facturer-pwCom-form">
+                    {checkPwddobule}
                         <label htmlFor="facturerRegisterPasswordComfirm" className="col-md-12 control-label">確認密碼</label>
                         <input type={pwdComType} name="facturerRegisterPasswordComfirm"  className="form-control" id="facturerRegisterPasswordComfirm" placeholder="請確認密碼" 
                         maxLength="15" minLength="4"

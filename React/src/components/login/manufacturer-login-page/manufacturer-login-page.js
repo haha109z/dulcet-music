@@ -33,7 +33,7 @@ function MLoginPage(props) {
           return
         }
         setMData(json.data)   
-        localStorage.setItem('user', JSON.stringify(json.data))
+        localStorage.setItem('M', JSON.stringify(json.data))
         // console.log("userData: ",json.data);
         // console.log("userData: ",userData);
         
@@ -70,8 +70,8 @@ function MLoginPage(props) {
       }
 
       // login成功時的callback
-    const MloginSuccessCallback = () => {
-        // localStorage.setItem('user', JSON.stringify(MData))
+    const MloginSuccessCallback = async() => {
+        // localStorage.setItem('M', JSON.stringify(MData))
         // alert('登入成功，跳轉至首頁')
         setTimeout(()=>{
           props.history.push('/ManufacturerInstrument/Instrument', { from: '從登入頁來的' })
