@@ -61,10 +61,7 @@ function ProductVideoCard(props) {
           maylike ? 'product-maylike-card' : ''
         }`}
       >
-        <Link
-          to={'/instrument/' + PId}
-          className="product-instrument-card-link"
-        >
+        <a href={'/instrument/' + PId} className="product-instrument-card-link">
           <div className="product-instrument-card-img-wrapper">
             <img
               className="product-instrument-card-img"
@@ -75,7 +72,7 @@ function ProductVideoCard(props) {
             <h4 className="product-card-title">{props.PName}</h4>
             <h3 className="product-card-cost">${props.PPrice}</h3>
           </div>
-        </Link>
+        </a>
 
         <div
           className={`product-card-favorite-container ${

@@ -4,7 +4,7 @@ import Navbar from '../../navbar/navbar'
 import ProductLink from '../id/product-link'
 import ProductIntro from '../id/product-instrument-intro'
 import ProductDesciption from '../id/product-desciption'
-// import ProductMayLike from '../components/product/id/product-maylike'
+import ProductMayLike from '../id/product-maylike'
 
 function ProductId() {
   let { PId } = useParams()
@@ -67,7 +67,7 @@ function ProductId() {
                   <ProductDesciption Pdesciption={p.Pdesciption} />
                 </div>
                 <hr id="product-wrapper-hr" />
-                {/* <ProductMayLike /> */}
+                <ProductMayLike list={productCategoryId} />
               </>
             )
           })}
