@@ -83,7 +83,7 @@ class NavbarUser extends Component{
 
         // 會員icon圖示
         const userIcon = (
-            <a href="/login">
+            <a href="/login/user">
                 <i className="fas fa-user"></i>
             </a>
         )
@@ -91,9 +91,9 @@ class NavbarUser extends Component{
         // 會員名字與下拉區
         const userLoginArea = (
             <div>
-                <Link to="/user" className="home-username">
+                <a href="/user/UserData" className="home-username">
                     <img className="home-username-img" src={userImgs}></img>
-                </Link>
+                </a>
                 <ul className="home-nav-userlogin" style={{display}}>
                     <li>
                         <a href="/user/userData">我的帳戶</a>
