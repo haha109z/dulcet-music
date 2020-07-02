@@ -332,7 +332,6 @@
   // Navbar
   .home-nav-body {
     width: 100vw;
-
     // background-color: burlywood;
     padding: 0;
     transform: 0.5s;
@@ -432,6 +431,10 @@
     #Homeburger:checked ~ .home-navlist {
       height: 75vh;
       overflow: none;
+    }
+
+    .home-items .nav-shopping-area{
+      color: var(--main-colorblock);
     }
 
     // navbar右側 user & shopping

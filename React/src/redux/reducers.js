@@ -1,9 +1,9 @@
 import {combineReducers} from 'redux';
 
 const initHomeNews =[
-    {title:'《宮崎駿動畫配樂》交響音樂會',content:'宮崎駿的動畫伴隨許多人成長，在那些精彩動畫的背後，經配樂大師巧手後，一首首時而溫馨、時而浪漫、時而詼諧、時而壯闊的音樂，賦予了動畫更多色彩與風味。這場音樂會，一次呈現宮崎駿與久石讓歷年所合作的九部經典動畫配樂，與您一同憶起初次接觸宮崎駿動畫時的興奮與感動。',src:require('../img/home_board_3-3.jpg'),to:''},
-    {title:'《無限》',content:'藝術家為舞台而生，沒有任何事能阻擋渴望演出的靈魂，《無限》就是風動的音樂家們最溫柔的回應。我們想帶著大家一起走上舞台，體會那些在觀眾席不曾體會的每個細節。',src:require('../img/home_board_1-3.jpg'),to:''},
-    {title:'《閃耀新勢力─弓弦狂舞》',content:'魅力崛起，臺灣室內樂鋒芒新銳，默契絕倫，情感濃烈，耀眼樂壇絕佳組合，被譽為「臺灣新世代最佳室內樂組合」的藝心弦樂四重奏，團員由台北市立交響樂團、Taiwan Connection優秀音樂家組成。自2018年起，連續兩年在誠品室內樂節舞台上嶄露光芒。',src:require('../img/home_board_2-3.jpg'),to:'/news'}
+    {title:'柯嘉惠、楊妮蓉雙鋼琴音樂會',content:'節目介紹 此場音樂會將由兩位鋼琴家柯嘉惠與楊妮蓉攜手演出多首經典雙鋼琴曲作品，並以多元的音樂風格與充滿異國風情的樣貌呈現，曲目類型選自作曲家原創作品、改編為雙鋼琴版本以及主題變奏曲等',src:require('../img/home_news_006_1.jpg'),to:'/news/6'},
+    {title:'《颺 I will rise》',content:'高雄女中合唱團每年不管在全國學生音樂比賽或是鄉土歌謠比賽都拿到優秀的成績，並且也曾受邀參加多次聯合演出，因此希望能將今年的努力做一次完整的發表。',src:require('../img/home_news_008.jpg'),to:'/news/8'},
+    {title:'【武漢肺炎】防疫宣導',content:'若您近期曾去過武漢，且出現身體不適的狀況：一、請撥打防疫專線1922，並戴口罩盡快就醫。二、就醫時告知醫師武漢旅遊史，接觸史及不適症狀等。',src:require('../img/home_news_007_1.jpg'),to:'/news/7'}
 ]
 
 function homeNews(state = initHomeNews, action){

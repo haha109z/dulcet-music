@@ -38,40 +38,28 @@ function News(props) {
         <div className="news-CategoryContainer d-flex news-NotoSerifTC">
           <div className="news-Category">
             <ul className="d-flex justify-content-start">
-              <Link>
+              <Link onClick={() => changeNewsCategory('')}>
                 <li>
-                  <p onClick={() => changeNewsCategory('')}>全部</p>
+                  <p>全部</p>
                 </li>
               </Link>
-              <Link>
+              <Link onClick={() => changeNewsCategory('課程')}>
               <li>
-                <p onClick={() => changeNewsCategory('課程')}>課程</p>
+                <p>課程</p>
               </li>
               </Link>
-              <Link>
+              <Link onClick={() => changeNewsCategory('公告')}>
               <li>
-                <p onClick={() => changeNewsCategory('公告')}>公告</p>
+                <p>公告</p>
               </li>
               </Link>
-              <Link>
+              <Link onClick={() => changeNewsCategory('活動')}>
               <li>
-                <p onClick={() => changeNewsCategory('活動')}>活動</p>
+                <p>活動</p>
               </li>
               </Link>
             </ul>
           </div>
-
-          <div className="news-Month news-NotoSerifTC">
-          年/月份篩選：
-          <input
-            Id="news-MonthInput"
-            type="month"
-            value={newNewsDate}
-            // onChange={(event) => {
-            //   setDate(event.target.value)
-            // }}
-          ></input>
-        </div>
         </div>
         <NewsHot />
 

@@ -21,9 +21,9 @@ return (
       <div className="nav-body-others nav-d-flex" id="">
       {/* nav-logo-left-others */}
         <div className="nav-logo-left-others">
-          <Link to="/">
+          <a href="/">
             <img src={require('../../img/home_logo_長2.svg')} alt="logo2" />
-          </Link>
+          </a>
         </div>
         <label htmlFor="HomeNavburger" className="home-nav-burger"><i className="fas fa-bars"></i></label>
         <input type="checkbox" id="HomeNavburger" />
@@ -31,7 +31,7 @@ return (
         <div className="nav-navlist-others nav-d-flex">
           <div className="nav-items-others nav-courses-others">
             {/*<a href="/course">Courses</a>*/}
-            <Link to="/course">Courses</Link>
+            <a href="/course">Courses</a>
             <ul className="nav-courses-list-others">
                 {
                   <Courses />
@@ -40,7 +40,7 @@ return (
           </div>
           <div className="nav-items-others nav-videos-others">
               {/*<a href="/video">Videos</a>*/}
-                <Link to="/video">Videos</Link>
+                <a href="/video">Videos</a>
             <ul className="nav-videos-list-others">
                 {
                   <Videos />
@@ -49,7 +49,7 @@ return (
           </div>
           <div  className="nav-items-others nav-instrument-others">
             {/*<a href="/instrument">Instrument</a>*/}
-            <Link to="/instrument">Instrument</Link>
+            <a href="/instrument">Instrument</a>
             <ul className="nav-instrument-list-others">
                 {
                   <Instrument />
@@ -58,7 +58,7 @@ return (
           </div>
           <div  className="nav-items-others nav-news-others">
             {/*<a href="/news">News</a>*/}
-            <Link to="/news">News</Link>
+            <a href="/news">News</a>
             <ul className="nav-news-list-others">
                 {
                   <News />
@@ -67,7 +67,7 @@ return (
           </div>
           <div  className="nav-items-others nav-about-others">
             {/*<a href="/about">About</a>*/}
-            <Link to="/about">About</Link>
+            <a href="/about">About</a>
             <ul className="nav-about-list-others">
                 {
                   <About />

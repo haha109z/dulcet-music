@@ -36,16 +36,16 @@ function UserLoginPage(props) {
             setLoginErrors([json.msg])
             return
           }
-         
-          setUserData(json.data)   
+
+          setUserData(json.data)
           // console.log("userData",userData);
-          
+
           return userData
         })
     }
 
     // 處理會員登入
-    const loginProcess = () => {
+    const loginProcess = async () => {
         const errors = []
         // 檢查錯誤
         if(userMail === ''){
@@ -53,17 +53,16 @@ function UserLoginPage(props) {
         }else if( userPwd === ''){
             errors.push('請輸入密碼');
         }else{
-          getData(userMail, userPwd);
-          
-          // console.log(userData);   
-            if(userData.length === 0){    
-              // console.log("1",userData);           
-              // errors.push('前:Email帳號不存在');
-              return false
-            }else{
-              if(sha1(userPwd) != userData[0].userPwd) errors.push('123密碼錯誤');
-            }              
-        }
+          await getData(userMail, userPwd);
+          // console.log(userData);
+          if(userData.length === 0){
+            // console.log("1",userData);
+            // errors.push('前:Email帳號不存在');
+            return false
+          }else{
+            if(sha1(userPwd) != userData[0].userPwd) errors.push('123密碼錯誤');
+          }
+      }
 
         if(errors.length > 0){
           setLoginErrors(errors);
@@ -125,7 +124,7 @@ function UserLoginPage(props) {
                 <div className="form-group">
                 {displayErrors}
                     <label htmlFor="userEmail" className="col-md-12 control-label" autofocus>電子郵件</label>
-                    <input type="email" name="username" className="form-control col-md-12" id="userEmail" placeholder="請輸入電子郵件" required 
+                    <input type="email" name="username" className="form-control col-md-12" id="userEmail" placeholder="請輸入電子郵件" required
                     onChange={(event) => {
                         setUserMail(event.target.value)
                       }}
@@ -142,7 +141,7 @@ function UserLoginPage(props) {
                     <input type="checkbox" className="user-check-input" id="userCheckMe" />
                     <label className="user-check-label" htmlFor="userCheckMe">記住我</label>
                 </div>
-                <button type="button" className="all-login-btn" 
+                <button type="button" className="all-login-btn"
                 onClick={() => {
                     loginProcess(loginSuccessCallback)
                   }}

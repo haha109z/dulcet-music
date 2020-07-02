@@ -29,10 +29,10 @@ class ForumCard extends Component {
 
   state = {
     boxShow: false,
-    boxShowBtn: "",
+    boxShowBtn: '',
     boxShowBtn2: false,
     // userID: '',
-    Memo:'',
+    Memo: '',
     news: [
       {
         ForumId: '',
@@ -40,12 +40,11 @@ class ForumCard extends Component {
         TitleId: '',
         Memo: '',
         NewsDate: '',
-        ForumTitle:'',
-        ForumAction:'',
+        ForumTitle: '',
+        ForumAction: '',
         // ForumActionAns:'',
       },
     ],
-   
   }
 
   componentDidMount(e) {
@@ -86,30 +85,27 @@ class ForumCard extends Component {
     const toggle = !boxShowBtn2
     this.setState({ boxShowBtn2: toggle })
     console.log(toggle)
-    this.setState({boxShowBtn:i})
-    if(boxShowBtn2){
-      const box001 =document.getElementById(`abc${i}`)
-      
+    this.setState({ boxShowBtn: i })
+    if (boxShowBtn2) {
+      const box001 = document.getElementById(`abc${i}`)
     }
-  //   console.log(this.state.news[i].Memo)
-  // console.log(document.getElementById(`abc${i}`)) 
+    //   console.log(this.state.news[i].Memo)
+    // console.log(document.getElementById(`abc${i}`))
   }
- 
+
   handleClick = () => {
     const { boxShow } = this.state
     const toggle = !boxShow
     this.setState({ boxShow: toggle })
     // console.log(boxShow);
-    
+
     //input裡面的資料抓取功能
-    localStorage.getItem("user") 
+    localStorage.getItem('user')
     const UserName = this.state.username
     // UserName.value = this.state.news.userID
-    this.setState({ userName:UserName })
+    this.setState({ userName: UserName })
     // console.log(this.state)
-    
   }
-
 
   handleForumAboutTitle = (event) => {
     const state = this.state
@@ -119,77 +115,73 @@ class ForumCard extends Component {
     // console.log(state)
   }
 
+  //抓取input的value值
+  handleForumTitle = (event) => {
+    this.setState({ ForumTitle: event.target.value })
+    // console.log(event.target.value)
+  }
+  handleForumAction = (event) => {
+    this.setState({ ForumAction: event.target.value })
+    // console.log(event.target.value)
+  }
+  // handleForumActionAns = (event)=>{
+  //   this.setState({ForumActionAns:event.target.value})
+  //   console.log(event.target.value)
+  // }
+  //送出之後把它存進資料庫
+  handleSubmit = (event) => {
+    let {
+      ForumTitle,
+      ForumAction,
+      // ForumActionAns,
+      // userName
+      userID,
+    } = this.state
+    // console.log(this.state.ForumTitle)
+    // console.log(this.state.userID)
 
-//抓取input的value值
-handleForumTitle = (event)=>{
-  this.setState({ForumTitle:event.target.value})
-  // console.log(event.target.value)
-}
-handleForumAction = (event)=>{
-  this.setState({ForumAction:event.target.value})
-  // console.log(event.target.value)
-}
-// handleForumActionAns = (event)=>{
-//   this.setState({ForumActionAns:event.target.value})
-//   console.log(event.target.value)
-// }
-//送出之後把它存進資料庫
-handleSubmit = (event) => {
+    fetch('http://localhost:3030/forum/123', {
+      method: 'POST', // or 'PUT'
+      body: JSON.stringify({
+        ForumTitle,
+        ForumAction,
+        userID,
+      }),
+      headers: new Headers({
+        'Content-Type': 'application/json',
+      }),
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        this.setState({ news123: json })
+        console.log(this.state)
+        // localStorage.setItem('user', JSON.stringify(json.data))
+        // console.log(json.data)
+      })
+      .catch((error) => {
+        console.error('Error:', error)
+      })
 
-let {
-  ForumTitle,
-  ForumAction,
-  // ForumActionAns,
-  // userName
-  userID,
-}=this.state
-// console.log(this.state.ForumTitle)
-// console.log(this.state.userID)
+    this.setState({ boxShow: false })
+    this.setState({ ForumTitle: this.state.ForumTitle })
+    this.setState({ ForumAction: this.state.ForumAction })
+    this.setState({ userID: this.state.userID })
+    // this.setState({ ForumActionAns: this.state.ForumActionAns })
 
-
-  fetch('http://localhost:3030/forum/123', {
-                  method: 'POST', // or 'PUT'
-                  body: JSON.stringify({
-                 ForumTitle,
-                 ForumAction,
-                 userID,
-                  }), 
-                  headers: new Headers({
-                    'Content-Type': 'application/json',
-                  }),
-                  
-                })
-                  .then((res) => res.json())
-                  .then((json) => {
-                    
-                    this.setState({news123:json})
-                    console.log(this.state)
-                    // localStorage.setItem('user', JSON.stringify(json.data))
-                    // console.log(json.data)
-                  })
-                  .catch((error) => {
-                    console.error('Error:', error)
-                  })
-
-  
-  this.setState({ boxShow: false })
-  this.setState({ ForumTitle: this.state.ForumTitle })
-  this.setState({ ForumAction: this.state.ForumAction })
-  this.setState({ userID: this.state.userID })
-  // this.setState({ ForumActionAns: this.state.ForumActionAns })
-  
-  MySwal.fire('新增成功', '', 'success')
-  console.log(this.state)
-  // this.location.reload()
-  this.setState({ boxShow: false })
-}
-handleSubmitBack=(event)=>{
-  MySwal.fire('已取消', '', 'error')
-  this.setState({ boxShow: false })
-  
-}
+    MySwal.fire('新增成功', '', 'success')
+    setTimeout(()=>{
+      window.location = "/forum"
+    },2000)
+    // console.log(this.state)
+    // this.location.reload()
+    this.setState({ boxShow: false })
+  }
+  handleSubmitBack = (event) => {
+    MySwal.fire('已取消', '', 'error')
+    this.setState({ boxShow: false })
+  }
   render() {
-    const { boxShow, boxShowBtn , boxShowBtn2 } = this.state
+    const { boxShow, boxShowBtn, boxShowBtn2 } = this.state
     //看回答的新增欄位
     // const ForumMemo = Memo ? (<>
     // <div>
@@ -197,40 +189,44 @@ handleSubmitBack=(event)=>{
     //   </div>
     //   </>
     // ):('')
-    
 
     //我要發問的新增欄位
     const box = boxShow ? (
       <div className="ForumBtn01">
-       
-          <div style={{textAlign:'center'}}>
+        <div style={{ textAlign: 'center' }}>
           <p>發問會員</p>
-            
-            <input
-              type="text"
-              name="name"
-              value={this.state.userName}
-                            disabled
-              onChange={this.handleUserNameId}
-            />
-            <button onClick={this.handleSubmitBack}>
-              <i className="fas fa-times" ></i>
-            </button>
-          </div>
-          <div style={{textAlign:'center'}}>
+
+          <input
+            type="text"
+            name="name"
+            value={this.state.userName}
+            disabled
+            onChange={this.handleUserNameId}
+          />
+          <button onClick={this.handleSubmitBack}>
+            <i className="fas fa-times"></i>
+          </button>
+        </div>
+        <div style={{ textAlign: 'center' }}>
           <p>問題類別</p>
-            
-            <input type="text" placeholder="樂器類別是？" name="ForumTitle"       
-              onChange={this.handleForumTitle} />
-          </div>
-          <div style={{textAlign:'center'}}>
+
+          <input
+            type="text"
+            placeholder="樂器類別是？"
+            name="ForumTitle"
+            onChange={this.handleForumTitle}
+          />
+        </div>
+        <div style={{ textAlign: 'center' }}>
           <p>您的問題</p>
-            <textarea type="text" placeholder="您的問題是？"
-            name="ForumAction"         
+          <textarea
+            type="text"
+            placeholder="您的問題是？"
+            name="ForumAction"
             onChange={this.handleForumAction}
-               />
-          </div>
-          <div className="ButtonSend" style={{display:'flex'}}>
+          />
+        </div>
+        <div className="ButtonSend" style={{ display: 'flex' }}>
           <input
             type="button"
             value="取消"
@@ -243,8 +239,7 @@ handleSubmitBack=(event)=>{
             className="ForumBtnSend"
             onClick={this.handleSubmit}
           />
-          </div>
-       
+        </div>
       </div>
     ) : (
       ''
@@ -265,9 +260,8 @@ handleSubmitBack=(event)=>{
     //   ''
     // )
 
-    const box001 = boxShowBtn2 ? 'block' : 'none';
+    const box001 = boxShowBtn2 ? 'block' : 'none'
     return (
-      
       <div className="ForumAll">
         <div className="BackgroundForum"></div>
         <div className="ForumContainer">
@@ -285,11 +279,14 @@ handleSubmitBack=(event)=>{
 
           {/* card1 */}
           <div className="ForumCardFlex">
-            {this.state.news.map((item, i) => {        
+            {this.state.news.map((item, i) => {
               return (
-                <div key={i}  className="ForumCard">
+                <div key={i} className="ForumCard">
                   <div className="ForumCardTitle">
-                    <div className="ForumCardImg"></div>
+                    <img
+                      className="ForumCardImg"
+                      // src={this.state.news.userImg}
+                    />
                     <div>
                       <h3 className="ForumCardH3">發問會員：{item.userName}</h3>
                       <h3 className="ForumCardH3">
@@ -299,56 +296,45 @@ handleSubmitBack=(event)=>{
                     <button className="ComprehensiveButton">綜合</button>
                   </div>
                   <div className="ForumCardDiv">
-                  <p className="ForumCardP">{item.TitleId}</p>
-                    <button className="ForumBtnAns" onClick={()=>{this.handleBtn(i)}} onChange={this.onChange1} >
+                    <p className="ForumCardP">{item.TitleId}</p>
+                    <button
+                      className="ForumBtnAns"
+                      onClick={() => {
+                        this.handleBtn(i)
+                      }}
+                      onChange={this.onChange1}
+                    >
                       看回答
                     </button>
                   </div>
                   {/* 看回答的button顯示 */}
-                  <div className="ForumCardDiv"  style={{display:box001}}>
-      {/* 用function的方法做完每個按鈕都顯示不同的Memo值 */}
-                
-                <div>
-                {/* <p className="ForumCardP2"> */}
+                  <div className="ForumCardDiv" style={{ display: box001 }}>
+                    {/* 用function的方法做完每個按鈕都顯示不同的Memo值 */}
 
-                <p id={`abc${i}`} className={this.state.boxShowBtn === i ? "ForumCardP2":
-                "ForumCardP002"}>
+                    <div>
+                      {/* <p className="ForumCardP2"> */}
 
-                {this.state.news[i].Memo}
-                  </p>
-        {/* <div className="ForumCardTeacherImg"></div> */}
-        </div>
-              
-      </div>
+                      <p
+                        id={`abc${i}`}
+                        className={
+                          this.state.boxShowBtn === i
+                            ? 'ForumCardP2'
+                            : 'ForumCardP002'
+                        }
+                      >
+                        {this.state.news[i].Memo}
+                      </p>
+                      {/* <div className="ForumCardTeacherImg"></div> */}
+                    </div>
+                  </div>
                 </div>
               )
             })}
           </div>
-          <Router>
-            <div id="Forum-pages-list">
-              <Link className="Forum-pages" to="">
-                <IoMdArrowDropleft className="Forum-pages-arrows" />
-              </Link>
-              <Link className="Forum-pages" to="">
-                1
-              </Link>
-              <Link className="Forum-pages" to="">
-                2
-              </Link>
-              <Link className="Forum-pages" to="">
-                3
-              </Link>
-              <Link className="Forum-pages" to="">
-                <IoMdArrowDropright className="Forum-pages-arrows" />
-              </Link>
-            </div>
-          </Router>
         </div>
       </div>
     )
-    
   }
-  
 }
 // ReactDOM.render(<ForumCard /> ,document.getElementById('root'))
 export default ForumCard

@@ -13,14 +13,17 @@
   margin: 0;
 }
 .news-Category li {
-  width: 160px;
+  max-width: 160px;
   border: 1px solid #141414;
   text-align: center;
-
   font-size: 16px;
   line-height: 36px;
   display: block;
+  padding: 0 60px;
   color: #141414;
+}
+.news-Link {
+  display: block;
 }
 
 .news-Category li:hover {
@@ -28,22 +31,14 @@
   background: #141414;
 }
 
-.news-Month {
-  margin-left: 40px;
-  line-height: 36px;
-}
-.news-MonthInput {
-  // width: 150px;
-}
-
 @media (max-width: 768px) {
   .news-CategoryContainer {
     padding: 10px;
   }
-  .news-Category {
-    display: none;
-  }
-  .news-Month {
+  .news-Category ul {
     margin: 0 auto;
+  }
+  .news-Category li {
+    padding: 0 20px;
   }
 }

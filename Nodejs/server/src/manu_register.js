@@ -22,7 +22,7 @@ router.post('/', async (req, res) => {
   console.log(req.body)
 
   //INSERT INTO `manufacturer`(`Mname`, `Maddress`, `Muser`, `Mphone`, `Mtelephone`, `Memail`, `Mpwd`, `Mimg`, `Mcategory`) VALUES ('1','1','1','1','1','1','1','1','1')
-  const news2 =await query("INSERT INTO `manufacturer`(`Mname`, `Maddress`, `Muser`, `Mphone`, `Mtelephone`, `Memail`, `Mpwd`, `Mimg`, `Mcategory`)  VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?);",
+  const news123 =await query("INSERT INTO `manufacturer`(`Mname`, `Maddress`, `Muser`, `Mphone`, `Mtelephone`, `Memail`, `Mpwd`, `Mimg`, `Mcategory`)  VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?);",
   [
     Mname,
     Maddress,
@@ -35,7 +35,7 @@ router.post('/', async (req, res) => {
     Mcategory,
 ])
   
-  res.json(news2);
+  res.json(news123);
 });
 
 module.exports = router;
