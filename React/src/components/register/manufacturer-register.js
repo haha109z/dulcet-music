@@ -159,9 +159,9 @@ fetch('http://localhost:3030/register/manufacturer', {
         timer: 2000
         
     })
-    setTimeout(()=>{
-        window.location = "/"
-      },2000)
+    // setTimeout(()=>{
+    //     window.location = "/"
+    //   },2000)
     }else{
         MySwal.fire({
             position: 'top-center',
