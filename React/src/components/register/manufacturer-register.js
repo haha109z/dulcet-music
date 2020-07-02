@@ -166,7 +166,7 @@ fetch('http://localhost:3030/register/manufacturer', {
         MySwal.fire({
             position: 'top-center',
             icon: 'error',
-            title: '欄位不得為空值',
+            title: '所有欄位不得為空值',
             showConfirmButton: false,
             timer: 2000
         })

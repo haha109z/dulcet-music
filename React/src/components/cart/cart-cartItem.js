@@ -1,17 +1,22 @@
 import React ,{ Fragment, useState, useEffect } from 'react';
-import { logDOM } from '@testing-library/react';
+// 引入sweetalert2-react-content套件
+import withReactContent from 'sweetalert2-react-content';
+import Swal from 'sweetalert2';
 
 export default function CartItem (props) {
+
+    // 引入sweetalert2-react-content套件
+    const MySwal = withReactContent(Swal);
 
     const { 
       cart, 
       setCart, 
-      buyProduct, 
-      setBuyProduct,
+      // buyProduct, 
+      // setBuyProduct,
       // minusCartNumber, 
-      plusCartNumber, 
+      // plusCartNumber, 
       totalPrice,       
-    } = props.allProps;  
+    } = props.allProps; 
     // totalPrice = data[index].PPrice;
 
 
@@ -112,7 +117,12 @@ export default function CartItem (props) {
                 
                 return(
                   <ul className="cart-product" key={index} >
-                    <li className="cart-product-li"><input type="checkbox" onClick={(e)=>checked(e.target)} /></li>
+                    <li className="cart-product-li"><input type="checkbox" 
+                      // onClick={(e)=>checked(e.target)} 
+                      onClick={ (e)=>{ 
+                      }} 
+                    />
+                    </li>
                     <li className="cart-product-li"><img src={require(`../../img/cart/cart-violin-01.jpeg`)} /></li>
                     {/* <li className="cart-product-li"><img src={require(`../../img/cart/${data.PImg}`)} /></li> */}
                     <li className="cart-product-li">{data.PName}</li>
@@ -161,11 +171,29 @@ export default function CartItem (props) {
                       // onClick={(e)=>{ deleteCartItem(index) }}
                       // filter/splice
                       onClick={(e)=>{
-                        let a = [...cart]
-                        // splice：從索引 index 的位置開始，刪除 1 個元素
-                        a.splice(index, 1)
-                        setCart(a)
-                        localStorage.setItem('cart', JSON.stringify(a))
+                        
+                        MySwal.fire({
+                          type: 'warning', // 彈框類型
+                          title: '確認刪除？', //標題
+                          confirmButtonColor: '#fb2643', // 確定按鈕的 顏色
+                          confirmButtonText: '確定', // 確定按鈕的 文字
+                          showCancelButton: true, // 是否顯示取消按鈕
+                          cancelButtonColor: '#fffff', // 取消按鈕的 顏色
+                          cancelButtonText: '取消', // 取消按鈕的 文字,
+                          focusCancel: true, // 是否聚焦 取消按鈕
+                        })
+                        .then((isConfirm) => {
+                          if (isConfirm.value) {
+                            // alert('刪除')
+                            let a = [...cart]
+                            // splice：從索引 index 的位置開始，刪除 1 個元素
+                            a.splice(index, 1)
+                            setCart(a)
+                            localStorage.setItem('cart', JSON.stringify(a))
+                          } else {
+                            MySwal.fire('取消刪除', '', '')
+                          }
+                        })                         
                       }}
                     >
                       <i className="far fa-trash-alt" />

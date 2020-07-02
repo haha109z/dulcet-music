@@ -2,14 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 // 引入sweetalert2-react-content套件
-// import withReactContent from 'sweetalert2-react-content';
-// import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+import Swal from 'sweetalert2';
 
 import CartDeliverInfo from './cart-deliverInfo.js';
 import CartItem from './cart-cartItem.js';
-// const MySwal = withReactContent(Swal);
 
 function CartCheckout (props) {
+
+  // 引入sweetalert2-react-content套件
+  const MySwal = withReactContent(Swal);
 
   const { 
     cart, 
@@ -58,7 +60,7 @@ function CartCheckout (props) {
   let itemPrice = 0;  
   cart.map((data, index)=>{
     // console.log(cart[index]);
-    itemPrice += parseInt(cart[index].PPrice);
+    itemPrice += parseInt(cart[index].PPrice*cart[index].num);
   })
   // console.log(itemPrice);
   setTotalPrice(itemPrice);
@@ -243,7 +245,7 @@ function CartCheckout (props) {
                             let data = invoiceInfo[1]
                             setInvoiceInfo([ (e.target.value==0? '' :e.target.value), data ]) 
                             // setInvoiceInfo([ (e.target.value==0? '' :e.target.value), (invoiceInfo[1]!==1? '':invoiceInfo[1]) ]) 
-                            console.log(invoiceInfo)
+                            // console.log(invoiceInfo)
                           }}
                           // onChange={ (e)=>{ setInvoiceInfo(e.target.value) } }
                         />
@@ -282,8 +284,9 @@ function CartCheckout (props) {
                   // console.log(coupon)     
                   if (haveCoupon == 1) { 
                     if ( e.target.value == coupon ) {
-                      alert('恭喜您折扣碼符合')
-                      setDiscount(1500);
+                      // alert('恭喜您折扣碼符合')
+                      MySwal.fire('折扣碼符合，可折價200元', '', 'success')                      
+                      setDiscount(200);
                     }} else {
                       setDiscount(0);
                     } 
@@ -295,15 +298,21 @@ function CartCheckout (props) {
             <div className="cart-total-right">
               <div>
                 <span className="cart-total-title">合計</span>
-                <span className="cart-total-number cart-english-font">$ {totalPrice}</span>
+                <span className="cart-total-number cart-english-font">
+                  $ {totalPrice.toString().replace( /(\d)(?=(\d{3})+(\d{3})?$)/g, '$1,' )}
+                </span>
               </div>
               <div style={{color:'var(--main-colorfb2)'}}>
                 <span className="cart-total-title">折扣</span>
-                <span className="cart-total-number cart-english-font">- $ {discount}</span>
+                <span className="cart-total-number cart-english-font">
+                  - $ {discount.toString().replace( /(\d)(?=(\d{3})+(\d{3})?$)/g, '$1,' )}
+                </span>
               </div>
               <div>
                 <span className="cart-total-title">總計</span>
-                <span className="cart-total-number cart-english-font">$ {orderPrice}</span>
+                <span className="cart-total-number cart-english-font">
+                  $ {orderPrice.toString().replace( /(\d)(?=(\d{3})+(\d{3})?$)/g, '$1,' )}
+                </span>
               </div>
             </div>
 
