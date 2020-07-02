@@ -11,11 +11,9 @@ export default function CartItem (props) {
     const { 
       cart, 
       setCart, 
+      totalPrice,       
       // buyProduct, 
       // setBuyProduct,
-      // minusCartNumber, 
-      // plusCartNumber, 
-      totalPrice,       
     } = props.allProps; 
     // totalPrice = data[index].PPrice;
 
@@ -26,12 +24,7 @@ export default function CartItem (props) {
     //   // setBuyProduct(e.checked)
     // }
 
-    // useEffect(()=>{
-    //     const ul = document.querySelectorAll(".cart-product")
-    //     const ulN = ul.length;
-    //     // console.log(ulN);
-    // },[])
-
+    // 勾選商品checkbox
     const checked = (e)=>{
       // console.log(e.checked);
       const input = e;   
@@ -40,57 +33,66 @@ export default function CartItem (props) {
       }else{
         input.setAttribute("checked","checked")
       }
-    }    
-
+    }  
     
-  // let arr =[2,1,3]
-  // const [testArr,setTestArr]=useState(arr)
+    // minusCartNumber函式：點擊btn減少該商品之購物車數量
+    // const minusCartNumber = (e) =>{
+    //   if (number == 0) {
+    //     setNumber(0)
+    //   } else {
+    //     setNumber(number - 1)
+    //     setCart({
+    //       ...cart,
+    //       0:{
+    //         ...cart[0],
+    //         number: number       
+    //       } 
+    //     })
+    //   }
+    // }  
 
-  // minusCartNumber函式：點擊btn減少該商品之購物車數量
-  // const minusCartNumber = (e) =>{
-  //   if (number == 0) {
-  //     setNumber(0)
-  //   } else {
-  //     setNumber(number - 1)
-  //     setCart({
-  //       ...cart,
-  //       0:{
-  //         ...cart[0],
-  //         number: number       
-  //       } 
-  //     })
-  //   }
-  // }
+    // changeQuantity函式：點擊btn減少該商品之購物車數量
+    // const changeQuantity = (PId, qty)=>{
+    //   const mycart = [...cart]
+    //   // console.log(mycart);   
+    //   mycart.forEach(el=>{
+    //     if(el.PId===PId){
+    //       el.num = qty
+    //       console.log(el.num);
+    //       if (el.num<0) {
+    //         el.num = 0
+    //       }
+    //     }
+    //   })
+    //   localStorage.setItem('cart', JSON.stringify(mycart));
+    //   setCart(mycart);
+    // }
 
-    
-  // plusCartNumber函式：點擊btn增加該商品之購物車數量
-  // const plusCartNumber = (e) =>{
-  //   // let cart = cart[0]
-  //   // console.log(cart[0].cartNumber)
-  //   // let index=e
-  //   // arr=testArr
-  //   // console.log(index);    
-  //   // console.log(arr[index]+1)
-  //   // console.log(testArr)
-  //   // arr[index]=arr[index]+1
-  //   // arr[index]=parseInt(arr[index])+1
-  //   // setTestArr(arr)
-
-  //   const stock =5
-  //   if (number == stock) {
-  //     setNumber(stock) 
-  //     alert('庫存不足')
-  //   } else {
-  //     setNumber(number + 1)
-  //     setCart({
-  //       ...cart,
-  //       0:{
-  //         ...cart[0],
-  //         number: number       
-  //       } 
-  //     })
-  //   }
-  // }
+    // changeQuantity函式：點擊btn時，增加/減少該商品之購物車數量並修正localStorage num
+    const changeQuantity = (index, PId, num, PQty)=>{
+      // console.log(`data id:${PId} num:${num} qty:${PQty}`);
+      const mycart = [...cart]
+      // console.log(mycart);   
+      mycart.forEach(el=>{
+        // console.log(`el id:${el.PId} num:${el.num} qty:${el.PQty}`);
+        if(el.PId===PId){
+          el.num = num
+          // 購物車商品數量不得小於1
+          if (el.num < 1) {
+            el.num = 1
+            MySwal.fire('購物車商品數量不得小於1', '', '')
+          }
+          // 購物車商品數量不得大於庫存
+          if (el.num > PQty) {
+            el.num = PQty
+            MySwal.fire('購物車商品數量已達庫存上限', '', '')
+          }
+        }
+      })      
+      localStorage.setItem('cart', JSON.stringify(mycart));
+      setCart(mycart);
+      // console.log(mycart[index]['num']);
+    }
 
   // const deleteCartItem = (e) => {
   //   // alert('是否確認刪除?')
@@ -104,9 +106,6 @@ export default function CartItem (props) {
   //   localStorage.setItem('cart', JSON.stringify(cartData))
   //   console.log(cartData);  
   //   // console.log(cartData[index]['num']); 
-  // }
-
-  // const minusCartNumber (e) => {
   // }
 
 
@@ -132,9 +131,12 @@ export default function CartItem (props) {
                     <li className="cart-product-li-2">
                       <div 
                         // onClick={(e)=>{ minusCartNumber(index) }}
-                        onClick={(e)=>{                           
+                        onClick={(e)=>{              
+                          data.num--
+                          changeQuantity(index, data.PId, data.num, data.PQty)
+                          return
                           console.log(data)
-                          console.log(data.num++)
+                          console.log(data.num)
                           let c = data.num++
                           let b = [...cart]
                           console.log(c)
@@ -159,6 +161,10 @@ export default function CartItem (props) {
                       {/* <div className="cart-number-input cart-english-font">{testArr[index]}</div> */}
                       <div 
                         // onClick={(e)=>{plusCartNumber(index)}}
+                        onClick={(e)=>{              
+                          data.num++
+                          changeQuantity(index, data.PId, data.num, data.PQty)
+                        }}
                       >
                         <i className="cart-plusBtn fas fa-plus-circle" />
                       </div>

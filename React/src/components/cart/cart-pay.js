@@ -234,6 +234,43 @@ function CartPay (props) {
                 <Link to='/cart/2'>上一步</Link>
               </button>
               <button type="button" onClick={()=>{
+
+              // INSERT INTO `orderlist` (`orderId`, `memberId`, `name`, `address`, `phone`, `email`, `invoice`, `invoiceStorage`, `invoiceInfo`, `coupon`, `orderPrice`, `orderPayment`, `orderState`, `created_at`) VALUES (NULL, '11', '11', '11', '11', '11', '11', '11', '11', '11', '11', '11', '11', current_timestamp());
+
+
+                // 新增一筆訂單資料至資料庫
+                // fetch('http://localhost:3030/cart/abc', {
+                //   method: 'POST', // or 'PUT'
+                //   body: JSON.stringify({
+                //     userID,
+                //     changUsername,
+                //     changUserMail,
+                //     changUserBirthday,
+                //     changUserAddress,
+                //     changUserPhone,
+                //   }), // data can be `string` or {object}!
+                //   headers: new Headers({
+                //     'Content-Type': 'application/json',
+                //   }),
+                // })
+                // .then((res) => res.json())
+                // .then((json) => {
+                //   if (json.code === 3) {
+                //     MySwal.fire('信箱已經註冊過請換一個信箱試試', '', 'error')
+                //   } else if (json.data) {
+                //     localStorage.setItem('user', JSON.stringify(json.data))
+                //     console.log(JSON.stringify(json.data))
+                //     this.setState({ user: json.data[0] })
+                    
+                //   }
+                //   // localStorage.setItem('user', JSON.stringify(json.data))
+                //   // console.log(json.data)
+                // })
+                // .catch((error) => {
+                //   console.error('Error:', error)
+                // })
+
+                // 更改loclaStorage的coupon使用狀態
                 let couponData = JSON.parse(localStorage.getItem('coupon'))
                 console.log(couponData)
                 couponData[0].couponLocalStorage = 1;
