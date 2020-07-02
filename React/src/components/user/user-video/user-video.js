@@ -4,11 +4,20 @@ import React, { Component } from 'react'
 const getUserInfo = () => {
   return JSON.parse(localStorage.getItem('user'))
 }
+const userL =()=>{
+  return JSON.parse(localStorage.getItem('user'))
+}
 export default class UserVideo extends Component {
   // 建立一個空狀態準備放抓出來的資料
   state = {
     user: []
   };
+  constructor() {
+    super() // => 記得呼叫 parent 的 constructor，很重要
+    if(userL()==null){
+      window.location = '/';
+     }
+    }
   // 在這個生命週期中渲染資料
   componentDidMount() {
 if(getUserInfo()){

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-
+const userL =()=>{
+  return JSON.parse(localStorage.getItem('user'))
+}
 export default class UserLike extends Component {
   state = {
     likeData: [],
@@ -138,6 +140,9 @@ export default class UserLike extends Component {
     this.getOrder()
     let { showLikeData, likeData } = this.state
     let { pageList } = this.state
+    if(userL()==null){
+      window.location = '/';
+     }
   }
 
   render() {

@@ -8,7 +8,9 @@ const MySwal = withReactContent(Swal)
 const getUserInfo = () => {
   return JSON.parse(localStorage.getItem('user'))
 }
-
+const userL =()=>{
+  return JSON.parse(localStorage.getItem('user'))
+}
 export default class UserPwd extends Component {
   state = {
     user: [],
@@ -21,14 +23,12 @@ export default class UserPwd extends Component {
     style: { backgroundImage: '', backgroundColor: 'rgb(134, 134, 152)' },
   }
 
-  // constructor() {
-  //   super() // => 記得呼叫 parent 的 constructor，很重要
-  //   this.state = {
-  //     // => 幫 App 加上 state
-  //     lookOldPwd: false,
-  //     lookNewPwd:false,
-  //     lookNewPwd2:false,
-  //   }}
+  constructor() {
+    super() // => 記得呼叫 parent 的 constructor，很重要
+    if(userL()==null){
+      window.location = '/';
+     }
+    }
 
   // 取得輸入文字放到狀態中
   logChange = (e) => {

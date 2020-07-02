@@ -7,7 +7,9 @@ import {
   NavLink,
 } from 'react-router-dom'
 import ScrollToTop from '../../../container/scrollToTop'
-
+const userL = () => {
+  return JSON.parse(localStorage.getItem('user'))
+}
 if (JSON.parse(localStorage.getItem('user'))) {
   const getUserInfo = () => {
     return JSON.parse(localStorage.getItem('user'))
@@ -41,7 +43,6 @@ export default class UserPurchase extends Component {
     document.documentElement.scrollTop = 0
   }
 
-  
   filterStatusOpen = () => {
     this.setState({ menu: false })
     this.setState({ userRwdPage: false })
@@ -56,22 +57,23 @@ export default class UserPurchase extends Component {
   changePageL = () => {
     let plusNum = Number(this.state.pageNum) - 1
     if (plusNum >= 1) {
-      this.setState({ pageNum: Number(this.state.pageNum)- 1 })
+      this.setState({ pageNum: Number(this.state.pageNum) - 1 })
       setTimeout(() => {
         this.showData()
       }, 0)
-      this.setState({ userPageSelect: (Number(this.state.pageNum)- 1)+""  })
+      this.setState({ userPageSelect: Number(this.state.pageNum) - 1 + '' })
       this.bokTop()
-    }  }
-   // 右邊切頁
-   changePageR = () => {
+    }
+  }
+  // 右邊切頁
+  changePageR = () => {
     let plusNum = Number(this.state.pageNum) + 1
     if (plusNum <= Math.ceil(this.state.totalCount / 3)) {
-      this.setState({ pageNum: Number(this.state.pageNum)+ 1 })
+      this.setState({ pageNum: Number(this.state.pageNum) + 1 })
       setTimeout(() => {
         this.showData()
       }, 0)
-      this.setState({ userPageSelect: (Number(this.state.pageNum)+ 1)+""  })
+      this.setState({ userPageSelect: Number(this.state.pageNum) + 1 + '' })
       this.bokTop()
     } else {
     }
@@ -108,9 +110,11 @@ export default class UserPurchase extends Component {
             order.push(v)
             flag[v.orderId] = true
           }
+
         })
         // console.log('order', order)
         // console.log('json.data', json.data)
+        
         this.setState({ AllUserPurchase: order })
         this.setState({ AllUserPurchase_status: order })
         this.setState({ totalCount: order.length })
@@ -120,7 +124,9 @@ export default class UserPurchase extends Component {
         // console.log(json.data)
         setTimeout(() => {
           this.showData()
+          
         }, 0)
+        
       })
       .catch((error) => {
         console.error('Error:', error)
@@ -162,7 +168,6 @@ export default class UserPurchase extends Component {
       this.showData()
     }, 0)
     this.bokTop()
-
   }
   showData() {
     let AllUserPurchase, AllUserPurchaseDetail
@@ -184,14 +189,17 @@ export default class UserPurchase extends Component {
     })
     this.setState({ UserPurchaseDetail: AllUserPurchaseDetail })
     this.bokTop()
-
   }
   constructor() {
     super()
-
+    
+    if (userL() == null) {
+      window.location = '/'
+    }
     this.getOrder()
+    
   }
- 
+
   render() {
     let UserPurchase = this.state.UserPurchase
     let UserPurchaseDetail = this.state.UserPurchaseDetail

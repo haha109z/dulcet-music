@@ -3,7 +3,9 @@ import { Link, NavLink } from 'react-router-dom'
 import withReactContent from 'sweetalert2-react-content'
 import Swal from 'sweetalert2'
 const MySwal = withReactContent(Swal)
-
+const userL =()=>{
+  return JSON.parse(localStorage.getItem('user'))
+}
 export default class UserSideBar extends Component {
   signOut = () => {
     MySwal.fire({
@@ -19,6 +21,12 @@ export default class UserSideBar extends Component {
       localStorage.clear('user')
     }, 1900)
   }
+  constructor() {
+    super() // => 記得呼叫 parent 的 constructor，很重要
+    if(userL()==null){
+      window.location = '/';
+     }
+    }
   render() {
     return (
       <>
@@ -60,13 +68,13 @@ export default class UserSideBar extends Component {
               <div className="user-sidebar-menu-li-right"></div>
             </Link>
 
-            <Link
+            <Link 
               to="/user/UserPurchase"
               href=""
               className="user-sidebar-menu-li font-size-142rem user-font-ch"
             >
               <div className="user-sidebar-menu-li-left"></div>
-              <p className="user-sidebar-hover"></p>購買清單
+              <p className="user-sidebar-hover" ></p>購買清單
               <div className="user-sidebar-menu-li-right"></div>
             </Link>
             <Link

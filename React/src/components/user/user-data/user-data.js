@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
+
 import withReactContent from 'sweetalert2-react-content'
 import Swal from 'sweetalert2'
 const MySwal = withReactContent(Swal)
 
+const userL =()=>{
+  return JSON.parse(localStorage.getItem('user'))
+}
 export default class UserData extends Component {
   state = {
     userData: [],
@@ -18,12 +22,19 @@ export default class UserData extends Component {
     ],
     style: { backgroundImage: '', backgroundColor: 'rgb(134, 134, 152)' },
   }
-
+  constructor() {
+    super() // => 記得呼叫 parent 的 constructor，很重要
+    if(userL()==null){
+      window.location = '/';
+     }
+    }
   // 在這個生命週期中渲染資料
   componentDidMount() {
     this.onChange = (e) => {
       e.preventDefault()
       const file = e.target.files[0]
+      console.log("file",file);
+      
       const formData = new FormData()
       // 这里的 image 是字段，根据具体需求更改
       formData.append('image', file)

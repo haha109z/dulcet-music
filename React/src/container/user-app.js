@@ -11,10 +11,20 @@ import UserVideo from '../components/user/user-video/user-video'
 import Nav from '../components/navbar/navbar'
 import Footer from '../components/footer/footer.js'
 import ScrollToTop from '../container/scrollToTop'
-
+const userL =()=>{
+  return JSON.parse(localStorage.getItem('user'))
+}
 class UserApp extends Component {
   
+  constructor() {
+    super()
+    if(userL()==null){
+      window.location = '/';
+     }
+   
+  }
   render() {
+    
     return (
       <>
       <Nav/>
