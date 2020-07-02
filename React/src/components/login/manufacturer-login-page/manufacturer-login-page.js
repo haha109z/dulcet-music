@@ -6,7 +6,7 @@ import { Link,withRouter } from 'react-router-dom';
 
 var sha1 = require('sha1');
 const MySwal = withReactContentM(Swal);
-function Company(props) {
+function MLoginPage(props) {
 
     const [Memail,setMemail] = useState('');
     const [Mpwd,setMpwd] = useState('');
@@ -18,35 +18,29 @@ function Company(props) {
 
     async function getData(Memail, Mpwd) {
         // return
-        fetch(`http://localhost:3030/login/manufacturer`, {
+        const res = await fetch(`http://localhost:3030/login/manufacturer`, {
           method: 'POST', // or 'PUT'
           body: JSON.stringify({Mpwd, Memail}), // data can be `string` or {object}!
           
           headers: new Headers({
             'Content-Type': 'application/json'
           })
-          
-        })
+        });
+        const json = await res.json();
+        if(json.code > 0 ){
+          //顯示錯誤 json.msg
+          setMLoginErrors([json.msg])
+          return
+        }
+        setMData(json.data)   
+        localStorage.setItem('user', JSON.stringify(json.data))
+        // console.log("userData: ",json.data);
+        // console.log("userData: ",userData);
         
-        .then(res => res.json())
-        .then(json => {
-        //   console.log("json", json)
-          // 錯誤
-          if(json.code > 0 ){
-            //顯示錯誤 json.msg
-            setMLoginErrors([json.msg])
-            return
-          }
-         
-          setMData(json.data)   
-          // console.log("userData",userData);
-          
-          return MData
-        })
+        return MData         
     }
-
      // 處理會員登入
-    const MloginProcess = () => {
+    const MloginProcess = async() => {
         const errors = []
         // 檢查錯誤
         if(Memail === ''){
@@ -54,17 +48,10 @@ function Company(props) {
         }else if( Mpwd === ''){
             errors.push('請輸入密碼');
         }else{
-          getData(Memail, Mpwd);
-          
-          // console.log(userData);   
-            if(MData.length === 0){    
-              // console.log("1",userData);           
-              // errors.push('前:Email帳號不存在');
-              return false
-            }else{
-              if(sha1(Mpwd) != MData[0].Mpwd) errors.push('123密碼錯誤');
-            }              
+          await getData(Memail, Mpwd);
         }
+          // console.log(userData);   
+            
 
         if(errors.length > 0){
             setMLoginErrors(errors);
@@ -84,7 +71,7 @@ function Company(props) {
 
       // login成功時的callback
     const MloginSuccessCallback = () => {
-        localStorage.setItem('user', JSON.stringify(MData))
+        // localStorage.setItem('user', JSON.stringify(MData))
         // alert('登入成功，跳轉至首頁')
         setTimeout(()=>{
           props.history.push('/ManufacturerInstrument/Instrument', { from: '從登入頁來的' })
@@ -119,7 +106,7 @@ function Company(props) {
 
     return(
         <>
-        <div>
+        <form>
             <div className="form-group">
             {MloginErrors}
                 <label htmlFor="facturerEmail" className="col-md-12 control-label" autoFocus>電子郵件</label>
@@ -155,9 +142,10 @@ function Company(props) {
                 <Link to="">忘記密碼</Link>
             </div>
             <p className="all-login-cookie">我們通過Cookie改進我們的網站和您的體驗，繼續瀏覽網站即表示您接受我們的Cookie政策。</p>
-        </div>
+        </form>
+        
         </>
     )
     }
 
-export default withRouter(Company)
+    export default withRouter(MLoginPage);
