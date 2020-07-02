@@ -84,6 +84,7 @@ function Company(props) {
 
       // login成功時的callback
     const MloginSuccessCallback = () => {
+
         localStorage.setItem('user', JSON.stringify(MData))
         // alert('登入成功，跳轉至首頁')
         setTimeout(()=>{
@@ -93,6 +94,7 @@ function Company(props) {
     }
 
     const MloginSuccessBox = ()=>{
+
       MySwal.fire({
           position: 'top-center',
           icon: 'success',
@@ -100,6 +102,7 @@ function Company(props) {
           showConfirmButton: false,
           timer: 2000
       })
+
     }
 
      // 錯誤訊息陣列的呈現

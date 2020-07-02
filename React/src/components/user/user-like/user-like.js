@@ -1,5 +1,12 @@
 import React, { Component } from 'react'
-const userL =()=>{
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  NavLink,
+} from 'react-router-dom'
+const userL = () => {
   return JSON.parse(localStorage.getItem('user'))
 }
 export default class UserLike extends Component {
@@ -27,7 +34,7 @@ export default class UserLike extends Component {
       this.setState({ pageNum: pageNumR })
       setTimeout(() => {
         this.showData()
-        this.setState({pageStyle:pageNumR+""})
+        this.setState({ pageStyle: pageNumR + '' })
       }, 100)
       this.bokTop()
     }
@@ -43,7 +50,7 @@ export default class UserLike extends Component {
       this.setState({ pageNum: pageNumR })
       setTimeout(() => {
         this.showData()
-        this.setState({pageStyle:pageNumR+""})
+        this.setState({ pageStyle: pageNumR + '' })
       }, 100)
       this.bokTop()
     }
@@ -59,7 +66,7 @@ export default class UserLike extends Component {
       this.setState({ pageNum: pageNumR })
       setTimeout(() => {
         this.showData()
-        this.setState({pageStyle:pageNumR+""})
+        this.setState({ pageStyle: pageNumR + '' })
       }, 100)
       this.bokTop()
     }
@@ -140,9 +147,9 @@ export default class UserLike extends Component {
     this.getOrder()
     let { showLikeData, likeData } = this.state
     let { pageList } = this.state
-    if(userL()==null){
-      window.location = '/';
-     }
+    if (userL() == null) {
+      window.location = '/'
+    }
   }
 
   render() {
@@ -202,7 +209,7 @@ export default class UserLike extends Component {
                     <p className="user-font-ch UserLike-order-item-text-specification">
                       分類：{item.PCategoryId}
                     </p>
-
+                    
                     <div className="d-flex UserLike-order-item-text-money">
                       <p className="user-font-ch UserLike-order-item-text-money-1">
                         價格
@@ -216,6 +223,7 @@ export default class UserLike extends Component {
                     </div>
                   </div>
                   <button
+                    onClick={() => (window.location = `/${item.PCategoryId == '影片' ? item.PCategoryId = 'video' : (item.PCategoryId  == '課程' ? item.PCategoryId  = 'course' : item.PCategoryId = 'instrument')}/${item.PId}`)}
                     type="button"
                     className="UserLike-order-item-button user-font-ch "
                   >
@@ -254,7 +262,8 @@ export default class UserLike extends Component {
           {/* 手機版page */}
           <div className="userRwd-dropdown" onClick={this.showPageRwd}>
             <button type="button" className="userRwd-dropbtn">
-            第&nbsp;{this.state.pageNum}&nbsp;頁<i className="fas fa-sort-down"></i>
+              第&nbsp;{this.state.pageNum}&nbsp;頁
+              <i className="fas fa-sort-down"></i>
             </button>
             <div
               className={
