@@ -1,8 +1,14 @@
 import React,{Component} from 'react';
 import {Link} from 'react-router-dom';
+import withReactContent from 'sweetalert2-react-content';
+import Swal from 'sweetalert2';
+
 
 import Navbar from '../navbar/navbar';
+// import '../../styles/register/user-register.scss';
 
+var sha1 = require('sha1');
+const MySwal = withReactContent(Swal);
 class ManufacturerRegistered extends Component{
     state = {
         showPwd:false,
@@ -15,7 +21,11 @@ class ManufacturerRegistered extends Component{
         Mtelephone:'',
         Mimg:'廠商001.jpg',
         Mpwd:'',
+        MpwdCheck:'',
         Mcategory:'',
+
+        emailReg:true,
+        phoneReg:true,
     }
 
     handleClick = () =>{
@@ -61,14 +71,29 @@ class ManufacturerRegistered extends Component{
         this.setState({Mpwd:event.target.value})
         console.log(event.target.value)
       }
-      
-      handleMpwdCheck=(event)=>{
-          if(this.state.Mpwd===event.target.value){
-              console.log('正確')
-          }
-        else{
-            console.log('不正確')
+      emailBlur = (e)=>{
+        const reg = /^([\w\.\-]){1,64}\@([\w\.\-]){1,64}$/;
+        const value = e.target.value;
+        if(!value.match(reg)){
+            this.setState({emailReg:false})
+            return
+        }else{
+            this.setState({emailReg:true})
         }
+    }
+
+    phoneBlur = (e)=>{
+        const reg = /^09\d{2}-?\d{3}-?\d{3}$/;
+        const value = e.target.value;
+        if(!value.match(reg)){
+            this.setState({phoneReg:false})
+            return
+        }else{
+            this.setState({phoneReg:true})
+        }
+    }
+      handleMpwdCheck=(event)=>{
+        this.setState({MpwdCheck:event.target.value})
       }
       handleMcategory=(event)=>{
         // const selectindex = event.target.value
@@ -86,8 +111,10 @@ let {
     Mtelephone,
     Mimg,
     Mpwd,
+    MpwdCheck,
     Mcategory,
 }=this.state
+
 fetch('http://localhost:3030/register/manufacturer', {
                   method: 'POST', // or 'PUT'
                   body: JSON.stringify({
@@ -122,10 +149,34 @@ fetch('http://localhost:3030/register/manufacturer', {
   this.setState({ Mpwd: this.state.Mpwd })
   this.setState({ Mimg: this.state.Mimg })
   this.setState({ Mcategory: this.state.Mcategory })
-  alert('新增成功')
+ if(MpwdCheck===Mpwd&&Mtelephone!==''&&Muser!==''&&Maddress!==''&&Mphone!==''&&Memail!==''&&Mname!==''){
+    MySwal.fire({
+        
+        position: 'top-center',
+        icon: 'success',
+        title: '註冊成功',
+        showConfirmButton: false,
+        timer: 2000
+        
+    })
+    setTimeout(()=>{
+        window.location = "/"
+      },2000)
+    }else{
+        MySwal.fire({
+            position: 'top-center',
+            icon: 'error',
+            title: '欄位不得為空值',
+            showConfirmButton: false,
+            timer: 2000
+        })
+    }
+ 
   console.log(this.state)
       }
     render(){
+
+        const {phoneReg,emailReg} = this.state;
 
         const {showPwd,showComPwd} = this.state;
 
@@ -137,6 +188,12 @@ fetch('http://localhost:3030/register/manufacturer', {
 
         const pwdType = showPwd ? 'text' : 'password';
         const pwdComType = showComPwd ? 'text' : 'password';
+        const checkPhone = phoneReg ? '' : (
+            <div className="user-register-dobluecheckPhone">請輸入正確的手機格式 09xx-xxx-xxx </div>
+        )
+        const checkEmail = emailReg ? '' : (
+            <div className="user-register-dobluecheckPhone">請輸入正確的Email格式 (包含@) </div>
+        )
 
         return(
             <>
@@ -150,17 +207,28 @@ fetch('http://localhost:3030/register/manufacturer', {
                 </div>
                 <div className="facturer-register-body row">
                 <form onSubmit={this.handleSubmit} className="col-md-6 register-form-wrap">
+                <div className="form-group" style={{borderBottom: '2px var(--main-colorda) solid'}}>
+                        <label htmlFor="facturerRegisterName" className="col-md-12 control-label" >廠商名稱</label>
+                <select style={{border:' none',outline: 'none;'}} className="col-md-12 control-label" name="cars" id="cars" onChange={this.handleMcategory}>
+                <option value="樂器"></option>
+      <option value="樂器" id="option1" >樂器</option>
+      <option className="col-md-12 control-label" id="option1" value="影片">影片</option>
+      </select>
+      </div>
                     <div className="form-group">
+                 
                         <label htmlFor="facturerRegisterName" className="col-md-12 control-label">廠商名稱</label>
                         <input type="text" name="facturerRegisterName" className="form-control col-md-12" id="facturerRegisterName" placeholder="請輸入姓名" 
-                                    
+                                     
                         onChange={this.handleMname}
                         />
                     </div>
                     <div className="form-group">
+                    {checkEmail}
                         <label htmlFor="facturerRegisterEmail" className="col-md-12 control-label">電子信箱</label>
                         <input type="email" name="facturerRegisterEmail" className="form-control col-md-12" id="facturerRegisterEmail" placeholder="請輸入電子信箱" 
-                            onChange={this.handleMemail}
+                        onBlur={this.emailBlur}
+                        onChange={this.handleMemail}
                         />
                     </div>
                     <div className="form-group">
@@ -172,24 +240,30 @@ fetch('http://localhost:3030/register/manufacturer', {
                     <div className="form-group">
                         <label htmlFor="facturerRegisterPhon" className="col-md-12 control-label">公司電話</label>
                         <input type="text" name="facturerRegisterPhon" className="form-control col-md-12" id="facturerRegisterPhon" placeholder="請輸入公司電話" 
+                        maxLength="9"
                             onChange={this.handleMphone}
                         />
                     </div>
                     <div className="form-group">
                         <label htmlFor="facturerRegisterPrincipal" className="col-md-12 control-label">負責人</label>
-                        <input type="text"  name="facturerRegisterPrincipal" className="form-control col-md-12" id="facturerRegisterPrincipal" placeholder="請輸入負責人姓名" 
+                        <input type="text"  name="facturerRegisterPrincipal" className="form-control col-md-12" id="facturerRegisterPrincipal" placeholder="請輸入負責人姓名"
+                         maxLength="6" 
                             onChange={this.handleMuser}
                         />
                     </div>
                     <div className="form-group">
+                    {checkPhone}
                         <label htmlFor="facturerRegisterMobile" className="col-md-12 control-label">負責人手機號碼</label>
-                        <input type="text" name="facturerRegisterMobile" className="form-control col-md-12" id="facturerRegisterMobile" placeholder="請輸入負責人手機號碼" 
+                        <input type="text" name="facturerRegisterMobile" className="form-control col-md-12" id="facturerRegisterMobile" placeholder="請輸入負責人手機號碼"
+                        maxLength="12"
+                             onBlur = {this.phoneBlur}
                             onChange={this.handleMtelephone}
                         />
                     </div>
                     <div className="form-group facturer-pw-form">
                         <label htmlFor="facturerRegisterPassword" className="col-md-12 control-label">密碼</label>
                         <input type={pwdType}  name="facturerRegisterPassword" className="form-control" id="facturerRegisterPassword" placeholder="請輸入密碼" 
+                       maxLength="15" minLength="4"
                             onChange={this.handleMpwd}
                         />
                         <div onClick={this.handleClick}>
@@ -204,6 +278,7 @@ fetch('http://localhost:3030/register/manufacturer', {
                     <div className="form-group facturer-pwCom-form">
                         <label htmlFor="facturerRegisterPasswordComfirm" className="col-md-12 control-label">確認密碼</label>
                         <input type={pwdComType} name="facturerRegisterPasswordComfirm"  className="form-control" id="facturerRegisterPasswordComfirm" placeholder="請確認密碼" 
+                        maxLength="15" minLength="4"
                             onChange={this.handleMpwdCheck}
                         />
                         
@@ -217,10 +292,7 @@ fetch('http://localhost:3030/register/manufacturer', {
                         </div>
                     </div>
                     {/* 選擇樂器以及廠商 */}
-                    <select className="col-md-12 control-label" name="cars" id="cars" onChange={this.handleMcategory}>
-      <option value="樂器" id="option1" >樂器</option>
-      <option className="col-md-12 control-label" id="option1" value="影片">影片</option>
-      </select>
+                    
                     <div className="form-group form-check col-md-12">
                         <input type="checkbox" className="register-check-input " id="userCheckMe" />
                         <label className="register-check-label" htmlFor="userCheckMe">我接受<Link to="">服務條款&隱私政策</Link></label>

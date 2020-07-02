@@ -4,7 +4,6 @@
 //我要發問彈出視窗
 .ForumBtn01 {
   width: 350px;
-  height: 400px;
   margin: 0px auto;
   border: 1px solid #141414;
   position: absolute;
@@ -218,6 +217,26 @@
   }
   .ForumCard {
     display: inline-block;
+  }
+}
+@media (max-width: 414px) {
+  .ForumCard {
+    max-width: calc(480px - 80px);
+  }
+  .ForumCardImg {
+    margin: 5px;
+  }
+  .ForumCardH3 {
+    margin: 5px;
+    padding: 5px;
+  }
+  .ForumCardP {
+    margin: 0px;
+    padding: 5px;
+  }
+  .ForumBtn01 {
+    right: 5px;
+    width: 400px;
   }
 }
 @media (max-width: 376px) {
