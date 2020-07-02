@@ -169,7 +169,10 @@ class ForumCard extends Component {
     // this.setState({ ForumActionAns: this.state.ForumActionAns })
 
     MySwal.fire('新增成功', '', 'success')
-    console.log(this.state)
+    setTimeout(()=>{
+      window.location = "/forum"
+    },2000)
+    // console.log(this.state)
     // this.location.reload()
     this.setState({ boxShow: false })
   }
