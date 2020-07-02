@@ -20,32 +20,32 @@ function UserLoginPage(props) {
 
     async function getData(userMail, userPwd) {
         // return
-        fetch(`http://localhost:3030/login/user/`, {
+        const res = await fetch(`http://localhost:3030/login/user/`, {
           method: 'POST', // or 'PUT'
           body: JSON.stringify({userPwd, userMail}), // data can be `string` or {object}!
           headers: new Headers({
             'Content-Type': 'application/json'
           })
-        })
-        .then(res => res.json())
-        .then(json => {
-          // console.log("json", json)
-          // 錯誤
-          if(json.code > 0 ){
-            //顯示錯誤 json.msg
-            setLoginErrors([json.msg])
-            return
-          }
-         
-          setUserData(json.data)   
-          // console.log("userData",userData);
-          
-          return userData
-        })
+        });
+        const json = await res.json();
+
+        // console.log("json", json)
+        // 錯誤
+        if(json.code > 0 ){
+          //顯示錯誤 json.msg
+          setLoginErrors([json.msg])
+          return
+        }
+        setUserData(json.data)   
+        localStorage.setItem('user', JSON.stringify(json.data))
+        // console.log("userData: ",json.data);
+        // console.log("userData: ",userData);
+        
+        return userData
     }
 
     // 處理會員登入
-    const loginProcess = () => {
+    const loginProcess = async () => {
         const errors = []
         // 檢查錯誤
         if(userMail === ''){
@@ -53,16 +53,16 @@ function UserLoginPage(props) {
         }else if( userPwd === ''){
             errors.push('請輸入密碼');
         }else{
-          getData(userMail, userPwd);
+          await getData(userMail, userPwd);
           
           // console.log(userData);   
-            if(userData.length === 0){    
-              // console.log("1",userData);           
-              // errors.push('前:Email帳號不存在');
-              return false
-            }else{
-              if(sha1(userPwd) != userData[0].userPwd) errors.push('123密碼錯誤');
-            }              
+            // if(userData.length === 0){    
+            //   // console.log("1",userData);           
+            //   errors.push('前:Email帳號不存在');
+            //   return false
+            // }else{
+            //   if(sha1(userPwd) != userData[0].userPwd) errors.push('123密碼錯誤');
+            // }              
         }
 
         if(errors.length > 0){
@@ -83,7 +83,7 @@ function UserLoginPage(props) {
 
       // login成功時的callback
     const loginSuccessCallback = () => {
-        localStorage.setItem('user', JSON.stringify(userData))
+        // localStorage.setItem('user', JSON.stringify(userData))
         // alert('登入成功，跳轉至首頁')
         setTimeout(()=>{
           props.history.push('/user/userData', { from: '從登入頁來的' })
