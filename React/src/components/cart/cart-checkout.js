@@ -42,6 +42,14 @@ function CartCheckout (props) {
     radiocallback,
     invoiceInfo,
     setInvoiceInfo,
+    // invoiceInfo2,
+    // setInvoiceInfo2,
+    // invoiceInfo3,
+    // setInvoiceInfo3,
+    // invoiceInfo4,
+    // setInvoiceInfo4,
+    // invoiceInfo5,
+    // setInvoiceInfo5,
    } = props.allProps;  
   //  console.log(discount);
   
@@ -67,24 +75,6 @@ function CartCheckout (props) {
   
   // let stock = cart[0].PQty;
 
-  // let arr =[2,1,3]
-  // const [testArr,setTestArr]=useState(arr)
-
-  // minusCartNumber函式：點擊btn減少該商品之購物車數量
-  // const minusCartNumber = (e) =>{
-  //   if (number == 0) {
-  //     setNumber(0)
-  //   } else {
-  //     setNumber(number - 1)
-  //     setCart({
-  //       ...cart,
-  //       0:{
-  //         ...cart[0],
-  //         number: number       
-  //       } 
-  //     })
-  //   }
-  // }
 
 
   // 引入彈跳框插件
@@ -114,48 +104,14 @@ function CartCheckout (props) {
   // })
 
 
-  // plusCartNumber函式：點擊btn增加該商品之購物車數量
-  // const plusCartNumber = (e) =>{
-  //   // let cart = cart[0]
-  //   // console.log(cart[0].cartNumber)
-  //   // let index=e
-  //   // arr=testArr
-  //   // console.log(index);    
-  //   // console.log(arr[index]+1)
-  //   // console.log(testArr)
-  //   // arr[index]=arr[index]+1
-  //   // arr[index]=parseInt(arr[index])+1
-  //   // setTestArr(arr)
-
-  //   const stock =5
-  //   if (number == stock) {
-  //     setNumber(stock) 
-  //     alert('庫存不足')
-  //   } else {
-  //     setNumber(number + 1)
-  //     setCart({
-  //       ...cart,
-  //       0:{
-  //         ...cart[0],
-  //         number: number       
-  //       } 
-  //     })
-  //   }
-  // }
-
-  const deleteCartItem = (e) => {
-    alert('是否確認刪除?')
-    // console.log( e.target.parentElement.closest(".cart-product") )
-    setCart([])
-  }
 
   const changeInvoiceInfo = (e) => {
     console.log(e) 
     console.log(radiostate)
     // 切換radio選項時，先清空invoiceInfo
-    // if () {
-    //   setInvoiceInfo('')
-    // }
+    if (radiostate==0) {
+      setInvoiceInfo('')
+    }
     // setInvoiceInfo( 
     //   radiostate1 == 1 ? '' : (radiostate2 == 1 ? invoiceinfo2 : (radiostate3 == 1 ? invoiceinfo3 : (radiostate4 == 1 ? invoiceinfo4 : '' )))
     // )
@@ -178,7 +134,7 @@ function CartCheckout (props) {
                 <li className="cart-rwd-noneed">刪除</li>
               </ul>
               <ul className="cart-order-category">
-                <li colSpan="7">購買清單－課程</li>
+                <li colSpan="7">購買清單</li>
               </ul>   
               {/* 商品明細 */}
               <CartItem
@@ -188,7 +144,6 @@ function CartCheckout (props) {
                   totalPrice,
                   // minusCartNumber,
                   // plusCartNumber,
-                  deleteCartItem,
               }}
               />
           </div>
@@ -242,8 +197,12 @@ function CartCheckout (props) {
                       </label>
                       <div className="cart-input1">
                         <label htmlFor="invoice">載具號碼</label>
-                        <input id="invoicev" type="text" value={invoiceInfo}
-                          onChange={ (e)=>{ changeInvoiceInfo(e.target.value) } }
+                        <input id="invoicev" type="text" value={radiostate[1]==1? invoiceInfo: ''}
+                          onChange={ (e)=>{ 
+                            // console.log(e.target.value)
+                            setInvoiceInfo(e.target.value) 
+                          }}
+                          // onChange={ (e)=>{ changeInvoiceInfo(e.target.value) } }
                         />
                       </div>
                     </div>
@@ -275,16 +234,33 @@ function CartCheckout (props) {
                       <span>提醒您，公司戶發票一旦開立，不得任意更改或改為個人戶發票。</span>
                       <div className="cart-input1">
                         <label htmlFor="invoice">統一編號</label>
-                        <input className="companyinvoice" id="" type="text" value={invoiceInfo}
-                          onChange={ (e)=>{ changeInvoiceInfo(e.target.value) } }
+                        <input className="companyinvoice" id="" type="text" value={radiostate[3]==1? invoiceInfo[0]: ''}
+                          // onChange={ (e)=>{ changeInvoiceInfo(e.target.value) } }
+                          // onChange={ (e)=>{ console.log("invo4value1 "+e.target.value) } }
+                          onChange={ (e)=>{ 
+                            // console.log("invo4value1 "+e.target.value)
+                            // console.log(invoiceInfo[1])
+                            let data = invoiceInfo[1]
+                            setInvoiceInfo([ (e.target.value==0? '' :e.target.value), data ]) 
+                            // setInvoiceInfo([ (e.target.value==0? '' :e.target.value), (invoiceInfo[1]!==1? '':invoiceInfo[1]) ]) 
+                            console.log(invoiceInfo)
+                          }}
                           // onChange={ (e)=>{ setInvoiceInfo(e.target.value) } }
                         />
                       </div>
                       <div className="cart-input1">
                         <label htmlFor="invoice">發票抬頭</label>
-                        <input className="companyinvoice" id="" type="text" value={invoiceInfo}
-                          onChange={ (e)=>{ changeInvoiceInfo(e.target.value) } }
+                        <input className="companyinvoice" id="" type="text" value={radiostate[3]==1? invoiceInfo[1]: ''}
+                          // onChange={ (e)=>{ changeInvoiceInfo(e.target.value) } }
                           // onChange={ (e)=>{ setInvoiceInfo(e.target.value) } }
+                          onChange={ (e)=>{ 
+                            // console.log("invo4value2 "+e.target.value)
+                            // console.log(invoiceInfo[0])
+                            let data = invoiceInfo[0]
+                            setInvoiceInfo([ data, (e.target.value==0? '' :e.target.value)]) 
+                            // setInvoiceInfo([ (invoiceInfo[0]!==1? '':invoiceInfo[0]), (e.target.value==0? '' :e.target.value)]) 
+                            // console.log(invoiceInfo)
+                          }}
                         />
                       </div>
                     </div>
