@@ -14,6 +14,8 @@ import Card from './product-course-card'
 import SideBar from '../product-sidebar'
 
 function ProductList(props) {
+  const { category } = useParams()
+
   const control = props.control
   const setControl = props.setControl
   const list = 'course'
@@ -23,7 +25,37 @@ function ProductList(props) {
   const { page } = useParams()
   pages = parseInt(page)
   const perPage = 8
-  let num = 96
+  let num = 0
+  switch (category) {
+    case 'piano':
+      num = 12
+      break
+    case 'keyboard':
+      num = 12
+      break
+    case 'violin':
+      num = 12
+      break
+    case 'viola':
+      num = 12
+      break
+    case 'saxophone':
+      num = 12
+      break
+    case 'jazz_drum':
+      num = 12
+      break
+    case 'guitar':
+      num = 12
+      break
+    case 'ukulele':
+      num = 12
+      break
+    case 'flute':
+      num = 12
+      break
+  }
+
   let totalPage = Math.ceil(num / perPage)
   let idFirst = 0
   let idLast = 0
@@ -37,32 +69,44 @@ function ProductList(props) {
 
   if (totalPage <= 5) {
     pagesArr.push(
-      <a className="product-pages" href={`/course/page/${pages - 1}`}>
+      <a
+        className="product-pages"
+        href={`/course/category/${category}/${pages - 1}`}
+      >
         <IoMdArrowDropleft className="product-pages-arrows" />
       </a>
     )
     for (let i = 1; i <= totalPage; i++) {
       pagesArr.push(
-        <a className="product-pages" href={`/course/page/${i}`}>
+        <a className="product-pages" href={`/course/category/${category}/${i}`}>
           {i}
         </a>
       )
     }
     pagesArr.push(
-      <a className="product-pages" href={`/course/page/${pages + 1}`}>
+      <a
+        className="product-pages"
+        href={`/course/category/${category}/${pages + 1}`}
+      >
         <IoMdArrowDropright className="product-pages-arrows" />
       </a>
     )
   } else {
     pagesArr.push(
-      <a className="product-pages" href={`/course/page/${pages - 1}`}>
+      <a
+        className="product-pages"
+        href={`/course/category/${category}/${pages - 1}`}
+      >
         <IoMdArrowDropleft className="product-pages-arrows" />
       </a>
     )
     if (pages == 1 || pages == 2) {
       for (let i = 1; i <= 3; i++) {
         pagesArr.push(
-          <a className="product-pages" href={`/course/page/${i}`}>
+          <a
+            className="product-pages"
+            href={`/course/category/${category}/${i}`}
+          >
             {i}
           </a>
         )
@@ -72,7 +116,10 @@ function ProductList(props) {
       pagesArr.push(<div className="product-pages">...</div>)
       for (let i = totalPage - 2; i <= totalPage; i++) {
         pagesArr.push(
-          <a className="product-pages" href={`/course/page/${i}`}>
+          <a
+            className="product-pages"
+            href={`/course/category/${category}/${i}`}
+          >
             {i}
           </a>
         )
@@ -81,7 +128,10 @@ function ProductList(props) {
       pagesArr.push(<div className="product-pages">...</div>)
       for (let i = pages - 1; i <= pages + 1; i++) {
         pagesArr.push(
-          <a className="product-pages" href={`/course/page/${i}`}>
+          <a
+            className="product-pages"
+            href={`/course/category/${category}/${i}`}
+          >
             {i}
           </a>
         )
@@ -89,7 +139,10 @@ function ProductList(props) {
       pagesArr.push(<div className="product-pages">...</div>)
     }
     pagesArr.push(
-      <a className="product-pages" href={`/course/page/${pages + 1}`}>
+      <a
+        className="product-pages"
+        href={`/course/category/${category}/${pages + 1}`}
+      >
         <IoMdArrowDropright className="product-pages-arrows" />
       </a>
     )
@@ -100,7 +153,7 @@ function ProductList(props) {
   async function getDataP() {
     fetch(`http://localhost:3030/product/getlist`, {
       method: 'POST',
-      body: JSON.stringify({ control, idFirst, idLast, list }),
+      body: JSON.stringify({ control, idFirst, idLast, category, list }),
       headers: new Headers({
         'Content-Type': 'application/json',
       }),

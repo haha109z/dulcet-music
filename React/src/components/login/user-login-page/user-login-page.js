@@ -86,6 +86,8 @@ function UserLoginPage(props) {
         // alert('登入成功，跳轉至首頁')
         setTimeout(()=>{
           props.history.push('/user/userData', { from: '從登入頁來的' })
+          window.location = '/user/userData';
+
         },2000)
 
     }
@@ -98,6 +100,7 @@ function UserLoginPage(props) {
           showConfirmButton: false,
           timer: 2000
       })
+
     }
 
      // 錯誤訊息陣列的呈現

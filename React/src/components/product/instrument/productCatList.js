@@ -10,20 +10,52 @@ import {
 import { IoMdArrowDropright } from 'react-icons/io'
 import { IoMdArrowDropleft } from 'react-icons/io'
 import ProductPicture from '../product-picture'
-import Card from './product-course-card'
+import Card from './product-instrument-card'
 import SideBar from '../product-sidebar'
 
 function ProductList(props) {
+  const { category } = useParams()
+  // const category = '鋼琴'
+  const list = 'instrument'
   const control = props.control
   const setControl = props.setControl
-  const list = 'course'
   //分頁
   let pages = 0
   let pagesArr = []
   const { page } = useParams()
   pages = parseInt(page)
-  const perPage = 8
-  let num = 96
+  const perPage = 20
+  let num = 0
+
+  switch (category) {
+    case 'piano':
+      num = 10
+      break
+    case 'keyboard':
+      num = 10
+      break
+    case 'violin':
+      num = 10
+      break
+    case 'viola':
+      num = 10
+      break
+    case 'saxophone':
+      num = 10
+      break
+    case 'jazz_drum':
+      num = 10
+      break
+    case 'guitar':
+      num = 10
+      break
+    case 'ukulele':
+      num = 10
+      break
+    case 'flute':
+      num = 10
+      break
+  }
   let totalPage = Math.ceil(num / perPage)
   let idFirst = 0
   let idLast = 0
@@ -37,32 +69,47 @@ function ProductList(props) {
 
   if (totalPage <= 5) {
     pagesArr.push(
-      <a className="product-pages" href={`/course/page/${pages - 1}`}>
+      <a
+        className="product-pages"
+        href={`/instrument/category/${category}/${pages - 1}`}
+      >
         <IoMdArrowDropleft className="product-pages-arrows" />
       </a>
     )
     for (let i = 1; i <= totalPage; i++) {
       pagesArr.push(
-        <a className="product-pages" href={`/course/page/${i}`}>
+        <a
+          className="product-pages"
+          href={`/instrument/category/${category}/${i}`}
+        >
           {i}
         </a>
       )
     }
     pagesArr.push(
-      <a className="product-pages" href={`/course/page/${pages + 1}`}>
+      <a
+        className="product-pages"
+        href={`/instrument/category/${category}/${pages + 1}`}
+      >
         <IoMdArrowDropright className="product-pages-arrows" />
       </a>
     )
   } else {
     pagesArr.push(
-      <a className="product-pages" href={`/course/page/${pages - 1}`}>
+      <a
+        className="product-pages"
+        href={`/instrument/category/${category}/${pages - 1}`}
+      >
         <IoMdArrowDropleft className="product-pages-arrows" />
       </a>
     )
     if (pages == 1 || pages == 2) {
       for (let i = 1; i <= 3; i++) {
         pagesArr.push(
-          <a className="product-pages" href={`/course/page/${i}`}>
+          <a
+            className="product-pages"
+            href={`/instrument/category/${category}/${i}`}
+          >
             {i}
           </a>
         )
@@ -72,7 +119,10 @@ function ProductList(props) {
       pagesArr.push(<div className="product-pages">...</div>)
       for (let i = totalPage - 2; i <= totalPage; i++) {
         pagesArr.push(
-          <a className="product-pages" href={`/course/page/${i}`}>
+          <a
+            className="product-pages"
+            href={`/instrument/category/${category}/${i}`}
+          >
             {i}
           </a>
         )
@@ -81,7 +131,10 @@ function ProductList(props) {
       pagesArr.push(<div className="product-pages">...</div>)
       for (let i = pages - 1; i <= pages + 1; i++) {
         pagesArr.push(
-          <a className="product-pages" href={`/course/page/${i}`}>
+          <a
+            className="product-pages"
+            href={`/instrument/category/${category}/${i}`}
+          >
             {i}
           </a>
         )
@@ -89,18 +142,22 @@ function ProductList(props) {
       pagesArr.push(<div className="product-pages">...</div>)
     }
     pagesArr.push(
-      <a className="product-pages" href={`/course/page/${pages + 1}`}>
+      <a
+        className="product-pages"
+        href={`/instrument/category/${category}/${pages + 1}`}
+      >
         <IoMdArrowDropright className="product-pages-arrows" />
       </a>
     )
   }
+
   const [dataP, setDataP] = useState([])
   const [favArr, setFavArr] = useState([])
 
   async function getDataP() {
     fetch(`http://localhost:3030/product/getlist`, {
       method: 'POST',
-      body: JSON.stringify({ control, idFirst, idLast, list }),
+      body: JSON.stringify({ control, idFirst, idLast, category, list }),
       headers: new Headers({
         'Content-Type': 'application/json',
       }),
@@ -110,8 +167,8 @@ function ProductList(props) {
         setDataP(json)
       })
   }
-  async function getvideoFav() {
-    fetch(`http://localhost:3030/product/course/favorite`, {
+  async function getInstrumentFav() {
+    fetch(`http://localhost:3030/product/instrument/favorite`, {
       method: 'POST',
       body: JSON.stringify(),
       headers: new Headers({
@@ -126,18 +183,19 @@ function ProductList(props) {
   }
 
   useEffect(() => {
-    getvideoFav()
+    getInstrumentFav()
     getDataP()
   }, [])
   useEffect(() => {
+    console.log(control)
     setDataP([])
+    // getInstrumentFav()
     getDataP()
   }, [control])
 
   return (
     <>
       <SideBar productTitleId={props.productTitleId} />
-
       <div className="product-container">
         <ProductPicture
           productTitle={props.productTitle}
@@ -173,25 +231,24 @@ function ProductList(props) {
             </select>
           </div>
           <div className="product-card-list">
-            {dataP.map((a) => {
+            {dataP.map((c, index) => {
               return (
                 <>
                   <Card
-                    favArr={favArr}
-                    setFavArr={setFavArr}
-                    PId={a.PId}
-                    PName={a.PName}
-                    PTime={a.PTime}
-                    PIntro={a.PIntro}
-                    PPrice={a.PPrice.toString().replace(
+                    PName={c.PName}
+                    PPrice={c.PPrice.toString().replace(
                       /(\d)(?=(\d{3})+(\d{3})?$)/g,
                       '$1,'
                     )}
+                    favArr={favArr}
+                    setFavArr={setFavArr}
+                    PId={c.PId}
                   />
                 </>
               )
             })}
           </div>
+
           <div id="product-pages-list">{pagesArr.map((a) => a)} </div>
         </div>
       </div>
@@ -199,4 +256,4 @@ function ProductList(props) {
   )
 }
 
-export default ProductList
+export default withRouter(ProductList)

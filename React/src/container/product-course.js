@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Navbar from '../components/navbar/navbar'
 import ProducList from '../components/product/course/productList'
+import ProducCatList from '../components/product/course/productCatList'
 import ProductCategory from '../components/product/productCategory'
 import {
   BrowserRouter,
@@ -36,12 +37,14 @@ function ProductInstrument() {
           ></Route>
 
           <Route
-            path="/course/piano"
-            render={(routeProps) => (
-              <>
-                <ProducList productTitle={productTitle} />
-                <Piano />
-              </>
+            path="/course/category/:category/:page"
+            render={() => (
+              <ProducCatList
+                productTitle={productTitle}
+                productTitleId={productTitleId}
+                control={control}
+                setControl={setControl}
+              />
             )}
           ></Route>
           <Route path="/course/:PId">
