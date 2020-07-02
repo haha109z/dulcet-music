@@ -3,6 +3,25 @@ const express = require("express");
 const router = express.Router();
 const db = require(__dirname + "/db_connect2");
 
+router.post("/getMayLike", async (req, res) => {
+  const { list } = req.body;
+  let sql = "";
+  switch (list) {
+    case "instrument":
+      sql += "SELECT * FROM `product_instruments`";
+      break;
+    case "video":
+      sql += "SELECT * FROM `product_video`";
+      break;
+    case "course":
+      sql += "SELECT * FROM `product_courses`";
+      break;
+  }
+  sql += " ORDER BY `PClick` DESC LIMIT 0,4";
+  const [data] = await db.query(sql);
+  res.json(data);
+});
+
 //課程
 // router.post("/course", async (req, res) => {
 //   const { control, idFirst, idLast } = req.body;

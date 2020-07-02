@@ -74,7 +74,7 @@ function ProductId() {
             )
           })}
           <hr id="product-wrapper-hr" />
-          {/* <ProductMayLike /> */}
+          <ProductMayLike list={productCategoryId} />
         </div>
       </div>
     </>
