@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import Navbar from '../components/navbar/navbar'
 import ProducList from '../components/product/instrument/productList'
+import ProducCatList from '../components/product/instrument/productCatList'
+
 import ProductCategory from '../components/product/productCategory'
 import {
   BrowserRouter,
@@ -11,7 +13,7 @@ import {
   withRouter,
 } from 'react-router-dom'
 import Piano from '../components/product/instrument/productPiano'
-import ProductId from './product-id'
+import ProductId from '../components/product/instrument/product-id'
 
 function ProductInstrument() {
   const productTitle = '精選樂器'
@@ -42,7 +44,7 @@ function ProductInstrument() {
           <Route
             path="/instrument/category/:category/:page"
             render={() => (
-              <ProducList
+              <ProducCatList
                 productTitle={productTitle}
                 productTitleId={productTitleId}
                 control={control}
