@@ -20,28 +20,28 @@ function UserLoginPage(props) {
 
     async function getData(userMail, userPwd) {
         // return
-        const res = await fetch(`http://localhost:3030/login/user/`, {
+        fetch(`http://localhost:3030/login/user/`, {
           method: 'POST', // or 'PUT'
           body: JSON.stringify({userPwd, userMail}), // data can be `string` or {object}!
           headers: new Headers({
             'Content-Type': 'application/json'
           })
-        });
-        const json = await res.json();
+        })
+        .then(res => res.json())
+        .then(json => {
+          // console.log("json", json)
+          // 錯誤
+          if(json.code > 0 ){
+            //顯示錯誤 json.msg
+            setLoginErrors([json.msg])
+            return
+          }
 
-        // console.log("json", json)
-        // 錯誤
-        if(json.code > 0 ){
-          //顯示錯誤 json.msg
-          setLoginErrors([json.msg])
-          return
-        }
-        setUserData(json.data)   
-        localStorage.setItem('user', JSON.stringify(json.data))
-        // console.log("userData: ",json.data);
-        // console.log("userData: ",userData);
-        
-        return userData
+          setUserData(json.data)
+          // console.log("userData",userData);
+
+          return userData
+        })
     }
 
     // 處理會員登入
@@ -53,8 +53,16 @@ function UserLoginPage(props) {
         }else if( userPwd === ''){
             errors.push('請輸入密碼');
         }else{
-          await getData(userMail, userPwd);              
-        }
+          await getData(userMail, userPwd);
+          // console.log(userData);
+          if(userData.length === 0){
+            // console.log("1",userData);
+            // errors.push('前:Email帳號不存在');
+            return false
+          }else{
+            if(sha1(userPwd) != userData[0].userPwd) errors.push('123密碼錯誤');
+          }
+      }
 
         if(errors.length > 0){
           setLoginErrors(errors);
@@ -74,7 +82,7 @@ function UserLoginPage(props) {
 
       // login成功時的callback
     const loginSuccessCallback = () => {
-        // localStorage.setItem('user', JSON.stringify(userData))
+        localStorage.setItem('user', JSON.stringify(userData))
         // alert('登入成功，跳轉至首頁')
         setTimeout(()=>{
           props.history.push('/user/userData', { from: '從登入頁來的' })
@@ -113,7 +121,7 @@ function UserLoginPage(props) {
                 <div className="form-group">
                 {displayErrors}
                     <label htmlFor="userEmail" className="col-md-12 control-label" autofocus>電子郵件</label>
-                    <input type="email" name="username" className="form-control col-md-12" id="userEmail" placeholder="請輸入電子郵件" required 
+                    <input type="email" name="username" className="form-control col-md-12" id="userEmail" placeholder="請輸入電子郵件" required
                     onChange={(event) => {
                         setUserMail(event.target.value)
                       }}
@@ -130,7 +138,7 @@ function UserLoginPage(props) {
                     <input type="checkbox" className="user-check-input" id="userCheckMe" />
                     <label className="user-check-label" htmlFor="userCheckMe">記住我</label>
                 </div>
-                <button type="button" className="all-login-btn" 
+                <button type="button" className="all-login-btn"
                 onClick={() => {
                     loginProcess(loginSuccessCallback)
                   }}
