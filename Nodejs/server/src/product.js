@@ -4,19 +4,19 @@ const router = express.Router();
 const db = require(__dirname + "/db_connect2");
 
 //課程
-router.post("/course", async (req, res) => {
-  const { control, idFirst, idLast } = req.body;
-  let sql = "";
-  if (control == "價格高到低") {
-    sql = "SELECT * FROM `product_courses` ORDER BY `PPrice` DESC LIMIT ?,?";
-  } else if (control == "價格低到高") {
-    sql = "SELECT * FROM `product_courses` ORDER BY `PPrice` ASC LIMIT ?,?";
-  } else if (control == "熱門度") {
-    sql = "SELECT * FROM `product_courses` ORDER BY `PClick` DESC LIMIT ?,?";
-  }
-  const [data] = await db.query(sql, [idFirst, idLast]);
-  res.json(data);
-});
+// router.post("/course", async (req, res) => {
+//   const { control, idFirst, idLast } = req.body;
+//   let sql = "";
+//   if (control == "價格高到低") {
+//     sql = "SELECT * FROM `product_courses` ORDER BY `PPrice` DESC LIMIT ?,?";
+//   } else if (control == "價格低到高") {
+//     sql = "SELECT * FROM `product_courses` ORDER BY `PPrice` ASC LIMIT ?,?";
+//   } else if (control == "熱門度") {
+//     sql = "SELECT * FROM `product_courses` ORDER BY `PClick` DESC LIMIT ?,?";
+//   }
+//   const [data] = await db.query(sql, [idFirst, idLast]);
+//   res.json(data);
+// });
 router.post("/course/favorite", async (req, res) => {
   const [data] = await db.query(
     "SELECT * FROM `product_favorite` WHERE `PCategory`='課程'"
@@ -33,19 +33,19 @@ router.post("/course/getid", async (req, res) => {
 });
 
 //影片
-router.post("/video", async (req, res) => {
-  const { control, idFirst, idLast } = req.body;
-  let sql = "";
-  if (control == "價格高到低") {
-    sql = "SELECT * FROM `product_video` ORDER BY `PPrice` DESC LIMIT ?,?";
-  } else if (control == "價格低到高") {
-    sql = "SELECT * FROM `product_video` ORDER BY `PPrice` ASC LIMIT ?,?";
-  } else if (control == "熱門度") {
-    sql = "SELECT * FROM `product_video` ORDER BY `PClick` DESC LIMIT ?,?";
-  }
-  const [data] = await db.query(sql, [idFirst, idLast]);
-  res.json(data);
-});
+// router.post("/video", async (req, res) => {
+//   const { control, idFirst, idLast } = req.body;
+//   let sql = "";
+//   if (control == "價格高到低") {
+//     sql = "SELECT * FROM `product_video` ORDER BY `PPrice` DESC LIMIT ?,?";
+//   } else if (control == "價格低到高") {
+//     sql = "SELECT * FROM `product_video` ORDER BY `PPrice` ASC LIMIT ?,?";
+//   } else if (control == "熱門度") {
+//     sql = "SELECT * FROM `product_video` ORDER BY `PClick` DESC LIMIT ?,?";
+//   }
+//   const [data] = await db.query(sql, [idFirst, idLast]);
+//   res.json(data);
+// });
 router.post("/video/favorite", async (req, res) => {
   const [data] = await db.query(
     "SELECT * FROM `product_favorite` WHERE `PCategory`='影片'"
@@ -62,16 +62,49 @@ router.post("/video/getid", async (req, res) => {
 });
 
 //樂器
-router.post("/instrument", async (req, res) => {
-  const { control, idFirst, idLast, category } = req.body;
-  let sql = "SELECT * FROM `product_instruments`";
+router.post("/getlist", async (req, res) => {
+  const { control, idFirst, idLast, category, list } = req.body;
+  let sql = "";
+  switch (list) {
+    case "instrument":
+      sql += "SELECT * FROM `product_instruments`";
+      break;
+    case "video":
+      sql += "SELECT * FROM `product_video`";
+      break;
+    case "course":
+      sql += "SELECT * FROM `product_courses`";
+      break;
+  }
   console.log(category);
-  if (category == "piano") {
-    sql += " WHERE `PInstrumentId` = '鋼琴'";
-  } else if (category == "keyboard") {
-    sql += " WHERE `PInstrumentId` = '電子琴'";
-  } else {
-    sql += "";
+  switch (category) {
+    case "piano":
+      sql += " WHERE `PInstrumentId` = '鋼琴'";
+      break;
+    case "keyboard":
+      sql += " WHERE `PInstrumentId` = '電子琴'";
+      break;
+    case "violin":
+      sql += " WHERE `PInstrumentId` = '小提琴'";
+      break;
+    case "viola":
+      sql += " WHERE `PInstrumentId` = '中提琴'";
+      break;
+    case "saxophone":
+      sql += " WHERE `PInstrumentId` = '薩克斯風'";
+      break;
+    case "jazz_drum":
+      sql += " WHERE `PInstrumentId` = '爵士鼓'";
+      break;
+    case "guitar":
+      sql += " WHERE `PInstrumentId` = '吉他'";
+      break;
+    case "ukulele":
+      sql += " WHERE `PInstrumentId` = '烏克麗麗'";
+      break;
+    case "flute":
+      sql += " WHERE `PInstrumentId` = '長笛'";
+      break;
   }
   if (control == "價格高到低") {
     sql += " ORDER BY `PPrice` DESC LIMIT ?,?";

@@ -16,7 +16,7 @@ import HomeApp from './container/home-app'
 import ProductCourse from './container/product-course'
 import ProductVideo from './container/product-video'
 import ProductInstrument from './container/product-instrument'
-import ProductId from './container/product-id'
+import ProductId from './components/product/instrument/product-id'
 
 //User
 
@@ -66,7 +66,6 @@ import Footer from './components/footer/footer'
 import ScrollToTop from './container/scrollToTop'
 
 function App() {
-
   return (
     <Router>
       <>
@@ -84,9 +83,6 @@ function App() {
           <Route path="/instrument">
             <ProductInstrument />
           </Route>
-          <Route path="/product-id">
-            <ProductId />
-          </Route>
 
           <Switch>
             <Route path="/news" exact>
@@ -95,7 +91,6 @@ function App() {
             <Route path="/news/:NewsID?">
               <NewsPages />
             </Route>
-            
           </Switch>
 
           <Route path="/Forum">

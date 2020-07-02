@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import Navbar from '../components/navbar/navbar'
-import ProductLink from '../components/product/id/product-link'
-import ProductIntro from '../components/product/id/product-instrument-intro'
-import ProductDesciption from '../components/product/id/product-desciption'
+import Navbar from '../../navbar/navbar'
+import ProductLink from '../id/product-link'
+import ProductIntro from '../id/product-instrument-intro'
+import ProductDesciption from '../id/product-desciption'
 // import ProductMayLike from '../components/product/id/product-maylike'
 
 function ProductId() {

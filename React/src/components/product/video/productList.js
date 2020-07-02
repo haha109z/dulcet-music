@@ -15,6 +15,7 @@ import SideBar from '../product-sidebar'
 
 function ProductList(props) {
   // const [control, setControl] = useState('熱門度')
+  const list = 'video'
   const control = props.control
   const setControl = props.setControl
   //分頁
@@ -98,9 +99,9 @@ function ProductList(props) {
   const [favArr, setFavArr] = useState([])
 
   async function getDataP() {
-    fetch(`http://localhost:3030/product/video`, {
+    fetch(`http://localhost:3030/product/getlist`, {
       method: 'POST',
-      body: JSON.stringify({ control, idFirst, idLast }),
+      body: JSON.stringify({ control, idFirst, idLast, list }),
       headers: new Headers({
         'Content-Type': 'application/json',
       }),
