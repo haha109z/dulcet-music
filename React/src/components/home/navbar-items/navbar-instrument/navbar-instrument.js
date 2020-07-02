@@ -4,15 +4,15 @@ import {Link} from 'react-router-dom';
 function Instrument(props){
 
     const [instrument,setInstrument] = useState([
-        {title:'小提琴',src:'/instrument/violin'},
-        {title:'中提琴',src:'/instrument/viola'},
-        {title:'薩克斯風',src:'/instrument/saxophone'},
-        {title:'鋼琴',src:'/instrument/piano'},
-        {title:'電子琴',src:'/instrument/keyboard'},
-        {title:'爵士鼓',src:'/instrument/jazz_drum'},
-        {title:'吉他',src:'/instrument/guitar'},
-        {title:'烏克麗麗',src:'/instrument/ukulele'},
-        {title:'長笛',src:'/instrument/flute'},
+        {title:'小提琴',src:'/instrument/category/violin/1'},
+        {title:'中提琴',src:'/instrument/category/viola/1'},
+        {title:'薩克斯風',src:'/instrument/category/saxophone/1'},
+        {title:'鋼琴',src:'/instrument/category/piano/1'},
+        {title:'電子琴',src:'/instrument/category/keyboard/1'},
+        {title:'爵士鼓',src:'/instrument/category/jazz_drum/1'},
+        {title:'吉他',src:'/instrument/category/guitar/1'},
+        {title:'烏克麗麗',src:'/instrument/category/ukulele/1'},
+        {title:'長笛',src:'/instrument/category/flute/1'},
     ]);
 
     return (

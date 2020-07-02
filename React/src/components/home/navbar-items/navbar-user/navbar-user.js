@@ -10,7 +10,7 @@ const MySwal = withReactContent(Swal);
 // 獲取localStorage資料
 const getUserInfo = () => {
     return JSON.parse(localStorage.getItem('user'));
-  } 
+  }
 
 const clearUserInfo = () =>{
     return localStorage.clear('user');
@@ -35,7 +35,7 @@ class NavbarUser extends Component{
         if(user === null){
             this.setState({login:false})
         }else{
-            this.setState({user: user[0]}) 
+            this.setState({user: user[0]})
             if(user.length > 0){
                 this.setState({login:true})
             }
@@ -55,7 +55,7 @@ class NavbarUser extends Component{
 
     logoutProcess = () => {
         let user = clearUserInfo();
-        this.setState({user:[]});  
+        this.setState({user:[]});
         this.setState({login:false})
         this.logoutSuccess();
       }
@@ -73,26 +73,26 @@ class NavbarUser extends Component{
             window.location = '/';
         },2000)
     }
-   
+
 
 
     render(){
         const {user,login} = this.state;
         const display = this.state.width < 768 ? 'none' : '';
-        const userImgs = `http://localhost:3030/images/user/${this.state.user.userImg}`        
+        const userImgs = `http://localhost:3030/images/user/${this.state.user.userImg}`
 
         // 會員icon圖示
         const userIcon = (
-            <Link to="/login">
+            <a href="/login">
                 <i className="fas fa-user"></i>
-            </Link>
+            </a>
         )
 
         // 會員名字與下拉區
         const userLoginArea = (
             <div>
                 <Link to="/user" className="home-username">
-                    <img className="home-username-img" src={userImgs}></img>                                  
+                    <img className="home-username-img" src={userImgs}></img>
                 </Link>
                 <ul className="home-nav-userlogin" style={{display}}>
                     <li>
