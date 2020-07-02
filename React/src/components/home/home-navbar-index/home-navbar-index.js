@@ -51,9 +51,9 @@ class HomeNavbarIndex extends Component{
           <div className="home-nav-body home-d-flex" id="home-navWrap">
           {/* nav-logo-left */}
             <div className="home-logo-left">
-              <Link to="/">
+              <a href="/">
                 <img src={this.props.HomeLogo2} alt="logo2" />
-              </Link>
+              </a>
             </div>
             <label htmlFor="Homeburger" className="home-burger"><i className="fas fa-bars"></i></label>
             <input type="checkbox" id="Homeburger" />
@@ -61,7 +61,7 @@ class HomeNavbarIndex extends Component{
             <div className="home-navlist home-d-flex">
               <div className="home-items home-courses">
                 {/*<a href="/course">Courses</a>*/}
-                <Link to="/course">Courses</Link>
+                <a href="/course">Courses</a>
                 <ul className="home-courses-list">
                     {
                       <Courses />
@@ -70,7 +70,7 @@ class HomeNavbarIndex extends Component{
               </div>
               <div className="home-items home-videos">
                 {/*<a href="/video">Videos</a>*/}
-                <Link to="/video">Videos</Link>
+                <a href="/video">Videos</a>
                 <ul className="home-videos-list">
                     {
                       <Videos />
@@ -79,7 +79,7 @@ class HomeNavbarIndex extends Component{
               </div>
               <div  className="home-items home-instrument">
                 {/*<a href="/instrument">Instrument</a>*/}
-                <Link to="/instrument">Instrument</Link>
+                <a href="/instrument">Instrument</a>
                 <ul className="home-instrument-list">
                     {
                       <Instrument />
@@ -91,7 +91,7 @@ class HomeNavbarIndex extends Component{
               </div>
               <div  className="home-items home-news">
                 {/*<a href="/news">News</a>*/}
-                <Link to="/news">News</Link>
+                <a href="/news">News</a>
                 <ul className="home-news-list">
                     {
                       <News />
@@ -100,7 +100,7 @@ class HomeNavbarIndex extends Component{
               </div>
               <div  className="home-items home-about">
                 {/*<a href="/about">About</a>*/}
-                <Link to="/about">About</Link>
+                <a href="/about">About</a>
                 <ul className="home-about-list">
                     {
                       <About />
