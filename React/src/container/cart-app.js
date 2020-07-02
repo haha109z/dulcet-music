@@ -40,7 +40,7 @@ function CartApp (props) {
 
 
   // 商品列表checkbox勾選狀態，預設為勾選
-  const [ buyProduct, setBuyProduct ] = useState("checked");
+  // const [ buyProduct, setBuyProduct ] = useState('false');
   // console.log(buyProduct);
   
   // 收件資訊checkbox勾選狀態，預設為不勾選
@@ -235,7 +235,11 @@ useEffect(()=>{
                   />
                 </Route>
                 <Route path="/cart/3">
-                  <CartPay />
+                  <CartPay 
+                    allProps={{
+                      orderPrice,
+                    }}
+                  />
                 </Route>
                 <Route path="/cart/4">
                   <CartEnd />
@@ -255,8 +259,8 @@ useEffect(()=>{
                         setTotalPrice,
                         orderPrice,
                         setOrderPrice,
-                        buyProduct, 
-                        setBuyProduct,
+                        // buyProduct, 
+                        // setBuyProduct,
                         checkstate,
                         setcheckstate,
                         checkcallback,
