@@ -25,7 +25,7 @@ function ProductInstrument(props) {
 
   return (
     <>
-      <Navbar />
+      <Navbar cartNum={cartNum} />
       {/* <ProductCategory /> */}
       <BrowserRouter>
         <Switch>

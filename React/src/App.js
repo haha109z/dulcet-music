@@ -85,10 +85,10 @@ function App() {
           </Route>
 
           <Route path="/course">
-            <ProductCourse />
+            <ProductCourse cartNum={cartNum} setCartNum={setCartNum} />
           </Route>
           <Route path="/video">
-            <ProductVideo />
+            <ProductVideo cartNum={cartNum} setCartNum={setCartNum} />
           </Route>
           <Route path="/instrument">
             <ProductInstrument cartNum={cartNum} setCartNum={setCartNum} />

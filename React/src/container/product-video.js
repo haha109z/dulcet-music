@@ -14,14 +14,15 @@ import {
 import Piano from '../components/product/instrument/productPiano'
 import ProductId from '../components/product/video/product-id'
 
-function ProductInstrument() {
+function ProductInstrument(props) {
+  const cartNum = props.cartNum
   const productTitle = '線上影片'
   const productTitleId = 'video'
   const [control, setControl] = useState('熱門度')
 
   return (
     <>
-      <Navbar />
+      <Navbar cartNum={cartNum} />
       {/* <ProductCategory /> */}
       <BrowserRouter>
         <Switch>
