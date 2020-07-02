@@ -53,16 +53,7 @@ function UserLoginPage(props) {
         }else if( userPwd === ''){
             errors.push('請輸入密碼');
         }else{
-          await getData(userMail, userPwd);
-          
-          // console.log(userData);   
-            // if(userData.length === 0){    
-            //   // console.log("1",userData);           
-            //   errors.push('前:Email帳號不存在');
-            //   return false
-            // }else{
-            //   if(sha1(userPwd) != userData[0].userPwd) errors.push('123密碼錯誤');
-            // }              
+          await getData(userMail, userPwd);              
         }
 
         if(errors.length > 0){
