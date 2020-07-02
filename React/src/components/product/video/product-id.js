@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import Navbar from '../../navbar/navbar'
 
 import ProductLink from '../id/product-link'
 import ProductIntro from '../id/product-video-intro'
@@ -19,9 +18,9 @@ function ProductId() {
   const [dataP, setDataP] = useState([])
 
   async function getDataP() {
-    fetch(`http://localhost:3030/product/video/getid`, {
+    fetch(`http://localhost:3030/product/getid`, {
       method: 'POST',
-      body: JSON.stringify({ PId }),
+      body: JSON.stringify({ PId, productCategoryId }),
       headers: new Headers({
         'Content-Type': 'application/json',
       }),
@@ -38,8 +37,6 @@ function ProductId() {
 
   return (
     <>
-      <Navbar />
-
       <div className="product-container">
         <div className="product-wrapper">
           {dataP.map((p) => {

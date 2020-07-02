@@ -15,10 +15,10 @@ import {
 import Piano from '../components/product/instrument/productPiano'
 import ProductId from '../components/product/instrument/product-id'
 
-function ProductInstrument() {
+function ProductInstrument(props) {
   const productTitle = '精選樂器'
   const productTitleId = 'instrument'
-
+  const { cartNum, setCartNum } = props
   const [control, setControl] = useState('熱門度')
 
   //分頁
@@ -54,7 +54,7 @@ function ProductInstrument() {
           ></Route>
 
           <Route path="/instrument/:PId">
-            <ProductId />
+            <ProductId cartNum={cartNum} setCartNum={setCartNum} />
           </Route>
 
           {/* <Route

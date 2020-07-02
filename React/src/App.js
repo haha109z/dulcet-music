@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   BrowserRouter as Router,
   Switch,
@@ -66,6 +66,16 @@ import Footer from './components/footer/footer'
 import ScrollToTop from './container/scrollToTop'
 
 function App() {
+  // const [cartArr, setCartArr] = useState({})
+  const [cartNum, setCartNum] = useState(0)
+
+  useEffect(() => {
+    let cartArr = {}
+    cartArr = JSON.parse(localStorage.getItem('cart'))
+    if (cartArr != null) {
+      setCartNum(JSON.parse(localStorage.getItem('cart')).length)
+    }
+  })
   return (
     <Router>
       <>
@@ -81,7 +91,7 @@ function App() {
             <ProductVideo />
           </Route>
           <Route path="/instrument">
-            <ProductInstrument />
+            <ProductInstrument cartNum={cartNum} setCartNum={setCartNum} />
           </Route>
 
           <Switch>

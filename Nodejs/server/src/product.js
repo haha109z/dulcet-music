@@ -23,59 +23,17 @@ router.post("/getMayLike", async (req, res) => {
 });
 
 //課程
-// router.post("/course", async (req, res) => {
-//   const { control, idFirst, idLast } = req.body;
-//   let sql = "";
-//   if (control == "價格高到低") {
-//     sql = "SELECT * FROM `product_courses` ORDER BY `PPrice` DESC LIMIT ?,?";
-//   } else if (control == "價格低到高") {
-//     sql = "SELECT * FROM `product_courses` ORDER BY `PPrice` ASC LIMIT ?,?";
-//   } else if (control == "熱門度") {
-//     sql = "SELECT * FROM `product_courses` ORDER BY `PClick` DESC LIMIT ?,?";
-//   }
-//   const [data] = await db.query(sql, [idFirst, idLast]);
-//   res.json(data);
-// });
 router.post("/course/favorite", async (req, res) => {
   const [data] = await db.query(
     "SELECT * FROM `product_favorite` WHERE `PCategory`='課程'"
   );
   res.json(data);
 });
-router.post("/course/getid", async (req, res) => {
-  let { PId } = req.body;
-  const [data] = await db.query(
-    "SELECT * ,CASE `PInstrumentId` WHEN '爵士鼓' THEN 'jazz_drum' END AS 'PIId' FROM `product_courses` WHERE `PId`=?",
-    PId
-  );
-  res.json(data);
-});
 
 //影片
-// router.post("/video", async (req, res) => {
-//   const { control, idFirst, idLast } = req.body;
-//   let sql = "";
-//   if (control == "價格高到低") {
-//     sql = "SELECT * FROM `product_video` ORDER BY `PPrice` DESC LIMIT ?,?";
-//   } else if (control == "價格低到高") {
-//     sql = "SELECT * FROM `product_video` ORDER BY `PPrice` ASC LIMIT ?,?";
-//   } else if (control == "熱門度") {
-//     sql = "SELECT * FROM `product_video` ORDER BY `PClick` DESC LIMIT ?,?";
-//   }
-//   const [data] = await db.query(sql, [idFirst, idLast]);
-//   res.json(data);
-// });
 router.post("/video/favorite", async (req, res) => {
   const [data] = await db.query(
     "SELECT * FROM `product_favorite` WHERE `PCategory`='影片'"
-  );
-  res.json(data);
-});
-router.post("/video/getid", async (req, res) => {
-  let { PId } = req.body;
-  const [data] = await db.query(
-    "SELECT * ,CASE `PInstrumentId` WHEN '爵士鼓' THEN 'jazz_drum' END AS 'PIId' FROM `product_video` WHERE `PId`=?",
-    PId
   );
   res.json(data);
 });
@@ -143,12 +101,22 @@ router.post("/instrument/favorite", async (req, res) => {
   );
   res.json(data);
 });
-router.post("/instrument/getid", async (req, res) => {
-  let { PId } = req.body;
-  const [data] = await db.query(
-    "SELECT * ,CASE `PInstrumentId` WHEN '爵士鼓' THEN 'jazz_drum' END AS 'PIId' FROM `product_instruments` WHERE `PId`=?",
-    PId
-  );
+router.post("/getid", async (req, res) => {
+  let { PId, productCategoryId } = req.body;
+  let sql =
+    "SELECT * ,CASE `PInstrumentId` WHEN '鋼琴' THEN 'piano' WHEN '電子琴' THEN 'keyboard' WHEN '小提琴' THEN 'violin' WHEN '中提琴' THEN 'viola' WHEN '吉他' THEN 'guitar' WHEN '長笛' THEN 'flute' WHEN '烏克麗麗' THEN 'ukulele' WHEN '薩克斯風' THEN 'saxophone' WHEN '爵士鼓' THEN 'jazz_drum' END AS 'PIId'";
+  switch (productCategoryId) {
+    case "instrument":
+      sql += " FROM `product_instruments` WHERE `PId`=?";
+      break;
+    case "video":
+      sql += " FROM `product_video` WHERE `PId`=?";
+      break;
+    case "course":
+      sql += " FROM `product_courses` WHERE `PId`=?";
+      break;
+  }
+  const [data] = await db.query(sql, PId);
   res.json(data);
 });
 

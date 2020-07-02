@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import withReactContent from 'sweetalert2-react-content'
 import Swal from 'sweetalert2'
 const MySwal = withReactContent(Swal)
 
 function ProductIntroBtn(props) {
+  const { cartNum, setCartNum } = props
+
   const PId = props.PId
   const amount = props.amount
   const setAmount = props.setAmount
@@ -35,7 +37,6 @@ function ProductIntroBtn(props) {
       .then((res) => res.json())
       .then((json) => {})
   }
-
   return (
     <>
       <div id="product-id-intro-btn-wrapper">
@@ -50,9 +51,11 @@ function ProductIntroBtn(props) {
               setAmount(0)
               setDataP(dataCart)
               localStorage.setItem('cart', JSON.stringify(dataCart))
+              MySwal.fire('已加入購物車', '', 'success')
+              setCartNum(JSON.parse(localStorage.getItem('cart')).length)
             } else if (arrCart != null) {
               for (let i = 0; i < arrCart.length; i++) {
-                console.log(i)
+                // console.log(i)
                 if (dataCart[0].PId == arrCart[i].PId) {
                   MySwal.fire('請勿重複加入', '', 'warning')
                   break
@@ -64,6 +67,7 @@ function ProductIntroBtn(props) {
                   arrCart.push(dataCart[0])
                   localStorage.setItem('cart', JSON.stringify(arrCart))
                   MySwal.fire('已加入購物車', '', 'success')
+                  setCartNum(JSON.parse(localStorage.getItem('cart')).length)
                   // alert('已加入購物車')
                   break
                 }
