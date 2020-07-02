@@ -2,19 +2,30 @@ import React from 'react'
 import { FaPlus, FaCommentsDollar } from "react-icons/fa"
 
 
-
+if(JSON.parse(localStorage.getItem('user'))){
+    const getUserInfo = () => {
+    return JSON.parse(localStorage.getItem('user'))
+  }
+  var Mid = getUserInfo()[0].Mid
+  // this.setState({userID:userID})
+  }
 class InstrumentPutOn extends React.Component{
     constructor(){
         super()
         this.state = {
-            img : '',
-            
-        }
+            Mid : Mid,
+            newPName:'',
+            newPCategoryId:'樂器',
+            newPQty:'',
+            newPPrice:'',
+            newPState:'',
+            newPInstrumentId:'',
+            newPIntro:'',
+            newPdesciption:'',                     
+        } 
     }
-    handlechange(event){
-        const v = event.target.value
-        console.log(v)
-    }
+    
+
     handleUpload = e =>{
         //抓取上傳檔案按鈕元素
         const uploadfile = document.querySelector('.ins-puton-file-img'); 
@@ -48,8 +59,96 @@ class InstrumentPutOn extends React.Component{
             alert('上傳成功')
         })
     }
+
+    handlename = e =>{
+        this.setState({
+            newPName:e.target.value
+        })
+        
+    }
+    handleoption = e =>{ 
+        this.setState({
+            newPInstrumentId:e.target.value
+        },()=>{
+        console.log(this.state.newPInstrumentId)
+        })
+    }
+    handleamount = e =>{
+        this.setState({
+            newPQty:e.target.value
+        })
+        
+    }
+    handleprice = e =>{
+        this.setState({
+            newPPrice:e.target.value
+        })
+        
+    }
+    handlestate = e =>{
+        this.setState({
+            newPState:e.target.value
+        },() => {
+            console.log(this.state.newPState)
+        })
+        
+    }
+    handletext1 = e =>{
+        this.setState({
+            newPIntro:e.target.value
+        })
+        
+    }
+    handletext2 = e =>{
+        this.setState({
+            newPdesciption:e.target.value
+        })
+        
+    }
+
+
+
+    handlesend = () => {
+        
+        console.log(this.state)
+        let {
+            Mid,
+            newPName,
+            newPCategoryId,
+            newPQty,
+            newPPrice,
+            newPState,
+            newPInstrumentId,
+            newPIntro,
+            newPdesciption,
+        } = this.state
+
+        fetch('http://localhost:3030/ManufacturerInstrument/InstrumentPutOn',{
+            method : 'POST',
+            body:JSON.stringify({
+                Mid,
+                newPName,
+                newPCategoryId,
+                newPQty,
+                newPPrice,
+                newPState,
+                newPInstrumentId,
+                newPIntro,
+                newPdesciption,
+            }),
+            headers:new Headers({
+                'Content-Type': 'application/json',
+            }),
+        })
+        .then((res) => {
+            console.log(res)
+        })
+    }
+        
+       
+        
+
     
-   
     render(){
         
     return(
@@ -71,11 +170,12 @@ class InstrumentPutOn extends React.Component{
             
           
             <div className="ins-puton-content">
-                <label htmlFor="name" className="ins-puton-label font-size-1rem">名稱<input id="name" type="text" className="font-size-114rem"/></label>
+                <label htmlFor="mid" className="ins-puton-label font-size-1rem">廠商編號<input id="mid" type="text" className="font-size-114rem" readOnly value={this.state.Mid}/></label>
+                <label htmlFor="name" className="ins-puton-label font-size-1rem">名稱<input id="name" type="text" className="font-size-114rem" onChange={this.handlename} value={this.state.newPName}/></label>
                 <label className="ins-puton-label font-size-1rem" htmlFor="option">類別
                 <div className="ins-select-value">
-                    <select className="font-size-114rem" id="option" onChange={this.handlechange}>
-                        <option value=""></option>
+                    <select className="font-size-114rem" id="option" onChange={this.handleoption} value={this.state.newPInstrumentId}>
+                        <option value="">請選擇樂器類型</option>
                         <option value="小提琴">小提琴</option>
                         <option value="中提琴">中提琴</option>
                         <option value="薩克斯風">薩克斯風</option>
@@ -88,12 +188,20 @@ class InstrumentPutOn extends React.Component{
                     </select>
                     </div>
                 </label>
-                
-                <label htmlFor="amount" className="ins-puton-label font-size-1rem">數量<input id="amount" type="text" className="font-size-114rem"/></label>
-                <label htmlFor="price" className="ins-puton-label font-size-1rem">價格<input id="price" type="text" className="font-size-114rem"/></label>
-                <label htmlFor="text1" className="ins-puton-label font-size-1rem">簡介<input id="text1" type="text" className="font-size-114rem"/></label>
-                <label htmlFor="text2" className="ins-puton-content-text font-size-1rem">介紹<textarea id="text2" className="font-size-114rem"></textarea></label>
-                <button type="submit" className="ins-puton-add-btn">確認</button>
+                <label htmlFor="state" className="ins-puton-label font-size-1rem">狀態
+                <div className="ins-select-value">
+                <select id="state" className="font-size-114rem" onChange={this.handlestate}>
+                    <option>請選擇商品狀態</option>
+                    <option value="上架">上架</option>
+                    <option value="下架">下架</option>
+                </select>
+                </div>
+                </label>
+                <label htmlFor="amount" className="ins-puton-label font-size-1rem">數量<input id="amount" type="text" className="font-size-114rem" onChange={this.handleamount}/></label>
+                <label htmlFor="price" className="ins-puton-label font-size-1rem">價格<input id="price" type="text" className="font-size-114rem" onChange={this.handleprice}/></label>
+                <label htmlFor="text1" className="ins-puton-label font-size-1rem">簡介<input id="text1" type="text" className="font-size-114rem" onChange={this.handletext1}/></label>
+                <label htmlFor="text2" className="ins-puton-content-text font-size-1rem">介紹<textarea id="text2" className="font-size-114rem" onChange={this.handletext2}></textarea></label>
+                <button type="button" className="ins-puton-add-btn" onClick={this.handlesend}>確認</button>
             </div>
         </form>
         </div>
