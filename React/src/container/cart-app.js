@@ -61,12 +61,17 @@ function CartApp (props) {
   const [ radiostate, setRadiostate ] = useState([false, false, false, false]);  
   // 發票儲存方式，預設為空值
   // const [ invoiceType, setInvoiceType ] = useState('');
-  // 發票資料，預設為空值
+  // 發票資料，預設為空值 
   const [ invoiceInfo, setInvoiceInfo ] = useState('');  
+  // const [ invoiceInfo2, setInvoiceInfo2 ] = useState('');  
+  // const [ invoiceInfo3, setInvoiceInfo3 ] = useState('');  
+  // const [ invoiceInfo4, setInvoiceInfo4 ] = useState('');  
+  // const [ invoiceInfo5, setInvoiceInfo5 ] = useState('');  
   // radiocallback函式：點擊時切換radio選取狀態並根據選項儲存發票資訊
   const radiocallback = (e) =>{
-    // console.log('radiocallback')
-    setInvoiceInfo('')
+    // console.log('radiocallback') 
+    // console.log(e);       
+    // setInvoiceInfo('')
     // console.log(document.getElementById("invoice2").checked)
     let radiostate1 = document.getElementById("invoice1").checked;
     let radiostate2 = document.getElementById("invoice2").checked;
@@ -74,18 +79,20 @@ function CartApp (props) {
     let radiostate4 = document.getElementById("invoice4").checked;
     setRadiostate([radiostate1, radiostate2, radiostate3, radiostate4])
     // console.log(e.value);
+
     let invoiceinfo2 = document.getElementById("invoicev").value;
     var selectindex = document.querySelector("select").selectedIndex;
     let invoiceinfo3 = document.querySelector("select").options[selectindex].value;
     let invo4value1= document.getElementsByClassName("companyinvoice")[0].value;
     let invo4value2= document.getElementsByClassName("companyinvoice")[1].value;
-    let invoiceinfo4 = [invo4value1, invo4value2];
+    let invoiceinfo4 = [ (invo4value1==0? '' :invo4value1), (invo4value2==0? '':invo4value2)];
     // console.log(invoiceinfo4);
-    
     // A == true ? A.value : (B == true ? B.value : (C == 1 ? C.value : (D == 1 ? D.value : '' )) )
     setInvoiceInfo(
       radiostate1 == 1 ? '' : (radiostate2 == 1 ? invoiceinfo2 : (radiostate3 == 1 ? invoiceinfo3 : (radiostate4 == 1 ? invoiceinfo4 : '' )))
     )
+
+    // radiostate1 == 0? setInvoiceInfo1('') : setInvoiceInfo1(invoiceinfo1) 
   }
   useEffect(()=>{
     // setInvoiceInfo('')
@@ -145,7 +152,7 @@ useEffect(()=>{
     if (couponData===null) {
       return
     } else {
-      console.log("app",couponData); 
+      // console.log("app",couponData); 
       // console.log(couponData[0]['coupon']);           
       setHaveCoupon(true) 
       setCoupon(couponData[0]['coupon'])
@@ -219,7 +226,11 @@ useEffect(()=>{
                         ReceivingAddress, 
                         ReceivingPhone, 
                         ReceivingEmail, 
-                        invoiceInfo,
+                        invoiceInfo,                        
+                        // invoiceInfo2,                        
+                        // invoiceInfo3,
+                        // invoiceInfo4,
+                        // invoiceInfo5,
                     }}
                   />
                 </Route>
@@ -260,8 +271,16 @@ useEffect(()=>{
                         radiostate, 
                         setRadiostate,
                         radiocallback,
-                        invoiceInfo,
+                        invoiceInfo, 
                         setInvoiceInfo,
+                        // invoiceInfo2,                        
+                        // invoiceInfo3,
+                        // invoiceInfo4,
+                        // invoiceInfo5,
+                        // setInvoiceInfo2,
+                        // setInvoiceInfo3,
+                        // setInvoiceInfo4,
+                        // setInvoiceInfo5,
                     }}
                   />
                 </Route>

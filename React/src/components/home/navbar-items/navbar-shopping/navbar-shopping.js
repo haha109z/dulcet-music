@@ -52,8 +52,9 @@ class NavbarShoppingCart extends Component{
            <div className="nav-shopping-area" onClick={this.handleClick}>
                 <i className="fas fa-shopping-cart"></i>
             </div>
+        
             <span className="home-shopping-point nav-shopping-point">1</span>
-            <div className="nav-shopping-cart nav-shopping-cart" style={{display}}>123</div>
+            {/*<div className="nav-shopping-cart nav-shopping-cart" style={{display}}>123</div>*/}
         </>
 
         )

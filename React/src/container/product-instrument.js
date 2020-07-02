@@ -40,17 +40,14 @@ function ProductInstrument() {
           ></Route>
 
           <Route
-            path="/instrument/piano"
+            path="/instrument/category/:category/:page"
             render={() => (
-              <>
-                <ProducList
-                  productTitle={productTitle}
-                  productTitleId={productTitleId}
-                  control={control}
-                  setControl={setControl}
-                />
-                <Piano />
-              </>
+              <ProducList
+                productTitle={productTitle}
+                productTitleId={productTitleId}
+                control={control}
+                setControl={setControl}
+              />
             )}
           ></Route>
 

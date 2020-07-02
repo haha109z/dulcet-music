@@ -63,17 +63,25 @@ router.post("/video/getid", async (req, res) => {
 
 //樂器
 router.post("/instrument", async (req, res) => {
-  const { control, idFirst, idLast } = req.body;
-  let sql = "";
-  if (control == "價格高到低") {
-    sql =
-      "SELECT * FROM `product_instruments` ORDER BY `PPrice` DESC LIMIT ?,?";
-  } else if (control == "價格低到高") {
-    sql = "SELECT * FROM `product_instruments` ORDER BY `PPrice` ASC LIMIT ?,?";
-  } else if (control == "熱門度") {
-    sql =
-      "SELECT * FROM `product_instruments` ORDER BY `PClick` DESC LIMIT ?,?";
+  const { control, idFirst, idLast, category } = req.body;
+  let sql = "SELECT * FROM `product_instruments`";
+  console.log(category);
+  if (category == "piano") {
+    sql += " WHERE `PInstrumentId` = '鋼琴'";
+  } else if (category == "keyboard") {
+    sql += " WHERE `PInstrumentId` = '電子琴'";
+  } else {
+    sql += "";
   }
+  if (control == "價格高到低") {
+    sql += " ORDER BY `PPrice` DESC LIMIT ?,?";
+  } else if (control == "價格低到高") {
+    sql += " ORDER BY `PPrice` ASC LIMIT ?,?";
+  } else if (control == "熱門度") {
+    sql += " ORDER BY `PClick` DESC LIMIT ?,?";
+  }
+  console.log(sql);
+
   const [data] = await db.query(sql, [idFirst, idLast]);
   res.json(data);
 });

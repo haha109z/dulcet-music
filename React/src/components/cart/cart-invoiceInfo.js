@@ -2,7 +2,15 @@ import React ,{ Fragment, useState, useEffect } from 'react';
 
 export default function CartInvoiceInfo (props) {
 
-  const { radiostate, invoiceType, invoiceInfo } = props.allProps; 
+  const { 
+    radiostate, 
+    invoiceType, 
+    invoiceInfo, 
+    // invoiceInfo2, 
+    // invoiceInfo3,
+    // invoiceInfo4, 
+    // invoiceInfo5, 
+   } = props.allProps; 
   // console.log(invoiceInfo);  
 
   // 六元運算符

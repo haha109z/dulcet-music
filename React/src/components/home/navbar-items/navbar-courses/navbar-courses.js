@@ -20,7 +20,7 @@ function Courses(props){
         {
             courses.map((item,index)=> (
                 <li key={index}>
-                    <Link to={item.src}>{item.title}</Link>
+                    <a href={item.src}>{item.title}</a>
                 </li>
             ))
         }
