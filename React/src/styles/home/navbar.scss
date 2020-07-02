@@ -376,6 +376,7 @@
       // border-bottom: 1px solid var(--main-colorfff);
       color: var(--main-colorfff);
       font-size: var(--h1);
+      
     }
   }
 
@@ -435,7 +436,7 @@
   }
 
   .nav-body-others .nav-navuser-others .nav-shopping:hover .nav-shopping-cart {
-    display: none;
+    display: none;   
 
     &::before {
       display: none;
