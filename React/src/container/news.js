@@ -60,18 +60,6 @@ function News(props) {
               </Link>
             </ul>
           </div>
-
-          <div className="news-Month news-NotoSerifTC">
-          年/月份篩選：
-          <input
-            Id="news-MonthInput"
-            type="month"
-            value={newNewsDate}
-            // onChange={(event) => {
-            //   setDate(event.target.value)
-            // }}
-          ></input>
-        </div>
         </div>
         <NewsHot />
 
