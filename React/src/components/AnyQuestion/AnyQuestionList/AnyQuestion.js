@@ -31,8 +31,8 @@ render(){
             <i class="fas fa-book AnyQuestionCardIcon"></i>
             <h2 className="AnyQuestionCardIconH2">課程問題</h2>
           </div>
-          <div className="AnyQuestionCard">
-            <i class="fas fa-video AnyQuestionCardIcon"></i>
+          <div className="AnyQuestionCard ">
+            <i class="fas fa-video AnyQuestionCardIconVideo"></i>
             <h2 className="AnyQuestionCardIconH2">影片問題</h2>
           </div>
           <div className="AnyQuestionCard">

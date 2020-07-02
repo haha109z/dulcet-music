@@ -1,4 +1,7 @@
 import React from 'react'
+import withReactContent from 'sweetalert2-react-content'
+import Swal from 'sweetalert2'
+const MySwal = withReactContent(Swal)
 
 function ProductIntroBtn(props) {
   const PId = props.PId
@@ -51,16 +54,17 @@ function ProductIntroBtn(props) {
               for (let i = 0; i < arrCart.length; i++) {
                 console.log(i)
                 if (dataCart[0].PId == arrCart[i].PId) {
-                  alert('請勿重複加入')
+                  MySwal.fire('請勿重複加入', '', 'warning')
                   break
                 } else if (i == arrCart.length - 1) {
-                  console.log('要加')
+                  // console.log('要加')
                   dataCart[0].num = amount
-                  setAmount(0)
+                  setAmount(1)
                   setDataP(dataCart)
                   arrCart.push(dataCart[0])
                   localStorage.setItem('cart', JSON.stringify(arrCart))
-                  alert('已加入購物車')
+                  MySwal.fire('已加入購物車', '', 'success')
+                  // alert('已加入購物車')
                   break
                 }
               }

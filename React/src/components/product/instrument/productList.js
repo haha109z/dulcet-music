@@ -14,7 +14,8 @@ import Card from './product-instrument-card'
 import SideBar from '../product-sidebar'
 
 function ProductList(props) {
-  // const [control, setControl] = useState('熱門度')
+  const { category } = useParams()
+  // const category = '鋼琴'
   const control = props.control
   const setControl = props.setControl
   //分頁
@@ -101,7 +102,7 @@ function ProductList(props) {
   async function getDataP() {
     fetch(`http://localhost:3030/product/instrument`, {
       method: 'POST',
-      body: JSON.stringify({ control, idFirst, idLast }),
+      body: JSON.stringify({ control, idFirst, idLast, category }),
       headers: new Headers({
         'Content-Type': 'application/json',
       }),

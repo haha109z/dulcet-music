@@ -15,6 +15,7 @@
 .AnyQuestionActionFlex {
   display: flex;
   margin: 0px auto;
+  // padding: 0px;
 }
 
 .AnyQuestionActionCard {
@@ -140,6 +141,12 @@
   }
 }
 @media (max-width: 414px) {
+  .AnyQuestionActionCardLeft {
+    margin: 20px auto;
+  }
+  .AnyQuestionActionRwd {
+    margin: 0px auto;
+  }
   .AnyQuestionActionContainer {
     width: 300px;
   }

@@ -1,5 +1,11 @@
 import React, { Component } from 'react'
 import AOS from 'aos'
+import withReactContent from 'sweetalert2-react-content'
+import Swal from 'sweetalert2'
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import { IoMdArrowDropright } from 'react-icons/io'
+import { IoMdArrowDropleft } from 'react-icons/io'
+const MySwal = withReactContent(Swal)
 // const getUserInfo = () => {
 
 //   return JSON.parse(this.state.news)
@@ -94,13 +100,14 @@ class ForumCard extends Component {
     const toggle = !boxShow
     this.setState({ boxShow: toggle })
     // console.log(boxShow);
-
+    
     //input裡面的資料抓取功能
     localStorage.getItem("user") 
     const UserName = this.state.username
     // UserName.value = this.state.news.userID
     this.setState({ userName:UserName })
     // console.log(this.state)
+    
   }
 
 
@@ -171,9 +178,15 @@ let {
   this.setState({ userID: this.state.userID })
   // this.setState({ ForumActionAns: this.state.ForumActionAns })
   
-  alert('新增成功')
+  MySwal.fire('新增成功', '', 'success')
   console.log(this.state)
   // this.location.reload()
+  this.setState({ boxShow: false })
+}
+handleSubmitBack=(event)=>{
+  MySwal.fire('已取消', '', 'error')
+  this.setState({ boxShow: false })
+  
 }
   render() {
     const { boxShow, boxShowBtn , boxShowBtn2 } = this.state
@@ -189,9 +202,10 @@ let {
     //我要發問的新增欄位
     const box = boxShow ? (
       <div className="ForumBtn01">
-        <div>
-          <div>
-            發問會員：
+       
+          <div style={{textAlign:'center'}}>
+          <p>發問會員</p>
+            
             <input
               type="text"
               name="name"
@@ -199,32 +213,38 @@ let {
                             disabled
               onChange={this.handleUserNameId}
             />
-            <button style={{ float: 'right' }} onClick={this.handleClick}>
-              <i className="fas fa-times"></i>
+            <button onClick={this.handleSubmitBack}>
+              <i className="fas fa-times" ></i>
             </button>
           </div>
-          <div>
-            問題類別：
-            <input type="text" placeholder="樂器類別是？" name="ForumTitle" 
-              // value={this.state.ForumTitle}          
+          <div style={{textAlign:'center'}}>
+          <p>問題類別</p>
+            
+            <input type="text" placeholder="樂器類別是？" name="ForumTitle"       
               onChange={this.handleForumTitle} />
           </div>
-          <div>
-            您的問題：
-            <input type="text" placeholder="您的問題是？"
-            name="ForumAction"
-            // value={this.state.ForumAction}          
+          <div style={{textAlign:'center'}}>
+          <p>您的問題</p>
+            <textarea type="text" placeholder="您的問題是？"
+            name="ForumAction"         
             onChange={this.handleForumAction}
                />
           </div>
+          <div className="ButtonSend" style={{display:'flex'}}>
+          <input
+            type="button"
+            value="取消"
+            className="ForumBtnBack"
+            onClick={this.handleSubmitBack}
+          />
           <input
             type="button"
             value="送出"
-            className="ForumButton"
-            // onClick={this.handleSubmit}
+            className="ForumBtnSend"
             onClick={this.handleSubmit}
           />
-        </div>
+          </div>
+       
       </div>
     ) : (
       ''
@@ -304,23 +324,25 @@ let {
               )
             })}
           </div>
-          <div className="ForumChecked">
-            <button type="checked" style={{ width: 30, height: 30 }}>
-              <i className="fas fa-chevron-left"></i>
-            </button>
-            <button type="checked" style={{ width: 30, height: 30 }}>
-              1
-            </button>
-            <button type="checked" style={{ width: 30, height: 30 }}>
-              2
-            </button>
-            <button type="checked" style={{ width: 30, height: 30 }}>
-              3
-            </button>
-            <button type="checked" style={{ width: 30, height: 30 }}>
-              <i className="fas fa-chevron-right"></i>
-            </button>
-          </div>
+          <Router>
+            <div id="Forum-pages-list">
+              <Link className="Forum-pages" to="">
+                <IoMdArrowDropleft className="Forum-pages-arrows" />
+              </Link>
+              <Link className="Forum-pages" to="">
+                1
+              </Link>
+              <Link className="Forum-pages" to="">
+                2
+              </Link>
+              <Link className="Forum-pages" to="">
+                3
+              </Link>
+              <Link className="Forum-pages" to="">
+                <IoMdArrowDropright className="Forum-pages-arrows" />
+              </Link>
+            </div>
+          </Router>
         </div>
       </div>
     )

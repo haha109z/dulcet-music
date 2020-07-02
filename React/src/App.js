@@ -49,7 +49,11 @@ import AnyQuestion from './container/AnyQuestion'
 //About
 import About from './container/About'
 
-import AnyQuestionAction from './container/AnyQuestionAction'
+import AnyQuestionUser from './container/AnyQuestionUser'
+import AnyQuestionClass from './container/AnyQuestionClass'
+import AnyQuestionVideo from './container/AnyQuestionVideo'
+import AnyQuestionCompany from './container/AnyQuestionCompany'
+import AnyQuestionAns from './container/AnyQuestionAns'
 
 // ManufacturerVideo
 import ManufacturerVideo from './container/Manufacturer-Video-App'
@@ -104,8 +108,20 @@ function App() {
           <Route path="/About">
             <About />
           </Route>
-          <Route path="/AnyQuestionAction">
-            <AnyQuestionAction />
+          <Route path="/AnyQuestionUser">
+            <AnyQuestionUser />
+          </Route>
+          <Route path="/AnyQuestionClass">
+            <AnyQuestionClass />
+          </Route>
+          <Route path="/AnyQuestionVideo">
+            <AnyQuestionVideo />
+          </Route>
+          <Route path="/AnyQuestionCompany">
+            <AnyQuestionCompany />
+          </Route>
+          <Route path="/AnyQuestionAns">
+            <AnyQuestionAns />
           </Route>
 
           <Route path="/user">
