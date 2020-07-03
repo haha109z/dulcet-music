@@ -1,29 +1,38 @@
-import React, { useState, useEffect,useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import { FaShareAlt } from 'react-icons/fa'
-import useClipboard from "react-use-clipboard";
+import useClipboard from 'react-use-clipboard'
 import withReactContent from 'sweetalert2-react-content'
 import Swal from 'sweetalert2'
-
-
 import { withRouter } from 'react-router-dom'
 
 function NewsContent(props) {
   const MySwal = withReactContent(Swal)
-  const [isCopied, setCopied] = useClipboard('http://localhost:3000/news-content' + '/'+ props.data.NewsID);
+  const [isCopied, setCopied] = useClipboard(
+    'http://localhost:3000/news-content' + '/' + props.data.NewsID
+  )
 
   return (
-    <> 
+    <>
       <div className="news-Content">
-
         <img
           className="news-ContentImg"
           src={`http://localhost:3030/images/news/${props.data.NewsImg}`}
         ></img>
 
         <p className="news-H3 news-LetterSpacing news-NotoSerifTC news-ShareContent">
-          <Link className="news-Share" id="news-Share" onClick={setCopied}>
+          <Link
+            className="news-Share"
+            id="news-Share"
+            onClick={() => {
+              setCopied()
+              MySwal.fire({
+                confirmButtonColor: '#141414',
+                text: '網址已複製',
+                })
+            }}
+          >
             <FaShareAlt className="news-H3" />
           </Link>
           {props.data.NewsTitle}
@@ -41,7 +50,7 @@ function NewsContent(props) {
         <div className="news-ContetnBtn">
           <Link
             className="news-Merienda news-ViewBtn"
-            to={'/news-content' + '/'+ props.data.NewsID}
+            to={'/news-content' + '/' + props.data.NewsID}
           >
             View More...
           </Link>
@@ -66,5 +75,3 @@ function NewsContent(props) {
 // // 高階元件的樣式，必要的
 // // 使用actionCreators作全綁定
 export default withRouter(NewsContent)
-
-
