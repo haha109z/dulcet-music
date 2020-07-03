@@ -49,8 +49,14 @@ app.use("/login/manufacturer", require(__dirname + "/manu_login"));
 app.use("/register/manufacturer", require(__dirname + "/manu_register"));
 
 app.use("/ManufacturerInstrument/InstrumentHome",require(__dirname + "/manuI_userdata"));
-app.use("/ManufacturerVideo/VideoHome",require(__dirname + "/manuV_userdata"));
+app.use("/ManufacturerInstrument/InstrumentPassword",require(__dirname + "/manuI_userpwd"));
+app.use("/ManufacturerInstrument/InstrumentPutOn",require(__dirname + "/manuI_puton"));
 // app.use("/ManufacturerInstrument/InstrumentList",require(__dirname + "/manuI_list"));
+// app.use("/ManufacturerInstrument/InstrumentOrder",require(__dirname + "/manuI_order"));
+app.use("/ManufacturerVideo/VideoHome",require(__dirname + "/manuV_userdata"));
+
+
+
 
 // app.use("/form", require(__dirname + "/form"));
 
@@ -87,26 +93,28 @@ app.use("/news", require(__dirname + "/news"));
 
 
 // cart
+// 新增一筆訂單資料至資料庫
+app.use("/cart/3", require(__dirname + "/cart"));
 // 獲取該登入會員之購物車資料
-app.get('/cart', async (req, res) => {
-  const output = await query("SELECT * FROM `cart` WHERE `userID`='3' ");
-  console.log(output)
-  res.json(output);
-});
+// app.get('/cart', async (req, res) => {
+//   const output = await query("SELECT * FROM `cart` WHERE `userID`='3' ");
+//   console.log(output)
+//   res.json(output);
+// });
 // 獲取該購物車之商品資訊
-app.get('/cart/2', async (req, res) => {
-  const output = await query("SELECT * FROM `product` WHERE 1");
-  console.log(output)
-  res.json(output);
-});
+// app.get('/cart/2', async (req, res) => {
+//   const output = await query("SELECT * FROM `product` WHERE 1");
+//   console.log(output)
+//   res.json(output);
+// });
 // 獲取該購物車之商品資訊
-app.get('/cart/3', async (req, res) => {
-  const output = await query(
-    " SELECT * FROM `cart` INNER JOIN `product` ON `cart`.`productId` = `product`.`PId` "
-  );
-  console.log(output)
-  res.json(output);
-});
+// app.get('/cart/3', async (req, res) => {
+//   const output = await query(
+//     " SELECT * FROM `cart` INNER JOIN `product` ON `cart`.`productId` = `product`.`PId` "
+//   );
+//   console.log(output)
+//   res.json(output);
+// });
 
 
 // simple route

@@ -12,6 +12,13 @@ import CartEnd from '../components/cart/cart-end';
 import ScrollToTop from './scrollToTop'
 
 function CartApp (props) {
+
+  const {
+    cartNum,
+    setCartNum,
+  } = props.allProps;
+  console.log(cartNum);
+  
   
   // 會員資料
   // [{"userID":3,"userName":"謝凱成","userPwd":"a94a8fe5ccb19ba61c4c0873d391e987982fbbd3","userPhone":"0919390003","userMail":"003@gmail.com","userBirthday":"1912-09-22","userAddress":"桃園市龜山區公西里013鄰文三一街５０之１號","userImg":"userimg000","created_at":"2019-11-27 13:18:46","updated_at":"2019-11-25 13:18:48"}]
@@ -60,66 +67,9 @@ function CartApp (props) {
   // radio狀態，預設為不選取
   const [ radiostate, setRadiostate ] = useState([false, false, false, false]);  
   // 發票儲存方式，預設為空值
-  // const [ invoiceType, setInvoiceType ] = useState('');
+  const [ invoiceType, setInvoiceType ] = useState('');
   // 發票資料，預設為空值 
   const [ invoiceInfo, setInvoiceInfo ] = useState('');  
-  // const [ invoiceInfo2, setInvoiceInfo2 ] = useState('');  
-  // const [ invoiceInfo3, setInvoiceInfo3 ] = useState('');  
-  // const [ invoiceInfo4, setInvoiceInfo4 ] = useState('');  
-  // const [ invoiceInfo5, setInvoiceInfo5 ] = useState('');  
-  // radiocallback函式：點擊時切換radio選取狀態並根據選項儲存發票資訊
-  const radiocallback = (e) =>{
-    // console.log('radiocallback') 
-    // console.log(e);       
-    // setInvoiceInfo('')
-    // console.log(document.getElementById("invoice2").checked)
-    let radiostate1 = document.getElementById("invoice1").checked;
-    let radiostate2 = document.getElementById("invoice2").checked;
-    let radiostate3 = document.getElementById("invoice3").checked;
-    let radiostate4 = document.getElementById("invoice4").checked;
-    setRadiostate([radiostate1, radiostate2, radiostate3, radiostate4])
-    // console.log(e.value);
-
-    let invoiceinfo2 = document.getElementById("invoicev").value;
-    var selectindex = document.querySelector("select").selectedIndex;
-    let invoiceinfo3 = document.querySelector("select").options[selectindex].value;
-    let invo4value1= document.getElementsByClassName("companyinvoice")[0].value;
-    let invo4value2= document.getElementsByClassName("companyinvoice")[1].value;
-    let invoiceinfo4 = [ (invo4value1==0? '' :invo4value1), (invo4value2==0? '':invo4value2)];
-    // console.log(invoiceinfo4);
-    // A == true ? A.value : (B == true ? B.value : (C == 1 ? C.value : (D == 1 ? D.value : '' )) )
-    setInvoiceInfo(
-      radiostate1 == 1 ? '' : (radiostate2 == 1 ? invoiceinfo2 : (radiostate3 == 1 ? invoiceinfo3 : (radiostate4 == 1 ? invoiceinfo4 : '' )))
-    )
-
-    // radiostate1 == 0? setInvoiceInfo1('') : setInvoiceInfo1(invoiceinfo1) 
-  }
-  useEffect(()=>{
-    // setInvoiceInfo('')
-    radiocallback(invoiceInfo)
-  },[])
-  // console.log(radiostate)
-  // console.log(radiostate[0])
-  // console.log(invoiceInfo);
-  
-
-  // const radiocallback = (e) =>{
-  //   // console.log(e);
-  //   // console.log(e.checked)
-  //   // console.log(e.value); 
-  //   setRadiostate(e.checked)
-  //   if (radiostate == 1) {   
-  //     // alert(e.value)
-  //     setInvoiceType(e.value) 
-  //   }
-  // }
-  // 根據radio狀態切換發票資訊畫面
-  // useEffect(()=>{
-  //   radiocallback(invoiceType)
-  // },[])
-  // console.log(radiostate)
-  // console.log(invoiceType)
-
 
   // 收件人資訊欄位內容，預設為空值
   const [ ReceivingName, setReceivingName ] = useState('');
@@ -203,7 +153,12 @@ useEffect(()=>{
 
     return (
         <>
-        <Navbar/>
+        <Navbar 
+          allProps={{
+            cartNum,
+            setCartNum,
+          }}
+        />
          <BrowserRouter>
          <ScrollToTop>
             <div className="cart-container">
@@ -226,18 +181,24 @@ useEffect(()=>{
                         ReceivingAddress, 
                         ReceivingPhone, 
                         ReceivingEmail, 
-                        invoiceInfo,                        
-                        // invoiceInfo2,                        
-                        // invoiceInfo3,
-                        // invoiceInfo4,
-                        // invoiceInfo5,
+                        invoiceInfo,    
                     }}
                   />
                 </Route>
                 <Route path="/cart/3">
                   <CartPay 
                     allProps={{
+                      user,
+                      checkstate,
+                      ReceivingName,
+                      ReceivingAddress,
+                      ReceivingPhone,
+                      ReceivingEmail,
+                      invoiceType,
+                      invoiceInfo,
+                      discount,
                       orderPrice,
+                      cart,
                     }}
                   />
                 </Route>
@@ -274,17 +235,10 @@ useEffect(()=>{
                         setReceivingEmail,
                         radiostate, 
                         setRadiostate,
-                        radiocallback,
                         invoiceInfo, 
                         setInvoiceInfo,
-                        // invoiceInfo2,                        
-                        // invoiceInfo3,
-                        // invoiceInfo4,
-                        // invoiceInfo5,
-                        // setInvoiceInfo2,
-                        // setInvoiceInfo3,
-                        // setInvoiceInfo4,
-                        // setInvoiceInfo5,
+                        invoiceType, 
+                        setInvoiceType,
                     }}
                   />
                 </Route>

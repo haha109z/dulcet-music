@@ -20,6 +20,7 @@ class ManufacturerRegistered extends Component{
         Muser:'',
         Mtelephone:'',
         Mimg:'廠商001.jpg',
+        Msha1pwd:'',
         Mpwd:'',
         MpwdCheck:'',
         Mcategory:'',
@@ -41,35 +42,35 @@ class ManufacturerRegistered extends Component{
     }
     handleMname = (event)=>{
         this.setState({Mname:event.target.value})
-        console.log(event.target.value)
+        // console.log(event.target.value)
       }
       handleMemail= (event)=>{
         this.setState({Memail:event.target.value})
-        console.log(event.target.value)
+        // console.log(event.target.value)
       }
       handleMaddress= (event)=>{
         this.setState({Maddress:event.target.value})
-        console.log(event.target.value)
+        // console.log(event.target.value)
       }
       handleMphone= (event)=>{
         this.setState({Mphone:event.target.value})
-        console.log(event.target.value)
+        // console.log(event.target.value)
       }
       handleMuser= (event)=>{
         this.setState({Muser:event.target.value})
-        console.log(event.target.value)
+        // console.log(event.target.value)
       }
       handleMtelephone=(event)=>{
         this.setState({Mtelephone:event.target.value})
-        console.log(event.target.value)
+        // console.log(event.target.value)
       }
       handleMpwd=(event)=>{
         this.setState({Mpwd:event.target.value})
-        console.log(event.target.value)
+        // console.log(event.target.value)
       }
       handleM=(event)=>{
         this.setState({Mpwd:event.target.value})
-        console.log(event.target.value)
+        // console.log(event.target.value)
       }
       emailBlur = (e)=>{
         const reg = /^([\w\.\-]){1,64}\@([\w\.\-]){1,64}$/;
@@ -102,6 +103,7 @@ class ManufacturerRegistered extends Component{
 
       }
       CompantyBtn=()=>{
+          
 let {
     Mname,
     Memail,
@@ -115,6 +117,15 @@ let {
     Mcategory,
 }=this.state
 
+
+if(Mpwd !== MpwdCheck){
+    this.setState({checkPwd:false});
+    return
+}else{
+    this.setState({checkPwd:true});
+}
+
+// console.log(Mpwd)
 fetch('http://localhost:3030/register/manufacturer', {
                   method: 'POST', // or 'PUT'
                   body: JSON.stringify({
@@ -140,6 +151,7 @@ fetch('http://localhost:3030/register/manufacturer', {
                   .catch((error) => {
                     console.error('Error:', error)
                   })
+                  
   this.setState({ Mname: this.state.Mname })
   this.setState({ Memail: this.state.Memail })
   this.setState({ Maddress: this.state.Maddress })
@@ -149,6 +161,7 @@ fetch('http://localhost:3030/register/manufacturer', {
   this.setState({ Mpwd: this.state.Mpwd })
   this.setState({ Mimg: this.state.Mimg })
   this.setState({ Mcategory: this.state.Mcategory })
+//   console.log(Mpwd)
 //   if(Mpwd<=4){
 //     MySwal.fire({
         
@@ -160,12 +173,7 @@ fetch('http://localhost:3030/register/manufacturer', {
         
 //     })
 //   }
-if(Mpwd !== MpwdCheck){
-    this.setState({checkPwd:false});
-    return
-}else{
-    this.setState({checkPwd:true});
-}
+
  if(MpwdCheck===Mpwd&&Mtelephone!==''&&Muser!==''&&Maddress!==''&&Mphone!==''&&Memail!==''&&Mname!==''){
     MySwal.fire({
         

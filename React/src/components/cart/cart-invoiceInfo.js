@@ -6,10 +6,6 @@ export default function CartInvoiceInfo (props) {
     radiostate, 
     invoiceType, 
     invoiceInfo, 
-    // invoiceInfo2, 
-    // invoiceInfo3,
-    // invoiceInfo4, 
-    // invoiceInfo5, 
    } = props.allProps; 
   // console.log(invoiceInfo);  
 

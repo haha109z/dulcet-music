@@ -5,8 +5,58 @@ class InstrumentList extends React.Component {
     constructor(){
       super()
       this.state={
-        
+        ManuData:[],
+        ManuProduct:[
+          {
+            Pid:'',
+            Pstate:'',
+            PClick:'',
+            PcategoryId:'',
+            Pimg:'',
+            Pname:'',
+            PInstrumentId:'',
+            PQty:'',
+            PIntro:'',
+            Pdesciption:'',
+            PCompanyId:'',
+            PPrice:'',
+            create_at:'',
+            update_at:'',
+          }
+        ]
       }
+    }
+    componentDidMount(){
+
+      // fetch('http://localhost:3030/ManufacturerInstrument/InstrumentList',{
+      //   method:'POST',
+      //   body:JSON.stringify({
+      //       Pid,
+      //       Pstate,
+      //       PClick,
+      //       PcategoryId,
+      //       Pimg,
+      //       Pname,
+      //       PInstrumentId,
+      //       PQty,
+      //       PIntro,
+      //       Pdesciption,
+      //       PCompanyId,
+      //       PPrice,
+      //       create_at,
+      //       update_at,
+      //   }),
+      //   headers: new Headers({
+      //     'Content-type': 'application/json',
+      //   }),
+      // })
+      // .then((res) => {
+
+      // })
+
+
+      
+      
     }
 
     handlecheck = e => {
