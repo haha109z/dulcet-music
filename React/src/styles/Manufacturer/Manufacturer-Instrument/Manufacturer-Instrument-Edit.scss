@@ -156,13 +156,16 @@
         width: 100%;
         .ins-edit-label {
           width: 100%;
+
           input {
             margin-left: 0px;
             width: 100%;
           }
-          select {
-            margin-left: 0px;
-            width: 100%;
+          .ins-edit-select-value {
+            select {
+              margin-left: 0px;
+              width: 100%;
+            }
           }
         }
         .ins-edit-add-btn {

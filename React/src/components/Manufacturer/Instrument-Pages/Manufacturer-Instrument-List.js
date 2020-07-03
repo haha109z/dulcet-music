@@ -20,7 +20,7 @@ class InstrumentList extends React.Component {
         ManuProduct:[
           {
             Pid:'',
-            Pstate:'',
+            PState:'',
             PClick:'',
             PcategoryId:'',
             Pimg:'',
@@ -37,6 +37,7 @@ class InstrumentList extends React.Component {
         ],
         AllManuProduct : [],
       }
+      
       
     }
 
@@ -59,15 +60,18 @@ class InstrumentList extends React.Component {
         })
         console.log(this.state.AllManuProduct)
       })
-
-
       this.handleputon=(e)=>{
+        
         let PId = e
         let PState = '上架'
         MySwal.fire({
           icon: 'success',
           title: '上架成功',
-        })
+          confirmButtonText: '確定', // 確定按鈕的 文字
+          // showCancelButton: true, // 是否顯示取消按鈕
+          // cancelButtonColor: '#dadada', // 取消按鈕的 顏色
+          // cancelButtonText: '取消', // 取消按鈕的 文字
+        }).then(function(){
         fetch('http://localhost:3030/ManufacturerInstrument/InstrumentList',{
           method:'POST',
           body:JSON.stringify({
@@ -84,10 +88,24 @@ class InstrumentList extends React.Component {
             AllManuProduct : json
           })
         })
+        window.location.reload(true)
+      })
       }
-      this.handledown = (e,) =>{
+
+
+
+      this.handledown = (e) =>{
         let PId = e
         let PState = '下架'
+        MySwal.fire({
+          icon: 'success',
+          title: '下架成功',
+          confirmButtonText: '確定', // 確定按鈕的 文字
+          // showCancelButton: true, // 是否顯示取消按鈕
+          // cancelButtonColor: '#dadada', // 取消按鈕的 顏色
+          // cancelButtonText: '取消', // 取消按鈕的 文字
+        }).then(function(){
+          
         fetch('http://localhost:3030/ManufacturerInstrument/InstrumentList',{
           method:'POST',
           body:JSON.stringify({
@@ -104,34 +122,61 @@ class InstrumentList extends React.Component {
             AllManuProduct : json
           })
         })
+        window.location.reload(true)
+      })
       }
-      this.handledel = (e) =>{
+
+
+      this.handledel = (e,d) =>{
         let PId = e
-        fetch('http://localhost:3030/ManufacturerInstrument/InstrumentListDel',{
-          method:'POST',
-          body:JSON.stringify({
-              PId,
-          }),
-          headers: new Headers({
-            'Content-type': 'application/json',
-          }),
-        })
-        .then((res) => res.json())
-        .then((json) => {
-          this.setState({
-            AllManuProduct : json
+        if(d == '下架'){
+        MySwal.fire({
+          icon: 'question',
+          title: '確定要刪除?',
+          confirmButtonText: '確定', // 確定按鈕的 文字
+          showCancelButton: true, // 是否顯示取消按鈕
+          cancelButtonColor: '#dadada', // 取消按鈕的 顏色
+          cancelButtonText: '取消', // 取消按鈕的 文字
+        }).then(function(isConfirm){
+          if (isConfirm.value) {
+          fetch('http://localhost:3030/ManufacturerInstrument/InstrumentListDel',{
+              method:'POST',
+              body:JSON.stringify({
+                  PId,
+              }),
+              headers: new Headers({
+                'Content-type': 'application/json',
+              }),
           })
-          
+            .then((res) => res.json())
+            .then((json) => {
+            //   this.setState({
+            //     AllManuProduct : json
+            // })
+          })
+          window.location.reload(true)
+        }else{
+          MySwal.fire('取消刪除', '', 'error')
+        }
         })
+        }else{
+          MySwal.fire('請先下架後再刪除', '', 'error')
+        }
       }
-      this.handleinto = (Mid,PName,PInstrumentId,PState,PQty,PIntro,Pdesciption) => {
+
+
+
+
+      this.handleinto = (Mid,PId,PName,PInstrumentId,PState,PQty,PPrice,PIntro,Pdesciption) => {
         let ManuProData = []
         ManuProData.push({
           'Mid':Mid,
+          'PId':PId,
           'PName':PName,
           'PInstrumentId':PInstrumentId,
           'PState':PState,
           'PQty':PQty,
+          'PPrice':PPrice,
           'PIntro':PIntro,
           'Pdesciption':Pdesciption
         })
@@ -232,7 +277,7 @@ class InstrumentList extends React.Component {
             </div>
             <Link
               to="/ManufacturerInstrument/InstrumentEdit"
-              className="ins-list-content-text" onClick={() => this.handleinto(this.state.Mid,product.PName,product.PInstrumentId,product.PState,product.PQty,product.PIntro,product.Pdesciption)}>
+              className="ins-list-content-text" onClick={() => this.handleinto(this.state.Mid,product.PId,product.PName,product.PInstrumentId,product.PState,product.PQty,product.PPrice,product.PIntro,product.Pdesciption)}>
               <h3 className="font-size-142rem">{product.PName}</h3>
               <p className="font-size-1rem">類別 : {product.PInstrumentId}</p>
               <p className="font-size-1rem">更新時間 : {product.update_at}</p>
@@ -247,7 +292,7 @@ class InstrumentList extends React.Component {
             <div className="ins-list-content-btns">
               <button type="button" onClick={() => this.handleputon(product.PId)}>上架</button>
               <button type="button" onClick={() => this.handledown(product.PId)}>下架</button>
-              <button type="button" onClick={() => this.handledel(product.PId)}>刪除</button>
+              <button type="button" onClick={() => this.handledel(product.PId,product.PState)}>刪除</button>
             </div>
           </div>
         </form>
