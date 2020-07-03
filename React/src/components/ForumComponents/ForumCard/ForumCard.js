@@ -167,17 +167,30 @@ class ForumCard extends Component {
     this.setState({ ForumAction: this.state.ForumAction })
     this.setState({ userID: this.state.userID })
     // this.setState({ ForumActionAns: this.state.ForumActionAns })
-
-    MySwal.fire('新增成功', '', 'success')
+    if(ForumTitle!==''&&ForumAction!==''){
+      MySwal.fire('不得為空值', '', 'error')
+      setTimeout(()=>{
+        window.location = "/forum"
+      },1000)
+      // console.log(this.state)
+      // this.location.reload()
+      this.setState({ boxShow: false })
+    }else{
+      MySwal.fire('新增成功', '', 'success')
     setTimeout(()=>{
       window.location = "/forum"
-    },2000)
+    },1000)
     // console.log(this.state)
     // this.location.reload()
     this.setState({ boxShow: false })
+    }
+  
   }
   handleSubmitBack = (event) => {
     MySwal.fire('已取消', '', 'error')
+    setTimeout(()=>{
+      window.location = "/forum"
+    },1000)
     this.setState({ boxShow: false })
   }
   render() {
