@@ -117,7 +117,7 @@ function MLoginPage(props) {
      // 錯誤訊息陣列的呈現
     const displayErrors = MloginErrors.length ? (
         <div className="alert alert-danger" role="alert">
-        <ul className="list-unstyled">
+        <ul className="list-unstyled" style={{color:'red'}}>
             {MloginErrors.map((v, i) => (
             <li key={i}>{v}</li>
             ))}
@@ -133,7 +133,9 @@ function MLoginPage(props) {
         <>
         <form>
             <div className="form-group">
-            {MloginErrors}
+            <p style={{color:'red'}}>
+            {MloginErrors}</p>
+      
                 <label htmlFor="facturerEmail" className="col-md-12 control-label" autoFocus>電子郵件</label>
                 <input type="email"  name="email" className="form-control col-md-12" id="facturerEmail"
                 placeholder="請輸入電子郵件"
