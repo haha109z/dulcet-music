@@ -9,16 +9,16 @@ class HomeInstruments extends Component{
 
     state = {
         items : [
-             {instrument:'長笛',instrumenEng:'Flute',card:'home-instruments-card col-md-3 home-instruments-flute',src:'/instrument/flute'},
+             {instrument:'長笛',instrumenEng:'Flute',card:'home-instruments-card col-md-3 home-instruments-flute',src:'/instrument/category/flute/1'},
              {instrument:'',card:'home-instruments-card col-md-4 home-instruments-index'},
-             {instrument:'爵士鼓',instrumenEng:'Drum',card:'home-instruments-card col-md-5 home-instruments-drum',src:'/instrument/jazz_drum'},
-             {instrument:'吉他',instrumenEng:'Guitar',card:'home-instruments-card col-md-4 home-instruments-guitar',src:'/instrument/guitar'},
-             {instrument:'烏可麗麗',instrumenEng:'Ukulele',card:'home-instruments-card col-md-4 home-instruments-ukulele',src:'/instrument/ukulele'},
-             {instrument:'鋼琴',instrumenEng:'Piano',card:'home-instruments-card col-md-4 home-instruments-piano',src:'/instrument/piano'},
-             {instrument:'中提琴',instrumenEng:'Viola',card:'home-instruments-card col-md-4 home-instruments-violin_m',src:'/instrument/viola'},
-             {instrument:'電子琴',instrumenEng:'Keyboard',card:'home-instruments-card col-md-3 home-instruments-Keyboard',src:'/instrument/keyboard'},
-             {instrument:'小提琴',instrumenEng:'Violin',card:'home-instruments-card col-md-4 home-instruments-violin',src:'/instrument/violin'},
-             {instrument:'薩克斯風',instrumenEng:'Saxophone',card:'home-instruments-card col-md-5 home-instruments-Saxophone',src:'/instrument/saxophone'},
+             {instrument:'爵士鼓',instrumenEng:'Drum',card:'home-instruments-card col-md-5 home-instruments-drum',src:'/instrument/category/jazz_drum/1'},
+             {instrument:'吉他',instrumenEng:'Guitar',card:'home-instruments-card col-md-4 home-instruments-guitar',src:'/instrument/category/guitar/1'},
+             {instrument:'烏可麗麗',instrumenEng:'Ukulele',card:'home-instruments-card col-md-4 home-instruments-ukulele',src:'/instrument/category/ukulele/1'},
+             {instrument:'鋼琴',instrumenEng:'Piano',card:'home-instruments-card col-md-4 home-instruments-piano',src:'/instrument/category/piano/1'},
+             {instrument:'中提琴',instrumenEng:'Viola',card:'home-instruments-card col-md-4 home-instruments-violin_m',src:'/instrument/category/viola/1'},
+             {instrument:'電子琴',instrumenEng:'Keyboard',card:'home-instruments-card col-md-3 home-instruments-Keyboard',src:'/instrument/category/keyboard/1'},
+             {instrument:'小提琴',instrumenEng:'Violin',card:'home-instruments-card col-md-4 home-instruments-violin',src:'/instrument/category/violin/1'},
+             {instrument:'薩克斯風',instrumenEng:'Saxophone',card:'home-instruments-card col-md-5 home-instruments-Saxophone',src:'/instrument/category/saxophone/1'},
          ]
      };
 

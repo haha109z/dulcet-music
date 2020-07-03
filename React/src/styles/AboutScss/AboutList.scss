@@ -26,6 +26,7 @@
   margin: 20px 10px 20px 0;
   letter-spacing: 5px;
 }
+
 .AboutImgPicture1 {
   max-width: 220px;
   height: 220px;
@@ -228,9 +229,6 @@
   .About3Right {
     text-align: center;
     margin: 0px auto;
-    img {
-      max-width: 300px;
-    }
   }
   .About3ImgBackground6 {
     margin: 10px;
@@ -247,11 +245,15 @@
   .About3ImgBackground10 {
     margin: 10px;
   }
+  .AboutImgPicture1 {
+    max-width: 440px;
+  }
 }
 @media (max-width: 400px) {
   .AboutContainer {
     max-width: 350px;
   }
+
   .AboutList1 {
     p {
       max-width: 350px;

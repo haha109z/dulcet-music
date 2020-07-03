@@ -20,7 +20,7 @@ class AnyQuestion extends Component {
             <div className="AnyQuestionCardFlex">
               <div className="AnyQuestionCard AnyQuestionCardLeft">
               <a href="/AnyQuestionUser" className="AnyQuestionA">
-                <i className="far fa-user AnyQuestionCardIcon"></i>
+                <i className="far fa-user AnyQuestionCardIcon " ></i>
                 <h2 className="AnyQuestionCardIconH2">會員問題</h2>
                 </a>
               </div>

@@ -270,7 +270,7 @@ class ForumCard extends Component {
           <div className="ForumTitle">
             <button
               className="ForumButton"
-              data-aos="fade-down"
+              data-aos="fade-left"
               onClick={this.handleClick}
             >
               我要發問
@@ -281,7 +281,7 @@ class ForumCard extends Component {
           <div className="ForumCardFlex">
             {this.state.news.map((item, i) => {
               return (
-                <div key={i} className="ForumCard">
+                <div key={i} className="ForumCard" data-aos="fade-up">
                   <div className="ForumCardTitle">
                     <img
                       className="ForumCardImg"

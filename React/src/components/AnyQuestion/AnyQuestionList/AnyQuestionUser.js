@@ -119,8 +119,10 @@ const Input7 = InputShow7 ? (
     <div className="Text123"></div>
     <div className="AnyQuestionActionFlex">
     <div className="AnyQuestionActionCard AnyQuestionActionCardLeft">
+    <a href="/AnyQuestion" className="AnyQuestionA AnyQuestionRWD">
             <i className="far fa-user AnyQuestionActionCardIcon"></i>
             <h2 className="AnyQuestionActionCardIconH2">會員問題</h2>
+            </a>
           </div>
           <div className="AnyQuestionActionTable AnyQuestionActionRwd">
             <div style={{display:'flex'}}>

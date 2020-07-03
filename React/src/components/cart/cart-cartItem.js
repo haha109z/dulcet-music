@@ -11,7 +11,9 @@ export default function CartItem (props) {
     const { 
       cart, 
       setCart, 
-      totalPrice,       
+      totalPrice,
+      cartNum,
+      setCartNum,       
       // buyProduct, 
       // setBuyProduct,
     } = props.allProps; 
@@ -213,6 +215,9 @@ export default function CartItem (props) {
                             setCart(a)
                             localStorage.setItem('cart', JSON.stringify(a))
                             // console.log(cart.length)
+                            // 刪除商品時，更新購物車圖示中數量
+                            console.log(cartNum-1)
+                            setCartNum(cartNum-1)
                             // 刪至localStorage cart無資料時，清空cart空陣列
                             if (cart.length===1) {
                               localStorage.removeItem('cart')

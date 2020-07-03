@@ -64,68 +64,63 @@ render(){
   const { InputShow1, InputShow2, InputShow3,InputShow4,InputShow5,InputShow6,InputShow7 } = this.state
   const Input1 = InputShow1 ? ( 
       <>
-        <input className="input1-10" type="text " value="必須取得您的相關帳號資訊，透過信箱或者手機來確認您的身份是否符合。" readOnly/>
+        <input className="input1-10" type="text " value="如果您必須選課，請先登入我們的會員。裡面有專屬您的選課系統" readOnly/>
       </>
   ) : (
     ''
   )
   const Input2 = InputShow2 ? ( 
     <>
-      <input className="input1-10" type="text " value="如果您忘記密碼了，請在登入頁面內使用您的帳號以及信箱或者手機來找回您的密碼。" readOnly/>
+      <input className="input1-10" type="text " value="課程費用都是以老師，以及時數來計算的。所以沒辦法給予答案" readOnly/>
     </>
 ) : (
   ''
 )
 const Input3 = InputShow3 ? ( 
   <>
-    <input className="input1-10" type="text " value="在註冊完之後可以用信箱或者手機來綁定您的帳戶，可以更確保您的帳號安全。" readOnly/>
+    <input className="input1-10" type="text " value="只要是6.3mm的音源線（如吉他導線）皆可使用。" readOnly/>
   </>
 ) : (
 ''
 )
 const Input4 = InputShow4 ? ( 
   <>
-    <input className="input1-10" type="text " value="您的帳號如果有任何問題請至客服中心或者討論區是否有相同的人跟你有一樣的問題。" readOnly/>
+    <input className="input1-10" type="text " value="如PAT功能已開啟，建議您先確認當前的樂曲有包含和弦資訊。" readOnly/>
   </>
 ) : (
 ''
 )
 const Input5 = InputShow5 ? ( 
   <>
-    <input className="input1-10" type="text" value="您必須先註冊完帳號之後在會員內可以使用信箱認證服務" readOnly/>
+    <input className="input1-10" type="text" value="要使用AUX IN功能的話須購買兩端皆為3.5mm接頭的公對公音源線。" readOnly/>
   </>
 ) : (
 ''
 )
 const Input6 = InputShow6 ? ( 
   <>
-    <input className="input1-10" type="text " value="優惠卷可以在首頁遊玩小遊戲。答對即可得到優惠卷" readOnly/>
+    <input className="input1-10" type="text " value="PSR-S975 / 970 / 950 / 775 / 770 -＞ 可錄製與播放WAVE，可播放MP3。
+PSR-S750 -＞ 可錄製與播放WAVE。" readOnly/>
   </>
 ) : (
 ''
 )
-const Input7 = InputShow7 ? ( 
-  <>
 
-    <input className="input1-10" type="text " value="如果帳號遺失請打客服專線：(02)2222-2222" readOnly/>
-   
-  </>
-) : (
-''
-)
   return (
 <div className="AnyQuestionActionAll">
 <div className="AnyQuestionActionContainer">
     <div className="Text123"></div>
     <div className="AnyQuestionActionFlex">
     <div className="AnyQuestionActionCard AnyQuestionActionCardLeft">
-            <i className="far fa-user AnyQuestionActionCardIcon"></i>
-            <h2 className="AnyQuestionActionCardIconH2">會員問題</h2>
+    <a href="/AnyQuestion" className="AnyQuestionA AnyQuestionRWD">
+    <i className="fas fa-book AnyQuestionActionCardIcon"></i>
+            <h2 className="AnyQuestionActionCardIconH2">課程問題</h2>
+            </a>
           </div>
           <div className="AnyQuestionActionTable AnyQuestionActionRwd">
             <div style={{display:'flex'}}>
             <div style={{width:'1000px'}}>
-                <input type="submit" value="忘記帳號" onClick={this.handleInput1}/>               
+                <input type="submit" value="選課問題" onClick={this.handleInput1}/>               
                 {Input1}
                 </div>            
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
@@ -133,7 +128,7 @@ const Input7 = InputShow7 ? (
                 <div style={{display:'flex'}}>
             <div style={{width:'1000px'}}>
                 
-                <input type="submit" value="忘記密碼" onClick={this.handleInput2}/>
+                <input type="submit" value="課程費用計算" onClick={this.handleInput2}/>
                 {Input2}
                 </div>
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
@@ -141,7 +136,7 @@ const Input7 = InputShow7 ? (
                 <div style={{display:'flex'}}>
             <div style={{width:'1000px'}}>
 
-                <input type="submit" value="帳號綁定" onClick={this.handleInput3}/>
+                <input type="submit" value="如果要用音箱擴音，要如何連接音箱？" onClick={this.handleInput3}/>
                 {Input3}
                 </div>
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
@@ -149,7 +144,7 @@ const Input7 = InputShow7 ? (
                 <div style={{display:'flex'}}>
             <div style={{width:'1000px'}}>
 
-                <input type="submit" value="帳號問題" onClick={this.handleInput4}/>
+                <input type="submit" value="如何使用S系列的PAT演奏助理功能？" onClick={this.handleInput4}/>
                 {Input4}
                 </div>
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
@@ -157,7 +152,7 @@ const Input7 = InputShow7 ? (
                 <div style={{display:'flex'}}>
             <div style={{width:'1000px'}}>
 
-                <input type="submit" value="信箱認證" onClick={this.handleInput5}/>
+                <input type="submit" value="電子琴播放手機音樂，需要購買何種線材" onClick={this.handleInput5}/>
                 {Input5}
                 </div>
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
@@ -165,20 +160,12 @@ const Input7 = InputShow7 ? (
                 <div style={{display:'flex'}}>
             <div style={{width:'1000px'}}>
 
-                <input type="submit" value="優惠卷使用方法" onClick={this.handleInput6}/>
+                <input type="submit" value="有哪些手提電子琴可以播放或錄製MP3?" onClick={this.handleInput6}/>
                 {Input6}
                 </div>
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
                 </div>
-                <div style={{display:'flex'}}>
-            <div style={{width:'1000px'}}>
-
-                <input type="submit" value="帳號遺失怎麼辦"  onClick={this.handleInput7}/>
-                {Input7}
-                </div>
-                
-                <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
-                </div>
+               
           </div>
           </div>
   </div>

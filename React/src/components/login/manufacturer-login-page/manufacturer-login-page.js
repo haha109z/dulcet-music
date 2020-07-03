@@ -21,7 +21,7 @@ function MLoginPage(props) {
          fetch(`http://localhost:3030/login/manufacturer`, {
           method: 'POST', // or 'PUT'
           body: JSON.stringify({Mpwd, Memail}), // data can be `string` or {object}!
-          
+
           headers: new Headers({
             'Content-Type': 'application/json'
           })
@@ -47,12 +47,12 @@ function MLoginPage(props) {
         //   setMLoginErrors([json.msg])
         //   return
         // }
-        // setMData(json.data)   
+        // setMData(json.data)
         // localStorage.setItem('M', JSON.stringify(json.data))
         // // console.log("userData: ",json.data);
         // // console.log("userData: ",userData);
-        
-        // return MData         
+
+        // return MData
     }
      // 處理會員登入
     const MloginProcess = async() => {
@@ -75,8 +75,8 @@ function MLoginPage(props) {
               // else{return false}
             }
         }
-        //   console.log(MData);   
-            
+        //   console.log(MData);
+
 
         if(errors.length > 0){
             setMLoginErrors(errors);
@@ -117,7 +117,7 @@ function MLoginPage(props) {
      // 錯誤訊息陣列的呈現
     const displayErrors = MloginErrors.length ? (
         <div className="alert alert-danger" role="alert">
-        <ul className="list-unstyled">
+        <ul className="list-unstyled" style={{color:'red'}}>
             {MloginErrors.map((v, i) => (
             <li key={i}>{v}</li>
             ))}
@@ -133,14 +133,16 @@ function MLoginPage(props) {
         <>
         <form>
             <div className="form-group">
-            {MloginErrors}
+            <p style={{color:'red'}}>
+            {MloginErrors}</p>
+      
                 <label htmlFor="facturerEmail" className="col-md-12 control-label" autoFocus>電子郵件</label>
                 <input type="email"  name="email" className="form-control col-md-12" id="facturerEmail"
-                placeholder="請輸入電子郵件" 
+                placeholder="請輸入電子郵件"
                 onChange={(event) => {
                         setMemail(event.target.value)
                       }}
-                    
+
                 />
             </div>
             <div className="form-group">
@@ -155,7 +157,7 @@ function MLoginPage(props) {
                 <input type="checkbox" className="user-check-input" id="userCheckMe" />
                 <label className="user-check-label" htmlFor="userCheckMe">記住我</label>
             </div>
-            <button type="button" className="all-login-btn" 
+            <button type="button" className="all-login-btn"
             onClick={() => {
                 MloginProcess(MloginSuccessCallback)
                   }}
@@ -168,7 +170,7 @@ function MLoginPage(props) {
             </div>
             <p className="all-login-cookie">我們通過Cookie改進我們的網站和您的體驗，繼續瀏覽網站即表示您接受我們的Cookie政策。</p>
         </form>
-        
+
         </>
     )
     }

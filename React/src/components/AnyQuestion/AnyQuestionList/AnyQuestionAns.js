@@ -72,7 +72,9 @@ class AnyQuestionAns extends Component {
         <input
           className="input1-10"
           type="text "
-          value="必須取得您的相關帳號資訊，透過信箱或者手機來確認您的身份是否符合。"
+          value="1. ATM轉帳付款
+2. 信用卡一次付清
+3. LINE Pay一次付清(可用LINE Points折抵)"
           readOnly
         />
       </>
@@ -84,7 +86,7 @@ class AnyQuestionAns extends Component {
         <input
           className="input1-10"
           type="text "
-          value="如果您忘記密碼了，請在登入頁面內使用您的帳號以及信箱或者手機來找回您的密碼。"
+          value="選擇LINE Pay付款，按下訂單確認後，系統畫面將直接導轉至LINE Pay付款介面，依照指示操作即可"
           readOnly
         />
       </>
@@ -96,7 +98,7 @@ class AnyQuestionAns extends Component {
         <input
           className="input1-10"
           type="text "
-          value="在註冊完之後可以用信箱或者手機來綁定您的帳戶，可以更確保您的帳號安全。"
+          value="會員7天鑑賞期服務，若要辦理退換貨，請您收到商品後7天內，備妥您的訂單編號或訂購人相關資料，來電或來信客服中心，將有專人為您服務。"
           readOnly
         />
       </>
@@ -108,7 +110,7 @@ class AnyQuestionAns extends Component {
         <input
           className="input1-10"
           type="text "
-          value="您的帳號如果有任何問題請至客服中心或者討論區是否有相同的人跟你有一樣的問題。"
+          value="您必需先加入為親子天下Shopping會員,加入完成後即可開始選擇您要購買的品項。"
           readOnly
         />
       </>
@@ -120,7 +122,7 @@ class AnyQuestionAns extends Component {
         <input
           className="input1-10"
           type="text"
-          value="您必須先註冊完帳號之後在會員內可以使用信箱認證服務"
+          value="若您消費付款金額達800元以上的訂單將有國內免郵資的優惠，未滿800元的訂單，將酌收50元的物流處理費。"
           readOnly
         />
       </>
@@ -132,40 +134,31 @@ class AnyQuestionAns extends Component {
         <input
           className="input1-10"
           type="text "
-          value="優惠卷可以在首頁遊玩小遊戲。答對即可得到優惠卷"
+          value="若遇調貨或預購產品等無法一次出貨所導致的分批，出貨不會加收物流處理費。"
           readOnly
         />
       </>
     ) : (
       ''
     )
-    const Input7 = InputShow7 ? (
-      <>
-        <input
-          className="input1-10"
-          type="text "
-          value="如果帳號遺失請打客服專線：(02)2222-2222"
-          readOnly
-        />
-      </>
-    ) : (
-      ''
-    )
+    
     return (
       <div className="AnyQuestionActionAll">
         <div className="AnyQuestionActionContainer">
           <div className="Text123"></div>
           <div className="AnyQuestionActionFlex">
             <div className="AnyQuestionActionCard AnyQuestionActionCardLeft">
-              <i className="far fa-user AnyQuestionActionCardIcon"></i>
-              <h2 className="AnyQuestionActionCardIconH2">會員問題</h2>
+            <a href="/AnyQuestion" className="AnyQuestionA AnyQuestionRWD">
+            <i className="fas fa-search AnyQuestionActionCardIcon "></i>
+              <h2 className="AnyQuestionActionCardIconH2">其他問題</h2>
+              </a>
             </div>
             <div className="AnyQuestionActionTable AnyQuestionActionRwd">
               <div style={{ display: 'flex' }}>
                 <div style={{ width: '1000px' }}>
                   <input
                     type="submit"
-                    value="忘記帳號"
+                    value="付款方式"
                     onClick={this.handleInput1}
                   />
                   {Input1}
@@ -176,7 +169,7 @@ class AnyQuestionAns extends Component {
                 <div style={{ width: '1000px' }}>
                   <input
                     type="submit"
-                    value="忘記密碼"
+                    value="下單流程"
                     onClick={this.handleInput2}
                   />
                   {Input2}
@@ -187,7 +180,7 @@ class AnyQuestionAns extends Component {
                 <div style={{ width: '1000px' }}>
                   <input
                     type="submit"
-                    value="帳號綁定"
+                    value="退換貨方式"
                     onClick={this.handleInput3}
                   />
                   {Input3}
@@ -198,7 +191,7 @@ class AnyQuestionAns extends Component {
                 <div style={{ width: '1000px' }}>
                   <input
                     type="submit"
-                    value="帳號問題"
+                    value="我要如何下訂單？"
                     onClick={this.handleInput4}
                   />
                   {Input4}
@@ -209,7 +202,7 @@ class AnyQuestionAns extends Component {
                 <div style={{ width: '1000px' }}>
                   <input
                     type="submit"
-                    value="信箱認證"
+                    value="郵資如何計算"
                     onClick={this.handleInput5}
                   />
                   {Input5}
@@ -220,25 +213,14 @@ class AnyQuestionAns extends Component {
                 <div style={{ width: '1000px' }}>
                   <input
                     type="submit"
-                    value="優惠卷使用方法"
+                    value="分批出貨是否會加收處理費用？"
                     onClick={this.handleInput6}
                   />
                   {Input6}
                 </div>
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
               </div>
-              <div style={{ display: 'flex' }}>
-                <div style={{ width: '1000px' }}>
-                  <input
-                    type="submit"
-                    value="帳號遺失怎麼辦"
-                    onClick={this.handleInput7}
-                  />
-                  {Input7}
-                </div>
-
-                <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
-              </div>
+             
             </div>
           </div>
         </div>
