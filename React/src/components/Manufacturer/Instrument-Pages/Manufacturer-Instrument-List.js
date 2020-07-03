@@ -1,11 +1,19 @@
 import React from 'react'
 import {BrowserRouter,Router,Route,Link,Switch,withRouter,} from 'react-router-dom'
 
+
+if(JSON.parse(localStorage.getItem('user'))){
+  const getUserInfo = () => {
+  return JSON.parse(localStorage.getItem('user'))
+}
+var Mid = getUserInfo()[0].Mid
+// this.setState({userID:userID})
+}
 class InstrumentList extends React.Component {
     constructor(){
       super()
       this.state={
-        ManuData:[],
+        Mid:Mid,
         ManuProduct:[
           {
             Pid:'',
@@ -26,33 +34,29 @@ class InstrumentList extends React.Component {
         ]
       }
     }
+
+
     componentDidMount(){
-
-      // fetch('http://localhost:3030/ManufacturerInstrument/InstrumentList',{
-      //   method:'POST',
-      //   body:JSON.stringify({
-      //       Pid,
-      //       Pstate,
-      //       PClick,
-      //       PcategoryId,
-      //       Pimg,
-      //       Pname,
-      //       PInstrumentId,
-      //       PQty,
-      //       PIntro,
-      //       Pdesciption,
-      //       PCompanyId,
-      //       PPrice,
-      //       create_at,
-      //       update_at,
-      //   }),
-      //   headers: new Headers({
-      //     'Content-type': 'application/json',
-      //   }),
-      // })
-      // .then((res) => {
-
-      // })
+      console.log(this.state.Mid)
+      fetch('http://localhost:3030/ManufacturerInstrument/InstrumentList',{
+        method:'POST',
+        body:JSON.stringify({
+            Mid,
+        }),
+        headers: new Headers({
+          'Content-type': 'application/json',
+        }),
+      })
+      .then((res) => {
+        console.log(res)
+        return res.json
+      })
+      .then((res) => {
+        this.setState({
+          ManuProduct : res
+        })
+        console.log(this.state.ManuProduct)
+      })
 
 
       

@@ -175,7 +175,7 @@ class InstrumentPutOn extends React.Component{
                 <label className="ins-puton-label font-size-1rem" htmlFor="option">類別
                 <div className="ins-select-value">
                     <select className="font-size-114rem" id="option" onChange={this.handleoption} value={this.state.newPInstrumentId}>
-                        <option value="">請選擇樂器類型</option>
+                        <option value="">請選擇類別</option>
                         <option value="小提琴">小提琴</option>
                         <option value="中提琴">中提琴</option>
                         <option value="薩克斯風">薩克斯風</option>
@@ -191,7 +191,7 @@ class InstrumentPutOn extends React.Component{
                 <label htmlFor="state" className="ins-puton-label font-size-1rem">狀態
                 <div className="ins-select-value">
                 <select id="state" className="font-size-114rem" onChange={this.handlestate}>
-                    <option>請選擇商品狀態</option>
+                    <option>請選擇狀態</option>
                     <option value="上架">上架</option>
                     <option value="下架">下架</option>
                 </select>
