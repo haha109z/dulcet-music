@@ -207,7 +207,7 @@ class UserRegistered extends Component{
                     <form onSubmit={this.handleSignUpSubmit} className="col-md-6 register-form-wrap">
                         <div className="form-group">
                             <label htmlFor="userRegisterName" className="col-md-12 control-label">姓名</label>
-                            <input type="text" name="userRegisterName" className="form-control col-md-12" id="userRegisterName" placeholder="請輸入姓名"
+                            <input type="text" name="userRegisterName" className="form-control col-md-12" id="userRegisterName" placeholder="請輸入姓名" autoFocus
                             onChange={this.logChange}
                             />
                         </div>
