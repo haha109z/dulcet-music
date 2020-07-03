@@ -14,7 +14,7 @@ import Piano from '../components/product/instrument/productPiano'
 import ProductId from '../components/product/course/product-id'
 
 function ProductInstrument(props) {
-  const cartNum = props.cartNum
+  const { cartNum, setCartNum } = props
   const productTitle = '優質課程'
   const productTitleId = 'course'
   const [control, setControl] = useState('熱門度')
@@ -49,7 +49,7 @@ function ProductInstrument(props) {
             )}
           ></Route>
           <Route path="/course/:PId">
-            <ProductId />
+            <ProductId cartNum={cartNum} setCartNum={setCartNum} />
           </Route>
 
           {/* <Route

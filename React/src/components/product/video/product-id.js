@@ -6,14 +6,12 @@ import ProductIntro from '../id/product-video-intro'
 import ProductDesciption from '../id/product-desciption'
 import ProductMayLike from '../id/product-maylike'
 
-function ProductId() {
+function ProductId(props) {
   let { PId } = useParams()
+  const { cartNum, setCartNum } = props
 
   const productCategoryId = 'video'
   const productCategoryName = '線上影片'
-  const productInstrumentId = 'violin'
-  const productInstrumentName = '小提琴'
-  const productName = '【提琴教室】小提琴-01'
 
   const [dataP, setDataP] = useState([])
 
@@ -52,6 +50,8 @@ function ProductId() {
                 />
                 <div id="product-id-wrapper">
                   <ProductIntro
+                    cartNum={cartNum}
+                    setCartNum={setCartNum}
                     productName={p.PName}
                     PIntro={p.PIntro}
                     PPrice={p.PPrice.toString().replace(

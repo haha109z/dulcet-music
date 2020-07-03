@@ -14,18 +14,6 @@ function ProductIntroBtn(props) {
   let dataCart = dataP
   let arrCart = {}
 
-  async function addInstrumentCart(CatId, PId, amount) {
-    fetch(`http://localhost:3030/product/addFavorite`, {
-      method: 'POST',
-      body: JSON.stringify({ CatId, PId, amount }),
-      headers: new Headers({
-        'Content-Type': 'application/json',
-      }),
-    })
-      .then((res) => res.json())
-      .then((json) => {})
-  }
-
   async function addInstrumentFav(CatId, PId) {
     fetch(`http://localhost:3030/product/addFavorite`, {
       method: 'POST',
