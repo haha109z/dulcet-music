@@ -56,10 +56,10 @@ function ProductVideoCard(props) {
   return (
     <>
       <div className="product-video-card">
-        <Link to={'/course/' + PId} className="product-instrument-card-link">
+        <a href={'/course/' + PId} className="product-instrument-card-link">
           <img
             className="product-video-card-img"
-            // src={require('../images/184177.jpg')}
+            src={`http://localhost:3030/images/product/${props.PImg}`}
           />
           <div className="product-card-intro">
             <h4 className="product-card-title">{props.PName}</h4>
@@ -67,7 +67,7 @@ function ProductVideoCard(props) {
             <p className="product-video-card-desciption">{props.PIntro}</p>
             <h3 className="product-card-cost">${props.PPrice}</h3>
           </div>
-        </Link>
+        </a>
 
         <div
           className={`product-card-favorite-container ${

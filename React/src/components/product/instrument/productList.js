@@ -187,6 +187,7 @@ function ProductList(props) {
                     )}
                     favArr={favArr}
                     setFavArr={setFavArr}
+                    PImg={c.PImg}
                     PId={c.PId}
                   />
                 </>

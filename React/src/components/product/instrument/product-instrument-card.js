@@ -65,7 +65,7 @@ function ProductVideoCard(props) {
           <div className="product-instrument-card-img-wrapper">
             <img
               className="product-instrument-card-img"
-              // src={require('../images/184177.jpg')}
+              src={`http://localhost:3030/images/product/${props.PImg}`}
             />
           </div>
           <div className="product-card-intro">

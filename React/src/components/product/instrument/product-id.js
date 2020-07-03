@@ -10,10 +10,27 @@ function ProductId(props) {
   const { cartNum, setCartNum } = props
 
   const productCategoryId = 'instrument'
+  const CatId = '樂器'
   const productCategoryName = '精選樂器'
   const productInstrumentId = 'piano'
   const productInstrumentName = '鋼琴'
   const productName = 'MAPEX STORM ST5295F 爵士鼓組'
+  const [favArr, setFavArr] = useState([])
+
+  async function getInstrumentFav() {
+    fetch(`http://localhost:3030/product/instrument/favorite`, {
+      method: 'POST',
+      body: JSON.stringify(),
+      headers: new Headers({
+        'Content-Type': 'application/json',
+      }),
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        const mm = json.map((a) => a.FavPId)
+        setFavArr(mm)
+      })
+  }
 
   const [dataP, setDataP] = useState([])
 
@@ -32,6 +49,7 @@ function ProductId(props) {
       })
   }
   useEffect(() => {
+    getInstrumentFav()
     getDataP()
   }, [])
 
@@ -64,6 +82,11 @@ function ProductId(props) {
                     PId={p.PId}
                     dataP={dataP}
                     setDataP={setDataP}
+                    PImg={p.PImg}
+                    CId={p.PCategoryId}
+                    favArr={favArr}
+                    setFavArr={setFavArr}
+                    CatId={CatId}
                   />
                   <hr id="product-id-wrapper-hr" />
                   <ProductDesciption Pdesciption={p.Pdesciption} />

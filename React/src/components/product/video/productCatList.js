@@ -241,6 +241,7 @@ function ProductCatList(props) {
                       /(\d)(?=(\d{3})+(\d{3})?$)/g,
                       '$1,'
                     )}
+                    PImg={a.PImg}
                   />
                 </>
               )
