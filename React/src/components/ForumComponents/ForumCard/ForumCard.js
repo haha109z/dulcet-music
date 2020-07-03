@@ -59,8 +59,12 @@ class ForumCard extends Component {
       // console.log(user[0].userID)
 
       if (user[0].userID) {
+        localStorage.getItem('user')
+        const NewImg = this.state.NewImg
+        this.setState({ NewImg: NewImg })
         this.setState({ userID: user[0].userID })
         this.setState({ username: user[0].userName })
+        this.setState({ NewImg: user[0].NewImg })
         // console.log(this.state.username)
       } else {
         this.setState({ userID: '' })
@@ -105,6 +109,7 @@ class ForumCard extends Component {
     // UserName.value = this.state.news.userID
     this.setState({ userName: UserName })
     // console.log(this.state)
+   
   }
 
   handleForumAboutTitle = (event) => {
@@ -299,6 +304,8 @@ class ForumCard extends Component {
                     <img
                       className="ForumCardImg"
                       // src={this.state.news.userImg}
+                      src={this.state.NewImg}
+                      // src={`http://localhost:3030/images/news/${this.state.news.NewImg}`}
                     />
                     <div>
                       <h3 className="ForumCardH3">發問會員：{item.userName}</h3>
