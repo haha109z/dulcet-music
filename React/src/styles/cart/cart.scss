@@ -405,7 +405,7 @@
       li {
         text-align: center;
         font-size: 16px;
-        padding: 10px 10px 20px 10px;
+        padding: 10px;
       }
       // hr {
       //   color: #484848;
@@ -415,7 +415,6 @@
       // }
     }
     .cart-product {
-      border-top: none;
       width: 80%;
       margin: 0 auto;
       flex-wrap: wrap;
@@ -577,6 +576,10 @@
         padding: 0;
         margin-bottom: 0;
       }
+    }
+    a {
+      width: 100%;
+      padding: 0;
     }
   }
 }

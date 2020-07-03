@@ -18,11 +18,8 @@ function CartPay (props) {
     buyAll,
     setCartNum,
   } = props.allProps;
-  console.log(cart);
-  
-  const newData = cart.map((v)=>({"PId":v.PId,"PCategoryId":v.PCategoryId,"num":v.num}))
-  console.log(newData);
-  
+  // console.log(cart);
+   
   
   // 付款方式
   const [payment, setPayment]=useState('')
@@ -67,6 +64,8 @@ function CartPay (props) {
   // console.log(orderlist)
 
   // 訂單明細
+  const orderData = cart.map((v)=>({"PId":v.PId,"PCategoryId":v.PCategoryId,"num":v.num}))
+  console.log(orderData);
   // let orderitem = [
   //   cart['cate'],
   //   cart['PId'],
@@ -312,44 +311,44 @@ function CartPay (props) {
                   // sql語法：INSERT INTO `orderlist` (`orderId`, `memberId`, `name`, `address`, `phone`, `email`, `invoice`, `invoiceStorage`, `invoiceInfo`, `coupon`, `orderPrice`, `orderPayment`, `orderState`, `created_at`) VALUES (NULL, '11', '11', '11', '11', '11', '11', '11', '11', '11', '11', '11', '11', current_timestamp());
 
 // <<<<<<< HEAD
-                // 新增一筆訂單資料至資料庫
-                fetch('http://localhost:3030/cart/3', {
-                  method: 'POST', // or 'PUT'
-                  body: JSON.stringify({
-                    memberid,
-                    name,
-                    address,
-                    phone,
-                    email,
-                    invoice,
-                    invoicestorage,
-                    invoiceinfo,
-                    coupon,
-                    orderprice,
-                    orderpayment,
-                    orderstate,
-                    newData
-                  }), // data can be `string` or {object}!
-                  headers: new Headers({
-                    'Content-Type': 'application/json',
-                  }),
-                })
-                // .then((res) => res.json())
-                // .then((json) => {
-                //   if (json.code === 3) {
-                //     MySwal.fire('信箱已經註冊過請換一個信箱試試', '', 'error')
-                //   } else if (json.data) {
-                //     localStorage.setItem('user', JSON.stringify(json.data))
-                //     console.log(JSON.stringify(json.data))
-                //     this.setState({ user: json.data[0] })
-                    
-                //   }
-                //   // localStorage.setItem('user', JSON.stringify(json.data))
-                //   // console.log(json.data)
-                // })
-                // .catch((error) => {
-                //   console.error('Error:', error)
-                // })
+                  // 新增一筆訂單資料至資料庫
+                  fetch('http://localhost:3030/cart/3', {
+                    method: 'POST', // or 'PUT'
+                    body: JSON.stringify({
+                      memberid,
+                      name,
+                      address,
+                      phone,
+                      email,
+                      invoice,
+                      invoicestorage,
+                      invoiceinfo,
+                      coupon,
+                      orderprice,
+                      orderpayment,
+                      orderstate,
+                      orderData,
+                    }), // data can be `string` or {object}!
+                    headers: new Headers({
+                      'Content-Type': 'application/json',
+                    }),
+                  })
+                  // .then((res) => res.json())
+                  // .then((json) => {
+                  //   if (json.code === 3) {
+                  //     MySwal.fire('信箱已經註冊過請換一個信箱試試', '', 'error')
+                  //   } else if (json.data) {
+                  //     localStorage.setItem('user', JSON.stringify(json.data))
+                  //     console.log(JSON.stringify(json.data))
+                  //     this.setState({ user: json.data[0] })
+                      
+                  //   }
+                  //   // localStorage.setItem('user', JSON.stringify(json.data))
+                  //   // console.log(json.data)
+                  // })
+                  // .catch((error) => {
+                  //   console.error('Error:', error)
+                  // })
 // =======
 //                   // 新增一筆訂單資料至資料庫
 //                   fetch('http://localhost:3030/cart/3', {
@@ -400,7 +399,7 @@ function CartPay (props) {
 
                   // 更改loclaStorage的coupon使用狀態
                   let couponData = JSON.parse(localStorage.getItem('coupon'))
-                  console.log(couponData)
+                  // console.log(couponData)
                   if ( couponData !== null ) {
                     couponData[0].couponLocalStorage = 1;
                     localStorage.setItem('coupon', JSON.stringify(couponData))
