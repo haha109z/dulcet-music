@@ -34,7 +34,6 @@ export default class UserData extends Component {
       e.preventDefault()
       const file = e.target.files[0]
       console.log("file",file);
-      
       const formData = new FormData()
       // 这里的 image 是字段，根据具体需求更改
       formData.append('image', file)

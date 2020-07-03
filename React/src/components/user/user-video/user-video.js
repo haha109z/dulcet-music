@@ -50,8 +50,10 @@ export default class UserVideo extends Component {
       reverseButtons: true, // 是否 反轉 兩個按鈕的位置 默認是  左邊 確定  右邊 取消
     })
   }
-  changePage(e){
-   console.log(e) 
+  changePage(e) {
+    console.log(e)
+    this.setState({pageNum:Number(e)})
+    this.showData()
   }
   showData() {
     const { videoData, pageNum } = this.state
@@ -138,7 +140,12 @@ export default class UserVideo extends Component {
               <i className="fas fa-sort-up"></i>
             </a>
             {page.map((e) => (
-              <button onClick={()=>this.changePage(e)} className="user-page-number">{e}</button>
+              <button
+                onClick={() => this.changePage(e)}
+                className="user-page-number"
+              >
+                {e}
+              </button>
             ))}
 
             <a className="user-page-Larrow">
@@ -152,7 +159,7 @@ export default class UserVideo extends Component {
             </button>
             <div className="userRwd-dropdown-content">
               {page.map((e) => (
-                <button onClick={()=>this.changePage(e)}>{e}</button>
+                <button onClick={() => this.changePage(e)}>{e}</button>
               ))}
             </div>
           </div>
