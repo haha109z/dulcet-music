@@ -4,8 +4,8 @@ import {Link} from 'react-router-dom';
 function News(props){
 
     const [news,setNews] = useState([
-        {title:'課程資訊',src:'javascript:void(0)'},
-        {title:'活動資訊',src:'javascript:void(0)'}
+        {title:'課程資訊',src:'/news?NewsCategory=1'},
+        {title:'活動資訊',src:'news?NewsCategory=3'}
     ]);
 
     return (
@@ -13,7 +13,7 @@ function News(props){
         {
             news.map((item,index)=> (
                 <li key={index}>
-                    <Link to={item.src}>{item.title}</Link>
+                    <a href={item.src}>{item.title}</a>
                 </li>
             ))
         }
