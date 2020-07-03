@@ -58,8 +58,12 @@ class InstrumentList extends React.Component {
         console.log(this.state.AllManuProduct)
       })
     }
+    handleputon=(e)=>{
+      console.log(e)
+
+    }
     handledown = (e,v) =>{
-      console.log(v)
+      console.log(e)
       // fetch('http://localhost:3030/ManufacturerInstrument/InstrumentList',{
       //   method:'POST',
       //   body:JSON.stringify({
@@ -184,7 +188,7 @@ class InstrumentList extends React.Component {
               </span>
             </Link>
             <div className="ins-list-content-btns">
-              <button type="button" onClick={() => this.handleputon('test')}>上架</button>
+              <button type="button" onClick={() => this.handleputon(product.PId)}>上架</button>
               <button type="button" onClick={this.handledown}>下架</button>
               <button type="button" onClick={this.handledel}>刪除</button>
             </div>
