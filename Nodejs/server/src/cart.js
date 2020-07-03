@@ -50,13 +50,13 @@ router.post('/', async (req, res) => {
       orderstate,
     ]
   );
+console.log(orderData);
 
   // 使用insertId方法抓取資料庫訂單資料表資料筆數作為orderID
   var orderID = orderlistSql.insertId;
   // 當一筆新增訂單資料成功時，才執行新增一筆訂單明細資料
   if (orderID) {
     orderData.map((v) => {
-      console.log(v,ID)
       
        query(
         `INSERT INTO orderitem (orderItem,orderId, productCategory, productId, cartNumber) VALUES (NULL, ?, ?, ?, ?)`,

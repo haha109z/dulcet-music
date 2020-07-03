@@ -51,7 +51,7 @@ export default class UserVideo extends Component {
     })
   }
   changePage(e){
-   console.log( e) 
+   console.log(e) 
   }
   showData() {
     const { videoData, pageNum } = this.state
