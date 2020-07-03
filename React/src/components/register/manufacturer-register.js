@@ -107,7 +107,7 @@ class ManufacturerRegistered extends Component{
       handleMcategory=(event)=>{
         // const selectindex = event.target.value
         this.setState({Mcategory:event.target.value})
-        console.log(event.target.value)
+        // console.log(event.target.value)
 
       }
       CompantyBtn=()=>{
@@ -154,7 +154,7 @@ fetch('http://localhost:3030/register/manufacturer', {
                   .then((res) => res.json())
                   .then((json) => {
                     this.setState({news123:json})
-                    console.log(this.state)
+                    // console.log(this.state)
                   })
                   .catch((error) => {
                     console.error('Error:', error)
@@ -205,7 +205,7 @@ fetch('http://localhost:3030/register/manufacturer', {
         })
     }
 
-  console.log(this.state)
+//   console.log(this.state)
       }
     render(){
 
@@ -244,7 +244,7 @@ fetch('http://localhost:3030/register/manufacturer', {
                 <div className="facturer-register-body row">
                 <form onSubmit={this.handleSubmit} className="col-md-6 register-form-wrap">
                 <div className="form-group" style={{borderBottom: '2px var(--main-colorda) solid'}}>
-                        <label htmlFor="facturerRegisterName" className="col-md-12 control-label" >廠商名稱</label>
+                        <label htmlFor="facturerRegisterName" className="col-md-12 control-label" >廠商類別</label>
                 <select style={{border:' none',outline: 'none;'}} className="col-md-12 control-label" name="cars" id="cars" onChange={this.handleMcategory}>
                 <option value="樂器"></option>
       <option value="樂器" id="option1" >樂器</option>
@@ -335,7 +335,7 @@ fetch('http://localhost:3030/register/manufacturer', {
                         <input type="checkbox" className="register-check-input " id="userCheckMe" />
                         <label className="register-check-label" htmlFor="userCheckMe">我接受<Link to="">服務條款&隱私政策</Link></label>
                     </div>
-                    <button type="button" className="facturer-register-btn" onClick={this.CompantyBtn}>登入</button>
+                    <button type="button" className="facturer-register-btn" onClick={this.CompantyBtn}>註冊</button>
                 </form>
             </div>
             </div>
