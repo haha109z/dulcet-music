@@ -10,15 +10,40 @@ router.post('/',async (req,res) => {
     let {
         Mid,
         PId,
-        PState,
+        changePName,
+        changePQty,
+        changePPrice,
+        changePState,
+        changePInstrumentId,
+        changePIntro,
+        changePdesciption,
     } = req.body;
     let resData = { code:'',msg :''};
     try {
         await query(
-          `UPDATE product_instruments SET PState = ? WHERE product_instruments.PId = ?;
+        `UPDATE
+          product_instruments
+        SET
+          PName = ?,
+          PQty = ?,
+          PPrice = ?,
+          PState = ?,
+          PInstrumentId = ?,
+          PIntro = ?,
+          Pdesciption = ?,
+          PCompanyId = ?    
+        WHERE
+          PId = ?
         `,
           [ 
-            PState,
+            changePName,
+            changePQty,
+            changePPrice,
+            changePState,
+            changePInstrumentId,
+            changePIntro,
+            changePdesciption,
+            Mid,
             PId,
           ],
           (err, result) => {

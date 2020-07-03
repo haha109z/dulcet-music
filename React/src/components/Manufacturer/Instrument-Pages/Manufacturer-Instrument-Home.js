@@ -19,8 +19,9 @@ class InstrumentHome extends React.Component {
     ],
   }
   constructor() {
-    super()
-
+    super() // => 記得呼叫 parent 的 constructor，很重要
+    
+    }
     // fetch('http://localhost:3030/ManufacturerInstrument/InstrumentHome', {
     //    method: 'GET',
     //    headers: new Headers({
@@ -37,11 +38,38 @@ class InstrumentHome extends React.Component {
     //         ManuUser : res
     //       })
     //     })
-  }
+  
 
   componentDidMount() {
+    this.onChange = (e) => {
+      e.preventDefault()
+      const file = e.target.files[0]
+      console.log("file",file);
+      
+      const formData = new FormData()
+      // 这里的 image 是字段，根据具体需求更改
+      formData.append('image', file)
+      // 这里的 fetch 引用了 isomorphic-fetch 包
+      // console.log("this.state.user", this.state.user)
+      // return
+      fetch(`http://localhost:3030/manuI_userimg/manu/${this.state.ManuUser.Mid}`, {
+        method: 'POST',
+        body: formData,
+      })
+        .then((res) => res.json())
+        .then((json) => {
+          if ((json.status = 1)) {
+            this.state.ManuUser.MidImg = json.imgName
+            // console.log(this.state.user)
+            this.setState({ ManuUser: this.state.ManuUser })
+            localStorage.setItem('user', JSON.stringify([this.state.ManuUser]))
+            window.location.reload()
+          } else {
+            alert('上傳失敗')
+          }
+        })
+    }
     this.changeData = () => {
-      console.log('123')
       const {
         Mid,
         Mname,
@@ -50,8 +78,14 @@ class InstrumentHome extends React.Component {
         Muser,
         Mtelephone,
         Mphone,
-      } = this.state.ManuData
-      const manuIGoData = [Mname, Memail, Maddress, Muser, Mtelephone, Mphone]
+      } = this.state.ManuUser
+      const manuIGoData = [
+        Mname, 
+        Memail, 
+        Maddress,
+        Muser, 
+        Mtelephone, 
+        Mphone]
 
       MySwal.fire({
         type: 'warning', // 彈框類型
@@ -125,10 +159,7 @@ class InstrumentHome extends React.Component {
                     if (json.code === 3) {
                       MySwal.fire('信箱已經註冊過請換一個信箱試試', '', 'error')
                     } else if (json.data) {
-                      localStorage.setItem(
-                        'ManuUser',
-                        JSON.stringify(json.data)
-                      )
+                      localStorage.setItem('ManuUser',JSON.stringify(json.data))
                       console.log(JSON.stringify(json.data))
                       this.setState({ ManuUser: json.data[0] })
                     }
@@ -150,8 +181,6 @@ class InstrumentHome extends React.Component {
         }
       })
     }
-
-    
     const getUserInfo = () => {
       return JSON.parse(localStorage.getItem('user'))
     }
@@ -160,13 +189,15 @@ class InstrumentHome extends React.Component {
       let user = getUserInfo()
 
       if (user[0].Mid) {
-        this.setState({ ManuData: user[0] })
+        this.setState({ ManuUser: user[0] })
       } else {
-        this.setState({ ManuData: '' })
+        this.setState({ ManuUser: '' })
       }
     } else {
-      this.setState({ ManuData: '' })
+      this.setState({ ManuUser: '' })
     }
+    
+    
   }
 
   render() {
@@ -201,7 +232,7 @@ class InstrumentHome extends React.Component {
                 className="ins-user-id "
                 id="mid"
                 type="text"
-                value={this.state.ManuData.Mid}
+                value={this.state.ManuUser.Mid}
                 readOnly="readonly"
               />
             </div>
@@ -210,7 +241,7 @@ class InstrumentHome extends React.Component {
           <label className="ins-home-label " htmlFor="id">
             <p>廠商名稱</p>
             <div className="ins-home-inp">
-              <input id="id" type="text" value={this.state.ManuData.Mname} />
+              <input id="id" type="text" value={this.state.ManuUser.Mname} />
             </div>
           </label>
 
@@ -220,7 +251,7 @@ class InstrumentHome extends React.Component {
               <input
                 id="email"
                 type="text"
-                value={this.state.ManuData.Memail}
+                value={this.state.ManuUser.Memail}
               />
             </div>
           </label>
@@ -231,7 +262,7 @@ class InstrumentHome extends React.Component {
               <input
                 id="address"
                 type="text"
-                value={this.state.ManuData.Maddress}
+                value={this.state.ManuUser.Maddress}
               />
             </div>
           </label>
@@ -239,7 +270,7 @@ class InstrumentHome extends React.Component {
           <label className="ins-home-label " htmlFor="name">
             <p>負責人</p>
             <div className="ins-home-inp">
-              <input id="name" type="text" value={this.state.ManuData.Muser} />
+              <input id="name" type="text" value={this.state.ManuUser.Muser} />
             </div>
           </label>
 
@@ -249,7 +280,7 @@ class InstrumentHome extends React.Component {
               <input
                 id="telephone"
                 type="text"
-                value={this.state.ManuData.Mtelephone}
+                value={this.state.ManuUser.Mtelephone}
               />
             </div>
           </label>
@@ -260,7 +291,7 @@ class InstrumentHome extends React.Component {
               <input
                 id="phone"
                 type="text"
-                value={this.state.ManuData.Mphone}
+                value={this.state.ManuUser.Mphone}
               />
             </div>
           </label>
