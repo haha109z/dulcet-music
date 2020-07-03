@@ -146,7 +146,12 @@ function App() {
             {/* <CartCheckOrder /> */}
             {/* <CartPay /> */}
             {/* <CartEnd /> */}
-            <CartApp />
+            <CartApp 
+              allProps={{
+                cartNum, 
+                setCartNum,
+              }}
+            />
           </Route>
           {/* <Route path="/cart1" exact>
           <CartCheckout />

@@ -12,6 +12,13 @@ import CartEnd from '../components/cart/cart-end';
 import ScrollToTop from './scrollToTop'
 
 function CartApp (props) {
+
+  const {
+    cartNum,
+    setCartNum,
+  } = props.allProps;
+  console.log(cartNum);
+  
   
   // 會員資料
   // [{"userID":3,"userName":"謝凱成","userPwd":"a94a8fe5ccb19ba61c4c0873d391e987982fbbd3","userPhone":"0919390003","userMail":"003@gmail.com","userBirthday":"1912-09-22","userAddress":"桃園市龜山區公西里013鄰文三一街５０之１號","userImg":"userimg000","created_at":"2019-11-27 13:18:46","updated_at":"2019-11-25 13:18:48"}]
@@ -146,7 +153,12 @@ useEffect(()=>{
 
     return (
         <>
-        <Navbar/>
+        <Navbar 
+          allProps={{
+            cartNum,
+            setCartNum,
+          }}
+        />
          <BrowserRouter>
          <ScrollToTop>
             <div className="cart-container">
