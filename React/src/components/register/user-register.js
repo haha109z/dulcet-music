@@ -183,7 +183,7 @@ class UserRegistered extends Component{
         );
 
         const checkPhone = phoneReg ? '' : (
-            <div className="user-register-dobluecheckPhone">請輸入正確的手機格式 09xx-xxx-xxx </div>
+            <div className="user-register-dobluecheckPhone">請輸入正確的手機格式 09xxxxxxxx </div>
         )
 
         const checkEmail = emailReg ? '' : (
