@@ -81,7 +81,7 @@ function App() {
       <>
         <ScrollToTop>
           <Route path="/" exact>
-            <HomeApp />
+            <HomeApp cartNum={cartNum} setCartNum={setCartNum}/>
           </Route>
 
           <Route path="/course">
