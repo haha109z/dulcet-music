@@ -14,7 +14,9 @@ if (getUserInfo()) {
 export default class UserVideo extends Component {
   // 建立一個空狀態準備放抓出來的資料
   state = {
-    videoData: [],
+    videoData: [], //全部資料
+    showVideoData: [],
+    pageNum: 1,
   }
   getVideoData() {
     fetch('http://localhost:3030/user/UserVideo', {
@@ -28,6 +30,7 @@ export default class UserVideo extends Component {
       .catch((error) => console.error('Error:', error))
       .then((response) => {
         this.setState({ videoData: response.data })
+        this.showData()
       })
   }
   lookVideo(PVideo, PName) {
@@ -37,7 +40,7 @@ export default class UserVideo extends Component {
       text: '', //顯示內容
       icon: '', //icon圖示
       // grow:"fullscreen",
-      width:"70%",
+      width: '70%',
       confirmButtonColor: '#141414', // 確定按鈕的 顏色
       confirmButtonText: '返回', // 確定按鈕的 文字
       html: `<video src=http://localhost:3030/images/product/${PVideo} controls="true" controlslist="nodownload" width="80%" height="80%">
@@ -47,18 +50,34 @@ export default class UserVideo extends Component {
       reverseButtons: true, // 是否 反轉 兩個按鈕的位置 默認是  左邊 確定  右邊 取消
     })
   }
-  async componentDidMount() {
-    await this.getVideoData()
+  changePage(e){
+   console.log( e) 
+  }
+  showData() {
+    const { videoData, pageNum } = this.state
+    let showVideoData = videoData.slice((pageNum - 1) * 5, pageNum * 5)
+    this.setState({ showVideoData: showVideoData })
+  }
+
+  componentDidMount() {
+    this.getVideoData()
   }
   constructor() {
-    super() // => 記得呼叫 parent 的 constructor，很重要
+    super()
     if (getUserInfo() == null) {
       window.location = '/'
     }
   }
 
   render() {
-    console.log(this.state.videoData)
+    let page = []
+    console.log(Math.ceil(this.state.videoData.length / 5))
+    for (let i = 1; i <= Math.ceil(this.state.videoData.length / 5); i++) {
+      page.push(i)
+    }
+    console.log(page)
+
+    // console.log(this.state.showVideoData)
 
     return (
       <>
@@ -82,15 +101,18 @@ export default class UserVideo extends Component {
               value="送出"
             />
           </form>
-        
+
           <hr className="UserVideo-divider" />
 
           <div className="UserVideo-order">
-            {this.state.videoData.map((item, index) => (
+            {this.state.showVideoData.map((item, index) => (
               <>
                 <div className="UserVideo-order-item">
                   <div className="UserVideo-order-item-img">
-                    <img src={`http://localhost:3030/images/product/${item.PImg}`} alt=""  />
+                    <img
+                      src={`http://localhost:3030/images/product/${item.PImg}`}
+                      alt=""
+                    />
                   </div>
                   <div className="UserVideo-order-item-text">
                     <p className="user-font-ch UserVideo-order-item-text-name">
@@ -115,11 +137,10 @@ export default class UserVideo extends Component {
             <a className="user-page-Rarrow">
               <i className="fas fa-sort-up"></i>
             </a>
-            <button className="user-page-number">1</button>
-            <button className="user-page-number">2</button>
-            <button className="user-page-number">3</button>
-            <button className="user-page-number">4</button>
-            <button className="user-page-x">...</button>
+            {page.map((e) => (
+              <button onClick={()=>this.changePage(e)} className="user-page-number">{e}</button>
+            ))}
+
             <a className="user-page-Larrow">
               <i className="fas fa-sort-up"></i>
             </a>
@@ -130,12 +151,9 @@ export default class UserVideo extends Component {
               <i className="fas fa-sort-down"></i>
             </button>
             <div className="userRwd-dropdown-content">
-              <a href="#">1</a>
-              <a href="#">2</a>
-              <a href="#">3</a>
-              <a href="#">4</a>
-              <a href="#">5</a>
-              <a href="#">6</a>
+              {page.map((e) => (
+                <button onClick={()=>this.changePage(e)}>{e}</button>
+              ))}
             </div>
           </div>
         </div>

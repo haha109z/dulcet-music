@@ -3,10 +3,17 @@ import { Link, NavLink } from 'react-router-dom'
 import withReactContent from 'sweetalert2-react-content'
 import Swal from 'sweetalert2'
 const MySwal = withReactContent(Swal)
-const userL =()=>{
+const userL = () => {
   return JSON.parse(localStorage.getItem('user'))
 }
 export default class UserSideBar extends Component {
+  goForum=()=>{
+    setTimeout(()=>{
+      window.location = '/Forum'
+
+    },300)
+
+  }
   signOut = () => {
     MySwal.fire({
       position: 'top-center',
@@ -23,10 +30,10 @@ export default class UserSideBar extends Component {
   }
   constructor() {
     super() // => 記得呼叫 parent 的 constructor，很重要
-    if(userL()==null){
-      window.location = '/';
-     }
+    if (userL() == null) {
+      window.location = '/'
     }
+  }
   render() {
     return (
       <>
@@ -39,6 +46,7 @@ export default class UserSideBar extends Component {
           </div>
 
           <ul className="user-sidebar-menu list-unstyled content">
+          
             <Link
               onClick={this.signOut}
               to=""
@@ -68,13 +76,13 @@ export default class UserSideBar extends Component {
               <div className="user-sidebar-menu-li-right"></div>
             </Link>
 
-            <Link 
+            <Link
               to="/user/UserPurchase"
               href=""
               className="user-sidebar-menu-li font-size-142rem user-font-ch"
             >
               <div className="user-sidebar-menu-li-left"></div>
-              <p className="user-sidebar-hover" ></p>購買清單
+              <p className="user-sidebar-hover"></p>購買清單
               <div className="user-sidebar-menu-li-right"></div>
             </Link>
             <Link
@@ -104,7 +112,14 @@ export default class UserSideBar extends Component {
               <p className="user-sidebar-hover"></p>我的優惠卷
               <div className="user-sidebar-menu-li-right"></div>
             </Link>
-
+            <Link
+              onClick={this.goForum}
+              className="user-sidebar-menu-li font-size-142rem user-font-ch rwd-user-out"
+            >
+              <div className="user-sidebar-menu-li-left"></div>
+              <p className="user-sidebar-hover"></p>討論區
+              <div className="user-sidebar-menu-li-right"></div>
+            </Link>
             <div
               className="user-sidebar-menu-out font-size-142rem user-font-ch"
               onClick={this.signOut}
