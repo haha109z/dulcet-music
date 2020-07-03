@@ -1,9 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const db = require(__dirname + "/db_connect2");
+const query = require(__dirname + '/mysql');
 
+
+console.log("1");
 
 router.post("/", async (req, res) => {
+  console.log("2");
 
   // memberid  =  req.body.memberid
   let {
@@ -23,7 +27,7 @@ router.post("/", async (req, res) => {
   console.log(req.body)
   
   const orderSql = await query (
-    "INSERT INTO `orderlist` (`memberId`, `name`, `address`, `phone`, `email`, `invoice`, `invoiceStorage`, `invoiceInfo`, `coupon`, `orderPrice`, `orderPayment`, `orderState` ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+    `INSERT INTO orderlist (memberId, name, address, phone, email, invoice, invoiceStorage, invoiceInfo, coupon, orderPrice, orderPayment, orderState ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     [ memberid, name, address, phone, email, invoice, invoicestorage, invoiceinfo, coupon, orderprice, orderpayment, orderstate]
   );
 
