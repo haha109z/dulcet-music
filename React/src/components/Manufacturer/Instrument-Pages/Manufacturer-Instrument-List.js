@@ -13,6 +13,7 @@ class InstrumentList extends React.Component {
     constructor(){
       super()
       this.state={
+        
         Mid:Mid,
         ManuProduct:[
           {
@@ -33,6 +34,7 @@ class InstrumentList extends React.Component {
           }
         ]
       }
+      
     }
 
 
@@ -51,9 +53,9 @@ class InstrumentList extends React.Component {
         console.log(res)
         return res.json
       })
-      .then((res) => {
+      .then((json) => {
         this.setState({
-          ManuProduct : res
+          ManuProduct : json
         })
         console.log(this.state.ManuProduct)
       })
@@ -78,7 +80,13 @@ class InstrumentList extends React.Component {
     }
     
   render() {
+    let arrLists = []
+        
+        //在巡訪時將arrLists用<li>包起來回傳
+    let lists = arrLists.map(function(list){return <li>{list}</li>})
+
     return (
+      
       <div className="ins-list-page">
         <h3 className="ins-list-title font-size-142rem">樂器列表</h3>
         <div
@@ -228,7 +236,11 @@ class InstrumentList extends React.Component {
             <a href="#">6</a>
           </div>
         </div>
+        <ul>
+          {lists}
+        </ul>
       </div>
+      
     )
   }
 }
