@@ -157,15 +157,15 @@ class AnyQuestionAns extends Component {
           <div className="Text123"></div>
           <div className="AnyQuestionActionFlex">
             <div className="AnyQuestionActionCard AnyQuestionActionCardLeft">
-              <i className="far fa-user AnyQuestionActionCardIcon"></i>
-              <h2 className="AnyQuestionActionCardIconH2">會員問題</h2>
+            <i className="fas fa-search AnyQuestionCardIcon"></i>
+              <h2 className="AnyQuestionActionCardIconH2">其他問題</h2>
             </div>
             <div className="AnyQuestionActionTable AnyQuestionActionRwd">
               <div style={{ display: 'flex' }}>
                 <div style={{ width: '1000px' }}>
                   <input
                     type="submit"
-                    value="忘記帳號"
+                    value=""
                     onClick={this.handleInput1}
                   />
                   {Input1}

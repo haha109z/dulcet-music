@@ -26,6 +26,7 @@ class ManufacturerRegistered extends Component{
         Mcategory:'',
 
         emailReg:true,
+        checkPwd:true,
         phoneReg:true,
     }
 
@@ -95,6 +96,13 @@ class ManufacturerRegistered extends Component{
     }
       handleMpwdCheck=(event)=>{
         this.setState({MpwdCheck:event.target.value})
+        // let {    Mpwd,
+        //     MpwdCheck,}=this.state
+        // if(Mpwd === MpwdCheck){
+        //     this.setState({checkPwd:false});
+        // }else{
+        //     this.setState({checkPwd:true});
+        // }
       }
       handleMcategory=(event)=>{
         // const selectindex = event.target.value
@@ -214,7 +222,7 @@ fetch('http://localhost:3030/register/manufacturer', {
         const pwdType = showPwd ? 'text' : 'password';
         const pwdComType = showComPwd ? 'text' : 'password';
         const checkPhone = phoneReg ? '' : (
-            <div className="user-register-dobluecheckPhone" style={{color:'red'}}>請輸入正確的手機格式 09xx xxx xxx </div>
+            <div className="user-register-dobluecheckPhone" style={{color:'red'}}>請輸入正確的手機格式 09xxxxxxxx </div>
         )
         const checkEmail = emailReg ? '' : (
             <div className="user-register-dobluecheckPhone" style={{color:'red'}}>請輸入正確的Email格式 (包含@) </div>
@@ -288,6 +296,7 @@ fetch('http://localhost:3030/register/manufacturer', {
                         />
                     </div>
                     <div className="form-group facturer-pw-form">
+                    
                         <label htmlFor="facturerRegisterPassword" className="col-md-12 control-label">密碼</label>
                         <input type={pwdType}  name="facturerRegisterPassword" className="form-control" id="facturerRegisterPassword" placeholder="請輸入密碼" 
                        maxLength="15" minLength="4"

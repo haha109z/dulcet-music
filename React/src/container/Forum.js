@@ -8,12 +8,23 @@ import Navbar from '../components/navbar/navbar'
 import ForumCard from '../components/ForumComponents/ForumCard/ForumCard'
 
 
-function Forum() {
+function Forum(props) {
+  const {
+    cartNum, 
+    setCartNum,
+  }=props
   return (
     <>
-      <Navbar />
+   <Navbar 
+          cartNum={cartNum}
+          setCartNum={setCartNum}
+          // allProps={{
+          //   cartNum,
+          //   setCartNum,
+          // }}
+        />
 
-      <ForumCard />
+      <ForumCard/>
     
 
     </>
