@@ -8,17 +8,14 @@ const sha1 = require("sha1");
 
 router.post('/',async (req,res) => {
     let {
-        Mid,
         PId,
-        PState,
     } = req.body;
     let resData = { code:'',msg :''};
     try {
         await query(
-          `UPDATE product_instruments SET PState = ? WHERE product_instruments.PId = ?;
+          `DELETE FROM product_instruments WHERE PId = ?;
         `,
           [ 
-            PState,
             PId,
           ],
           (err, result) => {
@@ -30,15 +27,12 @@ router.post('/',async (req,res) => {
         // console.log(e.errno);
         if (e.errno == 1062) {
         }
-        resData = { code: 3, msg: "信箱已經被註冊過請換個信箱試試" };
+        resData = { code: 3, msg: "無法刪除" };
         return res.json(resData);
       }
-    const listdata = await query(`SELECT * FROM product_instruments WHERE PCompanyId = ?`,
-        [Mid]
-    );
-    console.log(listdata)
-    resData = { code:0, msg:'正確', data : listdata};
-    res.json(listdata);
+   
+    resData = { code:0, msg:'正確'};
+    res.json(resData);
 })
 
 module.exports = router;

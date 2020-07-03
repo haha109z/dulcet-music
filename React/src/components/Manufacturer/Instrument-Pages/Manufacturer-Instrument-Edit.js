@@ -7,9 +7,27 @@ class InstrumentEdit extends React.Component{
     constructor(){
         super()
         this.state = {
+            ManuData:[],
             img : '',
-            
         }
+        
+
+        const getproductInfo = () => {
+            return JSON.parse(localStorage.getItem('ManuProData'))
+          }
+      
+          if (getproductInfo()) {
+            let manu = getproductInfo()
+            console.log(manu)
+            if (manu[0].Mid) {
+              this.setState({ ManuData: manu[0] })
+              console.log(this.state.ManuData)
+            } else {
+              this.setState({ ManuData: '' })
+            }
+          } else {
+            this.setState({ ManuData: '' })
+          }
     }
     handlechange(event){
         const v = event.target.value
@@ -48,6 +66,8 @@ class InstrumentEdit extends React.Component{
             alert('上傳成功')
         })
     }
+
+    
     
    
     render(){
@@ -71,11 +91,12 @@ class InstrumentEdit extends React.Component{
             
           
             <div className="ins-edit-content">
+            <label htmlFor="mid" className="ins-edit-label font-size-1rem">廠商編號<input id="mid" type="text" className="font-size-114rem" readOnly value={this.state.ManuData}/></label>
                 <label htmlFor="name" className="ins-edit-label font-size-1rem">名稱<input id="name" type="text" className="font-size-114rem"/></label>
                 <label className="ins-edit-label font-size-1rem" htmlFor="option">類別
                 <div className="ins-edit-select-value">
                     <select className="font-size-114rem" id="option" onChange={this.handlechange}>
-                        <option value=""></option>
+                        <option>請選擇類別</option>
                         <option value="小提琴">小提琴</option>
                         <option value="中提琴">中提琴</option>
                         <option value="薩克斯風">薩克斯風</option>
@@ -88,7 +109,15 @@ class InstrumentEdit extends React.Component{
                     </select>
                     </div>
                 </label>
-                
+                <label htmlFor="state" className="ins-edit-label font-size-1rem">狀態
+                <div className="ins-edit-select-value">
+                <select id="state" className="font-size-114rem">
+                    <option>請選擇狀態</option>
+                    <option value="上架">上架</option>
+                    <option value="下架">下架</option>
+                </select>
+                </div>
+                </label>
                 <label htmlFor="amount" className="ins-edit-label font-size-1rem">數量<input id="amount" type="text" className="font-size-114rem"/></label>
                 <label htmlFor="price" className="ins-edit-label font-size-1rem">價格<input id="price" type="text" className="font-size-114rem"/></label>
                 <label htmlFor="text1" className="ins-edit-label font-size-1rem">簡介<input id="text1" type="text" className="font-size-114rem"/></label>

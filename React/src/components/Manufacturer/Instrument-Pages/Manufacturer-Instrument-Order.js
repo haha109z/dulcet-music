@@ -64,7 +64,7 @@ class InstrumentOrder extends React.Component {
   }
 
   render() {
-    console.log(this.state.AllMPurchase)
+    // console.log(this.state.AllMPurchase)
     // console.log(this.state.AllMPurchaseitem)
 
     return (
