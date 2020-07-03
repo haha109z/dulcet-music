@@ -33,6 +33,7 @@ class ForumCard extends Component {
     boxShowBtn2: false,
     // userID: '',
     Memo: '',
+
     news: [
       {
         ForumId: '',
@@ -59,12 +60,12 @@ class ForumCard extends Component {
       // console.log(user[0].userID)
 
       if (user[0].userID) {
-        localStorage.getItem('user')
-        const NewImg = this.state.NewImg
-        this.setState({ NewImg: NewImg })
+        // localStorage.getItem('user')
+        // const NewImg = this.state.NewImg
+        // this.setState({ NewImg: user[0].NewImg })
         this.setState({ userID: user[0].userID })
         this.setState({ username: user[0].userName })
-        this.setState({ NewImg: user[0].NewImg })
+        
         // console.log(this.state.username)
       } else {
         this.setState({ userID: '' })
@@ -298,14 +299,17 @@ class ForumCard extends Component {
           {/* card1 */}
           <div className="ForumCardFlex">
             {this.state.news.map((item, i) => {
+              console.log(item)
               return (
                 <div key={i} className="ForumCard" data-aos="fade-up">
                   <div className="ForumCardTitle">
                     <img
                       className="ForumCardImg"
+                      // src={`${item.userImg}`}
+                      // src={`http://localhost:3030/images/news/${item.userImg}`}
                       // src={this.state.news.userImg}
-                      src={this.state.NewImg}
-                      // src={`http://localhost:3030/images/news/${this.state.news.NewImg}`}
+                      // src={this.state.NewImg}
+                      src={`http://localhost:3030/images/user/${item.userImg}`}
                     />
                     <div>
                       <h3 className="ForumCardH3">發問會員：{item.userName}</h3>
