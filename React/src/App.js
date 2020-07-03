@@ -130,7 +130,7 @@ function App() {
           </Route>
 
           <Route path="/user">
-            <UserApp cartNum={cartNum} setCartNum={setCartNum}/>
+            <UserApp cartNum={cartNum} setCartNum={setCartNum} />
           </Route>
 
           <Route path="/ManufacturerVideo">
@@ -146,11 +146,14 @@ function App() {
             {/* <CartCheckOrder /> */}
             {/* <CartPay /> */}
             {/* <CartEnd /> */}
-            <CartApp 
+            {/* <CartApp
               allProps={{
-                cartNum, 
+                cartNum,
                 setCartNum,
               }}
+            /> */}
+            <CartApp
+              cartNum={cartNum} setCartNum={setCartNum}
             />
           </Route>
           {/* <Route path="/cart1" exact>

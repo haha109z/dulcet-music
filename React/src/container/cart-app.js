@@ -12,12 +12,16 @@ import CartEnd from '../components/cart/cart-end';
 import ScrollToTop from './scrollToTop'
 
 function CartApp (props) {
+console.log(props);
+const {cartNum, setCartNum}=props
+console.log(cartNum);
 
-  const {
-    cartNum,
-    setCartNum,
-  } = props.allProps;
-  console.log(cartNum);
+
+  // const {
+  //   cartNum,
+  //   setCartNum,
+  // } = props.allProps;
+  // console.log(cartNum);
   
   
   // 會員資料
@@ -153,11 +157,11 @@ useEffect(()=>{
 
     return (
         <>
-        <Navbar 
-          allProps={{
-            cartNum,
-            setCartNum,
-          }}
+        <Navbar cartNum={cartNum}
+          // allProps={{
+          //   cartNum,
+          //   setCartNum,
+          // }}
         />
          <BrowserRouter>
          <ScrollToTop>
