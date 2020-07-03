@@ -15,6 +15,8 @@ function CartPay (props) {
     discount,
     orderPrice,
     cart,
+    buyAll,
+    setCartNum,
   } = props.allProps;
 
   // 付款方式
@@ -139,16 +141,16 @@ function CartPay (props) {
 
   //   }
   // }
-  // var safecode = "";
-  // const getSafeCode = (e) =>{
-  //   let safecodecontent = document.getElementById("safecode")
-  //   if(safecodecontent.value !== ''){
-  //     safecode = safecodecontent.value
-  //     // console.log(safecode);      
-  //   }else{
+  var safecode = "";
+  const getSafeCode = (e) =>{
+    let safecodecontent = document.getElementById("safecode")
+    if(safecodecontent.value !== ''){
+      safecode = safecodecontent.value
+      // console.log(safecode);      
+    }else{
 
-  //   }
-  // }
+    }
+  }
   // console.log(safecode);      
 
 
@@ -234,9 +236,9 @@ function CartPay (props) {
                                 <div className="cart3-creditcard-stripe"></div>
                                 <div className="cart3-creditcard-safe-info">
                                   <div>CCV</div>
-                                  <div className="cart3-creditcard-safe-code" id="safecode1">
+                                  <div className="cart3-creditcard-safe-code">
                                     123
-                                    {/* {safecode==null? 123 : safecode} */}
+                                    {/* <input type="text" id="safecode1" value={safecode==null? '123' : safecode} /> */}
                                   </div>
                                   <div className="cart3-card-category">VISA</div>
                                 </div>
@@ -285,7 +287,7 @@ function CartPay (props) {
                           <div style={{display:'flex'}}>
                             <div className="cart3-safe-code">
                                 <input className="" id="safecode" type="text" maxlength="3" 
-                                  // onChange={ (e)=>{ getSafeCode() }} 
+                                  onChange={ (e)=>{ getSafeCode() }} 
                                 />
                             </div>
                           </div>
@@ -339,12 +341,24 @@ function CartPay (props) {
                 //   console.error('Error:', error)
                 // })
 
+                // 購物車商品全選結帳，清空localStorage cart並更新購物車圖示數量為0
+                if (buyAll) {
+                  localStorage.removeItem('cart')
+                  setCartNum(0)
+                } else {
+
+                }
+
                 // 更改loclaStorage的coupon使用狀態
-                // let couponData = JSON.parse(localStorage.getItem('coupon'))
-                // // console.log(couponData)
-                // couponData[0].couponLocalStorage = 1;
-                // localStorage.setItem('coupon', JSON.stringify(couponData))
-              }} >
+                let couponData = JSON.parse(localStorage.getItem('coupon'))
+                console.log(couponData)
+                if ( couponData !== null ) {
+                  couponData[0].couponLocalStorage = 1;
+                  localStorage.setItem('coupon', JSON.stringify(couponData))
+                } else {
+
+                }
+              }}>
                 <Link to='/cart/4'>確認送出</Link>
               </button>
             </div>

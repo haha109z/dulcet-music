@@ -22,7 +22,7 @@ router.post("/", async (req, res) => {
   } = req.body;
   console.log(req.body)
   
-  await query (
+  const orderSql = await query (
     "INSERT INTO `orderlist` (`memberId`, `name`, `address`, `phone`, `email`, `invoice`, `invoiceStorage`, `invoiceInfo`, `coupon`, `orderPrice`, `orderPayment`, `orderState` ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
     [ memberid, name, address, phone, email, invoice, invoicestorage, invoiceinfo, coupon, orderprice, orderpayment, orderstate]
   );
@@ -32,7 +32,7 @@ router.post("/", async (req, res) => {
   //   [ memberid, name, address, phone, email, invoice, invoicestorage, invoiceinfo, coupon, orderprice, orderpayment, orderstate]
   // ); 
 
-  // res.json(orderSql);
+  res.json(orderSql);
 
 });
 
