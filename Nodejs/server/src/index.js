@@ -91,26 +91,28 @@ app.use("/news", require(__dirname + "/news"));
 
 
 // cart
+// 新增一筆訂單資料至資料庫
+app.use("/cart/3", require(__dirname + "/cart"));
 // 獲取該登入會員之購物車資料
-app.get('/cart', async (req, res) => {
-  const output = await query("SELECT * FROM `cart` WHERE `userID`='3' ");
-  console.log(output)
-  res.json(output);
-});
+// app.get('/cart', async (req, res) => {
+//   const output = await query("SELECT * FROM `cart` WHERE `userID`='3' ");
+//   console.log(output)
+//   res.json(output);
+// });
 // 獲取該購物車之商品資訊
-app.get('/cart/2', async (req, res) => {
-  const output = await query("SELECT * FROM `product` WHERE 1");
-  console.log(output)
-  res.json(output);
-});
+// app.get('/cart/2', async (req, res) => {
+//   const output = await query("SELECT * FROM `product` WHERE 1");
+//   console.log(output)
+//   res.json(output);
+// });
 // 獲取該購物車之商品資訊
-app.get('/cart/3', async (req, res) => {
-  const output = await query(
-    " SELECT * FROM `cart` INNER JOIN `product` ON `cart`.`productId` = `product`.`PId` "
-  );
-  console.log(output)
-  res.json(output);
-});
+// app.get('/cart/3', async (req, res) => {
+//   const output = await query(
+//     " SELECT * FROM `cart` INNER JOIN `product` ON `cart`.`productId` = `product`.`PId` "
+//   );
+//   console.log(output)
+//   res.json(output);
+// });
 
 
 // simple route

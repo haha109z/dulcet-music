@@ -15,7 +15,6 @@ export default function CartItem (props) {
       // buyProduct, 
       // setBuyProduct,
     } = props.allProps; 
-    // totalPrice = data[index].PPrice;
 
 
     // buycallback函式：點擊時切換checkbox勾選狀態
@@ -24,16 +23,6 @@ export default function CartItem (props) {
     //   // setBuyProduct(e.checked)
     // }
 
-    // 勾選商品checkbox
-    const checked = (e)=>{
-      // console.log(e.checked);
-      const input = e;   
-      if(!e.checked){    
-        input.removeAttribute("checked")
-      }else{
-        input.setAttribute("checked","checked")
-      }
-    }  
     
     // minusCartNumber函式：點擊btn減少該商品之購物車數量
     // const minusCartNumber = (e) =>{
@@ -94,32 +83,58 @@ export default function CartItem (props) {
       // console.log(mycart[index]['num']);
     }
 
-  // const deleteCartItem = (e) => {
-  //   // alert('是否確認刪除?')
-  //   // console.log( e.target.parentElement.closest(".cart-product") )
-  //   // console.log(e); // index
-  //   let index = e;
-  //   let cartData = JSON.parse(localStorage.getItem('cart'))
-  //   console.log(cartData);
-  //   // console.log(cartData[index]);
-  //   delete cartData[index]; 
-  //   localStorage.setItem('cart', JSON.stringify(cartData))
-  //   console.log(cartData);  
-  //   // console.log(cartData[index]['num']); 
-  // }
+    // const deleteCartItem = (e) => {
+    //   // alert('是否確認刪除?')
+    //   // console.log( e.target.parentElement.closest(".cart-product") )
+    //   // console.log(e); // index
+    //   let index = e;
+    //   let cartData = JSON.parse(localStorage.getItem('cart'))
+    //   console.log(cartData);
+    //   // console.log(cartData[index]);
+    //   delete cartData[index]; 
+    //   localStorage.setItem('cart', JSON.stringify(cartData))
+    //   console.log(cartData);  
+    //   // console.log(cartData[index]['num']); 
+    // }
 
+    // 勾選商品checkbox(學姊)
+    // const checked = (e)=>{
+    //   // console.log(e.checked);
+    //   const input = e;   
+    //   if(!e.checked){    
+    //     input.removeAttribute("checked")
+    //   }else{
+    //     input.setAttribute("checked","checked")
+    //   }
+    // }  
+
+    // console.log(localStorage.getItem('cart')===null)
 
     return(
+
         <> 
-            <div className="cart-check">
-            {cart.map((data, index)=>{
+
+          <div className="cart-check">
+
+              {/* {購物車內無商品} ? (A畫面):(B畫面) } */}
+
+              { localStorage.getItem('cart')===null ? (
+
+                <ul className="cart-product">
+                  <li className="cart-product-li" colSpan="7" style={{width:"100%", padding:"30px 0"}}>
+                    您的購物車內無商品
+                  </li>
+                </ul>
+
+              ):(
                 
+              cart.map((data, index)=>{
+                  
                 return(
+
                   <ul className="cart-product" key={index} >
                     <li className="cart-product-li"><input type="checkbox" 
                       // onClick={(e)=>checked(e.target)} 
-                      onClick={ (e)=>{ 
-                      }} 
                     />
                     </li>
                     <li className="cart-product-li"><img src={require(`../../img/cart/cart-violin-01.jpeg`)} /></li>
@@ -188,6 +203,7 @@ export default function CartItem (props) {
                           cancelButtonText: '取消', // 取消按鈕的 文字,
                           focusCancel: true, // 是否聚焦 取消按鈕
                         })
+                        // 點選確認時執行if，點選取消刪除時執行else
                         .then((isConfirm) => {
                           if (isConfirm.value) {
                             // alert('刪除')
@@ -196,19 +212,29 @@ export default function CartItem (props) {
                             a.splice(index, 1)
                             setCart(a)
                             localStorage.setItem('cart', JSON.stringify(a))
+                            // console.log(cart.length)
+                            // 刪至localStorage cart無資料時，清空cart空陣列
+                            if (cart.length===1) {
+                              localStorage.removeItem('cart')
+                              setCart([])
+                            }     
                           } else {
                             MySwal.fire('取消刪除', '', '')
                           }
-                        })                         
+                        })                          
+
                       }}
                     >
                       <i className="far fa-trash-alt" />
                     </li>
                   </ul>
+
                 )
-                }
-              )}
-            </div>
+              })
+              )
+            }
+
+          </div>
         </>
     )
 }

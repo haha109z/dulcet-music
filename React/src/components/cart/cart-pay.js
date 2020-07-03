@@ -1,13 +1,78 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function CartPay (props) {
 
-  const {orderPrice} = props.allProps;
+  const {
+    user,
+    checkstate,
+    ReceivingName,
+    ReceivingAddress,
+    ReceivingPhone,
+    ReceivingEmail,
+    invoiceType,
+    invoiceInfo,
+    discount,
+    orderPrice,
+    cart,
+  } = props.allProps;
 
+  // 付款方式
+  const [payment, setPayment]=useState('')
+
+  // 發票號碼
+  // let invoiceEng = new Array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','P','Q','R','S','T','U','V','W','X','Y','Z')
+  // let invoiceNum = new Array('1','2','3','4','5','6','7','8','9');
+  // let invonumlength = invoiceNum.length;
+  // let invoice1 = Math.floor((Math.random()*invonumlength)).toString(36);
+  // let invoice1 = Math.random().toString(36);
+  // console.log(invoice1)
+  // let randominvoice = Math.random().toString(36).slice(2, 10);
+  // console.log(randominvoice)
+
+  // 訂單資料表
+  let memberid = user['userID'], 
+  name = checkstate? user['userName'] : ReceivingName,
+  address = checkstate? user['userAddress'] : ReceivingAddress,
+  phone = checkstate? user['userPhone'] : ReceivingPhone,
+  email = checkstate? user['userMail'] : ReceivingEmail,
+  invoice = "YM",
+  invoicestorage = invoiceType,
+  invoiceinfo = invoiceInfo,
+  coupon = discount,
+  orderprice = orderPrice,
+  orderpayment = payment,
+  orderstate = payment=='ATM'? '待付款' : '完成'
+  let orderlist = {
+    memberid,
+    name,
+    address,
+    phone,
+    email,
+    invoice,
+    invoicestorage,
+    invoiceinfo,
+    coupon,
+    orderprice,
+    orderpayment,
+    orderstate
+  }
+  console.log(orderlist)
+
+  // 訂單明細
+  // let orderitem = [
+  //   cart['cate'],
+  //   cart['PId'],
+  //   cart['num'],
+  // ]
+  // cart.map((data, index)=>{
+  //   {data.PId}
+  // })
+  // console.log(orderitem)
+
+  // 信用卡展示區與填寫欄位對應
   // let paybycredit = document.getElementById("paybycredit")
   // console.log(paybycredit)
-
   const getCardnum1 = (e) =>{
     // if (paybycredit.checked ==1) {
       let content1 = document.getElementById("card1")
@@ -74,7 +139,6 @@ function CartPay (props) {
 
   //   }
   // }
-
   // var safecode = "";
   // const getSafeCode = (e) =>{
   //   let safecodecontent = document.getElementById("safecode")
@@ -97,7 +161,7 @@ function CartPay (props) {
                       {/* 選項1：ATM轉帳 */}
 
                       <label>
-                        <input type="radio" name="cart-payment"/> ATM轉帳
+                        <input type="radio" name="cart-payment" value="ATM" onClick={(e)=>{setPayment(e.target.value)}} /> ATM轉帳
                       </label>
                       <div className="cart3-reminder cart3-reminder-green">
                         <span>【詐騙猖獗，小心詐騙】</span><br/>
@@ -128,7 +192,7 @@ function CartPay (props) {
                       {/* 選項2：信用卡付款 */}
 
                       <label>
-                        <input id="paybycredit" type="radio" name="cart-payment"/> 信用卡付款 - 一次付清
+                        <input id="paybycredit" type="radio" name="cart-payment" value="信用卡" onClick={(e)=>{setPayment(e.target.value)}} /> 信用卡付款 - 一次付清
                       </label>
                       {/* VISA Logo */}
                       <div className="cart3-logo-img">
@@ -235,24 +299,29 @@ function CartPay (props) {
               </button>
               <button type="button" onClick={()=>{
 
-              // INSERT INTO `orderlist` (`orderId`, `memberId`, `name`, `address`, `phone`, `email`, `invoice`, `invoiceStorage`, `invoiceInfo`, `coupon`, `orderPrice`, `orderPayment`, `orderState`, `created_at`) VALUES (NULL, '11', '11', '11', '11', '11', '11', '11', '11', '11', '11', '11', '11', current_timestamp());
-
+                // sql語法：INSERT INTO `orderlist` (`orderId`, `memberId`, `name`, `address`, `phone`, `email`, `invoice`, `invoiceStorage`, `invoiceInfo`, `coupon`, `orderPrice`, `orderPayment`, `orderState`, `created_at`) VALUES (NULL, '11', '11', '11', '11', '11', '11', '11', '11', '11', '11', '11', '11', current_timestamp());
 
                 // 新增一筆訂單資料至資料庫
-                // fetch('http://localhost:3030/cart/abc', {
-                //   method: 'POST', // or 'PUT'
-                //   body: JSON.stringify({
-                //     userID,
-                //     changUsername,
-                //     changUserMail,
-                //     changUserBirthday,
-                //     changUserAddress,
-                //     changUserPhone,
-                //   }), // data can be `string` or {object}!
-                //   headers: new Headers({
-                //     'Content-Type': 'application/json',
-                //   }),
-                // })
+                fetch('http://localhost:3030/cart/3', {
+                  method: 'POST', // or 'PUT'
+                  body: JSON.stringify({
+                    memberid,
+                    name,
+                    address,
+                    phone,
+                    email,
+                    invoice,
+                    invoicestorage,
+                    invoiceinfo,
+                    coupon,
+                    orderprice,
+                    orderpayment,
+                    orderstate
+                  }), // data can be `string` or {object}!
+                  headers: new Headers({
+                    'Content-Type': 'application/json',
+                  }),
+                })
                 // .then((res) => res.json())
                 // .then((json) => {
                 //   if (json.code === 3) {
@@ -272,7 +341,7 @@ function CartPay (props) {
 
                 // 更改loclaStorage的coupon使用狀態
                 let couponData = JSON.parse(localStorage.getItem('coupon'))
-                console.log(couponData)
+                // console.log(couponData)
                 couponData[0].couponLocalStorage = 1;
                 localStorage.setItem('coupon', JSON.stringify(couponData))
               }} >
