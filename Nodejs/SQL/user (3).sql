@@ -2,9 +2,9 @@
 -- version 4.9.3
 -- https://www.phpmyadmin.net/
 --
--- 主機： localhost:3306
--- 產生時間： 2020 年 06 月 26 日 13:14
--- 伺服器版本： 5.7.26
+-- 主机： localhost:3306
+-- 生成日期： 2020-07-03 13:00:07
+-- 服务器版本： 5.7.26
 -- PHP 版本： 7.4.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 資料庫： `Coupon`
+-- 数据库： `dulcet_music`
 --
 
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `user`
+-- 表的结构 `user`
 --
 
 CREATE TABLE `user` (
@@ -40,12 +40,12 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- 傾印資料表的資料 `user`
+-- 转存表中的数据 `user`
 --
 
 INSERT INTO `user` (`userID`, `userName`, `userPwd`, `userPhone`, `userMail`, `userBirthday`, `userAddress`, `userImg`, `created_at`, `updated_at`) VALUES
-(1, '傅振帆', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', '0919390001', '001@gmail.com', '1972-04-14', '桃園市龜山區兔坑里017鄰大棟山路５５２號', 'userimg000', '2019-11-25 13:18:46', '2019-11-25 13:18:46'),
-(2, '蔡孟洋', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', '0919390002', '002@gmail.com', '1950-11-26', '桃園市龜山區樂善里013鄰文武街３２號', 'userimg000', '2019-11-26 13:18:46', '2019-11-25 13:18:47'),
+(1, '小丑', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', '091939008', '001@gmail.com', '1950-11-02', '桃園市龜山區樂善里013鄰文武街', '1593769727114.jpg', '2019-11-25 13:18:46', '2020-07-03 17:48:47'),
+(2, '蔡孟洋', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', '0919390002', '002@gmail.com', '1950-11-26', '桃園市龜山區樂善里013鄰文武街３２號', 'userimg000.jpg', '2019-11-26 13:18:46', '2020-07-01 22:44:27'),
 (3, '謝凱成', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', '0919390003', '003@gmail.com', '1912-09-22', '桃園市龜山區公西里013鄰文三一街５０之１號', 'userimg000', '2019-11-27 13:18:46', '2019-11-25 13:18:48'),
 (4, '鄭志賢', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', '0919390004', '004@gmail.com', '1939-06-03', '桃園市龜山區大華里026鄰文七一街１７號', 'userimg000', '2019-11-28 13:18:46', '2019-11-25 13:18:49'),
 (5, '劉原花', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', '0919390005', '005@gmail.com', '1929-10-12', '桃園市龜山區大華里026鄰文七一街１７號四樓', 'userimg000', '2019-11-29 13:18:46', '2019-11-25 13:18:50'),
@@ -146,22 +146,22 @@ INSERT INTO `user` (`userID`, `userName`, `userPwd`, `userPhone`, `userMail`, `u
 (100, '王淑君', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', '0919390100', '100@gmail.com ', '1961-06-24', '新北市蘆洲區正義里003鄰光榮路１２０巷２２弄２６號十樓', 'userimg000', '2020-03-03 13:18:46', '0000-00-00 00:00:00');
 
 --
--- 已傾印資料表的索引
+-- 转储表的索引
 --
 
 --
--- 資料表索引 `user`
+-- 表的索引 `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`userID`),
   ADD UNIQUE KEY `userMail` (`userMail`);
 
 --
--- 在傾印的資料表使用自動遞增(AUTO_INCREMENT)
+-- 在导出的表使用AUTO_INCREMENT
 --
 
 --
--- 使用資料表自動遞增(AUTO_INCREMENT) `user`
+-- 使用表AUTO_INCREMENT `user`
 --
 ALTER TABLE `user`
   MODIFY `userID` int(5) NOT NULL AUTO_INCREMENT COMMENT '會員ID', AUTO_INCREMENT=101;
