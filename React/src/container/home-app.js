@@ -20,15 +20,16 @@ class HomeApp extends Component{
         homeNews:PropTypes.array.isRequired,
         homeSilderNews:PropTypes.object.isRequired,
         homeUser:PropTypes.array.isRequired,
+        cartNum:PropTypes.number.isRequired
     }
 
     render(){
-        const {homeNews,homeSilderNews,homeUser} = this.props;
+        const {homeNews,homeSilderNews,homeUser,cartNum} = this.props;
         return(
             <>
                 {/*<Navbar HomeLogo2={HomeLogo2} homeUser={homeUser}/>*/}
                 <HomeSliderIndex />
-                <HomeNavbarIndex HomeLogo2={HomeLogo2} homeUser={homeUser}/>
+                <HomeNavbarIndex HomeLogo2={HomeLogo2} homeUser={homeUser} cartNum={cartNum}/>
                 <HomeSliderNews homeSilderNews={homeSilderNews}/>
                 <Games />
                 <HomeSlogan />

@@ -166,7 +166,7 @@ class Games extends Component{
 
         // 倒數計時訊息
         const timeDisplay = success ? (
-            <p className="games-times">視窗將於<span> {6-time} </span>後關閉</p>
+            <p className="games-times">視窗將於<span> {5-time} </span>後關閉</p>
         ) : ('');
 
         // 失敗訊息

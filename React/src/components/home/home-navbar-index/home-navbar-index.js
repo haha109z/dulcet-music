@@ -19,10 +19,11 @@ class HomeNavbarIndex extends Component{
       scrolled:false
     }
     const getScroll = this.getScroll.bind(this);
-  }  
+  }
 
   static propTypes = {
         HomeLogo2 : PropTypes.string.isRequired,
+        cartNum:PropTypes.number.isRequired
     }
 
   getScroll = () => {
@@ -44,7 +45,7 @@ class HomeNavbarIndex extends Component{
   }
 
   render(){
-    const {homeUser} = this.props;
+    const {homeUser,cartNum} = this.props;
       return (
           <>
         <div className={this.state.scrolled ? 'home-navwrap' : ''} id="home-navWrap">
@@ -121,7 +122,7 @@ class HomeNavbarIndex extends Component{
                   <NavbarUser/>
                 </div>
               <div className="home-items home-shopping">
-                <NavbarShoppingCart />
+                <NavbarShoppingCart cartNum={cartNum}/>
               </div>
             </div>
           </div>

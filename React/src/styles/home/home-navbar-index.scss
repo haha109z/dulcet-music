@@ -108,7 +108,7 @@
   .home-navlist .home-items > a,
   .home-navuser .home-items > a {
     display: block;
-    // padding: 0 2.14rem;    
+    // padding: 0 2.14rem;
     padding: 0 2.3vw;
     text-decoration: none;
     color: var(--main-colorfff);
@@ -216,8 +216,8 @@
       background: red;
       border-radius: 50%;
       position: absolute;
-      top: 10px;
-      left: 60%;
+      top: 10%;
+      left: 75%;
       margin: 0;
     }
 
@@ -308,7 +308,7 @@
     color: var(--main-colorblock);
   }
 
-  
+
 
   .home-navlist .home-items > a {
     color: var(--main-colorblock);

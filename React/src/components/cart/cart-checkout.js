@@ -41,17 +41,10 @@ function CartCheckout (props) {
     setReceivingEmail,    
     radiostate, 
     setRadiostate, 
-    radiocallback,
     invoiceInfo,
     setInvoiceInfo,
-    // invoiceInfo2,
-    // setInvoiceInfo2,
-    // invoiceInfo3,
-    // setInvoiceInfo3,
-    // invoiceInfo4,
-    // setInvoiceInfo4,
-    // invoiceInfo5,
-    // setInvoiceInfo5,
+    invoiceType,
+    setInvoiceType,
    } = props.allProps;  
   //  console.log(discount);
   
@@ -74,50 +67,73 @@ function CartCheckout (props) {
   setOrderPrice(orderprice);
   // console.log(orderPrice);
   
-  
-  // let stock = cart[0].PQty;
 
+  // radiocallback函式：點擊時切換radio選取狀態並根據選項儲存發票資訊
+  const radiocallback = (e) =>{
+    // console.log('radiocallback') 
+    // console.log(e);       
+    // setInvoiceInfo('')
+    // console.log(document.getElementById("invoice2").checked)
+    let radiostate1 = document.getElementById("invoice1").checked;
+    let radiostate2 = document.getElementById("invoice2").checked;
+    let radiostate3 = document.getElementById("invoice3").checked;
+    let radiostate4 = document.getElementById("invoice4").checked;
+    setRadiostate([radiostate1, radiostate2, radiostate3, radiostate4])
+    // console.log(e.value);
 
+    let invoiceinfo2 = document.getElementById("invoicev").value;
+    var selectindex = document.querySelector("select").selectedIndex;
+    let invoiceinfo3 = document.querySelector("select").options[selectindex].value;
+    let invo4value1= document.getElementsByClassName("companyinvoice")[0].value;
+    let invo4value2= document.getElementsByClassName("companyinvoice")[1].value;
+    let invoiceinfo4 = [ (invo4value1==0? '' :invo4value1), (invo4value2==0? '':invo4value2)];
+    // console.log(invoiceinfo4);
+    // A == true ? A.value : (B == true ? B.value : (C == 1 ? C.value : (D == 1 ? D.value : '' )) )
+    setInvoiceInfo(
+      radiostate1 == 1 ? '' : (radiostate2 == 1 ? invoiceinfo2 : (radiostate3 == 1 ? invoiceinfo3 : (radiostate4 == 1 ? invoiceinfo4 : '' )))
+    )
 
-  // 引入彈跳框插件
-  // MySwal.fire({
-  //   type: 'warning', // 彈框類型
-  //   title: '修改資料？', //標題
-  //   text: '', //顯示內容
-  //   icon: '', //icon圖示
-  //   confirmButtonColor: '#141414', // 確定按鈕的 顏色
-  //   confirmButtonText: '確定', // 確定按鈕的 文字
-  //   showCancelButton: true, // 是否顯示取消按鈕
-  //   cancelButtonColor: '#dadada', // 取消按鈕的 顏色
-  //   cancelButtonText: '取消', // 取消按鈕的 文字
-    // html:
-    //   `<p class="userdata-alert-p">姓名</p>` +
-    //   `<input id="swal-input1" class="swal2-input" value=${userName}>` +
-    //   `<p class="userdata-alert-p">電子信箱</p>` +
-    //   `<input id="swal-input2" class="swal2-input" value=${userMail}>` +
-    //   `<p class="userdata-alert-p">生日</p>` +
-    //   `<input id="swal-input3" class="swal2-input" type="date" value=${userBirthday}>` +
-    //   `<p class="userdata-alert-p">地址</p>` +
-    //   `<input id="swal-input4" class="swal2-input" value=${userAddress}>` +
-    //   `<p class="userdata-alert-p">手機號碼</p>` +
-    //   `<input id="swal-input5" class="swal2-input" value=${userPhone}>`,
-  //   focusCancel: true, // 是否聚焦 取消按鈕
-  //   reverseButtons: true, // 是否 反轉 兩個按鈕的位置 默認是  左邊 確定  右邊 取消
-  // })
-
-
-
-  const changeInvoiceInfo = (e) => {
-    console.log(e) 
-    console.log(radiostate)
-    // 切換radio選項時，先清空invoiceInfo
-    if (radiostate==0) {
-      setInvoiceInfo('')
-    }
-    // setInvoiceInfo( 
-    //   radiostate1 == 1 ? '' : (radiostate2 == 1 ? invoiceinfo2 : (radiostate3 == 1 ? invoiceinfo3 : (radiostate4 == 1 ? invoiceinfo4 : '' )))
-    // )
+    // radiostate1 == 0? setInvoiceInfo1('') : setInvoiceInfo1(invoiceinfo1) 
   }
+  useEffect(()=>{
+    // setInvoiceInfo('')
+    radiocallback(invoiceInfo)
+  },[])
+  // console.log(radiostate)
+  // console.log(radiostate[0])
+  // console.log(invoiceInfo);
+  // console.log(invoiceType);
+  
+
+  // const radiocallback = (e) =>{
+  //   // console.log(e);
+  //   // console.log(e.checked)
+  //   // console.log(e.value); 
+  //   setRadiostate(e.checked)
+  //   if (radiostate == 1) {   
+  //     // alert(e.value)
+  //     setInvoiceType(e.value) 
+  //   }
+  // }
+  // 根據radio狀態切換發票資訊畫面
+  // useEffect(()=>{
+  //   radiocallback(invoiceType)
+  // },[])
+  // console.log(radiostate)
+  // console.log(invoiceType)
+
+
+  // const changeInvoiceInfo = (e) => {
+  //   console.log(e) 
+  //   console.log(radiostate)
+  //   // 切換radio選項時，先清空invoiceInfo
+  //   if (radiostate==0) {
+  //     setInvoiceInfo('')
+  //   }
+  //   // setInvoiceInfo( 
+  //   //   radiostate1 == 1 ? '' : (radiostate2 == 1 ? invoiceinfo2 : (radiostate3 == 1 ? invoiceinfo3 : (radiostate4 == 1 ? invoiceinfo4 : '' )))
+  //   // )
+  // }
 
 
     return (
@@ -144,8 +160,6 @@ function CartCheckout (props) {
                   cart,
                   setCart,
                   totalPrice,
-                  // minusCartNumber,
-                  // plusCartNumber,
               }}
               />
           </div>
@@ -183,7 +197,10 @@ function CartCheckout (props) {
                     <div>
                       <label>
                         <input type="radio" name="invoice" id="invoice1" value="會員載具" 
-                          onClick={(e)=>{ radiocallback(e.target) }}
+                          onClick={(e)=>{ 
+                            radiocallback(e.target) 
+                            setInvoiceType(e.target.value)
+                          }}
                         /> 會員載具
                       </label>
                       <span>中獎時我們會將發票寄送至您的收件地址</span>
@@ -194,7 +211,10 @@ function CartCheckout (props) {
                     <div>
                       <label>
                         <input type="radio" name="invoice" id="invoice2" value="手機條碼載具" 
-                          onClick={(e)=>{ radiocallback(e.target) }}
+                          onClick={(e)=>{ 
+                            radiocallback(e.target) 
+                            setInvoiceType(e.target.value)
+                          }}
                         /> 手機條碼載具
                       </label>
                       <div className="cart-input1">
@@ -214,11 +234,18 @@ function CartCheckout (props) {
                     <div style={{padding:'0 0 20px 0'}}>
                       <label>
                         <input type="radio" name="invoice" id="invoice3" value="捐贈發票" 
-                          onClick={(e)=>{ radiocallback(e.target) }}
+                          onClick={(e)=>{ 
+                            radiocallback(e.target) 
+                            setInvoiceType(e.target.value)
+                          }}
                         /> 捐贈發票
                       </label>
                       <span>提醒您，捐贈發票後無法變更成開立或索取紙本發票。</span>
-                      <select>
+                      <select onChange={(e)=>{
+                        if (document.getElementById('invoice3').checked) {                          
+                          setInvoiceInfo(e.target.value)
+                        }
+                      }}>
                         <option value="台灣流浪兔保護協會">台灣流浪兔保護協會</option>
                         <option value="社團法人台灣愛兔協會">社團法人台灣愛兔協會</option>
                         <option value="財團法人陽光社會福利基金會">財團法人陽光社會福利基金會</option>
@@ -230,7 +257,10 @@ function CartCheckout (props) {
                     <div>
                       <label>
                         <input type="radio" name="invoice" id="invoice4" value="公司戶發票" 
-                          onClick={(e)=>{ radiocallback(e.target) }}
+                          onClick={(e)=>{ 
+                            radiocallback(e.target) 
+                            setInvoiceType(e.target.value)
+                          }}
                         /> 公司戶
                       </label>
                       <span>提醒您，公司戶發票一旦開立，不得任意更改或改為個人戶發票。</span>
@@ -320,6 +350,7 @@ function CartCheckout (props) {
 
           {/* 按鈕區 */}
           <div className="cart-checkout-btn">
+
             <button type="button"
               onClick={()=>{
                 window.history.back()
@@ -327,9 +358,25 @@ function CartCheckout (props) {
             >
               繼續購物   
             </button>
-            <button type="button">
-              <Link to='/cart/2'>下一步</Link>
-            </button>
+
+            {/* 購物車無商品時阻擋使用者繼續進入結帳頁面 */}
+            {localStorage.getItem('cart')===null ? (
+
+                <button id="nextstep" type="button" onClick={(e)=>{
+                  MySwal.fire('購物車內無商品無法進行結帳', '', 'error')
+                }}>
+                  下一步
+                </button>
+
+              ):(
+
+                <button id="nextstep" type="button">
+                  <Link to='/cart/2'>下一步</Link>
+                </button>
+
+              )            
+            }
+            
           </div>
 
       </>

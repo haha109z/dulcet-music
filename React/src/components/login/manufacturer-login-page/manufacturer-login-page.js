@@ -72,6 +72,7 @@ function MLoginPage(props) {
             }else{
                 // console.log(MData[0].Mpwd)
               if(sha1(Mpwd) != MData[0].Mpwd) errors.push('123密碼錯誤');
+              // else{return false}
             }
         }
         //   console.log(MData);   

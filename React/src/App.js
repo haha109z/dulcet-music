@@ -81,7 +81,7 @@ function App() {
       <>
         <ScrollToTop>
           <Route path="/" exact>
-            <HomeApp />
+            <HomeApp cartNum={cartNum} setCartNum={setCartNum}/>
           </Route>
 
           <Route path="/course">
@@ -130,7 +130,7 @@ function App() {
           </Route>
 
           <Route path="/user">
-            <UserApp />
+            <UserApp cartNum={cartNum} setCartNum={setCartNum} />
           </Route>
 
           <Route path="/ManufacturerVideo">
@@ -146,7 +146,15 @@ function App() {
             {/* <CartCheckOrder /> */}
             {/* <CartPay /> */}
             {/* <CartEnd /> */}
-            <CartApp />
+            {/* <CartApp
+              allProps={{
+                cartNum,
+                setCartNum,
+              }}
+            /> */}
+            <CartApp
+              cartNum={cartNum} setCartNum={setCartNum}
+            />
           </Route>
           {/* <Route path="/cart1" exact>
           <CartCheckout />
