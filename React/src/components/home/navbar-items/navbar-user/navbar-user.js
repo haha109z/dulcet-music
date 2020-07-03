@@ -118,7 +118,37 @@ class NavbarUser extends Component{
             </div>
         )
 
-        const userShow = this.state.login ? userLoginArea : userIcon ;
+        // 廠商名字與下拉區
+        const MuserLoginArea = (
+            <div>
+                <a href="/ManufacturerInstrument/InstrumentHome" className="home-username">
+                    <img className="home-username-img" src={userImgs}></img>
+                </a>
+                <ul className="home-nav-userlogin" style={{display}}>
+                    <li>
+                        <a href="/ManufacturerInstrument/InstrumentHome">我的帳戶</a>
+                    </li>
+                    <li>
+                        <a href="/ManufacturerInstrument/InstrumentOrder">訂單列表</a>
+                    </li>
+                    <li>
+                        <a href="/ManufacturerInstrument/InstrumentList">樂器列表</a>
+                    </li>
+                    <li>
+                        <a href="/ManufacturerInstrument/InstrumentList">新增樂器</a>
+                    </li>
+                    <li>
+                        <span className="home-username-logout"
+                        onClick={
+                            this.logoutProcess
+                          }
+                        >登出</span>
+                    </li>
+                </ul>
+            </div>
+        )
+
+        const userShow = this.state.login ? (user.userID ? userLoginArea : MuserLoginArea) : userIcon ;
 
         return (
         <>
