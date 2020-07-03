@@ -43,21 +43,21 @@ function CartPay (props) {
   orderprice = orderPrice,
   orderpayment = payment,
   orderstate = payment=='ATM'? '待付款' : '完成'
-  let orderlist = {
-    memberid,
-    name,
-    address,
-    phone,
-    email,
-    invoice,
-    invoicestorage,
-    invoiceinfo,
-    coupon,
-    orderprice,
-    orderpayment,
-    orderstate
-  }
-  console.log(orderlist)
+  // let orderlist = {
+  //   memberid,
+  //   name,
+  //   address,
+  //   phone,
+  //   email,
+  //   invoice,
+  //   invoicestorage,
+  //   invoiceinfo,
+  //   coupon,
+  //   orderprice,
+  //   orderpayment,
+  //   orderstate
+  // }
+  // console.log(orderlist)
 
   // 訂單明細
   // let orderitem = [
@@ -340,10 +340,10 @@ function CartPay (props) {
                 // })
 
                 // 更改loclaStorage的coupon使用狀態
-                let couponData = JSON.parse(localStorage.getItem('coupon'))
-                // console.log(couponData)
-                couponData[0].couponLocalStorage = 1;
-                localStorage.setItem('coupon', JSON.stringify(couponData))
+                // let couponData = JSON.parse(localStorage.getItem('coupon'))
+                // // console.log(couponData)
+                // couponData[0].couponLocalStorage = 1;
+                // localStorage.setItem('coupon', JSON.stringify(couponData))
               }} >
                 <Link to='/cart/4'>確認送出</Link>
               </button>

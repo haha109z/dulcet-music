@@ -216,7 +216,7 @@ export default function CartItem (props) {
                             localStorage.setItem('cart', JSON.stringify(a))
                             // console.log(cart.length)
                             // 刪除商品時，更新購物車圖示中數量
-                            console.log(cartNum-1)
+                            // console.log(cartNum-1)
                             setCartNum(cartNum-1)
                             // 刪至localStorage cart無資料時，清空cart空陣列
                             if (cart.length===1) {

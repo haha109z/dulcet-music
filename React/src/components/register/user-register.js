@@ -165,7 +165,7 @@ class UserRegistered extends Component{
         );
 
         const checkPhone = phoneReg ? '' : (
-            <div className="user-register-dobluecheckPhone">請輸入正確的手機格式 09xx-xxx-xxx </div>
+            <div className="user-register-dobluecheckPhone">請輸入正確的手機格式 09xxxxxxxx </div>
         )
 
         const checkEmail = emailReg ? '' : (
@@ -173,10 +173,11 @@ class UserRegistered extends Component{
         )
 
         const regSuccess = registerSuccess ? this.registerSuccess():'';
+        const {cartNum,setCartNum} = this.props;
 
         return(
             <>
-            <Navbar />
+            <Navbar cartNum={cartNum}/>
             <div className="container user-register-wrap">
                 <div className="user-register-body row">
                     <div className="user-register-txt col-md-12">

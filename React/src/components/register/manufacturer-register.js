@@ -12,7 +12,7 @@ const MySwal = withReactContent(Swal);
 class ManufacturerRegistered extends Component{
     state = {
         showPwd:false,
-        showComPwd:false,    
+        showComPwd:false,
         Mname:'',
         Memail:'',
         Maddress:'',
@@ -111,7 +111,7 @@ class ManufacturerRegistered extends Component{
 
       }
       CompantyBtn=()=>{
-          
+
 let {
     Mname,
     Memail,
@@ -146,20 +146,20 @@ fetch('http://localhost:3030/register/manufacturer', {
                     Mimg,
                     Mpwd,
                     Mcategory,
-                  }), 
+                  }),
                   headers: new Headers({
                     'Content-Type': 'application/json',
-                  }),  
+                  }),
                 })
                   .then((res) => res.json())
-                  .then((json) => {  
+                  .then((json) => {
                     this.setState({news123:json})
                     console.log(this.state)
                   })
                   .catch((error) => {
                     console.error('Error:', error)
                   })
-                  
+
   this.setState({ Mname: this.state.Mname })
   this.setState({ Memail: this.state.Memail })
   this.setState({ Maddress: this.state.Maddress })
@@ -172,25 +172,25 @@ fetch('http://localhost:3030/register/manufacturer', {
 //   console.log(Mpwd)
 //   if(Mpwd<=4){
 //     MySwal.fire({
-        
+
 //         position: 'top-center',
 //         icon: 'error',
 //         title: '確認密碼與當前密碼不符合',
 //         showConfirmButton: false,
 //         timer: 2000
-        
+
 //     })
 //   }
 
  if(MpwdCheck===Mpwd&&Mtelephone!==''&&Muser!==''&&Maddress!==''&&Mphone!==''&&Memail!==''&&Mname!==''){
     MySwal.fire({
-        
+
         position: 'top-center',
         icon: 'success',
         title: '註冊成功',
         showConfirmButton: false,
         timer: 2000
-        
+
     })
     setTimeout(()=>{
         window.location = "/"
@@ -204,7 +204,7 @@ fetch('http://localhost:3030/register/manufacturer', {
             timer: 2000
         })
     }
- 
+
   console.log(this.state)
       }
     render(){
@@ -230,6 +230,7 @@ fetch('http://localhost:3030/register/manufacturer', {
         const checkPwddobule = checkPwd ? '' : (
             <div className="user-register-dobluecheckPwd" style={{color:'red'}}>兩次密碼不相符，請再確認</div>
         );
+
         return(
             <>
             <Navbar />
@@ -251,17 +252,17 @@ fetch('http://localhost:3030/register/manufacturer', {
       </select>
       </div>
                     <div className="form-group">
-                 
+
                         <label htmlFor="facturerRegisterName" className="col-md-12 control-label">廠商名稱</label>
-                        <input type="text" name="facturerRegisterName" className="form-control col-md-12" id="facturerRegisterName" placeholder="請輸入姓名" 
-                                     
+                        <input type="text" name="facturerRegisterName" className="form-control col-md-12" id="facturerRegisterName" placeholder="請輸入姓名"
+
                         onChange={this.handleMname}
                         />
                     </div>
                     <div className="form-group">
                     {checkEmail}
                         <label htmlFor="facturerRegisterEmail" className="col-md-12 control-label">電子信箱</label>
-                        <input type="email" name="facturerRegisterEmail" className="form-control col-md-12" id="facturerRegisterEmail" placeholder="請輸入電子信箱" 
+                        <input type="email" name="facturerRegisterEmail" className="form-control col-md-12" id="facturerRegisterEmail" placeholder="請輸入電子信箱"
                         onBlur={this.emailBlur}
                         onChange={this.handleMemail}
                         />
@@ -274,7 +275,7 @@ fetch('http://localhost:3030/register/manufacturer', {
                     </div>
                     <div className="form-group">
                         <label htmlFor="facturerRegisterPhon" className="col-md-12 control-label">公司電話</label>
-                        <input type="text" name="facturerRegisterPhon" className="form-control col-md-12" id="facturerRegisterPhon" placeholder="請輸入公司電話" 
+                        <input type="text" name="facturerRegisterPhon" className="form-control col-md-12" id="facturerRegisterPhon" placeholder="請輸入公司電話"
                         maxLength="9"
                             onChange={this.handleMphone}
                         />
@@ -282,7 +283,7 @@ fetch('http://localhost:3030/register/manufacturer', {
                     <div className="form-group">
                         <label htmlFor="facturerRegisterPrincipal" className="col-md-12 control-label">負責人</label>
                         <input type="text"  name="facturerRegisterPrincipal" className="form-control col-md-12" id="facturerRegisterPrincipal" placeholder="請輸入負責人姓名"
-                         maxLength="6" 
+                         maxLength="6"
                             onChange={this.handleMuser}
                         />
                     </div>
@@ -296,9 +297,9 @@ fetch('http://localhost:3030/register/manufacturer', {
                         />
                     </div>
                     <div className="form-group facturer-pw-form">
-                    
+
                         <label htmlFor="facturerRegisterPassword" className="col-md-12 control-label">密碼</label>
-                        <input type={pwdType}  name="facturerRegisterPassword" className="form-control" id="facturerRegisterPassword" placeholder="請輸入密碼" 
+                        <input type={pwdType}  name="facturerRegisterPassword" className="form-control" id="facturerRegisterPassword" placeholder="請輸入密碼"
                        maxLength="15" minLength="4"
                             onChange={this.handleMpwd}
                         />
@@ -314,22 +315,22 @@ fetch('http://localhost:3030/register/manufacturer', {
                     <div className="form-group facturer-pwCom-form">
                     {checkPwddobule}
                         <label htmlFor="facturerRegisterPasswordComfirm" className="col-md-12 control-label">確認密碼</label>
-                        <input type={pwdComType} name="facturerRegisterPasswordComfirm"  className="form-control" id="facturerRegisterPasswordComfirm" placeholder="請確認密碼" 
+                        <input type={pwdComType} name="facturerRegisterPasswordComfirm"  className="form-control" id="facturerRegisterPasswordComfirm" placeholder="請確認密碼"
                         maxLength="15" minLength="4"
                             onChange={this.handleMpwdCheck}
                         />
-                        
+
                         <div onClick={this.handleClickCom}>
                             <div className="facturer-register-eye" style={{display:showComPwdDisplay}} >
                                 <i className="fas fa-eye"></i>
                             </div>
                             <div className="facturer-register-eye" style={{display:showComPwdDisplay2}}>
                             <i className="fas fa-eye-slash"></i>
-                            </div>  
+                            </div>
                         </div>
                     </div>
                     {/* 選擇樂器以及廠商 */}
-                    
+
                     <div className="form-group form-check col-md-12">
                         <input type="checkbox" className="register-check-input " id="userCheckMe" />
                         <label className="register-check-label" htmlFor="userCheckMe">我接受<Link to="">服務條款&隱私政策</Link></label>

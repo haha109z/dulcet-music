@@ -170,11 +170,11 @@ function App() {
         </Route> */}
 
           <Route path="/login">
-            <AllLoginPage />
+            <AllLoginPage cartNum={cartNum} setCartNum={setCartNum}/>
           </Route>
 
           <Route path="/register/user">
-            <UserRegistered />
+            <UserRegistered cartNum={cartNum} setCartNum={setCartNum}/>
           </Route>
 
           <Route path="/register/manufacturer">
