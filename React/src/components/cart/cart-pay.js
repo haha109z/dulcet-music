@@ -18,7 +18,12 @@ function CartPay (props) {
     buyAll,
     setCartNum,
   } = props.allProps;
-
+  console.log(cart);
+  
+  const newData = cart.map((v)=>({"PId":v.PId,"PCategoryId":v.PCategoryId,"num":v.num}))
+  console.log(newData);
+  
+  
   // 付款方式
   const [payment, setPayment]=useState('')
 
@@ -318,7 +323,8 @@ function CartPay (props) {
                     coupon,
                     orderprice,
                     orderpayment,
-                    orderstate
+                    orderstate,
+                    newData
                   }), // data can be `string` or {object}!
                   headers: new Headers({
                     'Content-Type': 'application/json',
