@@ -70,7 +70,7 @@ function ProductIntroBtn(props) {
             let addBool = false
             if (arrCart == null) {
               dataCart[0].num = amount
-              setAmount(0)
+              setAmount(1)
               setDataP(dataCart)
               localStorage.setItem('cart', JSON.stringify(dataCart))
               MySwal.fire('已加入購物車', '', 'success')
