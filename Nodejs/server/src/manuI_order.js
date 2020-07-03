@@ -14,24 +14,7 @@ router.post("/", async (req, res) => {
     let resData = { code: "", msg: "" };
     
     const newData = await query(
-      `SELECT 
-      orderlist.orderId, 
-      orderlist.orderState, 
-      orderlist.address, 
-      orderlist.phone, 
-      orderlist.name, 
-      orderlist.created_at, 
-      orderitem.cartNumber, 
-      orderitem.productCategory,
-      orderitem.orderItem,
-      product_instruments.PCategoryId, 
-      product_instruments.PName, 
-      product_instruments.PImg, 
-      product_instruments.PPrice, 
-      product_instruments.PCompanyId, 
-      product_instruments.PId
-        FROM ( orderlist LEFT JOIN orderitem ON orderlist.orderId = orderitem.orderId ) LEFT JOIN product_instruments ON orderitem.productId = product_instruments.PId WHERE product_instruments.PCompanyId = ? AND orderitem.productCategory = '樂器' ORDER BY product_instruments.PCompanyId ASC
-      `,
+      `SELECT orderlist.orderId, orderlist.orderState, orderlist.address, orderlist.phone, orderlist.name, orderlist.created_at, orderitem.cartNumber, orderitem.orderItem, orderitem.productCategory, product_instruments.PCategoryId,product_instruments.PInstrumentId,product_instruments.Pdesciption, orderlist.orderPrice,product_instruments.PName, product_instruments.PImg, product_instruments.PPrice, product_instruments.PCompanyId, product_instruments.PId FROM ( orderlist LEFT JOIN orderitem ON orderlist.orderId = orderitem.orderId ) LEFT JOIN product_instruments ON orderitem.productId = product_instruments.PId WHERE product_instruments.PCompanyId = '1' AND orderitem.productCategory = '樂器' ORDER BY orderlist.created_at DESC`,
       [Mid]
     );
     resData = { code: 0, msg: "正確", data: newData };

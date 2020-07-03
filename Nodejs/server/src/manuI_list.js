@@ -13,7 +13,7 @@ router.post('/',async (req,res) => {
     let resData = { code:'',msg :''};
     
 
-    const [listdata] = await query(`SELECT * FROM product_instruments WHERE PCompanyId = ?`,
+    const listdata = await query(`SELECT * FROM product_instruments WHERE PCompanyId = ?`,
         [Mid]
     );
     console.log(Mid.type)

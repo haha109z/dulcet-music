@@ -52,7 +52,7 @@ app.use("/ManufacturerInstrument/InstrumentHome",require(__dirname + "/manuI_use
 app.use("/ManufacturerInstrument/InstrumentPassword",require(__dirname + "/manuI_userpwd"));
 app.use("/ManufacturerInstrument/InstrumentPutOn",require(__dirname + "/manuI_puton"));
 app.use("/ManufacturerInstrument/InstrumentList",require(__dirname + "/manuI_list"));
-// app.use("/ManufacturerInstrument/InstrumentOrder",require(__dirname + "/manuI_order"));
+app.use("/ManufacturerInstrument/InstrumentOrder",require(__dirname + "/manuI_order"));
 app.use("/ManufacturerVideo/VideoHome",require(__dirname + "/manuV_userdata"));
 
 
