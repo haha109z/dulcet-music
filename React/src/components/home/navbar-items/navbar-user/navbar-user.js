@@ -12,8 +12,8 @@ const getUserInfo = () => {
     return JSON.parse(localStorage.getItem('user'));
   }
 
-const clearUserInfo = () =>{
-    return localStorage.clear('user');
+const removeUserInfo = () =>{
+    return localStorage.removeItem('user');
 }
 
 class NavbarUser extends Component{
@@ -54,7 +54,7 @@ class NavbarUser extends Component{
     }
 
     logoutProcess = () => {
-        let user = clearUserInfo();
+        let user = removeUserInfo();
         this.setState({user:[]});
         this.setState({login:false})
         this.logoutSuccess();
