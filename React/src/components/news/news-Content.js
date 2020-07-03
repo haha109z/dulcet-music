@@ -1,36 +1,30 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect,useRef } from 'react'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import { FaShareAlt } from 'react-icons/fa'
+import useClipboard from "react-use-clipboard";
+import withReactContent from 'sweetalert2-react-content'
+import Swal from 'sweetalert2'
+
 
 import { withRouter } from 'react-router-dom'
 
 function NewsContent(props) {
-
-  let showNewsCategory = ''
-  if (props.data.NewsCategory === '課程') {
-    showNewsCategory = '課程'
-  } else if (props.data.NewsCategory === '活動') {
-    showNewsCategory = '活動'
-  } else if (props.data.NewsCategory === '公告') {
-    showNewsCategory = '公告'
-  } else {
-    showNewsCategory = '全部'
-  }
+  const MySwal = withReactContent(Swal)
+  const [isCopied, setCopied] = useClipboard('http://localhost:3000/news-content' + '/'+ props.data.NewsID);
 
   return (
-    <>
-
-      
+    <> 
       <div className="news-Content">
+
         <img
           className="news-ContentImg"
           src={`http://localhost:3030/images/news/${props.data.NewsImg}`}
         ></img>
 
         <p className="news-H3 news-LetterSpacing news-NotoSerifTC news-ShareContent">
-          <Link className="news-Share" to="">
-            <FaShareAlt class="news-H3" />
+          <Link className="news-Share" id="news-Share" onClick={setCopied}>
+            <FaShareAlt className="news-H3" />
           </Link>
           {props.data.NewsTitle}
           <br />
@@ -47,7 +41,7 @@ function NewsContent(props) {
         <div className="news-ContetnBtn">
           <Link
             className="news-Merienda news-ViewBtn"
-            to={'/news' + '/'+ props.data.NewsID}
+            to={'/news-content' + '/'+ props.data.NewsID}
           >
             View More...
           </Link>

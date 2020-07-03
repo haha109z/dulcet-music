@@ -3,109 +3,106 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import Navbar from '../components/navbar/navbar'
 import NewsSliders from '../components/news/news-Sliders'
 import NewsContentA from '../components/news/news-Content'
+import NewsCategory from '../components/news/news-Category'
 import NewsHot from '../components/news/news-Hot'
 import { IoMdArrowDropright } from 'react-icons/io'
 import { IoMdArrowDropleft } from 'react-icons/io'
+import { Pagination } from 'react-bootstrap'
 
 import { withRouter } from 'react-router-dom'
 //redux
 import { connect } from 'react-redux'
 //action
 import { bindActionCreators } from 'redux'
-import { getNewsContent } from '../redux/action-types'
+import { getNewsContent, getNewsCategory } from '../redux/action-types'
 
 function News(props) {
+  const page = props.match.params.page || ''
+  console.log(page)
+
+  const { cartNum, setCartNum } = props
+
   useEffect(() => {
-    console.log(props)
-    props.getNewsContent()
+    if (new URLSearchParams(props.location.search).get('NewsCategory')) {
+      props.getNewsCategory(page)
+      console.log(props.location.search)
+    } else {
+      props.getNewsContent(page)
+    }
   }, [])
 
-  const [newNewsCategory, setNewNewsCategory] = useState('')
-  function changeNewsCategory(newNewsCategory) {
-    setNewNewsCategory(newNewsCategory)
+  let pages = []
+  for (
+    let number = props.post.page - 5;
+    number <= props.post.page + 5;
+    number++
+  ) {
+    if (number < 1 || number > props.post.totalPages) continue
+
+    pages.push(
+      <Pagination.Item
+        key={number}
+        onClick={() => {
+          if (new URLSearchParams(props.location.search).get('NewsCategory')) {
+            props.history.push('/news/' + number + props.location.search)
+            props.getNewsCategory(number)
+          } else {
+            props.history.push('/news/' + number)
+            props.getNewsContent(number)
+          }
+        }}
+      >
+        {number}
+      </Pagination.Item>
+    )
   }
 
-  const [newNewsDate, setNewNewsDate] = useState('')
-  function changeNewsDate(newNewsDate) {
-    setNewNewsDate(newNewsDate)
-  }
+  //設定分頁容納節點
+  const paginationBasic = (
+    <Pagination className="d-flex justify-content-center news-Arrow" size="md">
+      <Pagination.Prev
+      className="news-Arrow"
+        href={
+          '/news/' +
+          (props.post.page === 1 ? 1 : props.post.page - 1) +
+          (new URLSearchParams(props.location.search).get('NewsCategory')
+            ? props.location.search
+            : '')
+        }
+      />
+      {pages.slice(0, 5)}
+      <Pagination.Next
+        href={
+          '/news/' +
+          (props.post.page === props.post.totalPages
+            ? props.post.totalPages
+            : props.post.page + 1) +
+          (new URLSearchParams(props.location.search).get('NewsCategory')
+            ? props.location.search
+            : '')
+        }
+      />
+    </Pagination>
+  )
 
   return (
     <>
-      <Navbar />
+      <Navbar cartNum={cartNum} />
       <NewsSliders />
       <div className="news-ContentContainer">
-        <div className="news-CategoryContainer d-flex news-NotoSerifTC">
-          <div className="news-Category">
-            <ul className="d-flex justify-content-start">
-              <Link onClick={() => changeNewsCategory('')}>
-                <li>
-                  <p>全部</p>
-                </li>
-              </Link>
-              <Link onClick={() => changeNewsCategory('課程')}>
-              <li>
-                <p>課程</p>
-              </li>
-              </Link>
-              <Link onClick={() => changeNewsCategory('公告')}>
-              <li>
-                <p>公告</p>
-              </li>
-              </Link>
-              <Link onClick={() => changeNewsCategory('活動')}>
-              <li>
-                <p>活動</p>
-              </li>
-              </Link>
-            </ul>
-          </div>
-        </div>
+        <NewsCategory />
+
         <NewsHot />
 
-        {props.post &&
-          props.post.map((value, index) => {
-
-            if (newNewsCategory) {
-              if (props.post[index].NewsCategory === newNewsCategory) {
-                return (
-                  <NewsContentA
-                    key={index}
-                    data={props.post[index]}
-                    changeNewsCategory={props.post.NewsCategory}
-                  />
-                )
-              }
-            } else {
-              return <NewsContentA key={index} data={props.post[index]} />
-            }
-
+        {props.post.rows &&
+          props.post.rows.map((value, index) => {
+            return <NewsContentA key={index} data={props.post.rows[index]} />
           })}
       </div>
 
+      {/*頁數*/}
       <div className="news-ContentContainer">
-        {/*頁數*/}
-        <div className="news-Content">
-          <Router>
-            <div id="news-pages-list">
-              <Link className="news-pages" to="">
-                <IoMdArrowDropleft className="news-pages-arrows" />
-              </Link>
-              <Link className="news-pages" to="">
-                1
-              </Link>
-              <Link className="news-pages" to="">
-                2
-              </Link>
-              <Link className="news-pages" to="">
-                3
-              </Link>
-              <Link className="news-pages" to="">
-                <IoMdArrowDropright className="news-pages-arrows" />
-              </Link>
-            </div>
-          </Router>
-        </div>
+        <div className="news-Content">{paginationBasic}</div>
       </div>
     </>
   )
@@ -116,7 +113,7 @@ const mapStateToProps = (store) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({ getNewsContent }, dispatch)
+  return bindActionCreators({ getNewsContent, getNewsCategory }, dispatch)
 }
 // 不使用這個值，略過後自動綁定store的dispatch方法到這個元件的props
 //const mapDispatchToProps = null

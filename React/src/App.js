@@ -95,11 +95,11 @@ function App() {
           </Route>
 
           <Switch>
-            <Route path="/news" exact>
-              <News />
+            <Route path="/news/:page?">
+              <News cartNum={cartNum} setCartNum={setCartNum}  />
             </Route>
-            <Route path="/news/:NewsID?">
-              <NewsPages />
+            <Route path="/news-content/:NewsID?">
+              <NewsPages cartNum={cartNum} setCartNum={setCartNum}  />
             </Route>
           </Switch>
 

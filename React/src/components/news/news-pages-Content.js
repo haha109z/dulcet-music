@@ -18,13 +18,14 @@ function NewsPagesContent(props) {
 
   console.log(NewsID)
 
+
   useEffect(() => {
     props.getNewsPageContent(props.match.params.NewsID)
     console.log(props)
   }, [props.match.params.NewsID])
 
   
-
+ 
   return (
     <>
     <Navbar />
@@ -35,14 +36,14 @@ function NewsPagesContent(props) {
         &nbsp;/&nbsp;
         {props.article[0] ?
         (<Link
-          to={'/' + props.article[0].NewsCategory}
+          to={'/news?NewsCategory='+props.article[0].NewsCategory}
           className="news-pages-Breadcrumb"
-        >{props.article[0].NewsCategory}
+        >分類
         </Link>)  : ('')}
         &nbsp;/&nbsp;
         {props.article[0] ?
         (<Link
-          to={'/' + props.article[0].NewsID}
+          to={'/news-content/' + props.article[0].NewsID}
           className="news-pages-Breadcrumb"
         >{props.article[0].NewsTitle}
         </Link>)  : ('')}
