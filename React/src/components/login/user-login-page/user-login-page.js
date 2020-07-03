@@ -123,8 +123,8 @@ function UserLoginPage(props) {
             <form>
                 <div className="form-group">
                 {displayErrors}
-                    <label htmlFor="userEmail" className="col-md-12 control-label" autofocus>電子郵件</label>
-                    <input type="email" name="username" className="form-control col-md-12" id="userEmail" placeholder="請輸入電子郵件" required
+                    <label htmlFor="userEmail" className="col-md-12 control-label" >電子郵件</label>
+                    <input type="email" name="username" className="form-control col-md-12" id="userEmail" placeholder="請輸入電子郵件" required autoFocus
                     onChange={(event) => {
                         setUserMail(event.target.value)
                       }}

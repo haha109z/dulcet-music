@@ -18,7 +18,9 @@ function CartPay (props) {
     buyAll,
     setCartNum,
   } = props.allProps;
-
+  // console.log(cart);
+   
+  
   // 付款方式
   const [payment, setPayment]=useState('')
 
@@ -62,6 +64,8 @@ function CartPay (props) {
   // console.log(orderlist)
 
   // 訂單明細
+  const orderData = cart.map((v)=>({"PId":v.PId,"PCategoryId":v.PCategoryId,"num":v.num}))
+  console.log(orderData);
   // let orderitem = [
   //   cart['cate'],
   //   cart['PId'],
@@ -296,71 +300,117 @@ function CartPay (props) {
                   </div>
               </div>
             <div className="cart-checkout-btn">
-              <button type="button">
-                <Link to='/cart/2'>上一步</Link>
-              </button>
-              <button type="button" onClick={()=>{
+              
+              <Link to='/cart/2'>
+                <button type="button">上一步</button>
+              </Link>
+              
+              <Link to='/cart/4'>
+                <button type="button" onClick={()=>{
 
-                // sql語法：INSERT INTO `orderlist` (`orderId`, `memberId`, `name`, `address`, `phone`, `email`, `invoice`, `invoiceStorage`, `invoiceInfo`, `coupon`, `orderPrice`, `orderPayment`, `orderState`, `created_at`) VALUES (NULL, '11', '11', '11', '11', '11', '11', '11', '11', '11', '11', '11', '11', current_timestamp());
+                  // sql語法：INSERT INTO `orderlist` (`orderId`, `memberId`, `name`, `address`, `phone`, `email`, `invoice`, `invoiceStorage`, `invoiceInfo`, `coupon`, `orderPrice`, `orderPayment`, `orderState`, `created_at`) VALUES (NULL, '11', '11', '11', '11', '11', '11', '11', '11', '11', '11', '11', '11', current_timestamp());
 
-                // 新增一筆訂單資料至資料庫
-                fetch('http://localhost:3030/cart/3', {
-                  method: 'POST', // or 'PUT'
-                  body: JSON.stringify({
-                    memberid,
-                    name,
-                    address,
-                    phone,
-                    email,
-                    invoice,
-                    invoicestorage,
-                    invoiceinfo,
-                    coupon,
-                    orderprice,
-                    orderpayment,
-                    orderstate
-                  }), // data can be `string` or {object}!
-                  headers: new Headers({
-                    'Content-Type': 'application/json',
-                  }),
-                })
-                // .then((res) => res.json())
-                // .then((json) => {
-                //   if (json.code === 3) {
-                //     MySwal.fire('信箱已經註冊過請換一個信箱試試', '', 'error')
-                //   } else if (json.data) {
-                //     localStorage.setItem('user', JSON.stringify(json.data))
-                //     console.log(JSON.stringify(json.data))
-                //     this.setState({ user: json.data[0] })
-                    
-                //   }
-                //   // localStorage.setItem('user', JSON.stringify(json.data))
-                //   // console.log(json.data)
-                // })
-                // .catch((error) => {
-                //   console.error('Error:', error)
-                // })
+// <<<<<<< HEAD
+                  // 新增一筆訂單資料至資料庫
+                  fetch('http://localhost:3030/cart/3', {
+                    method: 'POST', // or 'PUT'
+                    body: JSON.stringify({
+                      memberid,
+                      name,
+                      address,
+                      phone,
+                      email,
+                      invoice,
+                      invoicestorage,
+                      invoiceinfo,
+                      coupon,
+                      orderprice,
+                      orderpayment,
+                      orderstate,
+                      orderData,
+                    }), // data can be `string` or {object}!
+                    headers: new Headers({
+                      'Content-Type': 'application/json',
+                    }),
+                  })
+                  // .then((res) => res.json())
+                  // .then((json) => {
+                  //   if (json.code === 3) {
+                  //     MySwal.fire('信箱已經註冊過請換一個信箱試試', '', 'error')
+                  //   } else if (json.data) {
+                  //     localStorage.setItem('user', JSON.stringify(json.data))
+                  //     console.log(JSON.stringify(json.data))
+                  //     this.setState({ user: json.data[0] })
+                      
+                  //   }
+                  //   // localStorage.setItem('user', JSON.stringify(json.data))
+                  //   // console.log(json.data)
+                  // })
+                  // .catch((error) => {
+                  //   console.error('Error:', error)
+                  // })
+// =======
+//                   // 新增一筆訂單資料至資料庫
+//                   fetch('http://localhost:3030/cart/3', {
+//                     method: 'POST', // or 'PUT'
+//                     body: JSON.stringify({
+//                       memberid,
+//                       name,
+//                       address,
+//                       phone,
+//                       email,
+//                       invoice,
+//                       invoicestorage,
+//                       invoiceinfo,
+//                       coupon,
+//                       orderprice,
+//                       orderpayment,
+//                       orderstate
+//                     }), // data can be `string` or {object}!
+//                     headers: new Headers({
+//                       'Content-Type': 'application/json',
+//                     }),
+//                   })
+//                   // .then((res) => res.json())
+//                   // .then((json) => {
+//                   //   if (json.code === 3) {
+//                   //     MySwal.fire('信箱已經註冊過請換一個信箱試試', '', 'error')
+//                   //   } else if (json.data) {
+//                   //     localStorage.setItem('user', JSON.stringify(json.data))
+//                   //     console.log(JSON.stringify(json.data))
+//                   //     this.setState({ user: json.data[0] })
+                      
+//                   //   }
+//                   //   // localStorage.setItem('user', JSON.stringify(json.data))
+//                   //   // console.log(json.data)
+//                   // })
+//                   // .catch((error) => {
+//                   //   console.error('Error:', error)
+//                   // })
+// >>>>>>> b764f424171ec44c6386076d95527b6e27b5c4b7
 
-                // 購物車商品全選結帳，清空localStorage cart並更新購物車圖示數量為0
-                if (buyAll) {
-                  localStorage.removeItem('cart')
-                  setCartNum(0)
-                } else {
+                  // 購物車商品全選結帳，清空localStorage cart並更新購物車圖示數量為0
+                  if (buyAll) {
+                    localStorage.removeItem('cart')
+                    setCartNum(0)
+                  } else {
 
-                }
+                  }
 
-                // 更改loclaStorage的coupon使用狀態
-                let couponData = JSON.parse(localStorage.getItem('coupon'))
-                console.log(couponData)
-                if ( couponData !== null ) {
-                  couponData[0].couponLocalStorage = 1;
-                  localStorage.setItem('coupon', JSON.stringify(couponData))
-                } else {
+                  // 更改loclaStorage的coupon使用狀態
+                  let couponData = JSON.parse(localStorage.getItem('coupon'))
+                  // console.log(couponData)
+                  if ( couponData !== null ) {
+                    couponData[0].couponLocalStorage = 1;
+                    localStorage.setItem('coupon', JSON.stringify(couponData))
+                  } else {
 
-                }
-              }}>
-                <Link to='/cart/4'>確認送出</Link>
-              </button>
+                  }
+                }}>
+                  確認送出
+                </button>
+              </Link>
+
             </div>
       </>
   );

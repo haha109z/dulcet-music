@@ -98,8 +98,19 @@ function MLoginPage(props) {
     const MloginSuccessCallback = async() => {
         localStorage.setItem('user', JSON.stringify(MData))
         // alert('登入成功，跳轉至首頁')
+        // console.log(MData)
+        // console.log(MData[0].Mcategory)
         setTimeout(()=>{
-          props.history.push('/ManufacturerInstrument/Instrument', { from: '從登入頁來的' })
+          if(MData[0].Mcategory==='樂器'){
+            props.history.push('/ManufacturerInstrument/Instrument', { from: '從登入頁來的' })
+        }else if(MData[0].Mcategory==='影片'){
+            // window.location = "/ManufacturerVideo/VideoHome"
+            props.history.push('/ManufacturerVideo/VideoHome', { from: '從登入頁來的' })
+        }  
+        else{
+          // console.log('123')
+        }
+          // props.history.push('/ManufacturerInstrument/Instrument', { from: '從登入頁來的' })
         },2000)
 
     }

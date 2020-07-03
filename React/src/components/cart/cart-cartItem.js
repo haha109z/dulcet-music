@@ -150,12 +150,12 @@ export default function CartItem (props) {
                         // }}                          
                       />
                     </li>
-                    <li className="cart-product-li"><img src={require(`../../img/cart/cart-violin-01.jpeg`)} /></li>
+                    {/* <li className="cart-product-li"><img src={require(`../../img/cart/cart-violin-01.jpeg`)} /></li> */}
                     {/* <li className="cart-product-li"><img src={require(`../../img/cart/${data.PImg}`)} /></li> */} 
                     {/* 自node後端抓取商品圖片 */}
-                    {/* <li className="cart-product-li">
-                      <img src={`http://localhost:3030/images/product/${props.data.PImg}`} />
-                    </li> */}
+                    <li className="cart-product-li">
+                      <img src={`http://localhost:3030/images/product/${data.PImg}`} />
+                    </li>
                     <li className="cart-product-li">{data.PName}</li>
                     <li className="cart-product-li cart-english-font" style={{color:'var(--main-colorfb2)'}}>${
                         data.PPrice.toString().replace(/(\d)(?=(\d{3})+(\d{3})?$)/g,'$1,')}

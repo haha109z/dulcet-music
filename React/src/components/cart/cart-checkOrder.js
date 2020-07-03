@@ -41,8 +41,9 @@ export default function CartCheckOrder (props) {
             {cart.map((data, index)=>{
               return (
                 <ul className="cart2-product">
-                  <li><img src={require(`../../img/cart/cart-violin-01.jpeg`)}/></li>
+                  {/* <li><img src={require(`../../img/cart/cart-violin-01.jpeg`)}/></li> */}
                   {/* <li><img src={require(`../../img/cart/${data.img}`)}/></li> */}
+                  <li><img src={`http://localhost:3030/images/product/${data.PImg}`}/></li>
                   <li>{data.PName}</li>
                   <li className="cart-english-font cart-rwd-noneed" style={{color:'var(--main-colorfb2)'}}>
                     ${data.PPrice.toString().replace( /(\d)(?=(\d{3})+(\d{3})?$)/g, '$1,' )}
@@ -191,12 +192,15 @@ export default function CartCheckOrder (props) {
             </div>
           </div>
           <div className="cart-checkout-btn">
-            <button type="button">
-              <Link to='/cart/1'>上一步</Link>
-            </button>
-            <button type="button">
-              <Link to='/cart/3'>下一步</Link>
-            </button>
+            
+              <Link to='/cart/1'>
+                <button type="button">上一步</button>
+              </Link>            
+            
+              <Link to='/cart/3'>
+                <button type="button">下一步</button>
+              </Link>
+            
           </div>
 
       </>

@@ -46,6 +46,11 @@ class UserRegistered extends Component{
     // req.body
     let {userRegisterName, userRegisterEmail, userRegisterBir, userRegisterAddress, userRegisterMobile, userRegisterPassword,userRegisterPasswordComfirm } = this.state;
 
+    if(userRegisterName =='' || userRegisterEmail =='' || userRegisterBir =='' || userRegisterAddress =='' || userRegisterMobile =='' || userRegisterPassword ==''|| userRegisterPasswordComfirm ==''){
+        this.registerSuccess();
+        return
+    }
+
     if(userRegisterPassword !== userRegisterPasswordComfirm){
         this.setState({checkPwd:false});
         return
@@ -135,15 +140,28 @@ class UserRegistered extends Component{
     }
 
     registerSuccess = ()=>{
-        MySwal.fire({
-            position: 'top-center',
-            icon: 'success',
-            title: '註冊成功',
-            showConfirmButton: false,
-            timer: 2000
-        })
-    }
 
+        const  {userRegisterName, userRegisterEmail, userRegisterBir, userRegisterAddress,userRegisterMobile,userRegisterPassword,userRegisterPasswordComfirm} = this.state;
+
+        if(userRegisterName =='' || userRegisterEmail =='' || userRegisterBir =='' || userRegisterAddress =='' || userRegisterMobile =='' || userRegisterPassword==''|| userRegisterPasswordComfirm == '' ){
+            MySwal.fire({
+                position: 'top-center',
+                icon: 'error',
+                title: '所有欄位不得為空值',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        }else{
+
+            MySwal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: '註冊成功',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        }
+    }
 
     render(){
 
@@ -189,7 +207,7 @@ class UserRegistered extends Component{
                     <form onSubmit={this.handleSignUpSubmit} className="col-md-6 register-form-wrap">
                         <div className="form-group">
                             <label htmlFor="userRegisterName" className="col-md-12 control-label">姓名</label>
-                            <input type="text" name="userRegisterName" className="form-control col-md-12" id="userRegisterName" placeholder="請輸入姓名"
+                            <input type="text" name="userRegisterName" className="form-control col-md-12" id="userRegisterName" placeholder="請輸入姓名" autoFocus
                             onChange={this.logChange}
                             />
                         </div>

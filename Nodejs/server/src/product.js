@@ -54,33 +54,35 @@ router.post("/getlist", async (req, res) => {
       break;
   }
   // console.log(category);
+  sql += " WHERE `PState`='上架'";
+
   switch (category) {
     case "piano":
-      sql += " WHERE `PInstrumentId` = '鋼琴'";
+      sql += " && `PInstrumentId` = '鋼琴'";
       break;
     case "keyboard":
-      sql += " WHERE `PInstrumentId` = '電子琴'";
+      sql += " && `PInstrumentId` = '電子琴'";
       break;
     case "violin":
-      sql += " WHERE `PInstrumentId` = '小提琴'";
+      sql += " && `PInstrumentId` = '小提琴'";
       break;
     case "viola":
-      sql += " WHERE `PInstrumentId` = '中提琴'";
+      sql += " && `PInstrumentId` = '中提琴'";
       break;
     case "saxophone":
-      sql += " WHERE `PInstrumentId` = '薩克斯風'";
+      sql += " && `PInstrumentId` = '薩克斯風'";
       break;
     case "jazz_drum":
-      sql += " WHERE `PInstrumentId` = '爵士鼓'";
+      sql += " && `PInstrumentId` = '爵士鼓'";
       break;
     case "guitar":
-      sql += " WHERE `PInstrumentId` = '吉他'";
+      sql += " && `PInstrumentId` = '吉他'";
       break;
     case "ukulele":
-      sql += " WHERE `PInstrumentId` = '烏克麗麗'";
+      sql += " && `PInstrumentId` = '烏克麗麗'";
       break;
     case "flute":
-      sql += " WHERE `PInstrumentId` = '長笛'";
+      sql += " && `PInstrumentId` = '長笛'";
       break;
   }
   if (control == "價格高到低") {

@@ -1,11 +1,16 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const db = require(__dirname + "/db_connect2");
+const db = require(__dirname + '/db_connect2');
+// 引入query套件
+const query = require(__dirname + '/mysql');
 
+console.log('1');
 
-router.post("/", async (req, res) => {
+router.post('/', async (req, res) => {
 
-  // memberid  =  req.body.memberid
+  console.log('2');
+
+  // 前端透過路由傳過來的資料(自定義變數)接收至req.body
   let {
     memberid,
     name,
@@ -18,21 +23,55 @@ router.post("/", async (req, res) => {
     coupon,
     orderprice,
     orderpayment,
-    orderstate
+    orderstate,
+    orderData,
   } = req.body;
-  console.log(req.body)
-  
-  const orderSql = await query (
-    "INSERT INTO `orderlist` (`memberId`, `name`, `address`, `phone`, `email`, `invoice`, `invoiceStorage`, `invoiceInfo`, `coupon`, `orderPrice`, `orderPayment`, `orderState` ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-    [ memberid, name, address, phone, email, invoice, invoicestorage, invoiceinfo, coupon, orderprice, orderpayment, orderstate]
+  // 以上相當於
+  // memberid  =  req.body.memberid
+
+  // 前端接收過來的訂單明細資料(自定義變數)
+  // console.log(orderData);
+
+  // 新增訂單至資料庫sql語法
+  const orderlistSql = await query(
+    `INSERT INTO orderlist (memberId, name, address, phone, email, invoice, invoiceStorage, invoiceInfo, coupon, orderPrice, orderPayment, orderState ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    [
+      memberid,
+      name,
+      address,
+      phone,
+      email,
+      invoice,
+      invoicestorage,
+      invoiceinfo,
+      coupon,
+      orderprice,
+      orderpayment,
+      orderstate,
+    ]
   );
+console.log(orderData);
 
-  // const orderSql = await query(
-  //   `INSERT INTO orderlist (orderId, memberId, name, address, phone, email, invoice, invoiceStorage, invoiceInfo, coupon, orderPrice, orderPayment, orderState, ) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,);`,
-  //   [ memberid, name, address, phone, email, invoice, invoicestorage, invoiceinfo, coupon, orderprice, orderpayment, orderstate]
-  // ); 
+  // 使用insertId方法抓取資料庫訂單資料表資料筆數作為orderID
+  var orderID = orderlistSql.insertId;
+  // 當一筆新增訂單資料成功時，才執行新增一筆訂單明細資料
+  if (orderID) {
+    orderData.map((v) => {
+      
+       query(
+        `INSERT INTO orderitem (orderItem,orderId, productCategory, productId, cartNumber) VALUES (NULL, ?, ?, ?, ?)`,
+        [ 
+          orderID,
+          v.PCategoryId,
+          v.PId,
+          v.num
+        ]
+      )
+    })   
+  }
 
-  res.json(orderSql);
+  // 回傳資料
+  res.json(orderlistSql);
 
 });
 
