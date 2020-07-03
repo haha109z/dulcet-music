@@ -51,7 +51,7 @@ app.use("/register/manufacturer", require(__dirname + "/manu_register"));
 app.use("/ManufacturerInstrument/InstrumentHome",require(__dirname + "/manuI_userdata"));
 app.use("/ManufacturerInstrument/InstrumentPassword",require(__dirname + "/manuI_userpwd"));
 app.use("/ManufacturerInstrument/InstrumentPutOn",require(__dirname + "/manuI_puton"));
-// app.use("/ManufacturerInstrument/InstrumentList",require(__dirname + "/manuI_list"));
+app.use("/ManufacturerInstrument/InstrumentList",require(__dirname + "/manuI_list"));
 // app.use("/ManufacturerInstrument/InstrumentOrder",require(__dirname + "/manuI_order"));
 app.use("/ManufacturerVideo/VideoHome",require(__dirname + "/manuV_userdata"));
 
