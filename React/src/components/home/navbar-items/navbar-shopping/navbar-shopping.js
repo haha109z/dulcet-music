@@ -48,7 +48,9 @@ class NavbarShoppingCart extends Component {
   render() {
     const display = this.state.width < 768 ? 'none' : '';
     const {user,login} = this.state;
-    let { cartNum } = this.props
+    let { cartNum } = this.props;
+
+    const pointShow = cartNum === 0 ? 'none' : 'block'
 
 
     const shoppingIcon = (
@@ -57,7 +59,7 @@ class NavbarShoppingCart extends Component {
         <i className="fas fa-shopping-cart"></i>
         </div>
 
-        <span className="home-shopping-point nav-shopping-point">
+        <span className="home-shopping-point nav-shopping-point" style={{display:pointShow}}>
         {cartNum}
         </span>
         {/*<div className="nav-shopping-cart nav-shopping-cart" style={{display}}>123</div>*/}
