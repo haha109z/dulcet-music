@@ -151,6 +151,7 @@ class InstrumentOrder extends React.Component {
                   <div className="ins-order-item">
                     <div className="ins-order-item-img">
                       <img
+                      dataimg={itemI.PImg}
                         src={require('../../../img/home_logo_方.png')}
                         alt=""
                       />
