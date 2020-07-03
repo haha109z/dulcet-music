@@ -13,10 +13,9 @@ router.post('/',async (req,res) => {
     let resData = { code:'',msg :''};
     
 
-    const [listdata] = await query(`SELECT * FROM product_instruments WHERE PCompanyId = ?`,
+    const listdata = await query(`SELECT * FROM product_instruments WHERE PCompanyId = ?`,
         [Mid]
     );
-    console.log(Mid.type)
     console.log(listdata)
     resData = { code:0, msg:'正確', data : listdata};
     res.json(listdata);
