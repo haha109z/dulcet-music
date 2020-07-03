@@ -50,6 +50,18 @@ function CartApp (props) {
   // 商品列表全選checkbox勾選狀態，預設為勾選
   const [ buyAll, setBuyAll ] = useState(true);
   // console.log(buyAll);
+  // changeBuyAll函式：點擊時切換全選欄位勾選狀態
+  // const changeBuyAll = (e) => {
+  //   if (!e) {
+  //     setBuyAll(false) 
+  //   } else {
+  //     setBuyAll(true)
+  //   }    
+  // }
+  // 根據全選欄位勾選狀態切換購物車資訊畫面
+  // useEffect(()=>{
+  //   // changeBuyAll(buyAll)
+  // },[buyAll])
   // 單項商品checkbox勾選狀態，預設為勾選
   const [ buyThis, setBuyThis ] = useState(true);
   
@@ -200,6 +212,8 @@ useEffect(()=>{
                       discount,
                       orderPrice,
                       cart,
+                      buyAll,
+                      setCartNum,
                     }}
                   />
                 </Route>
@@ -223,6 +237,7 @@ useEffect(()=>{
                       setOrderPrice,
                       buyAll, 
                       setBuyAll,
+                      // changeBuyAll,
                       buyThis,
                       setBuyThis,
                       checkstate,

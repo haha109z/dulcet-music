@@ -120,7 +120,7 @@ export default function CartItem (props) {
 
           <div className="cart-check">
 
-              {/* {購物車內無商品} ? (A畫面):(B畫面) } */}
+              {/* 購物車內無商品 ? (A畫面):(B畫面) } */}
 
               { localStorage.getItem('cart')===null ? (
 
@@ -136,7 +136,7 @@ export default function CartItem (props) {
                   
                 return(
 
-                  <ul className="cart-product" key={index} >
+                  <ul className="cart-product cart-product-hover" key={index} >
                     <li className="cart-product-li">
                       <input 
                         type="checkbox" 
@@ -162,10 +162,15 @@ export default function CartItem (props) {
                     </li>
                     <li className="cart-product-li-2">
                       <div 
-                        // onClick={(e)=>{ minusCartNumber(index) }}
+                        // onClick={(e)=>{ minusCartNumber(index) }}                        
                         onClick={(e)=>{              
                           data.num--
-                          changeQuantity(index, data.PId, data.num, data.PQty)
+                          // 影片類別商品無法更改數量
+                          if (data.PCategoryId=="影片") {
+                            MySwal.fire('影片類別商品無法更改數量', '', 'error')
+                          } else {                     
+                            changeQuantity(index, data.PId, data.num, data.PQty)
+                          }
                           return
                           console.log(data)
                           console.log(data.num)
@@ -195,7 +200,12 @@ export default function CartItem (props) {
                         // onClick={(e)=>{plusCartNumber(index)}}
                         onClick={(e)=>{              
                           data.num++
-                          changeQuantity(index, data.PId, data.num, data.PQty)
+                          // 影片類別商品無法更改數量
+                          if (data.PCategoryId=="影片") {
+                            MySwal.fire('影片類別商品無法更改數量', '', 'error')
+                          } else {
+                            changeQuantity(index, data.PId, data.num, data.PQty)
+                          }
                         }}
                       >
                         <i className="cart-plusBtn fas fa-plus-circle" />
