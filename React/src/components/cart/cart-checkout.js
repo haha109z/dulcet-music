@@ -428,9 +428,11 @@ function CartCheckout (props) {
 
               ):(
 
-                <button id="nextstep" type="button">
-                  <Link to='/cart/2'>下一步</Link>
-                </button>
+                <Link to="/cart/2"> 
+                  <button id="nextstep" type="button">
+                    下一步
+                  </button>
+                </Link>
 
               )            
             }

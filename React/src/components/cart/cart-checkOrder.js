@@ -191,12 +191,15 @@ export default function CartCheckOrder (props) {
             </div>
           </div>
           <div className="cart-checkout-btn">
-            <button type="button">
-              <Link to='/cart/1'>上一步</Link>
-            </button>
-            <button type="button">
-              <Link to='/cart/3'>下一步</Link>
-            </button>
+            
+              <Link to='/cart/1'>
+                <button type="button">上一步</button>
+              </Link>            
+            
+              <Link to='/cart/3'>
+                <button type="button">下一步</button>
+              </Link>
+            
           </div>
 
       </>
