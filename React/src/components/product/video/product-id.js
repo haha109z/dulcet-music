@@ -11,7 +11,24 @@ function ProductId(props) {
   const { cartNum, setCartNum } = props
 
   const productCategoryId = 'video'
+  const CatId = '影片'
   const productCategoryName = '線上影片'
+  const [favArr, setFavArr] = useState([])
+
+  async function getVideoFav() {
+    fetch(`http://localhost:3030/product/video/favorite`, {
+      method: 'POST',
+      body: JSON.stringify(),
+      headers: new Headers({
+        'Content-Type': 'application/json',
+      }),
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        const mm = json.map((a) => a.FavPId)
+        setFavArr(mm)
+      })
+  }
 
   const [dataP, setDataP] = useState([])
 
@@ -30,6 +47,7 @@ function ProductId(props) {
       })
   }
   useEffect(() => {
+    getVideoFav()
     getDataP()
   }, [])
 
@@ -62,6 +80,11 @@ function ProductId(props) {
                     PId={p.PId}
                     dataP={dataP}
                     setDataP={setDataP}
+                    PImg={p.PImg}
+                    CId={p.PCategoryId}
+                    favArr={favArr}
+                    setFavArr={setFavArr}
+                    CatId={CatId}
                   />
                   <hr id="product-id-wrapper-hr" />
                   <ProductDesciption Pdesciption={p.Pdesciption} />

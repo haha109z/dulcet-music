@@ -32,7 +32,8 @@ class InstrumentList extends React.Component {
             create_at:'',
             update_at:'',
           }
-        ]
+        ],
+        AllManuProduct : [],
       }
       
     }
@@ -49,20 +50,33 @@ class InstrumentList extends React.Component {
           'Content-type': 'application/json',
         }),
       })
-      .then((res) => {
-        console.log(res)
-        return res.json
-      })
+      .then((res) => res.json())
       .then((json) => {
         this.setState({
-          ManuProduct : json
+          AllManuProduct : json
         })
-        console.log(this.state.ManuProduct)
+        console.log(this.state.AllManuProduct)
       })
-
-
-      
-      
+    }
+    handledown = (e,v) =>{
+      console.log(v)
+      // fetch('http://localhost:3030/ManufacturerInstrument/InstrumentList',{
+      //   method:'POST',
+      //   body:JSON.stringify({
+      //       PId,
+      //       PState
+      //   }),
+      //   headers: new Headers({
+      //     'Content-type': 'application/json',
+      //   }),
+      // })
+      // .then((res) => res.json())
+      // .then((json) => {
+      //   this.setState({
+      //     AllManuProduct : json
+      //   })
+      //   console.log(this.state.AllManuProduct)
+      // })
     }
 
     handlecheck = e => {
@@ -80,11 +94,8 @@ class InstrumentList extends React.Component {
     }
     
   render() {
-    let arrLists = []
-        
-        //在巡訪時將arrLists用<li>包起來回傳
-    let lists = arrLists.map(function(list){return <li>{list}</li>})
 
+    console.log(this.state.AllManuProduct)
     return (
       
       <div className="ins-list-page">
@@ -146,10 +157,12 @@ class InstrumentList extends React.Component {
         <div>
           <p></p>
         </div>
+
+        {this.state.AllManuProduct.map((product,index) => (
         <form className="ins-list-product">
           <div className="ins-list-state">
-            <p className="font-size-185rem">商品編號 : 95279527</p>
-            <p className="font-size-185rem">商品狀態 : 上架中</p>
+            <p className="font-size-185rem">商品編號 : {product.PId}</p>
+            <p className="font-size-185rem">商品狀態 : {product.PState}</p>
           </div>
           <div className="ins-list-content">
             <input type="checkbox" checked={false} className="ins-list-content-chk"/>
@@ -159,56 +172,25 @@ class InstrumentList extends React.Component {
             <Link
               to="/ManufacturerInstrument/InstrumentEdit"
               className="ins-list-content-text">
-              <h3 className="font-size-142rem">從0開始學習吉他</h3>
-              <p className="font-size-1rem">類別 : 吉他</p>
-              <p className="font-size-1rem">更新時間 : 2020/06/16</p>
-              <p className="font-size-1rem">庫存數量 : 10</p>
+              <h3 className="font-size-142rem">{product.PName}</h3>
+              <p className="font-size-1rem">類別 : {product.PInstrumentId}</p>
+              <p className="font-size-1rem">更新時間 : {product.update_at}</p>
+              <p className="font-size-1rem">庫存數量 : {product.PQty}</p>
               <span className="ins-list-pro-money-1 font-size-1rem">
                 價格
               </span>
               <span className="ins-list-pro-money-2 font-size-114rem ins-color-red ins-font-eg">
-                $999
+              {product.PPrice}
               </span>
             </Link>
             <div className="ins-list-content-btns">
-              <button onClick={this.handleputon}>上架</button>
-              <button onClick={this.handleputon}>下架</button>
-              <button onClick={this.handleputon}>刪除</button>
+              <button type="button" onClick={() => this.handleputon('test')}>上架</button>
+              <button type="button" onClick={this.handledown}>下架</button>
+              <button type="button" onClick={this.handledel}>刪除</button>
             </div>
           </div>
         </form>
-        <form className="ins-list-product">
-          <div className="ins-list-state">
-            <p className="font-size-185rem">商品編號 : 95279527</p>
-            <p className="font-size-185rem">商品狀態 : 上架中</p>
-          </div>
-          <div className="ins-list-content">
-            <input type="checkbox" checked={false} className="ins-list-content-chk" />
-            <div className="ins-list-content-movie">
-            <img src={require('../../../img/home_violin_m_8.jpg')}/>
-            </div>
-            <Link
-              to="/ManufacturerInstrument/InstrumentEdit"
-              className="ins-list-content-text"
-            >
-              <h3 className="font-size-142rem">從0開始學習吉他</h3>
-              <p className="font-size-1rem">類別 : 吉他</p>
-              <p className="font-size-1rem">更新時間 : 2020/06/16</p>
-              <p className="font-size-1rem">庫存數量 : 10</p>
-              <span className="ins-list-pro-money-1 font-size-1rem">
-                價格
-              </span>
-              <span className="ins-list-pro-money-2 font-size-114rem ins-color-red ins-font-eg">
-                $999
-              </span>
-            </Link>
-            <div className="ins-list-content-btns">
-              <button>上架</button>
-              <button>下架</button>
-              <button>刪除</button>
-            </div>
-          </div>
-        </form>
+        ))}
         <div className="ins-page">
           <a className="ins-page-Rarrow">
             <i className="fas fa-sort-up"></i>
@@ -236,9 +218,6 @@ class InstrumentList extends React.Component {
             <a href="#">6</a>
           </div>
         </div>
-        <ul>
-          {lists}
-        </ul>
       </div>
       
     )

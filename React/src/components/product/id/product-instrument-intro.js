@@ -4,6 +4,8 @@ import Btn from './product-intro-btn'
 
 function ProductIntro(props) {
   const { cartNum, setCartNum } = props
+  const favArr = props.favArr
+  const setFavArr = props.setFavArr
 
   const PIntro = props.PIntro
   const PPrice = props.PPrice
@@ -22,7 +24,7 @@ function ProductIntro(props) {
         <div id="product-id-intro-instrument-picture-wrapper">
           <img
             id="product-id-intro-instrument-picture"
-            src={require('../../../img/product/jazz-drum.jpeg')}
+            src={`http://localhost:3030/images/product/${props.PImg}`}
           ></img>
         </div>
         <div id="product-id-intro-text">
@@ -42,6 +44,10 @@ function ProductIntro(props) {
               setAmount={setAmount}
               dataP={dataP}
               setDataP={setDataP}
+              CId={props.CId}
+              favArr={favArr}
+              setFavArr={setFavArr}
+              CatId={props.CatId}
             />
           </div>
         </div>

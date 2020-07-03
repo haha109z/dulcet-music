@@ -20,13 +20,20 @@ router.post("/", async (req, res) => {
     orderpayment,
     orderstate
   } = req.body;
-
-  const orderSql = await query(
-    `INSERT INTO orderlist (orderId, memberId, name, address, phone, email, invoice, invoiceStorage, invoiceInfo, coupon, orderPrice, orderPayment, orderState, ) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,);`,
+  console.log(req.body)
+  
+  await query (
+    "INSERT INTO `orderlist` (`memberId`, `name`, `address`, `phone`, `email`, `invoice`, `invoiceStorage`, `invoiceInfo`, `coupon`, `orderPrice`, `orderPayment`, `orderState` ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
     [ memberid, name, address, phone, email, invoice, invoicestorage, invoiceinfo, coupon, orderprice, orderpayment, orderstate]
   );
 
-  res.json(orderSql);
+  // const orderSql = await query(
+  //   `INSERT INTO orderlist (orderId, memberId, name, address, phone, email, invoice, invoiceStorage, invoiceInfo, coupon, orderPrice, orderPayment, orderState, ) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,);`,
+  //   [ memberid, name, address, phone, email, invoice, invoicestorage, invoiceinfo, coupon, orderprice, orderpayment, orderstate]
+  // ); 
+
+  // res.json(orderSql);
+
 });
 
 module.exports = router;
