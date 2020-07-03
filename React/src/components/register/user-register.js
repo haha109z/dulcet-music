@@ -46,6 +46,11 @@ class UserRegistered extends Component{
     // req.body
     let {userRegisterName, userRegisterEmail, userRegisterBir, userRegisterAddress, userRegisterMobile, userRegisterPassword,userRegisterPasswordComfirm } = this.state;
 
+    if(userRegisterName =='' || userRegisterEmail =='' || userRegisterBir =='' || userRegisterAddress =='' || userRegisterMobile =='' || userRegisterPassword ==''|| userRegisterPasswordComfirm ==''){
+        this.registerSuccess();
+        return
+    }
+
     if(userRegisterPassword !== userRegisterPasswordComfirm){
         this.setState({checkPwd:false});
         return
@@ -135,15 +140,28 @@ class UserRegistered extends Component{
     }
 
     registerSuccess = ()=>{
-        MySwal.fire({
-            position: 'top-center',
-            icon: 'success',
-            title: '註冊成功',
-            showConfirmButton: false,
-            timer: 2000
-        })
-    }
 
+        const  {userRegisterName, userRegisterEmail, userRegisterBir, userRegisterAddress,userRegisterMobile,userRegisterPassword,userRegisterPasswordComfirm} = this.state;
+
+        if(userRegisterName =='' || userRegisterEmail =='' || userRegisterBir =='' || userRegisterAddress =='' || userRegisterMobile =='' || userRegisterPassword==''|| userRegisterPasswordComfirm == '' ){
+            MySwal.fire({
+                position: 'top-center',
+                icon: 'error',
+                title: '所有欄位不得為空值',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        }else{
+
+            MySwal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: '註冊成功',
+                showConfirmButton: false,
+                timer: 2000
+            })
+        }
+    }
 
     render(){
 
@@ -165,7 +183,7 @@ class UserRegistered extends Component{
         );
 
         const checkPhone = phoneReg ? '' : (
-            <div className="user-register-dobluecheckPhone">請輸入正確的手機格式 09xxxxxxxx </div>
+            <div className="user-register-dobluecheckPhone">請輸入正確的手機格式 09xx-xxx-xxx </div>
         )
 
         const checkEmail = emailReg ? '' : (
