@@ -32,10 +32,11 @@ class allLoginPage extends Component{
     }
 
     render(){
+        const {cartNum,setCartNum} = this.props;
         const focusCheck = this.state.loginCheck ? '會員':'廠商' ;
         return(
             <>
-            <Navbar />
+            <Navbar cartNum={cartNum}/>
             <div className="container all-login-wrap">
                 <div className="all-login-body row">
                     <div className="all-login-txt col-md-12">

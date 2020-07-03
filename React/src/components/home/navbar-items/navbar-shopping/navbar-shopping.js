@@ -10,6 +10,7 @@ const getUserInfo = () => {
 class NavbarShoppingCart extends Component {
   state = {
     login: false,
+    user:[],
     width: window.innerWidth,
   }
   componentDidMount() {
@@ -23,8 +24,13 @@ class NavbarShoppingCart extends Component {
       }
     } else {
       this.setState({ login: true })
+      this.setState({user: user[0]})
       this.handleClick = () => {
         window.location = '/cart'
+      }
+
+      this.handleClickOrder = () =>{
+        window.location = '/ManufacturerInstrument/InstrumentOrder'
       }
     }
 
@@ -40,19 +46,42 @@ class NavbarShoppingCart extends Component {
   }
 
   render() {
-    const display = this.state.width < 768 ? 'none' : ''
+    const display = this.state.width < 768 ? 'none' : '';
+    const {user,login} = this.state;
     let { cartNum } = this.props
 
-    return (
-      <>
+
+    const shoppingIcon = (
+      <div>
         <div className="nav-shopping-area" onClick={this.handleClick}>
-          <i className="fas fa-shopping-cart"></i>
+        <i className="fas fa-shopping-cart"></i>
         </div>
 
         <span className="home-shopping-point nav-shopping-point">
-          {cartNum}
+        {cartNum}
         </span>
         {/*<div className="nav-shopping-cart nav-shopping-cart" style={{display}}>123</div>*/}
+      </div>
+    )
+
+    const orderIcon = (
+      <div>
+        <div className="nav-shopping-area" onClick={this.handleClickOrder}>
+         <i className="fas fa-file-alt"></i>
+        </div>
+
+        {/*<span className="home-shopping-point nav-shopping-point">
+        {cartNum}
+        </span>
+        <div className="nav-shopping-cart nav-shopping-cart" style={{display}}>123</div>*/}
+      </div>
+    )
+
+    const shoppingArea = login ? (user.userID ? shoppingIcon : orderIcon ) : shoppingIcon ;
+
+    return (
+      <>
+        {shoppingArea}
       </>
     )
   }

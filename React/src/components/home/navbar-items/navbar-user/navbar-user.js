@@ -102,7 +102,7 @@ class NavbarUser extends Component{
                         <a href="/user/userVideo">我的影片</a>
                     </li>
                     <li>
-                        <Link to="/user/UserPurchase">購買清單</Link>
+                        <a href="/user/UserPurchase">購買清單</a>
                     </li>
                     <li>
                         <Link to="/Forum">討論區</Link>

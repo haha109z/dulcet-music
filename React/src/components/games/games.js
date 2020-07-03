@@ -81,6 +81,7 @@ class Games extends Component{
 
         if(answerLen === userInpLen){
             if(answer.toString() === userInp.toString()){
+                // console.log(answer.toString());
                     this.setState({success:true});
                     const couponItem = [{coupon:'dulcet-20200710',couponLocalStorage:0}];
 
@@ -96,7 +97,7 @@ class Games extends Component{
                             this.setState({end:true});
                             // console.log(this.state.end);
                             this.closeTime();
-                        },6000)
+                        },5000)
                     }
             }else{
                 this.setState({fail:true});
