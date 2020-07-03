@@ -4,26 +4,43 @@ import React, { Component } from 'react'
 const getUserInfo = () => {
   return JSON.parse(localStorage.getItem('user'))
 }
+let userID = ''
+if (getUserInfo()) {
+  userID = getUserInfo()[0].userID
+}
 
 export default class UserVideo extends Component {
-  
   // 建立一個空狀態準備放抓出來的資料
   state = {
-    userID:getUserInfo()[0].userID
+    videoData: [],
+  }
+  getVideoData() {
+    fetch('http://localhost:3030/user/UserVideo', {
+      method: 'POST', // or 'PUT'
+      body: JSON.stringify({ userID }), // data can be `string` or {object}!
+      headers: new Headers({
+        'Content-Type': 'application/json',
+      }),
+    })
+      .then((res) => res.json())
+      .catch((error) => console.error('Error:', error))
+      .then((response) => {
+        this.setState({ videoData: response.data })
+      })
   }
 
-   
-   constructor() {
+  async componentDidMount() {
+    await this.getVideoData()
+  }
+  constructor() {
     super() // => 記得呼叫 parent 的 constructor，很重要
     if (getUserInfo() == null) {
       window.location = '/'
     }
   }
- 
+
   render() {
-    console.log(this.state)
-
-
+    console.log(this.state.videoData)
 
     return (
       <>
@@ -51,139 +68,29 @@ export default class UserVideo extends Component {
           <hr className="UserVideo-divider" />
 
           <div className="UserVideo-order">
-            <div className="UserVideo-order-item">
-              <div className="UserVideo-order-item-img">
-                <img src={require('../../../img/home_logo_方.png')} alt="" />
-              </div>
-              <div className="UserVideo-order-item-text">
-                <p className="user-font-ch UserVideo-order-item-text-name">
-                  從0開始學習吉他
-                </p>
-                <p className="user-font-ch UserVideo-order-item-text-specification">
-                  我們為每一個想學吉他的你規劃了完全入門的團體課程和更有
-                  效率的一對一專屬課程讓您學習既有效率又有趣！
-                  我們為每一個想學吉他的你規劃了完全入門的團體課程和更有
-                  效率的一對一專屬課程讓您學習既有效率又有趣！
-                  我們為每一個想學吉他的你規劃了完全入門的團體課程和更有
-                  效率的一對一專屬課程讓您學習既有效率又有趣！
-                  我們為每一個想學吉他的你規劃了完全入門的團體課程和更有
-                  效率的一對一專屬課程讓您學習既有效率又有趣！
-                </p>
-              </div>
-
-              <button
-                type="button"
-                className="UserVideo-order-item-button user-font-ch"
-              >
-                立即觀看
-              </button>
-            </div>
-            <div className="UserVideo-order-item">
-              <div className="UserVideo-order-item-img">
-                <img src={require('../../../img/home_logo_方.png')} alt="" />
-              </div>
-              <div className="UserVideo-order-item-text">
-                <p className="user-font-ch UserVideo-order-item-text-name">
-                  從0開始學習吉他
-                </p>
-                <p className="user-font-ch UserVideo-order-item-text-specification">
-                  我們為每一個想學吉他的你規劃了完全入門的團體課程和更有
-                  效率的一對一專屬課程讓您學習既有效率又有趣！
-                </p>
-              </div>
-              <p className=" UserVideo-order-item-more">More...</p>
-              <button
-                type="button"
-                className="UserVideo-order-item-button user-font-ch"
-              >
-                前往商品頁面
-              </button>
-            </div>
-            <div className="UserVideo-order-item">
-              <div className="UserVideo-order-item-img">
-                <img src={require('../../../img/home_logo_方.png')} alt="" />
-              </div>
-              <div className="UserVideo-order-item-text">
-                <p className="user-font-ch UserVideo-order-item-text-name">
-                  從0開始學習吉他
-                </p>
-                <p className="user-font-ch UserVideo-order-item-text-specification">
-                  我們為每一個想學吉他的你規劃了完全入門的團體課程和更有
-                  效率的一對一專屬課程讓您學習既有效率又有趣！
-                </p>
-              </div>
-              <p className=" UserVideo-order-item-more">More...</p>
-              <button
-                type="button"
-                className="UserVideo-order-item-button user-font-ch"
-              >
-                前往商品頁面
-              </button>
-            </div>
-            <div className="UserVideo-order-item">
-              <div className="UserVideo-order-item-img">
-                <img src={require('../../../img/home_logo_方.png')} alt="" />
-              </div>
-              <div className="UserVideo-order-item-text">
-                <p className="user-font-ch UserVideo-order-item-text-name">
-                  從0開始學習吉他
-                </p>
-                <p className="user-font-ch UserVideo-order-item-text-specification">
-                  我們為每一個想學吉他的你規劃了完全入門的團體課程和更有
-                  效率的一對一專屬課程讓您學習既有效率又有趣！
-                </p>
-              </div>
-              <p className=" UserVideo-order-item-more">More...</p>
-              <button
-                type="button"
-                className="UserVideo-order-item-button user-font-ch"
-              >
-                前往商品頁面
-              </button>
-            </div>
-            <div className="UserVideo-order-item">
-              <div className="UserVideo-order-item-img">
-                <img src={require('../../../img/home_logo_方.png')} alt="" />
-              </div>
-              <div className="UserVideo-order-item-text">
-                <p className="user-font-ch UserVideo-order-item-text-name">
-                  從0開始學習吉他
-                </p>
-                <p className="user-font-ch UserVideo-order-item-text-specification">
-                  我們為每一個想學吉他的你規劃了完全入門的團體課程和更有
-                  效率的一對一專屬課程讓您學習既有效率又有趣！
-                </p>
-              </div>
-              <p className=" UserVideo-order-item-more">More...</p>
-              <button
-                type="button"
-                className="UserVideo-order-item-button user-font-ch"
-              >
-                前往商品頁面
-              </button>
-            </div>
-            <div className="UserVideo-order-item">
-              <div className="UserVideo-order-item-img">
-                <img src={require('../../../img/home_logo_方.png')} alt="" />
-              </div>
-              <div className="UserVideo-order-item-text">
-                <p className="user-font-ch UserVideo-order-item-text-name">
-                  從0開始學習吉他
-                </p>
-                <p className="user-font-ch UserVideo-order-item-text-specification">
-                  我們為每一個想學吉他的你規劃了完全入門的團體課程和更有
-                  效率的一對一專屬課程讓您學習既有效率又有趣！他的你規劃了完全入門的團他的你規劃了完全入門的團他的你規劃了完全入門的團v
-                </p>
-              </div>
-              <p className=" UserVideo-order-item-more">More...</p>
-
-              <button
-                type="button"
-                className="UserVideo-order-item-button user-font-ch"
-              >
-                前往商品頁面
-              </button>
-            </div>
+            {this.state.videoData.map((item, index) => (
+              <>
+                <div className="UserVideo-order-item">
+                  <div className="UserVideo-order-item-img">
+                    <img src="" alt="" dataimg={item.PImg} />
+                  </div>
+                  <div className="UserVideo-order-item-text">
+                    <p className="user-font-ch UserVideo-order-item-text-name">
+                      {item.PName}
+                    </p>
+                    <p className="user-font-ch UserVideo-order-item-text-specification">
+                      {item.Pdesciption}
+                    </p>
+                  </div>
+                  <a
+                    href=""
+                    className="UserVideo-order-item-button user-font-ch"
+                  >
+                  立即觀看
+                  </a>
+                </div>
+              </>
+            ))}
           </div>
           <div className="user-page">
             <a className="user-page-Rarrow">

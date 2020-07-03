@@ -40,6 +40,8 @@ app.use("/user/UserData", require(__dirname + "/changeUserData"));
 app.use("/user/UserPwd", require(__dirname + "/changeUserPwd"));
 app.use("/user/UserPurchase", require(__dirname + "/UserPurchase"));
 app.use("/user/UserLike", require(__dirname + "/UserLike"));
+app.use("/user/UserVideo", require(__dirname + "/UserVideo"));
+
 
 app.use("/img-upload", require(__dirname + "/img-upload"));
 // 廠商登入註冊

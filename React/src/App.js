@@ -130,7 +130,7 @@ function App() {
           </Route>
 
           <Route path="/user">
-            <UserApp />
+            <UserApp cartNum={cartNum} setCartNum={setCartNum}/>
           </Route>
 
           <Route path="/ManufacturerVideo">

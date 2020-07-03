@@ -114,10 +114,13 @@
   height: 180px;
   color: var(--main-colorfff);
   background-color: var(--main-colorblock);
-  position: absolute;
   right: 0;
-  padding: 9px;
+  text-align: center;
   border: none;
+  padding: 0 1% 0 1%;
+  line-height: 318%;
+
+
 }
 .UserVideo-order-item-button:hover {
   color: var(--main-colorblock);
@@ -160,64 +163,68 @@
   }
   .UserVideo-order {
     margin-top: 60px;
-}
+  }
   .UserVideo-order-item-img {
     width: 90%;
-    height: 120px   ;
+    height: 120px;
     position: absolute;
     top: -20px;
     left: 13px;
     background-color: aqua;
-}
-.UserVideo-order-item-text-name {
-
-  margin-bottom: 20px;
-  font-size: 16px;
-}
-.UserVideo-order-item-img {
-  width: 90%;
-  height: 130px;
-  position: absolute;
-  top: -20px;
-  left: 5%;
-  background-color: aqua;
-}
-.UserVideo-order-item-text-name {
-  margin-bottom: 10px;
-  font-size: 16px;
-}
-.UserVideo-order-item-text {
-  width: 65%;
-  /* height: 140px; */
-  margin: 120px 0 auto 15px;
-  position: relative;
-}
-.UserVideo-order-item {
-  background-color: #f2f2f2;
-  width: 100%;
-  height: 240px;
-  display: flex;
-  margin-bottom: 30px;
-  background-color: #f2f2f2;
-  position: relative;
-}
-.UserVideo-order-item-text {
-  width: 90%;
-  
-}
-.UserVideo-order-item-text-specification {
- 
-  width: 100%;
-}
-.UserVideo-order-item-more{
-  display: none;
-}
-.UserVideo-order-item-button{
-  width: 100%;
-height: 40px;
-bottom: 0 ;}
-.UserVideo-order-item {
-  margin-bottom: 50px;
-
-}
+  }
+  .UserVideo-order-item-text-name {
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+  .UserVideo-order-item-img {
+    width: 90%;
+    height: 130px;
+    position: absolute;
+    top: -20px;
+    left: 5%;
+    background-color: aqua;
+  }
+  .UserVideo-order-item-text-name {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  .UserVideo-order-item-text {
+    width: 65%;
+    /* height: 140px; */
+    margin: 120px 0 auto 15px;
+    position: relative;
+  }
+  .UserVideo-order-item {
+    background-color: #f2f2f2;
+    width: 100%;
+    height: 240px;
+    display: flex;
+    margin-bottom: 30px;
+    background-color: #f2f2f2;
+    position: relative;
+  }
+  .UserVideo-order-item-text {
+    width: 90%;
+  }
+  .UserVideo-order-item-text-specification {
+    width: 100%;
+  }
+  .UserVideo-order-item-more {
+    display: none;
+  }
+  .UserVideo-order-item-button {
+    width: 100%;
+    height: 40px;
+    color: var(--main-colorfff);
+    background-color: var(--main-colorblock);
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    border: none;
+    position: absolute;
+    line-height: 277%;
+  }
+  .UserVideo-order-item {
+    margin-bottom: 50px;
+  }
 }
