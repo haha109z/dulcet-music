@@ -45,13 +45,11 @@ function ProductVideoCard(props) {
     delInstrumentFav(CatId, PId)
     testArray.splice(pos, 1)
     setFavArr(testArray)
-    // console.log(PId, 'del', favArr)
   }
   const func2 = () => {
     addInstrumentFav(CatId, PId)
     testArray.push(PId)
     setFavArr(testArray)
-    // console.log(PId, 'add', favArr)
   }
 
   return (

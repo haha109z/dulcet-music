@@ -32,7 +32,7 @@ function ProductIntro(props) {
         <div id="product-id-intro-text">
           <div id="product-id-intro-text-top">
             <h2 id="product-id-intro-text-title">{productName}</h2>
-            <p id="product-id-intro-text-p">{PIntro}</p>
+            <pre id="product-id-intro-text-p">{PIntro}</pre>
           </div>
           <div id="product-id-intro-text-bottom">
             <h2 id="product-id-intro-text-cost-title">售價</h2>

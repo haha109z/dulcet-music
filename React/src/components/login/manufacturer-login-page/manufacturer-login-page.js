@@ -99,7 +99,7 @@ function MLoginPage(props) {
         localStorage.setItem('user', JSON.stringify(MData))
         // alert('登入成功，跳轉至首頁')
         // console.log(MData)
-        console.log(MData[0].Mcategory)
+        // console.log(MData[0].Mcategory)
         setTimeout(()=>{
           if(MData[0].Mcategory==='樂器'){
             props.history.push('/ManufacturerInstrument/Instrument', { from: '從登入頁來的' })
@@ -108,7 +108,7 @@ function MLoginPage(props) {
             props.history.push('/ManufacturerVideo/VideoHome', { from: '從登入頁來的' })
         }  
         else{
-          console.log('123')
+          // console.log('123')
         }
           // props.history.push('/ManufacturerInstrument/Instrument', { from: '從登入頁來的' })
         },2000)
