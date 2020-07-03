@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
 function ProductVideoCard(props) {
   const maylike = props.maylike
-
+  const PName = props.PName
   const favArr = props.favArr
   const setFavArr = props.setFavArr
   const CatId = '樂器'
@@ -69,7 +69,7 @@ function ProductVideoCard(props) {
             />
           </div>
           <div className="product-card-intro">
-            <h4 className="product-card-title">{props.PName}</h4>
+            <h4 className="product-card-title">{PName}</h4>
             <h3 className="product-card-cost">${props.PPrice}</h3>
           </div>
         </a>

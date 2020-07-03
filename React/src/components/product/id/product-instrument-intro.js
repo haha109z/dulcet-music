@@ -6,7 +6,7 @@ function ProductIntro(props) {
   const { cartNum, setCartNum } = props
   const favArr = props.favArr
   const setFavArr = props.setFavArr
-
+  const productName = props.productName
   const PIntro = props.PIntro
   const PPrice = props.PPrice
   const PQty = props.PQty
@@ -25,11 +25,13 @@ function ProductIntro(props) {
           <img
             id="product-id-intro-instrument-picture"
             src={`http://localhost:3030/images/product/${props.PImg}`}
+            title={productName}
+            alt={productName}
           ></img>
         </div>
         <div id="product-id-intro-text">
           <div id="product-id-intro-text-top">
-            <h2 id="product-id-intro-text-title">{props.productName}</h2>
+            <h2 id="product-id-intro-text-title">{productName}</h2>
             <p id="product-id-intro-text-p">{PIntro}</p>
           </div>
           <div id="product-id-intro-text-bottom">
