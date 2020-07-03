@@ -99,6 +99,7 @@
   //   border: 1px solid red;
   border-radius: 50%;
   // background-image: url(../../img/About/女生002.jpg);
+
   background-size: cover;
 }
 .ForumCardTeacherImg {
@@ -141,11 +142,12 @@
 
 .ComprehensiveButton {
   /* text-align: right; */
+  white-space: nowrap;
   font-size: 1.14rem;
   position: relative;
   right: 0px;
   bottom: 0px;
-  margin: 100px 0px 0px 20px;
+  margin: 100px 0px 0px 0px;
   //   padding: 10px;
   background: #f2ebdf;
   border: 0px;
