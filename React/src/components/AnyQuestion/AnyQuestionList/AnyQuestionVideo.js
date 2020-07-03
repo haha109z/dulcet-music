@@ -64,68 +64,62 @@ render(){
   const { InputShow1, InputShow2, InputShow3,InputShow4,InputShow5,InputShow6,InputShow7 } = this.state
   const Input1 = InputShow1 ? ( 
       <>
-        <input className="input1-10" type="text " value="必須取得您的相關帳號資訊，透過信箱或者手機來確認您的身份是否符合。" readOnly/>
+        <input className="input1-10" type="text " value="有時無法順利播放，是因網路不穩定造成看課中斷，請多測幾次，確認每次的網速都足夠。" readOnly/>
       </>
   ) : (
     ''
   )
   const Input2 = InputShow2 ? ( 
     <>
-      <input className="input1-10" type="text " value="如果您忘記密碼了，請在登入頁面內使用您的帳號以及信箱或者手機來找回您的密碼。" readOnly/>
+      <input className="input1-10" type="text " value="有時這些檔案會造成容量不足、甚至影響串流順暢，此時只要《刪除或重設瀏覽器的快取設定》即可。" readOnly/>
     </>
 ) : (
   ''
 )
 const Input3 = InputShow3 ? ( 
   <>
-    <input className="input1-10" type="text " value="在註冊完之後可以用信箱或者手機來綁定您的帳戶，可以更確保您的帳號安全。" readOnly/>
+    <input className="input1-10" type="text " value="調整音量: 到[設定] > [聲音與震動] > [媒體音量]自 將音量設置為 max。" readOnly/>
   </>
 ) : (
 ''
 )
 const Input4 = InputShow4 ? ( 
   <>
-    <input className="input1-10" type="text " value="您的帳號如果有任何問題請至客服中心或者討論區是否有相同的人跟你有一樣的問題。" readOnly/>
+    <input className="input1-10" type="text " value="重新開機，檢查網路是否處於良好狀態。" readOnly/>
   </>
 ) : (
 ''
 )
 const Input5 = InputShow5 ? ( 
   <>
-    <input className="input1-10" type="text" value="您必須先註冊完帳號之後在會員內可以使用信箱認證服務" readOnly/>
+    <input className="input1-10" type="text" value="檢查您的電視是否可以支援[無線顯示] 和 [無線顯示]已被啟動" readOnly/>
   </>
 ) : (
 ''
 )
 const Input6 = InputShow6 ? ( 
   <>
-    <input className="input1-10" type="text " value="優惠卷可以在首頁遊玩小遊戲。答對即可得到優惠卷" readOnly/>
+    <input className="input1-10" type="text " value=" 到[設定] >> [應用管理] >> [全部]找到預設的影片播放器, 按一下[預設打開]自[清除預設值]。" readOnly/>
   </>
 ) : (
 ''
 )
-const Input7 = InputShow7 ? ( 
-  <>
 
-    <input className="input1-10" type="text " value="如果帳號遺失請打客服專線：(02)2222-2222" readOnly/>
-   
-  </>
-) : (
-''
-)
   return (
 <div className="AnyQuestionActionAll">
 <div className="AnyQuestionActionContainer">
     <div className="Text123"></div>
     <div className="AnyQuestionActionFlex">
     <div className="AnyQuestionActionCard AnyQuestionActionCardLeft">
-    <i class="fas fa-video AnyQuestionCardIconVideo"></i>
+    <a href="/AnyQuestion" className="AnyQuestionA AnyQuestionRWD">
+    <i class="fas fa-video AnyQuestionCardIconVideo AnyQuestionCardIconVideoRWD"></i>
             <h2 className="AnyQuestionActionCardIconH2">影片問題</h2>
+            </a>
           </div>
           <div className="AnyQuestionActionTable AnyQuestionActionRwd">
             <div style={{display:'flex'}}>
             <div style={{width:'1000px'}}>
-                <input type="submit" value="忘記帳號" onClick={this.handleInput1}/>               
+                <input type="submit" value="線上影片延遲問題" onClick={this.handleInput1}/>               
                 {Input1}
                 </div>            
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
@@ -133,7 +127,7 @@ const Input7 = InputShow7 ? (
                 <div style={{display:'flex'}}>
             <div style={{width:'1000px'}}>
                 
-                <input type="submit" value="忘記密碼" onClick={this.handleInput2}/>
+                <input type="submit" value="刪除快取檔案" onClick={this.handleInput2}/>
                 {Input2}
                 </div>
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
@@ -141,7 +135,7 @@ const Input7 = InputShow7 ? (
                 <div style={{display:'flex'}}>
             <div style={{width:'1000px'}}>
 
-                <input type="submit" value="帳號綁定" onClick={this.handleInput3}/>
+                <input type="submit" value="如果您的手機在播放影片時是無聲的" onClick={this.handleInput3}/>
                 {Input3}
                 </div>
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
@@ -149,7 +143,7 @@ const Input7 = InputShow7 ? (
                 <div style={{display:'flex'}}>
             <div style={{width:'1000px'}}>
 
-                <input type="submit" value="帳號問題" onClick={this.handleInput4}/>
+                <input type="submit" value="如果您不能使用OPPO內建的影片播放器" onClick={this.handleInput4}/>
                 {Input4}
                 </div>
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
@@ -157,7 +151,7 @@ const Input7 = InputShow7 ? (
                 <div style={{display:'flex'}}>
             <div style={{width:'1000px'}}>
 
-                <input type="submit" value="信箱認證" onClick={this.handleInput5}/>
+                <input type="submit" value="如果您的手機無法使用無線播放影片" onClick={this.handleInput5}/>
                 {Input5}
                 </div>
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
@@ -165,20 +159,12 @@ const Input7 = InputShow7 ? (
                 <div style={{display:'flex'}}>
             <div style={{width:'1000px'}}>
 
-                <input type="submit" value="優惠卷使用方法" onClick={this.handleInput6}/>
+                <input type="submit" value="不能使用其他播放器播放視頻" onClick={this.handleInput6}/>
                 {Input6}
                 </div>
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
                 </div>
-                <div style={{display:'flex'}}>
-            <div style={{width:'1000px'}}>
-
-                <input type="submit" value="帳號遺失怎麼辦"  onClick={this.handleInput7}/>
-                {Input7}
-                </div>
                 
-                <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
-                </div>
           </div>
           </div>
   </div>

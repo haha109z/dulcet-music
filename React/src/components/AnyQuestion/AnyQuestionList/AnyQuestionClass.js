@@ -92,35 +92,30 @@ const Input4 = InputShow4 ? (
 )
 const Input5 = InputShow5 ? ( 
   <>
-    <input className="input1-10" type="text" value="您必須先註冊完帳號之後在會員內可以使用信箱認證服務" readOnly/>
+    <input className="input1-10" type="text" value="要使用AUX IN功能的話須購買兩端皆為3.5mm接頭的公對公音源線。" readOnly/>
   </>
 ) : (
 ''
 )
 const Input6 = InputShow6 ? ( 
   <>
-    <input className="input1-10" type="text " value="優惠卷可以在首頁遊玩小遊戲。答對即可得到優惠卷" readOnly/>
+    <input className="input1-10" type="text " value="PSR-S975 / 970 / 950 / 775 / 770 -＞ 可錄製與播放WAVE，可播放MP3。
+PSR-S750 -＞ 可錄製與播放WAVE。" readOnly/>
   </>
 ) : (
 ''
 )
-const Input7 = InputShow7 ? ( 
-  <>
 
-    <input className="input1-10" type="text " value="如果帳號遺失請打客服專線：(02)2222-2222" readOnly/>
-   
-  </>
-) : (
-''
-)
   return (
 <div className="AnyQuestionActionAll">
 <div className="AnyQuestionActionContainer">
     <div className="Text123"></div>
     <div className="AnyQuestionActionFlex">
     <div className="AnyQuestionActionCard AnyQuestionActionCardLeft">
-    <i className="fas fa-book AnyQuestionCardIcon"></i>
+    <a href="/AnyQuestion" className="AnyQuestionA AnyQuestionRWD">
+    <i className="fas fa-book AnyQuestionActionCardIcon"></i>
             <h2 className="AnyQuestionActionCardIconH2">課程問題</h2>
+            </a>
           </div>
           <div className="AnyQuestionActionTable AnyQuestionActionRwd">
             <div style={{display:'flex'}}>
@@ -157,7 +152,7 @@ const Input7 = InputShow7 ? (
                 <div style={{display:'flex'}}>
             <div style={{width:'1000px'}}>
 
-                <input type="submit" value="信箱認證" onClick={this.handleInput5}/>
+                <input type="submit" value="電子琴播放手機音樂，需要購買何種線材" onClick={this.handleInput5}/>
                 {Input5}
                 </div>
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
@@ -165,20 +160,12 @@ const Input7 = InputShow7 ? (
                 <div style={{display:'flex'}}>
             <div style={{width:'1000px'}}>
 
-                <input type="submit" value="優惠卷使用方法" onClick={this.handleInput6}/>
+                <input type="submit" value="有哪些手提電子琴可以播放或錄製MP3?" onClick={this.handleInput6}/>
                 {Input6}
                 </div>
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
                 </div>
-                <div style={{display:'flex'}}>
-            <div style={{width:'1000px'}}>
-
-                <input type="submit" value="帳號遺失怎麼辦"  onClick={this.handleInput7}/>
-                {Input7}
-                </div>
-                
-                <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
-                </div>
+               
           </div>
           </div>
   </div>

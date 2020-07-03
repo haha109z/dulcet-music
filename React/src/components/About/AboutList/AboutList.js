@@ -58,7 +58,7 @@ class AboutList extends Component {
                 // data-aos-easing="linear" 
                 // data-aos-duration="1000"
                 // data-aos-offset="1000" 
-                src={require('../../../img/About/About小圖片1.jpg')}
+                src={require('../../../img/About/123.jpg')}
                 alt="AboutImgBackground1"
               />
             </div>
