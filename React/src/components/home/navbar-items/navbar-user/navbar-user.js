@@ -79,7 +79,8 @@ class NavbarUser extends Component{
     render(){
         const {user,login} = this.state;
         const display = this.state.width < 768 ? 'none' : '';
-        const userImgs = `http://localhost:3030/images/user/${this.state.user.userImg}`
+        const userImgs = `http://localhost:3030/images/user/${this.state.user.userImg}`;
+        const MuserImgs = `http://localhost:3030/images/manu_user/${this.state.user.Mimg}`;
 
         // 會員icon圖示
         const userIcon = (
@@ -122,7 +123,7 @@ class NavbarUser extends Component{
         const MuserLoginArea = (
             <div>
                 <a href="/ManufacturerInstrument/InstrumentHome" className="home-username">
-                    <img className="home-username-img" src={userImgs}></img>
+                    <img className="home-username-img" src={MuserImgs}></img>
                 </a>
                 <ul className="home-nav-userlogin" style={{display}}>
                     <li>
