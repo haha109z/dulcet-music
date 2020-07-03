@@ -110,11 +110,10 @@ export default class UserPurchase extends Component {
             order.push(v)
             flag[v.orderId] = true
           }
-
         })
         // console.log('order', order)
         // console.log('json.data', json.data)
-        
+
         this.setState({ AllUserPurchase: order })
         this.setState({ AllUserPurchase_status: order })
         this.setState({ totalCount: order.length })
@@ -124,9 +123,7 @@ export default class UserPurchase extends Component {
         // console.log(json.data)
         setTimeout(() => {
           this.showData()
-          
         }, 0)
-        
       })
       .catch((error) => {
         console.error('Error:', error)
@@ -192,13 +189,12 @@ export default class UserPurchase extends Component {
   }
   constructor() {
     super()
-    
+
     if (userL() == null) {
       window.location = '/'
     }
-    
+
     this.getOrder()
-    
   }
 
   render() {
@@ -369,7 +365,6 @@ export default class UserPurchase extends Component {
                 {UserPurchaseDetail.filter(
                   (v) => v.orderId == item.orderId
                 ).map((itemD, index) => (
-                  
                   <>
                     <div className="UserPurchase-order-item">
                       <div className="UserPurchase-order-item-img">
@@ -386,8 +381,7 @@ export default class UserPurchase extends Component {
                           {itemD.Pdesciption}
                         </p>
                         <p className="UserPurchase-order-item-text-specification user-font-ch d-flex">
-                        <p>分類：{itemD.productCategory}</p>
-
+                          <p>分類：{itemD.productCategory}</p>
 
                           <p>數量：{itemD.q ? itemD.q : '1'}</p>
                         </p>
