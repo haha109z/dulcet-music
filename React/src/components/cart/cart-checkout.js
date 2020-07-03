@@ -26,8 +26,10 @@ function CartCheckout (props) {
     setTotalPrice, 
     orderPrice,
     setOrderPrice,
-    buyProduct,
-    setBuyProduct,
+    buyAll,
+    setBuyAll,
+    buyThis,
+    setBuyThis,
     checkstate, 
     setcheckstate,
     checkcallback,
@@ -145,7 +147,17 @@ function CartCheckout (props) {
 
           <div className="cart-table">
               <ul className='cart-thead'>
-                <li>選取</li>
+                {/* <li>選取</li> */}
+                <li>
+                  <input id="selectall" type="checkbox" checked={buyAll? "checked" : "" } 
+                    onClick={(e)=>{ 
+                      if (!e.target.checked) {
+                        setBuyAll(false) 
+                      } else {
+                        setBuyAll(true)
+                      }
+                  }}/>
+                </li>
                 <li>商品圖片</li>
                 <li>商品名稱</li>
                 <li>商品單價</li>
@@ -164,6 +176,10 @@ function CartCheckout (props) {
                   totalPrice,
                   cartNum,
                   setCartNum,
+                  buyAll,
+                  setBuyAll,
+                  buyThis,
+                  setBuyThis,
               }}
               />
           </div>

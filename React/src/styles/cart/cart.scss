@@ -4,7 +4,7 @@
   // width: 100%;
   .cart-thead {
     font-size: 16px;
-    line-height: 30px;
+    line-height: 35px;
     margin-bottom: 0rem;
     background-color: black;
     text-align: center;
@@ -12,6 +12,11 @@
     li {
       color: white;
       width: 14%;
+      input[type='checkbox'] {
+        width: 20px;
+        height: 20px;
+        margin: 8px 0 0 0;
+      }
     }
   }
 
@@ -79,6 +84,9 @@
         height: 20px;
       }
     }
+  }
+  .cart-product:hover {
+    transform: scale(1.02, 1.02);
   }
 }
 

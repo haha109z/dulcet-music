@@ -47,9 +47,11 @@ function CartApp (props) {
   const [couponIsUsed, setCouponIsUsed] = useState(false) 
 
 
-  // 商品列表checkbox勾選狀態，預設為勾選
-  // const [ buyProduct, setBuyProduct ] = useState('false');
-  // console.log(buyProduct);
+  // 商品列表全選checkbox勾選狀態，預設為勾選
+  const [ buyAll, setBuyAll ] = useState(true);
+  // console.log(buyAll);
+  // 單項商品checkbox勾選狀態，預設為勾選
+  const [ buyThis, setBuyThis ] = useState(true);
   
   // 收件資訊checkbox勾選狀態，預設為不勾選
   const [ checkstate, setcheckstate ] = useState(false);
@@ -219,8 +221,10 @@ useEffect(()=>{
                       setTotalPrice,
                       orderPrice,
                       setOrderPrice,
-                      // buyProduct, 
-                      // setBuyProduct,
+                      buyAll, 
+                      setBuyAll,
+                      buyThis,
+                      setBuyThis,
                       checkstate,
                       setcheckstate,
                       checkcallback,
