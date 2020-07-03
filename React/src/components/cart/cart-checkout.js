@@ -45,6 +45,8 @@ function CartCheckout (props) {
     setInvoiceInfo,
     invoiceType,
     setInvoiceType,
+    cartNum,
+    setCartNum,
    } = props.allProps;  
   //  console.log(discount);
   
@@ -160,6 +162,8 @@ function CartCheckout (props) {
                   cart,
                   setCart,
                   totalPrice,
+                  cartNum,
+                  setCartNum,
               }}
               />
           </div>

@@ -16,7 +16,7 @@ function CartApp (props) {
   const {
     cartNum, 
     setCartNum,
-  }=props
+  }=props.allProps
   // console.log(props);
   // console.log(cartNum);
   
@@ -157,10 +157,6 @@ useEffect(()=>{
         <Navbar 
           cartNum={cartNum}
           setCartNum={setCartNum}
-          // allProps={{
-          //   cartNum,
-          //   setCartNum,
-          // }}
         />
          <BrowserRouter>
          <ScrollToTop>
@@ -170,21 +166,21 @@ useEffect(()=>{
                 <Route path="/cart/2">
                   <CartCheckOrder                     
                     allProps={{
-                        cart,
-                        setCart,
-                        user,
-                        setUser,
-                        coupon,
-                        discount,
-                        totalPrice,
-                        orderPrice,
-                        checkstate,
-                        radiostate,
-                        ReceivingName, 
-                        ReceivingAddress, 
-                        ReceivingPhone, 
-                        ReceivingEmail, 
-                        invoiceInfo,    
+                      cart,
+                      setCart,
+                      user,
+                      setUser,
+                      coupon,
+                      discount,
+                      totalPrice,
+                      orderPrice,
+                      checkstate,
+                      radiostate,
+                      ReceivingName, 
+                      ReceivingAddress, 
+                      ReceivingPhone, 
+                      ReceivingEmail, 
+                      invoiceInfo,    
                     }}
                   />
                 </Route>
@@ -211,37 +207,39 @@ useEffect(()=>{
                 <Route path="/cart">
                   <CartCheckout
                     allProps={{
-                        cart,
-                        setCart,
-                        user,
-                        setUser,
-                        coupon,
-                        haveCoupon,
-                        discount,
-                        setDiscount,
-                        totalPrice,
-                        setTotalPrice,
-                        orderPrice,
-                        setOrderPrice,
-                        // buyProduct, 
-                        // setBuyProduct,
-                        checkstate,
-                        setcheckstate,
-                        checkcallback,
-                        ReceivingName, 
-                        setReceivingName, 
-                        ReceivingAddress, 
-                        setReceivingAddress, 
-                        ReceivingPhone, 
-                        setReceivingPhone, 
-                        ReceivingEmail, 
-                        setReceivingEmail,
-                        radiostate, 
-                        setRadiostate,
-                        invoiceInfo, 
-                        setInvoiceInfo,
-                        invoiceType, 
-                        setInvoiceType,
+                      cart,
+                      setCart,
+                      user,
+                      setUser,
+                      coupon,
+                      haveCoupon,
+                      discount,
+                      setDiscount,
+                      totalPrice,
+                      setTotalPrice,
+                      orderPrice,
+                      setOrderPrice,
+                      // buyProduct, 
+                      // setBuyProduct,
+                      checkstate,
+                      setcheckstate,
+                      checkcallback,
+                      ReceivingName, 
+                      setReceivingName, 
+                      ReceivingAddress, 
+                      setReceivingAddress, 
+                      ReceivingPhone, 
+                      setReceivingPhone, 
+                      ReceivingEmail, 
+                      setReceivingEmail,
+                      radiostate, 
+                      setRadiostate,
+                      invoiceInfo, 
+                      setInvoiceInfo,
+                      invoiceType, 
+                      setInvoiceType,
+                      cartNum, 
+                      setCartNum,
                     }}
                   />
                 </Route>
