@@ -53,7 +53,7 @@ router.post("/getlist", async (req, res) => {
       sql += "SELECT * FROM `product_courses`";
       break;
   }
-  console.log(category);
+  // console.log(category);
   switch (category) {
     case "piano":
       sql += " WHERE `PInstrumentId` = '鋼琴'";
@@ -90,7 +90,7 @@ router.post("/getlist", async (req, res) => {
   } else if (control == "熱門度") {
     sql += " ORDER BY `PClick` DESC LIMIT ?,?";
   }
-  console.log(sql);
+  // console.log(sql);
 
   const [data] = await db.query(sql, [idFirst, idLast]);
   res.json(data);

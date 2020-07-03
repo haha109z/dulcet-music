@@ -6,8 +6,9 @@ import ProductIntro from '../id/product-course-intro'
 import ProductDesciption from '../id/product-desciption'
 import ProductMayLike from '../id/product-maylike'
 
-function ProductId() {
+function ProductId(props) {
   let { PId } = useParams()
+  const { cartNum, setCartNum } = props
 
   const productCategoryId = 'course'
   const productCategoryName = '優質課程'
@@ -52,6 +53,8 @@ function ProductId() {
                 />
                 <div id="product-id-wrapper">
                   <ProductIntro
+                    cartNum={cartNum}
+                    setCartNum={setCartNum}
                     productName={p.PName}
                     PIntro={p.PIntro}
                     PPrice={p.PPrice.toString().replace(

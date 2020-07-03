@@ -3,6 +3,8 @@ import Amount from './product-intro-amount'
 import Btn from './product-intro-btn'
 
 function ProductIntro(props) {
+  const { cartNum, setCartNum } = props
+
   const PIntro = props.PIntro
   const PPrice = props.PPrice
   const PQty = props.PQty
@@ -35,7 +37,15 @@ function ProductIntro(props) {
             <h2 id="product-id-intro-text-cost">${PPrice}</h2>
             <Amount PQty={PQty} amount={amount} setAmount={setAmount} />
 
-            <Btn PId={PId} dataP={dataP} setDataP={setDataP} />
+            <Btn
+              cartNum={cartNum}
+              setCartNum={setCartNum}
+              amount={amount}
+              setAmount={setAmount}
+              PId={PId}
+              dataP={dataP}
+              setDataP={setDataP}
+            />
           </div>
         </div>
       </div>
