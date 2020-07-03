@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-
+import withReactContent from 'sweetalert2-react-content'
+import Swal from 'sweetalert2'
+const MySwal = withReactContent(Swal)
 //從localStorage抓user(他是一個陣列)
 const getUserInfo = () => {
   return JSON.parse(localStorage.getItem('user'))
@@ -28,7 +30,23 @@ export default class UserVideo extends Component {
         this.setState({ videoData: response.data })
       })
   }
-
+  lookVideo(PVideo, PName) {
+    MySwal.fire({
+      type: 'warning', // 彈框類型
+      title: PName, //標題
+      text: '', //顯示內容
+      icon: '', //icon圖示
+      // grow:"fullscreen",
+      width:"70%",
+      confirmButtonColor: '#141414', // 確定按鈕的 顏色
+      confirmButtonText: '返回', // 確定按鈕的 文字
+      html: `<video src=http://localhost:3030/images/product/${PVideo} controls="true" controlslist="nodownload" width="80%" height="80%">
+        
+        </video>`,
+      focusCancel: true, // 是否聚焦 取消按鈕
+      reverseButtons: true, // 是否 反轉 兩個按鈕的位置 默認是  左邊 確定  右邊 取消
+    })
+  }
   async componentDidMount() {
     await this.getVideoData()
   }
@@ -64,7 +82,7 @@ export default class UserVideo extends Component {
               value="送出"
             />
           </form>
-
+        
           <hr className="UserVideo-divider" />
 
           <div className="UserVideo-order">
@@ -72,7 +90,7 @@ export default class UserVideo extends Component {
               <>
                 <div className="UserVideo-order-item">
                   <div className="UserVideo-order-item-img">
-                    <img src="" alt="" dataimg={item.PImg} />
+                    <img src={`http://localhost:3030/images/product/${item.PImg}`} alt=""  />
                   </div>
                   <div className="UserVideo-order-item-text">
                     <p className="user-font-ch UserVideo-order-item-text-name">
@@ -82,12 +100,13 @@ export default class UserVideo extends Component {
                       {item.Pdesciption}
                     </p>
                   </div>
-                  <a
+                  <button
                     href=""
                     className="UserVideo-order-item-button user-font-ch"
+                    onClick={() => this.lookVideo(item.PVideo, item.PName)}
                   >
-                  立即觀看
-                  </a>
+                    立即觀看
+                  </button>
                 </div>
               </>
             ))}

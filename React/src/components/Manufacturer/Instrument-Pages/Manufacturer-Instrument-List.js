@@ -1,6 +1,8 @@
 import React from 'react'
 import {BrowserRouter,Router,Route,Link,Switch,withRouter,} from 'react-router-dom'
-
+import withReactContent from 'sweetalert2-react-content'
+import Swal from 'sweetalert2'
+const MySwal = withReactContent(Swal)
 
 if(JSON.parse(localStorage.getItem('user'))){
   const getUserInfo = () => {
@@ -57,32 +59,87 @@ class InstrumentList extends React.Component {
         })
         console.log(this.state.AllManuProduct)
       })
-    }
-    handleputon=(e)=>{
-      console.log(e)
 
-    }
-    handledown = (e,v) =>{
-      console.log(e)
-      // fetch('http://localhost:3030/ManufacturerInstrument/InstrumentList',{
-      //   method:'POST',
-      //   body:JSON.stringify({
-      //       PId,
-      //       PState
-      //   }),
-      //   headers: new Headers({
-      //     'Content-type': 'application/json',
-      //   }),
-      // })
-      // .then((res) => res.json())
-      // .then((json) => {
-      //   this.setState({
-      //     AllManuProduct : json
-      //   })
-      //   console.log(this.state.AllManuProduct)
-      // })
-    }
 
+      this.handleputon=(e)=>{
+        let PId = e
+        let PState = '上架'
+        MySwal.fire({
+          icon: 'success',
+          title: '上架成功',
+        })
+        fetch('http://localhost:3030/ManufacturerInstrument/InstrumentList',{
+          method:'POST',
+          body:JSON.stringify({
+              PId,
+              PState
+          }),
+          headers: new Headers({
+            'Content-type': 'application/json',
+          }),
+        })
+        .then((res) => res.json())
+        .then((json) => {
+          this.setState({
+            AllManuProduct : json
+          })
+        })
+      }
+      this.handledown = (e,) =>{
+        let PId = e
+        let PState = '下架'
+        fetch('http://localhost:3030/ManufacturerInstrument/InstrumentList',{
+          method:'POST',
+          body:JSON.stringify({
+              PId,
+              PState
+          }),
+          headers: new Headers({
+            'Content-type': 'application/json',
+          }),
+        })
+        .then((res) => res.json())
+        .then((json) => {
+          this.setState({
+            AllManuProduct : json
+          })
+        })
+      }
+      this.handledel = (e) =>{
+        let PId = e
+        fetch('http://localhost:3030/ManufacturerInstrument/InstrumentListDel',{
+          method:'POST',
+          body:JSON.stringify({
+              PId,
+          }),
+          headers: new Headers({
+            'Content-type': 'application/json',
+          }),
+        })
+        .then((res) => res.json())
+        .then((json) => {
+          this.setState({
+            AllManuProduct : json
+          })
+          
+        })
+      }
+      this.handleinto = (Mid,PName,PInstrumentId,PState,PQty,PIntro,Pdesciption) => {
+        let ManuProData = []
+        ManuProData.push({
+          'Mid':Mid,
+          'PName':PName,
+          'PInstrumentId':PInstrumentId,
+          'PState':PState,
+          'PQty':PQty,
+          'PIntro':PIntro,
+          'Pdesciption':Pdesciption
+        })
+        localStorage.setItem('ManuProData',JSON.stringify(ManuProData))
+      }
+    }
+    
+    
     handlecheck = e => {
       const check = document.querySelectorAll(".ins-list-content-chk")
       const allchk = document.querySelector(".ins-list-tool-chk")
@@ -175,7 +232,7 @@ class InstrumentList extends React.Component {
             </div>
             <Link
               to="/ManufacturerInstrument/InstrumentEdit"
-              className="ins-list-content-text">
+              className="ins-list-content-text" onClick={() => this.handleinto(this.state.Mid,product.PName,product.PInstrumentId,product.PState,product.PQty,product.PIntro,product.Pdesciption)}>
               <h3 className="font-size-142rem">{product.PName}</h3>
               <p className="font-size-1rem">類別 : {product.PInstrumentId}</p>
               <p className="font-size-1rem">更新時間 : {product.update_at}</p>
@@ -189,8 +246,8 @@ class InstrumentList extends React.Component {
             </Link>
             <div className="ins-list-content-btns">
               <button type="button" onClick={() => this.handleputon(product.PId)}>上架</button>
-              <button type="button" onClick={this.handledown}>下架</button>
-              <button type="button" onClick={this.handledel}>刪除</button>
+              <button type="button" onClick={() => this.handledown(product.PId)}>下架</button>
+              <button type="button" onClick={() => this.handledel(product.PId)}>刪除</button>
             </div>
           </div>
         </form>

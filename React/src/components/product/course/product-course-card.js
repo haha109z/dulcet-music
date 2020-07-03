@@ -7,6 +7,7 @@ function ProductVideoCard(props) {
   const setFavArr = props.setFavArr
   const CatId = '課程'
   const PId = props.PId
+  const PName = props.PName
 
   const [inc, setInc] = useState(favArr.includes(PId))
   var testArray = favArr
@@ -44,13 +45,11 @@ function ProductVideoCard(props) {
     delInstrumentFav(CatId, PId)
     testArray.splice(pos, 1)
     setFavArr(testArray)
-    // console.log(PId, 'del', favArr)
   }
   const func2 = () => {
     addInstrumentFav(CatId, PId)
     testArray.push(PId)
     setFavArr(testArray)
-    // console.log(PId, 'add', favArr)
   }
 
   return (
@@ -62,7 +61,7 @@ function ProductVideoCard(props) {
             src={`http://localhost:3030/images/product/${props.PImg}`}
           />
           <div className="product-card-intro">
-            <h4 className="product-card-title">{props.PName}</h4>
+            <h4 className="product-card-title">{PName}</h4>
             <h5 className="product-video-card-time">{props.PTime}</h5>
             <p className="product-video-card-desciption">{props.PIntro}</p>
             <h3 className="product-card-cost">${props.PPrice}</h3>

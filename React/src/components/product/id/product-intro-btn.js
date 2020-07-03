@@ -52,17 +52,11 @@ function ProductIntroBtn(props) {
     delInstrumentFav(CatId, PId)
     testArray.splice(pos, 1)
     setFavArr(testArray)
-    MySwal.fire('已刪除最愛', '', 'success')
-
-    // console.log(PId, 'del', favArr)
   }
   const func2 = () => {
     addInstrumentFav(CatId, PId)
     testArray.push(PId)
     setFavArr(testArray)
-    MySwal.fire('已加入最愛', '', 'success')
-
-    // console.log(PId, 'add', favArr)
   }
 
   return (
@@ -76,19 +70,20 @@ function ProductIntroBtn(props) {
             let addBool = false
             if (arrCart == null) {
               dataCart[0].num = amount
-              setAmount(0)
+              setAmount(1)
               setDataP(dataCart)
               localStorage.setItem('cart', JSON.stringify(dataCart))
               MySwal.fire('已加入購物車', '', 'success')
               setCartNum(JSON.parse(localStorage.getItem('cart')).length)
             } else if (arrCart != null) {
               for (let i = 0; i < arrCart.length; i++) {
-                // console.log(i)
-                if (dataCart[0].PId == arrCart[i].PId) {
+                if (
+                  dataCart[0].PCategoryId == arrCart[i].PCategoryId &&
+                  dataCart[0].PId == arrCart[i].PId
+                ) {
                   MySwal.fire('請勿重複加入', '', 'warning')
                   break
                 } else if (i == arrCart.length - 1) {
-                  // console.log('要加')
                   dataCart[0].num = amount
                   setAmount(1)
                   setDataP(dataCart)
@@ -96,30 +91,25 @@ function ProductIntroBtn(props) {
                   localStorage.setItem('cart', JSON.stringify(arrCart))
                   MySwal.fire('已加入購物車', '', 'success')
                   setCartNum(JSON.parse(localStorage.getItem('cart')).length)
-                  // alert('已加入購物車')
                   break
                 }
               }
-              // dataCart[0].num = amount
-              // setAmount(0)
-              // setDataP(dataCart)
-              // arrCart.push(dataCart[0])
-              // console.log('arrCart', arrCart.length)
-              // localStorage.setItem('cart', JSON.stringify(arrCart))
             }
           }}
         >
           加入購物車
         </button>
         <button
-          id="product-id-intro-favorite-btn"
+          id={`${
+            inc ? 'product-id-intro-btn-add' : 'product-id-intro-favorite-btn'
+          }`}
           className="product-id-intro-btn"
           onClick={() => {
             inc ? func1() : func2()
             testArrayFunc()
           }}
         >
-          {inc ? '刪除最愛' : '加入最愛'}
+          {inc ? '已加入最愛' : '加入最愛'}
         </button>
       </div>
     </>

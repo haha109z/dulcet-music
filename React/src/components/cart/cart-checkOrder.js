@@ -172,25 +172,34 @@ export default function CartCheckOrder (props) {
             <div className="cart-total-right">
               <div>
                 <span className="cart-total-title">合計</span>
-                <span className="cart-total-number cart-english-font">$ {totalPrice}</span>
+                <span className="cart-total-number cart-english-font">
+                  $ {totalPrice.toString().replace( /(\d)(?=(\d{3})+(\d{3})?$)/g, '$1,' )}
+                </span>
               </div>
               <div style={{color:'var(--main-colorfb2)'}}>
                 <span className="cart-total-title">折扣</span>
-                <span className="cart-total-number cart-english-font">- $ {discount}</span>
+                <span className="cart-total-number cart-english-font">
+                  - $ {discount.toString().replace( /(\d)(?=(\d{3})+(\d{3})?$)/g, '$1,' )}
+                </span>
               </div>
               <div>
                 <span className="cart-total-title">總計</span>
-                <span className="cart-total-number cart-english-font">$ {orderPrice}</span>
+                <span className="cart-total-number cart-english-font">
+                  $ {orderPrice.toString().replace( /(\d)(?=(\d{3})+(\d{3})?$)/g, '$1,' )}
+                </span>
               </div>
             </div>
           </div>
           <div className="cart-checkout-btn">
-            <button type="button">
-              <Link to='/cart/1'>上一步</Link>
-            </button>
-            <button type="button">
-              <Link to='/cart/3'>下一步</Link>
-            </button>
+            
+              <Link to='/cart/1'>
+                <button type="button">上一步</button>
+              </Link>            
+            
+              <Link to='/cart/3'>
+                <button type="button">下一步</button>
+              </Link>
+            
           </div>
 
       </>

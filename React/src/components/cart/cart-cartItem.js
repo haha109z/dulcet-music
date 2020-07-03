@@ -14,8 +14,10 @@ export default function CartItem (props) {
       totalPrice,
       cartNum,
       setCartNum,       
-      // buyProduct, 
-      // setBuyProduct,
+      buyAll, 
+      setBuyAll,
+      buyThis,
+      setBuyThis,
     } = props.allProps; 
 
 
@@ -100,13 +102,13 @@ export default function CartItem (props) {
     // }
 
     // 勾選商品checkbox(學姊)
-    // const checked = (e)=>{
+    // const checked = (e)=>{   
     //   // console.log(e.checked);
-    //   const input = e;   
-    //   if(!e.checked){    
-    //     input.removeAttribute("checked")
-    //   }else{
+    //   const input = e;         
+    //   if( !e.checked ){    
     //     input.setAttribute("checked","checked")
+    //   }else{
+    //     input.removeAttribute("checked")
     //   }
     // }  
 
@@ -118,7 +120,7 @@ export default function CartItem (props) {
 
           <div className="cart-check">
 
-              {/* {購物車內無商品} ? (A畫面):(B畫面) } */}
+              {/* 購物車內無商品 ? (A畫面):(B畫面) } */}
 
               { localStorage.getItem('cart')===null ? (
 
@@ -134,23 +136,41 @@ export default function CartItem (props) {
                   
                 return(
 
-                  <ul className="cart-product" key={index} >
-                    <li className="cart-product-li"><input type="checkbox" 
-                      // onClick={(e)=>checked(e.target)} 
-                    />
+                  <ul className="cart-product cart-product-hover" key={index} >
+                    <li className="cart-product-li">
+                      <input 
+                        type="checkbox" 
+                        checked={buyAll? "checked" : "" } 
+                        // onClick={(e)=>{   
+                        //   if (!e.target.checked) {
+                        //     setBuyAll(false) 
+                        //   } else {
+                        //     setBuyAll(true)
+                        //   }
+                        // }}                          
+                      />
                     </li>
                     <li className="cart-product-li"><img src={require(`../../img/cart/cart-violin-01.jpeg`)} /></li>
-                    {/* <li className="cart-product-li"><img src={require(`../../img/cart/${data.PImg}`)} /></li> */}
+                    {/* <li className="cart-product-li"><img src={require(`../../img/cart/${data.PImg}`)} /></li> */} 
+                    {/* 自node後端抓取商品圖片 */}
+                    {/* <li className="cart-product-li">
+                      <img src={`http://localhost:3030/images/product/${props.data.PImg}`} />
+                    </li> */}
                     <li className="cart-product-li">{data.PName}</li>
                     <li className="cart-product-li cart-english-font" style={{color:'var(--main-colorfb2)'}}>${
                         data.PPrice.toString().replace(/(\d)(?=(\d{3})+(\d{3})?$)/g,'$1,')}
                     </li>
                     <li className="cart-product-li-2">
                       <div 
-                        // onClick={(e)=>{ minusCartNumber(index) }}
+                        // onClick={(e)=>{ minusCartNumber(index) }}                        
                         onClick={(e)=>{              
                           data.num--
-                          changeQuantity(index, data.PId, data.num, data.PQty)
+                          // 影片類別商品無法更改數量
+                          if (data.PCategoryId=="影片") {
+                            MySwal.fire('影片類別商品無法更改數量', '', 'error')
+                          } else {                     
+                            changeQuantity(index, data.PId, data.num, data.PQty)
+                          }
                           return
                           console.log(data)
                           console.log(data.num)
@@ -180,7 +200,12 @@ export default function CartItem (props) {
                         // onClick={(e)=>{plusCartNumber(index)}}
                         onClick={(e)=>{              
                           data.num++
-                          changeQuantity(index, data.PId, data.num, data.PQty)
+                          // 影片類別商品無法更改數量
+                          if (data.PCategoryId=="影片") {
+                            MySwal.fire('影片類別商品無法更改數量', '', 'error')
+                          } else {
+                            changeQuantity(index, data.PId, data.num, data.PQty)
+                          }
                         }}
                       >
                         <i className="cart-plusBtn fas fa-plus-circle" />

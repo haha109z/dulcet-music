@@ -198,7 +198,7 @@ export default class UserLike extends Component {
                 <div className="UserLike-order-item">
                   <div className="UserLike-order-item-img">
                     <img
-                      src={require('../../../img/home_logo_方.png')}
+                      src={`http://localhost:3030/images/product/${item.PImg}`}
                       alt=""
                     />
                   </div>

@@ -369,9 +369,7 @@ export default class UserPurchase extends Component {
                     <div className="UserPurchase-order-item">
                       <div className="UserPurchase-order-item-img">
                         <img
-                          src={
-                            'http://localhost:3030/images/user/' + itemD.PImg
-                          }
+                          src={`http://localhost:3030/images/product/${itemD.PImg}`}
                           alt=""
                         />
                       </div>

@@ -26,8 +26,10 @@ function CartCheckout (props) {
     setTotalPrice, 
     orderPrice,
     setOrderPrice,
-    buyProduct,
-    setBuyProduct,
+    buyAll,
+    setBuyAll,
+    buyThis,
+    setBuyThis,
     checkstate, 
     setcheckstate,
     checkcallback,
@@ -143,30 +145,82 @@ function CartCheckout (props) {
 
           {/* 購物車商品 */}
 
-          <div className="cart-table">
-              <ul className='cart-thead'>
-                <li>選取</li>
-                <li>商品圖片</li>
-                <li>商品名稱</li>
-                <li>商品單價</li>
-                <li className="cart-rwd-noneed">數量</li>
-                <li className="cart-rwd-noneed">商品小計</li>
-                <li className="cart-rwd-noneed">刪除</li>
-              </ul>
-              <ul className="cart-order-category">
-                <li colSpan="7">購買清單</li>
-              </ul>   
-              {/* 商品明細 */}
-              <CartItem
-                allProps={{
-                  cart,
-                  setCart,
-                  totalPrice,
-                  cartNum,
-                  setCartNum,
-              }}
-              />
-          </div>
+          {/* { 購物車內無商品? (A畫面) : (B畫面) } */}
+
+          { localStorage.getItem('cart')===null ? (
+
+            <div className="cart-table">
+                  <ul className='cart-thead'>
+                    <li>選取</li>
+                    <li>商品圖片</li>
+                    <li>商品名稱</li>
+                    <li>商品單價</li>
+                    <li className="cart-rwd-noneed">數量</li>
+                    <li className="cart-rwd-noneed">商品小計</li>
+                    <li className="cart-rwd-noneed">刪除</li>
+                  </ul>
+                  <ul className="cart-order-category">
+                    <li colSpan="7">購買清單</li>
+                  </ul>   
+                  {/* 商品明細 */}
+                  <CartItem
+                    allProps={{
+                      cart,
+                      setCart,
+                      totalPrice,
+                      cartNum,
+                      setCartNum,
+                      buyAll,
+                      setBuyAll,
+                      buyThis,
+                      setBuyThis,
+                  }}
+                  />
+            </div>
+            
+            ):(
+
+              <div className="cart-table">
+                  <ul className='cart-thead'>
+                    {/* <li>選取</li> */}
+                    <li>
+                      <input id="selectall" type="checkbox" checked={buyAll? "checked" : "" } 
+                        onClick={(e)=>{ 
+                          if (!e.target.checked) {
+                            setBuyAll(false) 
+                          } else {
+                            setBuyAll(true)
+                          }
+                      }}/>
+                    </li>
+                    <li>商品圖片</li>
+                    <li>商品名稱</li>
+                    <li>商品單價</li>
+                    <li className="cart-rwd-noneed">數量</li>
+                    <li className="cart-rwd-noneed">商品小計</li>
+                    <li className="cart-rwd-noneed">刪除</li>
+                  </ul>
+                  <ul className="cart-order-category">
+                    <li colSpan="7">購買清單</li>
+                  </ul>   
+                  {/* 商品明細 */}
+                  <CartItem
+                    allProps={{
+                      cart,
+                      setCart,
+                      totalPrice,
+                      cartNum,
+                      setCartNum,
+                      buyAll,
+                      setBuyAll,
+                      buyThis,
+                      setBuyThis,
+                  }}
+                  />
+              </div>
+
+            )
+          }
 
           {/* 兩個表單 */}
           <div>
@@ -374,9 +428,11 @@ function CartCheckout (props) {
 
               ):(
 
-                <button id="nextstep" type="button">
-                  <Link to='/cart/2'>下一步</Link>
-                </button>
+                <Link to="/cart/2"> 
+                  <button id="nextstep" type="button">
+                    下一步
+                  </button>
+                </Link>
 
               )            
             }
