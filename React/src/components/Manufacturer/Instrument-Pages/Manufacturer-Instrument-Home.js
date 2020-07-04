@@ -45,20 +45,20 @@ class InstrumentHome extends React.Component {
   componentDidMount() {
     this.onChange = (e) => {
       e.preventDefault()
-      const uploadfile = document.querySelector('.ins-upload-input')
-      const preview = document.querySelector('.ins-upload-preview')
-      const filereader = new FileReader()
+      // const uploadfile = document.querySelector('.ins-upload-input')
+      // const preview = document.querySelector('.ins-upload-preview')
+      // const filereader = new FileReader()
 
-      uploadfile.addEventListener('change', e => {
-        console.log(e.target.files[0])
-        // 抓到值放入 變數file
-        const file = e.target.files[0]
-        // 轉成base46碼
-        filereader.readAsDataURL(file)
-        // 刪除預覽圖片的子元素
+      // uploadfile.addEventListener('change', e => {
+      //   console.log(e.target.files[0])
+      //   // 抓到值放入 變數file
+      //   const file = e.target.files[0]
+      //   // 轉成base46碼
+      //   filereader.readAsDataURL(file)
+      //   // 刪除預覽圖片的子元素
         
-        console.log(filereader.readAsDataURL(file))
-      })
+      //   console.log(filereader.readAsDataURL(file))
+      // })
 
      
 

@@ -16,6 +16,7 @@ class InstrumentPutOn extends React.Component{
         super()
         this.state = {
             Mid : Mid,
+            PId:'',
             newPName:'',
             newPCategoryId:'樂器',
             newPQty:'',
@@ -23,7 +24,8 @@ class InstrumentPutOn extends React.Component{
             newPState:'',
             newPInstrumentId:'',
             newPIntro:'',
-            newPdesciption:'',                     
+            newPdesciption:'',
+            newPimg:'',              
         } 
     }
     
@@ -44,12 +46,40 @@ class InstrumentPutOn extends React.Component{
         uploadfile.addEventListener('change', e => {
             // 抓到值放入 變數file
             const file = e.target.files[0]
+
+            this.setState({
+                newPimg : file
+            })
+            console.log(this.state.newPimg)
             // 轉成base46碼
             filereader.readAsDataURL(file)
             // 刪除預覽圖片的子元素
 
             h3.style.display = 'none'
             div.style.display = 'none'
+
+
+
+            console.log("file",file);
+        
+        const formData = new FormData()
+        // 这里的 image 是字段，根据具体需求更改
+        formData.append('image', file)
+        // 这里的 fetch 引用了 isomorphic-fetch 包
+        // console.log("this.state.user", this.state.user)
+        // return
+        fetch(`http://localhost:3030/manuI_putonimg/product`, {
+            method: 'POST',
+            body: formData,
+        })
+            .then((res) => res.json())
+            .then((json) => {
+                console.log(json)
+                this.setState({
+                    PId : json
+                })
+                console.log(this.state.PId)
+            })
         })
         // 追蹤事件載入
         filereader.addEventListener('load',function(){
@@ -60,6 +90,10 @@ class InstrumentPutOn extends React.Component{
             preview.src = dataURL;
             alert('上傳成功')
         })
+
+        
+        
+      
     }
 
     handlename = e =>{
@@ -111,9 +145,7 @@ class InstrumentPutOn extends React.Component{
 
 
     handlesend = () => {
-        
-
-        console.log(this.state)
+    
         let {
             Mid,
             newPName,
@@ -124,6 +156,7 @@ class InstrumentPutOn extends React.Component{
             newPInstrumentId,
             newPIntro,
             newPdesciption,
+            PId,
         } = this.state
         if(
             this.state.Mid && 
@@ -145,6 +178,7 @@ class InstrumentPutOn extends React.Component{
                 newPInstrumentId,
                 newPIntro,
                 newPdesciption,
+                PId,
             }),
             headers:new Headers({
                 'Content-Type': 'application/json',
@@ -158,7 +192,7 @@ class InstrumentPutOn extends React.Component{
             title:'新增成功',
             confirmButtonText: '確定', // 確定按鈕的 文字,
         }).then(function(){
-            window.location.reload(true)
+            window.location.assign("http://localhost:3000/ManufacturerInstrument/InstrumentList")
         })
     }else{
         MySwal.fire({

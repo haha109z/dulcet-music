@@ -5,6 +5,7 @@ const upload = require(__dirname + "/upload-module");
 const query = require(__dirname + "/mysql");
 const sha1 = require("sha1");
 
+
 router.post("/", async (req, res) => {
     let {
         Mid,
@@ -16,12 +17,23 @@ router.post("/", async (req, res) => {
         newPInstrumentId,
         newPIntro,
         newPdesciption,
+        PId,
     } = req.body;
     console.log("req.body", req.body);
     let resData = { code: "", msg: "" };
     try {
         await query(
-        `INSERT INTO product_instruments (PCompanyId,PName,PCategoryId,PQty,PPrice,PState,PInstrumentId,PIntro,Pdesciption) VALUES(?,?,?,?,?,?,?,?,?)`,
+        `UPDATE product_instruments 
+        SET PCompanyId = ?,
+          PName = ?,
+          PCategoryId = ?,
+          PQty = ?,
+          PPrice = ?,
+          PState = ?,
+          PInstrumentId = ?,
+          PIntro = ?,
+          Pdesciption = ?
+        WHERE PId = ?`,
       [
           Mid,
           newPName,
@@ -32,6 +44,7 @@ router.post("/", async (req, res) => {
           newPInstrumentId,
           newPIntro,
           newPdesciption,
+          PId,
         ],
       (err, result) => {
         if (err) throw err;
@@ -42,7 +55,7 @@ router.post("/", async (req, res) => {
         // console.log(e.errno);
         if (e.errno == 1062) {
         }
-        resData = { code: 3, msg: "信箱已經被註冊過請換個信箱試試" };
+        resData = { code: 3, msg: "錯誤" };
         return res.json(resData);
       }
     

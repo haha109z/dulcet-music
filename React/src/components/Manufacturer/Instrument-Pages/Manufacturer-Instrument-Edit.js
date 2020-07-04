@@ -19,9 +19,9 @@ class InstrumentEdit extends React.Component {
   state = {
     ManuData: [],
     Mid:Mid,
-    img: '',
     PId:'',
     changePName:'',
+    changePImg:'',
     changePQty:'',
     changePPrice:'',
     changePState:'',
@@ -41,6 +41,7 @@ class InstrumentEdit extends React.Component {
         this.setState({ 
           PId:manu[0].PId,
           changePName:manu[0].PName,
+          changePImg:manu[0].PImg,
           changePQty:manu[0].PQty,
           changePPrice:manu[0].PPrice,
           changePState:manu[0].PState,
@@ -52,6 +53,7 @@ class InstrumentEdit extends React.Component {
         this.setState({ 
           PId:'',
           changePName:'',
+          changePImg:'',
           changePQty:'',
           changePPrice:'',
           changePState:'',
@@ -64,6 +66,7 @@ class InstrumentEdit extends React.Component {
       this.setState({ 
         PId:'',
         changePName:'',
+        changePImg:'',
         changePQty:'',
         changePPrice:'',
         changePState:'',
@@ -120,7 +123,7 @@ class InstrumentEdit extends React.Component {
       
   }
   
-  handleUpload = (e) => {
+  handleUpload = e => {
     //抓取上傳檔案按鈕元素
     const uploadfile = document.querySelector('.ins-edit-file-img')
     //抓取預覽圖片元素
@@ -128,9 +131,9 @@ class InstrumentEdit extends React.Component {
     //建立file obj
     const filereader = new FileReader()
     // 抓取預覽圖片的父元素及裡面的子元素
-    const del = document.querySelector('.ins-edit-add')
-    const h3 = document.querySelector('.ins-edit-file-text')
-    const div = document.querySelector('.ins-edit-icon-div')
+    // const del = document.querySelector('.ins-edit-add')
+    // const h3 = document.querySelector('.ins-edit-file-text')
+    // const div = document.querySelector('.ins-edit-icon-div')
 
     // 追蹤上傳按鈕事件
     uploadfile.addEventListener('change', (e) => {
@@ -140,9 +143,30 @@ class InstrumentEdit extends React.Component {
       filereader.readAsDataURL(file)
       // 刪除預覽圖片的子元素
 
-      h3.style.display = 'none'
-      div.style.display = 'none'
-    })
+      // h3.style.display = 'none'
+      // div.style.display = 'none'
+
+
+      console.log("file",file);
+      const formData = new FormData()
+      // 这里的 image 是字段，根据具体需求更改
+      formData.append('image', file)
+      
+      // 这里的 fetch 引用了 isomorphic-fetch 包
+      // console.log("this.state.user", this.state.user)
+      // return
+      fetch(`http://localhost:3030/manuI_editimg/product/${this.state.PId}`, {
+          method: 'POST',
+          body:formData,
+      })
+          .then((res) => res.json())
+          .then((json) => {
+              console.log(json)
+              
+          })
+      })
+
+
     // 追蹤事件載入
     filereader.addEventListener('load', function () {
       // 把base46碼放入變數 dataURL
@@ -165,7 +189,15 @@ class InstrumentEdit extends React.Component {
       changePIntro,
       changePdesciption, 
     } = this.state
-
+    if(
+      this.state.Mid && 
+      this.state.changePName &&
+      this.state.changePQty && 
+      this.state.changePPrice && 
+      this.state.changePState && 
+      this.state.changePInstrumentId && 
+      this.state.changePIntro &&
+      this.state.changePdesciption){
     fetch('http://localhost:3030/ManufacturerInstrument/InstrumentEdit',{
             method : 'POST',
             body:JSON.stringify({
@@ -186,6 +218,20 @@ class InstrumentEdit extends React.Component {
         .then((res) => {
           console.log(res)
       })
+        MySwal.fire({
+          icon:'success',
+          title:'新增成功',
+          confirmButtonText: '確定', // 確定按鈕的 文字,
+      }).then(function(){
+          window.location.assign("http://localhost:3000/ManufacturerInstrument/InstrumentList")
+      })
+    }else{
+      MySwal.fire({
+        icon:'error',
+        title:'欄位不可為空',
+        confirmButtonText: '確定', // 確定按鈕的 文字,
+    })
+    }
   }
   
 
@@ -196,11 +242,11 @@ class InstrumentEdit extends React.Component {
         <h3 className="font-size-142rem">編輯商品</h3>
         <form className="ins-edit-form">
           <div className="ins-edit-add" controls>
-            <h3 className="ins-edit-file-text font-size-142rem">圖片預覽</h3>
+            {/* <h3 className="ins-edit-file-text font-size-142rem">圖片預覽</h3>
             <div className="ins-edit-icon-div">
               <FaPlus className="ins-edit-icon" />
-            </div>
-            <img className="ins-edit-pre-img"></img>
+            </div> */}
+            <img className="ins-edit-pre-img" src={`http://localhost:3030/images/product/${this.state.changePImg}`}></img>
           </div>
           <div className="ins-edit-file-btn">
             <label htmlFor="file" onClick={this.handleUpload}>
