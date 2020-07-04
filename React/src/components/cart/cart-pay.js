@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+// 引入sweetalert2-react-content套件
+import withReactContent from 'sweetalert2-react-content';
+import Swal from 'sweetalert2';
 
 function CartPay (props) {
+  
+  // 引入sweetalert2-react-content套件
+  const MySwal = withReactContent(Swal);
 
   const {
     user,
@@ -305,110 +311,92 @@ function CartPay (props) {
                 <button type="button">上一步</button>
               </Link>
               
-              <Link to='/cart/4'>
+              <Link>
                 <button type="button" onClick={()=>{
 
-                  // sql語法：INSERT INTO `orderlist` (`orderId`, `memberId`, `name`, `address`, `phone`, `email`, `invoice`, `invoiceStorage`, `invoiceInfo`, `coupon`, `orderPrice`, `orderPayment`, `orderState`, `created_at`) VALUES (NULL, '11', '11', '11', '11', '11', '11', '11', '11', '11', '11', '11', '11', current_timestamp());
-
-// <<<<<<< HEAD
-                  // 新增一筆訂單資料至資料庫
-                  fetch('http://localhost:3030/cart/3', {
-                    method: 'POST', // or 'PUT'
-                    body: JSON.stringify({
-                      memberid,
-                      name,
-                      address,
-                      phone,
-                      email,
-                      invoice,
-                      invoicestorage,
-                      invoiceinfo,
-                      coupon,
-                      orderprice,
-                      orderpayment,
-                      orderstate,
-                      orderData,
-                    }), // data can be `string` or {object}!
-                    headers: new Headers({
-                      'Content-Type': 'application/json',
-                    }),
+                  MySwal.fire({
+                    type: 'warning', // 彈框類型
+                    title: '確認送出？', //標題
+                    confirmButtonColor: '#fb2643', // 確定按鈕的 顏色
+                    confirmButtonText: '確定', // 確定按鈕的 文字
+                    showCancelButton: true, // 是否顯示取消按鈕
+                    cancelButtonColor: '#fffff', // 取消按鈕的 顏色
+                    cancelButtonText: '取消', // 取消按鈕的 文字,
+                    focusCancel: true, // 是否聚焦 取消按鈕
                   })
-                  // .then((res) => res.json())
-                  // .then((json) => {
-                  //   if (json.code === 3) {
-                  //     MySwal.fire('信箱已經註冊過請換一個信箱試試', '', 'error')
-                  //   } else if (json.data) {
-                  //     localStorage.setItem('user', JSON.stringify(json.data))
-                  //     console.log(JSON.stringify(json.data))
-                  //     this.setState({ user: json.data[0] })
+                  // 按下確認按鈕
+                  .then((isConfirm)=>{
+                    console.log(isConfirm.value)
+                    if (isConfirm.value) {
+
+                      // 新增一筆訂單資料至資料庫
+                      fetch('http://localhost:3030/cart/3', {
+                        method: 'POST', // or 'PUT'
+                        body: JSON.stringify({
+                          memberid,
+                          name,
+                          address,
+                          phone,
+                          email,
+                          invoice,
+                          invoicestorage,
+                          invoiceinfo,
+                          coupon,
+                          orderprice,
+                          orderpayment,
+                          orderstate,
+                          orderData,
+                        }), // data can be `string` or {object}!
+                        headers: new Headers({
+                          'Content-Type': 'application/json',
+                        }),
+                      })
+                      // .then((res) => res.json())
+                      // .then((json) => {
+                      //   if (json.code === 3) {
+                      //     MySwal.fire('信箱已經註冊過請換一個信箱試試', '', 'error')
+                      //   } else if (json.data) {
+                      //     localStorage.setItem('user', JSON.stringify(json.data))
+                      //     console.log(JSON.stringify(json.data))
+                      //     this.setState({ user: json.data[0] })
+                          
+                      //   }
+                      //   // localStorage.setItem('user', JSON.stringify(json.data))
+                      //   // console.log(json.data)
+                      // })
+                      // .catch((error) => {
+                      //   console.error('Error:', error)
+                      // })
+
+                        
+                      // 購物車商品全選結帳，清空localStorage cart並更新購物車圖示數量為0
+                      if (buyAll) {
+                        localStorage.removeItem('cart')
+                        setCartNum(0)
+                      } else {
+
+                      }
+
                       
-                  //   }
-                  //   // localStorage.setItem('user', JSON.stringify(json.data))
-                  //   // console.log(json.data)
-                  // })
-                  // .catch((error) => {
-                  //   console.error('Error:', error)
-                  // })
-// =======
-//                   // 新增一筆訂單資料至資料庫
-//                   fetch('http://localhost:3030/cart/3', {
-//                     method: 'POST', // or 'PUT'
-//                     body: JSON.stringify({
-//                       memberid,
-//                       name,
-//                       address,
-//                       phone,
-//                       email,
-//                       invoice,
-//                       invoicestorage,
-//                       invoiceinfo,
-//                       coupon,
-//                       orderprice,
-//                       orderpayment,
-//                       orderstate
-//                     }), // data can be `string` or {object}!
-//                     headers: new Headers({
-//                       'Content-Type': 'application/json',
-//                     }),
-//                   })
-//                   // .then((res) => res.json())
-//                   // .then((json) => {
-//                   //   if (json.code === 3) {
-//                   //     MySwal.fire('信箱已經註冊過請換一個信箱試試', '', 'error')
-//                   //   } else if (json.data) {
-//                   //     localStorage.setItem('user', JSON.stringify(json.data))
-//                   //     console.log(JSON.stringify(json.data))
-//                   //     this.setState({ user: json.data[0] })
+                      // 更改loclaStorage的coupon使用狀態
+                      let couponData = JSON.parse(localStorage.getItem('coupon'))
+                      // console.log(couponData)
+                      if ( couponData !== null ) {
+                        couponData[0].couponLocalStorage = 1;
+                        localStorage.setItem('coupon', JSON.stringify(couponData))
+                      } else {
+
+                      }
+
+                      // 跳轉至下一頁
+                      window.location = '/cart/4'
+
+                    } else {
+
+                    }
+                  })
                       
-//                   //   }
-//                   //   // localStorage.setItem('user', JSON.stringify(json.data))
-//                   //   // console.log(json.data)
-//                   // })
-//                   // .catch((error) => {
-//                   //   console.error('Error:', error)
-//                   // })
-// >>>>>>> b764f424171ec44c6386076d95527b6e27b5c4b7
-
-                  // 購物車商品全選結帳，清空localStorage cart並更新購物車圖示數量為0
-                  if (buyAll) {
-                    localStorage.removeItem('cart')
-                    setCartNum(0)
-                  } else {
-
-                  }
-
-                  // 更改loclaStorage的coupon使用狀態
-                  let couponData = JSON.parse(localStorage.getItem('coupon'))
-                  // console.log(couponData)
-                  if ( couponData !== null ) {
-                    couponData[0].couponLocalStorage = 1;
-                    localStorage.setItem('coupon', JSON.stringify(couponData))
-                  } else {
-
-                  }
-                }}>
-                  確認送出
-                </button>
+                }}>確認送出</button>
               </Link>
 
             </div>
