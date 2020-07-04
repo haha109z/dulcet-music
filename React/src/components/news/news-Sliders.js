@@ -15,9 +15,9 @@ function NewsSliders(props) {
 
   return (
     <>
-      <div className="news-Sliders d-flex">
-      <Carousel activeIndex={index} onSelect={handleSelect}>
-      <Carousel.Item>
+      <div className="news-Sliders">
+      <Carousel className="news-Sliders" activeIndex={index} onSelect={handleSelect}>
+      <Carousel.Item> 
         <img
           className="d-block news-SlidersImg"
           src={slider1}

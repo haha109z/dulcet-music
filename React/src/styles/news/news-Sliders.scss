@@ -1,33 +1,21 @@
 .news-Sliders {
   max-width: 1440px;
-  height: 600px;
+  max-height: 600px;
   margin: 90px auto 50px;
 }
 
 .news-SlidersImg {
-  width: 1440px;
+  width: 100%;
   height: 600px;
-}
-
-.news-SlidersArrow {
-  color: #dadada;
-  font-size: 48px;
-  padding: 0 10px;
-  display: block;
-  margin: auto;
-}
-.news-SlidersArrow:hover {
-  color: #141414;
-  font-size: 48px;
 }
 
 @media (max-width: 768px) {
   .news-Sliders {
-    width: 100%;
-    height: 100%;
+    // width: 100%;
+    // height: 100%;
     margin: 90px auto 10px;
   }
-  .news-SlidersArrow {
-    display: none;
+  .news-SlidersImg{
+    height: 210px;
   }
 }
