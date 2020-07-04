@@ -112,6 +112,7 @@ export default class UserSideBar extends Component {
               <p className="user-sidebar-hover"></p>我的優惠卷
               <div className="user-sidebar-menu-li-right"></div>
             </Link>
+
             <Link
               onClick={this.goForum}
               className="user-sidebar-menu-li font-size-142rem user-font-ch rwd-user-out"
@@ -120,6 +121,7 @@ export default class UserSideBar extends Component {
               <p className="user-sidebar-hover"></p>討論區
               <div className="user-sidebar-menu-li-right"></div>
             </Link>
+            
             <div
               className="user-sidebar-menu-out font-size-142rem user-font-ch"
               onClick={this.signOut}

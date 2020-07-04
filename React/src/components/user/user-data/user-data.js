@@ -141,6 +141,7 @@ export default class UserData extends Component {
                   .then((json) => {
                     if (json.code === 3) {
                       MySwal.fire('信箱已經註冊過請換一個信箱試試', '', 'error')
+                      return
                     } else if (json.data) {
                       localStorage.setItem('user', JSON.stringify(json.data))
                       console.log(JSON.stringify(json.data))
