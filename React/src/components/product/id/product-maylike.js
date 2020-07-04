@@ -59,6 +59,7 @@ function ProductMayLike(props) {
               favArr={favArr}
               setFavArr={setFavArr}
               PId={c.PId}
+              PImg={c.PImg}
             ></Card>
           )
         })}
