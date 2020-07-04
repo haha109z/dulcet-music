@@ -102,7 +102,7 @@ export default class UserPurchase extends Component {
     })
       .then((res) => res.json())
       .then((json) => {
-        // console.log(json.data)
+        console.log(json.data)
         let order = [],
           flag = {}
         json.data.forEach((v) => {
@@ -198,6 +198,7 @@ export default class UserPurchase extends Component {
   }
 
   render() {
+    
     let UserPurchase = this.state.UserPurchase
     let UserPurchaseDetail = this.state.UserPurchaseDetail
 
@@ -376,12 +377,13 @@ export default class UserPurchase extends Component {
                       <div className="UserPurchase-order-item-text">
                         <p className="UserPurchase-order-item-text-name user-font-ch">
                           {itemD.PName}
-                          {itemD.Pdesciption}
+                          {/* {itemD.Pdesciption} */}
                         </p>
                         <p className="UserPurchase-order-item-text-specification user-font-ch d-flex">
                           <p>分類：{itemD.productCategory}</p>
+                          <p>數量：{itemD.cartNumber ? itemD.cartNumber : '1'}</p>
 
-                          <p>數量：{itemD.q ? itemD.q : '1'}</p>
+                          {/* <p>數量：{itemD.q ? itemD.q : '1'}</p> */}
                         </p>
 
                         <div className="d-flex UserPurchase-order-item-text-money">
