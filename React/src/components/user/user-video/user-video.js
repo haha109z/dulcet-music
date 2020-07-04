@@ -15,8 +15,9 @@ export default class UserVideo extends Component {
   // 建立一個空狀態準備放抓出來的資料
   state = {
     videoData: [], //全部資料
-    showVideoData: [],
-    pageNum: 1,
+    showVideoData: [], //顯示資料
+    pageNum: 1, //目前頁數
+    showContent: false,
   }
   getVideoData() {
     fetch('http://localhost:3030/user/UserVideo', {
@@ -50,15 +51,42 @@ export default class UserVideo extends Component {
       reverseButtons: true, // 是否 反轉 兩個按鈕的位置 默認是  左邊 確定  右邊 取消
     })
   }
-  changePage(e) {
-    console.log(e)
-    this.setState({pageNum:Number(e)})
-    this.showData()
+  changePage = (e) => {
+    // console.log(e)
+    this.setState({ pageNum: Number(e) }, () => {
+      this.showData()
+    })
   }
-  showData() {
+  bokTop = () => {
+    document.documentElement.scrollTop = 0
+  }
+  changePageL = () => {
+    let { pageNum } = this.state
+    if (pageNum > 1) {
+      this.setState({ pageNum: pageNum - 1 }, () => {
+        this.showData()
+      })
+    }
+  }
+
+  changePageR = () => {
+    // console.log('R')
+    let { pageNum } = this.state
+    let pageList = Math.ceil(this.state.videoData.length / 5)
+    if (pageNum < pageList) {
+      this.setState({ pageNum: pageNum + 1 }, () => {
+        this.showData()
+      })
+    }
+  }
+  showContent = () => {
+    this.setState({showContent:this.state.showContent?false:true})
+  }
+  showData = () => {
     const { videoData, pageNum } = this.state
     let showVideoData = videoData.slice((pageNum - 1) * 5, pageNum * 5)
     this.setState({ showVideoData: showVideoData })
+    this.bokTop()
   }
 
   componentDidMount() {
@@ -73,13 +101,9 @@ export default class UserVideo extends Component {
 
   render() {
     let page = []
-    console.log(Math.ceil(this.state.videoData.length / 5))
     for (let i = 1; i <= Math.ceil(this.state.videoData.length / 5); i++) {
       page.push(i)
     }
-    console.log(page)
-
-    // console.log(this.state.showVideoData)
 
     return (
       <>
@@ -136,30 +160,46 @@ export default class UserVideo extends Component {
             ))}
           </div>
           <div className="user-page">
-            <a className="user-page-Rarrow">
+            <a className="user-page-Rarrow" onClick={this.changePageL}>
               <i className="fas fa-sort-up"></i>
             </a>
+            {/* "user-page-number "user-page-numberHover */}
             {page.map((e) => (
               <button
                 onClick={() => this.changePage(e)}
-                className="user-page-number"
+                className={
+                  this.state.pageNum === e
+                    ? 'user-page-number user-page-numberHover'
+                    : 'user-page-number'
+                }
               >
                 {e}
               </button>
             ))}
-
-            <a className="user-page-Larrow">
+            <a className="user-page-Larrow" onClick={this.changePageR}>
               <i className="fas fa-sort-up"></i>
             </a>
           </div>
-          <div className="userRwd-dropdown ">
+          <div className="userRwd-dropdown" onClick={this.showContent}>
             <button type="button" className="userRwd-dropbtn">
-              頁數
-              <i className="fas fa-sort-down"></i>
+              第 {this.state.pageNum} 頁<i className="fas fa-sort-down"></i>
             </button>
-            <div className="userRwd-dropdown-content">
+            <div
+              className={
+                this.state.showContent
+                  ? 'userRwd-dropdown-content'
+                  : 'userRwd-dropdown-content d-none'
+              }
+            >
               {page.map((e) => (
-                <button onClick={() => this.changePage(e)}>{e}</button>
+                <button
+                  className={
+                    this.state.pageNum === e ? 'user-page-numberHover' : ''
+                  }
+                  onClick={() => this.changePage(e)}
+                >
+                  {e}
+                </button>
               ))}
             </div>
           </div>

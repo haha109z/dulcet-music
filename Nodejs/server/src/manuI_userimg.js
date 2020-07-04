@@ -2,7 +2,6 @@ const express = require('express');
 const db = require(__dirname + '/db_connect2');
 // const upload = require(__dirname + '/upload-module');
 var multer = require('multer')
-
 const file_extension = {
   "image/jpeg":"jpg",
   "image/png":"png",

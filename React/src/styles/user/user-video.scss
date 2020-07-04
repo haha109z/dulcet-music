@@ -127,6 +127,7 @@
   background-color: var(--main-colorf2e);
 }
 
+
 @media (max-width: 768px) {
   .UserVideo-main {
     width: 80%;
@@ -193,7 +194,6 @@
     position: relative;
   }
   .UserVideo-order-item {
-    background-color: #f2f2f2;
     width: 100%;
     height: 240px;
     display: flex;
