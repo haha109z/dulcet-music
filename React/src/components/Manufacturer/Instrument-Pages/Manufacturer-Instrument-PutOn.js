@@ -1,6 +1,8 @@
 import React from 'react'
 import { FaPlus, FaCommentsDollar } from "react-icons/fa"
-
+import withReactContent from 'sweetalert2-react-content'
+import Swal from 'sweetalert2'
+const MySwal = withReactContent(Swal)
 
 if(JSON.parse(localStorage.getItem('user'))){
     const getUserInfo = () => {
@@ -110,6 +112,7 @@ class InstrumentPutOn extends React.Component{
 
     handlesend = () => {
         
+
         console.log(this.state)
         let {
             Mid,
@@ -122,7 +125,14 @@ class InstrumentPutOn extends React.Component{
             newPIntro,
             newPdesciption,
         } = this.state
-
+        if(
+            this.state.Mid && 
+            this.state.newPQty && 
+            this.state.newPPrice && 
+            this.state.newPState && 
+            this.state.newPInstrumentId && 
+            this.state.newPIntro &&
+            this.state.newPdesciption){
         fetch('http://localhost:3030/ManufacturerInstrument/InstrumentPutOn',{
             method : 'POST',
             body:JSON.stringify({
@@ -143,6 +153,20 @@ class InstrumentPutOn extends React.Component{
         .then((res) => {
             console.log(res)
         })
+        MySwal.fire({
+            icon:'success',
+            title:'新增成功',
+            confirmButtonText: '確定', // 確定按鈕的 文字,
+        }).then(function(){
+            window.location.reload(true)
+        })
+    }else{
+        MySwal.fire({
+            icon:'error',
+            title:'欄位不可為空',
+            confirmButtonText: '確定', // 確定按鈕的 文字,
+        })
+    }
     }
         
        

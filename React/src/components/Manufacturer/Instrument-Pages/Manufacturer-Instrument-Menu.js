@@ -1,10 +1,29 @@
 import React from 'react'
 import { BrowserRouter, Router, Route, Link, Switch, withRouter} from "react-router-dom"
 import { FaGuitar } from "react-icons/fa";
+import withReactContent from 'sweetalert2-react-content'
+import Swal from 'sweetalert2'
+const MySwal = withReactContent(Swal)
 
 
 
 class InstrumentMenu extends React.Component{
+
+  handlesignout = () =>{
+    MySwal.fire({
+      position: 'top-center',
+      icon: 'success',
+      title: '登出',
+      showConfirmButton: false,
+      timer: 2000,
+    })
+
+    setTimeout(() => {
+      window.location = '/'
+      localStorage.clear('user')
+    }, 1900)
+  }
+  
    render(){
     return(
         <div className="ins-menu-page">
@@ -39,8 +58,9 @@ class InstrumentMenu extends React.Component{
             <p>新增樂器</p>
             <div className="ins-menu-li-right"></div>
           </Link>
+          
           <div className="ins-menu-out font-size-142rem ">
-            <Link to="">登出</Link>
+            <Link to="" onClick={this.handlesignout}>登出</Link>
           </div>
         </ul>
       </div>

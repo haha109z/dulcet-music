@@ -155,6 +155,7 @@ class InstrumentPassword extends React.Component{
       </h3>
       <div className="insPassword-top-Img">
       <label for="gogo" className="ins-upload-container">
+      <img className="ins-upload-preview" src={`http://localhost:3030/images/manu_user/${this.state.ManuData.Mimg}`}></img>
               <input
                 type="file"
                 name="image"

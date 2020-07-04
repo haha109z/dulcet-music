@@ -164,6 +164,11 @@ class InstrumentList extends React.Component {
         }
       }
 
+      this.handlealldel = () => {
+        let check = document.querySelectorAll('.ins-list-content-chk').       
+        alert(check)
+      }
+
 
 
 
@@ -254,9 +259,9 @@ class InstrumentList extends React.Component {
           <div className="ins-list-option">
             <input type="checkbox" onClick={this.handlecheck} className="ins-list-tool-chk"/>
             <p>全選</p>
-            <a href="">刪除</a>
-            <a href="">上架</a>
-            <a href="">下架</a>
+            <a onClick={this.handlealldel}>刪除</a>
+            <a onClick={this.handleallputon}>上架</a>
+            <a onClick={this.handlealldown}>下架</a>
           </div>
           <Link to="/ManufacturerInstrument/InstrumentPutOn" className="ins-list-tool-btn">新增影片</Link>
         </div>
@@ -271,7 +276,7 @@ class InstrumentList extends React.Component {
             <p className="font-size-185rem">商品狀態 : {product.PState}</p>
           </div>
           <div className="ins-list-content">
-            <input type="checkbox" checked={false} className="ins-list-content-chk"/>
+            <input type="checkbox" checked={false} className="ins-list-content-chk" />
             <div className="ins-list-content-movie">
               <img src={require('../../../img/home_violin_m_8.jpg')}/>
             </div>

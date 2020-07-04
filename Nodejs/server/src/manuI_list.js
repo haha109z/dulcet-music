@@ -15,7 +15,7 @@ router.post('/',async (req,res) => {
     let resData = { code:'',msg :''};
     try {
         await query(
-          `UPDATE product_instruments SET PState = ? WHERE product_instruments.PId = ?;
+          `UPDATE product_instruments SET PState = ? WHERE product_instruments.PId = ? ;
         `,
           [ 
             PState,
@@ -33,7 +33,7 @@ router.post('/',async (req,res) => {
         resData = { code: 3, msg: "信箱已經被註冊過請換個信箱試試" };
         return res.json(resData);
       }
-    const listdata = await query(`SELECT * FROM product_instruments WHERE PCompanyId = ?`,
+    const listdata = await query(`SELECT * FROM product_instruments WHERE PCompanyId = ? ORDER BY product_instruments.created_at DESC`,
         [Mid]
     );
     console.log(listdata)

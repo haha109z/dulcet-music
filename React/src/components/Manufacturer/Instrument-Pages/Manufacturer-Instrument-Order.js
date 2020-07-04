@@ -127,7 +127,7 @@ class InstrumentOrder extends React.Component {
                 <div>
                   <p className="ins-order-text">購買人 :{listItem.name}</p>
                   <p className="ins-order-text">手機 : {listItem.phone}</p>
-                  <p className="ins-order-text">{listItem.address}</p>
+                  <p className="ins-order-text">地址 : {listItem.address}</p>
                 </div>
                 <div>
                   <p className="ins-order-text">

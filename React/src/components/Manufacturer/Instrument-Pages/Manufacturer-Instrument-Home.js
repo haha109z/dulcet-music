@@ -8,6 +8,7 @@ class InstrumentHome extends React.Component {
     ManuData:[],
     ManuUser: [
       {
+        Mimg:'',
         Mid: '',
         Mname: '',
         Memail: '',
@@ -15,6 +16,7 @@ class InstrumentHome extends React.Component {
         Muser: '',
         Mtelephone: '',
         Mphone: '',
+        
       },
     ],
   }
@@ -43,6 +45,23 @@ class InstrumentHome extends React.Component {
   componentDidMount() {
     this.onChange = (e) => {
       e.preventDefault()
+      const uploadfile = document.querySelector('.ins-upload-input')
+      const preview = document.querySelector('.ins-upload-preview')
+      const filereader = new FileReader()
+
+      uploadfile.addEventListener('change', e => {
+        console.log(e.target.files[0])
+        // 抓到值放入 變數file
+        const file = e.target.files[0]
+        // 轉成base46碼
+        filereader.readAsDataURL(file)
+        // 刪除預覽圖片的子元素
+        
+        console.log(filereader.readAsDataURL(file))
+      })
+
+     
+
       const file = e.target.files[0]
       console.log("file",file);
       
@@ -59,7 +78,7 @@ class InstrumentHome extends React.Component {
         .then((res) => res.json())
         .then((json) => {
           if ((json.status = 1)) {
-            this.state.ManuUser.MidImg = json.imgName
+            this.state.ManuUser.Mimg = json.imgName
             // console.log(this.state.user)
             this.setState({ ManuUser: this.state.ManuUser })
             localStorage.setItem('user', JSON.stringify([this.state.ManuUser]))
@@ -68,6 +87,7 @@ class InstrumentHome extends React.Component {
             alert('上傳失敗')
           }
         })
+        
     }
     this.changeData = () => {
       const {
@@ -201,16 +221,19 @@ class InstrumentHome extends React.Component {
   }
 
   render() {
-    console.log(this.state.ManuData)
+    // console.log(this.state.ManuData)
     return (
       <div className="ins-home-page">
         <h3 className="font-size-142rem ins-home-title">廠商資料</h3>
         <div className="ins-home-img">
-          <label for="gogo" className="ins-upload-container">
+          <label htmlFor="gogo" className="ins-upload-container">
+          <img className="ins-upload-preview" src={`http://localhost:3030/images/manu_user/${this.state.ManuUser.Mimg}`}></img>
+          </label>
             <input
               type="file"
               name="image"
               className="ins-upload-input"
+              accept="image/png, image/jpeg ,image/jpg"
               onChange={this.onChange}
               id="gogo"
             />
@@ -219,7 +242,6 @@ class InstrumentHome extends React.Component {
               className="ins-upload-button"
               value="上传图片"
             />
-          </label>
         </div>
 
         <hr className="ins-home-hr" />
