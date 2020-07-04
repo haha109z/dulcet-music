@@ -105,7 +105,13 @@ PSR-S750 -＞ 可錄製與播放WAVE。" readOnly/>
 ) : (
 ''
 )
-
+const Input7 = InputShow7 ? ( 
+  <>
+    <input className="input1-10" type="text " value="轉動【調音板手】向右旋，會提高琴弦的張力，也將提高音調。 在三角鋼琴，將【調音板手】的把手向右，稍離你的位置。 " readOnly/>
+  </>
+) : (
+''
+)
   return (
 <div className="AnyQuestionActionAll">
 <div className="AnyQuestionActionContainer">
@@ -166,6 +172,14 @@ PSR-S750 -＞ 可錄製與播放WAVE。" readOnly/>
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
                 </div>
                
+                <div style={{display:'flex'}}>
+            <div style={{width:'1000px'}}>
+
+                <input type="submit" value="如何為自己的鋼琴調音" onClick={this.handleInput7}/>
+                {Input7}
+                </div>
+                <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
+                </div>
           </div>
           </div>
   </div>
