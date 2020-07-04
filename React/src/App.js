@@ -98,7 +98,7 @@ function App() {
             <Route path="/news/:page?">
               <News cartNum={cartNum} setCartNum={setCartNum}  />
             </Route>
-            <Route path="/news-content/:NewsID?">
+            <Route path="/news-content/:NewsID">
               <NewsPages cartNum={cartNum} setCartNum={setCartNum}  />
             </Route>
           </Switch>

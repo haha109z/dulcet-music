@@ -87,7 +87,7 @@ function NewsPagesContent(props) {
           <li>
 
           {props.article[0] ?
-        (<a href={`"`+props.article[0].NewsLink+`"`}>
+        (<a href={props.article[0].NewsLink}>
               <AiFillEdit className="news-H3" />
               <br />
               相關資訊

@@ -89,6 +89,7 @@ function News(props) {
     <>
       <Navbar cartNum={cartNum} />
       <NewsSliders />
+      
       <div className="news-ContentContainer">
         <NewsCategory />
 
