@@ -172,12 +172,13 @@ class InstrumentList extends React.Component {
 
 
 
-      this.handleinto = (Mid,PId,PName,PInstrumentId,PState,PQty,PPrice,PIntro,Pdesciption) => {
+      this.handleinto = (Mid,PId,PName,PImg,PInstrumentId,PState,PQty,PPrice,PIntro,Pdesciption) => {
         let ManuProData = []
         ManuProData.push({
           'Mid':Mid,
           'PId':PId,
           'PName':PName,
+          'PImg':PImg,
           'PInstrumentId':PInstrumentId,
           'PState':PState,
           'PQty':PQty,
@@ -263,7 +264,7 @@ class InstrumentList extends React.Component {
             <a onClick={this.handleallputon}>上架</a>
             <a onClick={this.handlealldown}>下架</a>
           </div>
-          <Link to="/ManufacturerInstrument/InstrumentPutOn" className="ins-list-tool-btn">新增影片</Link>
+          <Link to="/ManufacturerInstrument/InstrumentPutOn" className="ins-list-tool-btn">新增樂器</Link>
         </div>
         <div>
           <p></p>
@@ -278,11 +279,11 @@ class InstrumentList extends React.Component {
           <div className="ins-list-content">
             <input type="checkbox" checked={false} className="ins-list-content-chk" />
             <div className="ins-list-content-movie">
-              <img src={require('../../../img/home_violin_m_8.jpg')}/>
+              <img src={`http://localhost:3030/images/product/${product.PImg}`}/>
             </div>
             <Link
               to="/ManufacturerInstrument/InstrumentEdit"
-              className="ins-list-content-text" onClick={() => this.handleinto(this.state.Mid,product.PId,product.PName,product.PInstrumentId,product.PState,product.PQty,product.PPrice,product.PIntro,product.Pdesciption)}>
+              className="ins-list-content-text" onClick={() => this.handleinto(this.state.Mid,product.PId,product.PName,product.PImg,product.PInstrumentId,product.PState,product.PQty,product.PPrice,product.PIntro,product.Pdesciption)}>
               <h3 className="font-size-142rem">{product.PName}</h3>
               <p className="font-size-1rem">類別 : {product.PInstrumentId}</p>
               <p className="font-size-1rem">更新時間 : {product.update_at}</p>

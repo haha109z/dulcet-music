@@ -40,12 +40,10 @@ const router = express.Router();
 //   res.json({status: 1, imgName: req.file.filename})
 // });
 
-router.post('/product', upload_product.single('image'), async function (req, res, next) {
-  console.log(req.file.filename)
-  const productsql = await query("INSERT INTO `product_instruments`(`PImg`) VALUES (?)", [req.file.filename])
-  const PId = productsql.insertId
-  console.log(PId)
-  res.json(PId)
+router.post('/product/:PId', upload_product.single('image'), async function (req, res, next) {
+    console.log(req.file.filename)
+    await query("UPDATE `product_instruments` SET `PImg` = ? WHERE `product_instruments`.`PId` = ?", [req.file.filename,req.params.PId])
+  res.json({msg : 'ok'})
 });
 // UPDATE `product_instruments` SET `Pimg` = ? WHERE `product_instruments`.`Pid` = ?
 module.exports = router;

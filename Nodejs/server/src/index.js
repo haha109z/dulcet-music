@@ -52,6 +52,8 @@ app.use("/ManufacturerInstrument/InstrumentHome",require(__dirname + "/manuI_use
 app.use("/ManufacturerInstrument/InstrumentPassword",require(__dirname + "/manuI_userpwd"));
 app.use("/ManufacturerInstrument/InstrumentPutOn",require(__dirname + "/manuI_puton"));
 app.use("/manuI_userimg",require(__dirname + "/manuI_userimg"));
+app.use("/manuI_putonimg",require(__dirname + "/manuI_putonimg"));
+app.use("/manuI_editimg",require(__dirname + "/manuI_editimg"));
 app.use("/ManufacturerInstrument/InstrumentList",require(__dirname + "/manuI_list"));
 app.use("/ManufacturerInstrument/InstrumentEdit",require(__dirname + "/manuI_list_edit"));
 app.use("/ManufacturerInstrument/InstrumentListDel",require(__dirname + "/manuI_list_del"));
