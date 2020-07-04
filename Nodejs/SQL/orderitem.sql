@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.3
 -- https://www.phpmyadmin.net/
 --
--- 主機： 127.0.0.1
--- 產生時間： 2020-07-01 07:40:46
--- 伺服器版本： 10.4.11-MariaDB
--- PHP 版本： 7.4.5
+-- 主机： localhost:3306
+-- 生成日期： 2020-07-02 16:31:22
+-- 服务器版本： 5.7.26
+-- PHP 版本： 7.4.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -18,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 資料庫： `dulcet_music_0628`
+-- 数据库： `dulcet_music`
 --
 
 -- --------------------------------------------------------
 
 --
--- 資料表結構 `orderitem`
+-- 表的结构 `orderitem`
 --
 
 CREATE TABLE `orderitem` (
@@ -37,7 +36,7 @@ CREATE TABLE `orderitem` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- 傾印資料表的資料 `orderitem`
+-- 转存表中的数据 `orderitem`
 --
 
 INSERT INTO `orderitem` (`orderItem`, `orderId`, `productCategory`, `productId`, `cartNumber`, `Mid`) VALUES
@@ -56,28 +55,40 @@ INSERT INTO `orderitem` (`orderItem`, `orderId`, `productCategory`, `productId`,
 (13, 9, '樂器', 3, 1, 3),
 (14, 10, '樂器', 1, 1, 1),
 (15, 10, '樂器', 2, 2, 2),
-(16, 10, '影片', 3, 1, 15);
+(16, 10, '影片', 3, 1, 15),
+(17, 11, '影片', 4, 1, 15),
+(18, 12, '影片', 10, 1, 15),
+(19, 13, '影片', 9, 1, 15),
+(20, 14, '影片', 8, 1, 15),
+(21, 17, '影片', 20, 1, 15),
+(22, 16, '影片', 29, 1, 15),
+(23, 17, '影片', 22, 1, 15),
+(24, 14, '影片', 29, 1, 15),
+(25, 16, '影片', 28, 1, 15),
+(26, 15, '影片', 27, 1, 15),
+(27, 14, '影片', 26, 1, 15),
+(28, 13, '影片', 25, 1, 15),
+(29, 12, '影片', 24, 1, 15);
 
 --
--- 已傾印資料表的索引
+-- 转储表的索引
 --
 
 --
--- 資料表索引 `orderitem`
+-- 表的索引 `orderitem`
 --
 ALTER TABLE `orderitem`
   ADD PRIMARY KEY (`orderItem`);
 
 --
--- 在傾印的資料表使用自動遞增(AUTO_INCREMENT)
+-- 在导出的表使用AUTO_INCREMENT
 --
 
 --
--- 使用資料表自動遞增(AUTO_INCREMENT) `orderitem`
+-- 使用表AUTO_INCREMENT `orderitem`
 --
 ALTER TABLE `orderitem`
-  MODIFY `orderItem` tinyint(10) NOT NULL AUTO_INCREMENT COMMENT '訂單明細編號', AUTO_INCREMENT=17;
-COMMIT;
+  MODIFY `orderItem` tinyint(10) NOT NULL AUTO_INCREMENT COMMENT '訂單明細編號', AUTO_INCREMENT=30;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
