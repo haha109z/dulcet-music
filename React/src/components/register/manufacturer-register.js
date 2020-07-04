@@ -19,7 +19,7 @@ class ManufacturerRegistered extends Component{
         Mphone:'',
         Muser:'',
         Mtelephone:'',
-        Mimg:'廠商001.jpg',
+        Mimg:'Mimg000.jpg',
         Msha1pwd:'',
         Mpwd:'',
         MpwdCheck:'',
