@@ -68,11 +68,11 @@ class AboutList extends Component {
               <div className="About2Left">
                 <h2 className="AboutNorthH2" data-aos="fade-right">北部上課地點</h2>
                 <p className="AboutP2Left" data-aos="fade-right">
-                  營業時間：平日09:00-22:00/六日 09:00-1800
+                  營業時間：平日 09:00-22:00 / 六日 09:00-1800
                 </p>
-                <p className="AboutP2Left" data-aos="fade-right">店家電話：(02)2222-2222 </p>
+                <p className="AboutP2Left" data-aos="fade-right">店家電話：(02) 2234-2288 </p>
                 <p className="AboutP2Left AboutP2LeftBottom" data-aos="fade-right">
-                  店家地址：台北市南港區忠孝東路八段100巷
+                  店家地址：台北市大安區復興南路一段390號
                 </p>
                 <iframe
                 data-aos="fade-right"
@@ -132,11 +132,11 @@ class AboutList extends Component {
               <div className="About3Left" data-aos="fade-right">
                 <h2 className="AboutNorthH3"  data-aos="fade-right">南部上課地點</h2>
                 <p className="AboutP3Left" data-aos="fade-right">
-                  營業時間：平日09:00-22:00/六日 09:00-1800
+                  營業時間：平日 09:00-22:00 / 六日 09:00-1800
                 </p>
-                <p className="AboutP3Left" data-aos="fade-right">店家電話：(02)2222-2222 </p>
+                <p className="AboutP3Left" data-aos="fade-right">店家電話：(02) 2822-2211 </p>
                 <p className="AboutP3Left AboutP3LeftBottom" data-aos="fade-right">
-                  店家地址：台北市南港區忠孝東路八段100巷
+                  店家地址：高雄市苓雅區仁義街131巷1弄1號
                 </p>
                 <iframe
                  data-aos="fade-right"

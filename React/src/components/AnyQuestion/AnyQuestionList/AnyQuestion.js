@@ -52,15 +52,15 @@ class AnyQuestion extends Component {
             <div className="AnyQuestion2Flex">
               <div className="AnyQuestion2Width">
                 <h3 className="AnyQuestionNorthH3">北部上課地點</h3>
-                <p>營業時間：平日09:00-22:00/六日09:00-1800 </p>
-                <p>電 話：(02)2222-2222</p>
-                <p>地 址：台北市南港區忠孝東路八段100巷</p>
+                <p>營業時間：平日 09:00-22:00 / 六日 09:00-1800 </p>
+                <p>電 話：(02) 2234-2288</p>
+                <p>地 址：台北市大安區復興南路一段390號</p>
               </div>
               <div className="AnyQuestion2Width">
                 <h3 className="AnyQuestionNorthH3">南部上課地點</h3>
-                <p>營業時間：平日09:00-22:00/六日09:00-1800 </p>
-                <p>電 話：(02)2222-2222</p>
-                <p>地 址：台北市南港區忠孝東路八段100巷</p>
+                <p>營業時間：平日 09:00-22:00 / 六日 09:00-1800 </p>
+                <p>電 話：(02) 2822-2211</p>
+                <p>地 址：高雄市苓雅區仁義街131巷1弄1號</p>
               </div>
             </div>
           </div>
