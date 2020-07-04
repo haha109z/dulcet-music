@@ -13,7 +13,7 @@ function homeNews(state = initHomeNews, action){
     }
 }
 
-const initSliderNews ={title:'開課資訊',date: '2020.07.10' ,className:'小提琴初學班',to:'/news'};
+const initSliderNews ={title:'課程資訊',date: '109.07.01' ,className:'小提琴平日班',to:'/news-content/10'};
 
 function homeSilderNews(state = initSliderNews, action){
     switch(action.type){
