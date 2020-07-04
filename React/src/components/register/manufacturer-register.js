@@ -19,7 +19,7 @@ class ManufacturerRegistered extends Component{
         Mphone:'',
         Muser:'',
         Mtelephone:'',
-        Mimg:'廠商001.jpg',
+        Mimg:'Mimg000.jpg',
         Msha1pwd:'',
         Mpwd:'',
         MpwdCheck:'',
@@ -245,7 +245,7 @@ fetch('http://localhost:3030/register/manufacturer', {
                 <form onSubmit={this.handleSubmit} className="col-md-6 register-form-wrap">
                 <div className="form-group" style={{borderBottom: '2px var(--main-colorda) solid'}}>
                         <label htmlFor="facturerRegisterName" className="col-md-12 control-label" >廠商類別</label>
-                <select style={{border:' none',outline: 'none;'}} className="col-md-12 control-label" name="cars" id="cars" onChange={this.handleMcategory}>
+                <select style={{border:' none',outline: 'none;',height:50}} className="col-md-12 control-label" name="cars" id="cars" onChange={this.handleMcategory}>
                 <option value="樂器"></option>
       <option value="樂器" id="option1" >樂器</option>
       <option className="col-md-12 control-label" id="option1" value="影片">影片</option>

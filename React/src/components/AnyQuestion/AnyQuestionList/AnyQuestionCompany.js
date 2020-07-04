@@ -178,9 +178,9 @@ const Input7 = InputShow7 ? (
                 <input type="submit" value="廠商的帳號遺失"  onClick={this.handleInput7}/>
                 {Input7}
                 </div>
-                
                 <i class="AnyQuestionActionIcon fas fa-chevron-down AnyQuestionActionIconRWD"></i>
                 </div>
+                
           </div>
           </div>
   </div>

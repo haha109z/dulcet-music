@@ -141,6 +141,18 @@ class AnyQuestionAns extends Component {
     ) : (
       ''
     )
+    const Input7 = InputShow7 ? (
+      <>
+        <input
+          className="input1-10"
+          type="text "
+          value="點選右上角的的[購物車]，把影片加入購物車，所有想購買的影片都加入完成後，到購物車進行結帳、付款。"
+          readOnly
+        />
+      </>
+    ) : (
+      ''
+    )
     
     return (
       <div className="AnyQuestionActionAll">
@@ -220,7 +232,17 @@ class AnyQuestionAns extends Component {
                 </div>
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
               </div>
-             
+              <div style={{ display: 'flex' }}>
+                <div style={{ width: '1000px' }}>
+                  <input
+                    type="submit"
+                    value="要怎麼購買網站上的歌曲？"
+                    onClick={this.handleInput7}
+                  />
+                  {Input7}
+                </div>
+                <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
+              </div>
             </div>
           </div>
         </div>
