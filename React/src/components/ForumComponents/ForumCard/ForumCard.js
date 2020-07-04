@@ -145,52 +145,58 @@ class ForumCard extends Component {
     } = this.state
     // console.log(this.state.ForumTitle)
     // console.log(this.state.userID)
-
-    fetch('http://localhost:3030/forum/123', {
-      method: 'POST', // or 'PUT'
-      body: JSON.stringify({
-        ForumTitle,
-        ForumAction,
-        userID,
-      }),
-      headers: new Headers({
-        'Content-Type': 'application/json',
-      }),
-    })
-      .then((res) => res.json())
-      .then((json) => {
-        this.setState({ news123: json })
-        console.log(this.state)
-        // localStorage.setItem('user', JSON.stringify(json.data))
-        // console.log(json.data)
-      })
-      .catch((error) => {
-        console.error('Error:', error)
-      })
-
-    this.setState({ boxShow: false })
-    this.setState({ ForumTitle: this.state.ForumTitle })
-    this.setState({ ForumAction: this.state.ForumAction })
-    this.setState({ userID: this.state.userID })
-    // this.setState({ ForumActionAns: this.state.ForumActionAns })
-    if(ForumTitle===''&&ForumAction===''){
+    if(this.state.ForumTitle===undefined||this.state.ForumAction===undefined){
       MySwal.fire('不得為空值', '', 'error')
+      
       setTimeout(()=>{
         window.location = "/forum"
       },1000)
       // console.log(this.state)
       // this.location.reload()
       this.setState({ boxShow: false })
-    }else{
-      MySwal.fire('新增成功', '', 'success')
-    setTimeout(()=>{
-      window.location = "/forum"
-    },1000)
-    // console.log(this.state)
-    // this.location.reload()
-    this.setState({ boxShow: false })
     }
+    else{
+      fetch('http://localhost:3030/forum/123', {
+        method: 'POST', // or 'PUT'
+        body: JSON.stringify({
+          ForumTitle,
+          ForumAction,
+          userID,
+        }),
+        headers: new Headers({
+          'Content-Type': 'application/json',
+        }),
+      })
+        .then((res) => res.json())
+        .then((json) => {
+          this.setState({ news123: json })
+          console.log(this.state)
+          // localStorage.setItem('user', JSON.stringify(json.data))
+          // console.log(json.data)
+          
+        })
+        .catch((error) => {
+          console.error('Error:', error)
+        })
   
+      this.setState({ boxShow: false })
+      this.setState({ ForumTitle: this.state.ForumTitle })
+      this.setState({ ForumAction: this.state.ForumAction })
+      this.setState({ userID: this.state.userID })
+      // this.setState({ ForumActionAns: this.state.ForumActionAns })
+      
+     
+    
+    
+      console.log(this.state.ForumTitle)
+      MySwal.fire('新增成功', '', 'success')
+      setTimeout(()=>{
+        window.location = "/forum"
+      },1000)
+      // console.log(this.state)
+      // this.location.reload()
+      this.setState({ boxShow: false })
+    }
   }
   handleSubmitBack = (event) => {
     MySwal.fire('已取消', '', 'error')
@@ -299,7 +305,7 @@ class ForumCard extends Component {
           {/* card1 */}
           <div className="ForumCardFlex">
             {this.state.news.map((item, i) => {
-              console.log(item)
+              {/* console.log(item) */}
               return (
                 <div key={i} className="ForumCard" data-aos="fade-up">
                   <div className="ForumCardTitle">

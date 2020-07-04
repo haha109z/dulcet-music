@@ -132,9 +132,20 @@ if(Mpwd !== MpwdCheck){
 }else{
     this.setState({checkPwd:true});
 }
+if(this.state.MpwdCheck!==this.state.Mpwd||this.state.Mtelephone===undefined||this.state.Muser===undefined||this.state.Maddress===undefined||this.state.Mphone===undefined||this.state.Memail===undefined||this.state.Mname===undefined||this.state.Mcategory===''){
+    console.log(this.state)
+    MySwal.fire({
+        position: 'top-center',
+        icon: 'error',
+        title: '所有欄位不得為空值',
+        showConfirmButton: false,
+        timer: 2000
+    })
+    }else{
+        
 
-// console.log(Mpwd)
-fetch('http://localhost:3030/register/manufacturer', {
+
+        fetch('http://localhost:3030/register/manufacturer', {
                   method: 'POST', // or 'PUT'
                   body: JSON.stringify({
                     Mname,
@@ -169,6 +180,21 @@ fetch('http://localhost:3030/register/manufacturer', {
   this.setState({ Mpwd: this.state.Mpwd })
   this.setState({ Mimg: this.state.Mimg })
   this.setState({ Mcategory: this.state.Mcategory })
+    MySwal.fire({
+
+        position: 'top-center',
+        icon: 'success',
+        title: '註冊成功',
+        showConfirmButton: false,
+        timer: 2000
+
+    })
+    setTimeout(()=>{
+        window.location = "/"
+      },2000)
+    }
+// console.log(Mpwd)
+
 //   console.log(Mpwd)
 //   if(Mpwd<=4){
 //     MySwal.fire({
@@ -182,28 +208,7 @@ fetch('http://localhost:3030/register/manufacturer', {
 //     })
 //   }
 
- if(MpwdCheck===Mpwd&&Mtelephone!==''&&Muser!==''&&Maddress!==''&&Mphone!==''&&Memail!==''&&Mname!==''){
-    MySwal.fire({
-
-        position: 'top-center',
-        icon: 'success',
-        title: '註冊成功',
-        showConfirmButton: false,
-        timer: 2000
-
-    })
-    setTimeout(()=>{
-        window.location = "/"
-      },2000)
-    }else{
-        MySwal.fire({
-            position: 'top-center',
-            icon: 'error',
-            title: '所有欄位不得為空值',
-            showConfirmButton: false,
-            timer: 2000
-        })
-    }
+ 
 
 //   console.log(this.state)
       }
