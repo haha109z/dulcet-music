@@ -57,7 +57,7 @@ export default class UserVoucher extends Component {
       listPage.push(
         <>
           {' '}
-          <button className="user-page-number">{i}</button>
+          <button className="user-page-number user-page-numberHover">{i}</button>
         </>
       )
     }
@@ -70,21 +70,21 @@ export default class UserVoucher extends Component {
         page.push(
           <>
             <div className="user-page">
-              <Link className="user-page-Rarrow">
+              <button className="user-page-Rarrow ">
                 <i className="fas fa-sort-up"></i>
-              </Link>
+              </button>
               {listPage}
-              <Link className="user-page-Larrow">
+              <button className="user-page-Larrow">
                 <i className="fas fa-sort-up"></i>
-              </Link>
+              </button>
             </div>
 
             <div className="userRwd-dropdown ">
               <button type="button" className="userRwd-dropbtn">
-                頁數
+                第 1 頁
                 <i className="fas fa-sort-down"></i>
               </button>
-              <div className="userRwd-dropdown-content">{listPageRWD}</div>
+              {/* <div className="userRwd-dropdown-content">{listPageRWD}</div> */}
             </div>
           </>
         )
@@ -120,21 +120,21 @@ export default class UserVoucher extends Component {
         page.push(
           <>
             <div className="user-page">
-              <Link className="user-page-Rarrow">
+              <button className="user-page-Rarrow">
                 <i className="fas fa-sort-up"></i>
-              </Link>
+              </button>
               {listPage}
-              <Link className="user-page-Larrow">
+              <button className="user-page-Larrow">
                 <i className="fas fa-sort-up"></i>
-              </Link>
+              </button>
             </div>
 
             <div className="userRwd-dropdown ">
               <button type="button" className="userRwd-dropbtn">
-                頁數
+                第一頁
                 <i className="fas fa-sort-down"></i>
               </button>
-              <div className="userRwd-dropdown-content">{listPageRWD}</div>
+              {/* <div className="userRwd-dropdown-content">{listPageRWD}</div> */}
             </div>
           </>
         )
@@ -164,7 +164,7 @@ export default class UserVoucher extends Component {
           </>
         )
       }
-    }else if(getUserInfo()==null){
+    } else if (getUserInfo() == null) {
       page.push(<></>)
       couponList.push(
         <>
@@ -173,7 +173,7 @@ export default class UserVoucher extends Component {
           </div>
         </>
       )
-    } 
+    }
     console.log(getUserInfo())
 
     return (
