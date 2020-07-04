@@ -173,7 +173,7 @@ class ForumCard extends Component {
     this.setState({ ForumAction: this.state.ForumAction })
     this.setState({ userID: this.state.userID })
     // this.setState({ ForumActionAns: this.state.ForumActionAns })
-    if(ForumTitle!==''&&ForumAction!==''){
+    if(ForumTitle===''&&ForumAction===''){
       MySwal.fire('不得為空值', '', 'error')
       setTimeout(()=>{
         window.location = "/forum"
