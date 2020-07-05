@@ -448,16 +448,28 @@ function CartCheckout (props) {
                       }
                     })   
                     // console.log(buyerInfo)                     
-                    if ( buyerInfo[0]=='沒有'||buyerInfo[1]=='沒有'||buyerInfo[2]=='沒有'||buyerInfo[3]=='沒有' ) {
-                      MySwal.fire('請填寫收件人資訊', '', 'error')              
-                    } else {
-                      console.log(radiostate)
-                      // console.log(radiostate.every((el)=> el==false))
-                      if (radiostate.every((el)=> el==false)) {
-                        MySwal.fire('請填寫發票資訊', '', 'error')
-                      } else {                        
-                        props.history.push('/cart/2')
-                      }     
+                    if ( buyerInfo[0]=='沒有') {
+                      MySwal.fire('請填寫收件人姓名', '', 'error')
+                    } else {    
+                      if (buyerInfo[1]=='沒有') {
+                        MySwal.fire('請填寫收件人地址', '', 'error') 
+                      } else {   
+                        if (buyerInfo[2]=='沒有') {
+                          MySwal.fire('請填寫收件人手機號碼', '', 'error')    
+                        } else {
+                          if (buyerInfo[3]=='沒有') {
+                            MySwal.fire('請填寫收件人電子信箱', '', 'error')         
+                            // console.log(radiostate)
+                            // console.log(radiostate.every((el)=> el==false))
+                          } else {
+                            if (radiostate.every((el)=> el==false)) {
+                              MySwal.fire('請填寫發票資訊', '', 'error')
+                            } else {                        
+                              props.history.push('/cart/2')
+                            } 
+                          }  
+                        }
+                      }
                     }
                   }}>
                     下一步
