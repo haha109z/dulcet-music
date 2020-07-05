@@ -375,14 +375,13 @@ function CartCheckout (props) {
               <label htmlFor="discount">折扣碼</label>
               <input className="" id="discount" type="text"
                 onChange={ (e)=>{  
-                  console.log(!e.target.value==0)
+                  // console.log(!e.target.value==0)
                   if ( !e.target.value == 0) { 
                     if ( e.target.value == coupon ) {
                       // alert('恭喜您折扣碼符合')
                       MySwal.fire('折扣碼符合，可折價200元', '', 'success')                      
                       setDiscount(200);
-                    } else {
-                      MySwal.fire('您輸入的折扣碼不正確，煩請確認', '', 'error')                      
+                    } else {                    
                       setDiscount(0);
                     } 
                   }
