@@ -151,14 +151,17 @@ class InstrumentOrder extends React.Component {
                   <div className="ins-order-item">
                     <div className="ins-order-item-img">
                       <img
+                      max-width={'100%'}
+                      max-height={'100%'}
+                      // Object-fit={'cover'}
                       dataimg={itemI.PImg}
-                        src={require('../../../img/home_logo_方.png')}
+                        src={`http://localhost:3030/images/product/${itemI.PImg}`}
                         alt=""
                       />
                     </div>
                     <div className="ins-order-item-text">
                       <p className="ins-order-item-text-name ">
-                        {itemI.Pdesciption}
+                        {itemI.PName}
                       </p>
                       <p className="ins-order-item-text-specification d-flex">
                         <p>類別 : {itemI.PInstrumentId}</p>
@@ -179,13 +182,13 @@ class InstrumentOrder extends React.Component {
                 </>
               ))}
 
-              <div className="ins-order-total">
+              {/* <div className="ins-order-total">
                 <p className="ins-order-total-1 ">訂單總價</p>{' '}
                 <p className="ins-order-total-2 ins-font-eg ins-color-red">$</p>
                 <p className="ins-order-total-3 ins-font-eg ins-color-red">
                   {listItem.orderPrice}
                 </p>{' '}
-              </div>
+              </div> */}
               <hr className="ins-item-divider" />
             </div>
           </>

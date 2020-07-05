@@ -36,6 +36,7 @@ class InstrumentList extends React.Component {
           }
         ],
         AllManuProduct : [],
+        Allcheckboxcontent : [],
       }
       
       
@@ -165,11 +166,26 @@ class InstrumentList extends React.Component {
       }
 
       this.handlealldel = () => {
-        let check = document.querySelectorAll('.ins-list-content-chk').       
-        alert(check)
+        let check = document.querySelectorAll('.ins-list-content-chk')
+        let content = document.querySelector('.ins-list-product').length
+        
+        let total = 0
+        for(var i = 0; i < check.length;i++){
+          if(check[i].checked){
+            total += 1
+          }
+        }
+        alert(total)
+        console.log(content)
       }
 
-
+      this.handlecontent = e =>{
+        let content = document.querySelector('.ins-list-product').innerHTML
+        this.setState({
+          Allcheckboxcontent : content
+        })
+        console.log(this.state.Allcheckboxcontent)
+      }
 
 
       this.handleinto = (Mid,PId,PName,PImg,PInstrumentId,PState,PQty,PPrice,PIntro,Pdesciption) => {
@@ -266,9 +282,7 @@ class InstrumentList extends React.Component {
           </div>
           <Link to="/ManufacturerInstrument/InstrumentPutOn" className="ins-list-tool-btn">新增樂器</Link>
         </div>
-        <div>
-          <p></p>
-        </div>
+        
 
         {this.state.AllManuProduct.map((product,index) => (
         <form className="ins-list-product">
@@ -277,7 +291,7 @@ class InstrumentList extends React.Component {
             <p className="font-size-185rem">商品狀態 : {product.PState}</p>
           </div>
           <div className="ins-list-content">
-            <input type="checkbox" checked={false} className="ins-list-content-chk" />
+            <input type="checkbox"  className="ins-list-content-chk" onClick={this.handlecontent}/>
             <div className="ins-list-content-movie">
               <img src={`http://localhost:3030/images/product/${product.PImg}`}/>
             </div>
