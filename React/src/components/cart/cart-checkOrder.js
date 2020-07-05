@@ -36,7 +36,7 @@ export default function CartCheckOrder (props) {
               <li>商品小計</li>
             </ul>
             <ul className="cart-order-category">
-              <li colSpan="5">課程訂單</li>
+              <li colSpan="5">購買清單</li>
             </ul>
             {cart.map((data, index)=>{
               return (
