@@ -9,8 +9,8 @@ if (JSON.parse(localStorage.getItem('user'))) {
 class InstrumentOrder extends React.Component {
   state = {
     Mid: Mid,
-    search:'',
-    btn:'全部',
+    search: '',
+    btn: '全部',
     ManuOrder: [
       {
         Mid: '',
@@ -29,22 +29,17 @@ class InstrumentOrder extends React.Component {
         PCompanyId: '',
         PId: '',
       },
-      
     ],
     AllMPurchase: [], //所有訂單比數 訂單list 從資料庫撈回來的訂單
     AllMPurchaseitem: [], //所有訂單明細
-    AllOrderStatus:[], // 判斷完後的訂單比數 btn 
-    AllOrderStatusitem:[], // 判斷完後的訂單明細比數
+    AllOrderStatus: [], // 判斷完後的訂單比數 btn
+    AllOrderStatusitem: [], // 判斷完後的訂單明細比數
   }
   constructor() {
     super()
-    
-    
-    
   }
 
- 
-    componentDidMount(){
+  componentDidMount() {
     fetch('http://localhost:3030/ManufacturerInstrument/InstrumentOrder', {
       method: 'POST',
       body: JSON.stringify({
@@ -66,65 +61,56 @@ class InstrumentOrder extends React.Component {
             flag[e.orderId] = true
           }
           // console.log('order', order)
-          this.setState({ 
+          this.setState({
             AllMPurchase: order,
             AllMPurchaseitem: json,
           })
           this.setState({
-            AllOrderStatus:this.state.AllMPurchase,
-            AllOrderStatusitem:this.state.AllMPurchaseitem,
+            AllOrderStatus: this.state.AllMPurchase,
+            AllOrderStatusitem: this.state.AllMPurchaseitem,
           })
-          
         })
-        
       })
 
-      this.sendsearch = () => {
-        let search = document.querySelector('.ins-search-input').value
-        this.setState({search:search})
-      }
+    this.sendsearch = () => {
+      let search = document.querySelector('.ins-search-input').value
+      this.setState({ search: search })
+    }
+    this.statusbtn = (e) => {
+      let btn = e.currentTarget.textContent
+      console.log(btn)
+      setTimeout(() => {
+        this.setState({ btn: btn })
+        if (this.state.btn == '全部') {
+          setTimeout(() => {
+            this.setState({ AllOrderStatus: this.state.AllMPurchase })
+            this.setState({ AllOrderStatusitem: this.state.AllMPurchaseitem })
+          }, 10)
 
-      
-      
-      
-      this.statusbtn = (e) =>{
-        let btn = e.currentTarget.textContent
-        this.setState({btn : btn})
-      if(this.state.btn == '全部'){
-        this.setState({AllOrderStatus : this.state.AllMPurchase})
-        this.setState({AllOrderStatusitem : this.state.AllMPurchaseitem})
-        console.log(this.state.AllMPurchase)
-        console.log(this.state.AllMPurchaseitem)
-        return
-      }else{
-        let list = this.state.AllMPurchase.filter(
-          (v) => v.orderState == btn
-        )
-        this.setState({ AllOrderStatus : list})
-        let item = this.state.AllMPurchaseitem.filter(
-          (v) => v.orderState == btn
+          console.log(this.state.AllMPurchase)
+          console.log(this.state.AllMPurchaseitem)
+          return
+        } else {
+          let list = this.state.AllMPurchase.filter((v) => v.orderState == btn)
+          this.setState({ AllOrderStatus: list })
+          let item = this.state.AllMPurchaseitem.filter(
+            (v) => v.orderState == btn
           )
-        this.setState({ AllOrderStatusitem : item})
+          this.setState({ AllOrderStatusitem: item })
           console.log(this.state.AllOrderStatusitem)
-        return
-      }
+          return
+        }
+      })
     }
-    }
-
-    
-
-      
-
-      
-      
-  
+  }
 
   render() {
     // console.log(this.state.AllMPurchase)
     // console.log(this.state.AllMPurchaseitem)
-    
-    let OrderStatus = this.state.AllOrderStatus
-    let OrderStatusitem = this.state.AllOrderStatusitem
+
+    var OrderStatus = this.state.AllOrderStatus
+    var OrderStatusitem = this.state.AllOrderStatusitem
+
     return (
       <div className="ins-order-page">
         <h3 className="font-size-142rem ins-top-titleName ">訂單列表</h3>
@@ -133,22 +119,46 @@ class InstrumentOrder extends React.Component {
           role="group"
           aria-label="Basic example"
         >
-          <button type="button" className="btn btn-white ins-menu-btn" onClick={this.statusbtn}>
+          <button
+            type="button"
+            className="btn btn-white ins-menu-btn"
+            onClick={this.statusbtn}
+          >
             全部
           </button>
-          <button type="button" className="btn btn-white ins-menu-btn" onClick={this.statusbtn}>
+          <button
+            type="button"
+            className="btn btn-white ins-menu-btn"
+            onClick={this.statusbtn}
+          >
             待付款
           </button>
-          <button type="button" className="btn btn-white ins-menu-btn" onClick={this.statusbtn}>
+          <button
+            type="button"
+            className="btn btn-white ins-menu-btn"
+            onClick={this.statusbtn}
+          >
             待出貨
           </button>
-          <button type="button" className="btn btn-white ins-menu-btn" onClick={this.statusbtn}>
+          <button
+            type="button"
+            className="btn btn-white ins-menu-btn"
+            onClick={this.statusbtn}
+          >
             待收貨
           </button>
-          <button type="button" className="btn btn-white ins-menu-btn" onClick={this.statusbtn}>
+          <button
+            type="button"
+            className="btn btn-white ins-menu-btn"
+            onClick={this.statusbtn}
+          >
             完成
           </button>
-          <button type="button" className="btn btn-white ins-menu-btn" onClick={this.statusbtn}>
+          <button
+            type="button"
+            className="btn btn-white ins-menu-btn"
+            onClick={this.statusbtn}
+          >
             取消
           </button>
         </div>
@@ -171,15 +181,19 @@ class InstrumentOrder extends React.Component {
             className="ins-search-input "
             placeholder="請輸入關鍵字"
             type="text"
-            
           />
           <p className="ins-search-404title ">請輸入商品或訂單關鍵字</p>
-          <input className="ins-search-button " type="button" value="送出" onClick={this.sendsearch}/>
+          <input
+            className="ins-search-button "
+            type="button"
+            value="送出"
+            onClick={this.sendsearch}
+          />
         </form>
 
         <hr className="ins-divider" />
-        
-        {OrderStatus.map((listItem,index) => (
+
+        {OrderStatus.map((listItem, index) => (
           <>
             <div className="ins-order">
               <div className="ins-order-title">
@@ -203,43 +217,43 @@ class InstrumentOrder extends React.Component {
 
               <hr className="ins-order-divider" />
 
-              {OrderStatusitem.filter(
-                (v) => v.orderId == listItem.orderId
-              ).map((itemI, index) => (
-                <>
-                  <div className="ins-order-item">
-                    <div className="ins-order-item-img">
-                      <img
-                      max-width={'100%'}
-                      max-height={'100%'}
-                      // Object-fit={'cover'}
-                      dataimg={itemI.PImg}
-                        src={`http://localhost:3030/images/product/${itemI.PImg}`}
-                        alt=""
-                      />
-                    </div>
-                    <div className="ins-order-item-text">
-                      <p className="ins-order-item-text-name ">
-                        {itemI.PName}
-                      </p>
-                      <p className="ins-order-item-text-specification d-flex">
-                        <p>類別 : {itemI.PInstrumentId}</p>
-                        <p>數量 : {itemI.cartNumber}</p>
-                      </p>
-
-                      <div className="d-flex ins-order-item-text-money">
-                        <p className="ins-order-item-text-money-1 ">價格</p>{' '}
-                        <p className="ins-order-item-text-money-2 ins-font-eg ins-color-red">
-                          $
+              {OrderStatusitem.filter((v) => v.orderId == listItem.orderId).map(
+                (itemI, index) => (
+                  <>
+                    <div className="ins-order-item">
+                      <div className="ins-order-item-img">
+                        <img
+                          max-width={'100%'}
+                          max-height={'100%'}
+                          // Object-fit={'cover'}
+                          dataimg={itemI.PImg}
+                          src={`http://localhost:3030/images/product/${itemI.PImg}`}
+                          alt=""
+                        />
+                      </div>
+                      <div className="ins-order-item-text">
+                        <p className="ins-order-item-text-name ">
+                          {itemI.PName}
                         </p>
-                        <p className="ins-order-item-text-money-3 ins-font-eg ins-color-red ">
-                          {itemI.PPrice}
-                        </p>{' '}
+                        <p className="ins-order-item-text-specification d-flex">
+                          <p>類別 : {itemI.PInstrumentId}</p>
+                          <p>數量 : {itemI.cartNumber}</p>
+                        </p>
+
+                        <div className="d-flex ins-order-item-text-money">
+                          <p className="ins-order-item-text-money-1 ">價格</p>{' '}
+                          <p className="ins-order-item-text-money-2 ins-font-eg ins-color-red">
+                            $
+                          </p>
+                          <p className="ins-order-item-text-money-3 ins-font-eg ins-color-red ">
+                            {itemI.PPrice}
+                          </p>{' '}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </>
-              ))}
+                  </>
+                )
+              )}
 
               {/* <div className="ins-order-total">
                 <p className="ins-order-total-1 ">訂單總價</p>{' '}
