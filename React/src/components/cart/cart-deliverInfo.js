@@ -1,6 +1,13 @@
 import React ,{ Fragment, useState, useEffect } from 'react';
+// 引入sweetalert2-react-content套件
+import withReactContent from 'sweetalert2-react-content';
+import Swal from 'sweetalert2';
 
 function CartDeliverInfo (props) {
+  
+  // 引入sweetalert2-react-content套件
+  const MySwal = withReactContent(Swal);
+
   const { 
     user, 
     checkstate,  
@@ -37,7 +44,9 @@ function CartDeliverInfo (props) {
             <div className="cart-buyer-info">
                   <h2>收件人資訊</h2>
                   <fieldset>
-                    <label><input type="checkbox" id="receivingInfo" onClick={(e)=>{ checkcallback(e.target) }}/> 同帳戶資料</label>
+                    <label>
+                      <input type="checkbox" id="receivingInfo" onClick={(e)=>{ checkcallback(e.target) }}/> 同帳戶資料
+                    </label>
 
                         {/* 根據checkbox勾選狀態切換收件人資訊畫面 */}
 
@@ -88,12 +97,24 @@ function CartDeliverInfo (props) {
                               <label htmlFor="phone">手機號碼</label>
                               <input id="phone" type="text"  name="phone" value={ReceivingPhone}
                                 onChange={ (e)=>{ setReceivingPhone(e.target.value) }}
+                                onBlur={(e)=>{
+                                  const reg = /^09\d{2}-?\d{3}-?\d{3}$/;
+                                  if (!e.target.value.match(reg)) {
+                                    MySwal.fire('請輸入正確手機號碼', '', 'error')
+                                  }
+                                }}
                               />
                             </div>
                             <div className="cart-input">
                               <label htmlFor="email">電子信箱</label>
                               <input id="email" type="text"  name="email" value={ReceivingEmail}
-                                onChange={ (e)=>{ setReceivingEmail(e.target.value) }}
+                                onChange={ (e)=> {setReceivingEmail(e.target.value)} }
+                                onBlur={(e)=>{
+                                  const reg = /^([\w\.\-]){1,64}\@([\w\.\-]){1,64}$/;
+                                  if (!e.target.value.match(reg)) {
+                                    MySwal.fire('請輸入正確email格式', '', 'error')
+                                  }
+                                }}
                               />
                             </div>
                           </>

@@ -71,7 +71,7 @@ function CartPay (props) {
 
   // 訂單明細
   const orderData = cart.map((v)=>({"PId":v.PId,"PCategoryId":v.PCategoryId,"num":v.num}))
-  console.log(orderData);
+  // console.log(orderData);
   // let orderitem = [
   //   cart['cate'],
   //   cart['PId'],
@@ -81,6 +81,34 @@ function CartPay (props) {
   //   {data.PId}
   // })
   // console.log(orderitem)
+
+  // 填寫信用卡欄位時會自動選取信用卡付款項目
+  const changeContent =(e)=>{
+    if (!e.target.value==0) {
+      document.getElementById('paybycredit').setAttribute("checked", "checked")
+      e.target.value = e.target.value
+    }
+  }
+  // 選取ATM付款時會清空信用卡欄位
+  const clearCreditContent = (e) => {
+    if (document.getElementById('paybyatm').checked) {
+      document.getElementById('payer-name').value=''
+      document.getElementById('cardnumber1').value=''
+      document.getElementById('cardnumber2').value=''
+      document.getElementById('cardnumber3').value=''
+      document.getElementById('cardnumber4').value=''
+      document.getElementById("validdates1").value=''
+      document.getElementById("validdates2").value=''
+      document.getElementById("safecode").value=''
+
+      document.getElementById("cardholder").value=''
+      document.getElementById("card1").value=''
+      document.getElementById("card2").value=''
+      document.getElementById("card3").value=''
+      document.getElementById("card4").value=''
+      document.getElementById("validdates").value=''
+    }
+  }
 
   // 信用卡展示區與填寫欄位對應
   // let paybycredit = document.getElementById("paybycredit")
@@ -125,9 +153,8 @@ function CartPay (props) {
   }
   const getCardholder = (e) =>{
     let cardholder = document.getElementById("cardholder")
-    let cardholdercontent = document.getElementById("payer-name")
-    if(cardholdercontent.value !== ''){
-        cardholder.value = cardholdercontent.value
+    if(e !== ''){
+        cardholder.value = e
     }else{
 
     }
@@ -173,7 +200,11 @@ function CartPay (props) {
                       {/* 選項1：ATM轉帳 */}
 
                       <label>
-                        <input type="radio" name="cart-payment" value="ATM" onClick={(e)=>{setPayment(e.target.value)}} /> ATM轉帳
+                        <input id="paybyatm" type="radio" name="cart-payment" value="ATM" 
+                          onClick={(e)=>{
+                            setPayment(e.target.value)
+                            clearCreditContent()
+                        }}/> ATM轉帳
                       </label>
                       <div className="cart3-reminder cart3-reminder-green">
                         <span>【詐騙猖獗，小心詐騙】</span><br/>
@@ -258,46 +289,77 @@ function CartPay (props) {
 
                       {/* 信用卡資訊填寫欄位 */}
                       <div className="cart3-creditcard-form">
+
                         {/* 持卡人姓名 */}
                         <div className="cart3-input">
                           <label htmlFor="payer-name">持卡人姓名</label>
-                          <input className="" id="payer-name" type="text" onChange={ (e)=>{ getCardholder() }} />
+                          <input className="" id="payer-name" type="text" 
+                            onChange={ (e)=>{    
+                              changeContent(e)           
+                              getCardholder(e.target.value)
+                            }}
+                          />
                         </div>
+
                         {/* 卡號 */}
                         <div className="cart3-input">
                           <label htmlFor="">卡號</label>
                           <div style={{display:'flex'}}>
-                            <input className="" id="cardnumber1" type="text" maxlength="4"                              
-                              onChange={ (e)=>{ getCardnum1() }}
-                            />
+                            <input 
+                              id="cardnumber1" className="" type="text" maxlength="4"                              
+                              onChange={ (e)=>{ 
+                                changeContent(e)
+                                getCardnum1() 
+                            }}/>
                             <input className="" id="cardnumber2" type="text" maxlength="4"                             
-                              onChange={ (e)=>{ getCardnum2() }}
-                            />
+                              onChange={ (e)=>{
+                                changeContent(e) 
+                                getCardnum2() 
+                              }}/>
                             <input className="" id="cardnumber3" type="text" maxlength="4"                               
-                              onChange={ (e)=>{ getCardnum3() }}
-                            />
+                              onChange={ (e)=>{ 
+                                changeContent(e)
+                                getCardnum3() 
+                            }}/>
                             <input className="" id="cardnumber4" type="text" maxlength="4"                               
-                              onChange={ (e)=>{ getCardnum4() }}                              
-                            />
+                              onChange={ (e)=>{ 
+                                changeContent(e)
+                                getCardnum4() 
+                            }}/>
                           </div>
                         </div>
+
                         {/* 到期日 */}
                         <div className="cart3-input">
                           <label htmlFor="">到期日</label>
                           <div style={{display:'flex'}}>
                             <div className="cart-card-ex">
-                                <input className="" id="validdates1" type="text" maxlength="2" onChange={ (e)=>{ getValiddates() }} />/
-                                <input className="" id="validdates2" type="text" maxlength="2" onChange={ (e)=>{ getValiddates() }} />
+                                <input className="" id="validdates1" type="text" maxlength="2" 
+                                  onChange={ (e)=>{ 
+                                    changeContent(e)
+                                    getValiddates() 
+                                  }}
+                                />/
+                                <input className="" id="validdates2" type="text" maxlength="2" 
+                                  onChange={ (e)=>{ 
+                                    changeContent(e)
+                                    getValiddates() 
+                                  }}
+                                />
                             </div>
                           </div>
                         </div>
+
                         {/* 安全碼 */}
                         <div className="cart3-input">
                           <label htmlFor="">安全碼</label>
                           <div style={{display:'flex'}}>
                             <div className="cart3-safe-code">
                                 <input className="" id="safecode" type="text" maxlength="3" 
-                                  onChange={ (e)=>{ getSafeCode() }} 
+                                  onChange={ (e)=>{ 
+                                    changeContent(e)
+                                    getSafeCode() 
+                                  }} 
                                 />
                             </div>
                           </div>

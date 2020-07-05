@@ -191,7 +191,8 @@ function CartCheckout (props) {
                           } else {
                             setBuyAll(true)
                           }
-                      }}/>
+                        }}                      
+                      />
                     </li>
                     <li>商品圖片</li>
                     <li>商品名稱</li>
@@ -256,7 +257,7 @@ function CartCheckout (props) {
                       <label>
                         <input type="radio" name="invoice" id="invoice1" value="會員載具" 
                           onClick={(e)=>{ 
-                            radiocallback(e.target) 
+                            radiocallback(e.target)
                             setInvoiceType(e.target.value)
                           }}
                         /> 會員載具
@@ -280,7 +281,9 @@ function CartCheckout (props) {
                         <input id="invoicev" type="text" value={radiostate[1]==1? invoiceInfo: ''}
                           onChange={ (e)=>{ 
                             // console.log(e.target.value)
-                            setInvoiceInfo(e.target.value) 
+                            if (document.getElementById('invoice2').checked) {
+                              setInvoiceInfo(e.target.value)
+                            }
                           }}
                           // onChange={ (e)=>{ changeInvoiceInfo(e.target.value) } }
                         />
@@ -331,8 +334,10 @@ function CartCheckout (props) {
                             // console.log("invo4value1 "+e.target.value)
                             // console.log(invoiceInfo[1])
                             let data = invoiceInfo[1]
-                            setInvoiceInfo([ (e.target.value==0? '' :e.target.value), data ]) 
-                            // setInvoiceInfo([ (e.target.value==0? '' :e.target.value), (invoiceInfo[1]!==1? '':invoiceInfo[1]) ]) 
+                            if (document.getElementById('invoice4').checked) {
+                              setInvoiceInfo([ (e.target.value==0? '' :e.target.value), data ]) 
+                              // setInvoiceInfo([ (e.target.value==0? '' :e.target.value), (invoiceInfo[1]!==1? '':invoiceInfo[1]) ]) 
+                            }
                             // console.log(invoiceInfo)
                           }}
                           // onChange={ (e)=>{ setInvoiceInfo(e.target.value) } }
@@ -347,8 +352,10 @@ function CartCheckout (props) {
                             // console.log("invo4value2 "+e.target.value)
                             // console.log(invoiceInfo[0])
                             let data = invoiceInfo[0]
-                            setInvoiceInfo([ data, (e.target.value==0? '' :e.target.value)]) 
-                            // setInvoiceInfo([ (invoiceInfo[0]!==1? '':invoiceInfo[0]), (e.target.value==0? '' :e.target.value)]) 
+                            if (document.getElementById('invoice4').checked) {
+                              setInvoiceInfo([ data, (e.target.value==0? '' :e.target.value)]) 
+                              // setInvoiceInfo([ (invoiceInfo[0]!==1? '':invoiceInfo[0]), (e.target.value==0? '' :e.target.value)]) 
+                            }
                             // console.log(invoiceInfo)
                           }}
                         />
