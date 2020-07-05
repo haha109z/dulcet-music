@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 // 引入sweetalert2-react-content套件
 import withReactContent from 'sweetalert2-react-content';
@@ -327,7 +327,7 @@ function CartCheckout (props) {
                       <span>提醒您，公司戶發票一旦開立，不得任意更改或改為個人戶發票。</span>
                       <div className="cart-input1">
                         <label htmlFor="invoice">統一編號</label>
-                        <input className="companyinvoice" id="" type="text" value={radiostate[3]==1? invoiceInfo[0]: ''}
+                        <input className="companyinvoice" id="" type="text" maxlength="8" value={radiostate[3]==1? invoiceInfo[0]: ''}
                           // onChange={ (e)=>{ changeInvoiceInfo(e.target.value) } }
                           // onChange={ (e)=>{ console.log("invo4value1 "+e.target.value) } }
                           onChange={ (e)=>{ 
@@ -375,16 +375,17 @@ function CartCheckout (props) {
               <label htmlFor="discount">折扣碼</label>
               <input className="" id="discount" type="text"
                 onChange={ (e)=>{  
-                  // console.log(e.target.value)
-                  // console.log(coupon)     
-                  if (haveCoupon == 1) { 
+                  console.log(!e.target.value==0)
+                  if ( !e.target.value == 0) { 
                     if ( e.target.value == coupon ) {
                       // alert('恭喜您折扣碼符合')
                       MySwal.fire('折扣碼符合，可折價200元', '', 'success')                      
                       setDiscount(200);
-                    }} else {
+                    } else {
+                      MySwal.fire('您輸入的折扣碼不正確，煩請確認', '', 'error')                      
                       setDiscount(0);
                     } 
+                  }
                 }}
               />
             </div>
@@ -434,9 +435,32 @@ function CartCheckout (props) {
                 </button>
 
               ):(
-
-                <Link to="/cart/2"> 
-                  <button id="nextstep" type="button">
+                
+                <Link> 
+                  <button id="nextstep" type="button" onClick={(e)=>{   
+                    let infodiv = [...document.getElementsByClassName('cart-input')]
+                    // console.log(infodiv[0].querySelector("input").value)
+                    let buyerInfo = infodiv.map( el => {
+                      // console.log( !el.querySelector("input").value==0 )
+                      if (el.querySelector("input").value==0||el.querySelector("input").value==' ') {
+                        return '沒有'
+                      } else {
+                        return el.querySelector("input").value
+                      }
+                    })   
+                    // console.log(buyerInfo)                     
+                    if ( buyerInfo[0]=='沒有'||buyerInfo[1]=='沒有'||buyerInfo[2]=='沒有'||buyerInfo[3]=='沒有' ) {
+                      MySwal.fire('請填寫收件人資訊', '', 'error')              
+                    } else {
+                      console.log(radiostate)
+                      // console.log(radiostate.every((el)=> el==false))
+                      if (radiostate.every((el)=> el==false)) {
+                        MySwal.fire('請填寫發票資訊', '', 'error')
+                      } else {                        
+                        props.history.push('/cart/2')
+                      }     
+                    }
+                  }}>
                     下一步
                   </button>
                 </Link>
@@ -451,4 +475,4 @@ function CartCheckout (props) {
 }
 
 
-export default CartCheckout;
+export default withRouter(CartCheckout);
