@@ -464,8 +464,13 @@ function CartCheckout (props) {
                           } else {
                             if (radiostate.every((el)=> el==false)) {
                               MySwal.fire('請填寫發票資訊', '', 'error')
-                            } else {                        
-                              props.history.push('/cart/2')
+                            } else {  
+                              console.log(invoiceInfo)
+                              if (invoiceInfo==''||invoiceInfo[1]=='') {
+                                MySwal.fire('請填寫發票資訊', '', 'error')
+                              } else {
+                                props.history.push('/cart/2')
+                              }                    
                             } 
                           }  
                         }
