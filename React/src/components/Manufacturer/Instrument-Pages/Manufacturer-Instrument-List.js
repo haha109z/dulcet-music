@@ -15,7 +15,7 @@ class InstrumentList extends React.Component {
     constructor(){
       super()
       this.state={
-        
+        btn :'全部',
         Mid:Mid,
         ManuProduct:[
           {
@@ -35,8 +35,9 @@ class InstrumentList extends React.Component {
             update_at:'',
           }
         ],
-        AllManuProduct : [],
-        Allcheckboxcontent : [],
+        AllManuProduct : [], //原始資料庫資料
+        Allcheckboxcontent : [], //全選抓資料
+        AllProductStatus:[], // 裝切換狀態的資料
       }
       
       
@@ -204,6 +205,18 @@ class InstrumentList extends React.Component {
         })
         localStorage.setItem('ManuProData',JSON.stringify(ManuProData))
       }
+
+
+      this.filterStates = e => {
+        let status = e.currentTarget.textContent
+        
+        this.setState({ btn : status})
+        alert(this.state.btn)
+
+        if(status == '全部'){
+          
+        }
+      }
     }
     
     
@@ -233,13 +246,13 @@ class InstrumentList extends React.Component {
           role="group"
           aria-label="Basic example"
         >
-          <button type="button" className="btn btn-white ins-menu-btn" >
+          <button type="button" className="btn btn-white ins-menu-btn" onClick={this.filterStates}>
             全部
           </button>
-          <button type="button" className="btn btn-white ins-menu-btn ">
+          <button type="button" className="btn btn-white ins-menu-btn" onClick={this.filterStates}>
             上架中
           </button>
-          <button type="button" className="btn btn-white ins-menu-btn ">
+          <button type="button" className="btn btn-white ins-menu-btn" onClick={this.filterStates}>
             下架中
           </button>
           
