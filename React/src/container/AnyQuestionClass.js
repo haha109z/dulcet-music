@@ -3,10 +3,15 @@ import React from 'react'
 import Navbar from '../components/navbar/navbar'
 import AnyQuestionClass from '../components/AnyQuestion/AnyQuestionList/AnyQuestionClass'
 
-function Forum() {
+function Forum(props) {
+  const {
+    cartNum, 
+    setCartNum,
+  }=props
     return (
       <>
-        <Navbar />
+        <Navbar cartNum={cartNum}
+          setCartNum={setCartNum}/>
   
         {/* <ForumCard /> */}
         {/* <AnyQuestion /> */}

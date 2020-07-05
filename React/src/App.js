@@ -104,41 +104,41 @@ function App() {
           </Switch>
 
           <Route path="/Forum">
-            <Forum />
+            <Forum  cartNum={cartNum} setCartNum={setCartNum}/>
           </Route>
 
           <Route path="/AnyQuestion">
-            <AnyQuestion />
+            <AnyQuestion cartNum={cartNum} setCartNum={setCartNum}/>
           </Route>
           <Route path="/About">
-            <About />
+            <About cartNum={cartNum} setCartNum={setCartNum}/>
           </Route>
           <Route path="/AnyQuestionUser">
-            <AnyQuestionUser />
+            <AnyQuestionUser  cartNum={cartNum} setCartNum={setCartNum}/>
           </Route>
           <Route path="/AnyQuestionClass">
-            <AnyQuestionClass />
+            <AnyQuestionClass  cartNum={cartNum} setCartNum={setCartNum}/>
           </Route>
           <Route path="/AnyQuestionVideo">
-            <AnyQuestionVideo />
+            <AnyQuestionVideo  cartNum={cartNum} setCartNum={setCartNum}/>
           </Route>
           <Route path="/AnyQuestionCompany">
-            <AnyQuestionCompany />
+            <AnyQuestionCompany  cartNum={cartNum} setCartNum={setCartNum}/>
           </Route>
           <Route path="/AnyQuestionAns">
-            <AnyQuestionAns />
+            <AnyQuestionAns  cartNum={cartNum} setCartNum={setCartNum}/>
+          </Route>
+
+          <Route path="/ManufacturerVideo">
+            <ManufacturerVideo  cartNum={cartNum} setCartNum={setCartNum}/>
+          </Route>
+
+          <Route path="/ManufacturerInstrument">
+            <ManufacturerInstrument  cartNum={cartNum} setCartNum={setCartNum}/>
           </Route>
 
           <Route path="/user">
             <UserApp cartNum={cartNum} setCartNum={setCartNum} />
-          </Route>
-
-          <Route path="/ManufacturerVideo">
-            <ManufacturerVideo />
-          </Route>
-
-          <Route path="/ManufacturerInstrument">
-            <ManufacturerInstrument />
           </Route>
 
           <Route path="/cart">

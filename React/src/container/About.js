@@ -4,10 +4,15 @@ import Navbar from '../components/navbar/navbar'
 
 import AboutList from '../components/About/AboutList/AboutList'
 
-function About() {
+function About(props) {
+  const {
+    cartNum, 
+    setCartNum,
+  }=props
     return (
       <>
-        <Navbar />
+        <Navbar  cartNum={cartNum}
+          setCartNum={setCartNum}/>
   
         {/* <ForumCard /> */}
         {/* <AnyQuestion /> */}
