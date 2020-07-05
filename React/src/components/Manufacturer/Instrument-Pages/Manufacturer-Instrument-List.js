@@ -60,7 +60,9 @@ class InstrumentList extends React.Component {
         this.setState({
           AllManuProduct : json
         })
-        console.log(this.state.AllManuProduct)
+        this.setState({
+          AllProductStatus : this.state.AllManuProduct
+        })
       })
       this.handleputon=(e)=>{
         
@@ -89,8 +91,10 @@ class InstrumentList extends React.Component {
           this.setState({
             AllManuProduct : json
           })
+          
         })
         window.location.reload(true)
+        
       })
       }
 
@@ -209,14 +213,37 @@ class InstrumentList extends React.Component {
 
       this.filterStates = e => {
         let status = e.currentTarget.textContent
-        
-        this.setState({ btn : status})
-        alert(this.state.btn)
 
+        setTimeout(() => {
+          this.setState({ btn : status})
         if(status == '全部'){
+          setTimeout(() => {
+            this.setState({AllProductStatus : this.state.AllManuProduct})
+          }, 10);
           
+          console.log(this.state.AllProductStatus)
+          return
+        }else{
+          let data = this.state.AllManuProduct.filter(
+            (v) => v.PState == status
+          )
+          console.log(data)
+          this.setState({ AllProductStatus : data})
+          console.log(this.state.AllProductStatus)
+          return
         }
+      })
       }
+
+      // this.SendSearch = e =>{
+      //   let search = document.querySelector('.ins-list-inp').value
+      //   // alert(search)
+      //   const name = this.state.AllManuProduct.map(
+      //     (v) => v.PName).indexOf(search)
+          
+      //     console.log(name)
+      //     this.setState({ AllProductStatus : name})
+      // }
     }
     
     
@@ -250,23 +277,29 @@ class InstrumentList extends React.Component {
             全部
           </button>
           <button type="button" className="btn btn-white ins-menu-btn" onClick={this.filterStates}>
-            上架中
+            上架
           </button>
           <button type="button" className="btn btn-white ins-menu-btn" onClick={this.filterStates}>
-            下架中
+            下架
           </button>
           
         </div>
         <form className="ins-list-search">
         <div className="ins-dropdown">
             <button type="button" className="ins-dropbtn">
-              商品狀態
+              商品 : {this.state.btn}
               <i className="fas fa-sort-down"></i>
             </button>
             <div className="ins-dropdown-content">
-              <a href="#">全部</a>
-              <a href="#">上架中</a>
-              <a href="#">下架中</a>
+                <Link href="#" onClick={this.filterStates}>
+                  全部
+                </Link>
+                <Link href="#" onClick={this.filterStates}>
+                  上架
+                </Link>
+                <Link href="#" onClick={this.filterStates}>
+                  下架
+                </Link>
             </div>
           </div>
           <label className="ins-list-search-label">
@@ -276,7 +309,7 @@ class InstrumentList extends React.Component {
               placeholder="請輸入關鍵字"
             />
             <p>請輸入商品關鍵字</p>
-            <button type="submit" className="ins-list-search-btn">
+            <button type="button" className="ins-list-search-btn" >
               送出
             </button>
           </label>
@@ -297,7 +330,7 @@ class InstrumentList extends React.Component {
         </div>
         
 
-        {this.state.AllManuProduct.map((product,index) => (
+        {this.state.AllProductStatus.map((product,index) => (
         <form className="ins-list-product">
           <div className="ins-list-state">
             <p className="font-size-185rem">商品編號 : {product.PId}</p>
