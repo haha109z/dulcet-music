@@ -107,8 +107,17 @@ class InstrumentOrder extends React.Component {
   }
 
   render() {
-    // console.log(this.state.AllMPurchase)
-    // console.log(this.state.AllMPurchaseitem)
+    let pageItem = []
+    for (let i = 1; i <= Math.ceil(this.state.AllMPurchase.length / 10); i++){
+      pageItem.push(
+        <button
+        onClick={this.PageNum}
+        className="ins-page-number"
+        >
+          {i}
+        </button>
+      )
+    }
 
     var OrderStatus = this.state.AllOrderStatus
     var OrderStatusitem = this.state.AllOrderStatusitem
@@ -279,9 +288,9 @@ class InstrumentOrder extends React.Component {
         ))}
 
         <div className="ins-page">
-          <a className="ins-page-Rarrow">
+          <Link className="ins-page-Rarrow">
             <i className="fas fa-sort-up"></i>
-          </a>
+          </Link>
           <button className="ins-page-number">1</button>
           <button className="ins-page-number">2</button>
           <button className="ins-page-number">3</button>
