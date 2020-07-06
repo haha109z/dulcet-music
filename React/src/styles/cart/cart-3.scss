@@ -70,6 +70,7 @@
   .cart3-creditcard-wrap {
     margin: 0 auto;
     display: inherit;
+    perspective: 0px;
   }
   .cart3-creditcard {
     background: #fffdfd;
@@ -153,6 +154,27 @@
         font-size: 16px;
       }
     }
+  }
+  .cart3-creditcard-front {
+    position: absolute;
+    transition: transform 3s;
+    transform: rotateY(0deg);
+    // transform: rotateY(0deg);
+    // visibility: hidden;
+  }
+  .cart3-creditcard-back {
+    transform: rotateY(-90deg);
+    // transform: rotateY(270deg);
+    transition: transform 3s;
+    // visibility: hidden;
+  }
+  .cart3-rotate-front {
+    transform: rotateY(-90deg);
+    // transform: rotateY(270deg);
+  }
+  .cart3-rotate-back {
+    transform: rotateY(0deg);
+    // transform: rotateY(0deg);
   }
   .cart3-input {
     // background: #fb2643;
@@ -850,8 +872,10 @@
     }
     .cart3-creditcard {
       margin: 15px 0 0 0;
-      width: 75%;
-      height: 50%;
+      width: 55%;
+      height: 20%;
+      // width: 75%;
+      // height: 50%;
       border-radius: 15px;
       .cart3-creditcard-same {
         margin: 15px;
@@ -887,6 +911,10 @@
           font-size: 12px;
         }
       }
+    }
+    .cart3-rotate-back {
+      width: 76%;
+      height: 117%;
     }
     .cart3-creditcard-form {
       // width: 80%;

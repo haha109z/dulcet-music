@@ -41,11 +41,15 @@ function CartDeliverInfo (props) {
     return(
         <Fragment> 
                  
-            <div className="cart-buyer-info">
+            <div className="cart-buyer-info" id="cart-buyer-info">
                   <h2>收件人資訊</h2>
                   <fieldset>
                     <label>
-                      <input type="checkbox" id="receivingInfo" onClick={(e)=>{ checkcallback(e.target) }}/> 同帳戶資料
+                      <input type="checkbox" id="receivingInfo"                   
+                        // 從cart2回上一頁時，同帳戶資料默認勾選狀態
+                        checked={checkstate? "checked" : ''}   
+                        onClick={(e)=>{ checkcallback(e.target) }}   
+                      /> 同帳戶資料
                     </label>
 
                         {/* 根據checkbox勾選狀態切換收件人資訊畫面 */}

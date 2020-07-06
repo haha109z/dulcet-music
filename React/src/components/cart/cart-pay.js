@@ -46,7 +46,7 @@ function CartPay (props) {
   address = checkstate? user['userAddress'] : ReceivingAddress,
   phone = checkstate? user['userPhone'] : ReceivingPhone,
   email = checkstate? user['userMail'] : ReceivingEmail,
-  invoice = "YM",
+  invoice = "YM12345678",
   invoicestorage = invoiceType,
   invoiceinfo = invoiceInfo,
   coupon = discount,
@@ -188,7 +188,20 @@ function CartPay (props) {
 
     }
   }
-  // console.log(safecode);      
+  // console.log(safecode); 
+
+  // 信用卡翻面
+  const creditRotate = (e) => {
+    // let complete = document.getElementById('validdates2').value !==null
+    let complete = document.getElementById('safecode').value !==null
+    let front = document.querySelector('.cart3-creditcard-front')
+    let back = document.querySelector('.cart3-creditcard-back')
+    // console.log(front)
+    if (complete) {
+      front.classList.add("cart3-rotate-front")
+      back.classList.add("cart3-rotate-back")
+    }
+  }     
 
 
     return (
@@ -253,7 +266,7 @@ function CartPay (props) {
                       {/* 信用卡畫面展示區 */}
                       <div style={{display:'flex'}}>
                           <div className="cart3-creditcard-wrap">
-                              <div className="cart3-creditcard">
+                              <div className="cart3-creditcard cart3-creditcard-front">
                                 <div className="cart3-creditcard-same cart3-creditcard-1">                              
                                   <div className="cart3-card-in-card"></div>
                                   <div className="cart3-card-category">VISA</div>
@@ -273,7 +286,7 @@ function CartPay (props) {
                                   </div>                                
                                 </div> 
                               </div>
-                              <div className="cart3-creditcard">
+                              <div className="cart3-creditcard cart3-creditcard-back">
                                 <div className="cart3-creditcard-stripe"></div>
                                 <div className="cart3-creditcard-safe-info">
                                   <div>CCV</div>
@@ -360,6 +373,9 @@ function CartPay (props) {
                                     changeContent(e)
                                     getSafeCode() 
                                   }} 
+                                  onBlur={(e)=>{
+                                    creditRotate(e)
+                                  }}
                                 />
                             </div>
                           </div>
@@ -376,6 +392,9 @@ function CartPay (props) {
               <Link>
                 <button type="button" onClick={()=>{
 
+                  if (payment==='') {
+                    MySwal.fire('請選擇一種付款方式', '', 'error')
+                  } else {
                   MySwal.fire({
                     type: 'warning', // 彈框類型
                     title: '確認送出？', //標題
@@ -388,7 +407,7 @@ function CartPay (props) {
                   })
                   // 按下確認按鈕
                   .then((isConfirm)=>{
-                    console.log(isConfirm.value)
+                    // console.log(isConfirm.value)
                     if (isConfirm.value) {
 
                       // 新增一筆訂單資料至資料庫
@@ -429,7 +448,6 @@ function CartPay (props) {
                       // .catch((error) => {
                       //   console.error('Error:', error)
                       // })
-
                         
                       // 購物車商品全選結帳，清空localStorage cart並更新購物車圖示數量為0
                       if (buyAll) {
@@ -438,7 +456,6 @@ function CartPay (props) {
                       } else {
 
                       }
-
                       
                       // 更改loclaStorage的coupon使用狀態
                       let couponData = JSON.parse(localStorage.getItem('coupon'))
@@ -457,7 +474,7 @@ function CartPay (props) {
 
                     }
                   })
-                      
+                  }  
                 }}>確認送出</button>
               </Link>
 

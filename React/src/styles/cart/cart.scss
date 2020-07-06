@@ -64,6 +64,7 @@
         margin: 0 10px;
         line-height: 20px;
         text-align: center;
+        background-color: white;
       }
       .cart-minusBtn,
       .cart-plusBtn {
@@ -86,7 +87,9 @@
     }
   }
   .cart-product-hover:hover {
-    transform: scale(1.02, 1.02);
+    transform: scale(1.01, 1.01);
+    background: #f2e8df;
+    // border: #dadada;
   }
 }
 

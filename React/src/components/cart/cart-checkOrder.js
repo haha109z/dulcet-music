@@ -121,54 +121,14 @@ export default function CartCheckOrder (props) {
                   invoiceInfo,
                 }}
               />
-              {/* <div className="cart-invoice">
-                <h2>統一發票</h2>
-                  <fieldset>
- 
-                    {radiostate ? (
-
-                    <>
-                      <ul className="cart2-invoice-option">
-                        <li className="cart2-invoice-category">存入會員載具</li>
-                        <li className="cart2-invoice-value">中獎時我們會將發票寄送至您的收件地址</li>
-                      </ul>
-                      <ul className="cart2-invoice-option">
-                        <li className="cart2-invoice-category">存入手機條碼載具</li>
-                        <li className="cart2-invoice-value cart2-rwd-value">/888NNN2</li>
-                      </ul>
-                      <ul className="cart2-invoice-option">
-                        <li className="cart2-colspan2" colSpan="2">捐贈發票</li>
-                        <li className="cart2-colspan2" colSpan="2">我們將會為您捐給【台灣流浪兔保護協會】</li>
-                        <li className="cart2-colspan2" colSpan="2">提醒您，捐贈發票後無法變更成開立或索取紙本發票。</li>
-                      </ul>
-                      <ul className="cart2-invoice-option">
-                        <li className="cart2-colspan2" colSpan="2">開立公司戶發票</li>
-                        <li className="cart2-invoice-category">統一編號</li>
-                        <li className="cart2-invoice-value cart2-rwd-value">22222222</li>
-                        <li className="cart2-invoice-category">發票抬頭</li>
-                        <li className="cart2-invoice-value cart2-rwd-value">財團法人資訊工業策進會</li>
-                        <li className="cart2-colspan2" colSpan="2">提醒您，公司戶發票一旦開立，不得任意更改或改為個人戶發票。</li>
-                      </ul>
-                    </>
-
-                    ):(
-
-                    <>
-                      
-                    </>
-
-                    )
-                    }
-
-                </fieldset>
-              </div> */}
+              
             </form>
           </div>
 
           <div className="cart-total">
             <div className="cart-discount">
               <label htmlFor="discount">折扣碼</label>
-              <input className="" id="discount" type="text" readonly="readonly" value={coupon} />
+              <input className="" id="discount" type="text" readonly="readonly" value={ discount==0? '' : coupon } />
             </div>
             <div className="cart-total-right">
               <div>

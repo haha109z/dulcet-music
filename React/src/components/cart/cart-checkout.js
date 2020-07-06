@@ -51,7 +51,7 @@ function CartCheckout (props) {
     setCartNum,
    } = props.allProps;  
   //  console.log(discount);
-  
+    
 
   // 計算購物車商品總價
   let itemPrice = 0;  
@@ -96,8 +96,6 @@ function CartCheckout (props) {
     setInvoiceInfo(
       radiostate1 == 1 ? ' ' : (radiostate2 == 1 ? invoiceinfo2 : (radiostate3 == 1 ? invoiceinfo3 : (radiostate4 == 1 ? invoiceinfo4 : '' )))
     )
-
-    // radiostate1 == 0? setInvoiceInfo1('') : setInvoiceInfo1(invoiceinfo1) 
   }
   useEffect(()=>{
     // setInvoiceInfo('')
@@ -247,7 +245,7 @@ function CartCheckout (props) {
               />
 
               {/* 表單2：統一發票 */}
-              <div className="cart-invoice">
+              <div className="cart-invoice" id="cart-invoice">
                   <h2>統一發票</h2>
                   <fieldset>
 
@@ -255,7 +253,9 @@ function CartCheckout (props) {
 
                     <div>
                       <label>
-                        <input type="radio" name="invoice" id="invoice1" value="會員載具" 
+                        <input type="radio" name="invoice" id="invoice1" value="會員載具"                  
+                          // 從cart2回上一頁時，同帳戶資料默認勾選狀態
+                          checked={radiostate[0]? "checked" : ""}   
                           onClick={(e)=>{ 
                             radiocallback(e.target)
                             setInvoiceType(e.target.value)
@@ -269,7 +269,9 @@ function CartCheckout (props) {
 
                     <div>
                       <label>
-                        <input type="radio" name="invoice" id="invoice2" value="手機條碼載具" 
+                        <input type="radio" name="invoice" id="invoice2" value="手機條碼載具"                  
+                          // 從cart2回上一頁時，同帳戶資料默認勾選狀態
+                          checked={radiostate[1]? "checked" : ""}   
                           onClick={(e)=>{ 
                             radiocallback(e.target) 
                             setInvoiceType(e.target.value)
@@ -285,7 +287,12 @@ function CartCheckout (props) {
                               setInvoiceInfo(e.target.value)
                             }
                           }}
-                          // onChange={ (e)=>{ changeInvoiceInfo(e.target.value) } }
+                          onBlur={(e)=>{
+                            const reg = /^\/{1}[0-9A-Z]{7}$/;
+                            if (!e.target.value.match(reg)) {
+                              MySwal.fire('請輸入正確載具號碼', '', 'error')
+                            }
+                          }}
                         />
                       </div>
                     </div>
@@ -294,7 +301,9 @@ function CartCheckout (props) {
 
                     <div style={{padding:'0 0 20px 0'}}>
                       <label>
-                        <input type="radio" name="invoice" id="invoice3" value="捐贈發票" 
+                        <input type="radio" name="invoice" id="invoice3" value="捐贈發票"                 
+                          // 從cart2回上一頁時，同帳戶資料默認勾選狀態
+                          checked={radiostate[2]? "checked" : ""}    
                           onClick={(e)=>{ 
                             radiocallback(e.target) 
                             setInvoiceType(e.target.value)
@@ -317,7 +326,9 @@ function CartCheckout (props) {
 
                     <div>
                       <label>
-                        <input type="radio" name="invoice" id="invoice4" value="公司戶發票" 
+                        <input type="radio" name="invoice" id="invoice4" value="公司戶發票"                  
+                          // 從cart2回上一頁時，同帳戶資料默認勾選狀態
+                          checked={radiostate[3]? "checked" : ""}   
                           onClick={(e)=>{ 
                             radiocallback(e.target) 
                             setInvoiceType(e.target.value)
@@ -328,35 +339,22 @@ function CartCheckout (props) {
                       <div className="cart-input1">
                         <label htmlFor="invoice">統一編號</label>
                         <input className="companyinvoice" id="" type="text" maxlength="8" value={radiostate[3]==1? invoiceInfo[0]: ''}
-                          // onChange={ (e)=>{ changeInvoiceInfo(e.target.value) } }
-                          // onChange={ (e)=>{ console.log("invo4value1 "+e.target.value) } }
                           onChange={ (e)=>{ 
-                            // console.log("invo4value1 "+e.target.value)
-                            // console.log(invoiceInfo[1])
                             let data = invoiceInfo[1]
                             if (document.getElementById('invoice4').checked) {
                               setInvoiceInfo([ (e.target.value==0? '' :e.target.value), data ]) 
-                              // setInvoiceInfo([ (e.target.value==0? '' :e.target.value), (invoiceInfo[1]!==1? '':invoiceInfo[1]) ]) 
                             }
-                            // console.log(invoiceInfo)
                           }}
-                          // onChange={ (e)=>{ setInvoiceInfo(e.target.value) } }
                         />
                       </div>
                       <div className="cart-input1">
                         <label htmlFor="invoice">發票抬頭</label>
                         <input className="companyinvoice" id="" type="text" value={radiostate[3]==1? invoiceInfo[1]: ''}
-                          // onChange={ (e)=>{ changeInvoiceInfo(e.target.value) } }
-                          // onChange={ (e)=>{ setInvoiceInfo(e.target.value) } }
                           onChange={ (e)=>{ 
-                            // console.log("invo4value2 "+e.target.value)
-                            // console.log(invoiceInfo[0])
                             let data = invoiceInfo[0]
                             if (document.getElementById('invoice4').checked) {
                               setInvoiceInfo([ data, (e.target.value==0? '' :e.target.value)]) 
-                              // setInvoiceInfo([ (invoiceInfo[0]!==1? '':invoiceInfo[0]), (e.target.value==0? '' :e.target.value)]) 
                             }
-                            // console.log(invoiceInfo)
                           }}
                         />
                       </div>
@@ -377,13 +375,19 @@ function CartCheckout (props) {
                 onChange={ (e)=>{  
                   // console.log(!e.target.value==0)
                   if ( !e.target.value == 0) { 
-                    if ( e.target.value == coupon ) {
-                      // alert('恭喜您折扣碼符合')
-                      MySwal.fire('折扣碼符合，可折價200元', '', 'success')                      
-                      setDiscount(200);
-                    } else {                    
-                      setDiscount(0);
-                    } 
+                    let couponDate = JSON.parse(localStorage.getItem('coupon'))
+                    // console.log(couponDate==null)
+                    if (couponDate!==null){
+                      if ( couponDate[0]['couponLocalStorage']==0 ) {
+                        if ( e.target.value == coupon ) {
+                          // alert('恭喜您折扣碼符合')                    
+                          MySwal.fire('折扣碼符合，可折價200元', '', 'success')                      
+                          setDiscount(200);
+                        } else {             
+                          setDiscount(0);
+                        } 
+                      } 
+                    }
                   }
                 }}
               />
@@ -449,24 +453,32 @@ function CartCheckout (props) {
                     })   
                     // console.log(buyerInfo)                     
                     if ( buyerInfo[0]=='沒有') {
+                      window.location.hash="#cart-buyer-info"
                       MySwal.fire('請填寫收件人姓名', '', 'error')
                     } else {    
                       if (buyerInfo[1]=='沒有') {
+                        window.location.hash="#cart-buyer-info"
                         MySwal.fire('請填寫收件人地址', '', 'error') 
                       } else {   
                         if (buyerInfo[2]=='沒有') {
+                          window.location.hash="#receivingInfo"
                           MySwal.fire('請填寫收件人手機號碼', '', 'error')    
                         } else {
                           if (buyerInfo[3]=='沒有') {
+                            window.location.hash="#receivingInfo"
                             MySwal.fire('請填寫收件人電子信箱', '', 'error')         
                             // console.log(radiostate)
                             // console.log(radiostate.every((el)=> el==false))
                           } else {
                             if (radiostate.every((el)=> el==false)) {
+                              // let offsetTop = document.getElementById("cart-invoice").offsetTop
+                              // console.log(offsetTop)
+                              window.location.hash="#email"
                               MySwal.fire('請填寫發票資訊', '', 'error')
                             } else {  
                               // console.log(invoiceInfo)
                               if (invoiceInfo==''||invoiceInfo[1]=='') {
+                                window.location.hash="#cart-invoice"
                                 MySwal.fire('請填寫發票資訊', '', 'error')
                               } else {
                                 props.history.push('/cart/2')
