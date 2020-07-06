@@ -29,31 +29,31 @@ function ProductList(props) {
 
   switch (category) {
     case 'piano':
-      num = 10
+      num = 19
       break
     case 'keyboard':
-      num = 10
+      num = 19
       break
     case 'violin':
-      num = 10
+      num = 19
       break
     case 'viola':
-      num = 10
+      num = 19
       break
     case 'saxophone':
-      num = 10
+      num = 19
       break
     case 'jazz_drum':
       num = 10
       break
     case 'guitar':
-      num = 10
+      num = 19
       break
     case 'ukulele':
-      num = 10
+      num = 19
       break
     case 'flute':
-      num = 10
+      num = 19
       break
   }
   let totalPage = Math.ceil(num / perPage)
