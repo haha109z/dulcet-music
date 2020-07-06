@@ -15,7 +15,7 @@ function NewsHot(props) {
             ></img>
 
             <div className="news-HotContentp news-LetterSpacing">
-              <Link to="http://localhost:3000/news-content/19">【八月】小提...</Link>
+              <Link to="/news-content/19">【八月】小提...</Link>
             </div>
           </div>
 
@@ -26,7 +26,7 @@ function NewsHot(props) {
             ></img>
 
             <div className="news-HotContentp news-LetterSpacing">
-              <Link to="http://localhost:3000/news-content/9">衛服部公告...</Link>
+              <Link to="/news-content/9">衛服部公告...</Link>
             </div>
           </div>
 
@@ -37,7 +37,7 @@ function NewsHot(props) {
             ></img>
 
             <div className="news-HotContentp news-LetterSpacing">
-              <Link to="http://localhost:3000/news-content/23">【八月】烏克...</Link>
+              <Link to="/news-content/23">【八月】烏克...</Link>
             </div>
           </div>
 
@@ -48,7 +48,7 @@ function NewsHot(props) {
             ></img>
 
             <div className="news-HotContentp news-LetterSpacing">
-              <Link to="http://localhost:3000/news-content/8">高雄女中合唱...</Link>
+              <Link to="/news-content/8">高雄女中合唱...</Link>
             </div>
           </div>
 
