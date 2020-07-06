@@ -13,6 +13,8 @@ import { bindActionCreators } from 'redux'
 import { getNewsPageContent } from '../../redux/action-types'
 
 function NewsPagesContent(props) {
+
+  const { cartNum, setCartNum } = props
   
   const NewsID = props.match.params.NewsID ? props.match.params.NewsID : ''
 
@@ -28,7 +30,7 @@ function NewsPagesContent(props) {
  
   return (
     <>
-    <Navbar />
+    <Navbar cartNum={cartNum} />
     <div className="news-pages-Container news-h5 news-LetterSpacing news-NotoSerifTC">
         <Link className="news-pages-Breadcrumb" to="/news">
           所有列表
