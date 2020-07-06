@@ -22,9 +22,9 @@ function ProductIntro(props) {
         id="product-id-intro-wrapper"
         className="product-video-id-intro-wrapper"
       >
-        <div id="product-id-intro-video-picture-wrapper">
+        <div id="product-id-intro-course-picture-wrapper">
           <img
-            id="product-id-intro-video-picture"
+            id="product-id-intro-course-picture"
             src={`http://localhost:3030/images/product/${props.PImg}`}
             alt={productName}
             title={productName}
