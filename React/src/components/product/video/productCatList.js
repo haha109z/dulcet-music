@@ -29,31 +29,31 @@ function ProductCatList(props) {
   let num = 0
   switch (category) {
     case 'piano':
-      num = 10
+      num = 6
       break
     case 'keyboard':
-      num = 10
+      num = 0
       break
     case 'violin':
-      num = 10
+      num = 7
       break
     case 'viola':
-      num = 10
+      num = 4
       break
     case 'saxophone':
-      num = 10
+      num = 3
       break
     case 'jazz_drum':
-      num = 10
+      num = 0
       break
     case 'guitar':
-      num = 10
+      num = 3
       break
     case 'ukulele':
-      num = 10
+      num = 4
       break
     case 'flute':
-      num = 10
+      num = 0
       break
   }
 
