@@ -76,6 +76,7 @@ class InstrumentOrder extends React.Component {
       let search = document.querySelector('.ins-search-input').value
       this.setState({ search: search })
     }
+
     this.statusbtn = (e) => {
       let btn = e.currentTarget.textContent
       console.log(btn)
