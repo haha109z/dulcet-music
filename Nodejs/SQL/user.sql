@@ -2,9 +2,9 @@
 -- version 4.9.3
 -- https://www.phpmyadmin.net/
 --
--- 主机： localhost:3306
--- 生成日期： 2020-07-03 13:17:08
--- 服务器版本： 5.7.26
+-- 主機： localhost:3306
+-- 產生時間： 2020 年 07 月 06 日 14:26
+-- 伺服器版本： 5.7.26
 -- PHP 版本： 7.4.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 数据库： `dulcet_music`
+-- 資料庫： `dulcet_music`
 --
 
 -- --------------------------------------------------------
 
 --
--- 表的结构 `user`
+-- 資料表結構 `user`
 --
 
 CREATE TABLE `user` (
@@ -40,11 +40,11 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- 转存表中的数据 `user`
+-- 傾印資料表的資料 `user`
 --
 
 INSERT INTO `user` (`userID`, `userName`, `userPwd`, `userPhone`, `userMail`, `userBirthday`, `userAddress`, `userImg`, `created_at`, `updated_at`) VALUES
-(1, '小丑', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', '091939008', '001@gmail.com', '1950-11-02', '桃園市龜山區樂善里013鄰文武街', 'userimg000.jpg', '2019-11-25 13:18:46', '2020-07-03 21:16:47'),
+(1, '王小明', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', '0919123123', '001@gmail.com', '1950-11-14', '桃園市龜山區樂善里013鄰文武街３２號', 'userimg000.jpg', '2019-11-25 13:18:46', '2020-07-06 22:26:40'),
 (2, '蔡孟洋', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', '0919390002', '002@gmail.com', '1950-11-26', '桃園市龜山區樂善里013鄰文武街３２號', 'userimg000.jpg', '2019-11-26 13:18:46', '2020-07-01 22:44:27'),
 (3, '謝凱成', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', '0919390003', '003@gmail.com', '1912-09-22', '桃園市龜山區公西里013鄰文三一街５０之１號', 'userimg000.jpg', '2019-11-27 13:18:46', '2020-07-03 21:16:21'),
 (4, '鄭志賢', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', '0919390004', '004@gmail.com', '1939-06-03', '桃園市龜山區大華里026鄰文七一街１７號', 'userimg000.jpg', '2019-11-28 13:18:46', '2020-07-03 21:16:47'),
@@ -146,22 +146,22 @@ INSERT INTO `user` (`userID`, `userName`, `userPwd`, `userPhone`, `userMail`, `u
 (100, '王淑君', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', '0919390100', '100@gmail.com ', '1961-06-24', '新北市蘆洲區正義里003鄰光榮路１２０巷２２弄２６號十樓', 'userimg000.jpg', '2020-03-03 13:18:46', '2020-07-03 21:16:47');
 
 --
--- 转储表的索引
+-- 已傾印資料表的索引
 --
 
 --
--- 表的索引 `user`
+-- 資料表索引 `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`userID`),
   ADD UNIQUE KEY `userMail` (`userMail`);
 
 --
--- 在导出的表使用AUTO_INCREMENT
+-- 在傾印的資料表使用自動遞增(AUTO_INCREMENT)
 --
 
 --
--- 使用表AUTO_INCREMENT `user`
+-- 使用資料表自動遞增(AUTO_INCREMENT) `user`
 --
 ALTER TABLE `user`
   MODIFY `userID` int(5) NOT NULL AUTO_INCREMENT COMMENT '會員ID', AUTO_INCREMENT=103;

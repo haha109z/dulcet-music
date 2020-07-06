@@ -47,6 +47,7 @@ export default class UserPurchase extends Component {
     this.setState({ menu: false })
     this.setState({ userRwdPage: false })
   }
+  
   showPage = () => {
     this.setState({ userRwdPage: true })
     // console.log("123")
@@ -89,6 +90,7 @@ export default class UserPurchase extends Component {
     this.bokTop()
     this.closeRwdPage()
   }
+  
   getOrder = () => {
     // console.log('this.state.user', this.state.user)
     fetch('http://localhost:3030/user/UserPurchase', {
@@ -166,6 +168,8 @@ export default class UserPurchase extends Component {
     }, 0)
     this.bokTop()
   }
+
+
   showData() {
     let AllUserPurchase, AllUserPurchaseDetail
     let pageNum = this.state.pageNum
