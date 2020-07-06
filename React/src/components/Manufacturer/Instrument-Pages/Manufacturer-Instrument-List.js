@@ -15,6 +15,8 @@ class InstrumentList extends React.Component {
   state = {
     btn: '全部',
     Mid: '',
+    PageNum:1,
+    selectPage:'1',
     ManuProduct: [
       {
         Pid: '',
@@ -36,6 +38,12 @@ class InstrumentList extends React.Component {
     AllManuProduct: [], //原始資料庫資料
     Allcheckboxcontent: [], //全選抓資料
     AllProductStatus: [], // 裝切換狀態的資料
+    AllPageData:[],// 頁數內資料
+    
+  }
+
+  bokTop() {
+    document.documentElement.scrollTop = 0
   }
 
   componentDidMount() {
@@ -63,6 +71,9 @@ class InstrumentList extends React.Component {
           AllManuProduct: json,
           AllProductStatus: json,
         })
+        setTimeout(()=>{
+          this.showData()
+        },10)
       })
 
     this.handleputon = (e) => {
@@ -176,20 +187,14 @@ class InstrumentList extends React.Component {
       for (var i = 0; i < check.length; i++) {
         if (check[i].checked) {
           total += 1
+
         }
       }
       alert(total)
       console.log(content)
     }
 
-    this.handlecontent = (e) => {
-      let content = document.querySelector('.ins-list-product').innerHTML
-      this.setState({
-        Allcheckboxcontent: content,
-      })
-      console.log(this.state.Allcheckboxcontent)
-    }
-
+    
     this.handleinto = (
       Mid,
       PId,
@@ -223,11 +228,17 @@ class InstrumentList extends React.Component {
 
       setTimeout(() => {
         this.setState({ btn: status })
+        this.setState({ PageNum : 1})
+        this.setState({ selectPage : '1'})
         if (status == '全部') {
           setTimeout(() => {
             this.setState({ AllProductStatus: this.state.AllManuProduct })
           }, 10)
 
+          setTimeout(() => {
+            this.showData()
+          }, 0)
+          this.bokTop()
           console.log(this.state.AllProductStatus)
           return
         } else {
@@ -235,11 +246,15 @@ class InstrumentList extends React.Component {
           console.log(data)
           this.setState({ AllProductStatus: data })
           console.log(this.state.AllProductStatus)
+          setTimeout(() => {
+            this.showData()
+          }, 0)
+          this.bokTop()
           return
         }
       })
     }
-
+    
     // this.SendSearch = e =>{
     //   let search = document.querySelector('.ins-list-inp').value
     //   // alert(search)
@@ -250,24 +265,88 @@ class InstrumentList extends React.Component {
     //     this.setState({ AllProductStatus : name})
     // }
   }
-
-  handlecheck = (e) => {
-    const check = document.querySelectorAll('.ins-list-content-chk')
-    const allchk = document.querySelector('.ins-list-tool-chk')
-    if (allchk.checked) {
-      for (var i = 0; i < check.length; i++) {
-        check[i].checked = true
-      }
-    } else {
-      for (var i = 0; i < check.length; i++) {
-        check[i].checked = false
-      }
+  PageNumRight = () => {
+    let total = Math.ceil(this.state.AllProductStatus.length / 3)
+    
+    if(this.state.PageNum < total ){
+    this.setState({ PageNum : Number(this.state.PageNum) + 1})
+    
+    setTimeout(() => {
+      this.showData()
+    }, 0)
+    this.setState({ selectPage : Number(this.state.PageNum) + 1 + ''})
+    this.bokTop()
     }
   }
 
+  PageNumLeft = () => {
+    // let total = Math.ceil(this.state.AllProductStatus.length / 3)
+    
+    if(this.state.PageNum > 1 ){
+    this.setState({ PageNum : Number(this.state.PageNum) - 1})
+    
+    setTimeout(() => {
+      this.showData()
+    }, 0)
+    this.setState({ selectPage : Number(this.state.PageNum) - 1 + ''})
+    this.bokTop()
+    }
+  }
+
+  changePageNum = (e) => {
+    let num = e.currentTarget.textContent
+    this.setState({ PageNum : num})
+    setTimeout(()=>{
+      this.showData()
+    },100)
+    this.setState({ selectPage : num })
+    this.bokTop()
+  }
+
+  showData () {
+    let OrderList , OrderListItem
+    let PageNum = this.state.PageNum
+    this.setState({ AllPageData : this.state.AllProductStatus.slice((PageNum - 1) * 5, PageNum * 5),
+    })
+    
+    this.bokTop()
+  }
+
+  // handlecheck = (e) => {
+  //   const check = document.querySelectorAll('.ins-list-content-chk')
+  //   const allchk = document.querySelector('.ins-list-tool-chk')
+  //   if (allchk.checked) {
+  //     for (var i = 0; i < check.length; i++) {
+  //       check[i].checked = true
+       
+  //     }
+  //   } else {
+  //     for (var i = 0; i < check.length; i++) {
+  //       check[i].checked = false
+  //     }
+  //   }
+  // }
+
   render() {
-    let { AllProductStatus } = this.state
-    console.log(this.state.AllProductStatus)
+
+    let PageItem = []
+    for (let i = 1; i <= Math.ceil(this.state.AllProductStatus.length / 5); i++){
+      PageItem.push(
+        <button
+        onClick={this.changePageNum}
+        className={
+          this.state.selectPage === i + ''
+              ? 'ins-page-number ins-page-numberHover'
+              : 'ins-page-number'
+        }
+        >
+          {i}
+        </button>
+      )
+    }
+    let AllPageData = this.state.AllPageData
+    // let { AllProductStatus } = this.state
+    // console.log(this.state.AllProductStatus)
     return (
       <div className="ins-list-page">
         <h3 className="ins-list-title font-size-142rem">樂器列表</h3>
@@ -354,8 +433,10 @@ class InstrumentList extends React.Component {
             新增樂器
           </Link>
         </div>
-
-        {AllProductStatus.map((product, index) => (
+        <div className="ins-product-amount">
+          <p>目前所有商品數量為 : {this.state.AllManuProduct.length} 筆</p>
+        </div>
+        {AllPageData.map((product, index) => (
           <form className="ins-list-product">
             <div className="ins-list-state">
               <p className="font-size-185rem">商品編號 : {product.PId}</p>
@@ -365,7 +446,7 @@ class InstrumentList extends React.Component {
               <input
                 type="checkbox"
                 className="ins-list-content-chk"
-                onClick={this.handlecontent}
+                
               />
               <div className="ins-list-content-movie">
                 <img
@@ -425,17 +506,13 @@ class InstrumentList extends React.Component {
           </form>
         ))}
         <div className="ins-page">
-          <a className="ins-page-Rarrow">
+          <Link className="ins-page-Rarrow" onClick={this.PageNumLeft}>
             <i className="fas fa-sort-up"></i>
-          </a>
-          <button className="ins-page-number">1</button>
-          <button className="ins-page-number">2</button>
-          <button className="ins-page-number">3</button>
-          <button className="ins-page-number">4</button>
-          <button className="ins-page-x">...</button>
-          <a className="ins-page-Larrow">
+          </Link>
+          {PageItem}
+          <Link className="ins-page-Larrow" onClick={this.PageNumRight}>
             <i className="fas fa-sort-up"></i>
-          </a>
+          </Link>
         </div>
         <div className="insRwd-page-dropdown">
           <button type="button" className="insRwd-page-dropbtn">
@@ -443,12 +520,7 @@ class InstrumentList extends React.Component {
             <i className="fas fa-sort-down"></i>
           </button>
           <div className="insRwd-page-dropdown-content">
-            <a href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">6</a>
+          {PageItem}
           </div>
         </div>
       </div>

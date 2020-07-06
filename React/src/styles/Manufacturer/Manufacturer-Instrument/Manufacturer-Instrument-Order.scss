@@ -258,6 +258,7 @@
           display: block;
           margin: 0;
           padding-left: 5%;
+          // width: 100%;
         }
 
         /* 當下拉內容顯示後修改下拉按鈕的背景顏色 */
@@ -304,6 +305,21 @@
     }
 
     .ins-order {
+      .ins-order-title {
+        .ins-order-div-text1 {
+          width: 50%;
+          margin: 0px;
+          .ins-order-text {
+            overflow: hidden;
+            white-space: wrap;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            white-space: normal;
+          }
+        }
+      }
       .ins-order-item {
         height: auto;
         margin-top: 10px;

@@ -149,7 +149,7 @@ button:hover {
       }
 
       /* 下拉式選單的連結 */
-      .insRwd-page-dropdown-content a {
+      .insRwd-page-dropdown-content button {
         color: black;
         /* padding: 6px 16px; */
         font-size: 14px;
@@ -158,10 +158,13 @@ button:hover {
         display: block;
         margin: 0;
         padding-left: 5%;
+        width: 100%;
+        text-align: left;
+        border: none;
       }
 
       /* 滑鼠移上去後修改下拉式選單連結顏色 */
-      .insRwd-page-dropdown-content a:hover {
+      .insRwd-page-dropdown-content button:hover {
         background-color: #f2e8df;
       }
 
@@ -200,6 +203,10 @@ button:hover {
 .ins-page-number:hover {
   background-color: #f2e8df;
 }
+.ins-page-numberHover{
+  background-color: #f2e8df !important;
+
+}
 .ins-page-Rarrow,
 .ins-page-Larrow {
   font-size: 30px;
@@ -208,6 +215,8 @@ button:hover {
   width: 36px;
   outline: none;
   border: none;
+  color: black;
+  background-color:white;
 }
 .ins-page-Larrow {
   transform: rotate(90deg);
@@ -252,7 +261,7 @@ button:hover {
   top: calc(50% - 50%);
   left: calc(50% - 50%);
   object-fit: cover;
-  z-index:-1;
+  z-index: -1;
   border-radius: 50%;
 }
 

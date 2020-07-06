@@ -118,17 +118,17 @@ class InstrumentHome extends React.Component {
         cancelButtonColor: '#dadada', // 取消按鈕的 顏色
         cancelButtonText: '取消', // 取消按鈕的 文字
         html:
-          `<p>廠商名稱</p>` +
+          `<p className="insdata-alert-p">廠商名稱</p>` +
           `<input id="swal-input1" value=${Mname}>` +
-          `<p>電子信箱</p>` +
+          `<p className="insdata-alert-p">電子信箱</p>` +
           `<input id="swal-input2" value=${Memail}>` +
-          `<p>廠商地址</p>` +
+          `<p className="insdata-alert-p">廠商地址</p>` +
           `<input id="swal-input3" value=${Maddress}>` +
-          `<p>負責人</p>` +
+          `<p className="insdata-alert-p">負責人</p>` +
           `<input id="swal-input4" value=${Muser}>` +
-          `<p>聯絡電話</p>` +
+          `<p className="insdata-alert-p">聯絡電話</p>` +
           `<input id="swal-input5" value=${Mtelephone}>` +
-          `<p>手機號碼</p>` +
+          `<p className="insdata-alert-p">手機號碼</p>` +
           `<input id="swal-input6" value=${Mphone}>`,
         focusCancel: true, // 是否聚焦 取消按鈕
         reverseButtons: true, // 是否 反轉 兩個按鈕的位置 默認是  左邊 確定  右邊 取消

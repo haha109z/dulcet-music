@@ -128,6 +128,13 @@
       color: var(--main-colorblock);
     }
   }
+  .ins-product-amount {
+    height: 50px;
+    p {
+      line-height: 25px;
+      text-align: right;
+    }
+  }
 
   .ins-list-product {
     .ins-list-state {
@@ -136,6 +143,7 @@
       border-bottom: 1px solid;
       margin: auto auto 5px auto;
       height: 20px;
+      
     }
     .ins-list-content {
       height: 180px;
@@ -341,13 +349,15 @@
           height: 30%;
           margin: 0 auto;
 
-          // .ins-list-pro-content {
-          //   width: 50%;
-
-          //   span {
-          //     display: inline;
-          //   }
-          // }
+          h3 {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            white-space: normal;
+          }
         }
         .ins-list-content-btns {
           width: 100%;

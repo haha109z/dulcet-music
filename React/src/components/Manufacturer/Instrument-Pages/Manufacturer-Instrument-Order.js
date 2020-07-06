@@ -10,9 +10,12 @@ if (JSON.parse(localStorage.getItem('user'))) {
 }
 class InstrumentOrder extends React.Component {
   state = {
+    selectPage:'1',
+    PageNum:1,
     Mid: Mid,
     search: '',
     btn: '全部',
+    menu: true,
     ManuOrder: [
       {
         Mid: '',
@@ -36,9 +39,18 @@ class InstrumentOrder extends React.Component {
     AllMPurchaseitem: [], //所有訂單明細
     AllOrderStatus: [], // 判斷完後的訂單比數 btn
     AllOrderStatusitem: [], // 判斷完後的訂單明細比數
+    AllPageOrder:[],
+    AllPageOrderItem:[],
   }
+
+  bokTop() {
+    document.documentElement.scrollTop = 0
+  }
+
+
   constructor() {
     super()
+    
   }
 
   componentDidMount() {
@@ -71,6 +83,9 @@ class InstrumentOrder extends React.Component {
             AllOrderStatus: this.state.AllMPurchase,
             AllOrderStatusitem: this.state.AllMPurchaseitem,
           })
+          setTimeout(()=>{
+            this.showData()
+          },10)
         })
       })
 
@@ -80,16 +95,24 @@ class InstrumentOrder extends React.Component {
     }
 
     this.statusbtn = (e) => {
+      
+        
       let btn = e.currentTarget.textContent
       console.log(btn)
       setTimeout(() => {
         this.setState({ btn: btn })
+        this.setState({ PageNum : 1})
+        this.setState({ selectPage : '1'})
         if (this.state.btn == '全部') {
           setTimeout(() => {
             this.setState({ AllOrderStatus: this.state.AllMPurchase })
             this.setState({ AllOrderStatusitem: this.state.AllMPurchaseitem })
+            
           }, 10)
-
+          setTimeout(() => {
+            this.showData()
+          }, 0)
+          this.bokTop()
           console.log(this.state.AllMPurchase)
           console.log(this.state.AllMPurchaseitem)
           return
@@ -101,28 +124,84 @@ class InstrumentOrder extends React.Component {
           )
           this.setState({ AllOrderStatusitem: item })
           console.log(this.state.AllOrderStatusitem)
+          setTimeout(() => {
+            this.showData()
+          }, 0)
+          this.bokTop()
           return
         }
       })
     }
   }
+  PageNumRight = () => {
+    let total = Math.ceil(this.state.AllOrderStatus.length / 3)
+    
+    if(this.state.PageNum < total ){
+    this.setState({ PageNum : Number(this.state.PageNum) + 1})
+    
+    setTimeout(() => {
+      this.showData()
+    }, 0)
+    this.setState({ selectPage : Number(this.state.PageNum) + 1 + ''})
+    this.bokTop()
+    }
+  }
+
+  PageNumLeft = () => {
+    let total = Math.ceil(this.state.AllOrderStatus.length / 3)
+    
+    if(this.state.PageNum > 1 ){
+    this.setState({ PageNum : Number(this.state.PageNum) - 1})
+    
+    setTimeout(() => {
+      this.showData()
+    }, 0)
+    this.setState({ selectPage : Number(this.state.PageNum) - 1 + ''})
+    this.bokTop()
+    }
+  }
+
+  changePageNum = (e) => {
+    
+    let num = e.currentTarget.textContent
+    this.setState({ PageNum : num})
+    setTimeout(()=>{
+      this.showData()
+    },100)
+    this.setState({ selectPage : num })
+    this.bokTop()
+  }
+
+  showData () {
+    let OrderList , OrderListItem
+    let PageNum = this.state.PageNum
+    this.setState({ AllPageOrder : this.state.AllOrderStatus.slice((PageNum - 1) * 3, PageNum * 3),
+    })
+    this.setState({ AllPageOrderItem : this.state.AllOrderStatusitem })
+    this.bokTop()
+  }
 
   render() {
-    let pageItem = []
-    for (let i = 1; i <= Math.ceil(this.state.AllMPurchase.length / 10); i++){
-      pageItem.push(
+    let PageItem = []
+    for (let i = 1; i <= Math.ceil(this.state.AllOrderStatus.length / 3); i++){
+      PageItem.push(
         <button
-        onClick={this.PageNum}
-        className="ins-page-number"
+        onClick={this.changePageNum}
+        className={
+          this.state.selectPage === i + ''
+              ? 'ins-page-number ins-page-numberHover'
+              : 'ins-page-number'}
         >
           {i}
         </button>
       )
+      
     }
-
-    var OrderStatus = this.state.AllOrderStatus
-    var OrderStatusitem = this.state.AllOrderStatusitem
-
+    
+    var OrderStatus = this.state.AllPageOrder
+    var OrderStatusitem = this.state.AllPageOrderItem
+    // console.log(OrderStatusitem)
+    
     return (
       <div className="ins-order-page">
         <h3 className="font-size-142rem ins-top-titleName ">訂單列表</h3>
@@ -221,12 +300,12 @@ class InstrumentOrder extends React.Component {
           <>
             <div className="ins-order">
               <div className="ins-order-title">
-                <div>
-                  <p className="ins-order-text">購買人 :{listItem.name}</p>
+                <div className="ins-order-div-text1">
+                  <p className="ins-order-text" title={listItem.name}>購買人 : {listItem.name}</p>
                   <p className="ins-order-text">手機 : {listItem.phone}</p>
                   <p className="ins-order-text">地址 : {listItem.address}</p>
                 </div>
-                <div>
+                <div className="ins-order-div-text2">
                   <p className="ins-order-text">
                     訂單編號 : {listItem.orderId}
                   </p>
@@ -289,17 +368,13 @@ class InstrumentOrder extends React.Component {
         ))}
 
         <div className="ins-page">
-          <Link className="ins-page-Rarrow">
+          <Link className="ins-page-Rarrow" onClick={this.PageNumLeft}>
             <i className="fas fa-sort-up"></i>
           </Link>
-          <button className="ins-page-number">1</button>
-          <button className="ins-page-number">2</button>
-          <button className="ins-page-number">3</button>
-          <button className="ins-page-number">4</button>
-          <button className="ins-page-x">...</button>
-          <a className="ins-page-Larrow">
+          {PageItem}
+          <Link className="ins-page-Larrow" onClick={this.PageNumRight}>
             <i className="fas fa-sort-up"></i>
-          </a>
+          </Link>
         </div>
         <div className="insRwd-page-dropdown">
           <button type="button" className="insRwd-page-dropbtn">
@@ -307,12 +382,7 @@ class InstrumentOrder extends React.Component {
             <i className="fas fa-sort-down"></i>
           </button>
           <div className="insRwd-page-dropdown-content">
-            <a href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">6</a>
+          {PageItem}
           </div>
         </div>
       </div>
