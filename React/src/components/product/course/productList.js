@@ -23,8 +23,10 @@ function ProductList(props) {
   const { page } = useParams()
   pages = parseInt(page)
   const perPage = 8
-  let num = 96
+  let num = 108
   let totalPage = Math.ceil(num / perPage)
+  console.log(totalPage)
+
   let idFirst = 0
   let idLast = 0
   if (pages == totalPage) {

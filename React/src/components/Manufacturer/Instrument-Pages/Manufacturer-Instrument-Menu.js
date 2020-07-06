@@ -50,12 +50,12 @@ class InstrumentMenu extends React.Component{
           </Link>
           <Link to="/ManufacturerInstrument/InstrumentList" className="ins-menu-li font-size-142rem ">
             <div className="ins-menu-li-left"></div>
-            <p>樂器列表</p>
+            <p>商品列表</p>
             <div className="ins-menu-li-right"></div>
           </Link>
           <Link to="/ManufacturerInstrument/InstrumentPutOn" className="ins-menu-li font-size-142rem ">
             <div className="ins-menu-li-left"></div>
-            <p>新增樂器</p>
+            <p>新增商品</p>
             <div className="ins-menu-li-right"></div>
           </Link>
           

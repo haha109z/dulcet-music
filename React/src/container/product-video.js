@@ -3,7 +3,6 @@ import Navbar from '../components/navbar/navbar'
 import ProductList from '../components/product/video/productList'
 import ProductCatList from '../components/product/video/productCatList'
 
-import ProductCategory from '../components/product/productCategory'
 import {
   BrowserRouter,
   Switch,

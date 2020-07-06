@@ -1,4 +1,6 @@
 import React from 'react'
+import {BrowserRouter,Router,Route,Link,Switch,withRouter,} from 'react-router-dom'
+
 if (JSON.parse(localStorage.getItem('user'))) {
   const getUserInfo = () => {
     return JSON.parse(localStorage.getItem('user'))
@@ -166,16 +168,28 @@ class InstrumentOrder extends React.Component {
         <form className="ins-search" action="">
           <div className="ins-dropdown">
             <button type="button" className="ins-dropbtn">
-              訂單狀態
+              訂單 : {this.state.btn}
               <i className="fas fa-sort-down"></i>
             </button>
             <div className="ins-dropdown-content">
-              <a href="#">全部</a>
-              <a href="#">待付款</a>
-              <a href="#">待出貨</a>
-              <a href="#">待收貨</a>
-              <a href="#">完成</a>
-              <a href="#">取消</a>
+                <Link href="#" onClick={this.statusbtn}>
+                  全部
+                </Link>
+                <Link href="#" onClick={this.statusbtn}>
+                  待付款
+                </Link>
+                <Link href="#" onClick={this.statusbtn}>
+                  待出貨
+                </Link>
+                <Link href="#" onClick={this.statusbtn}>
+                  待收貨
+                </Link>
+                <Link href="#" onClick={this.statusbtn}>
+                  完成
+                </Link>
+                <Link href="#" onClick={this.statusbtn}>
+                  取消
+                </Link>
             </div>
           </div>
           <input
@@ -224,9 +238,6 @@ class InstrumentOrder extends React.Component {
                     <div className="ins-order-item">
                       <div className="ins-order-item-img">
                         <img
-                          max-width={'100%'}
-                          max-height={'100%'}
-                          // Object-fit={'cover'}
                           dataimg={itemI.PImg}
                           src={`http://localhost:3030/images/product/${itemI.PImg}`}
                           alt=""
