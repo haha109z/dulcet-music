@@ -235,10 +235,10 @@ if(this.state.MpwdCheck!==this.state.Mpwd||this.state.Mtelephone===undefined||th
         const checkPwddobule = checkPwd ? '' : (
             <div className="user-register-dobluecheckPwd" style={{color:'red'}}>兩次密碼不相符，請再確認</div>
         );
-
+        const {cartNum,setCartNum} = this.props;
         return(
             <>
-            <Navbar />
+            <Navbar cartNum={cartNum}/>
             <div className="container facturer-register-wrap">
                 <div className="facturer-register-body row">
                     <div className="facturer-register-txt col-md-12">
