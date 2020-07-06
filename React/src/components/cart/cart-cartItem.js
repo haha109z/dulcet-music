@@ -68,17 +68,21 @@ export default function CartItem (props) {
       // console.log(mycart);   
       mycart.forEach(el=>{
         // console.log(`el id:${el.PId} num:${el.num} qty:${el.PQty}`);
-        if(el.PId===PId){
-          el.num = num
-          // 購物車商品數量不得小於1
-          if (el.num < 1) {
-            el.num = 1
-            MySwal.fire('購物車商品數量不得小於1', '', '')
-          }
-          // 購物車商品數量不得大於庫存
-          if (el.num > PQty) {
-            el.num = PQty
-            MySwal.fire('購物車商品數量已達庫存上限', '', '')
+        if(el.PCategoryId=="影片") {
+          el.num = 1
+        } else {
+          if(el.PId===PId){
+            el.num = num
+            // 購物車商品數量不得小於1
+            if (el.num < 1) {
+              el.num = 1
+              MySwal.fire('購物車商品數量不得小於1', '', '')
+            }
+            // 購物車商品數量不得大於庫存
+            if (el.num > PQty) {
+              el.num = PQty
+              MySwal.fire('購物車商品數量已達庫存上限', '', '')
+            }
           }
         }
       })      
@@ -140,14 +144,7 @@ export default function CartItem (props) {
                     <li className="cart-product-li">
                       <input 
                         type="checkbox" 
-                        checked={buyAll? "checked" : "" } 
-                        // onClick={(e)=>{   
-                        //   if (!e.target.checked) {
-                        //     setBuyAll(false) 
-                        //   } else {
-                        //     setBuyAll(true)
-                        //   }
-                        // }}                          
+                        checked={buyAll? "checked" : "" }                   
                       />
                     </li>
                     {/* <li className="cart-product-li"><img src={require(`../../img/cart/cart-violin-01.jpeg`)} /></li> */}
@@ -169,7 +166,7 @@ export default function CartItem (props) {
                           if (data.PCategoryId=="影片") {
                             MySwal.fire('影片類別商品無法更改數量', '', 'error')
                           } else {                     
-                            changeQuantity(index, data.PId, data.num, data.PQty)
+                            changeQuantity(index, data.PId, data.num, data.PQty, data.PCategoryId)
                           }
                           return
                           console.log(data)
@@ -204,7 +201,7 @@ export default function CartItem (props) {
                           if (data.PCategoryId=="影片") {
                             MySwal.fire('影片類別商品無法更改數量', '', 'error')
                           } else {
-                            changeQuantity(index, data.PId, data.num, data.PQty)
+                            changeQuantity(index, data.PId, data.num, data.PQty, data.PCategoryId)
                           }
                         }}
                       >

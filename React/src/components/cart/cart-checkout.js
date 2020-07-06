@@ -94,7 +94,7 @@ function CartCheckout (props) {
     // console.log(invoiceinfo4);
     // A == true ? A.value : (B == true ? B.value : (C == 1 ? C.value : (D == 1 ? D.value : '' )) )
     setInvoiceInfo(
-      radiostate1 == 1 ? '' : (radiostate2 == 1 ? invoiceinfo2 : (radiostate3 == 1 ? invoiceinfo3 : (radiostate4 == 1 ? invoiceinfo4 : '' )))
+      radiostate1 == 1 ? ' ' : (radiostate2 == 1 ? invoiceinfo2 : (radiostate3 == 1 ? invoiceinfo3 : (radiostate4 == 1 ? invoiceinfo4 : '' )))
     )
 
     // radiostate1 == 0? setInvoiceInfo1('') : setInvoiceInfo1(invoiceinfo1) 
@@ -465,7 +465,7 @@ function CartCheckout (props) {
                             if (radiostate.every((el)=> el==false)) {
                               MySwal.fire('請填寫發票資訊', '', 'error')
                             } else {  
-                              console.log(invoiceInfo)
+                              // console.log(invoiceInfo)
                               if (invoiceInfo==''||invoiceInfo[1]=='') {
                                 MySwal.fire('請填寫發票資訊', '', 'error')
                               } else {
