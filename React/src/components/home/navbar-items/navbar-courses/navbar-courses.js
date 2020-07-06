@@ -11,7 +11,7 @@ function Courses(props){
         {title:'電子琴',src:'/course/category/keyboard/1'},
         {title:'爵士鼓',src:'/course/category/jazz_drum/1'},
         {title:'吉他',src:'/course/category/guitar/1'},
-        {title:'烏克麗麗',src:'/course/category/ukulele/1'},
+        {title:'烏克莉莉',src:'/course/category/ukulele/1'},
         {title:'長笛',src:'/course/category/flute/1'},
 ]);
 

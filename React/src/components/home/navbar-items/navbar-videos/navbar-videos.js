@@ -11,7 +11,7 @@ function Videos(props){
         {title:'電子琴',src:'/video/category/keyboard/1'},
         {title:'爵士鼓',src:'/video/category/jazz_drum/1'},
         {title:'吉他',src:'/video/category/guitar/1'},
-        {title:'烏克麗麗',src:'/video/category/ukulele/1'},
+        {title:'烏克莉莉',src:'/video/category/ukulele/1'},
         {title:'長笛',src:'/video/category/flute/1'},
     ]);
 

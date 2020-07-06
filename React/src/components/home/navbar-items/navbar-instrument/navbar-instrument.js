@@ -11,7 +11,7 @@ function Instrument(props){
         {title:'電子琴',src:'/instrument/category/keyboard/1'},
         {title:'爵士鼓',src:'/instrument/category/jazz_drum/1'},
         {title:'吉他',src:'/instrument/category/guitar/1'},
-        {title:'烏克麗麗',src:'/instrument/category/ukulele/1'},
+        {title:'烏克莉莉',src:'/instrument/category/ukulele/1'},
         {title:'長笛',src:'/instrument/category/flute/1'},
     ]);
 
