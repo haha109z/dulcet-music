@@ -28,6 +28,7 @@ class ManufacturerRegistered extends Component{
         emailReg:true,
         checkPwd:true,
         phoneReg:true,
+        checkMProvision:false,
     }
 
     handleClick = () =>{
@@ -110,6 +111,11 @@ class ManufacturerRegistered extends Component{
         // console.log(event.target.value)
 
       }
+      handelClickMProvision = ()=>{
+        const {checkMProvision} = this.state;
+        const toggle = !checkMProvision;
+        this.setState({checkMProvision:toggle});
+    }
       CompantyBtn=()=>{
 
 let {
@@ -214,7 +220,7 @@ if(this.state.MpwdCheck!==this.state.Mpwd||this.state.Mtelephone===undefined||th
       }
     render(){
 
-        const {phoneReg,emailReg , checkPwd} = this.state;
+        const {phoneReg,emailReg , checkPwd ,checkMProvision} = this.state;
 
         const {showPwd,showComPwd} = this.state;
 
@@ -235,6 +241,7 @@ if(this.state.MpwdCheck!==this.state.Mpwd||this.state.Mtelephone===undefined||th
         const checkPwddobule = checkPwd ? '' : (
             <div className="user-register-dobluecheckPwd" style={{color:'red'}}>兩次密碼不相符，請再確認</div>
         );
+        const checkMProvisionBox = checkMProvision ? "" : "disabled";
         const {cartNum,setCartNum} = this.props;
         return(
             <>
@@ -337,10 +344,12 @@ if(this.state.MpwdCheck!==this.state.Mpwd||this.state.Mtelephone===undefined||th
                     {/* 選擇樂器以及廠商 */}
 
                     <div className="form-group form-check col-md-12">
-                        <input type="checkbox" className="register-check-input " id="userCheckMe" />
+                        <input type="checkbox" className="register-check-input " id="userCheckMe" onClick={this.handelClickMProvision}/>
                         <label className="register-check-label" htmlFor="userCheckMe">我接受<Link to="">服務條款&隱私政策</Link></label>
                     </div>
-                    <button type="button" className="facturer-register-btn" onClick={this.CompantyBtn}>註冊</button>
+                    <button type="button" className="facturer-register-btn"
+                    onClick={this.CompantyBtn}
+                    disabled={checkMProvisionBox}>註冊</button>
                 </form>
             </div>
             </div>
