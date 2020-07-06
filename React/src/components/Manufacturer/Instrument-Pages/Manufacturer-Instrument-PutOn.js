@@ -10,11 +10,10 @@ if(JSON.parse(localStorage.getItem('user'))){
   }
   var Mid = getUserInfo()[0].Mid
   // this.setState({userID:userID})
+  
   }
 class InstrumentPutOn extends React.Component{
-    constructor(){
-        super()
-        this.state = {
+        state = {
             Mid : Mid,
             PId:'',
             newPName:'',
@@ -27,8 +26,20 @@ class InstrumentPutOn extends React.Component{
             newPdesciption:'',
             newPimg:'',              
         } 
+
+    componentDidMount(){
+        if(JSON.parse(localStorage.getItem('user'))){
+            const getUserInfo = () => {
+            return JSON.parse(localStorage.getItem('user'))
+          }
+          var Mid = getUserInfo()[0].Mid
+          // this.setState({userID:userID})
+          this.setState({
+            Mid: Mid,
+          })
+          }
     }
-    
+   
 
     handleUpload = e =>{
         //抓取上傳檔案按鈕元素
@@ -204,11 +215,11 @@ class InstrumentPutOn extends React.Component{
     }
         
        
-        
+
 
     
     render(){
-        
+        console.log(Mid)
     return(
         <div className="ins-puton-page">
         <h3 className="font-size-142rem">新增商品</h3>
