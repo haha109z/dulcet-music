@@ -64,7 +64,7 @@ function ProductVideoCard(props) {
           <div className="product-card-intro">
             <h4 className="product-card-title">{PName}</h4>
             <h5 className="product-video-card-time">{props.PTime}</h5>
-            <p className="product-video-card-desciption">{props.PIntro}</p>
+            <pre className="product-video-card-desciption">{props.PIntro}</pre>
             <h3 className="product-card-cost">${props.PPrice}</h3>
           </div>
         </a>
