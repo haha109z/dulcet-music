@@ -11,31 +11,29 @@
 .news-Link {
   width: 160px;
   text-align: center;
-  color:#141414;
+  color: #141414;
   display: block;
 }
-.news-Link:hover{
+.news-Link:hover {
   background: #141414;
-  color:#FFFFFF;
+  color: #ffffff;
 }
-.news-Link:active{
+.news-Link:active {
   background: #141414;
-  color:#FFFFFF;
+  color: #ffffff;
 }
 
-.news-Link:focus-visible{
+.news-Link:focus-visible {
   background: #141414;
-  color:#FFFFFF;
+  color: #ffffff;
 }
 
 @media (max-width: 768px) {
   .news-CategoryContainer {
     padding: 10px;
   }
-  .news-Category ul {
+  .news-Category {
+    width: 320px;
     margin: 0 auto;
-  }
-  .news-Category li {
-    padding: 0 20px;
   }
 }

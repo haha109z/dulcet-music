@@ -30,7 +30,7 @@ function NewsCategory(props) {
     <>
       <div className="news-CategoryContainer d-flex news-NotoSerifTC">
         <div className="news-Category">
-          <Nav variant="tabs" defaultActiveKey="/news">
+          <Nav className="news-Category-Nav" variant="tabs" defaultActiveKey="/news">
             <Nav.Item>
               <Nav.Link
                 className="news-Link"
