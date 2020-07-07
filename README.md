@@ -1,68 +1,48 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 專題：Dulcet Music 音樂教室
 
-## Available Scripts
+## 財團法人資訊工業策進會｜前端工程師就業養成班 MFEE07
 
-In the project directory, you can run:
+### 開發技術
 
-### `yarn start`
+Logo 設計/圖片編輯工具：Photoshop、Illustrator
+網站視覺規劃工具：Adobe XD
+前端技術：HTML、CSS、JavaScript、jQuery、RWD
+前端框架：Bootstrap、SCSS、React、Redux
+後端技術：Node.js、Express.js
+資料庫：MySQL、phpMyAdmin
+版本控制：GitHub
+程式碼編輯器：Visual Studio Code
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 開始使用
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+．　各別開啟 React 及 Nodejs 資料夾
+．　 Nodejs 移動到指定項目　 cd server
+．　各別安裝　 npm i
+．　各別啟動　 npm start
 
-### `yarn test`
+詳情聯絡專題組員
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 組員及分工
 
-### `yarn build`
+翁宜君　[聯絡 Email](migo0127@gmail.com)
+首頁及小遊戲、會員登入／註冊、XD 設計圖及 API 串接
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+吳怡庭　[聯絡 Email](wu850417@gmail.com)
+商品列表及商品細節頁、Logo、XD 設計圖及 API 串接
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+林孟庭　[聯絡 Email](mengtingf2e@gmail.com)
+購物車及結帳流程、網站企劃書、PPT、XD 設計圖及 API 串接
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+林家緯　[聯絡 Email](austin25864@gmail.com)
+後端伺服器環境架設、會員後台管理、XD 設計圖及 API 串接
 
-### `yarn eject`
+曾國瑋　[聯絡 Email](xavier840923@gmail.com)
+廠商後台管理、XD 設計圖及 API 串接
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+陳哲宇　[聯絡 Email](milk840118@gmail.com)
+討論區、關於我們、Q&A、廠商登入／註冊、XD 設計圖及 API 串接
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+楊宜儒　[聯絡 Email](haha821009@gmail.com)
+最新活動消息、網站視覺設計及架構整合、XD 設計圖及 API 串接
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+專題發表所使用之網站圖片／音檔僅供當天 demo 使用，不作其他商業用途使用
