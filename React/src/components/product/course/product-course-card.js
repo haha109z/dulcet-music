@@ -54,7 +54,7 @@ function ProductVideoCard(props) {
 
   return (
     <>
-      <div className="product-video-card">
+      <div className="product-video-card product-course-card">
         <a href={'/course/' + PId} className="product-instrument-card-link">
           <img
             className="product-course-card-img"

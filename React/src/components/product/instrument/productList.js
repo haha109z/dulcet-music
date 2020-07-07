@@ -132,9 +132,8 @@ function ProductList(props) {
     getDataP()
   }, [])
   useEffect(() => {
-    console.log(control)
+    // console.log(control)
     setDataP([])
-    // getInstrumentFav()
     getDataP()
   }, [control])
 

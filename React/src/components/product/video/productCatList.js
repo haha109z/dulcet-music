@@ -16,7 +16,6 @@ import SideBar from '../product-sidebar'
 function ProductCatList(props) {
   const { category } = useParams()
 
-  // const [control, setControl] = useState('熱門度')
   const list = 'video'
   const control = props.control
   const setControl = props.setControl
@@ -202,7 +201,6 @@ function ProductCatList(props) {
             <span>排序依</span>
             <select
               onChange={(e) => {
-                // console.log('control change', e.target.value)
                 setControl(e.target.value)
               }}
             >

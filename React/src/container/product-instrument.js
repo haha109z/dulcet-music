@@ -3,7 +3,6 @@ import Navbar from '../components/navbar/navbar'
 import ProducList from '../components/product/instrument/productList'
 import ProducCatList from '../components/product/instrument/productCatList'
 
-import ProductCategory from '../components/product/productCategory'
 import {
   BrowserRouter,
   Switch,
@@ -12,7 +11,6 @@ import {
   Redirect,
   withRouter,
 } from 'react-router-dom'
-import Piano from '../components/product/instrument/productPiano'
 import ProductId from '../components/product/instrument/product-id'
 
 function ProductInstrument(props) {
@@ -26,7 +24,6 @@ function ProductInstrument(props) {
   return (
     <>
       <Navbar cartNum={cartNum} />
-      {/* <ProductCategory /> */}
       <BrowserRouter>
         <Switch>
           <Route
@@ -57,15 +54,6 @@ function ProductInstrument(props) {
             <ProductId cartNum={cartNum} setCartNum={setCartNum} />
           </Route>
 
-          {/* <Route
-            path="/instrument"
-            render={(routeProps) => (
-              <ProducList
-                productTitle={productTitle}
-                productTitleId={productTitleId}
-              />
-            )}
-          ></Route> */}
           <Redirect to="/instrument/page/1" />
         </Switch>
       </BrowserRouter>

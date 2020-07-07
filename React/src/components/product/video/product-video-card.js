@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { FaHeart } from 'react-icons/fa'
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
 function ProductVideoCard(props) {
   const favArr = props.favArr
@@ -44,13 +43,11 @@ function ProductVideoCard(props) {
     delInstrumentFav(CatId, PId)
     testArray.splice(pos, 1)
     setFavArr(testArray)
-    // console.log(PId, 'del', favArr)
   }
   const func2 = () => {
     addInstrumentFav(CatId, PId)
     testArray.push(PId)
     setFavArr(testArray)
-    // console.log(PId, 'add', favArr)
   }
 
   return (

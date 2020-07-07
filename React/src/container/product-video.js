@@ -10,7 +10,6 @@ import {
   Router,
   Redirect,
 } from 'react-router-dom'
-import Piano from '../components/product/instrument/productPiano'
 import ProductId from '../components/product/video/product-id'
 
 function ProductInstrument(props) {
@@ -22,7 +21,6 @@ function ProductInstrument(props) {
   return (
     <>
       <Navbar cartNum={cartNum} />
-      {/* <ProductCategory /> */}
       <BrowserRouter>
         <Switch>
           <Route
@@ -52,15 +50,6 @@ function ProductInstrument(props) {
             <ProductId cartNum={cartNum} setCartNum={setCartNum} />
           </Route>
 
-          {/* <Route
-            path="/video"
-            render={(routeProps) => (
-              <ProducList
-                productTitle={productTitle}
-                productTitleId={productTitleId}
-              />
-            )}
-          ></Route> */}
           <Redirect to="/video/page/1" />
         </Switch>
       </BrowserRouter>
