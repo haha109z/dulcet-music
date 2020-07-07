@@ -5,7 +5,7 @@ function News(props){
 
     const [news,setNews] = useState([
         {title:'課程資訊',src:'/news?NewsCategory=1'},
-        {title:'活動資訊',src:'news?NewsCategory=3'}
+        {title:'活動資訊',src:'/news?NewsCategory=3'}
     ]);
 
     return (
