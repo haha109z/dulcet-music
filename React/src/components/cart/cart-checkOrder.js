@@ -27,6 +27,22 @@ export default function CartCheckOrder (props) {
 
     return (
       <>
+      
+          {/* 標題 */}
+          <div className="cart-title">
+            <h1><i className="fas fa-shopping-bag"></i> My Cart</h1>
+            <div>
+              <span>❶ 確認商品</span>
+              <span>➔ </span>
+              <span className="cart-breadcrumb">❷ 確認訂單</span>
+              <span>➔ </span>
+              <span>❸ 選擇付款方式</span>
+              <span>➔ </span>
+              <span>❹ 完成結帳</span>
+            </div>
+          </div>
+
+          {/* 商品列表 */}
           <div className="cart-table">
             <ul className='cart2-thead'>
               <li>商品圖片</li>

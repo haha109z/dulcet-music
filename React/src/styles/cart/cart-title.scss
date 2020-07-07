@@ -48,9 +48,14 @@
     font-size: 36px;
     font-family: 'Merienda';
   }
-  span {
-    font-size: 16px;
-    line-height: 30px;
+  div {
+    span {
+      font-size: 16px;
+      line-height: 30px;
+    }
+    .cart-breadcrumb {
+      color: #fb2643;
+    }
   }
 }
 
@@ -64,5 +69,12 @@
 @media screen and (max-width: 768px) {
   .cart-container {
     margin: 110px auto 50px auto;
+  }
+  .cart-title {
+    div {
+      span {
+        font-size: 12px;
+      }
+    }
   }
 }

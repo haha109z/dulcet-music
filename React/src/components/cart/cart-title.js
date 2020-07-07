@@ -6,7 +6,15 @@ function CartTitle() {
     <>
         <div className="cart-title">
           <h1><i className="fas fa-shopping-bag"></i> My Cart</h1>
-          <span>❶確認商品➔❷確認訂單➔❸選擇付款方式➔❹完成結帳</span>
+          <div>
+            <span className="cart-breadcrumb">❶ 確認商品</span>
+            <span>➔ </span>
+            <span>❷ 確認訂單</span>
+            <span>➔ </span>
+            <span>❸ 選擇付款方式</span>
+            <span>➔ </span>
+            <span>❹ 完成結帳</span>
+          </div>
         </div>
     </>
   );

@@ -201,11 +201,31 @@ function CartPay (props) {
       front.classList.add("cart3-rotate-front")
       back.classList.add("cart3-rotate-back")
     }
+    if (e.target.checked) {
+      front.classList.remove("cart3-rotate-front")
+      back.classList.remove("cart3-rotate-back")
+    }
   }     
 
 
     return (
       <>
+      
+              {/* 標題 */}
+              <div className="cart-title">
+                <h1><i className="fas fa-shopping-bag"></i> My Cart</h1>
+                <div>
+                  <span>❶ 確認商品</span>
+                  <span>➔ </span>
+                  <span>❷ 確認訂單</span>
+                  <span>➔ </span>
+                  <span className="cart-breadcrumb">❸ 選擇付款方式</span>
+                  <span>➔ </span>
+                  <span>❹ 完成結帳</span>
+                </div>
+              </div>
+
+              {/* 付款方式 */}
               <div className="cart3-form-wrap">
                   <h2 className="cart3-title">付款方式</h2>
                   <div className="cart3-pay-form">
@@ -217,6 +237,7 @@ function CartPay (props) {
                           onClick={(e)=>{
                             setPayment(e.target.value)
                             clearCreditContent()
+                            creditRotate(e)
                         }}/> ATM轉帳
                       </label>
                       <div className="cart3-reminder cart3-reminder-green">

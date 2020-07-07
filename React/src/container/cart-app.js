@@ -175,7 +175,7 @@ useEffect(()=>{
          <BrowserRouter>
          <ScrollToTop>
             <div className="cart-container">
-            <CartTitle />
+            {/* <CartTitle /> */}
               <Switch>
                 <Route path="/cart/2">
                   <CartCheckOrder                     
