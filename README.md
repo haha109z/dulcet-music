@@ -15,11 +15,11 @@ Logo 設計/圖片編輯工具：Photoshop、Illustrator<br />
 
 ### 開始使用
 
-．　匯入 dulcet_music 資料表<br />
-．　各別開啟　 React 　及　 Nodejs 　資料夾<br />
-．　 Nodejs 　移動到指定項目　 cd server<br />
-．　各別安裝　 npm i<br />
-．　各別啟動　 npm start<br />
+．匯入 dulcet_music 資料表<br />
+．各別開啟　 React 　及　 Nodejs 　資料夾<br />
+．Nodejs 　移動到指定項目　 cd server<br />
+．各別安裝　 npm i<br />
+．各別啟動　 npm start<br />
 <br />
 詳情聯絡專題組員<br />
 
