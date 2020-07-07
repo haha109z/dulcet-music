@@ -178,7 +178,7 @@ function App() {
           </Route>
 
           <Route path="/register/manufacturer">
-            <ManufacturerRegistered />
+            <ManufacturerRegistered cartNum={cartNum}/>
           </Route>
           <Footer />
         </ScrollToTop>
