@@ -138,7 +138,7 @@ if(Mpwd !== MpwdCheck){
 }else{
     this.setState({checkPwd:true});
 }
-if(this.state.MpwdCheck!==this.state.Mpwd||this.state.Mtelephone===undefined||this.state.Muser===undefined||this.state.Maddress===undefined||this.state.Mphone===undefined||this.state.Memail===undefined||this.state.Mname===undefined||this.state.Mcategory===''||this.state.checkMProvision===false){
+if(this.state.MpwdCheck!==this.state.Mpwd||this.state.Mtelephone===''||this.state.Muser===''||this.state.Maddress===''||this.state.Mphone===''||this.state.Memail===''||this.state.Mname===''||this.state.Mcategory===''||this.state.checkMProvision===false){
     console.log(this.state)
     MySwal.fire({
         position: 'top-center',
@@ -233,7 +233,7 @@ if(this.state.MpwdCheck!==this.state.Mpwd||this.state.Mtelephone===undefined||th
         const pwdType = showPwd ? 'text' : 'password';
         const pwdComType = showComPwd ? 'text' : 'password';
         const checkPhone = phoneReg ? '' : (
-            <div className="user-register-dobluecheckPhone" style={{color:'red'}}>請輸入正確的手機格式 09xxxxxxxx </div>
+            <div className="user-register-dobluecheckPhone" style={{color:'red'}}>請輸入正確的手機格式 09xxxxxxxx (10碼) </div>
         )
         const checkEmail = emailReg ? '' : (
             <div className="user-register-dobluecheckPhone" style={{color:'red'}}>請輸入正確的Email格式 (包含@) </div>
@@ -257,8 +257,8 @@ if(this.state.MpwdCheck!==this.state.Mpwd||this.state.Mtelephone===undefined||th
                 <form onSubmit={this.handleSubmit} className="col-md-6 register-form-wrap">
                 <div className="form-group" style={{borderBottom: '2px var(--main-colorda) solid'}}>
                         <label htmlFor="facturerRegisterName" className="col-md-12 control-label" >廠商類別</label>
-                <select style={{border:' none',outline: 'none;',height:50}} className="col-md-12 control-label" name="cars" id="cars" onChange={this.handleMcategory}>
-                <option value="樂器"></option>
+                <select style={{border:'none',outline: 'none;',height:50}} className="col-md-12 control-label" name="cars" id="cars" onChange={this.handleMcategory}>
+                <option value=""></option>
       <option value="樂器" id="option1" >樂器</option>
       <option className="col-md-12 control-label" id="option1" value="影片">影片</option>
       </select>
@@ -267,7 +267,6 @@ if(this.state.MpwdCheck!==this.state.Mpwd||this.state.Mtelephone===undefined||th
 
                         <label htmlFor="facturerRegisterName" className="col-md-12 control-label">廠商名稱</label>
                         <input type="text" name="facturerRegisterName" className="form-control col-md-12" id="facturerRegisterName" placeholder="請輸入姓名"
-
                         onChange={this.handleMname}
                         />
                     </div>
