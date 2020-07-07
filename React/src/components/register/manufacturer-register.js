@@ -288,7 +288,7 @@ if(this.state.MpwdCheck!==this.state.Mpwd||this.state.Mtelephone===undefined||th
                     <div className="form-group">
                         <label htmlFor="facturerRegisterPhon" className="col-md-12 control-label">公司電話</label>
                         <input type="text" name="facturerRegisterPhon" className="form-control col-md-12" id="facturerRegisterPhon" placeholder="請輸入公司電話"
-                        maxLength="9"
+                        maxLength="10"
                             onChange={this.handleMphone}
                         />
                     </div>
@@ -303,7 +303,7 @@ if(this.state.MpwdCheck!==this.state.Mpwd||this.state.Mtelephone===undefined||th
                     {checkPhone}
                         <label htmlFor="facturerRegisterMobile" className="col-md-12 control-label">負責人手機號碼</label>
                         <input type="text" name="facturerRegisterMobile" className="form-control col-md-12" id="facturerRegisterMobile" placeholder="請輸入負責人手機號碼"
-                        maxLength="12"
+                        maxLength="10"
                              onBlur = {this.phoneBlur}
                             onChange={this.handleMtelephone}
                         />
