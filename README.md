@@ -20,6 +20,15 @@ Logo 設計/圖片編輯工具：Photoshop、Illustrator<br />
 ．Nodejs 　移動到指定項目　 cd server<br />
 ．各別安裝　 npm i<br />
 ．各別啟動　 npm start<br />
+．登入會員<br />
+<br />
+帳號：001@gmail.com<br />
+密碼：test<br />
+<br />
+．登入廠商<br />
+<br />
+帳號：m001@gmail.com<br />
+密碼：test<br />
 <br />
 詳情聯絡專題組員<br />
 
