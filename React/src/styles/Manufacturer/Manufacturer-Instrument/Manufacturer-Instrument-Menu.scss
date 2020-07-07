@@ -15,6 +15,16 @@
     margin-bottom: 30px;
   }
   .ins-menu-content {
+    .ins-menu-li-out {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      color: #141414;
+      margin: 5px auto auto auto;
+      padding: 10px;
+      width: 150px;
+      text-align: center;
+    }
     .ins-menu-li {
       display: flex;
       align-items: center;
@@ -93,6 +103,17 @@
       overflow: scroll;
       background: #dadada;
 
+      .ins-menu-li-out {
+        display: flex;
+        height: 30px;
+        width: 100%;
+        align-items: center;
+        background: #f2f2f2;
+        white-space: nowrap;
+        margin: 0;
+        margin-top: 70px;
+        font-size: 1rem;
+      }
       .ins-menu-li {
         height: 30px;
         width: 100%;
@@ -126,6 +147,7 @@
         margin-top: 70px;
         font-size: 1rem;
         border: none;
+        display: none;
         a {
           line-height: 15px;
         }

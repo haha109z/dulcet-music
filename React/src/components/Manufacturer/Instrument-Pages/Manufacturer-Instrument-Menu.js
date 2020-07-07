@@ -32,6 +32,11 @@ class InstrumentMenu extends React.Component{
         </ul>
         <div className="ins-title font-size-15rem ">廠商管理</div>
         <ul className="ins-menu-content list-unstyled content">
+          <Link onClick={this.handlesignout} className="ins-menu-li-out">
+              <div className="ins-menu-li-left"></div>
+              <p>登出</p>
+              <div className="ins-menu-li-right"></div>
+          </Link>
           <Link to="/ManufacturerInstrument/InstrumentHome" className="ins-menu-li font-size-142rem ">
             <div className="ins-menu-li-left"></div>
             <p>廠商資料</p>

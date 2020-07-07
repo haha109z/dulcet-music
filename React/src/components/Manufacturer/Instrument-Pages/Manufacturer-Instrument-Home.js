@@ -228,6 +228,7 @@ class InstrumentHome extends React.Component {
         <div className="ins-home-img">
           <label htmlFor="gogo" className="ins-upload-container">
           <img className="ins-upload-preview" src={`http://localhost:3030/images/manu_user/${this.state.ManuUser.Mimg}`}></img>
+          <p className="ins-upload-text">點擊更換圖片</p>
           </label>
             <input
               type="file"

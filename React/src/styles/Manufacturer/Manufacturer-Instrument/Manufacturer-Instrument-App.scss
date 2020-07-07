@@ -203,9 +203,8 @@ button:hover {
 .ins-page-number:hover {
   background-color: #f2e8df;
 }
-.ins-page-numberHover{
+.ins-page-numberHover {
   background-color: #f2e8df !important;
-
 }
 .ins-page-Rarrow,
 .ins-page-Larrow {
@@ -216,7 +215,7 @@ button:hover {
   outline: none;
   border: none;
   color: black;
-  background-color:white;
+  background-color: white;
 }
 .ins-page-Larrow {
   transform: rotate(90deg);
@@ -253,7 +252,20 @@ button:hover {
   height: 100%;
   // border: 1px solid;
   border-radius: 50%;
+  cursor: pointer;
 }
+.ins-upload-container:hover img {
+  opacity: 0.3;
+}
+.ins-upload-container:hover > .ins-upload-text {
+  display: block;
+}
+.ins-upload-text {
+  display: none;
+  text-align: center;
+  line-height: 150px;
+}
+
 .ins-upload-preview {
   position: absolute;
   width: 100%;

@@ -349,7 +349,7 @@ class InstrumentList extends React.Component {
     // console.log(this.state.AllProductStatus)
     return (
       <div className="ins-list-page">
-        <h3 className="ins-list-title font-size-142rem">樂器列表</h3>
+        <h3 className="ins-list-title font-size-142rem">商品列表</h3>
         <div
           className="btn-group ins-main-buttons"
           role="group"

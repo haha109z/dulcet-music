@@ -154,8 +154,11 @@ class InstrumentPassword extends React.Component{
         密碼修改
       </h3>
       <div className="insPassword-top-Img">
-      <label for="gogo" className="ins-upload-container">
+      <label htmlFor="gogo" className="ins-upload-container">
       <img className="ins-upload-preview" src={`http://localhost:3030/images/manu_user/${this.state.ManuData.Mimg}`}></img>
+      <p className="ins-upload-text">點擊更換圖片</p>
+      </label>
+      
               <input
                 type="file"
                 name="image"
@@ -168,7 +171,7 @@ class InstrumentPassword extends React.Component{
                 className="ins-upload-button"
                 value="上传图片"
               />
-            </label>
+            
       </div>
 
       <hr className="insPassword-top-hr" />

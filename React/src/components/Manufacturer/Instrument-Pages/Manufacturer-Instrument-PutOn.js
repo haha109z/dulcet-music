@@ -99,7 +99,7 @@ class InstrumentPutOn extends React.Component{
             console.log(dataURL)
             // 把值傳入預覽圖片元素顯示
             preview.src = dataURL;
-            alert('上傳成功')
+            // alert('上傳成功')
         })
 
         

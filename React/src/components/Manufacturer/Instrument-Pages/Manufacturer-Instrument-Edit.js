@@ -161,7 +161,7 @@ class InstrumentEdit extends React.Component {
       })
           .then((res) => res.json())
           .then((json) => {
-              console.log(json)
+              // console.log(json)
               
           })
       })
@@ -171,10 +171,10 @@ class InstrumentEdit extends React.Component {
     filereader.addEventListener('load', function () {
       // 把base46碼放入變數 dataURL
       const dataURL = filereader.result
-      console.log(dataURL)
+      // console.log(dataURL)
       // 把值傳入預覽圖片元素顯示
       preview.src = dataURL
-      alert('上傳成功')
+      // alert('上傳成功')
     })
   }
   handlesend = () =>{
