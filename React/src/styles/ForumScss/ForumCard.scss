@@ -33,7 +33,9 @@
 .ButtonSend {
   width: 250px !important;
   margin: 0px auto;
+
   input {
+    font-size: 16px;
     background: #f2ebdf;
     border: none;
     margin: 30px 30px 30px 11px;
@@ -62,7 +64,7 @@
   color: #141414;
 }
 .ForumTitle {
-  // max-width: 960px;
+  max-width: 860px;
   height: 100px;
 }
 /* Forum-button */
@@ -222,8 +224,11 @@
   }
 }
 @media (max-width: 414px) {
+  .ForumTitle {
+    max-width: 396px;
+  }
   .ForumCard {
-    max-width: calc(480px - 80px);
+    max-width: calc(480px - 66px);
   }
   .ForumCardImg {
     width: 80px;

@@ -111,10 +111,10 @@ const Input6 = InputShow6 ? (
     <div className="Text123"></div>
     <div className="AnyQuestionActionFlex">
     <div className="AnyQuestionActionCard AnyQuestionActionCardLeft">
-    <a href="/AnyQuestion" className="AnyQuestionA AnyQuestionRWD">
+    {/* <a href="/AnyQuestion" className="AnyQuestionA AnyQuestionRWD"> */}
     <i class="fas fa-video AnyQuestionCardIconVideo AnyQuestionCardIconVideoRWD"></i>
             <h2 className="AnyQuestionActionCardIconH2">影片問題</h2>
-            </a>
+            {/* </a> */}
           </div>
           <div className="AnyQuestionActionTable AnyQuestionActionRwd">
             <div style={{display:'flex'}}>

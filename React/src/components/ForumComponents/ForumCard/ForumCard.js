@@ -234,13 +234,25 @@ class ForumCard extends Component {
         </div>
         <div style={{ textAlign: 'center' }}>
           <p>問題類別</p>
-
-          <input
+          <select onChange={this.handleForumTitle}>
+  <option value =""></option>
+  <option value ="小提琴">小提琴</option>
+  <option value="中提琴">中提琴</option>
+  <option value="薩克斯風">薩克斯風</option>
+  <option value="鋼琴">鋼琴</option>
+  <option value="電子琴">電子琴</option>
+  <option value="爵士鼓">爵士鼓</option>
+  <option value="吉他">吉他</option>
+  <option value="烏克莉莉">烏克莉莉</option>
+  <option value="長笛">長笛</option>
+  <option value="其他">其他</option>
+</select>
+          {/* <input
             type="text"
             placeholder="樂器類別是？"
             name="ForumTitle"
             onChange={this.handleForumTitle}
-          />
+          /> */}
         </div>
         <div style={{ textAlign: 'center' }}>
           <p>您的問題</p>
@@ -323,7 +335,7 @@ class ForumCard extends Component {
                         問題類別：{item.TitleMusic}
                       </h3>
                     </div>
-                    <button className="ComprehensiveButton">綜合</button>
+                    {/* <button className="ComprehensiveButton">綜合</button> */}
                   </div>
                   <div className="ForumCardDiv">
                     <p className="ForumCardP">{item.TitleId}</p>

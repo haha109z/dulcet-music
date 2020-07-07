@@ -13,6 +13,7 @@
   color: #141414;
 }
 .AnyQuestionActionFlex {
+  padding: 50px 0px;
   display: flex;
   margin: 0px auto;
   // padding: 0px;
@@ -31,7 +32,8 @@
 
 //input按鈕點下去之後
 .input1-10 {
-  background-color: white !important;
+  text-overflow: ellipsis;
+  background-color: #f2ebdf !important;
   color: #141414 !important;
 }
 .AnyQuestionActionCardIcon {
@@ -164,6 +166,7 @@
     width: 300px;
   }
   .AnyQuestionActionTable {
+    width: 300px;
     div {
       width: 300px;
     }

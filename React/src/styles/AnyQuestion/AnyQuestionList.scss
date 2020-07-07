@@ -46,6 +46,10 @@
   color: #141414;
   // background-color: black;
 }
+.AnyQuestionNorthH3 {
+  font-size: 20px;
+  margin: 20px auto;
+}
 .AnyQuestionA a:hover {
   color: #141414;
 
@@ -68,11 +72,15 @@
   font-size: var(--h3);
 }
 .AnyQuestion2Flex {
+  margin: 60px auto;
   display: flex;
 }
 .AnyQuestion2Width {
-  margin: 20px 0 150px 0px;
-  width: 480px;
+  margin: 0px auto;
+  width: 380px;
+  p {
+    // margin: 10px auto;
+  }
 }
 @media (max-width: 920px) {
   .AnyQuestionContainer {
@@ -101,7 +109,7 @@
     height: 120px;
   }
   .AnyQuestionH2 {
-    margin: 40px 0 40px 0;
+    margin: 40px 0 20px 0;
     font-size: var(--h1);
     text-align: center;
   }
@@ -131,28 +139,45 @@
     display: inline-block;
   }
   .AnyQuestionCard {
-    width: 300px;
-    margin: 30px auto;
-    height: 300px;
+    width: 200px;
+    margin: 20px 50px;
+    height: 200px;
     svg {
-      margin: 0px 0px 0px 50px;
+      margin: 20px 40px;
+      // margin: 0px 0px 0px 50px;
     }
   }
+  .AnyQuestionH2 {
+    font-size: 20px;
+  }
+
+  .AnyQuestion2Flex {
+    margin: 30px auto;
+  }
+  .AnyQuestionA {
+    padding: 0px;
+  }
   .AnyQuestionCardIcon {
-    font-size: 200px;
+    font-size: 120px;
+
     text-align: center;
   }
+  .AnyQuestionH2 {
+    margin: 0px;
+  }
   .AnyQuestionCardIconH2 {
-    padding: 40px 0 0 0;
-    font-size: var(--h1);
+    // padding: 40px 0 0 0;
+    // font-size: 14px;
+    padding: 5px 0px;
+    font-size: var(--h3);
   }
   .AnyQuestionCardIconVideo {
-    font-size: 180px;
+    font-size: 120px;
     text-align: center;
     margin: 0px 0px 0px 30px;
   }
   .AnyQuestionNorthH3 {
-    font-size: var(--h1);
+    font-size: var(--h2);
     p {
       font-size: var(--p);
     }

@@ -118,10 +118,10 @@ const Input7 = InputShow7 ? (
     <div className="Text123"></div>
     <div className="AnyQuestionActionFlex">
     <div className="AnyQuestionActionCard AnyQuestionActionCardLeft">
-    <a href="/AnyQuestion" className="AnyQuestionA AnyQuestionRWD">
+    {/* <a href="/AnyQuestion" className="AnyQuestionA AnyQuestionRWD"> */}
     <i className="fas fa-book AnyQuestionActionCardIcon"></i>
             <h2 className="AnyQuestionActionCardIconH2">課程問題</h2>
-            </a>
+            {/* </a> */}
           </div>
           <div className="AnyQuestionActionTable AnyQuestionActionRwd">
             <div style={{display:'flex'}}>

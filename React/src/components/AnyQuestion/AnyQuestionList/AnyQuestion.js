@@ -21,32 +21,37 @@ class AnyQuestion extends Component {
               <div className="AnyQuestionCard AnyQuestionCardLeft">
               <a href="/AnyQuestionUser" className="AnyQuestionA">
                 <i className="far fa-user AnyQuestionCardIcon " ></i>
-                <h2 className="AnyQuestionCardIconH2">會員問題</h2>
                 </a>
+                <h2 className="AnyQuestionCardIconH2">會員問題</h2>
+                
               </div>
               <div className="AnyQuestionCard">
               <a href="/AnyQuestionClass" className="AnyQuestionA">
                 <i className="fas fa-book AnyQuestionCardIcon"></i>
-                <h2 className="AnyQuestionCardIconH2">課程問題</h2>
                 </a>
+                <h2 className="AnyQuestionCardIconH2">課程問題</h2>
+               
               </div>
               <div className="AnyQuestionCard ">
               <a href="/AnyQuestionVideo" className="AnyQuestionA">
                 <i className="fas fa-video AnyQuestionCardIconVideo"></i>
-                <h2 className="AnyQuestionCardIconH2">影片問題</h2>
                 </a>
+                <h2 className="AnyQuestionCardIconH2">影片問題</h2>
+             
               </div>
               <div className="AnyQuestionCard">
               <a href="/AnyQuestionCompany" className="AnyQuestionA">
                 <i className="far fa-building AnyQuestionCardIcon"></i>
-                <h2 className="AnyQuestionCardIconH2">廠商問題</h2>
                 </a>
+                <h2 className="AnyQuestionCardIconH2">廠商問題</h2>
+               
               </div>
               <div className="AnyQuestionCard AnyQuestionCardRight">
               <a href="/AnyQuestionAns" className="AnyQuestionA" style={{textDecoration:'none'}}>
                 <i className="fas fa-search AnyQuestionCardIcon"></i>
-                <h2 className="AnyQuestionCardIconH2">其他問題</h2>
                 </a>
+                <h2 className="AnyQuestionCardIconH2">其他問題</h2>
+            
               </div>
             </div>
             <div className="AnyQuestion2Flex">

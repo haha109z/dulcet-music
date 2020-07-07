@@ -160,10 +160,10 @@ class AnyQuestionAns extends Component {
           <div className="Text123"></div>
           <div className="AnyQuestionActionFlex">
             <div className="AnyQuestionActionCard AnyQuestionActionCardLeft">
-            <a href="/AnyQuestion" className="AnyQuestionA AnyQuestionRWD">
+            {/* <a href="/AnyQuestion" className="AnyQuestionA AnyQuestionRWD"> */}
             <i className="fas fa-search AnyQuestionActionCardIcon "></i>
               <h2 className="AnyQuestionActionCardIconH2">其他問題</h2>
-              </a>
+              
             </div>
             <div className="AnyQuestionActionTable AnyQuestionActionRwd">
               <div style={{ display: 'flex' }}>
