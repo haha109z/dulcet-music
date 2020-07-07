@@ -4,7 +4,7 @@ import withReactContent from 'sweetalert2-react-content'
 import Swal from 'sweetalert2'
 const MySwal = withReactContent(Swal)
 
-const userL =()=>{
+const userL = () => {
   return JSON.parse(localStorage.getItem('user'))
 }
 export default class UserData extends Component {
@@ -24,16 +24,16 @@ export default class UserData extends Component {
   }
   constructor() {
     super() // => 記得呼叫 parent 的 constructor，很重要
-    if(userL()==null){
-      window.location = '/';
-     }
+    if (userL() == null) {
+      window.location = '/'
     }
+  }
   // 在這個生命週期中渲染資料
   componentDidMount() {
     this.onChange = (e) => {
       e.preventDefault()
       const file = e.target.files[0]
-      console.log("file",file);
+      console.log('file', file)
       const formData = new FormData()
       // 这里的 image 是字段，根据具体需求更改
       formData.append('image', file)
@@ -146,7 +146,6 @@ export default class UserData extends Component {
                       localStorage.setItem('user', JSON.stringify(json.data))
                       console.log(JSON.stringify(json.data))
                       this.setState({ user: json.data[0] })
-                      
                     }
                     // localStorage.setItem('user', JSON.stringify(json.data))
                     // console.log(json.data)
@@ -156,7 +155,6 @@ export default class UserData extends Component {
                   })
                 // localStorage.setItem('user', JSON.stringify(userData))
                 MySwal.fire('修改完成', '', 'success')
-
               } else {
                 MySwal.fire('取消修改', '', 'error')
               }
@@ -173,7 +171,7 @@ export default class UserData extends Component {
     const getUserInfo = () => {
       return JSON.parse(localStorage.getItem('user'))
     }
-    
+
     if (getUserInfo()) {
       let user = getUserInfo()
       if (user[0].userID) {
@@ -205,7 +203,10 @@ export default class UserData extends Component {
             className="userData-top-Img userData-top-Img-default "
             style={style}
           >
+            <label for="gogo" htmlFor="" className="asd">
+
             <label for="gogo" className="upload-container">
+            點擊更換圖片
               <input
                 type="file"
                 name="image"
@@ -213,13 +214,11 @@ export default class UserData extends Component {
                 onChange={this.onChange}
                 id="gogo"
               />
-              <input
-                type="primary"
-                className="upload-button"
-                value="上传图片"
-              />
+              <input type="primary"  className="upload-button" />
+              </label>
             </label>
           </div>
+
           <hr className="userData-top-hr" />
           <form className="userData-form" action="">
             <label className="userData-form-input " htmlFor="name">

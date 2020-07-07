@@ -47,14 +47,16 @@ export default class UserPurchase extends Component {
     this.setState({ menu: false })
     this.setState({ userRwdPage: false })
   }
-  
+
   showPage = () => {
     this.setState({ userRwdPage: true })
     // console.log("123")
   }
+  
   closeRwdPage = () => {
     this.setState({ userRwdPage: false })
   }
+
   changePageL = () => {
     let plusNum = Number(this.state.pageNum) - 1
     if (plusNum >= 1) {

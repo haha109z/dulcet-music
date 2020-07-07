@@ -133,10 +133,10 @@ class NavbarUser extends Component{
                         <a href="/ManufacturerInstrument/InstrumentOrder">訂單列表</a>
                     </li>
                     <li>
-                        <a href="/ManufacturerInstrument/InstrumentList">樂器列表</a>
+                        <a href="/ManufacturerInstrument/InstrumentList">商品列表</a>
                     </li>
                     <li>
-                        <a href="/ManufacturerInstrument/InstrumentList">新增樂器</a>
+                        <a href="/ManufacturerInstrument/InstrumentList">新增商品</a>
                     </li>
                     <li>
                         <span className="home-username-logout"

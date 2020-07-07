@@ -5,7 +5,7 @@ function About(props){
 
     const [about,setAbout] = useState([
         {title:'關於我們',src:'/About'},
-        {title:'客服中心',src:'/AnyQuestion'}
+        {title:'常見問題',src:'/AnyQuestion'}
     ]);
 
     return (

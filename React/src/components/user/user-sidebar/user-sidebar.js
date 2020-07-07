@@ -51,7 +51,7 @@ export default class UserSideBar extends Component {
               onClick={this.signOut}
               to=""
               href=""
-              className="user-sidebar-menu-li font-size-142rem user-font-ch rwd-user-out"
+              className="user-sidebar-menu-li font-size-142rem font-rwd-1rem user-font-ch rwd-user-out"
             >
               <div className="user-sidebar-menu-li-left"></div>
               <p className="user-sidebar-hover"></p>登出
@@ -60,7 +60,7 @@ export default class UserSideBar extends Component {
             <Link
               to="/user/UserData"
               href=""
-              className="user-sidebar-menu-li font-size-142rem user-font-ch"
+              className="user-sidebar-menu-li font-size-142rem font-rwd-1rem user-font-ch"
             >
               <div className="user-sidebar-menu-li-left"></div>
               <p className="user-sidebar-hover"></p>會員資料
@@ -69,7 +69,7 @@ export default class UserSideBar extends Component {
             <Link
               to="/user/UserPwd"
               href=""
-              className="user-sidebar-menu-li font-size-142rem user-font-ch"
+              className="user-sidebar-menu-li font-size-142rem font-rwd-1rem user-font-ch"
             >
               <div className="user-sidebar-menu-li-left"></div>
               密碼修改<p className="user-sidebar-hover"></p>
@@ -79,7 +79,7 @@ export default class UserSideBar extends Component {
             <Link
               to="/user/UserPurchase"
               href=""
-              className="user-sidebar-menu-li font-size-142rem user-font-ch"
+              className="user-sidebar-menu-li font-size-142rem font-rwd-1rem user-font-ch"
             >
               <div className="user-sidebar-menu-li-left"></div>
               <p className="user-sidebar-hover"></p>購買清單
@@ -88,7 +88,7 @@ export default class UserSideBar extends Component {
             <Link
               to="/user/UserLike"
               href=""
-              className="user-sidebar-menu-li font-size-142rem user-font-ch"
+              className="user-sidebar-menu-li font-size-142rem font-rwd-1rem user-font-ch"
             >
               <div className="user-sidebar-menu-li-left"></div>
               <p className="user-sidebar-hover"></p>我的最愛
@@ -97,7 +97,7 @@ export default class UserSideBar extends Component {
             <Link
               to="/user/UserVideo"
               href=""
-              className="user-sidebar-menu-li font-size-142rem user-font-ch"
+              className="user-sidebar-menu-li font-size-142rem font-rwd-1rem user-font-ch"
             >
               <div className="user-sidebar-menu-li-left"></div>
               <p className="user-sidebar-hover"></p>我的影片
@@ -106,7 +106,7 @@ export default class UserSideBar extends Component {
             <Link
               to="/user/UserVoucher"
               href=""
-              className="user-sidebar-menu-li font-size-142rem user-font-ch"
+              className="user-sidebar-menu-li font-size-142rem font-rwd-1rem user-font-ch"
             >
               <div className="user-sidebar-menu-li-left"></div>
               <p className="user-sidebar-hover"></p>我的優惠卷
@@ -115,7 +115,7 @@ export default class UserSideBar extends Component {
 
             <Link
               onClick={this.goForum}
-              className="user-sidebar-menu-li font-size-142rem user-font-ch rwd-user-out"
+              className="user-sidebar-menu-li font-size-142rem font-rwd-1rem user-font-ch rwd-user-out"
             >
               <div className="user-sidebar-menu-li-left"></div>
               <p className="user-sidebar-hover"></p>討論區
