@@ -126,14 +126,14 @@ const Input7 = InputShow7 ? (
           </div>
           <div className="AnyQuestionActionTable AnyQuestionActionRwd">
             <div style={{display:'flex'}}>
-            <div style={{width:'1000px'}}>
+            <div style={{ width: '700px' }}>
                 <input type="submit" value="逾時無法登入的問題？" onClick={this.handleInput1}/>               
                 {Input1}
                 </div>            
                 <i class="AnyQuestionActionIcon fas fa-chevron-down AnyQuestionActionIconRWD"></i>
                 </div>
                 <div style={{display:'flex'}}>
-            <div style={{width:'1000px'}}>
+                <div style={{ width: '700px' }}>
                 
                 <input type="submit" value="我要怎麼修改廠商的資料" onClick={this.handleInput2}/>
                 {Input2}
@@ -141,7 +141,7 @@ const Input7 = InputShow7 ? (
                 <i class="AnyQuestionActionIcon fas fa-chevron-down AnyQuestionActionIconRWD"></i>
                 </div>
                 <div style={{display:'flex'}}>
-            <div style={{width:'1000px'}}>
+                <div style={{ width: '700px' }}>
 
                 <input type="submit" value="我忘記廠商的密碼了" onClick={this.handleInput3}/>
                 {Input3}
@@ -149,7 +149,7 @@ const Input7 = InputShow7 ? (
                 <i class="AnyQuestionActionIcon fas fa-chevron-down AnyQuestionActionIconRWD"></i>
                 </div>
                 <div style={{display:'flex'}}>
-            <div style={{width:'1000px'}}>
+                <div style={{ width: '700px' }}>
 
                 <input type="submit" value="如何看到我過去的訂單？" onClick={this.handleInput4}/>
                 {Input4}
@@ -157,7 +157,7 @@ const Input7 = InputShow7 ? (
                 <i class="AnyQuestionActionIcon fas fa-chevron-down AnyQuestionActionIconRWD"></i>
                 </div>
                 <div style={{display:'flex'}}>
-            <div style={{width:'1000px'}}>
+                <div style={{ width: '700px' }}>
 
                 <input type="submit" value="廠商的信箱認證" onClick={this.handleInput5}/>
                 {Input5}
@@ -165,7 +165,7 @@ const Input7 = InputShow7 ? (
                 <i class="AnyQuestionActionIcon fas fa-chevron-down AnyQuestionActionIconRWD"></i>
                 </div>
                 <div style={{display:'flex'}}>
-            <div style={{width:'1000px'}}>
+                <div style={{ width: '700px' }}>
 
                 <input type="submit" value="廠商可以購買其他家產品嗎？" onClick={this.handleInput6}/>
                 {Input6}
@@ -173,7 +173,7 @@ const Input7 = InputShow7 ? (
                 <i class="AnyQuestionActionIcon fas fa-chevron-down AnyQuestionActionIconRWD"></i>
                 </div>
                 <div style={{display:'flex'}}>
-            <div style={{width:'1000px'}}>
+                <div style={{ width: '700px' }}>
 
                 <input type="submit" value="廠商的帳號遺失"  onClick={this.handleInput7}/>
                 {Input7}

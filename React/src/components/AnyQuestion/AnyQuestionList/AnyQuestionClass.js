@@ -125,14 +125,14 @@ const Input7 = InputShow7 ? (
           </div>
           <div className="AnyQuestionActionTable AnyQuestionActionRwd">
             <div style={{display:'flex'}}>
-            <div style={{width:'1000px'}}>
+            <div style={{ width: '700px' }}>
                 <input type="submit" value="選課問題" onClick={this.handleInput1}/>               
                 {Input1}
                 </div>            
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
                 </div>
                 <div style={{display:'flex'}}>
-            <div style={{width:'1000px'}}>
+                <div style={{ width: '700px' }}>
                 
                 <input type="submit" value="課程費用計算" onClick={this.handleInput2}/>
                 {Input2}
@@ -140,7 +140,7 @@ const Input7 = InputShow7 ? (
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
                 </div>
                 <div style={{display:'flex'}}>
-            <div style={{width:'1000px'}}>
+                <div style={{ width: '700px' }}>
 
                 <input type="submit" value="如果要用音箱擴音，要如何連接音箱？" onClick={this.handleInput3}/>
                 {Input3}
@@ -148,7 +148,7 @@ const Input7 = InputShow7 ? (
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
                 </div>
                 <div style={{display:'flex'}}>
-            <div style={{width:'1000px'}}>
+                <div style={{ width: '700px' }}>
 
                 <input type="submit" value="如何使用S系列的PAT演奏助理功能？" onClick={this.handleInput4}/>
                 {Input4}
@@ -156,7 +156,7 @@ const Input7 = InputShow7 ? (
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
                 </div>
                 <div style={{display:'flex'}}>
-            <div style={{width:'1000px'}}>
+                <div style={{ width: '700px' }}>
 
                 <input type="submit" value="電子琴播放手機音樂，需要購買何種線材" onClick={this.handleInput5}/>
                 {Input5}
@@ -164,7 +164,7 @@ const Input7 = InputShow7 ? (
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
                 </div>
                 <div style={{display:'flex'}}>
-            <div style={{width:'1000px'}}>
+                <div style={{ width: '700px' }}>
 
                 <input type="submit" value="有哪些手提電子琴可以播放或錄製MP3?" onClick={this.handleInput6}/>
                 {Input6}
@@ -173,7 +173,7 @@ const Input7 = InputShow7 ? (
                 </div>
                
                 <div style={{display:'flex'}}>
-            <div style={{width:'1000px'}}>
+                <div style={{ width: '700px' }}>
 
                 <input type="submit" value="如何為自己的鋼琴調音" onClick={this.handleInput7}/>
                 {Input7}

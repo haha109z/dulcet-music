@@ -167,7 +167,7 @@ class AnyQuestionAns extends Component {
             </div>
             <div className="AnyQuestionActionTable AnyQuestionActionRwd">
               <div style={{ display: 'flex' }}>
-                <div style={{ width: '1000px' }}>
+              <div style={{ width: '700px' }}>
                   <input
                     type="submit"
                     value="付款方式"
@@ -178,7 +178,7 @@ class AnyQuestionAns extends Component {
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
               </div>
               <div style={{ display: 'flex' }}>
-                <div style={{ width: '1000px' }}>
+              <div style={{ width: '700px' }}>
                   <input
                     type="submit"
                     value="下單流程"
@@ -189,7 +189,7 @@ class AnyQuestionAns extends Component {
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
               </div>
               <div style={{ display: 'flex' }}>
-                <div style={{ width: '1000px' }}>
+              <div style={{ width: '700px' }}>
                   <input
                     type="submit"
                     value="退換貨方式"
@@ -200,7 +200,7 @@ class AnyQuestionAns extends Component {
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
               </div>
               <div style={{ display: 'flex' }}>
-                <div style={{ width: '1000px' }}>
+              <div style={{ width: '700px' }}>
                   <input
                     type="submit"
                     value="我要如何下訂單？"
@@ -211,7 +211,7 @@ class AnyQuestionAns extends Component {
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
               </div>
               <div style={{ display: 'flex' }}>
-                <div style={{ width: '1000px' }}>
+              <div style={{ width: '700px' }}>
                   <input
                     type="submit"
                     value="郵資如何計算"
@@ -222,7 +222,7 @@ class AnyQuestionAns extends Component {
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
               </div>
               <div style={{ display: 'flex' }}>
-                <div style={{ width: '1000px' }}>
+              <div style={{ width: '700px' }}>
                   <input
                     type="submit"
                     value="分批出貨是否會加收處理費用？"
@@ -233,7 +233,7 @@ class AnyQuestionAns extends Component {
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
               </div>
               <div style={{ display: 'flex' }}>
-                <div style={{ width: '1000px' }}>
+              <div style={{ width: '700px' }}>
                   <input
                     type="submit"
                     value="要怎麼購買網站上的歌曲？"

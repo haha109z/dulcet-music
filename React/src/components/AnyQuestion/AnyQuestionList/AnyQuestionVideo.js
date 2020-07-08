@@ -118,14 +118,14 @@ const Input6 = InputShow6 ? (
           </div>
           <div className="AnyQuestionActionTable AnyQuestionActionRwd">
             <div style={{display:'flex'}}>
-            <div style={{width:'1000px'}}>
+            <div style={{ width: '700px' }}>
                 <input type="submit" value="線上影片延遲問題" onClick={this.handleInput1}/>               
                 {Input1}
                 </div>            
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
                 </div>
                 <div style={{display:'flex'}}>
-            <div style={{width:'1000px'}}>
+                <div style={{ width: '700px' }}>
                 
                 <input type="submit" value="刪除快取檔案" onClick={this.handleInput2}/>
                 {Input2}
@@ -133,7 +133,7 @@ const Input6 = InputShow6 ? (
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
                 </div>
                 <div style={{display:'flex'}}>
-            <div style={{width:'1000px'}}>
+                <div style={{ width: '700px' }}>
 
                 <input type="submit" value="如果您的手機在播放影片時是無聲的" onClick={this.handleInput3}/>
                 {Input3}
@@ -141,7 +141,7 @@ const Input6 = InputShow6 ? (
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
                 </div>
                 <div style={{display:'flex'}}>
-            <div style={{width:'1000px'}}>
+                <div style={{ width: '700px' }}>
 
                 <input type="submit" value="如果您不能使用OPPO內建的影片播放器" onClick={this.handleInput4}/>
                 {Input4}
@@ -149,7 +149,7 @@ const Input6 = InputShow6 ? (
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
                 </div>
                 <div style={{display:'flex'}}>
-            <div style={{width:'1000px'}}>
+                <div style={{ width: '700px' }}>
 
                 <input type="submit" value="如果您的手機無法使用無線播放影片" onClick={this.handleInput5}/>
                 {Input5}
@@ -157,7 +157,7 @@ const Input6 = InputShow6 ? (
                 <i class="AnyQuestionActionIcon fas fa-chevron-down"></i>
                 </div>
                 <div style={{display:'flex'}}>
-            <div style={{width:'1000px'}}>
+                <div style={{ width: '700px' }}>
 
                 <input type="submit" value="不能使用其他播放器播放視頻" onClick={this.handleInput6}/>
                 {Input6}
