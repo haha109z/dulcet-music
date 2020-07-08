@@ -174,7 +174,7 @@
 
 .ForumCardP2 {
   display: inline-block;
-  width: 350px;
+  width: 330px;
   margin: 20px 10px 20px 20px;
   // letter-spacing: 10px;
 }
@@ -235,12 +235,13 @@
     height: 80px;
     margin: 5px;
   }
+
   .ForumCardH3 {
     margin: 5px;
     padding: 5px;
   }
   .ForumCardP {
-    margin: 0px;
+    margin: 10px;
     padding: 5px;
   }
   .ForumBtn01 {
@@ -266,7 +267,7 @@
     white-space: nowrap;
   }
   .ForumCardP2 {
-    width: 250px;
+    width: 240px;
   }
 }
 @media (max-width: 320px) {
