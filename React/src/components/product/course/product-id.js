@@ -92,7 +92,10 @@ function ProductId(props) {
                     CatId={CatId}
                   />
                   <hr id="product-id-wrapper-hr" />
-                  <ProductDesciption Pdesciption={p.Pdesciption} />
+                  <ProductDesciption
+                    Pdesciption={p.Pdesciption}
+                    list={productCategoryId}
+                  />
                 </div>
               </>
             )
