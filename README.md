@@ -2,6 +2,8 @@
 
 ## 財團法人資訊工業策進會｜前端工程師就業養成班 MFEE07
 
+簡報：https://prezi.com/p/rpd3hgjssr50/?present=1<br />
+
 ### 開發技術
 
 Logo 設計/圖片編輯工具：Photoshop、Illustrator<br />
