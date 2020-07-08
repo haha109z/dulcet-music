@@ -104,6 +104,7 @@ export default class UserVideo extends Component {
     for (let i = 1; i <= Math.ceil(this.state.videoData.length / 5); i++) {
       page.push(i)
     }
+console.log(this.state.showVideoData);
 
     return (
       <>
