@@ -42,7 +42,7 @@ Logo 設計/圖片編輯工具：Photoshop、Illustrator<br />
 林孟庭　聯絡 Email：mengtingf2e@gmail.com<br />
 購物車及結帳流程、網站企劃書、PPT、XD 設計圖及 API 串接<br />
 <br />
-林家緯　聯絡 Email：austin25864@gmail.com<br />
+林家緯　聯絡 Email：timothy25864@gmail.com<br />
 後端伺服器環境架設、會員後台管理、XD 設計圖及 API 串接<br />
 <br />
 曾國瑋　聯絡 Email：xavier840923@gmail.com<br />
