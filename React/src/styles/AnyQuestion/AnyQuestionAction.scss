@@ -6,6 +6,7 @@
 }
 .AnyQuestionActionContainer {
   width: 960px;
+
   margin-right: auto;
   margin-left: auto;
   font-size: var(--p);
@@ -13,7 +14,8 @@
   color: #141414;
 }
 .AnyQuestionActionFlex {
-  padding: 50px 0px;
+  height: calc(100vh - 376px);
+  padding: 0px;
   display: flex;
   margin: 0px auto;
   // padding: 0px;
@@ -21,7 +23,7 @@
 
 .AnyQuestionActionCard {
   width: 140px;
-  height: 180px;
+  height: 190px;
   border: 1px solid #141414;
 
   margin: 0 20px 0 20px;
