@@ -115,31 +115,6 @@ useEffect(()=>{
 },[])  
 
 
-// 從路由獲取node後端資料庫-商品資料
-// useEffect(()=>{
-//   // sql語法：SELECT * FROM `product` WHERE 1
-//   fetch('http://localhost:3030/cart/2', { method: 'GET' })
-//   .then((res) => res.json())
-//   .then((res) => {
-//     // console.log(res);
-//     setProduct(res)
-//   })
-// },[])
-
-
-// 從路由獲取node後端資料庫-購物車資料
-// { "cartItemId": "1", "userID": "3", "productCategory": "課程", "productId": "1", "cartNumber": "1" }
-// useEffect(()=>{
-//   // sql語法：SELECT * FROM `cart` WHERE 1
-//   fetch('http://localhost:3030/cart/3', { method: 'GET' })
-//   .then((res) => res.json())
-//   .then((res) => {
-//     // console.log(res);
-//     setCart(res)
-//   })
-// },[])
-
-
     return (
         <>
         <Navbar 
