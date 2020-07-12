@@ -49,10 +49,16 @@
       word-wrap: break-word;
       overflow: hidden;
       text-align: left;
-      input[type='checkbox'] {
-        width: 20px;
-        height: 20px;
+      input {
+        border: none;
+        width: 100%;
+        text-align: center;
+        background: none;
       }
+      // input[type='checkbox'] {
+      //   width: 20px;
+      //   height: 20px;
+      // }
       img {
         width: 90%;
         // height: 80%;
@@ -374,7 +380,221 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media (min-width: 501px) and (max-width: 768px) {
+  .cart-title {
+    width: 80%;
+    margin: 0 auto;
+    h1 {
+      font-size: 20px;
+    }
+    span {
+      font-size: 12px;
+    }
+  }
+
+  .cart-table {
+    // background: orange;
+    .cart-thead {
+      width: 80%;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      li {
+        font-size: 14px;
+        width: 25%;
+      }
+      .cart-rwd-noneed {
+        display: none;
+      }
+    }
+    .cart-order-category {
+      border: 1px solid #484848;
+      border-bottom: none;
+      width: 80%;
+      margin: 0 auto;
+      li {
+        text-align: center;
+        font-size: 16px;
+        padding: 10px;
+      }
+      // hr {
+      //   color: #484848;
+      //   width: 200px;
+      //   margin: 0 auto;
+      //   display: inline-block !important;
+      // }
+    }
+    .cart-product {
+      width: 80%;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        width: 25%;
+        padding: 0;
+        input[type='checkbox'] {
+        }
+        img {
+          width: 100%;
+        }
+        .cart-number-input {
+          padding: 0 40px;
+          margin: 20px 10px;
+          line-height: 20px;
+          width: 55%;
+        }
+        .cart-minusBtn,
+        .cart-plusBtn {
+          width: 20px;
+          height: 20px;
+        }
+      }
+      .cart-product-li {
+      }
+      .cart-product-li-2 {
+        width: 75%;
+      }
+      .cart-product-number {
+        display: none;
+      }
+      .cart-trash-btn {
+      }
+    }
+  }
+
+  .cart-form {
+  }
+
+  .cart-buyer-info {
+    // background: greenyellow;
+    width: 80%;
+    margin: 0 auto;
+    font-size: 12px;
+    h2 {
+      font-size: 16px;
+      padding: 20px 0 10px 0;
+      text-align: center;
+    }
+    fieldset {
+      padding: 20px;
+    }
+    label {
+      display: block;
+      input[type='checkbox'] {
+      }
+    }
+    .cart-input {
+      width: 100%;
+      label {
+        width: 24%;
+        white-space: nowrap;
+      }
+      input {
+        // width: 100%;
+        margin: 0 20px;
+        text-indent: 130px;
+        line-height: 32px;
+        width: 90%;
+      }
+    }
+  }
+
+  .cart-invoice {
+    // background: hotpink;
+    width: 80%;
+    margin: 0 auto;
+    font-size: 12px;
+    line-height: 30px;
+    h2 {
+      font-size: 16px;
+      padding: 20px 0 10px 0;
+      text-align: center;
+    }
+    fieldset {
+      padding: 20px;
+    }
+    input {
+    }
+    label {
+      input[type='checkbox'] {
+      }
+    }
+    span {
+      padding: 10px 25px;
+    }
+    select {
+    }
+    .cart-input1 {
+      padding: 0;
+      margin: 0 0 0 25px;
+      width: 90%;
+      label {
+      }
+      input {
+        width: 100%;
+        text-indent: 60px;
+      }
+    }
+  }
+
+  .cart-total {
+    width: 80%;
+    margin: 20px auto 10px auto;
+    font-size: 14px;
+    line-height: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    .cart-discount {
+      // flex-wrap: wrap;
+      width: 100%;
+      padding: 20px 100px 0 100px;
+      input {
+        width: 85%;
+      }
+      label {
+        margin-bottom: 0rem;
+        padding: 0 10px 0 0;
+      }
+    }
+    .cart-total-right {
+      width: 100%;
+      padding: 10px 100px;
+      span {
+      }
+      .cart-total-title {
+        width: 50%;
+      }
+      .cart-total-number {
+        width: 50%;
+      }
+    }
+  }
+
+  .cart-checkout-btn {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    font-size: 16px;
+    margin: 30px auto;
+    button {
+      width: 100%;
+      margin: 10px 0;
+      a {
+        padding: 0;
+        margin-bottom: 0;
+      }
+    }
+    a {
+      width: 100%;
+      padding: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
   .cart-title {
     width: 80%;
     margin: 0 auto;

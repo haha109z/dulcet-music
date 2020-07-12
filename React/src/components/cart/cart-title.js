@@ -7,7 +7,7 @@ function CartTitle() {
         <div className="cart-title">
           <h1><i className="fas fa-shopping-bag"></i> My Cart</h1>
           <div>
-            <span className="cart-breadcrumb">❶ 確認商品</span>
+            <span>❶ 確認商品</span>
             <span>➔ </span>
             <span>❷ 確認訂單</span>
             <span>➔ </span>

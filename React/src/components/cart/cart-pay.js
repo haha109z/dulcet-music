@@ -23,22 +23,28 @@ function CartPay (props) {
     cart,
     buyAll,
     setCartNum,
+    setPage
   } = props.allProps;
-  // console.log(cart);
-   
+ 
+  // 麵包屑
+  setPage(4)   
   
   // 付款方式
   const [payment, setPayment]=useState('')
+  
+  // 亂數產生
+  function randomusefloor(min,max) {
+    return Math.floor(Math.random()*(max-min+1)+min);
+  }
+  // 亂數英文字
+  function makerandomletter(max) {
+    var text = "";
+    var possible = "abcdefghijklmnopqrstuvwxyz";
+    for (var i = 0; i < max; i++)
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+      return text;
+  }
 
-  // 發票號碼
-  // let invoiceEng = new Array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','P','Q','R','S','T','U','V','W','X','Y','Z')
-  // let invoiceNum = new Array('1','2','3','4','5','6','7','8','9');
-  // let invonumlength = invoiceNum.length;
-  // let invoice1 = Math.floor((Math.random()*invonumlength)).toString(36);
-  // let invoice1 = Math.random().toString(36);
-  // console.log(invoice1)
-  // let randominvoice = Math.random().toString(36).slice(2, 10);
-  // console.log(randominvoice)
 
   // 訂單資料表
   let memberid = user['userID'], 
@@ -46,41 +52,17 @@ function CartPay (props) {
   address = checkstate? user['userAddress'] : ReceivingAddress,
   phone = checkstate? user['userPhone'] : ReceivingPhone,
   email = checkstate? user['userMail'] : ReceivingEmail,
-  invoice = "YM12345678",
+  // 發票號碼：前兩碼英文小寫,後6碼數字
+  invoice = makerandomletter(2)+"-"+randomusefloor(1,99999999),
   invoicestorage = invoiceType,
   invoiceinfo = invoiceInfo,
   coupon = discount,
   orderprice = orderPrice,
   orderpayment = payment,
   orderstate = payment=='ATM'? '待付款' : '完成'
-  // let orderlist = {
-  //   memberid,
-  //   name,
-  //   address,
-  //   phone,
-  //   email,
-  //   invoice,
-  //   invoicestorage,
-  //   invoiceinfo,
-  //   coupon,
-  //   orderprice,
-  //   orderpayment,
-  //   orderstate
-  // }
-  // console.log(orderlist)
 
   // 訂單明細
   const orderData = cart.map((v)=>({"PId":v.PId,"PCategoryId":v.PCategoryId,"num":v.num}))
-  // console.log(orderData);
-  // let orderitem = [
-  //   cart['cate'],
-  //   cart['PId'],
-  //   cart['num'],
-  // ]
-  // cart.map((data, index)=>{
-  //   {data.PId}
-  // })
-  // console.log(orderitem)
 
   // 填寫信用卡欄位時會自動選取信用卡付款項目
   const changeContent =(e)=>{
@@ -89,114 +71,59 @@ function CartPay (props) {
       e.target.value = e.target.value
     }
   }
+
   // 選取ATM付款時會清空信用卡欄位
   const clearCreditContent = (e) => {
     if (document.getElementById('paybyatm').checked) {
-      document.getElementById('payer-name').value=''
-      document.getElementById('cardnumber1').value=''
-      document.getElementById('cardnumber2').value=''
-      document.getElementById('cardnumber3').value=''
-      document.getElementById('cardnumber4').value=''
-      document.getElementById("validdates1").value=''
-      document.getElementById("validdates2").value=''
-      document.getElementById("safecode").value=''
-
-      document.getElementById("cardholder").value=''
-      document.getElementById("card1").value=''
-      document.getElementById("card2").value=''
-      document.getElementById("card3").value=''
-      document.getElementById("card4").value=''
-      document.getElementById("validdates").value=''
+      document.getElementById('cart3-creditcard-form').reset()
+      document.getElementById('credit-display').reset()  
     }
   }
 
   // 信用卡展示區與填寫欄位對應
-  // let paybycredit = document.getElementById("paybycredit")
-  // console.log(paybycredit)
-  const getCardnum1 = (e) =>{
-    // if (paybycredit.checked ==1) {
-      let content1 = document.getElementById("card1")
-      let input1 = document.getElementById("cardnumber1")
-      if(input1.value !== ''){
-          content1.value = input1.value
-      }else{
-
-      }
-    // }
-  }
-  const getCardnum2 = (e) =>{
-    let content2 = document.getElementById("card2")
-    let input2 = document.getElementById("cardnumber2")
-    if(input2.value !== ''){
-        content2.value = input2.value
-    }else{
-
+  var creditContent = document.getElementsByClassName("cart3-creditcard-number"),  // 展示區
+  creditFillin = document.getElementsByClassName("cardnumber"),  // 輸入欄位
+  firstnum=4,
+  cardCategory='VISA', // 卡別
+  category = document.getElementsByClassName("cardCategory")
+  const getCardInfo = (e) => {
+    firstnum = creditFillin[1].value.substr(0,1) 
+    cardCategory = firstnum==4? 'VISA' : (firstnum==5? 'MasterCard': (firstnum==3? 'JCB' : '' ))  // 卡別
+    category[0].innerHTML = cardCategory
+    category[1].innerHTML = cardCategory
+    // 卡號
+    if(creditFillin[1].value !== ''){
+      creditContent[0].value = creditFillin[1].value
     }
-  }  
-  const getCardnum3 = (e) =>{
-    let content3 = document.getElementById("card3")
-    let input3 = document.getElementById("cardnumber3")
-    if(input3.value !== ''){
-        content3.value = input3.value
-    }else{
-
+    if(creditFillin[2].value !== ''){
+      creditContent[1].value = creditFillin[2].value
     }
-  }
-  const getCardnum4 = (e) =>{
-    let content4 = document.getElementById("card4")
-    let input4 = document.getElementById("cardnumber4")
-    if(input4.value !== ''){
-        content4.value = input4.value
-    }else{
-
+    if(creditFillin[3].value !== ''){
+      creditContent[2].value = creditFillin[3].value
+    }
+    if(creditFillin[4].value !== ''){
+      creditContent[3].value = creditFillin[4].value
+    }
+    // 持卡人
+    if(creditFillin[0].value !== ''){
+      creditContent[4].value = creditFillin[0].value
+    }
+    // 到期日
+    if(creditFillin[5].value !== '' & creditFillin[6].value !== ''){
+      creditContent[5].value = creditFillin[5].value + " / " +creditFillin[6].value
+    }
+    // 安全碼
+    if(creditFillin[7].value !== ''){
+      let safecode = document.getElementsByClassName("cart3-creditcard-safe-code")[0]
+      safecode.innerHTML = creditFillin[7].value
     }
   }
-  const getCardholder = (e) =>{
-    let cardholder = document.getElementById("cardholder")
-    if(e !== ''){
-        cardholder.value = e
-    }else{
-
-    }
-  }
-  const getValiddates = (e) =>{
-    let validdates1 = document.getElementById("validdates1")
-    let validdates2 = document.getElementById("validdates2")
-    let validdatescontent = document.getElementById("validdates")
-    if(validdates1.value !== '' & validdates2.value !== ''){
-        validdatescontent.value = validdates1.value + " / " +validdates2.value
-    }else{
-
-    }
-  }
-  // const getValiddates2 = (e) =>{
-  //   let validdates = document.getElementById("")
-  //   let validdatescontent = document.getElementById("validdates2")
-  //   if(validdatescontent.value !== ''){
-  //       validdates.value = validdatescontent.value
-  //   }else{
-
-  //   }
-  // }
-  var safecode = "";
-  const getSafeCode = (e) =>{
-    let safecodecontent = document.getElementById("safecode")
-    if(safecodecontent.value !== ''){
-      safecode = safecodecontent.value
-      // console.log(safecode);      
-    }else{
-
-    }
-  }
-  // console.log(safecode); 
 
   // 信用卡翻面
   const creditRotate = (e) => {
-    // let complete = document.getElementById('validdates2').value !==null
     let complete = document.getElementById('safecode').value !==null
     let front = document.querySelector('.cart3-creditcard-front')
     let back = document.querySelector('.cart3-creditcard-back')
-    // console.log(front)
     if (complete) {
       front.classList.add("cart3-rotate-front")
       back.classList.add("cart3-rotate-back")
@@ -211,20 +138,6 @@ function CartPay (props) {
     return (
       <>
       
-              {/* 標題 */}
-              <div className="cart-title">
-                <h1><i className="fas fa-shopping-bag"></i> My Cart</h1>
-                <div>
-                  <span>❶ 確認商品</span>
-                  <span>➔ </span>
-                  <span>❷ 確認訂單</span>
-                  <span>➔ </span>
-                  <span className="cart-breadcrumb">❸ 選擇付款方式</span>
-                  <span>➔ </span>
-                  <span>❹ 完成結帳</span>
-                </div>
-              </div>
-
               {/* 付款方式 */}
               <div className="cart3-form-wrap">
                   <h2 className="cart3-title">付款方式</h2>
@@ -233,7 +146,7 @@ function CartPay (props) {
                       {/* 選項1：ATM轉帳 */}
 
                       <label>
-                        <input id="paybyatm" type="radio" name="cart-payment" value="ATM" 
+                        <input id="paybyatm" name="payment" type="radio" value="ATM" 
                           onClick={(e)=>{
                             setPayment(e.target.value)
                             clearCreditContent()
@@ -269,7 +182,7 @@ function CartPay (props) {
                       {/* 選項2：信用卡付款 */}
 
                       <label>
-                        <input id="paybycredit" type="radio" name="cart-payment" value="信用卡" onClick={(e)=>{setPayment(e.target.value)}} /> 信用卡付款 - 一次付清
+                        <input id="paybycredit" name="payment" type="radio" value="信用卡" onClick={(e)=>{setPayment(e.target.value)}} /> 信用卡付款 - 一次付清
                       </label>
                       {/* VISA Logo */}
                       <div className="cart3-logo-img">
@@ -285,25 +198,25 @@ function CartPay (props) {
                       </div>
 
                       {/* 信用卡畫面展示區 */}
-                      <div style={{display:'flex'}}>
+                      <form id="credit-display" style={{display:'flex'}}>
                           <div className="cart3-creditcard-wrap">
                               <div className="cart3-creditcard cart3-creditcard-front">
                                 <div className="cart3-creditcard-same cart3-creditcard-1">                              
                                   <div className="cart3-card-in-card"></div>
-                                  <div className="cart3-card-category">VISA</div>
+                                  <div className="cart3-card-category cardCategory">{cardCategory}</div>
                                 </div>
                                 <div className="cart3-creditcard-same cart3-creditcard-2">
                                   <div style={{display:'flex'}}>
-                                    <input className="cart3-creditcard-number" id="card1" />
-                                    <input className="cart3-creditcard-number" id="card2"/>
-                                    <input className="cart3-creditcard-number" id="card3"/>
-                                    <input className="cart3-creditcard-number" id="card4"/>
+                                    <input className="cart3-creditcard-number"/>
+                                    <input className="cart3-creditcard-number"/>
+                                    <input className="cart3-creditcard-number"/>
+                                    <input className="cart3-creditcard-number"/>
                                   </div>
                                 </div> 
                                 <div className="cart3-creditcard-same cart3-creditcard-3">
                                   <div style={{display:'flex'}}>
-                                    <input className="cart3-creditcard-number" id="cardholder" placeholder="Card Holder"/>
-                                    <input className="cart3-creditcard-number" id="validdates" placeholder="Valid Dates"/>
+                                    <input className="cart3-creditcard-number" placeholder="Card Holder"/>
+                                    <input className="cart3-creditcard-number" placeholder="Valid Dates"/>
                                   </div>                                
                                 </div> 
                               </div>
@@ -311,54 +224,55 @@ function CartPay (props) {
                                 <div className="cart3-creditcard-stripe"></div>
                                 <div className="cart3-creditcard-safe-info">
                                   <div>CCV</div>
-                                  <div className="cart3-creditcard-safe-code">
-                                    123
-                                    {/* <input type="text" id="safecode1" value={safecode==null? '123' : safecode} /> */}
-                                  </div>
-                                  <div className="cart3-card-category">VISA</div>
+                                  <div className="cart3-creditcard-safe-code">123</div>
+                                  <div className="cart3-card-category cardCategory">{cardCategory}</div>
                                 </div>
                               </div>
                           </div>
-                      </div>
+                      </form>
 
                       {/* 信用卡資訊填寫欄位 */}
-                      <div className="cart3-creditcard-form">
+                      <form id="cart3-creditcard-form" className="cart3-creditcard-form">
 
                         {/* 持卡人姓名 */}
                         <div className="cart3-input">
-                          <label htmlFor="payer-name">持卡人姓名</label>
-                          <input className="" id="payer-name" type="text" 
+                          <label>持卡人姓名</label>
+                          <input 
+                            className="cardnumber" type="text" 
                             onChange={ (e)=>{    
                               changeContent(e)           
-                              getCardholder(e.target.value)
+                              getCardInfo()
                             }}
                           />
                         </div>
 
                         {/* 卡號 */}
                         <div className="cart3-input">
-                          <label htmlFor="">卡號</label>
+                          <label>卡號</label>
                           <div style={{display:'flex'}}>
                             <input 
-                              id="cardnumber1" className="" type="text" maxlength="4"                              
+                              className="cardnumber" type="text" maxlength="4"                              
                               onChange={ (e)=>{ 
                                 changeContent(e)
-                                getCardnum1() 
+                                getCardInfo() 
                             }}/>
-                            <input className="" id="cardnumber2" type="text" maxlength="4"                             
+                            <input 
+                              className="cardnumber" type="text" maxlength="4"                             
                               onChange={ (e)=>{
                                 changeContent(e) 
-                                getCardnum2() 
+                                getCardInfo() 
                               }}/>
-                            <input className="" id="cardnumber3" type="text" maxlength="4"                               
+                            <input 
+                              className="cardnumber" type="text" maxlength="4"                               
                               onChange={ (e)=>{ 
                                 changeContent(e)
-                                getCardnum3() 
+                                getCardInfo() 
                             }}/>
-                            <input className="" id="cardnumber4" type="text" maxlength="4"                               
+                            <input 
+                              className="cardnumber" type="text" maxlength="4"                               
                               onChange={ (e)=>{ 
                                 changeContent(e)
-                                getCardnum4() 
+                                getCardInfo() 
                             }}/>
                           </div>
                         </div>
@@ -368,16 +282,18 @@ function CartPay (props) {
                           <label htmlFor="">到期日</label>
                           <div style={{display:'flex'}}>
                             <div className="cart-card-ex">
-                                <input className="" id="validdates1" type="text" maxlength="2" 
+                                <input 
+                                  className="cardnumber" type="text" maxlength="2" 
                                   onChange={ (e)=>{ 
-                                    changeContent(e)
-                                    getValiddates() 
+                                    changeContent(e) 
+                                    getCardInfo()
                                   }}
                                 />/
-                                <input className="" id="validdates2" type="text" maxlength="2" 
+                                <input 
+                                  className="cardnumber" type="text" maxlength="2" 
                                   onChange={ (e)=>{ 
-                                    changeContent(e)
-                                    getValiddates() 
+                                    changeContent(e) 
+                                    getCardInfo()
                                   }}
                                 />
                             </div>
@@ -386,13 +302,14 @@ function CartPay (props) {
 
                         {/* 安全碼 */}
                         <div className="cart3-input">
-                          <label htmlFor="">安全碼</label>
+                          <label>安全碼</label>
                           <div style={{display:'flex'}}>
                             <div className="cart3-safe-code">
-                                <input className="" id="safecode" type="text" maxlength="3" 
+                                <input 
+                                  className="cardnumber" id="safecode" type="text" maxlength="3" 
                                   onChange={ (e)=>{ 
-                                    changeContent(e)
-                                    getSafeCode() 
+                                    changeContent(e) 
+                                    getCardInfo()
                                   }} 
                                   onBlur={(e)=>{
                                     creditRotate(e)
@@ -401,7 +318,7 @@ function CartPay (props) {
                             </div>
                           </div>
                         </div>
-                      </div>                    
+                      </form>                    
                   </div>
               </div>
             <div className="cart-checkout-btn">
@@ -418,7 +335,7 @@ function CartPay (props) {
                   } else {
                   MySwal.fire({
                     type: 'warning', // 彈框類型
-                    title: '確認送出？', //標題
+                    title: '確認送出訂單？', //標題
                     confirmButtonColor: '#fb2643', // 確定按鈕的 顏色
                     confirmButtonText: '確定', // 確定按鈕的 文字
                     showCancelButton: true, // 是否顯示取消按鈕
@@ -428,7 +345,6 @@ function CartPay (props) {
                   })
                   // 按下確認按鈕
                   .then((isConfirm)=>{
-                    // console.log(isConfirm.value)
                     if (isConfirm.value) {
 
                       // 新增一筆訂單資料至資料庫
@@ -453,22 +369,6 @@ function CartPay (props) {
                           'Content-Type': 'application/json',
                         }),
                       })
-                      // .then((res) => res.json())
-                      // .then((json) => {
-                      //   if (json.code === 3) {
-                      //     MySwal.fire('信箱已經註冊過請換一個信箱試試', '', 'error')
-                      //   } else if (json.data) {
-                      //     localStorage.setItem('user', JSON.stringify(json.data))
-                      //     console.log(JSON.stringify(json.data))
-                      //     this.setState({ user: json.data[0] })
-                          
-                      //   }
-                      //   // localStorage.setItem('user', JSON.stringify(json.data))
-                      //   // console.log(json.data)
-                      // })
-                      // .catch((error) => {
-                      //   console.error('Error:', error)
-                      // })
                         
                       // 購物車商品全選結帳，清空localStorage cart並更新購物車圖示數量為0
                       if (buyAll) {
@@ -480,7 +380,6 @@ function CartPay (props) {
                       
                       // 更改loclaStorage的coupon使用狀態
                       let couponData = JSON.parse(localStorage.getItem('coupon'))
-                      // console.log(couponData)
                       if ( couponData !== null ) {
                         couponData[0].couponLocalStorage = 1;
                         localStorage.setItem('coupon', JSON.stringify(couponData))

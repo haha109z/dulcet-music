@@ -100,7 +100,10 @@
         line-height: 40px;
         vertical-align: middle;
         text-align: right;
-        width: 25%;
+        width: 45%;
+      }
+      .cardCategory {
+        display: inline-block;
       }
     }
     .cart3-creditcard-2 {
@@ -354,11 +357,17 @@
       flex-wrap: wrap;
       width: 100%;
       justify-content: center;
+      //
+      height: 150px;
+      margin: 15px;
     }
     .cart3-creditcard {
       margin: 15px 5px;
-      width: 45%;
-      height: 90%;
+      // width: 45%;
+      // height: 90%;
+      width: 30%;
+      height: 15%;
+      //
       border-radius: 15px;
       .cart3-creditcard-same {
         margin: 15px;
@@ -394,6 +403,10 @@
           font-size: 12px;
         }
       }
+    }
+    .cart3-creditcard-back {
+      width: 45%;
+      height: 103%;
     }
     .cart3-creditcard-form {
       margin: 10px 0 0 0;
@@ -871,11 +884,9 @@
       justify-content: center;
     }
     .cart3-creditcard {
-      margin: 15px 0 0 0;
+      margin: 15px 0;
       width: 55%;
       height: 20%;
-      // width: 75%;
-      // height: 50%;
       border-radius: 15px;
       .cart3-creditcard-same {
         margin: 15px;
@@ -912,9 +923,9 @@
         }
       }
     }
-    .cart3-rotate-back {
+    .cart3-creditcard-back {
       width: 76%;
-      height: 117%;
+      height: 125%;
     }
     .cart3-creditcard-form {
       // width: 80%;
@@ -943,7 +954,7 @@
 
     .cart-card-ex {
       input {
-        width: 45%;
+        width: 44%;
       }
     }
   }

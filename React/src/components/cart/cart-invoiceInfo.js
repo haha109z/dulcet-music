@@ -1,13 +1,11 @@
-import React ,{ Fragment, useState, useEffect } from 'react';
+import React ,{ Fragment } from 'react';
 
 export default function CartInvoiceInfo (props) {
 
   const { 
     radiostate, 
-    invoiceType, 
     invoiceInfo, 
-   } = props.allProps; 
-  // console.log(invoiceInfo);  
+   } = props.allProps;   
 
   // 六元運算符
   // A == true ? A畫面 : (B == true ? B畫面 : (C == 1 ? C畫面 : (D == 1 ? D畫面 : 沒畫面 )) )
@@ -60,31 +58,7 @@ export default function CartInvoiceInfo (props) {
                                         </Fragment> 
                                          ) )) )
                     }
-                    {/* { A == true ? (
-                        <Fragment>
-                            A畫面
-                        </Fragment> 
-                        ):(
-                            B == 1 ? (
-                                <Fragment>
-                                    B畫面
-                                </Fragment> 
-                            ):( 
-                                C == 1 ? (
-                                    <Fragment>
-                                        C畫面
-                                    </Fragment> 
-                                ):(
-                                    D == 1 ? (
-                                        <Fragment>
-                                            D畫面
-                                        </Fragment> 
-                                    ):( 
-                                        <Fragment>
-                                            沒畫面
-                                        </Fragment> 
-                                         ) )) )
-                    } */}
+
                 </fieldset>
         </div>
             

@@ -19,45 +19,30 @@
 @media (min-width: 769px) and (max-width: 1024px) {
   .cart-thank-card {
     width: 80%;
-    margin: 50px auto;
+    margin: 50px auto 485px auto;
     padding: 0 50px;
     h2 {
+      line-height: 90px;
     }
     span {
+      line-height: 42px;
     }
   }
 }
 
-// @media (min-width: 451px) and (max-width: 768px) {
-//   .cart-thank-card {
-//     width: 75%;
-//     margin: 20px auto;
-//     padding: 25px;
-//     font-size: 12px;
-//     1 h2 {
-//       font-size: 16px;
-//       line-height: 30px;
-//       margin: 0.5rem;
-//     }
-//     span {
-//       line-height: 20px;
-//     }
-//   }
-// }
-
 @media (min-width: 451px) and (max-width: 768px) {
   .cart-thank-card {
     width: 65%;
-    margin: 20px auto;
+    margin: 50px auto 415px auto;
     padding: 25px;
     font-size: 12px;
-    1 h2 {
+    h2 {
       font-size: 16px;
-      line-height: 30px;
+      line-height: 36px;
       margin: 0.5rem;
     }
     span {
-      line-height: 20px;
+      line-height: 28px;
     }
   }
 }
@@ -66,7 +51,7 @@
   .cart-thank-card {
     width: 80%;
     // margin: 20px auto;
-    margin: 25px auto 100px auto;
+    margin: 25px auto 185px auto;
     font-size: 12px;
     padding: 20px 25px;
     h2 {

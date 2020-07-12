@@ -6,42 +6,27 @@ export default function CartCheckOrder (props) {
 
   const { 
     cart, 
-    number, 
     user, 
     coupon, 
     discount,
     totalPrice, 
-    orderPrice, 
+    orderPrice,
+    radiostate, 
     checkstate, 
     ReceivingName, 
     ReceivingAddress, 
     ReceivingPhone, 
-    ReceivingEmail,    
-    radiostate,  
-    radiocallback,
-    invoiceType,
+    ReceivingEmail, 
     invoiceInfo,
+    setPage
   } = props.allProps;  
 
-  // console.log(invoiceType)
+  // 麵包屑
+  setPage(2) 
 
     return (
       <>
       
-          {/* 標題 */}
-          <div className="cart-title">
-            <h1><i className="fas fa-shopping-bag"></i> My Cart</h1>
-            <div>
-              <span>❶ 確認商品</span>
-              <span>➔ </span>
-              <span className="cart-breadcrumb">❷ 確認訂單</span>
-              <span>➔ </span>
-              <span>❸ 選擇付款方式</span>
-              <span>➔ </span>
-              <span>❹ 完成結帳</span>
-            </div>
-          </div>
-
           {/* 商品列表 */}
           <div className="cart-table">
             <ul className='cart2-thead'>
@@ -58,7 +43,6 @@ export default function CartCheckOrder (props) {
               return (
                 <ul className="cart2-product">
                   {/* <li><img src={require(`../../img/cart/cart-violin-01.jpeg`)}/></li> */}
-                  {/* <li><img src={require(`../../img/cart/${data.img}`)}/></li> */}
                   <li><img src={`http://localhost:3030/images/product/${data.PImg}`}/></li>
                   <li>{data.PName}</li>
                   <li className="cart-english-font cart-rwd-noneed" style={{color:'var(--main-colorfb2)'}}>
@@ -133,7 +117,6 @@ export default function CartCheckOrder (props) {
               <CartInvoiceInfo 
                 allProps={{
                   radiostate,
-                  invoiceType,
                   invoiceInfo,
                 }}
               />

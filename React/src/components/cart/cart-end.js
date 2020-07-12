@@ -1,24 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class CartEnd extends Component {
-  render() {
+function CartEnd (props) {
+
+  const {setPage} = props;  
+  // 麵包屑
+  setPage(6) 
+
     return (
       <>
-                    
-              {/* 標題 */}
-              <div className="cart-title">
-                <h1><i className="fas fa-shopping-bag"></i> My Cart</h1>
-                <div>
-                  <span>❶ 確認商品</span>
-                  <span>➔ </span>
-                  <span>❷ 確認訂單</span>
-                  <span>➔ </span>
-                  <span>❸ 選擇付款方式</span>
-                  <span>➔ </span>
-                  <span className="cart-breadcrumb">❹ 完成結帳</span>
-                </div>
-              </div>
-
+               
               {/* 感謝卡 */}
               <div className="cart-thank-card">
                   <h2>訂單完成</h2>
@@ -31,7 +21,7 @@ class CartEnd extends Component {
 
       </>
     );
-  }
+
 }
 
 export default CartEnd;

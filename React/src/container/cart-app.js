@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter,Switch, Route } from 'react-router-dom'
 
 import Navbar from '../components/navbar/navbar';
-import CartTitle from '../components/cart/cart-title';
 import CartCheckout from '../components/cart/cart-checkout';
 import CartCheckOrder from '../components/cart/cart-checkOrder';
 import CartPay from '../components/cart/cart-pay';
@@ -10,6 +9,7 @@ import CartEnd from '../components/cart/cart-end';
 
 // 切換頁面滾動軸回到最頂部
 import ScrollToTop from './scrollToTop'
+import CartTitle from '../components/cart/cart-title';
 
 function CartApp (props) {
 
@@ -17,17 +17,21 @@ function CartApp (props) {
     cartNum, 
     setCartNum,
   }=props.allProps
-  // console.log(props);
-  // console.log(cartNum);
   
-  
+  // 麵包屑
+  const [page, setPage] = useState(0)
+  useEffect(()=>{
+    let breadcrumb = document.querySelectorAll(".cart-title span")    
+    breadcrumb.forEach( el => el.classList.remove("cart-breadcrumb"))
+    breadcrumb[page].classList.add("cart-breadcrumb")
+  },[page])
+
   // 會員資料
   // [{"userID":3,"userName":"謝凱成","userPwd":"a94a8fe5ccb19ba61c4c0873d391e987982fbbd3","userPhone":"0919390003","userMail":"003@gmail.com","userBirthday":"1912-09-22","userAddress":"桃園市龜山區公西里013鄰文三一街５０之１號","userImg":"userimg000","created_at":"2019-11-27 13:18:46","updated_at":"2019-11-25 13:18:48"}]
   const [user, setUser] = useState([])
 
   // 購物車資料
-  // [{"PId":22,"PCategoryId":"樂器","PName":"KAWAI  K-30(SNW)直立式鋼琴","PImg":"Product_20200423164441.jpg","PPrice":60000,"PQty":1,"PIntro":"KAWAI  K-30(SNW)直立式鋼琴","Pdesciption":"採用日本原裝打擊系統、音搥、琴弦，外觀歐洲宮庭型","PInstrumentId":"鋼琴","PCompanyId":"F044","PClick":null,"created_at":"2020-08-16T06:18:00.000Z","update_at":"2020-08-17T06:18:00.000Z","PIId":null,"num":1}, 
-  // {"PId":22,"PCategoryId":"樂器","PName":"KAWAI  K-30(SNW)直立式鋼琴","PImg":"Product_20200423164441.jpg","PPrice":60000,"PQty":1,"PIntro":"KAWAI  K-30(SNW)直立式鋼琴","Pdesciption":"採用日本原裝打擊系統、音搥、琴弦，外觀歐洲宮庭型","PInstrumentId":"鋼琴","PCompanyId":"F044","PClick":null,"created_at":"2020-08-16T06:18:00.000Z","update_at":"2020-08-17T06:18:00.000Z","PIId":null,"num":1}]
+  // [{"PId":22,"PCategoryId":"樂器","PName":"KAWAI  K-30(SNW)直立式鋼琴","PImg":"Product_20200423164441.jpg","PPrice":60000,"PQty":1,"PIntro":"KAWAI  K-30(SNW)直立式鋼琴","Pdesciption":"採用日本原裝打擊系統、音搥、琴弦，外觀歐洲宮庭型","PInstrumentId":"鋼琴","PCompanyId":"F044","PClick":null,"created_at":"2020-08-16T06:18:00.000Z","update_at":"2020-08-17T06:18:00.000Z","PIId":null,"num":1}]
   const [cart, setCart] = useState([])
 
   // 購物車商品總價
@@ -39,44 +43,22 @@ function CartApp (props) {
   // 折扣碼資料
   // [{"coupon":"dulcet-20200710"}]
   const [coupon, setCoupon] = useState('') 
-  // 會員是否擁有折扣碼，預設為否
-  const [haveCoupon, setHaveCoupon] = useState(false)
   // 折扣金額，預設為0
   const [discount, setDiscount] = useState(0) 
-  // 折扣碼使用狀態
-  const [couponIsUsed, setCouponIsUsed] = useState(false) 
 
-
-  // 商品列表全選checkbox勾選狀態，預設為勾選
+  // 商品列表全選框的預設狀態，預設為勾選
   const [ buyAll, setBuyAll ] = useState(true);
-  // console.log(buyAll);
-  // changeBuyAll函式：點擊時切換全選欄位勾選狀態
-  // const changeBuyAll = (e) => {
-  //   if (!e) {
-  //     setBuyAll(false) 
-  //   } else {
-  //     setBuyAll(true)
-  //   }    
-  // }
-  // 根據全選欄位勾選狀態切換購物車資訊畫面
-  // useEffect(()=>{
-  //   // changeBuyAll(buyAll)
-  // },[buyAll])
-  // 單項商品checkbox勾選狀態，預設為勾選
-  const [ buyThis, setBuyThis ] = useState(true);
   
   // 收件資訊checkbox勾選狀態，預設為不勾選
   const [ checkstate, setcheckstate ] = useState(false);
   // checkcallback函式：點擊時切換checkbox勾選狀態
   const checkcallback = (e) =>{
-    // console.log(e.checked)
     setcheckstate(e.checked)
   }
   // 根據checkbox勾選狀態切換收件人資訊畫面
   useEffect(()=>{
     checkcallback(checkstate)
   },[])
-  // console.log(checkstate);
 
 
   // radio狀態，預設為不選取
@@ -85,6 +67,8 @@ function CartApp (props) {
   const [ invoiceType, setInvoiceType ] = useState('');
   // 發票資料，預設為空值 
   const [ invoiceInfo, setInvoiceInfo ] = useState('');  
+  // 
+  const [ selectindex, setSelectindex ] = useState(0);
 
   // 收件人資訊欄位內容，預設為空值
   const [ ReceivingName, setReceivingName ] = useState('');
@@ -99,12 +83,9 @@ useEffect(()=>{
   if(userData===null){
     return 
   }else{
-  // console.log(userData); 
   setUser(userData[0])
-  }
-  
+  }  
 },[])
-// console.log('user:'+user[0]);
 
 
 // 從localStorage獲取-coupon資料
@@ -116,16 +97,11 @@ useEffect(()=>{
   } else {
     if (couponData===null) {
       return
-    } else {
-      // console.log("app",couponData); 
-      // console.log(couponData[0]['coupon']);           
-      setHaveCoupon(true) 
+    } else {         
       setCoupon(couponData[0]['coupon'])
     }
   }
 },[])
-// console.log(haveCoupon);
-// console.log(coupon);
 
 
 // 從localStorage獲取-購物車資料
@@ -134,10 +110,9 @@ useEffect(()=>{
   if (cartData===null) {
     return
   } else {
-  setCart(cartData)
-  } 
+    setCart(cartData)
+  }
 },[])  
-// console.log('cart:'+cart);
 
 
 // 從路由獲取node後端資料庫-商品資料
@@ -150,7 +125,6 @@ useEffect(()=>{
 //     setProduct(res)
 //   })
 // },[])
-// console.log(product)
 
 
 // 從路由獲取node後端資料庫-購物車資料
@@ -175,15 +149,15 @@ useEffect(()=>{
          <BrowserRouter>
          <ScrollToTop>
             <div className="cart-container">
-            {/* <CartTitle /> */}
+            <CartTitle
+              page={page}
+            />
               <Switch>
                 <Route path="/cart/2">
                   <CartCheckOrder                     
                     allProps={{
                       cart,
-                      setCart,
                       user,
-                      setUser,
                       coupon,
                       discount,
                       totalPrice,
@@ -194,7 +168,8 @@ useEffect(()=>{
                       ReceivingAddress, 
                       ReceivingPhone, 
                       ReceivingEmail, 
-                      invoiceInfo,    
+                      invoiceInfo,  
+                      setPage  
                     }}
                   />
                 </Route>
@@ -214,11 +189,14 @@ useEffect(()=>{
                       cart,
                       buyAll,
                       setCartNum,
+                      setPage
                     }}
                   />
                 </Route>
                 <Route path="/cart/4">
-                  <CartEnd />
+                  <CartEnd 
+                    setPage={setPage}
+                  />
                 </Route>
                 <Route path="/cart">
                   <CartCheckout
@@ -228,18 +206,12 @@ useEffect(()=>{
                       user,
                       setUser,
                       coupon,
-                      haveCoupon,
                       discount,
                       setDiscount,
                       totalPrice,
                       setTotalPrice,
                       orderPrice,
                       setOrderPrice,
-                      buyAll, 
-                      setBuyAll,
-                      // changeBuyAll,
-                      buyThis,
-                      setBuyThis,
                       checkstate,
                       setcheckstate,
                       checkcallback,
@@ -253,12 +225,15 @@ useEffect(()=>{
                       setReceivingEmail,
                       radiostate, 
                       setRadiostate,
+                      selectindex, 
+                      setSelectindex,
                       invoiceInfo, 
                       setInvoiceInfo,
                       invoiceType, 
                       setInvoiceType,
                       cartNum, 
                       setCartNum,
+                      setPage
                     }}
                   />
                 </Route>
@@ -266,7 +241,6 @@ useEffect(()=>{
             </div>
             </ScrollToTop>
         </BrowserRouter>
-        {/* <Footer/> */}
         </>
     )
 }
